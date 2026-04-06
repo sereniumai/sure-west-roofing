@@ -47,7 +47,7 @@ export default function HomePage() {
       {/* 3. Services */}
       <ServicesGrid
         label="What we do"
-        heading="Professional Cochrane Roofing Services"
+        heading="Quality Roofing Services For Every Cochrane Home"
         body="From full roof replacements to emergency repairs, every job is done by Red Seal certified tradespeople."
         cta={{ label: 'View all services', href: '/services' }}
         services={[
