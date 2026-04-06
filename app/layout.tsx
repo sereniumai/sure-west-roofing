@@ -6,7 +6,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane AB | Cochrane Roofing Pro',
   description:
-    'Cochrane Roofing Pro — certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
+    'Cochrane Roofing Pro. Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
 }
 
 export default function RootLayout({
