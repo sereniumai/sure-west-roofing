@@ -1,14 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Facebook, Instagram, Linkedin } from 'lucide-react'
-
-const accreditations = [
-  'SHINGLEMASTER',
-  'WCB ALBERTA',
-  'BBB',
-  'EMERALD PRO',
-  'TOP ROOFERS CANADA',
-]
+import { Phone, Mail, MapPin } from 'lucide-react'
 
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
@@ -20,90 +12,87 @@ const services = [
   { label: 'Emergency Roof Repair', href: '/emergency-roof-repair/cochrane' },
 ]
 
-const locations = [
-  { label: 'Roofing Contractor Cochrane', href: '/' },
-  { label: 'Roofing Contractor Calgary', href: '/roofing-contractor-calgary' },
-  { label: 'Roofing Contractor Canmore', href: '/roofing-contractor-canmore' },
+const companyLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Gallery', href: '/gallery' },
+  { label: 'Contact', href: '/contact' },
+]
+
+const serviceAreas = [
+  'Cochrane',
+  'Calgary',
+  'Canmore',
+  'Springbank',
+  'Bragg Creek',
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white">
-      {/* Accreditation Strip */}
-      <div className="border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-6">
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {accreditations.map((badge, i) => (
-              <div key={badge} className="flex items-center gap-6">
-                <span className="text-[11px] tracking-widest uppercase text-white/40 font-medium font-body">
-                  {badge}
-                </span>
-                {i < accreditations.length - 1 && (
-                  <span className="hidden sm:block w-px h-4 bg-white/15" />
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+    <footer className="bg-[#1B3558] text-white">
+      {/* Row 1 — Gold accent bar */}
+      <div className="h-1 bg-[#C49A2C]" />
 
-      {/* Main Footer */}
+      {/* Row 2 — Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1 — Brand */}
-          <div className="lg:pr-8">
-            <Link href="/">
-              <Image
-                src="/images/logo-white.webp"
-                alt="Sure West Roofing"
-                width={160}
-                height={48}
-                className="h-10 w-auto mb-6"
-              />
-            </Link>
-            <p className="text-sm text-white/50 leading-relaxed mb-6 font-body">
-              In every shingle laid, we&apos;re not just building roofs; we&apos;re elevating trust.
+          <div>
+            <Image
+              src="/images/logo-white.webp"
+              alt="Sure West Roofing"
+              width={160}
+              height={56}
+              className="h-14 w-auto"
+            />
+
+            <p className="font-body text-sm text-white/60 leading-relaxed max-w-xs mt-6">
+              Red Seal Journeyman certified roofing contractor proudly serving
+              Cochrane, Calgary, and Canmore. Quality craftsmanship on every
+              project.
             </p>
-            <div className="flex items-center gap-4">
+
+            <div className="mt-6 flex flex-col gap-3">
               <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="text-white/50 hover:text-white transition-colors"
+                href="tel:4039907210"
+                className="flex items-center gap-2 group"
               >
-                <Facebook size={20} />
+                <Phone className="text-[#C49A2C] w-4 h-4" />
+                <span className="font-body text-sm text-white/80 group-hover:text-[#C49A2C] transition-colors duration-200">
+                  (403) 990-7210
+                </span>
               </a>
               <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-white/50 hover:text-white transition-colors"
+                href="mailto:info@surewestroofing.ca"
+                className="flex items-center gap-2 group"
               >
-                <Instagram size={20} />
+                <Mail className="text-[#C49A2C] w-4 h-4" />
+                <span className="font-body text-sm text-white/80 group-hover:text-[#C49A2C] transition-colors duration-200">
+                  info@surewestroofing.ca
+                </span>
               </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="text-white/50 hover:text-white transition-colors"
-              >
-                <Linkedin size={20} />
-              </a>
+            </div>
+
+            <div className="mt-4 flex items-center gap-2">
+              <MapPin className="text-[#C49A2C] w-4 h-4 flex-shrink-0" />
+              <span className="font-body text-sm text-white/80">
+                Unit 9 – 225 Railway St E, Cochrane AB
+              </span>
             </div>
           </div>
 
           {/* Column 2 — Services */}
           <div>
-            <h4 className="text-sm font-body font-medium tracking-wide uppercase mb-6 text-white">Services</h4>
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+              Services
+            </h4>
             <ul className="flex flex-col gap-3">
               {services.map((service) => (
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="text-sm text-white/50 hover:text-white transition-colors font-body"
+                    className="font-body text-sm text-white/70 hover:text-[#C49A2C] transition-colors duration-200"
                   >
                     {service.label}
                   </Link>
@@ -112,65 +101,61 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 — Locations */}
+          {/* Column 3 — Company */}
           <div>
-            <h4 className="text-sm font-body font-medium tracking-wide uppercase mb-6 text-white">Locations</h4>
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+              Company
+            </h4>
             <ul className="flex flex-col gap-3">
-              {locations.map((location) => (
-                <li key={location.href}>
+              {companyLinks.map((link) => (
+                <li key={link.href}>
                   <Link
-                    href={location.href}
-                    className="text-sm text-white/50 hover:text-white transition-colors font-body"
+                    href={link.href}
+                    className="font-body text-sm text-white/70 hover:text-[#C49A2C] transition-colors duration-200"
                   >
-                    {location.label}
+                    {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4 — Contact */}
+          {/* Column 4 — Service Area */}
           <div>
-            <h4 className="text-sm font-body font-medium tracking-wide uppercase mb-6 text-white">Contact</h4>
-            <ul className="flex flex-col gap-3">
-              <li>
-                <a
-                  href="tel:4039907210"
-                  className="text-sm text-white/50 hover:text-white transition-colors font-body"
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+              Service Area
+            </h4>
+            <p className="font-body text-sm text-white/60 leading-relaxed mb-4">
+              Proudly serving residential roofing clients across the Bow Valley
+              and surrounding communities.
+            </p>
+            <ul className="flex flex-col gap-2">
+              {serviceAreas.map((area) => (
+                <li
+                  key={area}
+                  className="font-body text-sm text-white/70"
                 >
-                  (403) 990-7210
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:info@surewestroofing.ca"
-                  className="text-sm text-white/50 hover:text-white transition-colors font-body"
-                >
-                  info@surewestroofing.ca
-                </a>
-              </li>
-              <li className="text-sm text-white/50 font-body">
-                Unit 9 – 225 Railway St E<br />
-                Cochrane, Alberta T4C 2C3
-              </li>
+                  {area}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-white/40 font-body">
-            &copy; 2026 Sure West Roofing Ltd. All Rights Reserved.
-          </p>
-          <Link
-            href="/privacy-policy"
-            className="text-sm text-white/40 hover:text-white transition-colors font-body"
-          >
-            Privacy Policy
-          </Link>
-        </div>
+      {/* Row 3 — Divider */}
+      <div className="border-t border-white/10" />
+
+      {/* Row 4 — Bottom bar */}
+      <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
+        <p className="font-body text-xs text-white/50">
+          © 2025 Sure West Roofing. All rights reserved.
+        </p>
+        <p className="font-body text-xs text-white/50">
+          Cochrane, Alberta{' '}
+          <span className="text-[#C49A2C]">·</span>{' '}
+          Red Seal Certified
+        </p>
       </div>
     </footer>
   )
