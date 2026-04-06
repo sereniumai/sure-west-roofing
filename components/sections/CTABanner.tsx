@@ -18,19 +18,12 @@ export function CTABanner({
   secondaryCTA,
 }: CTABannerProps) {
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-[#1B3558]">
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1B3558] via-[#1B3558] to-[#2a4a7a]" />
-
+    <section className="relative py-20 lg:py-24 overflow-hidden bg-[#D6AE60]">
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#D6AE60]/5" />
-        <div className="absolute -bottom-32 -left-16 w-80 h-80 rounded-full bg-[#D6AE60]/5" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#D6AE60]/[0.02]" />
+        <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-white/[0.08]" />
+        <div className="absolute -bottom-24 -left-16 w-72 h-72 rounded-full bg-white/[0.06]" />
       </div>
-
-      {/* Gold accent line at top */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#D6AE60] to-transparent" />
 
       {/* Content */}
       <motion.div
@@ -44,19 +37,19 @@ export function CTABanner({
           {heading}
         </h2>
 
-        <p className="font-body text-white/70 text-base lg:text-lg leading-relaxed mt-5 max-w-xl mx-auto">
+        <p className="font-body text-white/85 text-base lg:text-lg leading-relaxed mt-5 max-w-xl mx-auto">
           {subtext}
         </p>
 
         <div className="flex flex-wrap gap-5 mt-10 justify-center items-center">
-          <Button variant="primary" size="lg" href={primaryCTA.href}>
+          <Button variant="secondary" size="lg" href={primaryCTA.href}>
             {primaryCTA.label}
           </Button>
 
           {secondaryCTA && (
             <a
               href={secondaryCTA.href}
-              className="inline-flex items-center gap-2 font-body font-semibold text-white/80 hover:text-[#D6AE60] transition-colors duration-300 text-lg"
+              className="inline-flex items-center gap-2 font-body font-semibold text-white hover:text-[#1B3558] transition-colors duration-300 text-lg"
             >
               {secondaryCTA.label}
             </a>
