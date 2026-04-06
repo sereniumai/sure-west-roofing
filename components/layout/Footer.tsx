@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Mail, MapPin } from 'lucide-react'
 
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
@@ -52,15 +52,6 @@ export function Footer() {
             </p>
 
             <div className="mt-6 flex flex-col gap-3">
-              <a
-                href="tel:4039907210"
-                className="flex items-center gap-2 group"
-              >
-                <Phone className="text-[#D6AE60] w-4 h-4" />
-                <span className="font-body text-sm text-white/80 group-hover:text-[#D6AE60] transition-colors duration-200">
-                  (403) 990-7210
-                </span>
-              </a>
               <a
                 href="mailto:info@cochraneroofingpro.ca"
                 className="flex items-center gap-2 group"

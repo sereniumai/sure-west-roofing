@@ -82,7 +82,7 @@ export function Hero({
           variants={itemVariants}
         >
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60]">
-            Red Seal Certified · Cochrane, Alberta
+            Roofing Contractor · Cochrane, AB
           </span>
         </motion.div>
 

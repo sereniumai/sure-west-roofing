@@ -56,12 +56,11 @@ export default function HomePage() {
       {/* 1. Hero */}
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
-        subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather - hail, ice, and everything in between."
-        primaryCTA={{ label: 'Get A Free Estimate', href: '/contact' }}
+        subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather — hail, ice, and everything in between. Certified roofing contractors. Free estimates."
+        primaryCTA={{ label: 'Get a Free Estimate', href: '/contact' }}
         secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
         socialProofCount="150+"
         socialProofLabel="satisfied Cochrane homeowners"
-        backgroundVideo="/videos/Best Roofing Company Cochrane.mp4"
       />
 
       {/* 2. Impact */}
@@ -160,7 +159,7 @@ export default function HomePage() {
         label="Why Cochrane Roofing Pro"
         heading="We Are More Than Just A Roofing Company"
         body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
-        videoEmbed="https://player.vimeo.com/video/917317949?loop=1"
+        image=""
         points={[
           {
             title: 'Quality you can see',
