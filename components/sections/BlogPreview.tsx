@@ -38,7 +38,7 @@ export function BlogPreview({
   cta,
 }: BlogPreviewProps) {
   return (
-    <section className="bg-[#EDEEE8] py-20 lg:py-28">
+    <section className="bg-white py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">

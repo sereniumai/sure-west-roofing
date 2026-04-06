@@ -39,7 +39,7 @@ export function TestimonialsSection({
   testimonials,
 }: TestimonialsSectionProps) {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-[#F7F7F4] py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
           {/* LEFT — intro */}
