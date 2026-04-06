@@ -110,8 +110,6 @@ export function Hero({
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.97 }}
           >
             <Button variant="primary" size="lg" href={primaryCTA.href}>
               {primaryCTA.label}
@@ -122,8 +120,6 @@ export function Hero({
               initial={{ opacity: 0, y: 20, scale: 0.9 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.97 }}
             >
               <Button variant="ghost" size="lg" href={secondaryCTA.href}>
                 {secondaryCTA.label}
