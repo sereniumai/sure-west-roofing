@@ -63,7 +63,7 @@ export function ServicesGrid({
   }
 
   return (
-    <section className="bg-[#EDEEE8] py-20 lg:py-28">
+    <section className="bg-white py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header row */}
         <div className="flex items-end justify-between mb-5">
@@ -130,7 +130,7 @@ export function ServicesGrid({
             >
               <Link
                 href={service.href}
-                className="group block bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300 h-full"
+                className="group block bg-[#FAFAF8] rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300 h-full"
               >
                 {/* Image */}
                 <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
