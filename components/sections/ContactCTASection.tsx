@@ -20,10 +20,8 @@ export function ContactCTASection() {
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-white tracking-tight leading-tight max-w-2xl mx-auto">
             Ready to Protect{'\n'}Your Cochrane Home?
           </h2>
-          <p className="font-body text-white/70 leading-relaxed mt-4 text-lg max-w-xl mx-auto">
-            Book your free roof inspection today. No pressure, no obligation —
-            just an honest assessment from a certified Cochrane roofing
-            contractor.
+          <p className="font-body text-white/70 leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
+            Book your free roof inspection today. No pressure, no obligation, just an honest assessment from a certified Cochrane roofing contractor.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <Button variant="primary" size="lg" href="/contact">
