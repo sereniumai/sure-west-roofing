@@ -14,8 +14,9 @@ interface ReasonsSectionProps {
   label: string
   heading: string
   body: string
-  image: string
-  imageAlt: string
+  image?: string
+  imageAlt?: string
+  videoEmbed?: string
   points: ReasonPoint[]
 }
 
@@ -24,13 +25,14 @@ export function ReasonsSection({
   body,
   image,
   imageAlt,
+  videoEmbed,
   points,
 }: ReasonsSectionProps) {
   return (
     <section className="bg-[#F8F8F8] py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT — Image */}
+          {/* LEFT — Video or Image */}
           <motion.div
             className="relative w-full"
             initial={{ x: -40, opacity: 0 }}
@@ -38,15 +40,27 @@ export function ReasonsSection({
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-              <Image
-                src={image}
-                alt={imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+            {videoEmbed ? (
+              <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-black">
+                <iframe
+                  src={videoEmbed}
+                  className="absolute inset-0 w-full h-full"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Sure West Roofing"
+                />
+              </div>
+            ) : image ? (
+              <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src={image}
+                  alt={imageAlt || ''}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+              </div>
+            ) : null}
           </motion.div>
 
           {/* RIGHT — Content */}

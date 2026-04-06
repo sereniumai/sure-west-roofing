@@ -137,8 +137,7 @@ export default function HomePage() {
         label="Why Sure West"
         heading="Reasons To Choose Our Roofing Services"
         body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
-        image="/images/cochrane roofing company.png"
-        imageAlt="Cochrane roofing company Sure West Roofing"
+        videoEmbed="https://player.vimeo.com/video/917317949?autoplay=1&loop=1&muted=1&background=1"
         points={[
           {
             title: 'Quality you can see',
