@@ -30,7 +30,7 @@ export function ReasonsSection({
   points,
 }: ReasonsSectionProps) {
   return (
-    <section className="bg-white py-16 lg:py-24 overflow-hidden">
+    <section className="bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header — full width, same as ServicesGrid */}
         <motion.div
