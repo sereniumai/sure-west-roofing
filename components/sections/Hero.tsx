@@ -87,7 +87,7 @@ export function Hero({
 
         {/* H1 */}
         <motion.h1
-          className="font-display font-extrabold tracking-tight text-4xl md:text-5xl lg:text-7xl xl:text-[100px] leading-[1.05] text-white"
+          className="font-display font-extrabold tracking-tight text-4xl md:text-5xl lg:text-7xl xl:text-[90px] leading-[1.05] text-white"
           variants={itemVariants}
         >
           {h1.split('\n').map((line, i) => (
@@ -100,7 +100,7 @@ export function Hero({
 
         {/* Subtitle */}
         <motion.p
-          className="font-body text-white/80 text-base md:text-lg leading-relaxed mt-5 max-w-lg"
+          className="font-body text-white/80 text-base md:text-lg leading-relaxed mt-5 max-w-xl"
           variants={itemVariants}
         >
           {subtitle}
