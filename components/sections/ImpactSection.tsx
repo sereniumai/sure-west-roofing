@@ -67,6 +67,30 @@ export function ImpactSection() {
   return (
     <section className="bg-white py-12 lg:py-14">
       <div className="max-w-6xl mx-auto px-6">
+        {/* Logos — top */}
+        <motion.div
+          className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 mb-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          {logos.map((logo) => (
+            <div
+              key={logo.alt}
+              className="relative h-10 lg:h-12 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                height={48}
+                width={110}
+                className="h-full w-auto object-contain"
+              />
+            </div>
+          ))}
+        </motion.div>
+
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 place-items-center">
           {stats.map((stat, i) => (
@@ -89,30 +113,6 @@ export function ImpactSection() {
             </motion.div>
           ))}
         </div>
-
-        {/* Logos — inline, compact */}
-        <motion.div
-          className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 mt-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          {logos.map((logo) => (
-            <div
-              key={logo.alt}
-              className="relative h-10 lg:h-12 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                height={48}
-                width={110}
-                className="h-full w-auto object-contain"
-              />
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   )
