@@ -24,7 +24,7 @@ import { FAQSection } from '@/components/sections/FAQSection'
 export const metadata: Metadata = seoMetadata({
   title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
   description:
-    'Sure West Roofing — Red Seal certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage restoration and emergency roofing. Free estimates.',
+    'Sure West Roofing - Red Seal certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage restoration and emergency roofing. Free estimates.',
   slug: '',
 })
 
@@ -33,8 +33,8 @@ export default function HomePage() {
     <>
       {/* 1. Hero */}
       <Hero
-        h1="Cochrane's Trusted Red Seal Roofing Contractor"
-        subtitle="Protecting Cochrane homes from Alberta's toughest weather — hail, ice, and everything in between. Red Seal certified. Free estimates."
+        h1="Cochrane's Trusted Roofing Contractor"
+        subtitle="Protecting Cochrane homes from Alberta's toughest weather -hail, ice, and everything in between. Red Seal certified. Free estimates."
         primaryCTA={{ label: 'Get a free estimate', href: '/contact' }}
         secondaryCTA={{ label: 'See our work', href: '/gallery' }}
         socialProofCount="150+"
@@ -54,19 +54,19 @@ export default function HomePage() {
           {
             title: 'Red Seal Certified',
             description:
-              'Our Red Seal certification is a nationally recognised interprovincial standard — proof that our work meets the highest trade benchmark in Canada.',
+              'Our Red Seal certification is a nationally recognised interprovincial standard -proof that our work meets the highest trade benchmark in Canada.',
             icon: <ShieldCheck />,
           },
           {
             title: 'Cochrane-based, fast response',
             description:
-              "We live and work here. No long drives, no delays. When you call, we respond fast — especially for emergencies.",
+              "We live and work here. No long drives, no delays. When you call, we respond fast -especially for emergencies.",
             icon: <MapPin />,
           },
           {
             title: 'Built for Alberta weather',
             description:
-              "Freeze-thaw cycles, hail season, heavy snow — we design every roof to handle what Cochrane actually throws at it. Not just code minimum. Built to last.",
+              "Freeze-thaw cycles, hail season, heavy snow -we design every roof to handle what Cochrane actually throws at it. Not just code minimum. Built to last.",
             icon: <CloudSnow />,
           },
         ]}
@@ -145,7 +145,7 @@ export default function HomePage() {
             number: 1,
             title: 'Free roof inspection',
             description:
-              'We assess your roof thoroughly and give you an honest report — no upselling, no pressure.',
+              'We assess your roof thoroughly and give you an honest report -no upselling, no pressure.',
           },
           {
             number: 2,
@@ -269,7 +269,7 @@ export default function HomePage() {
             question:
               'Do you handle Alberta insurance claims for hail damage?',
             answer:
-              'Yes. We work directly with most Alberta insurance providers and can help document damage for your claim. We do not charge separately for this — it\'s part of the service.',
+              'Yes. We work directly with most Alberta insurance providers and can help document damage for your claim. We do not charge separately for this -it\'s part of the service.',
           },
           {
             question:
@@ -281,7 +281,7 @@ export default function HomePage() {
             question:
               'Are you licensed and insured to work in Alberta?',
             answer:
-              'Yes. Sure West Roofing is fully licensed in Alberta, carries comprehensive liability insurance, and our lead roofers hold Red Seal certification — the highest interprovincial trade standard in Canada.',
+              'Yes. Sure West Roofing is fully licensed in Alberta, carries comprehensive liability insurance, and our lead roofers hold Red Seal certification -the highest interprovincial trade standard in Canada.',
           },
         ]}
       />
