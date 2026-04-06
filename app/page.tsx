@@ -50,7 +50,7 @@ export default function HomePage() {
       {/* 3. Reasons */}
       <ReasonsSection
         label="Why Sure West"
-        heading="Reasons to choose our roofing services."
+        heading="Reasons to choose our roofing services"
         body="We're Cochrane-based, Red Seal certified, and built for Alberta's climate. When hail hits or winter takes its toll, you want a roofer who knows this province."
         image="/images/cochrane roofing company.png"
         imageAlt="Cochrane roofing company Sure West Roofing"
@@ -79,7 +79,7 @@ export default function HomePage() {
       {/* 3. Services */}
       <ServicesGrid
         label="What we do"
-        heading="Professional roofing services in Cochrane, AB."
+        heading="Professional roofing services in Cochrane, AB"
         body="From full roof replacements to emergency repairs, every job is done by Red Seal certified tradespeople."
         cta={{ label: 'View all services', href: '/services' }}
         services={[
@@ -139,7 +139,7 @@ export default function HomePage() {
       {/* 4. Credibility / Process */}
       <CredibilitySection
         label="Our process"
-        heading="How we take care of your Cochrane roof."
+        heading="How we take care of your Cochrane roof"
         image="/images/credibility.jpg"
         imageAlt="Red Seal certified roofing team Cochrane"
         badgeNumber="Red Seal"
@@ -178,7 +178,7 @@ export default function HomePage() {
       {/* 6. Testimonials */}
       <TestimonialsSection
         label="Client reviews"
-        heading="What Cochrane homeowners say about us."
+        heading="What Cochrane homeowners say about us"
         body="Every review is from a real Cochrane-area homeowner. No templates, no filler."
         reviewCount="80+"
         rating={5}
@@ -217,7 +217,7 @@ export default function HomePage() {
       {/* 7. Blog Preview */}
       <BlogPreview
         label="Roofing tips"
-        heading="Helpful roofing articles for Cochrane homeowners."
+        heading="Helpful roofing articles for Cochrane homeowners"
         body="Practical advice on protecting your roof through Alberta's seasons."
         cta={{ label: 'View all articles', href: '/blog' }}
         posts={[
@@ -254,7 +254,7 @@ export default function HomePage() {
       {/* 8. FAQ */}
       <FAQSection
         label="Common questions"
-        heading="Frequently asked questions."
+        heading="Frequently asked questions"
         body="Honest answers to what Cochrane homeowners ask us most often."
         schemaEnabled={true}
         faqs={[

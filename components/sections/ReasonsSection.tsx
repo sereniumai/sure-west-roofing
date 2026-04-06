@@ -60,9 +60,7 @@ export function ReasonsSection({
               {heading}
             </h2>
 
-            <div className="w-16 h-1 bg-[#D6AE60] mt-5" />
-
-            <p className="font-body text-body-text leading-relaxed mt-5 mb-12">
+            <p className="font-body text-body-text leading-relaxed mt-6 mb-12">
               {body}
             </p>
 
