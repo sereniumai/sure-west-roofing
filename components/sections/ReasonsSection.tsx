@@ -51,7 +51,7 @@ export function ReasonsSection({
         {/* Grid — same 7/5 split as ServicesGrid */}
         <div className="grid grid-cols-12 gap-5 items-stretch min-h-[460px]">
           {/* Video side — col-span-7, same as service image */}
-          <div className="col-span-12 lg:col-span-7 relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+          <div className="col-span-12 lg:col-span-7 relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black">
             {videoEmbed ? (
               <iframe
                 src={videoEmbed}
