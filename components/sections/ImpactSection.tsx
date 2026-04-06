@@ -78,7 +78,7 @@ export function ImpactSection() {
           {logos.map((logo) => (
             <div
               key={logo.alt}
-              className="relative h-10 lg:h-12 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="relative h-11 lg:h-14 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
               <Image
                 src={logo.src}
