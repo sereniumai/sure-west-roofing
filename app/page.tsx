@@ -15,7 +15,6 @@ import { ImpactSection } from '@/components/sections/ImpactSection'
 import { ReasonsSection } from '@/components/sections/ReasonsSection'
 import { ServicesGrid } from '@/components/sections/ServicesGrid'
 import { CredibilitySection } from '@/components/sections/CredibilitySection'
-import { CTABanner } from '@/components/sections/CTABanner'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { BlogPreview } from '@/components/sections/BlogPreview'
 import { FAQSection } from '@/components/sections/FAQSection'
@@ -190,14 +189,7 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 5. CTA Banner */}
-      <CTABanner
-        heading="Ready To Protect Your Cochrane Home?"
-        subtext="Get a free, no-obligation estimate from Cochrane's Red Seal roofing contractor. Most estimates completed within 48 hours."
-        primaryCTA={{ label: 'Get a free estimate', href: '/contact' }}
-        secondaryCTA={{ label: '(403) 000-0000', href: 'tel:4030000000' }}
-        backgroundImage="/images/cochrane roofing company.png"
-      />
+      {/* Reviews section follows directly */}
 
       {/* 6. Testimonials */}
       <TestimonialsSection
