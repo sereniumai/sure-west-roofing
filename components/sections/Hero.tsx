@@ -41,7 +41,7 @@ export function Hero({
   backgroundImage,
 }: HeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
       {/* Background video */}
       {backgroundVideo ? (
         <video
@@ -50,7 +50,6 @@ export function Hero({
           muted
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster={backgroundImage}
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
