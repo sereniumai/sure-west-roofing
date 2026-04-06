@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 interface ServiceItem {
   icon: React.ReactNode
@@ -144,13 +145,9 @@ export function ServicesGrid({
                     </ul>
                   )}
 
-                  <Link
-                    href={current.href}
-                    className="group inline-flex items-center gap-3 bg-[#D6AE60] hover:bg-[#B8943F] text-white px-6 py-3.5 rounded-xl font-display font-bold text-sm tracking-tight transition-all duration-300 hover:shadow-[0_8px_24px_rgba(214,174,96,0.3)] w-fit"
-                  >
-                    {current.title}
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Link>
+                  <Button variant="primary" href={current.href}>
+                    {current.title} <ArrowRight className="w-4 h-4 ml-2 inline" />
+                  </Button>
                 </motion.div>
               </AnimatePresence>
             </div>
