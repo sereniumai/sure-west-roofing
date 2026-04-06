@@ -78,9 +78,6 @@ export function ServicesGrid({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-4 block">
-            {label}
-          </span>
           <h2 className="font-display font-extrabold text-3xl lg:text-[52px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
@@ -100,7 +97,7 @@ export function ServicesGrid({
           <button
             onClick={() => scroll('left')}
             disabled={!canScrollLeft}
-            className="w-12 h-12 rounded-full border-2 border-dark/10 flex items-center justify-center text-dark/30 hover:border-[#D6AE60] hover:text-[#D6AE60] hover:shadow-md transition-all duration-200 disabled:opacity-20 disabled:cursor-default disabled:hover:shadow-none disabled:hover:border-dark/10 disabled:hover:text-dark/30"
+            className="w-12 h-12 rounded-full border-2 border-[#D6AE60] flex items-center justify-center text-[#D6AE60] hover:bg-[#D6AE60] hover:text-white hover:shadow-md transition-all duration-200 disabled:opacity-25 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-[#D6AE60] disabled:hover:shadow-none"
             aria-label="Previous services"
           >
             <ChevronLeft className="w-5 h-5" />
@@ -108,7 +105,7 @@ export function ServicesGrid({
           <button
             onClick={() => scroll('right')}
             disabled={!canScrollRight}
-            className="w-12 h-12 rounded-full border-2 border-dark/10 flex items-center justify-center text-dark/30 hover:border-[#D6AE60] hover:text-[#D6AE60] hover:shadow-md transition-all duration-200 disabled:opacity-20 disabled:cursor-default disabled:hover:shadow-none disabled:hover:border-dark/10 disabled:hover:text-dark/30"
+            className="w-12 h-12 rounded-full border-2 border-[#D6AE60] flex items-center justify-center text-[#D6AE60] hover:bg-[#D6AE60] hover:text-white hover:shadow-md transition-all duration-200 disabled:opacity-25 disabled:cursor-default disabled:hover:bg-transparent disabled:hover:text-[#D6AE60] disabled:hover:shadow-none"
             aria-label="Next services"
           >
             <ChevronRight className="w-5 h-5" />
