@@ -16,7 +16,6 @@ import { ReasonsSection } from '@/components/sections/ReasonsSection'
 import { ServicesGrid } from '@/components/sections/ServicesGrid'
 import { CredibilitySection } from '@/components/sections/CredibilitySection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
-import { BlogPreview } from '@/components/sections/BlogPreview'
 import { FAQSection } from '@/components/sections/FAQSection'
 
 export const metadata: Metadata = seoMetadata({
@@ -226,43 +225,6 @@ export default function HomePage() {
             initials: 'DM',
             rating: 5,
             text: "Had three quotes. Sure West wasn't the cheapest but they were the only Red Seal crew. Three years on and not a single issue. Worth every cent.",
-          },
-        ]}
-      />
-
-      {/* 7. Blog Preview */}
-      <BlogPreview
-        label="Roofing tips"
-        heading="Helpful Roofing Articles For Cochrane Homeowners"
-        body="Practical advice on protecting your roof through Alberta's seasons."
-        cta={{ label: 'View all articles', href: '/blog' }}
-        posts={[
-          {
-            slug: 'hail-season-cochrane',
-            category: 'Hail Damage',
-            title: 'What Alberta hail season means for your Cochrane roof',
-            date: 'March 2025',
-            excerpt:
-              "Alberta sits in one of Canada's most active hail corridors. Here's what every Cochrane homeowner should know before summer.",
-            image: '/images/cochrane roofing company.png',
-          },
-          {
-            slug: 'roof-replacement-cost-cochrane',
-            category: 'Costs & Budgeting',
-            title: 'How much does a roof replacement cost in Cochrane?',
-            date: 'February 2025',
-            excerpt:
-              'A realistic breakdown of what Cochrane homeowners pay for a full roof replacement in 2025.',
-            image: '/images/cochrane roofing company.png',
-          },
-          {
-            slug: 'signs-roof-needs-replacing',
-            category: 'Maintenance',
-            title: '8 signs your Cochrane roof needs replacing',
-            date: 'January 2025',
-            excerpt:
-              'Most roof failures give warning signs months before they become emergencies. Here\'s what to look for.',
-            image: '/images/cochrane roofing company.png',
           },
         ]}
       />
