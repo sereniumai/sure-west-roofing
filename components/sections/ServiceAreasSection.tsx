@@ -6,12 +6,6 @@ import { Button } from '@/components/ui/Button'
 
 const areas = [
   {
-    name: 'Cochrane',
-    description:
-      'Our home base. We know every neighbourhood, every microclimate, and every roofing challenge Cochrane throws at homeowners.',
-    href: '/services',
-  },
-  {
     name: 'Calgary',
     description:
       'Serving Calgary homeowners with the same certified quality and honest pricing we are known for in Cochrane.',
@@ -51,7 +45,7 @@ export function ServiceAreasSection() {
         </motion.div>
 
         {/* Location cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {areas.map((area, i) => (
             <motion.div
               key={area.name}

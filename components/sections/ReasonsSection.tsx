@@ -104,7 +104,9 @@ export function ReasonsSection({
                   sizes="60vw"
                 />
               </div>
-            ) : null}
+            ) : (
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]" />
+            )}
           </div>
         </div>
       </div>
