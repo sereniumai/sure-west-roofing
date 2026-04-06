@@ -56,7 +56,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      <span className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-[#D6AE60] tracking-tight tabular-nums">
+      <span className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl text-[#D6AE60] tracking-tight tabular-nums">
         {count}{suffix}
       </span>
     </motion.div>
@@ -65,63 +65,55 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function ImpactSection() {
   return (
-    <section className="relative bg-white pt-0 pb-10 lg:pb-14">
-      {/* Stats card — overlaps the hero */}
-      <div className="max-w-5xl mx-auto px-6 -mt-16 lg:-mt-20 relative z-20">
+    <section className="bg-white py-12 lg:py-14">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Stats */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 place-items-center">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{
+                duration: 0.7,
+                delay: i * 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="text-center"
+            >
+              <Counter value={stat.number} suffix={stat.suffix} />
+              <p className="font-body text-body-text text-sm mt-2 uppercase tracking-wider">
+                {stat.label}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Logos — inline, compact */}
         <motion.div
-          className="bg-[#1B3558] rounded-2xl px-8 py-8 lg:px-12 lg:py-10 shadow-[0_20px_60px_rgba(0,0,0,0.3)]"
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-30px' }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 mt-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 place-items-center">
-            {stats.map((stat, i) => (
-              <motion.div
-                key={stat.label}
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-30px' }}
-                transition={{
-                  duration: 0.6,
-                  delay: i * 0.12,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="text-center"
-              >
-                <Counter value={stat.number} suffix={stat.suffix} />
-                <p className="font-body text-white/60 text-xs mt-1.5 uppercase tracking-wider">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+          {logos.map((logo) => (
+            <div
+              key={logo.alt}
+              className="relative h-10 lg:h-12 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+            >
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                height={48}
+                width={110}
+                className="h-full w-auto object-contain"
+              />
+            </div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Logos — tighter below stats */}
-      <motion.div
-        className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 mt-8 lg:mt-10 max-w-5xl mx-auto px-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-      >
-        {logos.map((logo) => (
-          <div
-            key={logo.alt}
-            className="relative h-9 lg:h-11 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-          >
-            <Image
-              src={logo.src}
-              alt={logo.alt}
-              height={44}
-              width={100}
-              className="h-full w-auto object-contain"
-            />
-          </div>
-        ))}
-      </motion.div>
     </section>
   )
 }
