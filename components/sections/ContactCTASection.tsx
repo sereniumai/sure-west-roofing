@@ -12,10 +12,10 @@ const bullets = [
 
 export function ContactCTASection() {
   return (
-    <section className="bg-[#F8F8F8] py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
-          className="bg-[#1B3558] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 text-center"
+          className="bg-[#F8F8F8] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 text-center border border-[#EBEBEB]"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -24,10 +24,10 @@ export function ContactCTASection() {
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
             Get Started Today
           </span>
-          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-white tracking-tight leading-tight max-w-2xl mx-auto">
+          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight max-w-2xl mx-auto">
             Ready to Protect Your{'\n'}Cochrane Home?
           </h2>
-          <p className="font-body text-white/70 leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
+          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
             Book your free roof inspection today. No pressure, no obligation, just an honest assessment from a certified Cochrane roofing contractor.
           </p>
 
@@ -38,7 +38,7 @@ export function ContactCTASection() {
                 <div className="w-5 h-5 rounded-full bg-[#D6AE60]/20 flex items-center justify-center flex-shrink-0">
                   <Check className="w-3 h-3 text-[#D6AE60]" />
                 </div>
-                <span className="font-body text-sm text-white/80">{bullet}</span>
+                <span className="font-body text-sm text-body-text">{bullet}</span>
               </div>
             ))}
           </div>
@@ -47,7 +47,7 @@ export function ContactCTASection() {
             <Button variant="primary" size="lg" href="/contact">
               Get a Free Estimate
             </Button>
-            <Button variant="ghost" size="lg" href="/services">
+            <Button variant="outline" size="lg" href="/services">
               Explore Our Services
             </Button>
           </div>
