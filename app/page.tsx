@@ -50,7 +50,7 @@ export default function HomePage() {
       {/* 3. Reasons */}
       <ReasonsSection
         label="Why Sure West"
-        heading="We're not just another roofing company"
+        heading="Reasons to choose our roofing services"
         body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
         image="/images/cochrane roofing company.png"
         imageAlt="Cochrane roofing company Sure West Roofing"
@@ -66,12 +66,6 @@ export default function HomePage() {
             description:
               "We live and work in Cochrane. When you call, you get a real person, not a call centre. We show up fast, especially when it matters most.",
             icon: <MapPin />,
-          },
-          {
-            title: 'Built for this climate',
-            description:
-              "Alberta throws everything at your roof. Hail, freeze-thaw, heavy snow. We build every roof specifically for what this province actually demands, not just code minimum.",
-            icon: <CloudSnow />,
           },
           {
             title: 'Honest pricing, no surprises',
@@ -95,6 +89,7 @@ export default function HomePage() {
             description:
               "Full tear-off and replacement. The right materials for Alberta's climate.",
             icon: <Home />,
+            image: '/images/services/roof-replacement.jpg',
           },
           {
             title: 'Roof Repair',
@@ -102,6 +97,7 @@ export default function HomePage() {
             description:
               'Fix leaks, damaged shingles, flashing and more. Fast and lasting.',
             icon: <Wrench />,
+            image: '/images/services/roof-repair.jpg',
           },
           {
             title: 'Hail Damage Repair',
@@ -109,6 +105,7 @@ export default function HomePage() {
             description:
               'Alberta hail experts. We handle repairs and insurance claims.',
             icon: <CloudLightning />,
+            image: '/images/services/hail-damage.jpg',
           },
           {
             title: 'Roof Maintenance',
@@ -116,6 +113,7 @@ export default function HomePage() {
             description:
               "Annual maintenance to extend your roof's life and prevent costly repairs.",
             icon: <ClipboardCheck />,
+            image: '/images/services/roof-maintenance.jpg',
           },
           {
             title: 'Roof Inspection',
@@ -123,6 +121,7 @@ export default function HomePage() {
             description:
               'Detailed inspection reports. Know exactly what condition your roof is in.',
             icon: <Search />,
+            image: '/images/services/roof-inspection.jpg',
           },
           {
             title: 'Skylight Installation',
@@ -130,6 +129,7 @@ export default function HomePage() {
             description:
               'Properly sealed skylights installed to Alberta building code.',
             icon: <Sun />,
+            image: '/images/services/skylight-installation.jpg',
           },
           {
             title: 'Emergency Roof Repair',
@@ -137,6 +137,7 @@ export default function HomePage() {
             description:
               '24/7 emergency response. Cochrane and surrounding area.',
             icon: <AlertTriangle />,
+            image: '/images/services/emergency-repair.jpg',
             featured: true,
           },
         ]}
