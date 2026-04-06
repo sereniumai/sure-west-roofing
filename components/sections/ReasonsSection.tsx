@@ -27,7 +27,7 @@ export function ReasonsSection({
   points,
 }: ReasonsSectionProps) {
   return (
-    <section className="bg-[#EDEEE8] py-20 lg:py-28">
+    <section className="bg-white py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT — Image */}
@@ -56,7 +56,7 @@ export function ReasonsSection({
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <h2 className="font-display font-extrabold text-3xl lg:text-4xl text-dark tracking-tight leading-tight">
+            <h2 className="font-display font-extrabold text-3xl lg:text-5xl text-dark tracking-tight leading-tight">
               {heading}
             </h2>
 
