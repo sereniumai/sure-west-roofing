@@ -132,7 +132,7 @@ export default function HomePage() {
 
       {/* 4. Reasons */}
       <ReasonsSection
-        label="Why Sure West"
+        label="Why Cochrane Roofing Pro"
         heading="We Are More Than Just A Roofing Company"
         body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
         videoEmbed="https://player.vimeo.com/video/917317949?loop=1"
@@ -203,7 +203,7 @@ export default function HomePage() {
             location: 'Cochrane, AB',
             initials: 'JK',
             rating: 5,
-            text: "Sure West replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time. Would not hesitate to recommend them.",
+            text: "Cochrane Roofing Pro replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time. Would not hesitate to recommend them.",
           },
           {
             name: 'Michelle T.',
@@ -224,7 +224,7 @@ export default function HomePage() {
             location: 'Cochrane, AB',
             initials: 'DM',
             rating: 5,
-            text: "Had three quotes. Sure West wasn't the cheapest but they were the only Red Seal crew. Three years on and not a single issue. Worth every cent.",
+            text: "Had three quotes. Cochrane Roofing Pro wasn't the cheapest but they were the only Red Seal crew. Three years on and not a single issue. Worth every cent.",
           },
         ]}
       />
@@ -263,7 +263,7 @@ export default function HomePage() {
             question:
               'Are you licensed and insured to work in Alberta?',
             answer:
-              'Yes. Sure West Roofing is fully licensed in Alberta, carries comprehensive liability insurance, and our lead roofers hold Red Seal certification -the highest interprovincial trade standard in Canada.',
+              'Yes. Cochrane Roofing Pro is fully licensed in Alberta, carries comprehensive liability insurance, and our lead roofers hold Red Seal certification — the highest interprovincial trade standard in Canada.',
           },
         ]}
       />

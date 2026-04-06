@@ -99,7 +99,11 @@ export function Nav() {
       <div className="w-full px-8 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
-          <div className="h-14 w-[200px] bg-[#1B2540] rounded" />
+          <img
+            src="/images/logo-light.svg"
+            alt="Cochrane Roofing Pro"
+            className="h-14 w-auto"
+          />
         </Link>
 
         {/* Desktop Links */}

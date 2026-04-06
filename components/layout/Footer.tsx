@@ -39,7 +39,11 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1 — Brand */}
           <div>
-            <div className="h-14 w-[160px] bg-[#1B2540] rounded" />
+            <img
+              src="/images/logo-light.svg"
+              alt="Cochrane Roofing Pro"
+              className="h-14 w-auto"
+            />
 
             <p className="font-body text-sm text-white/60 leading-relaxed max-w-xs mt-6">
               Red Seal Journeyman certified roofing contractor proudly serving
@@ -58,12 +62,12 @@ export function Footer() {
                 </span>
               </a>
               <a
-                href="mailto:info@surewestroofing.ca"
+                href="mailto:info@cochraneroofingpro.ca"
                 className="flex items-center gap-2 group"
               >
                 <Mail className="text-[#D6AE60] w-4 h-4" />
                 <span className="font-body text-sm text-white/80 group-hover:text-[#D6AE60] transition-colors duration-200">
-                  info@surewestroofing.ca
+                  info@cochraneroofingpro.ca
                 </span>
               </a>
             </div>
@@ -143,7 +147,7 @@ export function Footer() {
       {/* Row 4 — Bottom bar */}
       <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
         <p className="font-body text-xs text-white/50">
-          © 2025 Sure West Roofing. All rights reserved.
+          © 2026 Cochrane Roofing Pro. All Rights Reserved.
         </p>
         <p className="font-body text-xs text-white/50">
           Cochrane, Alberta{' '}
