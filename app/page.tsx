@@ -44,35 +44,6 @@ export default function HomePage() {
       {/* 2. Impact */}
       <ImpactSection />
 
-      {/* 3. Reasons */}
-      <ReasonsSection
-        label="Why Sure West"
-        heading="Reasons to choose our roofing services"
-        body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
-        image="/images/cochrane roofing company.png"
-        imageAlt="Cochrane roofing company Sure West Roofing"
-        points={[
-          {
-            title: 'Quality you can see',
-            description:
-              'Red Seal certified means our work meets the highest trade standard in Canada. We use premium materials, never cut corners, and stand behind every install.',
-            icon: <ShieldCheck />,
-          },
-          {
-            title: 'Local and always available',
-            description:
-              "We live and work in Cochrane. When you call, you get a real person, not a call centre. We show up fast, especially when it matters most.",
-            icon: <MapPin />,
-          },
-          {
-            title: 'Honest pricing, no surprises',
-            description:
-              "You get a clear, itemised quote before any work begins. No hidden fees, no pressure. Just a straight answer on what your roof needs and what it costs.",
-            icon: <ClipboardCheck />,
-          },
-        ]}
-      />
-
       {/* 3. Services */}
       <ServicesGrid
         label="What we do"
@@ -111,6 +82,35 @@ export default function HomePage() {
               '24/7 emergency response across Cochrane, Calgary and surrounding areas.',
             icon: <AlertTriangle />,
             image: '/images/services/emergency-repair.jpg',
+          },
+        ]}
+      />
+
+      {/* 4. Reasons */}
+      <ReasonsSection
+        label="Why Sure West"
+        heading="Reasons to choose our roofing services"
+        body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
+        image="/images/cochrane roofing company.png"
+        imageAlt="Cochrane roofing company Sure West Roofing"
+        points={[
+          {
+            title: 'Quality you can see',
+            description:
+              'Red Seal certified means our work meets the highest trade standard in Canada. We use premium materials, never cut corners, and stand behind every install.',
+            icon: <ShieldCheck />,
+          },
+          {
+            title: 'Local and always available',
+            description:
+              "We live and work in Cochrane. When you call, you get a real person, not a call centre. We show up fast, especially when it matters most.",
+            icon: <MapPin />,
+          },
+          {
+            title: 'Honest pricing, no surprises',
+            description:
+              "You get a clear, itemised quote before any work begins. No hidden fees, no pressure. Just a straight answer on what your roof needs and what it costs.",
+            icon: <ClipboardCheck />,
           },
         ]}
       />
