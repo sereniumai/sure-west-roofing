@@ -47,8 +47,19 @@ export function ServicesGrid({
     checkScroll()
     el.addEventListener('scroll', checkScroll, { passive: true })
     window.addEventListener('resize', checkScroll)
+
+    // Block wheel-driven horizontal scrolling completely
+    const blockWheel = (e: WheelEvent) => {
+      // Let the page scroll vertically — never let the carousel consume the event
+      e.preventDefault()
+      // Re-dispatch as a window scroll so the page still scrolls
+      window.scrollBy({ top: e.deltaY, left: 0 })
+    }
+    el.addEventListener('wheel', blockWheel, { passive: false })
+
     return () => {
       el.removeEventListener('scroll', checkScroll)
+      el.removeEventListener('wheel', blockWheel)
       window.removeEventListener('resize', checkScroll)
     }
   }, [checkScroll])
