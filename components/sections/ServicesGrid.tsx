@@ -13,6 +13,7 @@ interface ServiceItem {
   description: string
   href: string
   image?: string
+  imageAlt?: string
   features?: string[]
 }
 
@@ -103,7 +104,7 @@ export function ServicesGrid({
                   {current?.image && (
                     <Image
                       src={current.image}
-                      alt={current.title}
+                      alt={current.imageAlt || current.title}
                       fill
                       className="object-cover"
                       sizes="60vw"
@@ -171,7 +172,7 @@ export function ServicesGrid({
                 {service.image && (
                   <Image
                     src={service.image}
-                    alt={service.title}
+                    alt={service.imageAlt || service.title}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                     sizes="(max-width: 640px) 100vw, 50vw"

@@ -11,10 +11,10 @@ interface StatItem {
 }
 
 const stats: StatItem[] = [
-  { number: 500, suffix: '+', label: 'Roofs Completed' },
-  { number: 15, suffix: '+', label: 'Years Experience' },
-  { number: 100, suffix: '%', label: 'Insured & Bonded' },
-  { number: 50, suffix: '+', label: '5-Star Reviews' },
+  { number: 150, suffix: '+', label: 'Roofs Completed' },
+  { number: 5, suffix: '.0', label: 'Google Rating' },
+  { number: 10, suffix: '+', label: 'Years Experience' },
+  { number: 100, suffix: '%', label: 'Free Estimates' },
 ]
 
 const logos = [

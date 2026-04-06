@@ -17,6 +17,8 @@ import { ServicesGrid } from '@/components/sections/ServicesGrid'
 import { CredibilitySection } from '@/components/sections/CredibilitySection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { ServiceAreasSection } from '@/components/sections/ServiceAreasSection'
+import { ContactCTASection } from '@/components/sections/ContactCTASection'
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane AB | Roof Replacement & Repair | Cochrane Roofing Pro',
@@ -63,234 +65,255 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Impact */}
+      {/* 2. Stats */}
       <ImpactSection />
 
       {/* 3. Services */}
       <ServicesGrid
-        label="What we do"
-        heading="Quality Roofing Services For Every Cochrane Home"
-        body="From full roof replacements to emergency repairs, every job is done by Red Seal certified tradespeople."
+        label="Roofing Services Cochrane AB"
+        heading={"Roofing Services in Cochrane —\nEvery Job, One Standard."}
+        body="From full roof replacements to emergency hail damage repair in Cochrane — our certified roofing team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
         cta={{ label: 'View all services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
-            href: '/roof-replacement',
+            href: '/roof-replacement/cochrane',
             description:
-              "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather cycles.",
+              "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather conditions. Free inspection included on every job.",
             icon: <Home />,
             image: '',
+            imageAlt: 'Roof replacement Cochrane AB',
             features: [
-              'Premium asphalt & metal roofing options',
-              'Full tear-off with deck inspection',
+              'Premium asphalt and metal roofing options',
+              'Full removal of old materials',
               'Backed by manufacturer warranty',
             ],
           },
           {
             title: 'Roof Repair',
-            href: '/roof-repair',
+            href: '/roof-repair/cochrane',
             description:
-              'Fast, permanent fixes for leaks, damaged shingles, flashing failures, and storm damage across Cochrane.',
+              'Fast, affordable, certified roof repairs in Cochrane that get you back to normal without the stress or disruption. We respond quickly because a damaged roof cannot wait.',
             icon: <Wrench />,
             image: '',
+            imageAlt: 'Roof repair Cochrane AB',
             features: [
-              'Same-week repair scheduling',
-              'Leak detection and flashing repair',
-              'Emergency tarping available',
+              'Emergency and non-emergency repairs',
+              'All roofing materials covered',
+              'Written warranty on all work',
             ],
           },
           {
             title: 'Hail Damage Repair',
-            href: '/hail-damage-repair',
+            href: '/hail-damage-repair/cochrane',
             description:
-              'Alberta hail damage specialists. We assess, document, and restore your roof — and handle your insurance claim start to finish.',
+              'Alberta hailstorms hit hard and Cochrane is no exception. We respond fast, document everything for your insurance claim, and restore your roof to pre-storm condition.',
             icon: <CloudLightning />,
             image: '',
+            imageAlt: 'Hail damage roof repair Cochrane AB',
             features: [
-              'Full insurance claim assistance',
-              'Detailed damage documentation',
-              'Approved by major Alberta insurers',
+              'Insurance claim assistance',
+              'Photo documentation included',
+              'Direct insurer liaison',
             ],
           },
           {
             title: 'Roof Maintenance',
-            href: '/roof-maintenance',
+            href: '/roof-maintenance/cochrane',
             description:
-              "Proactive annual maintenance that extends your roof's lifespan and prevents costly surprise repairs.",
+              'Regular roof maintenance in Cochrane extends the life of your roof and helps you avoid costly emergency repairs. Prevention is always cheaper than replacement.',
             icon: <ClipboardCheck />,
             image: '',
+            imageAlt: 'Roof maintenance Cochrane AB',
             features: [
-              'Annual inspection and tune-up',
-              'Gutter cleaning and debris removal',
-              'Written condition report included',
+              'Annual inspection packages',
+              'Gutter cleaning and checks',
+              'Early problem detection',
             ],
           },
           {
             title: 'Roof Inspection',
-            href: '/roof-inspection',
+            href: '/roof-inspection/cochrane',
             description:
-              'Comprehensive roof assessments with detailed reports. Know exactly what your roof needs before spending a dollar.',
+              'Our certified roof and attic inspections in Cochrane give you the full picture before problems become expensive disasters. Essential for home buyers and annual maintenance.',
             icon: <Search />,
             image: '',
+            imageAlt: 'Roof inspection Cochrane AB',
             features: [
-              'Pre-purchase and post-storm inspections',
-              'Drone and on-roof assessment',
-              'Honest report — no upselling',
+              'Full roof and attic assessment',
+              'Detailed written report',
+              'Photo documentation',
             ],
           },
           {
             title: 'Skylight Installation',
-            href: '/skylight-installation',
+            href: '/skylight-installation/cochrane',
             description:
-              'Expertly sealed skylight installations that bring natural light in while keeping Alberta weather out.',
+              'Brighten your Cochrane home with natural light. Our certified team installs skylights properly — no leaks, no drafts, no problems. Completely hassle-free.',
             icon: <Sun />,
             image: '',
+            imageAlt: 'Skylight installation Cochrane AB',
             features: [
-              'Code-compliant installation',
-              'Premium flashing and sealing',
-              'Velux and custom options available',
+              'All skylight brands and sizes',
+              'Full weatherproofing included',
+              'Clean installation guaranteed',
             ],
           },
         ]}
       />
 
-      {/* 4. Reasons */}
+      {/* 4. Why Us */}
       <ReasonsSection
         label="Why Cochrane Roofing Pro"
-        heading="We Are More Than Just A Roofing Company"
-        body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
+        heading={"Cochrane's Certified Roofing\nContractor — Built on Trust."}
+        body="Most roofers show up, do the job, and move on. We don't want that. Every roof we touch gets the same care we'd put into our own home. That's the standard Cochrane homeowners keep coming back for."
         image=""
         points={[
           {
-            title: 'Quality you can see',
+            title: 'Certified and qualified',
             description:
-              'Red Seal certified — the highest trade standard in Canada. Premium materials, no shortcuts.',
+              'Our team holds the highest roofing credentials available in Alberta. Every job is done right.',
             icon: <ShieldCheck />,
           },
           {
             title: 'Local and always available',
             description:
-              'We live in Cochrane. When you call, you get a real person — not a call centre.',
+              "We're based in Cochrane. When you call, you get a real person — not a call centre.",
             icon: <MapPin />,
           },
           {
             title: 'Honest pricing, no surprises',
             description:
-              'Clear, itemised quotes before work begins. No hidden fees, no pressure.',
+              'The price we quote is the price you pay. Fully itemised. In writing. Always.',
             icon: <ClipboardCheck />,
           },
         ]}
       />
 
-      {/* 4. Credibility / Process */}
+      {/* 5. Process */}
       <CredibilitySection
-        label="Our process"
-        heading="How We Take Care Of Your Cochrane Roof"
+        label="Our Process"
+        heading={"How We Take Care of\nYour Cochrane Roof"}
         image=""
-        imageAlt="Red Seal certified roofing team Cochrane"
-        badgeNumber="Red Seal"
-        badgeLabel="Certified contractor"
+        imageAlt=""
+        badgeNumber=""
+        badgeLabel=""
         steps={[
           {
             number: 1,
-            title: 'Free roof inspection',
+            title: 'Free Roof Inspection',
             description:
-              'We assess your roof thoroughly and give you an honest report -no upselling, no pressure.',
+              'We come to you anywhere in Cochrane, Calgary, or Canmore for a free on-site roof assessment. No pressure. No obligation. Just an honest conversation about what your roof needs and what it will cost.',
           },
           {
             number: 2,
-            title: 'Clear, itemised quote',
+            title: 'Clear, Itemised Quote',
             description:
-              "You get a written quote with everything broken down. No hidden fees, no surprises when the invoice arrives.",
+              'You receive a fully itemised written quote with every cost explained upfront. The number on that document is the number you pay on completion. No hidden extras. No last-minute additions. That is our promise.',
           },
           {
             number: 3,
-            title: 'Clean, certified installation',
+            title: 'Clean, Certified Installation',
             description:
-              "Our Red Seal crew arrives on time, works clean, and doesn't leave until the job is done right and the site is clear.",
+              "Our certified team installs your roof to the highest standard. We don't sign off until the work is right. Your site is left clean. Your roof is built to last.",
           },
         ]}
       />
 
-      {/* Reviews section follows directly */}
-
-      {/* 6. Testimonials */}
+      {/* 6. Reviews */}
       <TestimonialsSection
-        label="Client reviews"
+        label="Client Reviews"
         heading="What Cochrane Homeowners Say About Us"
-        body="Every review is from a real Cochrane-area homeowner. No templates, no filler."
+        body="Every review is from a real Cochrane homeowner. No templates. No filler."
         reviewCount="80+"
         rating={5}
         testimonials={[
           {
-            name: 'Jason K.',
-            location: 'Cochrane, AB',
-            initials: 'JK',
-            rating: 5,
-            text: "Cochrane Roofing Pro replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time. Would not hesitate to recommend them.",
-          },
-          {
-            name: 'Michelle T.',
+            name: 'Michelle T',
             location: 'Cochrane, AB',
             initials: 'MT',
             rating: 5,
-            text: 'We had an emergency leak during a late-October snowstorm. They were at our house within a few hours and had it sorted the same day. Unbelievable service.',
+            text: "Sure West replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time. Would not hesitate to recommend them.",
           },
           {
-            name: 'Ryan & Sara L.',
-            location: 'Springbank, AB',
-            initials: 'RL',
-            rating: 5,
-            text: "Honest quote, clean crew, finished a day early. Knowing they're Red Seal certified gave us real confidence in the quality. The roof looks fantastic.",
-          },
-          {
-            name: 'David M.',
+            name: 'Rachel S',
             location: 'Cochrane, AB',
-            initials: 'DM',
+            initials: 'RS',
             rating: 5,
-            text: "Had three quotes. Cochrane Roofing Pro wasn't the cheapest but they were the only Red Seal crew. Three years on and not a single issue. Worth every cent.",
+            text: 'We had an emergency leak during a late October snowstorm. They were at our house within a few hours and had it sorted the same day. Unbelievable service.',
+          },
+          {
+            name: 'Ryan & Sara',
+            location: 'Cochrane, AB',
+            initials: 'RS',
+            rating: 5,
+            text: 'Honest, clean, reliable. Visited a day early, showing up to test our confidence in their quality. The roof looks incredible.',
+          },
+          {
+            name: 'Sarah B',
+            location: 'Cochrane, AB',
+            initials: 'SB',
+            rating: 5,
+            text: "Three quotes. Sure West wasn't the cheapest but they were the only ones who put it all in writing and a great price. Worth every penny.",
           },
         ]}
       />
 
+      {/* 7. Service Areas */}
+      <ServiceAreasSection />
+
       {/* 8. FAQ */}
       <FAQSection
-        label="Common questions"
-        heading="Frequently Asked Questions"
-        body="Honest answers to what Cochrane homeowners ask us most often."
-        schemaEnabled={true}
+        label="FAQs"
+        heading={"Frequently Asked Roofing\nQuestions — Cochrane, AB"}
+        body="Honest answers to what Cochrane homeowners ask us most. Still have a question? Contact us and we will get straight back to you."
+        schemaEnabled={false}
         faqs={[
           {
             question: 'How much does a roof replacement cost in Cochrane?',
             answer:
-              'Most residential roof replacements in Cochrane range from $8,000 to $18,000 depending on roof size, pitch, and materials. We provide a detailed written quote after a free inspection so you know exactly what to expect before any work begins.',
+              'Roof replacement costs in Cochrane typically range from $8,000 to $25,000 depending on the size of your roof, the materials you choose, and the complexity of the job. Every project is different which is why we offer free on-site estimates with a clear written quote before any work begins. Get in touch to book your free inspection.',
           },
           {
-            question:
-              'How do I know if my roof needs replacing or just repairing?',
+            question: 'How do I know if my roof needs replacing or just repairing?',
             answer:
-              "If your roof is under 15 years old and damage is isolated to one area, repair is usually the right call. If it's over 20 years old, has widespread granule loss, or has experienced major hail impact, replacement is typically more cost-effective long term. A free inspection will tell you exactly where you stand.",
+              'If your roof is under 15 years old and the damage is isolated, a repair is usually the right call. If it is over 20 years old, has widespread damage, or is failing in multiple areas, replacement is likely more cost effective long term. Our team offers free roof inspections in Cochrane to help you make the right decision without any sales pressure.',
           },
           {
-            question:
-              'Do you handle Alberta insurance claims for hail damage?',
+            question: 'Do you handle Alberta insurance claims for hail damage?',
             answer:
-              'Yes. We work directly with most Alberta insurance providers and can help document damage for your claim. We do not charge separately for this -it\'s part of the service.',
+              'Yes. We have extensive experience working with Alberta insurance companies on hail damage roof repair claims in Cochrane and Calgary. We document all damage with photographs and a detailed inspection report, and we work directly alongside your insurance adjuster to make the process as smooth as possible. Learn more about our hail damage repair service in Cochrane.',
           },
           {
-            question:
-              'How long does a roof replacement take in Cochrane?',
+            question: 'How long does a roof replacement take in Cochrane?',
             answer:
-              'Most standard residential replacements take 1 to 3 days depending on roof size and complexity. We give you a clear timeline before we start and keep you updated throughout.',
+              'Most residential roof replacements in Cochrane are completed within one to two days depending on the size and complexity of your roof. We provide a clear timeline before work begins and keep you updated throughout every stage of the project.',
           },
           {
-            question:
-              'Are you licensed and insured to work in Alberta?',
+            question: 'Are you licensed and insured to work in Alberta?',
             answer:
-              'Yes. Cochrane Roofing Pro is fully licensed in Alberta, carries comprehensive liability insurance, and our lead roofers hold Red Seal certification — the highest interprovincial trade standard in Canada.',
+              'Yes. Cochrane Roofing Pro is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every single job — protecting both our team and your property.',
+          },
+          {
+            question: 'Do you serve Calgary and Canmore as well as Cochrane?',
+            answer:
+              'Yes. While Cochrane is our home base we serve homeowners across Calgary and Canmore too. We have dedicated pages for our roofing services in Calgary and our roofing services in Canmore if you would like to learn more.',
+          },
+          {
+            question: 'What roofing materials do you use in Cochrane?',
+            answer:
+              "We work with all major roofing materials suited to Alberta's climate including architectural asphalt shingles, impact-resistant shingles, metal roofing, and flat roofing systems. We help every homeowner choose the right material for their budget, their home, and Cochrane's specific weather conditions.",
+          },
+          {
+            question: 'Do you offer emergency roof repair in Cochrane?',
+            answer:
+              'Yes. We understand that a damaged roof cannot wait. We offer emergency roof repair in Cochrane and the surrounding area — responding as fast as possible to prevent further water damage to your home.',
           },
         ]}
       />
+
+      {/* 9. Contact CTA */}
+      <ContactCTASection />
     </>
   )
 }

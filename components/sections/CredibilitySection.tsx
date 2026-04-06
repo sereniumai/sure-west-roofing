@@ -13,6 +13,7 @@ interface Step {
 interface CredibilitySectionProps {
   label: string
   heading: string
+  body?: string
   image: string
   imageAlt: string
   badgeNumber: string
@@ -23,6 +24,7 @@ interface CredibilitySectionProps {
 export function CredibilitySection({
   label,
   heading,
+  body,
   steps,
 }: CredibilitySectionProps) {
   return (
@@ -42,6 +44,11 @@ export function CredibilitySection({
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
+          {body && (
+            <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
+              {body}
+            </p>
+          )}
         </motion.div>
 
         {/* 3 step cards with connecting line */}
