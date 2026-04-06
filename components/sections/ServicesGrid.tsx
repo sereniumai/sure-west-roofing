@@ -4,7 +4,7 @@ import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 
 interface ServiceItem {
   icon: React.ReactNode
@@ -12,6 +12,7 @@ interface ServiceItem {
   description: string
   href: string
   image?: string
+  features?: string[]
 }
 
 interface ServicesGridProps {
@@ -41,7 +42,7 @@ export function ServicesGrid({
   const current = services[active]
 
   return (
-    <section className="bg-white py-16 lg:py-20 overflow-hidden">
+    <section className="bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
@@ -61,8 +62,8 @@ export function ServicesGrid({
 
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
-          {/* Tabs — SaaS style with animated indicator */}
-          <div className="relative flex items-center gap-1 mb-8 bg-[#F8F8F8] rounded-2xl p-1.5 w-fit">
+          {/* Tabs */}
+          <div className="relative flex items-center gap-1 mb-8 bg-white rounded-2xl p-1.5 w-fit shadow-sm">
             {services.map((service, i) => (
               <button
                 key={service.href}
@@ -76,7 +77,7 @@ export function ServicesGrid({
                 {active === i && (
                   <motion.div
                     layoutId="activeServiceTab"
-                    className="absolute inset-0 bg-white rounded-xl shadow-sm"
+                    className="absolute inset-0 bg-[#F8F8F8] rounded-xl shadow-sm ring-1 ring-[#EBEBEB]"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -86,13 +87,12 @@ export function ServicesGrid({
           </div>
 
           {/* Showcase area */}
-          <div className="grid grid-cols-12 gap-6 items-stretch min-h-[440px]">
+          <div className="grid grid-cols-12 gap-5 items-stretch min-h-[460px]">
             {/* Image side */}
-            <div className="col-span-7 relative rounded-2xl overflow-hidden">
-              <AnimatePresence mode="wait" custom={direction}>
+            <div className="col-span-7 relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+              <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
-                  custom={direction}
                   initial={{ opacity: 0, scale: 1.08 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 1.03 }}
@@ -111,11 +111,10 @@ export function ServicesGrid({
                   )}
                 </motion.div>
               </AnimatePresence>
-
             </div>
 
             {/* Content side */}
-            <div className="col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-center">
+            <div className="col-span-5 bg-white rounded-2xl p-8 lg:p-10 flex flex-col justify-center shadow-sm ring-1 ring-[#EBEBEB]/50">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -124,13 +123,32 @@ export function ServicesGrid({
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <div className="w-10 h-1 bg-[#D6AE60] rounded-full mb-6" />
-                  <h3 className="font-display font-extrabold text-3xl text-dark tracking-tight leading-tight mb-4">
+                  {/* Icon */}
+                  <div className="w-12 h-12 rounded-xl bg-[#D6AE60]/10 flex items-center justify-center text-[#D6AE60] mb-5">
+                    {current.icon}
+                  </div>
+
+                  <h3 className="font-display font-extrabold text-2xl lg:text-3xl text-dark tracking-tight leading-tight mb-3">
                     {current.title}
                   </h3>
-                  <p className="font-body text-body-text text-base leading-relaxed mb-8">
+                  <p className="font-body text-body-text text-base leading-relaxed mb-6">
                     {current.description}
                   </p>
+
+                  {/* Feature bullets */}
+                  {current.features && current.features.length > 0 && (
+                    <ul className="space-y-3 mb-8">
+                      {current.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-3">
+                          <div className="w-5 h-5 rounded-full bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                            <Check className="w-3 h-3 text-[#D6AE60]" />
+                          </div>
+                          <span className="font-body text-sm text-body-text leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
                   <Link
                     href={current.href}
                     className="group inline-flex items-center gap-3 bg-[#D6AE60] hover:bg-[#B8943F] text-white px-6 py-3.5 rounded-xl font-display font-bold text-sm tracking-tight transition-all duration-300 hover:shadow-[0_8px_24px_rgba(214,174,96,0.3)] w-fit"

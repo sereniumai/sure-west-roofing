@@ -65,7 +65,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function ImpactSection() {
   return (
-    <section className="bg-[#F8F8F8] py-16 lg:py-20">
+    <section className="bg-white py-16 lg:py-20">
       <div className="max-w-6xl mx-auto px-6">
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 place-items-center">

@@ -56,49 +56,79 @@ export default function HomePage() {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "Full tear-off and replacement with premium materials built for Alberta's climate.",
+              "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather cycles.",
             icon: <Home />,
             image: '/images/Roof Replacement Cochrane.jpg',
+            features: [
+              'Premium asphalt & metal roofing options',
+              'Full tear-off with deck inspection',
+              'Backed by manufacturer warranty',
+            ],
           },
           {
             title: 'Roof Repair',
             href: '/roof-repair',
             description:
-              'Leaks, damaged shingles, flashing issues and more. Fast, lasting repairs.',
+              'Fast, permanent fixes for leaks, damaged shingles, flashing failures, and storm damage across Cochrane.',
             icon: <Wrench />,
             image: '/images/Roof Repairs Cochrane.jpg',
+            features: [
+              'Same-week repair scheduling',
+              'Leak detection and flashing repair',
+              'Emergency tarping available',
+            ],
           },
           {
             title: 'Hail Damage Repair',
             href: '/hail-damage-repair',
             description:
-              'Alberta hail damage experts. We handle the repairs and your insurance claim.',
+              'Alberta hail damage specialists. We assess, document, and restore your roof — and handle your insurance claim start to finish.',
             icon: <CloudLightning />,
             image: '/images/Hail Damage Cochrane.webp',
+            features: [
+              'Full insurance claim assistance',
+              'Detailed damage documentation',
+              'Approved by major Alberta insurers',
+            ],
           },
           {
             title: 'Roof Maintenance',
             href: '/roof-maintenance',
             description:
-              "Annual maintenance to extend your roof's life and prevent costly repairs.",
+              "Proactive annual maintenance that extends your roof's lifespan and prevents costly surprise repairs.",
             icon: <ClipboardCheck />,
             image: '/images/Roof-Maintenance Cochrane.webp',
+            features: [
+              'Annual inspection and tune-up',
+              'Gutter cleaning and debris removal',
+              'Written condition report included',
+            ],
           },
           {
             title: 'Roof Inspection',
             href: '/roof-inspection',
             description:
-              'Detailed inspection reports. Know exactly what condition your roof is in.',
+              'Comprehensive roof assessments with detailed reports. Know exactly what your roof needs before spending a dollar.',
             icon: <Search />,
             image: '/images/Roofer Inspections Cochrane.webp',
+            features: [
+              'Pre-purchase and post-storm inspections',
+              'Drone and on-roof assessment',
+              'Honest report — no upselling',
+            ],
           },
           {
             title: 'Skylight Installation',
             href: '/skylight-installation',
             description:
-              'Properly sealed skylights installed to Alberta building code.',
+              'Expertly sealed skylight installations that bring natural light in while keeping Alberta weather out.',
             icon: <Sun />,
             image: '/images/Skylight Installation Cochrane.webp',
+            features: [
+              'Code-compliant installation',
+              'Premium flashing and sealing',
+              'Velux and custom options available',
+            ],
           },
         ]}
       />
