@@ -30,25 +30,28 @@ export function ServicesGrid({
 }: ServicesGridProps) {
   return (
     <section className="bg-white py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Header — centered, full width */}
         <motion.div
-          className="max-w-2xl"
+          className="text-center max-w-3xl mx-auto mb-14"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display font-extrabold text-3xl lg:text-[52px] text-dark tracking-tight leading-tight">
+          <p className="text-sm font-body font-medium text-[#D6AE60] uppercase tracking-widest mb-4">
+            Our services
+          </p>
+          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
-          <p className="font-body text-body-text leading-relaxed mt-5">
+          <p className="font-body text-body-text leading-relaxed mt-5 text-lg">
             {body}
           </p>
         </motion.div>
 
         {/* 3×2 Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
           {services.map((service, i) => (
             <motion.div
               key={service.href}
@@ -59,7 +62,7 @@ export function ServicesGrid({
             >
               <Link
                 href={service.href}
-                className="group block bg-[#F8F8F8] border border-[#EBEBEB] rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 h-full hover:-translate-y-1"
+                className="group block bg-[#F8F8F8] border border-[#EBEBEB] rounded-2xl overflow-hidden hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] transition-all duration-500 h-full hover:-translate-y-1.5"
               >
                 {/* Image */}
                 <div className="aspect-[16/10] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
@@ -73,20 +76,20 @@ export function ServicesGrid({
                     />
                   )}
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-display font-bold text-lg text-dark tracking-tight mb-2">
+                <div className="p-7">
+                  <h3 className="font-display font-bold text-xl text-dark tracking-tight mb-2">
                     {service.title}
                   </h3>
-                  <p className="font-body text-sm text-body-text leading-relaxed mb-5">
+                  <p className="font-body text-sm text-body-text leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-dark group-hover:text-[#D6AE60] transition-colors duration-300">
+                  <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-[#D6AE60] group-hover:gap-3 transition-all duration-300">
                     Learn more
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
+                    <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
               </Link>
@@ -96,7 +99,7 @@ export function ServicesGrid({
 
         {/* CTA below grid */}
         <motion.div
-          className="mt-12 text-center"
+          className="mt-14 text-center"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
