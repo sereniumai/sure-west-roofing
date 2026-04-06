@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { SectionLabel } from '@/components/ui/SectionLabel'
+import { Check } from 'lucide-react'
 
 interface ReasonPoint {
   title: string
@@ -20,7 +20,6 @@ interface ReasonsSectionProps {
 }
 
 export function ReasonsSection({
-  label,
   heading,
   body,
   image,
@@ -28,22 +27,18 @@ export function ReasonsSection({
   points,
 }: ReasonsSectionProps) {
   return (
-    <section className="bg-[#F9F8F5] py-20 lg:py-28">
+    <section className="bg-[#EDEEE8] py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT — Image */}
           <motion.div
-            className="relative aspect-[4/5] w-full max-w-lg"
+            className="relative w-full"
             initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#1B3558] rounded-xl -z-10" />
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 border-4 border-[#C49A2C] rounded-2xl -z-10" />
-
-            <div className="relative w-full h-full rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
               <Image
                 src={image}
                 alt={imageAlt}
@@ -61,27 +56,23 @@ export function ReasonsSection({
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <SectionLabel text={label} />
-
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-wide leading-tight mt-3">
+            <h2 className="font-display font-bold text-3xl lg:text-5xl text-dark tracking-wide leading-tight">
               {heading}
             </h2>
 
-            <p className="font-body text-body-text leading-relaxed mt-4 mb-10">
+            <p className="font-body text-body-text leading-relaxed mt-6 mb-10">
               {body}
             </p>
 
             <div className="flex flex-col gap-8">
               {points.map((point, i) => (
-                <div key={i} className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded-xl bg-[#1B3558] flex items-center justify-center flex-shrink-0">
-                    <div className="text-[#C49A2C] w-6 h-6 [&>svg]:w-6 [&>svg]:h-6">
-                      {point.icon}
-                    </div>
+                <div key={i} className="flex items-start gap-4">
+                  <div className="w-6 h-6 mt-0.5 flex-shrink-0">
+                    <Check className="w-6 h-6 text-[#C49A2C]" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-dark text-base tracking-wide mb-1">
-                      {point.title}
+                    <h3 className="font-body font-bold text-dark text-base mb-1">
+                      {point.title}:
                     </h3>
                     <p className="font-body text-sm text-body-text leading-relaxed">
                       {point.description}

@@ -37,7 +37,7 @@ export function CredibilitySection({
   steps,
 }: CredibilitySectionProps) {
   return (
-    <section className="bg-[#F9F8F5] py-20 lg:py-28">
+    <section className="bg-[#EDEEE8] py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT — Image with badge */}
