@@ -198,13 +198,6 @@ export function Nav() {
           )}
 
           <div className="mt-8 flex flex-col gap-4">
-            <a
-              href="tel:4039907210"
-              className="flex items-center gap-2 text-white font-medium"
-            >
-              <Phone size={18} />
-              (403) 990-7210
-            </a>
             <Button href="/contact" className="text-center" onClick={() => setMobileOpen(false)}>
               Get a Free Estimate
             </Button>
