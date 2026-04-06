@@ -47,27 +47,24 @@ export function ServicesGrid({
     checkScroll()
     el.addEventListener('scroll', checkScroll, { passive: true })
     window.addEventListener('resize', checkScroll)
-
-    // Prevent mouse wheel from scrolling the carousel
-    const preventWheel = (e: WheelEvent) => {
-      e.preventDefault()
-    }
-    el.addEventListener('wheel', preventWheel, { passive: false })
-
     return () => {
       el.removeEventListener('scroll', checkScroll)
       window.removeEventListener('resize', checkScroll)
-      el.removeEventListener('wheel', preventWheel)
     }
   }, [checkScroll])
 
   const scroll = (direction: 'left' | 'right') => {
     const el = scrollRef.current
     if (!el) return
+    // Temporarily enable overflow-x for smooth scrollBy, then re-hide
+    el.style.overflowX = 'scroll'
     const cardWidth = el.querySelector<HTMLElement>('[data-card]')?.offsetWidth ?? 300
     const gap = 24
     const distance = cardWidth + gap
     el.scrollBy({ left: direction === 'left' ? -distance : distance, behavior: 'smooth' })
+    setTimeout(() => {
+      if (el) el.style.overflowX = 'hidden'
+    }, 500)
   }
 
   return (
@@ -121,8 +118,7 @@ export function ServicesGrid({
         {/* Carousel */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-scroll scroll-smooth pb-2 scrollbar-hide"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          className="flex gap-6 overflow-x-hidden scroll-smooth pb-2"
         >
           {services.map((service, i) => (
             <motion.div
