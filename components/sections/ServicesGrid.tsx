@@ -123,11 +123,6 @@ export function ServicesGrid({
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  {/* Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-[#D6AE60]/10 flex items-center justify-center text-[#D6AE60] mb-5">
-                    {current.icon}
-                  </div>
-
                   <h3 className="font-display font-extrabold text-2xl lg:text-3xl text-dark tracking-tight leading-tight mb-3">
                     {current.title}
                   </h3>
