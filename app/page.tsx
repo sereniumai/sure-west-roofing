@@ -276,7 +276,7 @@ export default function HomePage() {
           {
             question: 'How much does a roof replacement cost in Cochrane?',
             answer:
-              'Roof replacement costs in Cochrane typically range from $8,000 to $25,000 depending on the size of your roof, the materials you choose, and the complexity of the job. Every project is different which is why we offer free on-site estimates with a clear written quote before any work begins. <a href="/contact">Get in touch</a> to book your free inspection.',
+              'Roof replacement costs in Cochrane typically range from $8,000 to $25,000 depending on the size of your roof, the materials you choose, and the complexity of the job. Every project is different which is why we offer <a href="/contact">free on-site estimates</a> with a clear written quote before any work begins. Get in touch to book your free inspection.',
           },
           {
             question: 'How do I know if my roof needs replacing or just repairing?',
