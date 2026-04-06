@@ -4,9 +4,9 @@ import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Sure West Roofing | Cochrane AB',
+  title: 'Roofing Contractor Cochrane AB | Cochrane Roofing Pro',
   description:
-    'Red Seal certified roofing contractor in Cochrane, Alberta. Roof replacement, repair, hail damage, and emergency roofing services.',
+    'Cochrane Roofing Pro — certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
 }
 
 export default function RootLayout({

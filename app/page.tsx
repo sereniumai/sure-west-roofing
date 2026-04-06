@@ -19,9 +19,9 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { FAQSection } from '@/components/sections/FAQSection'
 
 export const metadata: Metadata = seoMetadata({
-  title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
+  title: 'Roofing Contractor Cochrane AB | Cochrane Roofing Pro',
   description:
-    'Sure West Roofing - Red Seal certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage restoration and emergency roofing. Free estimates.',
+    'Cochrane Roofing Pro — certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
   slug: '',
 })
 
