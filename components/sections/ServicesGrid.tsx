@@ -54,107 +54,116 @@ export function ServicesGrid({
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl">
+          <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
             {body}
           </p>
         </motion.div>
 
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
-          {/* Tab pills */}
-          <div className="flex items-center gap-2 mb-8">
+          {/* Tabs — SaaS style with animated indicator */}
+          <div className="relative flex items-center gap-1 mb-8 bg-[#F8F8F8] rounded-2xl p-1.5 w-fit">
             {services.map((service, i) => (
               <button
                 key={service.href}
                 onClick={() => goTo(i)}
-                className={`relative px-5 py-3 rounded-full font-display font-bold text-sm tracking-tight transition-all duration-300 ${
+                className={`relative z-10 px-5 py-2.5 rounded-xl font-display font-semibold text-sm tracking-tight transition-colors duration-300 ${
                   active === i
-                    ? 'bg-[#D6AE60] text-white shadow-[0_4px_20px_rgba(214,174,96,0.4)]'
-                    : 'bg-[#F8F8F8] text-body-text hover:bg-[#EBEBEB] hover:text-dark'
+                    ? 'text-dark'
+                    : 'text-body-text/60 hover:text-body-text'
                 }`}
               >
-                {service.title}
+                {active === i && (
+                  <motion.div
+                    layoutId="activeServiceTab"
+                    className="absolute inset-0 bg-white rounded-xl shadow-sm"
+                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10">{service.title}</span>
               </button>
             ))}
           </div>
 
           {/* Showcase area */}
-          <div className="relative rounded-3xl overflow-hidden bg-[#0A0A0A] min-h-[480px]">
-            {/* Background image with parallax feel */}
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={active}
-                custom={direction}
-                initial={{ opacity: 0, x: direction * 60, scale: 1.05 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: direction * -40, scale: 0.98 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0"
-              >
-                {current?.image && (
-                  <Image
-                    src={current.image}
-                    alt={current.title}
-                    fill
-                    className="object-cover"
-                    sizes="90vw"
-                    priority
-                  />
-                )}
-                {/* Cinematic overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-              </motion.div>
-            </AnimatePresence>
+          <div className="grid grid-cols-12 gap-6 items-stretch min-h-[440px]">
+            {/* Image side */}
+            <div className="col-span-7 relative rounded-2xl overflow-hidden">
+              <AnimatePresence mode="wait" custom={direction}>
+                <motion.div
+                  key={active}
+                  custom={direction}
+                  initial={{ opacity: 0, scale: 1.08 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 1.03 }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute inset-0"
+                >
+                  {current?.image && (
+                    <Image
+                      src={current.image}
+                      alt={current.title}
+                      fill
+                      className="object-cover"
+                      sizes="60vw"
+                      priority
+                    />
+                  )}
+                </motion.div>
+              </AnimatePresence>
 
-            {/* Content overlay */}
-            <div className="relative z-10 flex flex-col justify-end h-full min-h-[480px] p-10 lg:p-14 max-w-xl">
+              {/* Step indicator badge */}
+              <div className="absolute top-5 left-5 z-10 bg-white/90 backdrop-blur-sm rounded-full px-4 py-1.5 font-display font-bold text-xs text-dark tracking-wide shadow-sm">
+                {String(active + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
+              </div>
+            </div>
+
+            {/* Content side */}
+            <div className="col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-between">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
-                  initial={{ opacity: 0, y: 30 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                  exit={{ opacity: 0, y: -15 }}
+                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex-1 flex flex-col"
                 >
-                  {/* Gold number accent */}
-                  <span className="font-display font-extrabold text-7xl text-[#D6AE60]/20 leading-none mb-2 block">
-                    {String(active + 1).padStart(2, '0')}
-                  </span>
-
-                  <h3 className="font-display font-extrabold text-4xl lg:text-5xl text-white tracking-tight leading-tight mb-4">
-                    {current.title}
-                  </h3>
-
-                  <p className="font-body text-white/70 text-lg leading-relaxed mb-8 max-w-md">
-                    {current.description}
-                  </p>
+                  <div className="flex-1">
+                    <div className="w-10 h-1 bg-[#D6AE60] rounded-full mb-6" />
+                    <h3 className="font-display font-extrabold text-3xl text-dark tracking-tight leading-tight mb-4">
+                      {current.title}
+                    </h3>
+                    <p className="font-body text-body-text text-base leading-relaxed">
+                      {current.description}
+                    </p>
+                  </div>
 
                   <Link
                     href={current.href}
-                    className="group inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm hover:bg-[#D6AE60] text-white px-7 py-4 rounded-full font-display font-bold text-sm tracking-tight transition-all duration-300 hover:shadow-[0_8px_30px_rgba(214,174,96,0.3)]"
+                    className="group inline-flex items-center gap-3 bg-[#D6AE60] hover:bg-[#B8943F] text-white px-6 py-3.5 rounded-xl font-display font-bold text-sm tracking-tight transition-all duration-300 hover:shadow-[0_8px_24px_rgba(214,174,96,0.3)] mt-8 w-fit"
                   >
                     {current.title}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </motion.div>
               </AnimatePresence>
-            </div>
 
-            {/* Progress indicators */}
-            <div className="absolute bottom-6 right-8 z-10 flex items-center gap-2">
-              {services.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => goTo(i)}
-                  className={`rounded-full transition-all duration-500 ${
-                    active === i
-                      ? 'w-8 h-2 bg-[#D6AE60]'
-                      : 'w-2 h-2 bg-white/30 hover:bg-white/50'
-                  }`}
-                  aria-label={`Service ${i + 1}`}
-                />
-              ))}
+              {/* Progress dots */}
+              <div className="flex items-center gap-2 mt-6">
+                {services.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => goTo(i)}
+                    className={`rounded-full transition-all duration-500 ${
+                      active === i
+                        ? 'w-8 h-2 bg-[#D6AE60]'
+                        : 'w-2 h-2 bg-[#EBEBEB] hover:bg-[#D6AE60]/40'
+                    }`}
+                    aria-label={`Service ${i + 1}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
