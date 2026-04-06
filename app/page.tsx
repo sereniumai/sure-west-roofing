@@ -2,13 +2,10 @@ import type { Metadata } from 'next'
 import {
   ShieldCheck,
   MapPin,
-  CloudSnow,
+  ClipboardCheck,
   Home,
   Wrench,
   CloudLightning,
-  ClipboardCheck,
-  Search,
-  Sun,
   AlertTriangle,
 } from 'lucide-react'
 import { generateMetadata as seoMetadata } from '@/lib/seo'
@@ -87,7 +84,7 @@ export default function HomePage() {
             title: 'Roof Replacement',
             href: '/roof-replacement/cochrane',
             description:
-              "Full tear-off and replacement. The right materials for Alberta's climate.",
+              "Full tear-off and replacement with premium materials built for Alberta's climate.",
             icon: <Home />,
             image: '/images/services/roof-replacement.jpg',
           },
@@ -95,7 +92,7 @@ export default function HomePage() {
             title: 'Roof Repair',
             href: '/roof-repair/cochrane',
             description:
-              'Fix leaks, damaged shingles, flashing and more. Fast and lasting.',
+              'Leaks, damaged shingles, flashing issues and more. Fast, lasting repairs.',
             icon: <Wrench />,
             image: '/images/services/roof-repair.jpg',
           },
@@ -103,42 +100,17 @@ export default function HomePage() {
             title: 'Hail Damage Repair',
             href: '/hail-damage-repair/cochrane',
             description:
-              'Alberta hail experts. We handle repairs and insurance claims.',
+              'Alberta hail damage experts. We handle the repairs and your insurance claim.',
             icon: <CloudLightning />,
             image: '/images/services/hail-damage.jpg',
-          },
-          {
-            title: 'Roof Maintenance',
-            href: '/roof-maintenance/cochrane',
-            description:
-              "Annual maintenance to extend your roof's life and prevent costly repairs.",
-            icon: <ClipboardCheck />,
-            image: '/images/services/roof-maintenance.jpg',
-          },
-          {
-            title: 'Roof Inspection',
-            href: '/roof-inspection/cochrane',
-            description:
-              'Detailed inspection reports. Know exactly what condition your roof is in.',
-            icon: <Search />,
-            image: '/images/services/roof-inspection.jpg',
-          },
-          {
-            title: 'Skylight Installation',
-            href: '/skylight-installation/cochrane',
-            description:
-              'Properly sealed skylights installed to Alberta building code.',
-            icon: <Sun />,
-            image: '/images/services/skylight-installation.jpg',
           },
           {
             title: 'Emergency Roof Repair',
             href: '/emergency-roof-repair/cochrane',
             description:
-              '24/7 emergency response. Cochrane and surrounding area.',
+              '24/7 emergency response across Cochrane, Calgary and surrounding areas.',
             icon: <AlertTriangle />,
             image: '/images/services/emergency-repair.jpg',
-            featured: true,
           },
         ]}
       />

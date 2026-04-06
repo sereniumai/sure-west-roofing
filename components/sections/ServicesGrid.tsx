@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface ServiceItem {
@@ -11,7 +12,6 @@ interface ServiceItem {
   description: string
   href: string
   image?: string
-  featured?: boolean
 }
 
 interface ServicesGridProps {
@@ -25,16 +25,16 @@ interface ServicesGridProps {
 const containerVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.08 },
+    transition: { staggerChildren: 0.12 },
   },
 }
 
 const cardVariants = {
-  hidden: { y: 20, opacity: 0 },
+  hidden: { y: 30, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.5, ease: [0, 0, 0.2, 1] as const },
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   },
 }
 
@@ -57,76 +57,50 @@ export function ServicesGrid({
           </p>
         </div>
 
-        {/* Top row - 3 large cards */}
+        {/* 4-card grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-5"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-80px' }}
         >
-          {services.slice(0, 3).map((service) => (
+          {services.map((service) => (
             <motion.div key={service.href} variants={cardVariants}>
-              <Link href={service.href} className="group block bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
+              <Link
+                href={service.href}
+                className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300"
+              >
+                <div className="aspect-[16/9] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
                   {service.image && (
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                      sizes="(max-width: 640px) 100vw, 50vw"
                     />
                   )}
+                  {/* Subtle gradient overlay at bottom for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
-                <div className="p-5">
-                  <div className="text-[#D6AE60] w-6 h-6 mb-2 [&>svg]:w-6 [&>svg]:h-6">
-                    {service.icon}
+                <div className="p-6">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <div className="text-[#D6AE60] w-6 h-6 mb-3 [&>svg]:w-6 [&>svg]:h-6">
+                        {service.icon}
+                      </div>
+                      <h3 className="font-display font-bold text-xl text-dark tracking-tight mb-2">
+                        {service.title}
+                      </h3>
+                      <p className="font-body text-sm text-body-text leading-relaxed">
+                        {service.description}
+                      </p>
+                    </div>
+                    <div className="flex-shrink-0 mt-1 w-10 h-10 rounded-full bg-[#EDEEE8] flex items-center justify-center group-hover:bg-[#D6AE60] transition-colors duration-300">
+                      <ArrowRight className="w-4 h-4 text-dark/40 group-hover:text-white transition-colors duration-300" />
+                    </div>
                   </div>
-                  <h3 className="font-display font-bold text-lg text-dark tracking-tight mb-1">
-                    {service.title}
-                  </h3>
-                  <p className="font-body text-sm text-body-text leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Bottom row - 4 smaller cards */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-        >
-          {services.slice(3).map((service) => (
-            <motion.div key={service.href} variants={cardVariants}>
-              <Link href={service.href} className="group block bg-white rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300">
-                <div className="aspect-[3/2] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
-                  {service.image && (
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, 25vw"
-                    />
-                  )}
-                </div>
-                <div className="p-4">
-                  <div className="text-[#D6AE60] w-5 h-5 mb-2 [&>svg]:w-5 [&>svg]:h-5">
-                    {service.icon}
-                  </div>
-                  <h3 className="font-display font-bold text-base text-dark tracking-tight mb-1">
-                    {service.title}
-                  </h3>
-                  <p className="font-body text-xs text-body-text leading-relaxed">
-                    {service.description}
-                  </p>
                 </div>
               </Link>
             </motion.div>
