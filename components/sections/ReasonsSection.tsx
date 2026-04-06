@@ -66,10 +66,10 @@ export function ReasonsSection({
                     <Check className="w-3 h-3 text-[#D6AE60]" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-dark text-sm tracking-tight mb-0.5">
+                    <h3 className="font-display font-bold text-dark text-base tracking-tight mb-0.5">
                       {point.title}
                     </h3>
-                    <p className="font-body text-xs text-body-text leading-relaxed">
+                    <p className="font-body text-sm text-body-text leading-relaxed">
                       {point.description}
                     </p>
                   </div>

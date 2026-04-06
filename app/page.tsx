@@ -142,19 +142,19 @@ export default function HomePage() {
           {
             title: 'Quality you can see',
             description:
-              'Red Seal certified means our work meets the highest trade standard in Canada. We use premium materials, never cut corners, and stand behind every install.',
+              'Red Seal certified — the highest trade standard in Canada. Premium materials, no shortcuts.',
             icon: <ShieldCheck />,
           },
           {
             title: 'Local and always available',
             description:
-              "We live and work in Cochrane. When you call, you get a real person, not a call centre. We show up fast, especially when it matters most.",
+              'We live in Cochrane. When you call, you get a real person — not a call centre.',
             icon: <MapPin />,
           },
           {
             title: 'Honest pricing, no surprises',
             description:
-              "You get a clear, itemised quote before any work begins. No hidden fees, no pressure. Just a straight answer on what your roof needs and what it costs.",
+              'Clear, itemised quotes before work begins. No hidden fees, no pressure.',
             icon: <ClipboardCheck />,
           },
         ]}
