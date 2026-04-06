@@ -14,7 +14,7 @@ const areas = [
   {
     name: 'Canmore',
     description:
-      'From the Bow Valley to the Rockies — premium roofing services for Canmore homeowners who demand the best.',
+      'From the Bow Valley to the Rockies. Premium roofing services for Canmore homeowners who demand the best.',
     href: '/roofing-contractor-canmore',
   },
 ]
@@ -25,19 +25,16 @@ export function ServiceAreasSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-12"
+          className="text-center mb-12"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
-            Service Areas
-          </span>
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
-            Roofing Services Across{'\n'}the Bow Valley
+            Roofing Services Across the Bow Valley
           </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
+          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-xl mx-auto">
             Based in Cochrane and proudly serving homeowners across Calgary and
             Canmore. Wherever you are in the Bow Valley, we bring the same
             certified quality to your doorstep.

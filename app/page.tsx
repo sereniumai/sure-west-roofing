@@ -22,7 +22,7 @@ import { ContactCTASection } from '@/components/sections/ContactCTASection'
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane AB | Roof Replacement & Repair | Cochrane Roofing Pro',
-  description: 'Cochrane Roofing Pro — certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Serving Calgary & Canmore. Free estimates.',
+  description: 'Cochrane Roofing Pro. Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Serving Calgary & Canmore. Free estimates.',
   keywords: [
     'roofing contractor Cochrane',
     'roofer Cochrane AB',
@@ -58,7 +58,7 @@ export default function HomePage() {
       {/* 1. Hero */}
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
-        subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather — hail, ice, and everything in between. Certified roofing contractors. Free estimates."
+        subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather. Hail, ice, and everything in between. Certified roofing contractors. Free estimates."
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/contact' }}
         secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
@@ -73,7 +73,7 @@ export default function HomePage() {
       <ServicesGrid
         label="Roofing Services Cochrane AB"
         heading={"Roofing Services\nin Cochrane"}
-        body="From full roof replacements to emergency hail damage repair in Cochrane — our certified roofing team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
+        body="From full roof replacements to emergency hail damage repair in Cochrane. Our certified roofing team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
         cta={{ label: 'View all services', href: '/services' }}
         services={[
           {
@@ -150,7 +150,7 @@ export default function HomePage() {
             title: 'Skylight Installation',
             href: '/skylight-installation/cochrane',
             description:
-              'Brighten your Cochrane home with natural light. Our certified team installs skylights properly — no leaks, no drafts, no problems. Completely hassle-free.',
+              'Brighten your Cochrane home with natural light. Our certified team installs skylights properly. No leaks, no drafts, no problems. Completely hassle-free.',
             icon: <Sun />,
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Skylight installation Cochrane AB',
@@ -180,7 +180,7 @@ export default function HomePage() {
           {
             title: 'Local and always available',
             description:
-              "We're based in Cochrane. When you call, you get a real person — not a call centre.",
+              "We're based in Cochrane. When you call, you get a real person, not a call centre.",
             icon: <MapPin />,
           },
           {
@@ -267,7 +267,7 @@ export default function HomePage() {
       {/* 8. FAQ */}
       <FAQSection
         label="FAQs"
-        heading={"Frequently Asked Roofing\nQuestions — Cochrane, AB"}
+        heading={"Frequently Asked Roofing\nQuestions in Cochrane, AB"}
         body="Honest answers to what Cochrane homeowners ask us most. Still have a question? Contact us and we will get straight back to you."
         schemaEnabled={false}
         faqs={[
@@ -294,7 +294,7 @@ export default function HomePage() {
           {
             question: 'Are you licensed and insured to work in Alberta?',
             answer:
-              'Yes. Cochrane Roofing Pro is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every single job — protecting both our team and your property.',
+              'Yes. Cochrane Roofing Pro is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every single job, protecting both our team and your property.',
           },
           {
             question: 'Do you serve Calgary and Canmore as well as Cochrane?',
@@ -309,7 +309,7 @@ export default function HomePage() {
           {
             question: 'Do you offer emergency roof repair in Cochrane?',
             answer:
-              'Yes. We understand that a damaged roof cannot wait. We offer <a href="/roof-repair/cochrane">emergency roof repair in Cochrane</a> and the surrounding area — responding as fast as possible to prevent further water damage to your home.',
+              'Yes. We understand that a damaged roof cannot wait. We offer <a href="/roof-repair/cochrane">emergency roof repair in Cochrane</a> and the surrounding area, responding as fast as possible to prevent further water damage to your home.',
           },
         ]}
       />
