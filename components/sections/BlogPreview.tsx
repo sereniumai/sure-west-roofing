@@ -54,7 +54,7 @@ export function BlogPreview({
           >
             <Link
               href={`/blog/${featured.slug}`}
-              className="group block bg-white rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-500 h-full"
+              className="group block bg-white rounded-2xl overflow-hidden border border-[#EBEBEB] bg-[#F8F8F8] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 h-full"
             >
               <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
                 <Image
@@ -98,7 +98,7 @@ export function BlogPreview({
               >
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-500"
+                  className="group flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden border border-[#EBEBEB] bg-[#F8F8F8] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-500"
                 >
                   <div className="sm:w-48 lg:w-56 flex-shrink-0 aspect-[16/10] sm:aspect-auto relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
                     <Image

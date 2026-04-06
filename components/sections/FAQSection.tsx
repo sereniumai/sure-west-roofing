@@ -24,7 +24,7 @@ export function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-[#F7F7F4] py-20 lg:py-28">
+    <section className="bg-[#F8F8F8] py-20 lg:py-28">
       {/* FAQ Schema */}
       {schemaEnabled && (
         <script
@@ -70,9 +70,9 @@ export function FAQSection({
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] overflow-hidden">
+            <div className="bg-white border border-[#EBEBEB] rounded-2xl overflow-hidden">
               {faqs.map((faq, index) => (
-                <div key={index} className="border-b border-gray-100 last:border-0">
+                <div key={index} className="border-b border-[#EBEBEB] last:border-0">
                   <button
                     onClick={() => setOpenIndex(index === openIndex ? null : index)}
                     className="flex justify-between items-center py-6 px-7 w-full text-left cursor-pointer group"
@@ -84,7 +84,7 @@ export function FAQSection({
                     <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       index === openIndex
                         ? 'bg-[#D6AE60] text-white rotate-45'
-                        : 'bg-[#F7F7F4] text-dark/40 group-hover:bg-[#D6AE60]/10 group-hover:text-[#D6AE60]'
+                        : 'bg-[#F8F8F8] text-dark/40 group-hover:bg-[#D6AE60]/10 group-hover:text-[#D6AE60]'
                     }`}>
                       <Plus className="w-4 h-4" />
                     </div>

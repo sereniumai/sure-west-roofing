@@ -129,7 +129,7 @@ export function ServicesGrid({
             >
               <Link
                 href={service.href}
-                className="group block bg-white rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] transition-all duration-500 h-full hover:-translate-y-1"
+                className="group block bg-[#F8F8F8] border border-[#EBEBEB] rounded-2xl overflow-hidden hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 h-full hover:-translate-y-1"
               >
                 {/* Image */}
                 <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">

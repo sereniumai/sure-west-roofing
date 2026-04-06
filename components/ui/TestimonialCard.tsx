@@ -14,7 +14,7 @@ export function TestimonialCard({
   rating,
 }: TestimonialCardProps) {
   return (
-    <div className="bg-white rounded-2xl p-7 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] h-full flex flex-col">
+    <div className="bg-[#F8F8F8] border border-[#EBEBEB] rounded-2xl p-7 h-full flex flex-col">
       {/* Stars */}
       <div className="flex gap-0.5 mb-4" aria-label={`${rating} out of 5 stars`}>
         {Array.from({ length: 5 }).map((_, i) => (
