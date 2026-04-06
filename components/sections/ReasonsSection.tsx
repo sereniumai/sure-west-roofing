@@ -49,7 +49,7 @@ export function ReasonsSection({
         </motion.div>
 
         {/* Grid — same 7/5 split as ServicesGrid */}
-        <div className="grid grid-cols-12 gap-5 items-stretch">
+        <div className="grid grid-cols-12 gap-5 items-start">
           {/* Video side — col-span-7 */}
           <div className="col-span-12 lg:col-span-7">
             {videoEmbed ? (
@@ -76,8 +76,8 @@ export function ReasonsSection({
           </div>
 
           {/* Content card — col-span-5, same as service content */}
-          <div className="col-span-12 lg:col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-center border border-[#EBEBEB]">
-            <div className="flex flex-col gap-5">
+          <div className="col-span-12 lg:col-span-5 bg-[#F8F8F8] rounded-2xl p-6 lg:p-8 flex flex-col justify-center border border-[#EBEBEB]">
+            <div className="flex flex-col gap-4">
               {points.map((point, i) => (
                 <motion.div
                   key={i}
@@ -91,10 +91,10 @@ export function ReasonsSection({
                     <Check className="w-3 h-3 text-[#D6AE60]" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-dark text-base tracking-tight mb-1">
+                    <h3 className="font-display font-bold text-dark text-sm tracking-tight mb-0.5">
                       {point.title}
                     </h3>
-                    <p className="font-body text-sm text-body-text leading-relaxed">
+                    <p className="font-body text-xs text-body-text leading-relaxed">
                       {point.description}
                     </p>
                   </div>
@@ -102,7 +102,7 @@ export function ReasonsSection({
               ))}
             </div>
 
-            <Button variant="primary" href="/contact" className="mt-8 w-fit">
+            <Button variant="primary" href="/contact" className="mt-6 w-fit">
               Get A Free Estimate
             </Button>
           </div>
