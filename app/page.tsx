@@ -50,28 +50,34 @@ export default function HomePage() {
       {/* 3. Reasons */}
       <ReasonsSection
         label="Why Sure West"
-        heading="Reasons to choose our roofing services"
-        body="We're Cochrane-based, Red Seal certified, and built for Alberta's climate. When hail hits or winter takes its toll, you want a roofer who knows this province."
+        heading="We're not just another roofing company"
+        body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
         image="/images/cochrane roofing company.png"
         imageAlt="Cochrane roofing company Sure West Roofing"
         points={[
           {
-            title: 'Red Seal Certified',
+            title: 'Quality you can see',
             description:
-              'Our Red Seal certification is a nationally recognised interprovincial standard -proof that our work meets the highest trade benchmark in Canada.',
+              'Red Seal certified means our work meets the highest trade standard in Canada. We use premium materials, never cut corners, and stand behind every install.',
             icon: <ShieldCheck />,
           },
           {
-            title: 'Cochrane-based, fast response',
+            title: 'Local and always available',
             description:
-              "We live and work here. No long drives, no delays. When you call, we respond fast -especially for emergencies.",
+              "We live and work in Cochrane. When you call, you get a real person, not a call centre. We show up fast, especially when it matters most.",
             icon: <MapPin />,
           },
           {
-            title: 'Built for Alberta weather',
+            title: 'Built for this climate',
             description:
-              "Freeze-thaw cycles, hail season, heavy snow -we design every roof to handle what Cochrane actually throws at it. Not just code minimum. Built to last.",
+              "Alberta throws everything at your roof. Hail, freeze-thaw, heavy snow. We build every roof specifically for what this province actually demands, not just code minimum.",
             icon: <CloudSnow />,
+          },
+          {
+            title: 'Honest pricing, no surprises',
+            description:
+              "You get a clear, itemised quote before any work begins. No hidden fees, no pressure. Just a straight answer on what your roof needs and what it costs.",
+            icon: <ClipboardCheck />,
           },
         ]}
       />
