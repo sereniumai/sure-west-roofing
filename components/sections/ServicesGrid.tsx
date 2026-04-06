@@ -70,7 +70,7 @@ export function ServicesGrid({
                 onClick={() => goTo(i)}
                 className={`relative z-10 px-5 py-2.5 rounded-xl font-display font-semibold text-sm tracking-tight transition-colors duration-300 ${
                   active === i
-                    ? 'text-dark'
+                    ? 'text-[#D6AE60]'
                     : 'text-body-text hover:text-dark'
                 }`}
               >
