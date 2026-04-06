@@ -66,7 +66,7 @@ export function ReasonsSection({
               {body}
             </p>
 
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-7">
               {points.map((point, i) => (
                 <motion.div
                   key={i}
