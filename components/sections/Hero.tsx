@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Phone } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProps {
@@ -112,10 +111,7 @@ export function Hero({
           variants={itemVariants}
         >
           <Button variant="primary" size="lg" href={primaryCTA.href}>
-            <span className="inline-flex items-center gap-2">
-              <Phone className="w-5 h-5" />
-              {primaryCTA.label}
-            </span>
+            {primaryCTA.label}
           </Button>
           {secondaryCTA && (
             <Button variant="ghost" size="lg" href={secondaryCTA.href}>
