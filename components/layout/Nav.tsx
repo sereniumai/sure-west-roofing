@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown, Phone } from 'lucide-react'
+import { Menu, X, ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const serviceLinks = [
@@ -55,9 +55,9 @@ export function Nav() {
           <Image
             src="/images/Logo-300x104.webp"
             alt="Sure West Roofing"
-            width={180}
-            height={54}
-            className="h-12 w-auto"
+            width={200}
+            height={60}
+            className="h-14 w-auto"
             priority
           />
         </Link>
@@ -127,17 +127,8 @@ export function Nav() {
           )}
         </div>
 
-        {/* Desktop Right — phone + CTA */}
-        <div className="hidden lg:flex items-center gap-6">
-          <a
-            href="tel:4039907210"
-            className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-              scrolled ? 'text-dark hover:text-[#D6AE60]' : 'text-white hover:text-[#D6AE60]'
-            }`}
-          >
-            <Phone size={16} />
-            (403) 990-7210
-          </a>
+        {/* Desktop Right — CTA */}
+        <div className="hidden lg:flex items-center">
           <Button href="/contact" className="px-5 py-2.5 text-sm">
             Get a Free Estimate
           </Button>

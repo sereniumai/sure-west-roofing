@@ -75,10 +75,9 @@ export function Hero({
       >
         {/* Location label */}
         <motion.div
-          className="flex items-center gap-3 mb-4"
+          className="mb-4"
           variants={itemVariants}
         >
-          <span className="w-8 h-0.5 bg-[#D6AE60]" />
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60]">
             Red Seal Certified · Cochrane, Alberta
           </span>
@@ -106,19 +105,32 @@ export function Hero({
         </motion.p>
 
         {/* Buttons */}
-        <motion.div
-          className="flex flex-wrap gap-4 mt-8"
-          variants={itemVariants}
-        >
-          <Button variant="primary" size="lg" href={primaryCTA.href}>
-            {primaryCTA.label}
-          </Button>
-          {secondaryCTA && (
-            <Button variant="ghost" size="lg" href={secondaryCTA.href}>
-              {secondaryCTA.label}
+        <div className="flex flex-wrap gap-5 mt-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.9 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <Button variant="primary" size="lg" href={primaryCTA.href}>
+              {primaryCTA.label}
             </Button>
+          </motion.div>
+          {secondaryCTA && (
+            <motion.div
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 0.6, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <Button variant="ghost" size="lg" href={secondaryCTA.href}>
+                {secondaryCTA.label}
+              </Button>
+            </motion.div>
           )}
-        </motion.div>
+        </div>
 
         {/* Social proof */}
         <motion.div
