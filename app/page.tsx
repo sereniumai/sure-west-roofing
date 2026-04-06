@@ -58,7 +58,7 @@ export default function HomePage() {
         services={[
           {
             title: 'Roof Replacement',
-            href: '/roof-replacement/cochrane',
+            href: '/roof-replacement',
             description:
               "Full tear-off and replacement with premium materials built for Alberta's climate.",
             icon: <Home />,
@@ -66,7 +66,7 @@ export default function HomePage() {
           },
           {
             title: 'Roof Repair',
-            href: '/roof-repair/cochrane',
+            href: '/roof-repair',
             description:
               'Leaks, damaged shingles, flashing issues and more. Fast, lasting repairs.',
             icon: <Wrench />,
@@ -74,7 +74,7 @@ export default function HomePage() {
           },
           {
             title: 'Hail Damage Repair',
-            href: '/hail-damage-repair/cochrane',
+            href: '/hail-damage-repair',
             description:
               'Alberta hail damage experts. We handle the repairs and your insurance claim.',
             icon: <CloudLightning />,
@@ -82,7 +82,7 @@ export default function HomePage() {
           },
           {
             title: 'Roof Maintenance',
-            href: '/roof-maintenance/cochrane',
+            href: '/roof-maintenance',
             description:
               "Annual maintenance to extend your roof's life and prevent costly repairs.",
             icon: <ClipboardCheck />,
@@ -90,7 +90,7 @@ export default function HomePage() {
           },
           {
             title: 'Roof Inspection',
-            href: '/roof-inspection/cochrane',
+            href: '/roof-inspection',
             description:
               'Detailed inspection reports. Know exactly what condition your roof is in.',
             icon: <Search />,
@@ -98,7 +98,7 @@ export default function HomePage() {
           },
           {
             title: 'Skylight Installation',
-            href: '/skylight-installation/cochrane',
+            href: '/skylight-installation',
             description:
               'Properly sealed skylights installed to Alberta building code.',
             icon: <Sun />,

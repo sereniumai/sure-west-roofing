@@ -39,9 +39,6 @@ export function ServicesGrid({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-sm font-body font-medium text-[#D6AE60] uppercase tracking-widest mb-4">
-            Our services
-          </p>
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
@@ -88,7 +85,7 @@ export function ServicesGrid({
                     {service.description}
                   </p>
                   <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-[#D6AE60] group-hover:gap-3 transition-all duration-300">
-                    Learn more
+                    {service.title}
                     <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
@@ -97,18 +94,6 @@ export function ServicesGrid({
           ))}
         </div>
 
-        {/* CTA below grid */}
-        <motion.div
-          className="mt-14 text-center"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Button variant="primary" href={cta.href}>
-            {cta.label}
-          </Button>
-        </motion.div>
       </div>
     </section>
   )
