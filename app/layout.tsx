@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from 'next'
+import { Nav } from '@/components/layout/Nav'
+import { Footer } from '@/components/layout/Footer'
 import '@/styles/globals.css'
 
 export const viewport: Viewport = {
@@ -45,7 +47,9 @@ export default function RootLayout({
         <a href="#main-content" className="skip-to-main">
           Skip to main content
         </a>
+        <Nav />
         <main id="main-content">{children}</main>
+        <Footer />
       </body>
     </html>
   )
