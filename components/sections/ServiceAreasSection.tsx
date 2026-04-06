@@ -34,10 +34,8 @@ export function ServiceAreasSection() {
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             Roofing Services Across the Bow Valley
           </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-xl mx-auto">
-            Based in Cochrane and proudly serving homeowners across Calgary and
-            Canmore. Wherever you are in the Bow Valley, we bring the same
-            certified quality to your doorstep.
+          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
+            Based in Cochrane and proudly serving homeowners across Calgary and Canmore. Wherever you are in the Bow Valley, we bring the same certified quality to your doorstep.
           </p>
         </motion.div>
 
