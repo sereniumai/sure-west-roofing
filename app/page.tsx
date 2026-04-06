@@ -166,7 +166,7 @@ export default function HomePage() {
       {/* 4. Why Us */}
       <ReasonsSection
         label="Why Cochrane Roofing Pro"
-        heading={"Cochrane's Certified\nRoofing Contractor"}
+        heading={"Cochrane's Certified Roofing\nContractor. Built on Trust."}
         body="Most roofers show up, do the job, and move on. We don't want that. Every roof we touch gets the same care we'd put into our own home. That's the standard Cochrane homeowners keep coming back for."
         image="/images/Cochrane Roof Replacement.jpg"
         imageAlt="Cochrane roofing contractor at work"
@@ -196,6 +196,7 @@ export default function HomePage() {
       <CredibilitySection
         label="Our Process"
         heading={"How We Take Care of\nYour Cochrane Roof"}
+        body="Three simple steps. From your first enquiry to the final walkthrough. Every stage is managed with complete transparency. No grey areas. No surprises."
         image=""
         imageAlt=""
         badgeNumber=""
