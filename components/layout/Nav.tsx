@@ -45,7 +45,7 @@ export function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         scrolled
-          ? 'bg-navy shadow-lg'
+          ? 'bg-white shadow-lg'
           : 'bg-transparent'
       }`}
     >
@@ -55,9 +55,9 @@ export function Nav() {
           <Image
             src="/images/Logo-300x104.webp"
             alt="Sure West Roofing"
-            width={160}
-            height={48}
-            className="h-10 w-auto"
+            width={180}
+            height={54}
+            className="h-12 w-auto"
             priority
           />
         </Link>
@@ -76,7 +76,7 @@ export function Nav() {
                   href={link.href}
                   className={`flex items-center gap-1 text-sm font-medium tracking-wide transition-colors ${
                     scrolled
-                      ? 'text-white hover:text-[#D6AE60]'
+                      ? 'text-dark hover:text-[#D6AE60]'
                       : 'text-white hover:text-[#D6AE60]'
                   }`}
                 >
@@ -97,12 +97,12 @@ export function Nav() {
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-navy border border-white/10 shadow-xl rounded-2xl min-w-[260px] overflow-hidden">
+                  <div className="bg-white border border-gray-100 shadow-xl rounded-2xl min-w-[260px] overflow-hidden">
                     {serviceLinks.map((service) => (
                       <Link
                         key={service.href}
                         href={service.href}
-                        className="block px-6 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
+                        className="block px-6 py-3 text-sm text-body-text hover:text-dark hover:bg-gray-50 transition-colors"
                         onClick={() => setServicesOpen(false)}
                       >
                         {service.label}
@@ -117,7 +117,7 @@ export function Nav() {
                 href={link.href}
                 className={`text-sm font-medium tracking-wide transition-colors ${
                   scrolled
-                    ? 'text-white hover:text-[#D6AE60]'
+                    ? 'text-dark hover:text-[#D6AE60]'
                     : 'text-white hover:text-[#D6AE60]'
                 }`}
               >
@@ -132,7 +132,7 @@ export function Nav() {
           <a
             href="tel:4039907210"
             className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-              scrolled ? 'text-white hover:text-[#D6AE60]' : 'text-white hover:text-[#D6AE60]'
+              scrolled ? 'text-dark hover:text-[#D6AE60]' : 'text-white hover:text-[#D6AE60]'
             }`}
           >
             <Phone size={16} />
@@ -145,7 +145,7 @@ export function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden relative z-10 text-white p-2"
+          className={`lg:hidden relative z-10 p-2 ${scrolled ? 'text-dark' : 'text-white'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         >
