@@ -49,7 +49,7 @@ export function Nav() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+      <div className="w-full px-8 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
           <Image

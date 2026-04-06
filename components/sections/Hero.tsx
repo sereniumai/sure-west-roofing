@@ -80,7 +80,7 @@ export function Hero({
         >
           <span className="w-8 h-0.5 bg-[#D6AE60]" />
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60]">
-            Cochrane, Alberta
+            Red Seal Certified · Cochrane, Alberta
           </span>
         </motion.div>
 
