@@ -19,6 +19,7 @@ import { CTABanner } from '@/components/sections/CTABanner'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { BlogPreview } from '@/components/sections/BlogPreview'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { TrustLogos } from '@/components/sections/TrustLogos'
 
 export const metadata: Metadata = seoMetadata({
   title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
@@ -44,6 +45,9 @@ export default function HomePage() {
 
       {/* 2. Impact */}
       <ImpactSection />
+
+      {/* Trust Logos */}
+      <TrustLogos />
 
       {/* 3. Services */}
       <ServicesGrid
