@@ -82,19 +82,6 @@ export function ServicesGrid({
           <p className="font-body text-body-text leading-relaxed mt-5">
             {body}
           </p>
-
-          {/* CTA button */}
-          <motion.div
-            className="mt-7"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Button variant="primary" href={cta.href}>
-              {cta.label}
-            </Button>
-          </motion.div>
         </motion.div>
 
         {/* Arrows row — right above cards */}
@@ -176,6 +163,19 @@ export function ServicesGrid({
             </motion.div>
           ))}
         </div>
+
+        {/* CTA below cards */}
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Button variant="primary" href={cta.href}>
+            {cta.label}
+          </Button>
+        </motion.div>
       </div>
     </section>
   )
