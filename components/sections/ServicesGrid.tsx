@@ -29,32 +29,21 @@ export function ServicesGrid({
   return (
     <section className="bg-white py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header — left aligned */}
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
-          <motion.div
-            className="max-w-2xl"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
-              {heading}
-            </h2>
-            <p className="font-body text-body-text leading-relaxed mt-5 text-lg">
-              {body}
-            </p>
-          </motion.div>
-
-          {/* Decorative line accent */}
-          <motion.div
-            className="hidden lg:block w-24 h-1 bg-[#D6AE60] rounded-full mb-3 flex-shrink-0"
-            initial={{ scaleX: 0, opacity: 0 }}
-            whileInView={{ scaleX: 1, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          />
-        </div>
+        {/* Header — full width */}
+        <motion.div
+          className="mb-14"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
+            {heading}
+          </h2>
+          <p className="font-body text-body-text leading-relaxed mt-5 text-lg">
+            {body}
+          </p>
+        </motion.div>
 
         {/* Bento-style grid: featured large card + smaller cards */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
