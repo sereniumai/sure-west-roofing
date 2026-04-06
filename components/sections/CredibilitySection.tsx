@@ -33,7 +33,7 @@ export function CredibilitySection({
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* LEFT — Image with badge */}
           <motion.div
-            className="relative"
+            className="relative mb-8 lg:mb-0"
             initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-100px' }}
@@ -51,7 +51,7 @@ export function CredibilitySection({
 
             {/* Badge overlay */}
             <motion.div
-              className="absolute -bottom-6 -right-4 lg:bottom-8 lg:-right-8 bg-[#1B3558] text-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(27,53,88,0.3)]"
+              className="absolute -bottom-6 right-4 lg:bottom-8 lg:right-6 bg-[#1B3558] text-white rounded-2xl p-6 shadow-[0_8px_30px_rgba(27,53,88,0.3)]"
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
