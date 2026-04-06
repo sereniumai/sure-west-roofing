@@ -9,7 +9,7 @@ import {
   Search,
   Sun,
 } from 'lucide-react'
-import { generateMetadata as seoMetadata } from '@/lib/seo'
+
 import { Hero } from '@/components/sections/Hero'
 import { ImpactSection } from '@/components/sections/ImpactSection'
 import { ReasonsSection } from '@/components/sections/ReasonsSection'
@@ -18,12 +18,37 @@ import { CredibilitySection } from '@/components/sections/CredibilitySection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { FAQSection } from '@/components/sections/FAQSection'
 
-export const metadata: Metadata = seoMetadata({
-  title: 'Roofing Contractor Cochrane AB | Cochrane Roofing Pro',
-  description:
-    'Cochrane Roofing Pro — certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
-  slug: '',
-})
+export const metadata: Metadata = {
+  title: 'Roofing Contractor Cochrane AB | Roof Replacement & Repair | Cochrane Roofing Pro',
+  description: 'Cochrane Roofing Pro — certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Serving Calgary & Canmore. Free estimates.',
+  keywords: [
+    'roofing contractor Cochrane',
+    'roofer Cochrane AB',
+    'roofing company Cochrane Alberta',
+    'roof replacement Cochrane',
+    'roof repair Cochrane',
+    'hail damage roof repair Cochrane',
+    'emergency roof repair Cochrane',
+    'roof inspection Cochrane AB',
+    'skylight installation Cochrane',
+    'roofing contractor Calgary',
+    'roofing contractor Canmore',
+    'Red Seal roofing contractor Alberta',
+    'residential roofing Cochrane',
+    'Alberta roofing contractor',
+    'Cochrane roofer',
+  ],
+  openGraph: {
+    title: 'Roofing Contractor Cochrane AB | Cochrane Roofing Pro',
+    description: 'Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Free estimates.',
+    url: 'https://cochraneroofingpro.ca',
+    type: 'website',
+    locale: 'en_CA',
+  },
+  alternates: {
+    canonical: 'https://cochraneroofingpro.ca',
+  },
+}
 
 export default function HomePage() {
   return (
