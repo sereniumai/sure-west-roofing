@@ -70,7 +70,7 @@ export function ServicesGrid({
                 className={`relative z-10 px-5 py-2.5 rounded-xl font-display font-semibold text-sm tracking-tight transition-colors duration-300 ${
                   active === i
                     ? 'text-dark'
-                    : 'text-body-text/60 hover:text-body-text'
+                    : 'text-body-text hover:text-dark'
                 }`}
               >
                 {active === i && (
@@ -112,14 +112,10 @@ export function ServicesGrid({
                 </motion.div>
               </AnimatePresence>
 
-              {/* Step indicator badge */}
-              <div className="absolute top-5 left-5 z-10 bg-white/90 backdrop-blur-sm rounded-full px-4 py-1.5 font-display font-bold text-xs text-dark tracking-wide shadow-sm">
-                {String(active + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
-              </div>
             </div>
 
             {/* Content side */}
-            <div className="col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-between">
+            <div className="col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -127,43 +123,23 @@ export function ServicesGrid({
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex-1 flex flex-col"
                 >
-                  <div className="flex-1">
-                    <div className="w-10 h-1 bg-[#D6AE60] rounded-full mb-6" />
-                    <h3 className="font-display font-extrabold text-3xl text-dark tracking-tight leading-tight mb-4">
-                      {current.title}
-                    </h3>
-                    <p className="font-body text-body-text text-base leading-relaxed">
-                      {current.description}
-                    </p>
-                  </div>
-
+                  <div className="w-10 h-1 bg-[#D6AE60] rounded-full mb-6" />
+                  <h3 className="font-display font-extrabold text-3xl text-dark tracking-tight leading-tight mb-4">
+                    {current.title}
+                  </h3>
+                  <p className="font-body text-body-text text-base leading-relaxed mb-8">
+                    {current.description}
+                  </p>
                   <Link
                     href={current.href}
-                    className="group inline-flex items-center gap-3 bg-[#D6AE60] hover:bg-[#B8943F] text-white px-6 py-3.5 rounded-xl font-display font-bold text-sm tracking-tight transition-all duration-300 hover:shadow-[0_8px_24px_rgba(214,174,96,0.3)] mt-8 w-fit"
+                    className="group inline-flex items-center gap-3 bg-[#D6AE60] hover:bg-[#B8943F] text-white px-6 py-3.5 rounded-xl font-display font-bold text-sm tracking-tight transition-all duration-300 hover:shadow-[0_8px_24px_rgba(214,174,96,0.3)] w-fit"
                   >
                     {current.title}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </motion.div>
               </AnimatePresence>
-
-              {/* Progress dots */}
-              <div className="flex items-center gap-2 mt-6">
-                {services.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goTo(i)}
-                    className={`rounded-full transition-all duration-500 ${
-                      active === i
-                        ? 'w-8 h-2 bg-[#D6AE60]'
-                        : 'w-2 h-2 bg-[#EBEBEB] hover:bg-[#D6AE60]/40'
-                    }`}
-                    aria-label={`Service ${i + 1}`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
         </div>
