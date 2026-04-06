@@ -40,7 +40,7 @@ export default function HomePage() {
         socialProofCount="150+"
         socialProofLabel="satisfied Cochrane homeowners"
         backgroundVideo="/videos/Best Roofing Company Cochrane.mp4"
-        backgroundImage="/images/hero-bg.jpg"
+        backgroundImage="/images/cochrane roofing company.png"
       />
 
       {/* 2. Impact */}
@@ -59,7 +59,7 @@ export default function HomePage() {
             description:
               "Full tear-off and replacement with premium materials built for Alberta's climate.",
             icon: <Home />,
-            image: '/images/services/roof-replacement.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             title: 'Roof Repair',
@@ -67,7 +67,7 @@ export default function HomePage() {
             description:
               'Leaks, damaged shingles, flashing issues and more. Fast, lasting repairs.',
             icon: <Wrench />,
-            image: '/images/services/roof-repair.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             title: 'Hail Damage Repair',
@@ -75,7 +75,7 @@ export default function HomePage() {
             description:
               'Alberta hail damage experts. We handle the repairs and your insurance claim.',
             icon: <CloudLightning />,
-            image: '/images/services/hail-damage.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             title: 'Roof Maintenance',
@@ -83,7 +83,7 @@ export default function HomePage() {
             description:
               "Annual maintenance to extend your roof's life and prevent costly repairs.",
             icon: <ClipboardCheck />,
-            image: '/images/services/roof-maintenance.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             title: 'Roof Inspection',
@@ -91,7 +91,7 @@ export default function HomePage() {
             description:
               'Detailed inspection reports. Know exactly what condition your roof is in.',
             icon: <Search />,
-            image: '/images/services/roof-inspection.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             title: 'Skylight Installation',
@@ -99,7 +99,7 @@ export default function HomePage() {
             description:
               'Properly sealed skylights installed to Alberta building code.',
             icon: <Sun />,
-            image: '/images/services/skylight-installation.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             title: 'Emergency Roof Repair',
@@ -107,7 +107,7 @@ export default function HomePage() {
             description:
               '24/7 emergency response across Cochrane, Calgary and surrounding areas.',
             icon: <AlertTriangle />,
-            image: '/images/services/emergency-repair.jpg',
+            image: '/images/cochrane roofing company.png',
           },
         ]}
       />
@@ -145,7 +145,7 @@ export default function HomePage() {
       <CredibilitySection
         label="Our process"
         heading="How we take care of your Cochrane roof"
-        image="/images/credibility.jpg"
+        image="/images/cochrane roofing company.png"
         imageAlt="Red Seal certified roofing team Cochrane"
         badgeNumber="Red Seal"
         badgeLabel="Certified contractor"
@@ -177,7 +177,7 @@ export default function HomePage() {
         subtext="Get a free, no-obligation estimate from Cochrane's Red Seal roofing contractor. Most estimates completed within 48 hours."
         primaryCTA={{ label: 'Get a free estimate', href: '/contact' }}
         secondaryCTA={{ label: '(403) 000-0000', href: 'tel:4030000000' }}
-        backgroundImage="/images/cta-bg.jpg"
+        backgroundImage="/images/cochrane roofing company.png"
       />
 
       {/* 6. Testimonials */}
@@ -233,7 +233,7 @@ export default function HomePage() {
             date: 'March 2025',
             excerpt:
               "Alberta sits in one of Canada's most active hail corridors. Here's what every Cochrane homeowner should know before summer.",
-            image: '/images/blog-hail.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             slug: 'roof-replacement-cost-cochrane',
@@ -242,7 +242,7 @@ export default function HomePage() {
             date: 'February 2025',
             excerpt:
               'A realistic breakdown of what Cochrane homeowners pay for a full roof replacement in 2025.',
-            image: '/images/blog-cost.jpg',
+            image: '/images/cochrane roofing company.png',
           },
           {
             slug: 'signs-roof-needs-replacing',
@@ -251,7 +251,7 @@ export default function HomePage() {
             date: 'January 2025',
             excerpt:
               'Most roof failures give warning signs months before they become emergencies. Here\'s what to look for.',
-            image: '/images/blog-signs.jpg',
+            image: '/images/cochrane roofing company.png',
           },
         ]}
       />
