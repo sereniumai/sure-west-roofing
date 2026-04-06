@@ -65,77 +65,76 @@ export function ServicesGrid({
   return (
     <section className="bg-white py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header row — text left, arrows right */}
-        <div className="flex items-start justify-between gap-8">
-          <motion.div
-            className="max-w-2xl"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-4 block">
-              {label}
-            </span>
-            <h2 className="font-display font-extrabold text-3xl lg:text-[52px] text-dark tracking-tight leading-tight">
-              {heading}
-            </h2>
-            <p className="font-body text-body-text leading-relaxed mt-5">
-              {body}
-            </p>
+        {/* Header */}
+        <motion.div
+          className="max-w-2xl"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-4 block">
+            {label}
+          </span>
+          <h2 className="font-display font-extrabold text-3xl lg:text-[52px] text-dark tracking-tight leading-tight">
+            {heading}
+          </h2>
+          <p className="font-body text-body-text leading-relaxed mt-5">
+            {body}
+          </p>
 
-            {/* CTA button — under the body text */}
-            <motion.div
-              className="mt-7"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Button variant="primary" href={cta.href}>
-                {cta.label}
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          {/* Nav arrows — aligned to top right */}
+          {/* CTA button */}
           <motion.div
-            className="hidden md:flex items-center gap-3 flex-shrink-0 pt-14"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            className="mt-7"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <button
-              onClick={() => scroll('left')}
-              disabled={!canScrollLeft}
-              className="w-12 h-12 rounded-full border-2 border-dark/10 flex items-center justify-center text-dark/30 hover:border-[#D6AE60] hover:text-[#D6AE60] hover:shadow-md transition-all duration-200 disabled:opacity-20 disabled:cursor-default disabled:hover:shadow-none disabled:hover:border-dark/10 disabled:hover:text-dark/30"
-              aria-label="Previous services"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() => scroll('right')}
-              disabled={!canScrollRight}
-              className="w-12 h-12 rounded-full border-2 border-dark/10 flex items-center justify-center text-dark/30 hover:border-[#D6AE60] hover:text-[#D6AE60] hover:shadow-md transition-all duration-200 disabled:opacity-20 disabled:cursor-default disabled:hover:shadow-none disabled:hover:border-dark/10 disabled:hover:text-dark/30"
-              aria-label="Next services"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
+            <Button variant="primary" href={cta.href}>
+              {cta.label}
+            </Button>
           </motion.div>
-        </div>
+        </motion.div>
+
+        {/* Arrows row — right above cards */}
+        <motion.div
+          className="hidden md:flex items-center justify-end gap-3 mt-10 mb-5"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <button
+            onClick={() => scroll('left')}
+            disabled={!canScrollLeft}
+            className="w-12 h-12 rounded-full border-2 border-dark/10 flex items-center justify-center text-dark/30 hover:border-[#D6AE60] hover:text-[#D6AE60] hover:shadow-md transition-all duration-200 disabled:opacity-20 disabled:cursor-default disabled:hover:shadow-none disabled:hover:border-dark/10 disabled:hover:text-dark/30"
+            aria-label="Previous services"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            disabled={!canScrollRight}
+            className="w-12 h-12 rounded-full border-2 border-dark/10 flex items-center justify-center text-dark/30 hover:border-[#D6AE60] hover:text-[#D6AE60] hover:shadow-md transition-all duration-200 disabled:opacity-20 disabled:cursor-default disabled:hover:shadow-none disabled:hover:border-dark/10 disabled:hover:text-dark/30"
+            aria-label="Next services"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </motion.div>
 
         {/* Carousel */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory mt-14 pb-2 scrollbar-hide"
+          className="flex gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 scrollbar-hide"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          onWheel={(e) => e.stopPropagation()}
         >
           {services.map((service, i) => (
             <motion.div
               key={service.href}
               data-card
-              className="flex-shrink-0 w-[280px] sm:w-[300px] lg:w-[calc((100%-72px)/4)] snap-start"
+              className="flex-shrink-0 w-[300px] sm:w-[340px] lg:w-[calc((100%-48px)/3)] snap-start"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
