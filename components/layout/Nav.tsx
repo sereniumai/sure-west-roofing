@@ -55,9 +55,9 @@ export function Nav() {
           <Image
             src="/images/Logo-300x104.webp"
             alt="Sure West Roofing"
-            width={160}
-            height={48}
-            className="h-10 w-auto"
+            width={208}
+            height={62}
+            className="h-13 w-auto"
             priority
           />
         </Link>

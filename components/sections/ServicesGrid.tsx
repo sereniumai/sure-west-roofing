@@ -1,8 +1,7 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { SectionLabel } from '@/components/ui/SectionLabel'
-import { ServiceCard } from '@/components/ui/ServiceCard'
 import { Button } from '@/components/ui/Button'
 
 interface ServiceItem {
@@ -38,36 +37,33 @@ const cardVariants = {
 }
 
 export function ServicesGrid({
-  label,
   heading,
   body,
   cta,
   services,
 }: ServicesGridProps) {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-[#EDEEE8] py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* LEFT — intro */}
-          <div className="lg:col-span-2">
-            <SectionLabel text={label} />
-
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-tight leading-tight mt-3">
+          <div>
+            <h2 className="font-display font-extrabold text-3xl lg:text-5xl xl:text-6xl text-dark tracking-tight leading-tight">
               {heading}
             </h2>
 
-            <p className="font-body text-body-text leading-relaxed mt-4 mb-8">
+            <p className="font-body text-body-text leading-relaxed mt-6 mb-8">
               {body}
             </p>
 
-            <Button variant="outline" href={cta.href}>
+            <Button variant="primary" href={cta.href}>
               {cta.label}
             </Button>
           </div>
 
-          {/* RIGHT — cards */}
+          {/* RIGHT — service items */}
           <motion.div
-            className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -75,13 +71,17 @@ export function ServicesGrid({
           >
             {services.map((service) => (
               <motion.div key={service.href} variants={cardVariants}>
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.description}
-                  href={service.href}
-                  featured={service.featured}
-                />
+                <Link href={service.href} className="group block">
+                  <div className="text-[#C49A2C] w-8 h-8 mb-3 [&>svg]:w-8 [&>svg]:h-8">
+                    {service.icon}
+                  </div>
+                  <h3 className="font-display font-bold text-lg text-dark tracking-tight mb-1 group-hover:text-[#C49A2C] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="font-body text-sm text-body-text leading-relaxed">
+                    {service.description}
+                  </p>
+                </Link>
               </motion.div>
             ))}
           </motion.div>
