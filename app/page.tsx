@@ -7,6 +7,8 @@ import {
   Wrench,
   CloudLightning,
   AlertTriangle,
+  Search,
+  Sun,
 } from 'lucide-react'
 import { generateMetadata as seoMetadata } from '@/lib/seo'
 import { Hero } from '@/components/sections/Hero'
@@ -74,6 +76,30 @@ export default function HomePage() {
               'Alberta hail damage experts. We handle the repairs and your insurance claim.',
             icon: <CloudLightning />,
             image: '/images/services/hail-damage.jpg',
+          },
+          {
+            title: 'Roof Maintenance',
+            href: '/roof-maintenance/cochrane',
+            description:
+              "Annual maintenance to extend your roof's life and prevent costly repairs.",
+            icon: <ClipboardCheck />,
+            image: '/images/services/roof-maintenance.jpg',
+          },
+          {
+            title: 'Roof Inspection',
+            href: '/roof-inspection/cochrane',
+            description:
+              'Detailed inspection reports. Know exactly what condition your roof is in.',
+            icon: <Search />,
+            image: '/images/services/roof-inspection.jpg',
+          },
+          {
+            title: 'Skylight Installation',
+            href: '/skylight-installation/cochrane',
+            description:
+              'Properly sealed skylights installed to Alberta building code.',
+            icon: <Sun />,
+            image: '/images/services/skylight-installation.jpg',
           },
           {
             title: 'Emergency Roof Repair',
