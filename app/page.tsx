@@ -48,8 +48,8 @@ export default function HomePage() {
         label="Why Sure West"
         heading="Reasons to choose Sure West Roofing in Cochrane."
         body="We're Cochrane-based, Red Seal certified, and built for Alberta's climate. When hail hits or winter takes its toll, you want a roofer who knows this province."
-        image="/images/roofer-working.jpg"
-        imageAlt="Sure West roofer working on Cochrane home"
+        image="/images/cochrane roofing company.png"
+        imageAlt="Cochrane roofing company Sure West Roofing"
         points={[
           {
             title: 'Red Seal Certified',
