@@ -39,7 +39,6 @@ export default function HomePage() {
         socialProofCount="150+"
         socialProofLabel="satisfied Cochrane homeowners"
         backgroundVideo="/videos/Best Roofing Company Cochrane.mp4"
-        backgroundImage="/images/cochrane roofing company.png"
       />
 
       {/* 2. Impact */}

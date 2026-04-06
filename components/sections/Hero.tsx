@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
@@ -40,6 +41,8 @@ export function Hero({
   backgroundVideo,
   backgroundImage,
 }: HeroProps) {
+  const [videoReady, setVideoReady] = useState(false)
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
       {/* Background video */}
@@ -49,7 +52,8 @@ export function Hero({
           loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          onCanPlay={() => setVideoReady(true)}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${videoReady ? 'opacity-100' : 'opacity-0'}`}
         >
           <source src={backgroundVideo} type="video/mp4" />
         </video>
