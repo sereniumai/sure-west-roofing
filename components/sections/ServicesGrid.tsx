@@ -43,7 +43,7 @@ export function ServicesGrid({
   const current = services[active]
 
   return (
-    <section className="bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
+    <section className="bg-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
@@ -64,7 +64,7 @@ export function ServicesGrid({
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
           {/* Tabs */}
-          <div className="relative flex items-center gap-1 mb-8 bg-white rounded-2xl p-1.5 w-fit shadow-sm">
+          <div className="relative flex items-center gap-1 mb-8 bg-[#F8F8F8] rounded-2xl p-1.5 w-fit">
             {services.map((service, i) => (
               <button
                 key={service.href}
@@ -78,7 +78,7 @@ export function ServicesGrid({
                 {active === i && (
                   <motion.div
                     layoutId="activeServiceTab"
-                    className="absolute inset-0 bg-[#F8F8F8] rounded-xl shadow-sm ring-1 ring-[#EBEBEB]"
+                    className="absolute inset-0 bg-white rounded-xl shadow-sm"
                     transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                   />
                 )}
@@ -115,7 +115,7 @@ export function ServicesGrid({
             </div>
 
             {/* Content side */}
-            <div className="col-span-5 bg-white rounded-2xl p-8 lg:p-10 flex flex-col justify-center shadow-sm ring-1 ring-[#EBEBEB]/50">
+            <div className="col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-center border border-[#EBEBEB]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
