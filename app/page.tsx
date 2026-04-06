@@ -34,7 +34,7 @@ export default function HomePage() {
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
         subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather - hail, ice, and everything in between."
-        primaryCTA={{ label: 'Book A Free Consultation', href: '/contact' }}
+        primaryCTA={{ label: 'Get A Free Estimate', href: '/contact' }}
         secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
         socialProofCount="150+"
         socialProofLabel="satisfied Cochrane homeowners"
