@@ -33,7 +33,7 @@ export function ReasonsSection({
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
-          className="max-w-2xl mb-12"
+          className="mb-12"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -60,7 +60,7 @@ export function ReasonsSection({
               <div className="relative w-full h-full min-h-[300px] lg:min-h-[420px] rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black">
                 <iframe
                   src={videoEmbed}
-                  className="absolute inset-0 w-full h-full border-0"
+                  className="absolute -inset-2 w-[calc(100%+16px)] h-[calc(100%+16px)] border-0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
                   title="Sure West Roofing"
