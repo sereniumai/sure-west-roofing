@@ -65,7 +65,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
 export function ImpactSection() {
   return (
-    <section className="bg-white py-16 lg:py-20">
+    <section className="bg-white py-12 lg:py-14">
       <div className="max-w-6xl mx-auto px-6">
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 place-items-center">
@@ -90,36 +90,24 @@ export function ImpactSection() {
           ))}
         </div>
 
-        {/* Divider */}
-        <div className="my-12 lg:my-14 border-t border-[#EBEBEB]" />
-
-        {/* Trust logos */}
-        <motion.p
-          className="text-center text-xs font-body font-medium text-body-text/50 uppercase tracking-widest mb-7"
+        {/* Logos — inline, compact */}
+        <motion.div
+          className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 mt-10 pt-8 border-t border-[#EBEBEB]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Trusted certifications &amp; associations
-        </motion.p>
-        <motion.div
-          className="flex flex-wrap items-center justify-center gap-8 lg:gap-12"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6 }}
         >
           {logos.map((logo) => (
             <div
               key={logo.alt}
-              className="relative h-14 lg:h-16 w-auto flex-shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="relative h-10 lg:h-12 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                height={64}
-                width={140}
+                height={48}
+                width={110}
                 className="h-full w-auto object-contain"
               />
             </div>
