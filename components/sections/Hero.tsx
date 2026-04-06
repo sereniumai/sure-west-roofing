@@ -63,8 +63,8 @@ export function Hero({
       ) : null}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-[rgba(10,18,35,0.60)]" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,18,35,0.80)] via-[rgba(10,18,35,0.50)] to-transparent" />
+      <div className="absolute inset-0 bg-[rgba(10,18,35,0.55)]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,18,35,0.75)] via-[rgba(10,18,35,0.45)] to-transparent" />
 
       {/* Content */}
       <motion.div
@@ -78,8 +78,8 @@ export function Hero({
           className="flex items-center gap-3 mb-4"
           variants={itemVariants}
         >
-          <span className="w-8 h-0.5 bg-[#C49A2C]" />
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#C49A2C]">
+          <span className="w-8 h-0.5 bg-[#E8922A]" />
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#E8922A]">
             Cochrane, Alberta
           </span>
         </motion.div>
@@ -99,7 +99,7 @@ export function Hero({
 
         {/* Subtitle */}
         <motion.p
-          className="font-body text-white/75 text-base md:text-lg leading-relaxed mt-5 max-w-lg"
+          className="font-body text-white/80 text-base md:text-lg leading-relaxed mt-5 max-w-lg"
           variants={itemVariants}
         >
           {subtitle}
@@ -125,11 +125,11 @@ export function Hero({
           className="mt-10 flex items-center gap-4"
           variants={itemVariants}
         >
-          <div>
-            <span className="font-body font-bold text-white text-xl">
+          <div className="flex items-center gap-3">
+            <span className="font-display font-bold text-white text-3xl tracking-wide">
               {socialProofCount}
             </span>
-            <span className="font-body text-white/70 text-sm ml-2">
+            <span className="font-body text-white/70 text-sm">
               {socialProofLabel}
             </span>
           </div>

@@ -26,7 +26,7 @@ export function FAQItem({
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${index}`}
       >
-        <span className="font-display font-semibold text-base text-dark tracking-wide group-hover:text-[#C49A2C] transition-colors duration-200 pr-4">
+        <span className="font-display font-semibold text-base text-dark tracking-wide group-hover:text-[#E8922A] transition-colors duration-200 pr-4">
           {question}
         </span>
         <Plus

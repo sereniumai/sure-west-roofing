@@ -32,7 +32,7 @@ export function Footer() {
   return (
     <footer className="bg-[#1B3558] text-white">
       {/* Row 1 — Gold accent bar */}
-      <div className="h-1 bg-[#C49A2C]" />
+      <div className="h-1 bg-[#E8922A]" />
 
       {/* Row 2 — Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
@@ -40,7 +40,7 @@ export function Footer() {
           {/* Column 1 — Brand */}
           <div>
             <Image
-              src="/images/logo-white.webp"
+              src="/images/Logo-300x104.webp"
               alt="Sure West Roofing"
               width={160}
               height={56}
@@ -58,8 +58,8 @@ export function Footer() {
                 href="tel:4039907210"
                 className="flex items-center gap-2 group"
               >
-                <Phone className="text-[#C49A2C] w-4 h-4" />
-                <span className="font-body text-sm text-white/80 group-hover:text-[#C49A2C] transition-colors duration-200">
+                <Phone className="text-[#E8922A] w-4 h-4" />
+                <span className="font-body text-sm text-white/80 group-hover:text-[#E8922A] transition-colors duration-200">
                   (403) 990-7210
                 </span>
               </a>
@@ -67,15 +67,15 @@ export function Footer() {
                 href="mailto:info@surewestroofing.ca"
                 className="flex items-center gap-2 group"
               >
-                <Mail className="text-[#C49A2C] w-4 h-4" />
-                <span className="font-body text-sm text-white/80 group-hover:text-[#C49A2C] transition-colors duration-200">
+                <Mail className="text-[#E8922A] w-4 h-4" />
+                <span className="font-body text-sm text-white/80 group-hover:text-[#E8922A] transition-colors duration-200">
                   info@surewestroofing.ca
                 </span>
               </a>
             </div>
 
             <div className="mt-4 flex items-center gap-2">
-              <MapPin className="text-[#C49A2C] w-4 h-4 flex-shrink-0" />
+              <MapPin className="text-[#E8922A] w-4 h-4 flex-shrink-0" />
               <span className="font-body text-sm text-white/80">
                 Unit 9 – 225 Railway St E, Cochrane AB
               </span>
@@ -84,7 +84,7 @@ export function Footer() {
 
           {/* Column 2 — Services */}
           <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#E8922A] mb-6">
               Services
             </h4>
             <ul className="flex flex-col gap-3">
@@ -92,7 +92,7 @@ export function Footer() {
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="font-body text-sm text-white/70 hover:text-[#C49A2C] transition-colors duration-200"
+                    className="font-body text-sm text-white/70 hover:text-[#E8922A] transition-colors duration-200"
                   >
                     {service.label}
                   </Link>
@@ -103,7 +103,7 @@ export function Footer() {
 
           {/* Column 3 — Company */}
           <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#E8922A] mb-6">
               Company
             </h4>
             <ul className="flex flex-col gap-3">
@@ -111,7 +111,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body text-sm text-white/70 hover:text-[#C49A2C] transition-colors duration-200"
+                    className="font-body text-sm text-white/70 hover:text-[#E8922A] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -122,7 +122,7 @@ export function Footer() {
 
           {/* Column 4 — Service Area */}
           <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#E8922A] mb-6">
               Service Area
             </h4>
             <p className="font-body text-sm text-white/60 leading-relaxed mb-4">
@@ -153,7 +153,7 @@ export function Footer() {
         </p>
         <p className="font-body text-xs text-white/50">
           Cochrane, Alberta{' '}
-          <span className="text-[#C49A2C]">·</span>{' '}
+          <span className="text-[#E8922A]">·</span>{' '}
           Red Seal Certified
         </p>
       </div>

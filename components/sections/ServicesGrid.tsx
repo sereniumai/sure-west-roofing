@@ -60,7 +60,7 @@ export function ServicesGrid({
               {body}
             </p>
 
-            <Button variant="primary" href={cta.href}>
+            <Button variant="outline" href={cta.href}>
               {cta.label}
             </Button>
           </div>
