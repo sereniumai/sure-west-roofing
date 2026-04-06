@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 interface ServiceItem {
   icon: React.ReactNode
@@ -111,23 +112,6 @@ export function ServicesGrid({
           </motion.div>
         </div>
 
-        {/* CTA link under heading */}
-        <motion.div
-          className="mb-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <Link
-            href={cta.href}
-            className="inline-flex items-center gap-2 font-body font-semibold text-sm text-[#D6AE60] hover:text-[#B8943F] transition-colors"
-          >
-            {cta.label}
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
-
         {/* Carousel */}
         <div
           ref={scrollRef}
@@ -187,13 +171,9 @@ export function ServicesGrid({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <Link
-            href={cta.href}
-            className="inline-flex items-center gap-2 font-body font-semibold text-dark hover:text-[#D6AE60] transition-colors"
-          >
+          <Button variant="primary" href={cta.href}>
             {cta.label}
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          </Button>
         </motion.div>
       </div>
     </section>
