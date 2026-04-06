@@ -21,7 +21,7 @@ export function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="block bg-white border border-[#E5E2D9] rounded-2xl overflow-hidden hover:shadow-md hover:border-[#D6AE60] transition-all duration-300 group"
+      className="block bg-white rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group"
     >
       <div className="aspect-video relative overflow-hidden">
         <Image

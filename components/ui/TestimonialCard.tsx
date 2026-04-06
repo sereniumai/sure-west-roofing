@@ -14,7 +14,7 @@ export function TestimonialCard({
   rating,
 }: TestimonialCardProps) {
   return (
-    <div className="bg-white border border-[#E5E2D9] rounded-2xl p-6">
+    <div className="bg-white rounded-2xl p-6 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)]">
       <span className="font-display text-6xl text-[#D6AE60] leading-none block mb-2" aria-hidden="true">
         &ldquo;
       </span>

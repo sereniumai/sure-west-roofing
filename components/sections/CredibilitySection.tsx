@@ -108,7 +108,7 @@ export function CredibilitySection({
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-white border border-[#E5E2D9] rounded-2xl p-5"
+                  className="bg-white rounded-2xl p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)]"
                 >
                   <div className="font-display font-bold text-3xl text-[#D6AE60] tracking-tight">
                     {stat.number}
