@@ -1,4 +1,4 @@
-type Background = 'white' | 'off-white' | 'navy'
+type Background = 'white' | 'surface' | 'navy'
 
 interface SectionWrapperProps {
   children: React.ReactNode
@@ -7,8 +7,8 @@ interface SectionWrapperProps {
 }
 
 const bgStyles: Record<Background, string> = {
-  white: 'bg-site-white',
-  'off-white': 'bg-off-white',
+  white: 'bg-white',
+  surface: 'bg-surface',
   navy: 'bg-navy text-white',
 }
 
@@ -18,8 +18,8 @@ export function SectionWrapper({
   className = '',
 }: SectionWrapperProps) {
   return (
-    <section className={`py-16 md:py-24 ${bgStyles[background]} ${className}`.trim()}>
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+    <section className={`py-20 lg:py-28 ${bgStyles[background]} ${className}`.trim()}>
+      <div className="max-w-6xl mx-auto px-6">
         {children}
       </div>
     </section>

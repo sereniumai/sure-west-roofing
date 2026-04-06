@@ -36,7 +36,6 @@ export function Nav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -50,11 +49,11 @@ export function Nav() {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between h-20">
-        {/* Logo */}
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
+        {/* Logo — swap between colour and white based on scroll */}
         <Link href="/" className="relative z-10 flex-shrink-0">
           <Image
-            src="/images/logo.png"
+            src={scrolled ? '/images/logo-white.webp' : '/images/logo-colour.webp'}
             alt="Sure West Roofing"
             width={160}
             height={48}
@@ -75,7 +74,11 @@ export function Nav() {
               >
                 <Link
                   href={link.href}
-                  className="flex items-center gap-1 text-sm text-white font-medium tracking-wide hover:text-gold transition-colors"
+                  className={`flex items-center gap-1 text-sm font-medium tracking-wide transition-colors ${
+                    scrolled
+                      ? 'text-white hover:text-primary'
+                      : 'text-white hover:text-primary'
+                  }`}
                 >
                   {link.label}
                   <ChevronDown
@@ -94,7 +97,7 @@ export function Nav() {
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-navy border border-white/10 shadow-xl min-w-[260px]">
+                  <div className="bg-navy border border-white/10 shadow-xl rounded-2xl min-w-[260px] overflow-hidden">
                     {serviceLinks.map((service) => (
                       <Link
                         key={service.href}
@@ -112,7 +115,11 @@ export function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-sm text-white font-medium tracking-wide hover:text-gold transition-colors"
+                className={`text-sm font-medium tracking-wide transition-colors ${
+                  scrolled
+                    ? 'text-white hover:text-primary'
+                    : 'text-white hover:text-primary'
+                }`}
               >
                 {link.label}
               </Link>
@@ -124,12 +131,14 @@ export function Nav() {
         <div className="hidden lg:flex items-center gap-6">
           <a
             href="tel:4039907210"
-            className="flex items-center gap-2 text-sm text-white font-medium hover:text-gold transition-colors"
+            className={`flex items-center gap-2 text-sm font-medium transition-colors ${
+              scrolled ? 'text-white hover:text-primary' : 'text-white hover:text-primary'
+            }`}
           >
             <Phone size={16} />
             (403) 990-7210
           </a>
-          <Button href="/contact" className="px-5 py-2.5">
+          <Button href="/contact" className="px-5 py-2.5 text-sm">
             Get a Free Estimate
           </Button>
         </div>
@@ -170,7 +179,7 @@ export function Nav() {
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    mobileServicesOpen ? 'max-h-96' : 'max-h-0'
+                    mobileServicesOpen ? 'max-h-[500px]' : 'max-h-0'
                   }`}
                 >
                   {serviceLinks.map((service) => (

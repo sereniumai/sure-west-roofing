@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost'
+type ButtonVariant = 'primary' | 'ghost'
 
 interface ButtonProps {
   children: React.ReactNode
@@ -13,11 +13,9 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-gold text-navy font-medium px-8 py-4 text-sm tracking-wide hover:brightness-90 transition-all active:scale-95',
-  secondary:
-    'bg-transparent text-white font-medium px-8 py-4 text-sm tracking-wide border border-white/35 hover:bg-white/10 transition-all active:scale-95',
+    'bg-[#C49A2C] text-white rounded-full px-7 py-3.5 font-medium hover:bg-[#A6821E] transition-all active:scale-95',
   ghost:
-    'bg-transparent text-navy font-medium px-8 py-4 text-sm tracking-wide border border-navy hover:bg-navy hover:text-white transition-all active:scale-95',
+    'border-2 border-white text-white rounded-full px-7 py-3.5 font-medium hover:bg-white hover:text-[#1B3558] transition-all active:scale-95',
 }
 
 export function Button({
