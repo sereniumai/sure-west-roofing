@@ -22,7 +22,6 @@ interface ReasonsSectionProps {
 }
 
 export function ReasonsSection({
-  label,
   heading,
   body,
   image,
@@ -33,39 +32,65 @@ export function ReasonsSection({
   return (
     <section className="bg-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* LEFT — Content */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h2 className="font-display font-extrabold text-3xl lg:text-[44px] text-dark tracking-tight leading-[1.1]">
-              {heading}
-            </h2>
-            <p className="font-body text-body-text leading-relaxed mt-5">
-              {body}
-            </p>
+        {/* Header — full width, same as ServicesGrid */}
+        <motion.div
+          className="mb-10"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
+            {heading}
+          </h2>
+          <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
+            {body}
+          </p>
+        </motion.div>
 
-            <div className="mt-8 space-y-1">
+        {/* Grid — same 7/5 split as ServicesGrid */}
+        <div className="grid grid-cols-12 gap-5 items-stretch min-h-[460px]">
+          {/* Video side — col-span-7, same as service image */}
+          <div className="col-span-12 lg:col-span-7 relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+            {videoEmbed ? (
+              <iframe
+                src={videoEmbed}
+                className="absolute inset-0 w-full h-full border-0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Sure West Roofing"
+              />
+            ) : image ? (
+              <Image
+                src={image}
+                alt={imageAlt || ''}
+                fill
+                className="object-cover"
+                sizes="60vw"
+              />
+            ) : null}
+          </div>
+
+          {/* Content card — col-span-5, same as service content */}
+          <div className="col-span-12 lg:col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-center border border-[#EBEBEB]">
+            <div className="flex flex-col gap-5">
               {points.map((point, i) => (
                 <motion.div
                   key={i}
-                  className="flex items-start gap-4 rounded-xl p-4 -ml-4 hover:bg-[#F8F8F8] transition-colors duration-300"
+                  className="flex items-start gap-3"
                   initial={{ y: 15, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-30px' }}
                   transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
                 >
-                  <div className="w-6 h-6 rounded-full bg-[#D6AE60]/15 flex items-center justify-center flex-shrink-0 mt-1">
-                    <Check className="w-3.5 h-3.5 text-[#D6AE60]" />
+                  <div className="w-5 h-5 rounded-full bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-3 h-3 text-[#D6AE60]" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-dark text-[15px] tracking-tight">
+                    <h3 className="font-display font-bold text-dark text-base tracking-tight mb-1">
                       {point.title}
                     </h3>
-                    <p className="font-body text-sm text-body-text leading-relaxed mt-0.5">
+                    <p className="font-body text-sm text-body-text leading-relaxed">
                       {point.description}
                     </p>
                   </div>
@@ -73,48 +98,10 @@ export function ReasonsSection({
               ))}
             </div>
 
-            <motion.div
-              className="mt-8"
-              initial={{ y: 15, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.35, ease: 'easeOut' }}
-            >
-              <Button variant="primary" href="/contact">
-                Get A Free Estimate
-              </Button>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT — Video */}
-          <motion.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {videoEmbed ? (
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_12px_48px_rgba(0,0,0,0.15)]">
-                <iframe
-                  src={videoEmbed}
-                  className="absolute inset-0 w-full h-full border-0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title="Sure West Roofing"
-                />
-              </div>
-            ) : image ? (
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_12px_48px_rgba(0,0,0,0.15)]">
-                <Image
-                  src={image}
-                  alt={imageAlt || ''}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-            ) : null}
-          </motion.div>
+            <Button variant="primary" href="/contact" className="mt-8 w-fit">
+              Get A Free Estimate
+            </Button>
+          </div>
         </div>
       </div>
     </section>
