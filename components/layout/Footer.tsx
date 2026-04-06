@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 const accreditations = [
   'SHINGLEMASTER',
@@ -22,7 +22,6 @@ const companyLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -30,8 +29,6 @@ const serviceAreas = [
   { label: 'Cochrane', href: '/' },
   { label: 'Calgary', href: '/roofing-contractor-calgary' },
   { label: 'Canmore', href: '/roofing-contractor-canmore' },
-  { label: 'Springbank', href: '/' },
-  { label: 'Bragg Creek', href: '/' },
 ]
 
 export function Footer() {
@@ -74,19 +71,7 @@ export function Footer() {
               project.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href="mailto:info@cochraneroofingpro.ca"
-                className="flex items-center gap-2 group"
-              >
-                <Mail className="text-[#D6AE60] w-4 h-4" />
-                <span className="font-body text-sm text-body-text group-hover:text-[#D6AE60] transition-colors duration-200">
-                  info@cochraneroofingpro.ca
-                </span>
-              </a>
-            </div>
-
-            <div className="mt-4 flex items-center gap-2">
+            <div className="mt-6 flex items-center gap-2">
               <MapPin className="text-[#D6AE60] w-4 h-4 flex-shrink-0" />
               <span className="font-body text-sm text-body-text">
                 Cochrane, AB

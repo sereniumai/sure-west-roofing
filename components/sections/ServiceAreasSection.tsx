@@ -37,7 +37,7 @@ export function ServiceAreasSection() {
             Service Areas
           </span>
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
-            Roofing Contractor Serving Cochrane,{'\n'}Calgary and Canmore
+            Roofing Contractor Serving Cochrane,<br className="hidden lg:block" />{' '}Calgary and Canmore
           </h2>
           <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
             Based in Cochrane, Alberta. We serve homeowners across the Bow Valley corridor and the Calgary region. Wherever you are, our certified roofing team is ready to help.

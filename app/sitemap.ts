@@ -19,11 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: 'https://cochraneroofingpro.ca/gallery',
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
       url: 'https://cochraneroofingpro.ca/contact',
       changeFrequency: 'monthly',
       priority: 0.8,
