@@ -60,7 +60,7 @@ export function CredibilitySection({
 
             {/* Badge overlay */}
             <div className="absolute bottom-8 left-8 bg-[#1B3558] text-white rounded-2xl p-6 border-l-4 border-[#C49A2C]">
-              <div className="font-display font-bold text-4xl text-[#C49A2C] tracking-wide">
+              <div className="font-display font-bold text-4xl text-[#C49A2C] tracking-tight">
                 {badgeNumber}
               </div>
               <div className="font-body text-xs text-white/70 uppercase tracking-widest mt-1">
@@ -78,7 +78,7 @@ export function CredibilitySection({
           >
             <SectionLabel text={label} />
 
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-wide leading-tight mt-3 mb-10">
+            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-tight leading-tight mt-3 mb-10">
               {heading}
             </h2>
 
@@ -87,12 +87,12 @@ export function CredibilitySection({
               {steps.map((step) => (
                 <div key={step.number} className="flex items-start gap-5">
                   <div className="w-12 h-12 rounded-full bg-[#4A7FA8] flex-shrink-0 flex items-center justify-center">
-                    <span className="font-display font-bold text-lg text-white tracking-wide">
+                    <span className="font-display font-bold text-lg text-white tracking-tight">
                       {step.number}
                     </span>
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold text-dark text-base tracking-wide mb-1">
+                    <h3 className="font-display font-semibold text-dark text-base tracking-tight mb-1">
                       {step.title}
                     </h3>
                     <p className="font-body text-sm text-body-text leading-relaxed">
@@ -110,7 +110,7 @@ export function CredibilitySection({
                   key={stat.label}
                   className="bg-white border border-[#E5E2D9] rounded-2xl p-5"
                 >
-                  <div className="font-display font-bold text-3xl text-[#C49A2C] tracking-wide">
+                  <div className="font-display font-bold text-3xl text-[#C49A2C] tracking-tight">
                     {stat.number}
                   </div>
                   <div className="font-body text-xs text-body-text mt-1 uppercase tracking-wide">

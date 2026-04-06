@@ -38,7 +38,7 @@ export function BlogCard({
           {category}
         </span>
 
-        <h3 className="font-display font-semibold text-base text-dark tracking-wide leading-snug mb-2">
+        <h3 className="font-display font-semibold text-base text-dark tracking-tight leading-snug mb-2">
           {title}
         </h3>
 

@@ -33,7 +33,7 @@ const config: Config = {
         'border-col': '#E5E2D9',
       },
       fontFamily: {
-        display: ['Oswald', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
       },
     },

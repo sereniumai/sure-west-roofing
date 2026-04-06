@@ -34,7 +34,7 @@ export function CTABanner({
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
       >
-        <h2 className="font-display font-bold text-3xl lg:text-5xl text-white tracking-wide leading-tight max-w-3xl mx-auto">
+        <h2 className="font-display font-bold text-3xl lg:text-5xl text-white tracking-tight leading-tight max-w-3xl mx-auto">
           {heading}
         </h2>
 

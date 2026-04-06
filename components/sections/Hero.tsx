@@ -87,7 +87,7 @@ export function Hero({
 
         {/* H1 */}
         <motion.h1
-          className="font-display font-bold tracking-wide text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] text-white"
+          className="font-display font-extrabold tracking-tight text-4xl md:text-5xl lg:text-7xl xl:text-[100px] leading-[1.05] text-white"
           variants={itemVariants}
         >
           {h1.split('\n').map((line, i) => (

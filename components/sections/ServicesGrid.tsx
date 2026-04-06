@@ -52,7 +52,7 @@ export function ServicesGrid({
           <div className="lg:col-span-2">
             <SectionLabel text={label} />
 
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-wide leading-tight mt-3">
+            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-tight leading-tight mt-3">
               {heading}
             </h2>
 

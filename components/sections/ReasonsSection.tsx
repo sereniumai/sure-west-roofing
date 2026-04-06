@@ -56,7 +56,7 @@ export function ReasonsSection({
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <h2 className="font-display font-bold text-3xl lg:text-5xl text-dark tracking-wide leading-tight">
+            <h2 className="font-display font-bold text-3xl lg:text-5xl text-dark tracking-tight leading-tight">
               {heading}
             </h2>
 

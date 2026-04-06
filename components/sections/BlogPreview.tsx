@@ -44,7 +44,7 @@ export function BlogPreview({
         <div className="text-center max-w-2xl mx-auto mb-14">
           <SectionLabel text={label} className="justify-center" />
 
-          <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-wide mt-3">
+          <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-tight mt-3">
             {heading}
           </h2>
 

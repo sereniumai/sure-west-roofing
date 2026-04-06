@@ -46,7 +46,7 @@ export function TestimonialsSection({
           <div className="lg:col-span-2">
             <SectionLabel text={label} />
 
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-wide leading-tight mt-3">
+            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-tight leading-tight mt-3">
               {heading}
             </h2>
 
@@ -69,7 +69,7 @@ export function TestimonialsSection({
 
             {/* Review count */}
             <div className="mt-4">
-              <div className="font-display font-bold text-5xl text-[#1B3558] tracking-wide">
+              <div className="font-display font-bold text-5xl text-[#1B3558] tracking-tight">
                 {reviewCount}
               </div>
               <p className="font-body text-sm text-body-text mt-1">

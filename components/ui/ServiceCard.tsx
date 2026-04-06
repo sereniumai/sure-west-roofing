@@ -30,7 +30,7 @@ export function ServiceCard({
         </div>
       </div>
 
-      <h3 className="font-display font-semibold text-lg text-dark tracking-wide mb-2">
+      <h3 className="font-display font-semibold text-lg text-dark tracking-tight mb-2">
         {title}
       </h3>
 
