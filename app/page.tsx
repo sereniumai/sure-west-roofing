@@ -34,9 +34,8 @@ export default function HomePage() {
       {/* 1. Hero */}
       <Hero
         h1="Cochrane's Trusted Roofing Contractor"
-        subtitle="Protecting Cochrane homes from Alberta's toughest weather -hail, ice, and everything in between. Red Seal certified. Free estimates."
+        subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather - hail, ice, and everything in between. Red Seal certified. Free estimates."
         primaryCTA={{ label: 'Get a free estimate', href: '/contact' }}
-        secondaryCTA={{ label: 'See our work', href: '/gallery' }}
         socialProofCount="150+"
         socialProofLabel="satisfied Cochrane homeowners"
         backgroundVideo="/videos/Best Roofing Company Cochrane.mp4"

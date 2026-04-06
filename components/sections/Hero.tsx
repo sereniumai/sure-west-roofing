@@ -7,7 +7,7 @@ interface HeroProps {
   h1: string
   subtitle: string
   primaryCTA: { label: string; href: string }
-  secondaryCTA: { label: string; href: string }
+  secondaryCTA?: { label: string; href: string }
   socialProofCount: string
   socialProofLabel: string
   backgroundVideo?: string
@@ -108,9 +108,11 @@ export function Hero({
           <Button variant="primary" size="lg" href={primaryCTA.href}>
             {primaryCTA.label}
           </Button>
-          <Button variant="ghost" size="lg" href={secondaryCTA.href}>
-            {secondaryCTA.label}
-          </Button>
+          {secondaryCTA && (
+            <Button variant="ghost" size="lg" href={secondaryCTA.href}>
+              {secondaryCTA.label}
+            </Button>
+          )}
         </motion.div>
 
         {/* Social proof */}
