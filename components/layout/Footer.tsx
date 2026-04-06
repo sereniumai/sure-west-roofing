@@ -1,6 +1,14 @@
 import Link from 'next/link'
 import { Mail, MapPin } from 'lucide-react'
 
+const accreditations = [
+  'SHINGLEMASTER',
+  'WCB ALBERTA',
+  'BBB ACCREDITED',
+  'EMERALD PRO',
+  'TOP ROOFERS CANADA',
+]
+
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
   { label: 'Roof Repair', href: '/roof-repair/cochrane' },
@@ -19,23 +27,40 @@ const companyLinks = [
 ]
 
 const serviceAreas = [
-  { label: 'Cochrane', href: '/services' },
+  { label: 'Cochrane', href: '/' },
   { label: 'Calgary', href: '/roofing-contractor-calgary' },
   { label: 'Canmore', href: '/roofing-contractor-canmore' },
-  { label: 'Springbank', href: '/services' },
-  { label: 'Bragg Creek', href: '/services' },
+  { label: 'Springbank', href: '/' },
+  { label: 'Bragg Creek', href: '/' },
 ]
 
 export function Footer() {
   return (
     <footer className="bg-[#F8F8F8]">
-      {/* Top border */}
-      <div className="h-px bg-[#EBEBEB]" />
+      {/* Accreditation strip */}
+      <div className="border-t border-[#EBEBEB]" />
+      <div className="max-w-6xl mx-auto px-6 py-5">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+          {accreditations.map((name, i) => (
+            <span key={name} className="flex items-center gap-6">
+              <span className="font-body text-xs font-semibold tracking-widest uppercase text-body-text/40">
+                {name}
+              </span>
+              {i < accreditations.length - 1 && (
+                <span className="text-[#D6AE60] text-xs">|</span>
+              )}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Divider */}
+      <div className="border-t border-[#EBEBEB]" />
 
       {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Column 1 — Brand */}
+          {/* Column 1 */}
           <div>
             <img
               src="/images/logo.svg"
@@ -69,7 +94,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2 — Services */}
+          {/* Column 2 */}
           <div>
             <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
               Services
@@ -88,7 +113,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 — Company */}
+          {/* Column 3 */}
           <div>
             <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
               Company
@@ -107,15 +132,11 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Service Areas */}
+          {/* Column 4 */}
           <div>
             <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
               Service Areas
             </h4>
-            <p className="font-body text-sm text-body-text leading-relaxed mb-4">
-              Proudly serving residential roofing clients across the Bow Valley
-              and surrounding communities.
-            </p>
             <ul className="flex flex-col gap-2">
               {serviceAreas.map((area) => (
                 <li key={area.label}>
@@ -132,18 +153,14 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Divider */}
-      <div className="border-t border-[#EBEBEB]" />
-
       {/* Bottom bar */}
+      <div className="border-t border-[#EBEBEB]" />
       <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
         <p className="font-body text-xs text-body-text/60">
-          &copy; {new Date().getFullYear()} Cochrane Roofing Pro. All Rights Reserved.
+          &copy; 2026 Cochrane Roofing Pro. All Rights Reserved.
         </p>
         <p className="font-body text-xs text-body-text/60">
-          Cochrane, Alberta{' '}
-          <span className="text-[#D6AE60]">&middot;</span>{' '}
-          Red Seal Certified
+          Cochrane, Alberta. Red Seal Certified.
         </p>
       </div>
     </footer>
