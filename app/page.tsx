@@ -13,6 +13,7 @@ import {
 } from 'lucide-react'
 import { generateMetadata as seoMetadata } from '@/lib/seo'
 import { Hero } from '@/components/sections/Hero'
+import { ImpactSection } from '@/components/sections/ImpactSection'
 import { ReasonsSection } from '@/components/sections/ReasonsSection'
 import { ServicesGrid } from '@/components/sections/ServicesGrid'
 import { CredibilitySection } from '@/components/sections/CredibilitySection'
@@ -43,7 +44,10 @@ export default function HomePage() {
         backgroundImage="/images/hero-bg.jpg"
       />
 
-      {/* 2. Reasons */}
+      {/* 2. Impact */}
+      <ImpactSection />
+
+      {/* 3. Reasons */}
       <ReasonsSection
         label="Why Sure West"
         heading="Reasons to choose our roofing services."
