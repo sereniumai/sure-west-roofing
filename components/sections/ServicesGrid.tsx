@@ -31,7 +31,7 @@ export function ServicesGrid({
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
-          className="mb-10"
+          className="mb-12"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -45,8 +45,8 @@ export function ServicesGrid({
           </p>
         </motion.div>
 
-        {/* 3×2 equal grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* 3×2 grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {services.map((service, i) => (
             <motion.div
               key={service.href}
@@ -61,7 +61,7 @@ export function ServicesGrid({
             >
               <Link
                 href={service.href}
-                className="group relative block rounded-2xl overflow-hidden min-h-[240px] lg:min-h-[280px]"
+                className="group relative block rounded-2xl overflow-hidden min-h-[320px] lg:min-h-[360px]"
               >
                 {/* Full-bleed image */}
                 {service.image && (
@@ -69,27 +69,31 @@ export function ServicesGrid({
                     src={service.image}
                     alt={service.title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-[800ms] ease-out"
+                    className="object-cover group-hover:scale-110 transition-transform duration-[1200ms] ease-out"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 )}
 
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors duration-500" />
+                {/* Subtle overall darkening */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500" />
 
-                {/* Gold accent line on hover */}
-                <div className="absolute top-5 left-5 w-8 h-1 bg-[#D6AE60] rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:w-12" />
+                {/* Gold number */}
+                <div className="absolute top-5 left-6 font-display font-extrabold text-[#D6AE60]/30 text-6xl leading-none select-none group-hover:text-[#D6AE60]/50 transition-colors duration-500">
+                  {String(i + 1).padStart(2, '0')}
+                </div>
 
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-5 lg:p-6">
-                  <h3 className="font-display font-bold text-white text-xl lg:text-2xl tracking-tight leading-snug mb-1">
+                {/* Frosted glass content panel */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md p-6 translate-y-[calc(100%-80px)] group-hover:translate-y-0 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                  {/* Gold accent bar */}
+                  <div className="w-10 h-0.5 bg-[#D6AE60] mb-4 group-hover:w-16 transition-all duration-500" />
+
+                  <h3 className="font-display font-bold text-dark text-xl tracking-tight mb-2">
                     {service.title}
                   </h3>
-                  <p className="font-body text-white/70 text-sm leading-relaxed mb-3 line-clamp-2">
+                  <p className="font-body text-body-text text-sm leading-relaxed mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                     {service.description}
                   </p>
-                  <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-[#D6AE60] group-hover:gap-3 transition-all duration-300">
+                  <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-[#D6AE60] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">
                     {service.title}
                     <ArrowRight className="w-4 h-4" />
                   </span>
