@@ -68,6 +68,7 @@ export function ImpactSection() {
                 delay: i * 0.15,
                 ease: [0.16, 1, 0.3, 1],
               }}
+              className="text-center"
             >
               <Counter value={stat.number} suffix={stat.suffix} />
               <p className="font-body text-body-text text-sm mt-2 uppercase tracking-wider">
