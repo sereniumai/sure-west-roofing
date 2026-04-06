@@ -3,17 +3,71 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown } from 'lucide-react'
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Home,
+  Wrench,
+  CloudLightning,
+  ClipboardCheck,
+  Search,
+  Sun,
+  AlertTriangle,
+  ArrowRight,
+} from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const serviceLinks = [
-  { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
-  { label: 'Roof Repair', href: '/roof-repair/cochrane' },
-  { label: 'Hail Damage Repair', href: '/hail-damage-repair/cochrane' },
-  { label: 'Roof Maintenance', href: '/roof-maintenance/cochrane' },
-  { label: 'Roof Inspection', href: '/roof-inspection/cochrane' },
-  { label: 'Skylight Installation', href: '/skylight-installation/cochrane' },
-  { label: 'Emergency Roof Repair', href: '/emergency-roof-repair/cochrane' },
+  {
+    label: 'Roof Replacement',
+    description: 'Complete tear-off and replacement',
+    href: '/roof-replacement/cochrane',
+    icon: Home,
+    image: '/images/services/roof-replacement.jpg',
+  },
+  {
+    label: 'Roof Repair',
+    description: 'Fast, lasting leak and shingle repair',
+    href: '/roof-repair/cochrane',
+    icon: Wrench,
+    image: '/images/services/roof-repair.jpg',
+  },
+  {
+    label: 'Hail Damage Repair',
+    description: 'Insurance claims and restoration',
+    href: '/hail-damage-repair/cochrane',
+    icon: CloudLightning,
+    image: '/images/services/hail-damage.jpg',
+  },
+  {
+    label: 'Roof Maintenance',
+    description: 'Annual care to extend roof life',
+    href: '/roof-maintenance/cochrane',
+    icon: ClipboardCheck,
+    image: '/images/services/roof-maintenance.jpg',
+  },
+  {
+    label: 'Roof Inspection',
+    description: 'Detailed condition reports',
+    href: '/roof-inspection/cochrane',
+    icon: Search,
+    image: '/images/services/roof-inspection.jpg',
+  },
+  {
+    label: 'Skylight Installation',
+    description: 'Code-compliant skylight installs',
+    href: '/skylight-installation/cochrane',
+    icon: Sun,
+    image: '/images/services/skylight-installation.jpg',
+  },
+  {
+    label: 'Emergency Roof Repair',
+    description: '24/7 emergency response',
+    href: '/emergency-roof-repair/cochrane',
+    icon: AlertTriangle,
+    image: '/images/services/emergency-repair.jpg',
+  },
 ]
 
 const navLinks = [
@@ -28,6 +82,7 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [hoveredService, setHoveredService] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80)
@@ -62,19 +117,22 @@ export function Nav() {
           />
         </Link>
 
-        {/* Desktop Links — center */}
-        <div className="hidden lg:flex items-center gap-8">
+        {/* Desktop Links */}
+        <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() => setServicesOpen(true)}
+                onMouseEnter={() => {
+                  setServicesOpen(true)
+                  setHoveredService(0)
+                }}
                 onMouseLeave={() => setServicesOpen(false)}
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 text-sm font-medium tracking-wide transition-colors ${
+                  className={`flex items-center gap-1.5 text-[15px] font-medium tracking-wide transition-colors ${
                     scrolled
                       ? 'text-dark hover:text-[#D6AE60]'
                       : 'text-white hover:text-[#D6AE60]'
@@ -82,32 +140,93 @@ export function Nav() {
                 >
                   {link.label}
                   <ChevronDown
-                    size={14}
+                    size={15}
                     className={`transition-transform duration-200 ${
                       servicesOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </Link>
 
-                {/* Dropdown */}
+                {/* Mega dropdown */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-200 ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-5 transition-all duration-200 ${
                     servicesOpen
                       ? 'opacity-100 visible translate-y-0'
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-white border border-gray-100 shadow-xl rounded-2xl min-w-[260px] overflow-hidden">
-                    {serviceLinks.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        className="block px-6 py-3 text-sm text-body-text hover:text-dark hover:bg-gray-50 transition-colors"
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        {service.label}
-                      </Link>
-                    ))}
+                  <div className="bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden flex w-[720px]">
+                    {/* Left - service list */}
+                    <div className="flex-1 py-3">
+                      {serviceLinks.map((service, i) => {
+                        const Icon = service.icon
+                        return (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            className={`flex items-center gap-4 px-5 py-3.5 transition-colors ${
+                              hoveredService === i
+                                ? 'bg-[#EDEEE8]/60'
+                                : 'hover:bg-[#EDEEE8]/40'
+                            }`}
+                            onMouseEnter={() => setHoveredService(i)}
+                            onClick={() => setServicesOpen(false)}
+                          >
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
+                              hoveredService === i
+                                ? 'bg-[#D6AE60]/15 text-[#D6AE60]'
+                                : 'bg-gray-100 text-gray-400'
+                            }`}>
+                              <Icon className="w-5 h-5" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="font-display font-bold text-sm text-dark tracking-tight">
+                                {service.label}
+                              </p>
+                              <p className="text-xs text-body-text mt-0.5">
+                                {service.description}
+                              </p>
+                            </div>
+                            {hoveredService === i && (
+                              <ArrowRight className="w-4 h-4 text-[#D6AE60] flex-shrink-0" />
+                            )}
+                          </Link>
+                        )
+                      })}
+
+                      {/* Bottom CTA */}
+                      <div className="mx-5 mt-2 pt-3 border-t border-gray-100 flex items-center justify-between">
+                        <p className="text-xs text-body-text">Not sure what you need?</p>
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D6AE60] hover:text-[#B8943F] transition-colors"
+                          onClick={() => setServicesOpen(false)}
+                        >
+                          Contact us
+                          <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Right - image preview */}
+                    <div className="w-[280px] p-3 flex-shrink-0">
+                      <div className="relative w-full h-full rounded-xl overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a] min-h-[320px]">
+                        {serviceLinks.map((service, i) => (
+                          service.image && (
+                            <Image
+                              key={service.href}
+                              src={service.image}
+                              alt={service.label}
+                              fill
+                              className={`object-cover transition-opacity duration-300 ${
+                                hoveredService === i ? 'opacity-100' : 'opacity-0'
+                              }`}
+                              sizes="280px"
+                            />
+                          )
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -115,7 +234,7 @@ export function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors ${
+                className={`text-[15px] font-medium tracking-wide transition-colors ${
                   scrolled
                     ? 'text-dark hover:text-[#D6AE60]'
                     : 'text-white hover:text-[#D6AE60]'
