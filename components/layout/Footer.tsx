@@ -1,14 +1,6 @@
 import Link from 'next/link'
 import { MapPin } from 'lucide-react'
 
-const accreditations = [
-  'SHINGLEMASTER',
-  'WCB ALBERTA',
-  'BBB ACCREDITED',
-  'EMERALD PRO',
-  'TOP ROOFERS CANADA',
-]
-
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
   { label: 'Roof Repair', href: '/roof-repair/cochrane' },
@@ -34,24 +26,6 @@ const serviceAreas = [
 export function Footer() {
   return (
     <footer className="bg-[#F8F8F8]">
-      {/* Accreditation strip */}
-      <div className="border-t border-[#EBEBEB]" />
-      <div className="max-w-6xl mx-auto px-6 py-5">
-        <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-          {accreditations.map((name, i) => (
-            <span key={name} className="flex items-center gap-6">
-              <span className="font-body text-xs font-semibold tracking-widest uppercase text-body-text/40">
-                {name}
-              </span>
-              {i < accreditations.length - 1 && (
-                <span className="text-[#D6AE60] text-xs">|</span>
-              )}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Divider */}
       <div className="border-t border-[#EBEBEB]" />
 
       {/* Main footer content */}
