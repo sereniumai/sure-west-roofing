@@ -12,7 +12,7 @@ const bullets = [
 
 export function ContactCTASection() {
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-[#F8F8F8] py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
           className="bg-[#1B3558] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 text-center"

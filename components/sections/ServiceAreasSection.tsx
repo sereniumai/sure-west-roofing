@@ -6,13 +6,6 @@ import { Button } from '@/components/ui/Button'
 
 const areas = [
   {
-    name: 'Roofing Contractor Cochrane',
-    description:
-      "Our home base. We know Cochrane's weather, its homes, and its homeowners. We are your local roofing team. Always nearby. Always available.",
-    href: '/',
-    linkText: 'Cochrane Roofing Services',
-  },
-  {
     name: 'Roofing Contractor Calgary',
     description:
       'Serving homeowners across Calgary and the surrounding communities. The same certified standard we deliver in Cochrane, brought to your Calgary home.',
@@ -30,7 +23,7 @@ const areas = [
 
 export function ServiceAreasSection() {
   return (
-    <section className="bg-[#F8F8F8] py-16 lg:py-24">
+    <section className="bg-white py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
@@ -52,11 +45,11 @@ export function ServiceAreasSection() {
         </motion.div>
 
         {/* Location cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {areas.map((area, i) => (
             <motion.div
               key={area.name}
-              className="bg-white rounded-2xl p-8 border border-[#EBEBEB] text-center"
+              className="bg-[#F8F8F8] rounded-2xl p-8 border border-[#EBEBEB] text-center"
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-30px' }}

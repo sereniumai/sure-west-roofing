@@ -73,12 +73,9 @@ export function TestimonialsSection({
                 &ldquo;{testimonial.text}&rdquo;
               </p>
 
-              {/* Divider + Author */}
+              {/* Divider + Location */}
               <div className="border-t border-[#EBEBEB] pt-5">
-                <p className="font-display font-bold text-dark text-base tracking-tight">
-                  {testimonial.name}
-                </p>
-                <p className="font-body text-[#D6AE60] text-sm mt-0.5">
+                <p className="font-body text-[#D6AE60] text-sm">
                   {testimonial.location}
                 </p>
               </div>

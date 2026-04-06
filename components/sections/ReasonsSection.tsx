@@ -23,6 +23,7 @@ interface ReasonsSectionProps {
 }
 
 export function ReasonsSection({
+  label,
   heading,
   headingAccent,
   body,
@@ -42,6 +43,9 @@ export function ReasonsSection({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+            {label}
+          </span>
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
             {headingAccent && (
