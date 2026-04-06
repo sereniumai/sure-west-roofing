@@ -78,8 +78,8 @@ export function Hero({
           className="flex items-center gap-3 mb-4"
           variants={itemVariants}
         >
-          <span className="w-8 h-0.5 bg-[#C49A2C]" />
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#C49A2C]">
+          <span className="w-8 h-0.5 bg-[#D6AE60]" />
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60]">
             Cochrane, Alberta
           </span>
         </motion.div>

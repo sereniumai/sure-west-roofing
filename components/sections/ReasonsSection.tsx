@@ -68,7 +68,7 @@ export function ReasonsSection({
               {points.map((point, i) => (
                 <div key={i} className="flex items-start gap-4">
                   <div className="w-6 h-6 mt-0.5 flex-shrink-0">
-                    <Check className="w-6 h-6 text-[#C49A2C]" />
+                    <Check className="w-6 h-6 text-[#D6AE60]" />
                   </div>
                   <div>
                     <h3 className="font-body font-bold text-dark text-base mb-1">

@@ -21,7 +21,7 @@ export function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="block bg-white border border-[#E5E2D9] rounded-2xl overflow-hidden hover:shadow-md hover:border-[#C49A2C] transition-all duration-300 group"
+      className="block bg-white border border-[#E5E2D9] rounded-2xl overflow-hidden hover:shadow-md hover:border-[#D6AE60] transition-all duration-300 group"
     >
       <div className="aspect-video relative overflow-hidden">
         <Image
@@ -34,7 +34,7 @@ export function BlogCard({
       </div>
 
       <div className="p-5">
-        <span className="bg-[#C49A2C]/10 text-[#C49A2C] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
+        <span className="bg-[#D6AE60]/10 text-[#D6AE60] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
           {category}
         </span>
 

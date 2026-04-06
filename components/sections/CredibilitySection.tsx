@@ -59,8 +59,8 @@ export function CredibilitySection({
             </div>
 
             {/* Badge overlay */}
-            <div className="absolute bottom-8 left-8 bg-[#1B3558] text-white rounded-2xl p-6 border-l-4 border-[#C49A2C]">
-              <div className="font-display font-bold text-4xl text-[#C49A2C] tracking-tight">
+            <div className="absolute bottom-8 left-8 bg-[#1B3558] text-white rounded-2xl p-6 border-l-4 border-[#D6AE60]">
+              <div className="font-display font-bold text-4xl text-[#D6AE60] tracking-tight">
                 {badgeNumber}
               </div>
               <div className="font-body text-xs text-white/70 uppercase tracking-widest mt-1">
@@ -110,7 +110,7 @@ export function CredibilitySection({
                   key={stat.label}
                   className="bg-white border border-[#E5E2D9] rounded-2xl p-5"
                 >
-                  <div className="font-display font-bold text-3xl text-[#C49A2C] tracking-tight">
+                  <div className="font-display font-bold text-3xl text-[#D6AE60] tracking-tight">
                     {stat.number}
                   </div>
                   <div className="font-body text-xs text-body-text mt-1 uppercase tracking-wide">

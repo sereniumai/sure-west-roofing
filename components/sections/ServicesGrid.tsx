@@ -72,10 +72,10 @@ export function ServicesGrid({
             {services.map((service) => (
               <motion.div key={service.href} variants={cardVariants}>
                 <Link href={service.href} className="group block">
-                  <div className="text-[#C49A2C] w-8 h-8 mb-3 [&>svg]:w-8 [&>svg]:h-8">
+                  <div className="text-[#D6AE60] w-8 h-8 mb-3 [&>svg]:w-8 [&>svg]:h-8">
                     {service.icon}
                   </div>
-                  <h3 className="font-display font-bold text-lg text-dark tracking-tight mb-1 group-hover:text-[#C49A2C] transition-colors">
+                  <h3 className="font-display font-bold text-lg text-dark tracking-tight mb-1 group-hover:text-[#D6AE60] transition-colors">
                     {service.title}
                   </h3>
                   <p className="font-body text-sm text-body-text leading-relaxed">

@@ -76,8 +76,8 @@ export function Nav() {
                   href={link.href}
                   className={`flex items-center gap-1 text-sm font-medium tracking-wide transition-colors ${
                     scrolled
-                      ? 'text-white hover:text-[#C49A2C]'
-                      : 'text-white hover:text-[#C49A2C]'
+                      ? 'text-white hover:text-[#D6AE60]'
+                      : 'text-white hover:text-[#D6AE60]'
                   }`}
                 >
                   {link.label}
@@ -117,8 +117,8 @@ export function Nav() {
                 href={link.href}
                 className={`text-sm font-medium tracking-wide transition-colors ${
                   scrolled
-                    ? 'text-white hover:text-[#C49A2C]'
-                    : 'text-white hover:text-[#C49A2C]'
+                    ? 'text-white hover:text-[#D6AE60]'
+                    : 'text-white hover:text-[#D6AE60]'
                 }`}
               >
                 {link.label}
@@ -132,7 +132,7 @@ export function Nav() {
           <a
             href="tel:4039907210"
             className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-              scrolled ? 'text-white hover:text-[#C49A2C]' : 'text-white hover:text-[#C49A2C]'
+              scrolled ? 'text-white hover:text-[#D6AE60]' : 'text-white hover:text-[#D6AE60]'
             }`}
           >
             <Phone size={16} />
