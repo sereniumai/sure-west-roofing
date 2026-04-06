@@ -41,10 +41,10 @@ export function ReasonsSection({
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             {videoEmbed ? (
-              <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-black">
+              <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl bg-black">
                 <iframe
                   src={videoEmbed}
-                  className="absolute inset-0 w-full h-full"
+                  className="absolute inset-0 w-full h-full border-0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
                   title="Sure West Roofing"
