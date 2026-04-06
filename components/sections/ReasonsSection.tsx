@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 interface ReasonPoint {
   title: string
@@ -21,6 +22,7 @@ interface ReasonsSectionProps {
 }
 
 export function ReasonsSection({
+  label,
   heading,
   body,
   image,
@@ -29,35 +31,27 @@ export function ReasonsSection({
   points,
 }: ReasonsSectionProps) {
   return (
-    <section className="bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
+    <section className="bg-[#1B3558] py-20 lg:py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header */}
-        <motion.div
-          className="mb-10"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
-          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
-            {heading}
-          </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
-            {body}
-          </p>
-        </motion.div>
-
-        {/* Content grid */}
-        <div className="grid grid-cols-12 gap-5 items-center">
-          {/* LEFT — Content card */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* LEFT — Content */}
           <motion.div
-            className="col-span-12 lg:col-span-5 bg-white rounded-2xl p-8 lg:p-10 flex flex-col justify-center border border-[#EBEBEB]"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ x: -30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex flex-col gap-6">
+            <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-4 block">
+              {label}
+            </span>
+            <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-white tracking-tight leading-tight">
+              {heading}
+            </h2>
+            <p className="font-body text-white/60 leading-relaxed mt-5 text-lg">
+              {body}
+            </p>
+
+            <div className="flex flex-col gap-5 mt-10">
               {points.map((point, i) => (
                 <motion.div
                   key={i}
@@ -65,34 +59,45 @@ export function ReasonsSection({
                   initial={{ y: 15, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+                  transition={{ duration: 0.5, delay: i * 0.12, ease: 'easeOut' }}
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-8 h-8 rounded-full bg-[#D6AE60]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check className="w-4 h-4 text-[#D6AE60]" />
                   </div>
                   <div>
-                    <h3 className="font-display font-bold text-dark text-lg tracking-tight mb-1">
+                    <h3 className="font-display font-bold text-white text-lg tracking-tight mb-1">
                       {point.title}
                     </h3>
-                    <p className="font-body text-sm text-body-text leading-relaxed">
+                    <p className="font-body text-sm text-white/50 leading-relaxed">
                       {point.description}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            <motion.div
+              className="mt-10"
+              initial={{ y: 15, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4, ease: 'easeOut' }}
+            >
+              <Button variant="primary" href="/contact">
+                Get A Free Estimate
+              </Button>
+            </motion.div>
           </motion.div>
 
-          {/* RIGHT — Video / Image */}
+          {/* RIGHT — Video */}
           <motion.div
-            className="col-span-12 lg:col-span-7"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
+            initial={{ x: 30, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
             {videoEmbed ? (
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] ring-1 ring-white/10">
                 <iframe
                   src={videoEmbed}
                   className="absolute inset-0 w-full h-full border-0"
@@ -102,13 +107,13 @@ export function ReasonsSection({
                 />
               </div>
             ) : image ? (
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.4)] ring-1 ring-white/10">
                 <Image
                   src={image}
                   alt={imageAlt || ''}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             ) : null}
