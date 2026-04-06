@@ -53,7 +53,7 @@ export function Nav() {
         {/* Logo — swap between colour and white based on scroll */}
         <Link href="/" className="relative z-10 flex-shrink-0">
           <Image
-            src={scrolled ? '/images/logo-white.webp' : '/images/logo-colour.webp'}
+            src="/images/Logo-300x104.webp"
             alt="Sure West Roofing"
             width={160}
             height={48}
