@@ -61,7 +61,7 @@ export function ServiceAreasSection() {
               <p className="font-body text-sm text-body-text leading-relaxed mb-6 max-w-xs mx-auto">
                 {area.description}
               </p>
-              <Button variant="outline" size="sm" href={area.href}>
+              <Button variant="primary" size="sm" href={area.href}>
                 View Services
               </Button>
             </motion.div>
