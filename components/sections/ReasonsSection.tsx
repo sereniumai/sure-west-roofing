@@ -47,42 +47,15 @@ export function ReasonsSection({
           </p>
         </motion.div>
 
-        {/* Content — mirrors ServicesGrid layout */}
-        <div className="grid grid-cols-12 gap-5 items-stretch min-h-[460px]">
-          {/* Video / Image side */}
-          <motion.div
-            className="col-span-12 lg:col-span-7 relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)] bg-black"
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-          >
-            {videoEmbed ? (
-              <iframe
-                src={videoEmbed}
-                className="absolute inset-0 w-full h-full border-0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Sure West Roofing"
-              />
-            ) : image ? (
-              <Image
-                src={image}
-                alt={imageAlt || ''}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 60vw"
-              />
-            ) : null}
-          </motion.div>
-
-          {/* Content card — matches ServicesGrid right panel */}
+        {/* Content grid */}
+        <div className="grid grid-cols-12 gap-5 items-center">
+          {/* LEFT — Content card */}
           <motion.div
             className="col-span-12 lg:col-span-5 bg-white rounded-2xl p-8 lg:p-10 flex flex-col justify-center border border-[#EBEBEB]"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <div className="flex flex-col gap-6">
               {points.map((point, i) => (
@@ -108,6 +81,37 @@ export function ReasonsSection({
                 </motion.div>
               ))}
             </div>
+          </motion.div>
+
+          {/* RIGHT — Video / Image */}
+          <motion.div
+            className="col-span-12 lg:col-span-7"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+          >
+            {videoEmbed ? (
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+                <iframe
+                  src={videoEmbed}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Sure West Roofing"
+                />
+              </div>
+            ) : image ? (
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+                <Image
+                  src={image}
+                  alt={imageAlt || ''}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                />
+              </div>
+            ) : null}
           </motion.div>
         </div>
       </div>
