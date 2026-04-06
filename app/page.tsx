@@ -67,7 +67,7 @@ export default function HomePage() {
             description:
               'Leaks, damaged shingles, flashing issues and more. Fast, lasting repairs.',
             icon: <Wrench />,
-            image: '/images/cochrane roofing company.png',
+            image: '/images/Roof Repairs Cochrane.jpg',
           },
           {
             title: 'Hail Damage Repair',
@@ -83,7 +83,7 @@ export default function HomePage() {
             description:
               "Annual maintenance to extend your roof's life and prevent costly repairs.",
             icon: <ClipboardCheck />,
-            image: '/images/cochrane roofing company.png',
+            image: '/images/Roof-Maintenance Cochrane.webp',
           },
           {
             title: 'Roof Inspection',
@@ -91,7 +91,7 @@ export default function HomePage() {
             description:
               'Detailed inspection reports. Know exactly what condition your roof is in.',
             icon: <Search />,
-            image: '/images/cochrane roofing company.png',
+            image: '/images/Roofer Inspections Cochrane.webp',
           },
           {
             title: 'Skylight Installation',

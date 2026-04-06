@@ -31,7 +31,7 @@ const serviceLinks = [
     description: 'Fast, lasting leak and shingle repair',
     href: '/roof-repair/cochrane',
     icon: Wrench,
-    image: '/images/cochrane roofing company.png',
+    image: '/images/Roof Repairs Cochrane.jpg',
   },
   {
     label: 'Hail Damage Repair',
@@ -45,14 +45,14 @@ const serviceLinks = [
     description: 'Annual care to extend roof life',
     href: '/roof-maintenance/cochrane',
     icon: ClipboardCheck,
-    image: '/images/cochrane roofing company.png',
+    image: '/images/Roof-Maintenance Cochrane.webp',
   },
   {
     label: 'Roof Inspection',
     description: 'Detailed condition reports',
     href: '/roof-inspection/cochrane',
     icon: Search,
-    image: '/images/cochrane roofing company.png',
+    image: '/images/Roofer Inspections Cochrane.webp',
   },
   {
     label: 'Skylight Installation',
