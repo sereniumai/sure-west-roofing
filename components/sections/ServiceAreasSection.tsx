@@ -42,7 +42,7 @@ export function ServiceAreasSection() {
         </motion.div>
 
         {/* Location cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {areas.map((area, i) => (
             <motion.div
               key={area.name}
@@ -58,7 +58,7 @@ export function ServiceAreasSection() {
               <h3 className="font-display font-bold text-dark text-xl tracking-tight mb-3">
                 {area.name}
               </h3>
-              <p className="font-body text-sm text-body-text leading-relaxed mb-6">
+              <p className="font-body text-sm text-body-text leading-relaxed mb-6 max-w-xs mx-auto">
                 {area.description}
               </p>
               <Button variant="outline" size="sm" href={area.href}>
