@@ -58,7 +58,7 @@ export default function HomePage() {
             description:
               "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather cycles.",
             icon: <Home />,
-            image: '/images/Roof Replacement Cochrane.jpg',
+            image: '/images/Cochrane Roof Replacement.jpg',
             features: [
               'Premium asphalt & metal roofing options',
               'Full tear-off with deck inspection',
