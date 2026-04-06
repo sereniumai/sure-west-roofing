@@ -135,7 +135,7 @@ export default function HomePage() {
       {/* 4. Reasons */}
       <ReasonsSection
         label="Why Sure West"
-        heading="Reasons To Choose Our Roofing Services"
+        heading="We Are More Than Just A Roofing Company"
         body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
         videoEmbed="https://player.vimeo.com/video/917317949?loop=1"
         points={[
