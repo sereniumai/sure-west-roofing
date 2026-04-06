@@ -36,13 +36,13 @@ export function TrustLogos() {
           {logos.map((logo) => (
             <div
               key={logo.alt}
-              className="relative h-12 lg:h-14 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="relative h-16 lg:h-20 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                height={56}
-                width={120}
+                height={80}
+                width={160}
                 className="h-full w-auto object-contain"
               />
             </div>
