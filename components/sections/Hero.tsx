@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProps {
@@ -30,8 +29,6 @@ const itemVariants = {
     transition: { duration: 0.6, ease: [0, 0, 0.2, 1] as const },
   },
 }
-
-const placeholderInitials = ['JK', 'MT', 'SR', 'AL']
 
 export function Hero({
   h1,
@@ -121,34 +118,12 @@ export function Hero({
           className="mt-10 flex items-center gap-4"
           variants={itemVariants}
         >
-          <div className="flex -space-x-3">
-            {placeholderInitials.map((initials) => (
-              <div
-                key={initials}
-                className="w-10 h-10 rounded-full border-2 border-white bg-[#1B3558] flex items-center justify-center"
-              >
-                <span className="font-body text-xs font-semibold text-white">
-                  {initials}
-                </span>
-              </div>
-            ))}
-          </div>
           <div>
             <span className="font-body font-bold text-white text-xl">
               {socialProofCount}
             </span>
             <span className="font-body text-white/70 text-sm ml-2">
               {socialProofLabel}
-            </span>
-          </div>
-        </motion.div>
-
-        {/* Red Seal badge */}
-        <motion.div className="mt-5" variants={itemVariants}>
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2">
-            <ShieldCheck className="w-4 h-4 text-[#C49A2C]" />
-            <span className="font-body text-xs font-semibold text-white tracking-wide">
-              Red Seal Certified — Interprovincial Standard
             </span>
           </div>
         </motion.div>
