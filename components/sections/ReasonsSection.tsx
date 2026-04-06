@@ -38,7 +38,7 @@ export function ReasonsSection({
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden">
+            <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src={image}
                 alt={imageAlt}
@@ -56,29 +56,38 @@ export function ReasonsSection({
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
-            <h2 className="font-display font-bold text-3xl lg:text-5xl text-dark tracking-tight leading-tight">
+            <h2 className="font-display font-extrabold text-3xl lg:text-4xl text-dark tracking-tight leading-tight">
               {heading}
             </h2>
 
-            <p className="font-body text-body-text leading-relaxed mt-6 mb-10">
+            <div className="w-16 h-1 bg-[#D6AE60] mt-5" />
+
+            <p className="font-body text-body-text leading-relaxed mt-5 mb-12">
               {body}
             </p>
 
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-10">
               {points.map((point, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-6 h-6 mt-0.5 flex-shrink-0">
-                    <Check className="w-6 h-6 text-[#D6AE60]" />
+                <motion.div
+                  key={i}
+                  className="flex items-start gap-5"
+                  initial={{ y: 20, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+                >
+                  <div className="w-10 h-10 rounded-full bg-[#D6AE60]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-5 h-5 text-[#D6AE60]" />
                   </div>
                   <div>
-                    <h3 className="font-body font-bold text-dark text-base mb-1">
-                      {point.title}:
+                    <h3 className="font-display font-bold text-dark text-base tracking-tight mb-1.5">
+                      {point.title}
                     </h3>
                     <p className="font-body text-sm text-body-text leading-relaxed">
                       {point.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
