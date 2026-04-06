@@ -272,22 +272,22 @@ export default function HomePage() {
           {
             question: 'How much does a roof replacement cost in Cochrane?',
             answer:
-              'Roof replacement costs in Cochrane typically range from $8,000 to $25,000 depending on the size of your roof, the materials you choose, and the complexity of the job. Every project is different which is why we offer free on-site estimates with a clear written quote before any work begins. Get in touch to book your free inspection.',
+              'Roof replacement costs in Cochrane typically range from $8,000 to $25,000 depending on the size of your roof, the materials you choose, and the complexity of the job. Every project is different which is why we offer free on-site estimates with a clear written quote before any work begins. <a href="/contact">Get in touch</a> to book your free inspection.',
           },
           {
             question: 'How do I know if my roof needs replacing or just repairing?',
             answer:
-              'If your roof is under 15 years old and the damage is isolated, a repair is usually the right call. If it is over 20 years old, has widespread damage, or is failing in multiple areas, replacement is likely more cost effective long term. Our team offers free roof inspections in Cochrane to help you make the right decision without any sales pressure.',
+              'If your roof is under 15 years old and the damage is isolated, a <a href="/roof-repair/cochrane">roof repair</a> is usually the right call. If it is over 20 years old, has widespread damage, or is failing in multiple areas, <a href="/roof-replacement/cochrane">replacement</a> is likely more cost effective long term. Our team offers free <a href="/roof-inspection/cochrane">roof inspections in Cochrane</a> to help you make the right decision without any sales pressure.',
           },
           {
             question: 'Do you handle Alberta insurance claims for hail damage?',
             answer:
-              'Yes. We have extensive experience working with Alberta insurance companies on hail damage roof repair claims in Cochrane and Calgary. We document all damage with photographs and a detailed inspection report, and we work directly alongside your insurance adjuster to make the process as smooth as possible. Learn more about our hail damage repair service in Cochrane.',
+              'Yes. We have extensive experience working with Alberta insurance companies on hail damage roof repair claims in Cochrane and Calgary. We document all damage with photographs and a detailed inspection report, and we work directly alongside your insurance adjuster to make the process as smooth as possible. Learn more about our <a href="/hail-damage-repair/cochrane">hail damage repair service in Cochrane</a>.',
           },
           {
             question: 'How long does a roof replacement take in Cochrane?',
             answer:
-              'Most residential roof replacements in Cochrane are completed within one to two days depending on the size and complexity of your roof. We provide a clear timeline before work begins and keep you updated throughout every stage of the project.',
+              'Most residential <a href="/roof-replacement/cochrane">roof replacements in Cochrane</a> are completed within one to two days depending on the size and complexity of your roof. We provide a clear timeline before work begins and keep you updated throughout every stage of the project.',
           },
           {
             question: 'Are you licensed and insured to work in Alberta?',
@@ -297,7 +297,7 @@ export default function HomePage() {
           {
             question: 'Do you serve Calgary and Canmore as well as Cochrane?',
             answer:
-              'Yes. While Cochrane is our home base we serve homeowners across Calgary and Canmore too. We have dedicated pages for our roofing services in Calgary and our roofing services in Canmore if you would like to learn more.',
+              'Yes. While Cochrane is our home base we serve homeowners across Calgary and Canmore too. We have dedicated pages for our <a href="/roofing-contractor-calgary">roofing services in Calgary</a> and our <a href="/roofing-contractor-canmore">roofing services in Canmore</a> if you would like to learn more.',
           },
           {
             question: 'What roofing materials do you use in Cochrane?',
@@ -307,7 +307,7 @@ export default function HomePage() {
           {
             question: 'Do you offer emergency roof repair in Cochrane?',
             answer:
-              'Yes. We understand that a damaged roof cannot wait. We offer emergency roof repair in Cochrane and the surrounding area — responding as fast as possible to prevent further water damage to your home.',
+              'Yes. We understand that a damaged roof cannot wait. We offer <a href="/roof-repair/cochrane">emergency roof repair in Cochrane</a> and the surrounding area — responding as fast as possible to prevent further water damage to your home.',
           },
         ]}
       />

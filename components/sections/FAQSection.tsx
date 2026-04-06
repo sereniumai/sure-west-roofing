@@ -99,9 +99,10 @@ export function FAQSection({
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="overflow-hidden"
                       >
-                        <p className="font-body text-sm text-body-text leading-relaxed px-7 pb-6 pr-16">
-                          {faq.answer}
-                        </p>
+                        <p
+                          className="font-body text-sm text-body-text leading-relaxed px-7 pb-6 pr-16 [&_a]:text-[#D6AE60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
+                          dangerouslySetInnerHTML={{ __html: faq.answer }}
+                        />
                       </motion.div>
                     )}
                   </AnimatePresence>
