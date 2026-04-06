@@ -48,34 +48,9 @@ export function ReasonsSection({
           </p>
         </motion.div>
 
-        {/* Grid — same 7/5 split as ServicesGrid */}
+        {/* Grid — 5/7 split, content left, video right */}
         <div className="grid grid-cols-12 gap-5 items-start">
-          {/* Video side — col-span-7 */}
-          <div className="col-span-12 lg:col-span-7">
-            {videoEmbed ? (
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
-                <iframe
-                  src={videoEmbed}
-                  className="absolute inset-0 w-full h-full border-0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title="Sure West Roofing"
-                />
-              </div>
-            ) : image ? (
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
-                <Image
-                  src={image}
-                  alt={imageAlt || ''}
-                  fill
-                  className="object-cover"
-                  sizes="60vw"
-                />
-              </div>
-            ) : null}
-          </div>
-
-          {/* Content card — col-span-5, same as service content */}
+          {/* Content card — col-span-5 */}
           <div className="col-span-12 lg:col-span-5 bg-[#F8F8F8] rounded-2xl p-6 lg:p-8 flex flex-col justify-center border border-[#EBEBEB]">
             <div className="flex flex-col gap-4">
               {points.map((point, i) => (
@@ -105,6 +80,31 @@ export function ReasonsSection({
             <Button variant="primary" href="/contact" className="mt-6 w-fit">
               Get A Free Estimate
             </Button>
+          </div>
+
+          {/* Video side — col-span-7 */}
+          <div className="col-span-12 lg:col-span-7">
+            {videoEmbed ? (
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+                <iframe
+                  src={videoEmbed}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Sure West Roofing"
+                />
+              </div>
+            ) : image ? (
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+                <Image
+                  src={image}
+                  alt={imageAlt || ''}
+                  fill
+                  className="object-cover"
+                  sizes="60vw"
+                />
+              </div>
+            ) : null}
           </div>
         </div>
       </div>
