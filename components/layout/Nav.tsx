@@ -13,7 +13,6 @@ import {
   ClipboardCheck,
   Search,
   Sun,
-  AlertTriangle,
   ArrowRight,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -60,13 +59,6 @@ const serviceLinks = [
     href: '/skylight-installation/cochrane',
     icon: Sun,
     image: '/images/Skylight Installation Cochrane.webp',
-  },
-  {
-    label: 'Emergency Roof Repair',
-    description: '24/7 emergency response',
-    href: '/emergency-roof-repair/cochrane',
-    icon: AlertTriangle,
-    image: '/images/cochrane roofing company.png',
   },
 ]
 

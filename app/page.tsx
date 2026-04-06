@@ -6,7 +6,6 @@ import {
   Home,
   Wrench,
   CloudLightning,
-  AlertTriangle,
   Search,
   Sun,
 } from 'lucide-react'
@@ -100,14 +99,6 @@ export default function HomePage() {
               'Properly sealed skylights installed to Alberta building code.',
             icon: <Sun />,
             image: '/images/Skylight Installation Cochrane.webp',
-          },
-          {
-            title: 'Emergency Roof Repair',
-            href: '/emergency-roof-repair/cochrane',
-            description:
-              '24/7 emergency response across Cochrane, Calgary and surrounding areas.',
-            icon: <AlertTriangle />,
-            image: '/images/cochrane roofing company.png',
           },
         ]}
       />
