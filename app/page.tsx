@@ -59,7 +59,7 @@ export default function HomePage() {
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
         subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather — hail, ice, and everything in between. Certified roofing contractors. Free estimates."
-        backgroundImage="/images/Cochrane Roof Repair.jpg"
+        backgroundImage=""
         primaryCTA={{ label: 'Get a Free Estimate', href: '/contact' }}
         secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
         socialProofCount="150+"
@@ -82,7 +82,7 @@ export default function HomePage() {
             description:
               "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather conditions. Free inspection included on every job.",
             icon: <Home />,
-            image: '/images/Cochrane Roof Replacement.jpg',
+            image: '',
             imageAlt: 'Roof replacement Cochrane AB',
             features: [
               'Premium asphalt and metal roofing options',
@@ -96,7 +96,7 @@ export default function HomePage() {
             description:
               'Fast, affordable, certified roof repairs in Cochrane that get you back to normal without the stress or disruption. We respond quickly because a damaged roof cannot wait.',
             icon: <Wrench />,
-            image: '/images/Cochrane Roof Repair.jpg',
+            image: '',
             imageAlt: 'Roof repair Cochrane AB',
             features: [
               'Emergency and non-emergency repairs',
@@ -110,7 +110,7 @@ export default function HomePage() {
             description:
               'Alberta hailstorms hit hard and Cochrane is no exception. We respond fast, document everything for your insurance claim, and restore your roof to pre-storm condition.',
             icon: <CloudLightning />,
-            image: '/images/Cochrane Roof Replacement.jpg',
+            image: '',
             imageAlt: 'Hail damage roof repair Cochrane AB',
             features: [
               'Insurance claim assistance',
@@ -124,7 +124,7 @@ export default function HomePage() {
             description:
               'Regular roof maintenance in Cochrane extends the life of your roof and helps you avoid costly emergency repairs. Prevention is always cheaper than replacement.',
             icon: <ClipboardCheck />,
-            image: '/images/Cochrane Roof Repair.jpg',
+            image: '',
             imageAlt: 'Roof maintenance Cochrane AB',
             features: [
               'Annual inspection packages',
@@ -138,7 +138,7 @@ export default function HomePage() {
             description:
               'Our certified roof and attic inspections in Cochrane give you the full picture before problems become expensive disasters. Essential for home buyers and annual maintenance.',
             icon: <Search />,
-            image: '/images/Cochrane Roof Replacement.jpg',
+            image: '',
             imageAlt: 'Roof inspection Cochrane AB',
             features: [
               'Full roof and attic assessment',
@@ -152,7 +152,7 @@ export default function HomePage() {
             description:
               'Brighten your Cochrane home with natural light. Our certified team installs skylights properly — no leaks, no drafts, no problems. Completely hassle-free.',
             icon: <Sun />,
-            image: '/images/Cochrane Roof Repair.jpg',
+            image: '',
             imageAlt: 'Skylight installation Cochrane AB',
             features: [
               'All skylight brands and sizes',
