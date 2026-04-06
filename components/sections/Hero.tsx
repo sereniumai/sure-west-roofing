@@ -132,20 +132,7 @@ export function Hero({
           )}
         </div>
 
-        {/* Social proof */}
-        <motion.div
-          className="mt-10 flex items-center gap-4"
-          variants={itemVariants}
-        >
-          <div className="flex items-center gap-3">
-            <span className="font-display font-bold text-white text-3xl tracking-wide">
-              {socialProofCount}
-            </span>
-            <span className="font-body text-white/70 text-sm">
-              {socialProofLabel}
-            </span>
-          </div>
-        </motion.div>
+
       </motion.div>
     </section>
   )
