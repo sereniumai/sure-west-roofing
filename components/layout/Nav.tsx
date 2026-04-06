@@ -24,7 +24,7 @@ const serviceLinks = [
     description: 'Complete tear-off and replacement',
     href: '/roof-replacement/cochrane',
     icon: Home,
-    image: '/images/cochrane roofing company.png',
+    image: '/images/Roof Replacement Cochrane.webp',
   },
   {
     label: 'Roof Repair',

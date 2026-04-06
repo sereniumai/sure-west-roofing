@@ -59,7 +59,7 @@ export default function HomePage() {
             description:
               "Full tear-off and replacement with premium materials built for Alberta's climate.",
             icon: <Home />,
-            image: '/images/cochrane roofing company.png',
+            image: '/images/Roof Replacement Cochrane.webp',
           },
           {
             title: 'Roof Repair',
