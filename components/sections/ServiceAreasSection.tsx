@@ -6,16 +6,25 @@ import { Button } from '@/components/ui/Button'
 
 const areas = [
   {
-    name: 'Calgary',
+    name: 'Roofing Contractor Cochrane',
     description:
-      'Serving Calgary homeowners with the same certified quality and honest pricing we are known for in Cochrane.',
-    href: '/roofing-contractor-calgary',
+      "Our home base. We know Cochrane's weather, its homes, and its homeowners. We are your local roofing team. Always nearby. Always available.",
+    href: '/',
+    linkText: 'Cochrane Roofing Services',
   },
   {
-    name: 'Canmore',
+    name: 'Roofing Contractor Calgary',
     description:
-      'From the Bow Valley to the Rockies. Premium roofing services for Canmore homeowners who demand the best.',
+      'Serving homeowners across Calgary and the surrounding communities. The same certified standard we deliver in Cochrane, brought to your Calgary home.',
+    href: '/roofing-contractor-calgary',
+    linkText: 'Calgary Roofing Services',
+  },
+  {
+    name: 'Roofing Contractor Canmore',
+    description:
+      "Canmore's mountain climate demands expert roofing knowledge. Steep pitches, heavy snow loads, and Chinook winds. We know how to build roofs that last here.",
     href: '/roofing-contractor-canmore',
+    linkText: 'Canmore Roofing Services',
   },
 ]
 
@@ -31,16 +40,19 @@ export function ServiceAreasSection() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+            Service Areas
+          </span>
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
-            Roofing Services Across the Bow Valley
+            Roofing Contractor Serving Cochrane,{'\n'}Calgary and Canmore
           </h2>
           <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
-            Based in Cochrane and proudly serving homeowners across Calgary and Canmore. Wherever you are in the Bow Valley, we bring the same certified quality to your doorstep.
+            Based in Cochrane, Alberta. We serve homeowners across the Bow Valley corridor and the Calgary region. Wherever you are, our certified roofing team is ready to help.
           </p>
         </motion.div>
 
         {/* Location cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {areas.map((area, i) => (
             <motion.div
               key={area.name}
@@ -60,7 +72,7 @@ export function ServiceAreasSection() {
                 {area.description}
               </p>
               <Button variant="primary" size="sm" href={area.href}>
-                View Services
+                {area.linkText}
               </Button>
             </motion.div>
           ))}
