@@ -48,7 +48,7 @@ export default function HomePage() {
       {/* 3. Services */}
       <ServicesGrid
         label="What we do"
-        heading="Professional roofing services in Cochrane, AB"
+        heading="Professional Cochrane Roofing Services"
         body="From full roof replacements to emergency repairs, every job is done by Red Seal certified tradespeople."
         cta={{ label: 'View all services', href: '/services' }}
         services={[
@@ -136,7 +136,7 @@ export default function HomePage() {
       {/* 4. Reasons */}
       <ReasonsSection
         label="Why Sure West"
-        heading="Reasons to choose our roofing services"
+        heading="Reasons To Choose Our Roofing Services"
         body="Most roofers show up, do the job, and move on. We don't work that way. Every roof we touch gets the same care we'd put into our own home. That's the standard Craig built this company on, and it's why Cochrane homeowners keep coming back."
         image="/images/cochrane roofing company.png"
         imageAlt="Cochrane roofing company Sure West Roofing"
@@ -165,7 +165,7 @@ export default function HomePage() {
       {/* 4. Credibility / Process */}
       <CredibilitySection
         label="Our process"
-        heading="How we take care of your Cochrane roof"
+        heading="How We Take Care Of Your Cochrane Roof"
         image="/images/cochrane roofing company.png"
         imageAlt="Red Seal certified roofing team Cochrane"
         badgeNumber="Red Seal"
@@ -194,7 +194,7 @@ export default function HomePage() {
 
       {/* 5. CTA Banner */}
       <CTABanner
-        heading="Ready to protect your Cochrane home?"
+        heading="Ready To Protect Your Cochrane Home?"
         subtext="Get a free, no-obligation estimate from Cochrane's Red Seal roofing contractor. Most estimates completed within 48 hours."
         primaryCTA={{ label: 'Get a free estimate', href: '/contact' }}
         secondaryCTA={{ label: '(403) 000-0000', href: 'tel:4030000000' }}
@@ -204,7 +204,7 @@ export default function HomePage() {
       {/* 6. Testimonials */}
       <TestimonialsSection
         label="Client reviews"
-        heading="What Cochrane homeowners say about us"
+        heading="What Cochrane Homeowners Say About Us"
         body="Every review is from a real Cochrane-area homeowner. No templates, no filler."
         reviewCount="80+"
         rating={5}
@@ -243,7 +243,7 @@ export default function HomePage() {
       {/* 7. Blog Preview */}
       <BlogPreview
         label="Roofing tips"
-        heading="Helpful roofing articles for Cochrane homeowners"
+        heading="Helpful Roofing Articles For Cochrane Homeowners"
         body="Practical advice on protecting your roof through Alberta's seasons."
         cta={{ label: 'View all articles', href: '/blog' }}
         posts={[
@@ -280,7 +280,7 @@ export default function HomePage() {
       {/* 8. FAQ */}
       <FAQSection
         label="Common questions"
-        heading="Frequently asked questions"
+        heading="Frequently Asked Questions"
         body="Honest answers to what Cochrane homeowners ask us most often."
         schemaEnabled={true}
         faqs={[
