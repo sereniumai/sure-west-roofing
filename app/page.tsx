@@ -75,7 +75,7 @@ export default function HomePage() {
             description:
               'Alberta hail damage experts. We handle the repairs and your insurance claim.',
             icon: <CloudLightning />,
-            image: '/images/cochrane roofing company.png',
+            image: '/images/Hail Damage Cochrane.webp',
           },
           {
             title: 'Roof Maintenance',

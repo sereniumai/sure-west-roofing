@@ -38,7 +38,7 @@ const serviceLinks = [
     description: 'Insurance claims and restoration',
     href: '/hail-damage-repair/cochrane',
     icon: CloudLightning,
-    image: '/images/cochrane roofing company.png',
+    image: '/images/Hail Damage Cochrane.webp',
   },
   {
     label: 'Roof Maintenance',
