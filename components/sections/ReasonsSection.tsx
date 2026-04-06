@@ -14,6 +14,7 @@ interface ReasonPoint {
 interface ReasonsSectionProps {
   label: string
   heading: string
+  headingAccent?: string
   body: string
   image?: string
   imageAlt?: string
@@ -23,6 +24,7 @@ interface ReasonsSectionProps {
 
 export function ReasonsSection({
   heading,
+  headingAccent,
   body,
   image,
   imageAlt,
@@ -42,6 +44,12 @@ export function ReasonsSection({
         >
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
+            {headingAccent && (
+              <>
+                <br className="hidden lg:block" />{' '}
+                <span className="text-[#D6AE60]">{headingAccent}</span>
+              </>
+            )}
           </h2>
           <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
             {body}

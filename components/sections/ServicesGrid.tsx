@@ -20,6 +20,7 @@ interface ServiceItem {
 interface ServicesGridProps {
   label: string
   heading: string
+  headingAccent?: string
   body: string
   cta: { label: string; href: string }
   services: ServiceItem[]
@@ -27,6 +28,7 @@ interface ServicesGridProps {
 
 export function ServicesGrid({
   heading,
+  headingAccent,
   body,
   services,
 }: ServicesGridProps) {
@@ -56,6 +58,12 @@ export function ServicesGrid({
         >
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
+            {headingAccent && (
+              <>
+                <br className="hidden lg:block" />{' '}
+                <span className="text-[#D6AE60]">{headingAccent}</span>
+              </>
+            )}
           </h2>
           <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
             {body}

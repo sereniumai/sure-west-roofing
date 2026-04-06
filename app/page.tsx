@@ -72,7 +72,8 @@ export default function HomePage() {
       {/* 3. Services */}
       <ServicesGrid
         label="Roofing Services Cochrane AB"
-        heading={"Roofing Services in Cochrane.\nEvery Job, One Standard."}
+        heading="Roofing Services in Cochrane."
+        headingAccent="Every Job, One Standard."
         body="From full roof replacements to emergency hail damage repair in Cochrane. Our certified roofing team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
         cta={{ label: 'View all services', href: '/services' }}
         services={[
@@ -166,7 +167,8 @@ export default function HomePage() {
       {/* 4. Why Us */}
       <ReasonsSection
         label="Why Cochrane Roofing Pro"
-        heading={"Cochrane's Certified Roofing\nContractor. Built on Trust."}
+        heading="Cochrane's Certified Roofing Contractor."
+        headingAccent="Built on Trust."
         body="Most roofers show up, do the job, and move on. We don't want that. Every roof we touch gets the same care we'd put into our own home. That's the standard Cochrane homeowners keep coming back for."
         image="/images/Cochrane Roof Replacement.jpg"
         imageAlt="Cochrane roofing contractor at work"
