@@ -19,32 +19,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
-      url: 'https://surewestroofing.ca/roof-replacement',
+      url: 'https://surewestroofing.ca/roof-replacement/cochrane',
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://surewestroofing.ca/roof-repair',
+      url: 'https://surewestroofing.ca/roof-repair/cochrane',
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://surewestroofing.ca/hail-damage-repair',
+      url: 'https://surewestroofing.ca/hail-damage-repair/cochrane',
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://surewestroofing.ca/roof-maintenance',
+      url: 'https://surewestroofing.ca/roof-maintenance/cochrane',
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://surewestroofing.ca/roof-inspection',
+      url: 'https://surewestroofing.ca/roof-inspection/cochrane',
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://surewestroofing.ca/skylight-installation',
+      url: 'https://surewestroofing.ca/skylight-installation/cochrane',
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://surewestroofing.ca/emergency-roof-repair/cochrane',
       changeFrequency: 'monthly',
       priority: 0.9,
     },

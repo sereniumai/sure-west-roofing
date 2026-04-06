@@ -7,12 +7,13 @@ import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const serviceLinks = [
-  { label: 'Roof Replacement', href: '/roof-replacement' },
-  { label: 'Roof Repair', href: '/roof-repair' },
-  { label: 'Hail Damage Repair', href: '/hail-damage-repair' },
-  { label: 'Roof Maintenance', href: '/roof-maintenance' },
-  { label: 'Roof & Attic Inspections', href: '/roof-inspection' },
-  { label: 'Skylight Installation', href: '/skylight-installation' },
+  { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
+  { label: 'Roof Repair', href: '/roof-repair/cochrane' },
+  { label: 'Hail Damage Repair', href: '/hail-damage-repair/cochrane' },
+  { label: 'Roof Maintenance', href: '/roof-maintenance/cochrane' },
+  { label: 'Roof Inspection', href: '/roof-inspection/cochrane' },
+  { label: 'Skylight Installation', href: '/skylight-installation/cochrane' },
+  { label: 'Emergency Roof Repair', href: '/emergency-roof-repair/cochrane' },
 ]
 
 const navLinks = [
