@@ -33,7 +33,7 @@ export default function HomePage() {
     <>
       {/* 1. Hero */}
       <Hero
-        h1="Cochrane's Trusted Roofing Contractor"
+        h1="Cochrane's Trusted\nRoofing Contractor"
         subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather - hail, ice, and everything in between. Red Seal certified. Free estimates."
         primaryCTA={{ label: 'Get a free estimate', href: '/contact' }}
         socialProofCount="150+"

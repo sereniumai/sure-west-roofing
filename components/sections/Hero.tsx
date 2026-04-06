@@ -89,7 +89,12 @@ export function Hero({
           className="font-display font-bold tracking-wide text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] text-white"
           variants={itemVariants}
         >
-          {h1}
+          {h1.split('\n').map((line, i) => (
+            <span key={i}>
+              {i > 0 && <br />}
+              {line}
+            </span>
+          ))}
         </motion.h1>
 
         {/* Subtitle */}
