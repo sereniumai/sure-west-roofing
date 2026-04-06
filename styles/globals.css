@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy:      #1B2540;
+  --gold:      #C8922A;
+  --off-white: #F7F5F0;
+  --white:     #FFFFFF;
+  --text:      #1A1A1A;
+  --muted:     #6B6560;
+  --border:    #E5E0D8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  color: #1A1A1A;
+}
+
+h1, h2, h1 *, h2 *,
+h1 span, h2 span {
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 700 !important;
+}
+
+h3, h4, h5, h6,
+nav, button, label,
+.eyebrow {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+}
+
+/* Skip to main content */
+.skip-to-main {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+}
+
+.skip-to-main:focus {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: auto;
+  height: auto;
+  padding: 12px 24px;
+  background: var(--navy);
+  color: white;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 9999;
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--gold);
+  color: var(--white);
+}
