@@ -1,7 +1,14 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+
+const bullets = [
+  'Free on-site roof inspection',
+  'Clear written quote within 24 hours',
+  'Certified roofers on every job',
+]
 
 export function ContactCTASection() {
   return (
@@ -18,11 +25,24 @@ export function ContactCTASection() {
             Get Started Today
           </span>
           <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-white tracking-tight leading-tight max-w-2xl mx-auto">
-            Ready to Protect{'\n'}Your Cochrane Home?
+            Ready to Protect Your{'\n'}Cochrane Home?
           </h2>
           <p className="font-body text-white/70 leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
             Book your free roof inspection today. No pressure, no obligation, just an honest assessment from a certified Cochrane roofing contractor.
           </p>
+
+          {/* Bullets */}
+          <div className="flex flex-wrap justify-center gap-6 mt-8">
+            {bullets.map((bullet) => (
+              <div key={bullet} className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-[#D6AE60]/20 flex items-center justify-center flex-shrink-0">
+                  <Check className="w-3 h-3 text-[#D6AE60]" />
+                </div>
+                <span className="font-body text-sm text-white/80">{bullet}</span>
+              </div>
+            ))}
+          </div>
+
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <Button variant="primary" size="lg" href="/contact">
               Get a Free Estimate
