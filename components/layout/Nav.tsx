@@ -59,7 +59,7 @@ const serviceLinks = [
     description: 'Code-compliant skylight installs',
     href: '/skylight-installation/cochrane',
     icon: Sun,
-    image: '/images/cochrane roofing company.png',
+    image: '/images/Skylight Installation Cochrane.webp',
   },
   {
     label: 'Emergency Roof Repair',

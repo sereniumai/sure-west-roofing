@@ -99,7 +99,7 @@ export default function HomePage() {
             description:
               'Properly sealed skylights installed to Alberta building code.',
             icon: <Sun />,
-            image: '/images/cochrane roofing company.png',
+            image: '/images/Skylight Installation Cochrane.webp',
           },
           {
             title: 'Emergency Roof Repair',
