@@ -69,7 +69,7 @@ export function ServicesGrid({
               </>
             )}
           </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
+          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-xl">
             {body}
           </p>
         </motion.div>

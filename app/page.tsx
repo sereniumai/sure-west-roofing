@@ -74,7 +74,7 @@ export default function HomePage() {
         label="Our Services"
         heading="Roofing Services in Cochrane."
         headingAccent="Every Job, One Standard."
-        body="From full roof replacements to emergency hail damage repair in Cochrane. Our certified roofing team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
+        body="From full roof replacements to emergency hail damage repair in Cochrane. Our certified roofing team delivers the same uncompromising standard on every single job."
         cta={{ label: 'View all services', href: '/services' }}
         services={[
           {
