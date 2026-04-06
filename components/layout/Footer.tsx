@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Mail, MapPin } from 'lucide-react'
 
 const services = [
@@ -9,7 +8,6 @@ const services = [
   { label: 'Roof Maintenance', href: '/roof-maintenance/cochrane' },
   { label: 'Roof Inspection', href: '/roof-inspection/cochrane' },
   { label: 'Skylight Installation', href: '/skylight-installation/cochrane' },
-  { label: 'Emergency Roof Repair', href: '/emergency-roof-repair/cochrane' },
 ]
 
 const companyLinks = [
@@ -21,20 +19,20 @@ const companyLinks = [
 ]
 
 const serviceAreas = [
-  'Cochrane',
-  'Calgary',
-  'Canmore',
-  'Springbank',
-  'Bragg Creek',
+  { label: 'Cochrane', href: '/services' },
+  { label: 'Calgary', href: '/roofing-contractor-calgary' },
+  { label: 'Canmore', href: '/roofing-contractor-canmore' },
+  { label: 'Springbank', href: '/services' },
+  { label: 'Bragg Creek', href: '/services' },
 ]
 
 export function Footer() {
   return (
     <footer className="bg-[#1B3558] text-white">
-      {/* Row 1 — Gold accent bar */}
+      {/* Gold accent bar */}
       <div className="h-1 bg-[#D6AE60]" />
 
-      {/* Row 2 — Main footer content */}
+      {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1 — Brand */}
@@ -66,7 +64,7 @@ export function Footer() {
             <div className="mt-4 flex items-center gap-2">
               <MapPin className="text-[#D6AE60] w-4 h-4 flex-shrink-0" />
               <span className="font-body text-sm text-white/80">
-                Unit 9 – 225 Railway St E, Cochrane AB
+                Cochrane, AB
               </span>
             </div>
           </div>
@@ -109,10 +107,10 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Service Area */}
+          {/* Column 4 — Service Areas */}
           <div>
             <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#D6AE60] mb-6">
-              Service Area
+              Service Areas
             </h4>
             <p className="font-body text-sm text-white/60 leading-relaxed mb-4">
               Proudly serving residential roofing clients across the Bow Valley
@@ -120,11 +118,13 @@ export function Footer() {
             </p>
             <ul className="flex flex-col gap-2">
               {serviceAreas.map((area) => (
-                <li
-                  key={area}
-                  className="font-body text-sm text-white/70"
-                >
-                  {area}
+                <li key={area.label}>
+                  <Link
+                    href={area.href}
+                    className="font-body text-sm text-white/70 hover:text-[#D6AE60] transition-colors duration-200"
+                  >
+                    {area.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -132,17 +132,17 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Row 3 — Divider */}
+      {/* Divider */}
       <div className="border-t border-white/10" />
 
-      {/* Row 4 — Bottom bar */}
+      {/* Bottom bar */}
       <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
         <p className="font-body text-xs text-white/50">
-          © 2026 Cochrane Roofing Pro. All Rights Reserved.
+          &copy; {new Date().getFullYear()} Cochrane Roofing Pro. All Rights Reserved.
         </p>
         <p className="font-body text-xs text-white/50">
           Cochrane, Alberta{' '}
-          <span className="text-[#D6AE60]">·</span>{' '}
+          <span className="text-[#D6AE60]">&middot;</span>{' '}
           Red Seal Certified
         </p>
       </div>
