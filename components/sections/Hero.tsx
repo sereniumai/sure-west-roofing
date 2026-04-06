@@ -42,7 +42,7 @@ export function Hero({
   backgroundImage,
 }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background video */}
       {backgroundVideo ? (
         <video
