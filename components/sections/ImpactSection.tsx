@@ -92,7 +92,7 @@ export function ImpactSection() {
 
         {/* Logos — inline, compact */}
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 mt-10 pt-8 border-t border-[#EBEBEB]"
+          className="flex flex-wrap items-center justify-center gap-6 lg:gap-10 mt-10"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
