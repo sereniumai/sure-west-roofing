@@ -23,42 +23,42 @@ const serviceLinks = [
     description: 'Complete tear-off and replacement',
     href: '/roof-replacement',
     icon: Home,
-    image: '/images/Cochrane Roof Replacement.jpg',
+    image: '',
   },
   {
     label: 'Roof Repair',
     description: 'Fast, lasting leak and shingle repair',
     href: '/roof-repair',
     icon: Wrench,
-    image: '/images/Roof Repairs Cochrane.jpg',
+    image: '',
   },
   {
     label: 'Hail Damage Repair',
     description: 'Insurance claims and restoration',
     href: '/hail-damage-repair',
     icon: CloudLightning,
-    image: '/images/Hail Damage Cochrane.webp',
+    image: '',
   },
   {
     label: 'Roof Maintenance',
     description: 'Annual care to extend roof life',
     href: '/roof-maintenance',
     icon: ClipboardCheck,
-    image: '/images/Roof-Maintenance Cochrane.webp',
+    image: '',
   },
   {
     label: 'Roof Inspection',
     description: 'Detailed condition reports',
     href: '/roof-inspection',
     icon: Search,
-    image: '/images/Roofer Inspections Cochrane.webp',
+    image: '',
   },
   {
     label: 'Skylight Installation',
     description: 'Code-compliant skylight installs',
     href: '/skylight-installation',
     icon: Sun,
-    image: '/images/Skylight Installation Cochrane.webp',
+    image: '',
   },
 ]
 
@@ -99,14 +99,7 @@ export function Nav() {
       <div className="w-full px-8 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
-          <Image
-            src="/images/Logo-300x104.webp"
-            alt="Sure West Roofing"
-            width={200}
-            height={60}
-            className="h-14 w-auto"
-            priority
-          />
+          <div className="h-14 w-[200px] bg-[#1B2540] rounded" />
         </Link>
 
         {/* Desktop Links */}
@@ -204,7 +197,7 @@ export function Nav() {
                     <div className="w-[280px] p-3 flex-shrink-0">
                       <div className="relative w-full h-full rounded-xl overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a] min-h-[320px]">
                         {serviceLinks.map((service, i) => (
-                          service.image && (
+                          service.image ? (
                             <Image
                               key={service.href}
                               src={service.image}
@@ -215,7 +208,7 @@ export function Nav() {
                               }`}
                               sizes="280px"
                             />
-                          )
+                          ) : null
                         ))}
                       </div>
                     </div>

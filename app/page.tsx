@@ -55,7 +55,7 @@ export default function HomePage() {
             description:
               "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather cycles.",
             icon: <Home />,
-            image: '/images/Cochrane Roof Replacement.jpg',
+            image: '',
             features: [
               'Premium asphalt & metal roofing options',
               'Full tear-off with deck inspection',
@@ -68,7 +68,7 @@ export default function HomePage() {
             description:
               'Fast, permanent fixes for leaks, damaged shingles, flashing failures, and storm damage across Cochrane.',
             icon: <Wrench />,
-            image: '/images/Roof Repairs Cochrane.jpg',
+            image: '',
             features: [
               'Same-week repair scheduling',
               'Leak detection and flashing repair',
@@ -81,7 +81,7 @@ export default function HomePage() {
             description:
               'Alberta hail damage specialists. We assess, document, and restore your roof — and handle your insurance claim start to finish.',
             icon: <CloudLightning />,
-            image: '/images/Hail Damage Cochrane.webp',
+            image: '',
             features: [
               'Full insurance claim assistance',
               'Detailed damage documentation',
@@ -94,7 +94,7 @@ export default function HomePage() {
             description:
               "Proactive annual maintenance that extends your roof's lifespan and prevents costly surprise repairs.",
             icon: <ClipboardCheck />,
-            image: '/images/Roof-Maintenance Cochrane.webp',
+            image: '',
             features: [
               'Annual inspection and tune-up',
               'Gutter cleaning and debris removal',
@@ -107,7 +107,7 @@ export default function HomePage() {
             description:
               'Comprehensive roof assessments with detailed reports. Know exactly what your roof needs before spending a dollar.',
             icon: <Search />,
-            image: '/images/Roofer Inspections Cochrane.webp',
+            image: '',
             features: [
               'Pre-purchase and post-storm inspections',
               'Drone and on-roof assessment',
@@ -120,7 +120,7 @@ export default function HomePage() {
             description:
               'Expertly sealed skylight installations that bring natural light in while keeping Alberta weather out.',
             icon: <Sun />,
-            image: '/images/Skylight Installation Cochrane.webp',
+            image: '',
             features: [
               'Code-compliant installation',
               'Premium flashing and sealing',
@@ -162,7 +162,7 @@ export default function HomePage() {
       <CredibilitySection
         label="Our process"
         heading="How We Take Care Of Your Cochrane Roof"
-        image="/images/cochrane roofing company.png"
+        image=""
         imageAlt="Red Seal certified roofing team Cochrane"
         badgeNumber="Red Seal"
         badgeLabel="Certified contractor"

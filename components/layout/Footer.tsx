@@ -39,13 +39,7 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Column 1 — Brand */}
           <div>
-            <Image
-              src="/images/Logo-300x104.webp"
-              alt="Sure West Roofing"
-              width={160}
-              height={56}
-              className="h-14 w-auto"
-            />
+            <div className="h-14 w-[160px] bg-[#1B2540] rounded" />
 
             <p className="font-body text-sm text-white/60 leading-relaxed max-w-xs mt-6">
               Red Seal Journeyman certified roofing contractor proudly serving

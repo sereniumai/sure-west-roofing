@@ -18,13 +18,13 @@ const stats: StatItem[] = [
 ]
 
 const logos = [
-  { src: '/images/Emerald Pro Contractor.webp', alt: 'Emerald Pro Contractor' },
-  { src: '/images/Certified Residential Contractor.webp', alt: 'Certified Residential Contractor' },
-  { src: '/images/AARA Roofing.webp', alt: 'Alberta Allied Roofing Association' },
-  { src: '/images/Roofing Contractor Shingle Master.webp', alt: 'CertainTeed ShingleMaster Roofing Contractor' },
-  { src: '/images/Workers Compensation Board.webp', alt: 'Workers Compensation Board Alberta' },
-  { src: '/images/Interprovincial Roofing Standard.webp', alt: 'Interprovincial Roofing Standard' },
-  { src: '/images/BBB Accredited Business.webp', alt: 'BBB Accredited Business' },
+  { src: '', alt: 'Emerald Pro Contractor' },
+  { src: '', alt: 'Certified Residential Contractor' },
+  { src: '', alt: 'Alberta Allied Roofing Association' },
+  { src: '', alt: 'CertainTeed ShingleMaster Roofing Contractor' },
+  { src: '', alt: 'Workers Compensation Board Alberta' },
+  { src: '', alt: 'Interprovincial Roofing Standard' },
+  { src: '', alt: 'BBB Accredited Business' },
 ]
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -78,15 +78,19 @@ export function ImpactSection() {
           {logos.map((logo) => (
             <div
               key={logo.alt}
-              className="relative h-11 lg:h-14 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              className="relative h-11 lg:h-14 flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                height={48}
-                width={110}
-                className="h-full w-auto object-contain"
-              />
+              {logo.src ? (
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  height={48}
+                  width={110}
+                  className="h-full w-auto object-contain"
+                />
+              ) : (
+                <div className="h-full w-[110px] bg-[#1B2540] rounded" />
+              )}
             </div>
           ))}
         </motion.div>
