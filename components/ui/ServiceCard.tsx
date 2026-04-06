@@ -20,12 +20,12 @@ export function ServiceCard({
       href={href}
       className={`block rounded-2xl p-6 transition-all duration-300 group ${
         featured
-          ? 'border-2 border-[#E8922A] bg-[#E8922A]/5 hover:shadow-lg'
-          : 'bg-white border border-[#E5E2D9] hover:border-[#E8922A] hover:shadow-md'
+          ? 'border-2 border-[#C49A2C] bg-[#C49A2C]/5 hover:shadow-lg'
+          : 'bg-white border border-[#E5E2D9] hover:border-[#C49A2C] hover:shadow-md'
       }`}
     >
-      <div className="w-12 h-12 rounded-xl bg-[#E8922A]/10 flex items-center justify-center mb-4 group-hover:bg-[#E8922A]/20 transition-colors duration-300">
-        <div className="text-[#E8922A] w-6 h-6 group-hover:text-[#D07E1E] transition-colors duration-300 [&>svg]:w-6 [&>svg]:h-6">
+      <div className="w-12 h-12 rounded-xl bg-[#C49A2C]/10 flex items-center justify-center mb-4 group-hover:bg-[#C49A2C]/20 transition-colors duration-300">
+        <div className="text-[#C49A2C] w-6 h-6 group-hover:text-[#A6821E] transition-colors duration-300 [&>svg]:w-6 [&>svg]:h-6">
           {icon}
         </div>
       </div>
@@ -38,7 +38,7 @@ export function ServiceCard({
         {description}
       </p>
 
-      <span className="inline-flex items-center gap-1 font-body text-sm font-semibold text-[#E8922A] group-hover:gap-2 transition-all duration-300">
+      <span className="inline-flex items-center gap-1 font-body text-sm font-semibold text-[#C49A2C] group-hover:gap-2 transition-all duration-300">
         Learn more <span aria-hidden="true">&rarr;</span>
       </span>
     </Link>

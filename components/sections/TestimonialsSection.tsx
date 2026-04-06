@@ -59,7 +59,7 @@ export function TestimonialsSection({
               {Array.from({ length: 5 }).map((_, i) => (
                 <span
                   key={i}
-                  className={`text-xl ${i < rating ? 'text-[#E8922A]' : 'text-[#E5E2D9]'}`}
+                  className={`text-xl ${i < rating ? 'text-[#C49A2C]' : 'text-[#E5E2D9]'}`}
                   aria-hidden="true"
                 >
                   ★

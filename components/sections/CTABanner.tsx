@@ -19,7 +19,7 @@ export function CTABanner({
   secondaryCTA,
 }: CTABannerProps) {
   return (
-    <section className="relative py-24 overflow-hidden bg-[#E8922A]">
+    <section className="relative py-24 overflow-hidden bg-[#C49A2C]">
       {/* Decorative pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/3" />

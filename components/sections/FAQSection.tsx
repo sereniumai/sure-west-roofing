@@ -70,7 +70,7 @@ export function FAQSection({
             Have a question not listed here?{' '}
             <Link
               href="/contact"
-              className="text-[#E8922A] font-semibold hover:underline"
+              className="text-[#C49A2C] font-semibold hover:underline"
             >
               Contact us
             </Link>

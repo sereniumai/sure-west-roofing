@@ -15,7 +15,7 @@ export function TestimonialCard({
 }: TestimonialCardProps) {
   return (
     <div className="bg-white border border-[#E5E2D9] rounded-2xl p-6">
-      <span className="font-display text-6xl text-[#E8922A] leading-none block mb-2" aria-hidden="true">
+      <span className="font-display text-6xl text-[#C49A2C] leading-none block mb-2" aria-hidden="true">
         &ldquo;
       </span>
 
@@ -40,7 +40,7 @@ export function TestimonialCard({
           {Array.from({ length: 5 }).map((_, i) => (
             <span
               key={i}
-              className={`text-sm ${i < rating ? 'text-[#E8922A]' : 'text-[#E5E2D9]'}`}
+              className={`text-sm ${i < rating ? 'text-[#C49A2C]' : 'text-[#E5E2D9]'}`}
               aria-hidden="true"
             >
               ★

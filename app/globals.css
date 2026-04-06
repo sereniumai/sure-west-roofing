@@ -39,7 +39,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Selection ───────────────────────────────── */
 
 ::selection {
-  background-color: #E8922A;
+  background-color: #C49A2C;
   color: #ffffff;
 }
 
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E8922A;
+  background: #C49A2C;
   border-radius: 4px;
 }
 
@@ -65,13 +65,13 @@ h1, h2, h3, h4, h5, h6 {
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #E8922A #F9F8F5;
+  scrollbar-color: #C49A2C #F9F8F5;
 }
 
 /* ── Focus visible ───────────────────────────── */
 
 :focus-visible {
-  outline: 2px solid #E8922A;
+  outline: 2px solid #C49A2C;
   outline-offset: 2px;
 }
 
@@ -105,7 +105,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   border-radius: 9999px;
   z-index: 9999;
-  outline: 2px solid #E8922A;
+  outline: 2px solid #C49A2C;
   outline-offset: 2px;
 }
 

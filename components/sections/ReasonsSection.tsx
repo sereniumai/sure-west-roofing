@@ -41,7 +41,7 @@ export function ReasonsSection({
           >
             {/* Decorative elements */}
             <div className="absolute -top-4 -left-4 w-16 h-16 bg-[#1B3558] rounded-xl -z-10" />
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 border-4 border-[#E8922A] rounded-2xl -z-10" />
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 border-4 border-[#C49A2C] rounded-2xl -z-10" />
 
             <div className="relative w-full h-full rounded-2xl overflow-hidden">
               <Image
@@ -75,7 +75,7 @@ export function ReasonsSection({
               {points.map((point, i) => (
                 <div key={i} className="flex items-start gap-5">
                   <div className="w-12 h-12 rounded-xl bg-[#1B3558] flex items-center justify-center flex-shrink-0">
-                    <div className="text-[#E8922A] w-6 h-6 [&>svg]:w-6 [&>svg]:h-6">
+                    <div className="text-[#C49A2C] w-6 h-6 [&>svg]:w-6 [&>svg]:h-6">
                       {point.icon}
                     </div>
                   </div>

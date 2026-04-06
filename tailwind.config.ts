@@ -21,8 +21,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#E8922A',
-        'primary-dark': '#D07E1E',
+        primary: '#C49A2C',
+        'primary-dark': '#A6821E',
         navy: '#1B3558',
         'navy-light': '#243F6B',
         steel: '#4A7FA8',
