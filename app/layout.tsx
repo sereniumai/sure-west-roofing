@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
-import '@/styles/globals.css'
+import './globals.css'
 
 export const viewport: Viewport = {
   width: 'device-width',

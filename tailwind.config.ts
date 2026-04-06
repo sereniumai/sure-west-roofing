@@ -2,6 +2,22 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: ['./app/**/*.{ts,tsx}', './components/**/*.{ts,tsx}'],
+  safelist: [
+    'bg-primary',
+    'bg-primary-dark',
+    'bg-navy',
+    'bg-navy-light',
+    'bg-steel',
+    'bg-surface',
+    'text-primary',
+    'text-navy',
+    'text-steel',
+    'text-dark',
+    'text-body-text',
+    'text-muted',
+    'border-border-col',
+    'border-primary',
+  ],
   theme: {
     extend: {
       colors: {
