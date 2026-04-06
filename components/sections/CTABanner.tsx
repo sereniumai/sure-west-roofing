@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import { Phone } from 'lucide-react'
+import { Phone, ArrowRight } from 'lucide-react'
 
 interface CTABannerProps {
   heading: string
@@ -19,59 +19,62 @@ export function CTABanner({
   secondaryCTA,
 }: CTABannerProps) {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden bg-[#1B3558]">
-      {/* Gradient glow */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#D6AE60]/[0.08] rounded-full blur-[120px]" />
-        <div className="absolute -top-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D6AE60]/30 to-transparent" />
-        <div className="absolute -bottom-px left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D6AE60]/30 to-transparent" />
-      </div>
-
-      {/* Content */}
-      <motion.div
-        className="relative z-10 max-w-3xl mx-auto px-6 text-center"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      >
+    <section className="bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
-          className="inline-flex items-center gap-2 bg-white/[0.08] border border-white/[0.1] rounded-full px-4 py-1.5 mb-6"
-          initial={{ scale: 0.9, opacity: 0 }}
-          whileInView={{ scale: 1, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
+          className="relative bg-white rounded-3xl border border-[#EBEBEB] px-8 py-14 lg:px-16 lg:py-20 overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.04)]"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="w-2 h-2 rounded-full bg-[#D6AE60] animate-pulse" />
-          <span className="font-body text-xs text-white/70 tracking-wide">
-            Free estimates within 48 hours
-          </span>
-        </motion.div>
+          {/* Decorative gold accent line */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-[#D6AE60] to-transparent rounded-full" />
 
-        <h2 className="font-display font-extrabold text-4xl lg:text-[56px] text-white tracking-tight leading-[1.1]">
-          {heading}
-        </h2>
+          {/* Subtle radial glow */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#D6AE60]/[0.04] rounded-full blur-[80px]" />
 
-        <p className="font-body text-white/50 text-base lg:text-lg leading-relaxed mt-5 max-w-xl mx-auto">
-          {subtext}
-        </p>
-
-        <div className="flex flex-wrap gap-4 mt-10 justify-center items-center">
-          <Button variant="primary" size="lg" href={primaryCTA.href}>
-            {primaryCTA.label}
-          </Button>
-
-          {secondaryCTA && (
-            <a
-              href={secondaryCTA.href}
-              className="inline-flex items-center gap-2.5 font-body font-semibold text-white/80 hover:text-white transition-colors duration-300 text-base bg-white/[0.06] hover:bg-white/[0.1] border border-white/[0.1] rounded-full px-6 py-3"
+          <div className="relative z-10 text-center max-w-2xl mx-auto">
+            <motion.div
+              className="inline-flex items-center gap-2 bg-[#D6AE60]/[0.08] border border-[#D6AE60]/20 rounded-full px-4 py-1.5 mb-6"
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <Phone className="w-4 h-4" />
-              {secondaryCTA.label}
-            </a>
-          )}
-        </div>
-      </motion.div>
+              <div className="w-2 h-2 rounded-full bg-[#D6AE60] animate-pulse" />
+              <span className="font-body text-xs text-[#D6AE60] font-semibold tracking-wide">
+                Free estimates within 48 hours
+              </span>
+            </motion.div>
+
+            <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-[1.1]">
+              {heading}
+            </h2>
+
+            <p className="font-body text-body-text text-base leading-relaxed mt-4 max-w-lg mx-auto">
+              {subtext}
+            </p>
+
+            <div className="flex flex-wrap gap-4 mt-10 justify-center items-center">
+              <Button variant="primary" size="lg" href={primaryCTA.href}>
+                {primaryCTA.label}
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
+
+              {secondaryCTA && (
+                <a
+                  href={secondaryCTA.href}
+                  className="inline-flex items-center gap-2.5 font-body font-semibold text-dark hover:text-[#D6AE60] transition-colors duration-300 text-base bg-[#F8F8F8] hover:bg-[#F0F0F0] border border-[#EBEBEB] rounded-full px-6 py-3"
+                >
+                  <Phone className="w-4 h-4" />
+                  {secondaryCTA.label}
+                </a>
+              )}
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   )
 }
