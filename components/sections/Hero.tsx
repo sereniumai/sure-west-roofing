@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -12,7 +11,8 @@ interface HeroProps {
   secondaryCTA: { label: string; href: string }
   socialProofCount: string
   socialProofLabel: string
-  backgroundImage: string
+  backgroundVideo?: string
+  backgroundImage?: string
 }
 
 const containerVariants = {
@@ -40,18 +40,30 @@ export function Hero({
   secondaryCTA,
   socialProofCount,
   socialProofLabel,
+  backgroundVideo,
   backgroundImage,
 }: HeroProps) {
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-      {/* Background image */}
-      <Image
-        src={backgroundImage}
-        alt="Sure West Roofing Cochrane"
-        fill
-        className="object-cover"
-        priority
-      />
+      {/* Background video */}
+      {backgroundVideo ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster={backgroundImage}
+        >
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+      ) : backgroundImage ? (
+        <img
+          src={backgroundImage}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : null}
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-[rgba(10,18,35,0.60)]" />
