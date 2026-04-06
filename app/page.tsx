@@ -233,7 +233,7 @@ export default function HomePage() {
             location: 'Cochrane, AB',
             initials: 'MT',
             rating: 5,
-            text: "Sure West replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time. Would not hesitate to recommend them.",
+            text: "They replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time. Would not hesitate to recommend them.",
           },
           {
             name: 'Rachel S',
@@ -254,7 +254,7 @@ export default function HomePage() {
             location: 'Cochrane, AB',
             initials: 'SB',
             rating: 5,
-            text: "Three quotes. Sure West wasn't the cheapest but they were the only ones who put it all in writing and a great price. Worth every penny.",
+            text: "Three quotes. They weren't the cheapest but they were the only ones who put it all in writing and a great price. Worth every penny.",
           },
         ]}
       />

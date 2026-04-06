@@ -24,7 +24,7 @@ export function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-[#F8F8F8] py-20 lg:py-28">
+    <section className="bg-white py-20 lg:py-28">
       {/* FAQ Schema */}
       {schemaEnabled && (
         <script
