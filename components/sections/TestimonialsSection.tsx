@@ -10,6 +10,7 @@ interface TestimonialsSectionProps {
   reviewCount: string
   rating: number
   testimonials: Testimonial[]
+  googleReviewsUrl?: string
 }
 
 export function TestimonialsSection({
@@ -17,6 +18,7 @@ export function TestimonialsSection({
   heading,
   body,
   testimonials,
+  googleReviewsUrl,
 }: TestimonialsSectionProps) {
   const cards = testimonials.slice(0, 3)
 
@@ -83,6 +85,27 @@ export function TestimonialsSection({
             </motion.div>
           ))}
         </div>
+
+        {/* Google Reviews link */}
+        {googleReviewsUrl && (
+          <motion.div
+            className="text-center mt-10"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <a
+              href={googleReviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-display font-semibold text-[#D6AE60] hover:text-[#B8943F] transition-colors text-sm"
+            >
+              See All Google Reviews
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+            </a>
+          </motion.div>
+        )}
       </div>
     </section>
   )

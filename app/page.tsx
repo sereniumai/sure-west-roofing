@@ -230,6 +230,7 @@ export default function HomePage() {
         body="Every review is from a real Cochrane homeowner. No templates. No filler."
         reviewCount="80+"
         rating={5}
+        googleReviewsUrl="https://www.google.com/maps/place/Cochrane+Roofing+Pro"
         testimonials={[
           {
             name: 'Michelle T',
@@ -246,7 +247,7 @@ export default function HomePage() {
             text: 'We had an emergency leak during a late October snowstorm. They were at our house within a few hours and had it sorted the same day. Unbelievable service.',
           },
           {
-            name: 'Ryan & Sara',
+            name: 'Ryan and Sara',
             location: 'Cochrane, AB',
             initials: 'RS',
             rating: 5,
@@ -257,7 +258,7 @@ export default function HomePage() {
             location: 'Cochrane, AB',
             initials: 'SB',
             rating: 5,
-            text: "Three quotes. They weren't the cheapest but they were the only ones who put it all in writing and a great price. Worth every penny.",
+            text: "Three quotes. They weren't the cheapest but they were the only ones who put it all in writing. Worth every penny.",
           },
         ]}
       />
