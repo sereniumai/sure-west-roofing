@@ -44,7 +44,7 @@ export function Hero({
   const [videoReady, setVideoReady] = useState(false)
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-black pb-20 lg:pb-28">
       {/* Background video */}
       {backgroundVideo ? (
         <video
