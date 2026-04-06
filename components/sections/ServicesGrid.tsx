@@ -63,11 +63,11 @@ export function ServicesGrid({
   }
 
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-[#F7F7F4] py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div
-          className="max-w-2xl"
+          className="w-full"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -99,7 +99,7 @@ export function ServicesGrid({
 
         {/* Arrows row — right above cards */}
         <motion.div
-          className="hidden md:flex items-center justify-end gap-3 mt-10 mb-5"
+          className="hidden md:flex items-center justify-end gap-3 mt-8 mb-4"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
