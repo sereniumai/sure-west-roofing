@@ -34,7 +34,7 @@ export function Footer() {
           {/* Column 1 */}
           <div>
             <img
-              src="/images/logo.svg"
+              src="/images/Sure West Roofing - Cochrane Roofing Contractor.webp"
               alt="Sure West Roofing"
               className="h-14 w-auto"
             />
