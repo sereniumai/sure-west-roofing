@@ -4,13 +4,13 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const logos = [
-  { src: '', alt: 'Emerald Pro Contractor' },
-  { src: '', alt: 'Certified Residential Contractor' },
-  { src: '', alt: 'Alberta Allied Roofing Association' },
-  { src: '', alt: 'CertainTeed ShingleMaster Roofing Contractor' },
-  { src: '', alt: 'Workers Compensation Board Alberta' },
-  { src: '', alt: 'Interprovincial Roofing Standard' },
-  { src: '', alt: 'BBB Accredited Business' },
+  { src: '/images/Emerald Pro Contractor.webp', alt: 'Emerald Pro Contractor' },
+  { src: '/images/Certified Residential Contractor.webp', alt: 'Certified Residential Contractor' },
+  { src: '/images/AARA Roofing Association.webp', alt: 'Alberta Allied Roofing Association' },
+  { src: '/images/Roofing Contractor Shingle Master.webp', alt: 'CertainTeed ShingleMaster Roofing Contractor' },
+  { src: '/images/Canada Roofing Standards.webp', alt: 'Canada Roofing Standards' },
+  { src: '/images/Interprovincial Roofing Standard.webp', alt: 'Interprovincial Roofing Standard' },
+  { src: '/images/BBB Accredited Business.webp', alt: 'BBB Accredited Business' },
 ]
 
 export function TrustLogos() {

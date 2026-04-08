@@ -19,6 +19,7 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { ServiceAreasSection } from '@/components/sections/ServiceAreasSection'
 import { ContactCTASection } from '@/components/sections/ContactCTASection'
+import { TrustLogos } from '@/components/sections/TrustLogos'
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane AB | Roof Replacement & Repair | Sure West Roofing',
@@ -68,6 +69,9 @@ export default function HomePage() {
 
       {/* 2. Stats */}
       <ImpactSection />
+
+      {/* 2b. Trust Logos */}
+      <TrustLogos />
 
       {/* 3. Services */}
       <ServicesGrid
