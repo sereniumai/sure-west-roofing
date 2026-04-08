@@ -100,7 +100,7 @@ export function Nav() {
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
           <img
             src="/images/logo-light.svg"
-            alt="Cochrane Roofing Pro"
+            alt="Sure West Roofing"
             className="h-14 w-auto"
           />
         </Link>

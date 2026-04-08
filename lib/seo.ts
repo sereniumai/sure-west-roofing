@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
-const SITE_URL = 'https://cochraneroofingpro.ca'
-const SITE_NAME = 'Cochrane Roofing Pro'
+const SITE_URL = 'https://surewestroofing.ca'
+const SITE_NAME = 'Sure West Roofing'
 
 export function generateMetadata({
   title,

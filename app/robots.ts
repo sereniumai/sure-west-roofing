@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://cochraneroofingpro.ca/sitemap.xml',
+    sitemap: 'https://surewestroofing.ca/sitemap.xml',
   }
 }

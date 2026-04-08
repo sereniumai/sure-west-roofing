@@ -35,7 +35,7 @@ export function Footer() {
           <div>
             <img
               src="/images/logo.svg"
-              alt="Cochrane Roofing Pro"
+              alt="Sure West Roofing"
               className="h-14 w-auto"
             />
 
@@ -116,7 +116,7 @@ export function Footer() {
       <div className="border-t border-[#EBEBEB]" />
       <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
         <p className="font-body text-xs text-body-text/60">
-          &copy; 2026 Cochrane Roofing Pro. All Rights Reserved.
+          &copy; 2026 Sure West Roofing. All Rights Reserved.
         </p>
         <p className="font-body text-xs text-body-text/60">
           Cochrane, Alberta. Red Seal Certified.

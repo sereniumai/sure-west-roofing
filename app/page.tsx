@@ -21,8 +21,8 @@ import { ServiceAreasSection } from '@/components/sections/ServiceAreasSection'
 import { ContactCTASection } from '@/components/sections/ContactCTASection'
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Cochrane AB | Roof Replacement & Repair | Cochrane Roofing Pro',
-  description: 'Cochrane Roofing Pro. Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Serving Calgary & Canmore. Free estimates.',
+  title: 'Roofing Contractor Cochrane AB | Roof Replacement & Repair | Sure West Roofing',
+  description: 'Sure West Roofing. Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Serving Calgary & Canmore. Free estimates.',
   keywords: [
     'roofing contractor Cochrane',
     'roofer Cochrane AB',
@@ -41,14 +41,14 @@ export const metadata: Metadata = {
     'Cochrane roofer',
   ],
   openGraph: {
-    title: 'Roofing Contractor Cochrane AB | Cochrane Roofing Pro',
+    title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
     description: 'Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Free estimates.',
-    url: 'https://cochraneroofingpro.ca',
+    url: 'https://surewestroofing.ca',
     type: 'website',
     locale: 'en_CA',
   },
   alternates: {
-    canonical: 'https://cochraneroofingpro.ca',
+    canonical: 'https://surewestroofing.ca',
   },
 }
 
@@ -232,7 +232,7 @@ export default function HomePage() {
         body="Every review is from a real Cochrane homeowner. No templates. No filler."
         reviewCount="80+"
         rating={5}
-        googleReviewsUrl="https://www.google.com/maps/place/Cochrane+Roofing+Pro"
+        googleReviewsUrl="https://www.google.com/maps/place/Sure+West+Roofing"
         testimonials={[
           {
             name: 'Michelle T',
@@ -298,7 +298,7 @@ export default function HomePage() {
           {
             question: 'Are you licensed and insured to work in Alberta?',
             answer:
-              'Yes. Cochrane Roofing Pro is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every single job, protecting both our team and your property.',
+              'Yes. Sure West Roofing is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every single job, protecting both our team and your property.',
           },
           {
             question: 'Do you serve Calgary and Canmore as well as Cochrane?',

@@ -4,9 +4,9 @@ import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Cochrane AB | Cochrane Roofing Pro',
+  title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
   description:
-    'Cochrane Roofing Pro. Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
+    'Sure West Roofing. Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
 }
 
 export default function RootLayout({
@@ -24,9 +24,9 @@ export default function RootLayout({
               {
                 "@context": "https://schema.org",
                 "@type": "RoofingContractor",
-                "name": "Cochrane Roofing Pro",
-                "url": "https://cochraneroofingpro.ca",
-                "email": "info@cochraneroofingpro.ca",
+                "name": "Sure West Roofing",
+                "url": "https://surewestroofing.ca",
+                "email": "info@surewestroofing.ca",
                 "description": "Certified roofing contractor in Cochrane, Alberta serving Calgary and Canmore. Specialising in roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections and skylight installation.",
                 "address": {
                   "@type": "PostalAddress",
@@ -90,7 +90,7 @@ export default function RootLayout({
                   {
                     "@type": "Question",
                     "name": "Are you licensed and insured to work in Alberta?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Yes. Cochrane Roofing Pro is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every job." }
+                    "acceptedAnswer": { "@type": "Answer", "text": "Yes. Sure West Roofing is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every job." }
                   },
                   {
                     "@type": "Question",
