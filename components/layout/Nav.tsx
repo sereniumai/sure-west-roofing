@@ -3,23 +3,68 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu, X, ChevronDown, Phone } from 'lucide-react'
+import {
+  Menu,
+  X,
+  ChevronDown,
+  Home,
+  Wrench,
+  CloudLightning,
+  ClipboardCheck,
+  Search,
+  Sun,
+  ArrowRight,
+} from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const serviceLinks = [
-  { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
-  { label: 'Roof Repair', href: '/roof-repair/cochrane' },
-  { label: 'Hail Damage Repair', href: '/hail-damage-repair/cochrane' },
-  { label: 'Roof Maintenance', href: '/roof-maintenance/cochrane' },
-  { label: 'Roof Inspection', href: '/roof-inspection/cochrane' },
-  { label: 'Skylight Installation', href: '/skylight-installation/cochrane' },
-  { label: 'Emergency Roof Repair', href: '/emergency-roof-repair/cochrane' },
+  {
+    label: 'Roof Replacement',
+    description: 'Complete tear-off and replacement',
+    href: '/roof-replacement/cochrane',
+    icon: Home,
+    image: '/images/Cochrane Roof Replacement.jpg',
+  },
+  {
+    label: 'Roof Repair',
+    description: 'Fast, lasting leak and shingle repair',
+    href: '/roof-repair/cochrane',
+    icon: Wrench,
+    image: '/images/Cochrane Roof Repair.jpg',
+  },
+  {
+    label: 'Hail Damage Repair',
+    description: 'Insurance claims and restoration',
+    href: '/hail-damage-repair/cochrane',
+    icon: CloudLightning,
+    image: '/images/Cochrane Roof Replacement.jpg',
+  },
+  {
+    label: 'Roof Maintenance',
+    description: 'Annual care to extend roof life',
+    href: '/roof-maintenance/cochrane',
+    icon: ClipboardCheck,
+    image: '/images/Cochrane Roof Repair.jpg',
+  },
+  {
+    label: 'Roof Inspection',
+    description: 'Detailed condition reports',
+    href: '/roof-inspection/cochrane',
+    icon: Search,
+    image: '/images/Cochrane Roof Replacement.jpg',
+  },
+  {
+    label: 'Skylight Installation',
+    description: 'Code-compliant skylight installs',
+    href: '/skylight-installation/cochrane',
+    icon: Sun,
+    image: '/images/Cochrane Roof Repair.jpg',
+  },
 ]
 
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services', dropdown: true },
-  { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ]
 
@@ -28,6 +73,7 @@ export function Nav() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+  const [hoveredService, setHoveredService] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80)
@@ -45,69 +91,130 @@ export function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         scrolled
-          ? 'bg-navy shadow-lg'
+          ? 'bg-white shadow-lg'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-20">
-        {/* Logo — swap between colour and white based on scroll */}
-        <Link href="/" className="relative z-10 flex-shrink-0">
-          <Image
-            src={scrolled ? '/images/logo-white.webp' : '/images/logo-colour.webp'}
-            alt="Sure West Roofing"
-            width={160}
-            height={48}
-            className="h-10 w-auto"
-            priority
+      <div className="w-full px-8 lg:px-12 flex items-center justify-between h-20">
+        {/* Logo */}
+        <Link href="/" className="relative z-10 flex-shrink-0 py-2">
+          <img
+            src="/images/logo-light.svg"
+            alt="Cochrane Roofing Pro"
+            className="h-14 w-auto"
           />
         </Link>
 
-        {/* Desktop Links — center */}
-        <div className="hidden lg:flex items-center gap-8">
+        {/* Desktop Links */}
+        <div className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
                 key={link.label}
                 className="relative"
-                onMouseEnter={() => setServicesOpen(true)}
+                onMouseEnter={() => {
+                  setServicesOpen(true)
+                  setHoveredService(0)
+                }}
                 onMouseLeave={() => setServicesOpen(false)}
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1 text-sm font-medium tracking-wide transition-colors ${
+                  className={`flex items-center gap-1.5 text-[15px] font-medium tracking-wide transition-colors ${
                     scrolled
-                      ? 'text-white hover:text-primary'
-                      : 'text-white hover:text-primary'
+                      ? 'text-dark hover:text-[#D6AE60]'
+                      : 'text-white hover:text-[#D6AE60]'
                   }`}
                 >
                   {link.label}
                   <ChevronDown
-                    size={14}
+                    size={15}
                     className={`transition-transform duration-200 ${
                       servicesOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </Link>
 
-                {/* Dropdown */}
+                {/* Mega dropdown */}
                 <div
-                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-4 transition-all duration-200 ${
+                  className={`absolute top-full left-1/2 -translate-x-1/2 pt-5 transition-all duration-200 ${
                     servicesOpen
                       ? 'opacity-100 visible translate-y-0'
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-navy border border-white/10 shadow-xl rounded-2xl min-w-[260px] overflow-hidden">
-                    {serviceLinks.map((service) => (
-                      <Link
-                        key={service.href}
-                        href={service.href}
-                        className="block px-6 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-colors"
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        {service.label}
-                      </Link>
-                    ))}
+                  <div className="bg-white border border-gray-100 shadow-2xl rounded-2xl overflow-hidden flex w-[720px]">
+                    {/* Left - service list */}
+                    <div className="flex-1 py-3">
+                      {serviceLinks.map((service, i) => {
+                        const Icon = service.icon
+                        return (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            className={`flex items-center gap-4 px-5 py-3.5 transition-colors ${
+                              hoveredService === i
+                                ? 'bg-[#EDEEE8]/60'
+                                : 'hover:bg-[#EDEEE8]/40'
+                            }`}
+                            onMouseEnter={() => setHoveredService(i)}
+                            onClick={() => setServicesOpen(false)}
+                          >
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
+                              hoveredService === i
+                                ? 'bg-[#D6AE60]/15 text-[#D6AE60]'
+                                : 'bg-gray-100 text-gray-400'
+                            }`}>
+                              <Icon className="w-5 h-5" />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="font-display font-bold text-sm text-dark tracking-tight">
+                                {service.label}
+                              </p>
+                              <p className="text-xs text-body-text mt-0.5">
+                                {service.description}
+                              </p>
+                            </div>
+                            {hoveredService === i && (
+                              <ArrowRight className="w-4 h-4 text-[#D6AE60] flex-shrink-0" />
+                            )}
+                          </Link>
+                        )
+                      })}
+
+                      {/* Bottom CTA */}
+                      <div className="mx-5 mt-2 pt-3 border-t border-gray-100 flex items-center justify-between">
+                        <p className="text-xs text-body-text">Not sure what you need?</p>
+                        <Link
+                          href="/contact"
+                          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D6AE60] hover:text-[#B8943F] transition-colors"
+                          onClick={() => setServicesOpen(false)}
+                        >
+                          Contact us
+                          <ArrowRight className="w-3 h-3" />
+                        </Link>
+                      </div>
+                    </div>
+
+                    {/* Right - image preview */}
+                    <div className="w-[280px] p-3 flex-shrink-0">
+                      <div className="relative w-full h-full rounded-xl overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a] min-h-[320px]">
+                        {serviceLinks.map((service, i) => (
+                          service.image ? (
+                            <Image
+                              key={service.href}
+                              src={service.image}
+                              alt={service.label}
+                              fill
+                              className={`object-cover transition-opacity duration-300 ${
+                                hoveredService === i ? 'opacity-100' : 'opacity-0'
+                              }`}
+                              sizes="280px"
+                            />
+                          ) : null
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -115,10 +222,10 @@ export function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors ${
+                className={`text-[15px] font-medium tracking-wide transition-colors ${
                   scrolled
-                    ? 'text-white hover:text-primary'
-                    : 'text-white hover:text-primary'
+                    ? 'text-dark hover:text-[#D6AE60]'
+                    : 'text-white hover:text-[#D6AE60]'
                 }`}
               >
                 {link.label}
@@ -127,17 +234,8 @@ export function Nav() {
           )}
         </div>
 
-        {/* Desktop Right — phone + CTA */}
-        <div className="hidden lg:flex items-center gap-6">
-          <a
-            href="tel:4039907210"
-            className={`flex items-center gap-2 text-sm font-medium transition-colors ${
-              scrolled ? 'text-white hover:text-primary' : 'text-white hover:text-primary'
-            }`}
-          >
-            <Phone size={16} />
-            (403) 990-7210
-          </a>
+        {/* Desktop Right — CTA */}
+        <div className="hidden lg:flex items-center">
           <Button href="/contact" className="px-5 py-2.5 text-sm">
             Get a Free Estimate
           </Button>
@@ -145,7 +243,7 @@ export function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className="lg:hidden relative z-10 text-white p-2"
+          className={`lg:hidden relative z-10 p-2 ${scrolled ? 'text-dark' : 'text-white'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         >
@@ -207,13 +305,6 @@ export function Nav() {
           )}
 
           <div className="mt-8 flex flex-col gap-4">
-            <a
-              href="tel:4039907210"
-              className="flex items-center gap-2 text-white font-medium"
-            >
-              <Phone size={18} />
-              (403) 990-7210
-            </a>
             <Button href="/contact" className="text-center" onClick={() => setMobileOpen(false)}>
               Get a Free Estimate
             </Button>

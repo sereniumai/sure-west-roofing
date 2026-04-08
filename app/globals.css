@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -30,16 +30,16 @@ body {
 /* ── Headings ────────────────────────────────── */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Oswald', sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.025em;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   color: #1B3558;
 }
 
 /* ── Selection ───────────────────────────────── */
 
 ::selection {
-  background-color: #C49A2C;
+  background-color: #D6AE60;
   color: #ffffff;
 }
 
@@ -54,24 +54,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C49A2C;
+  background: #D6AE60;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A6821E;
+  background: #B8943F;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #C49A2C #F9F8F5;
+  scrollbar-color: #D6AE60 #F9F8F5;
+}
+
+/* Hide scrollbar for carousels */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  scrollbar-width: none;
 }
 
 /* ── Focus visible ───────────────────────────── */
 
 :focus-visible {
-  outline: 2px solid #C49A2C;
+  outline: 2px solid #D6AE60;
   outline-offset: 2px;
 }
 
@@ -105,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   border-radius: 9999px;
   z-index: 9999;
-  outline: 2px solid #C49A2C;
+  outline: 2px solid #D6AE60;
   outline-offset: 2px;
 }
 

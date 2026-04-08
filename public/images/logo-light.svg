@@ -1,0 +1,14 @@
+<svg width="340" height="80" viewBox="0 0 680 160" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(40, 20)">
+<polygon points="60,10 110,55 110,110 60,125 10,110 10,55" fill="#1B2540" stroke="#C8922A" stroke-width="2.5"/>
+<polygon points="60,25 98,57 98,100 60,112 22,100 22,57" fill="none" stroke="#C8922A" stroke-width="0.8" opacity="0.35"/>
+<polygon points="35,82 60,38 85,82" fill="#C8922A"/>
+<rect x="28" y="82" width="64" height="7" fill="#C8922A"/>
+<rect x="24" y="89" width="72" height="5" fill="#C8922A" opacity="0.65"/>
+<rect x="20" y="94" width="80" height="3.5" fill="#C8922A" opacity="0.35"/>
+</g>
+<line x1="165" y1="30" x2="165" y2="130" stroke="#C8922A" stroke-width="1" opacity="0.4"/>
+<text x="185" y="72" font-family="Georgia, serif" font-weight="700" font-size="42" fill="#FFFFFF" letter-spacing="1">COCHRANE</text>
+<line x1="185" y1="84" x2="620" y2="84" stroke="#C8922A" stroke-width="1.5"/>
+<text x="185" y="115" font-family="Georgia, serif" font-weight="700" font-size="28" fill="#C8922A" letter-spacing="6">ROOFING PRO</text>
+</svg>

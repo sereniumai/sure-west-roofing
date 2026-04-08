@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
@@ -9,82 +8,54 @@ const services = [
   { label: 'Roof Maintenance', href: '/roof-maintenance/cochrane' },
   { label: 'Roof Inspection', href: '/roof-inspection/cochrane' },
   { label: 'Skylight Installation', href: '/skylight-installation/cochrane' },
-  { label: 'Emergency Roof Repair', href: '/emergency-roof-repair/cochrane' },
 ]
 
 const companyLinks = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services' },
-  { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ]
 
 const serviceAreas = [
-  'Cochrane',
-  'Calgary',
-  'Canmore',
-  'Springbank',
-  'Bragg Creek',
+  { label: 'Cochrane', href: '/' },
+  { label: 'Calgary', href: '/roofing-contractor-calgary' },
+  { label: 'Canmore', href: '/roofing-contractor-canmore' },
 ]
 
 export function Footer() {
   return (
-    <footer className="bg-[#1B3558] text-white">
-      {/* Row 1 — Gold accent bar */}
-      <div className="h-1 bg-[#C49A2C]" />
+    <footer className="bg-[#F8F8F8]">
+      <div className="border-t border-[#EBEBEB]" />
 
-      {/* Row 2 — Main footer content */}
+      {/* Main footer content */}
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Column 1 — Brand */}
+          {/* Column 1 */}
           <div>
-            <Image
-              src="/images/logo-white.webp"
-              alt="Sure West Roofing"
-              width={160}
-              height={56}
+            <img
+              src="/images/logo.svg"
+              alt="Cochrane Roofing Pro"
               className="h-14 w-auto"
             />
 
-            <p className="font-body text-sm text-white/60 leading-relaxed max-w-xs mt-6">
+            <p className="font-body text-sm text-body-text leading-relaxed max-w-xs mt-6">
               Red Seal Journeyman certified roofing contractor proudly serving
               Cochrane, Calgary, and Canmore. Quality craftsmanship on every
               project.
             </p>
 
-            <div className="mt-6 flex flex-col gap-3">
-              <a
-                href="tel:4039907210"
-                className="flex items-center gap-2 group"
-              >
-                <Phone className="text-[#C49A2C] w-4 h-4" />
-                <span className="font-body text-sm text-white/80 group-hover:text-[#C49A2C] transition-colors duration-200">
-                  (403) 990-7210
-                </span>
-              </a>
-              <a
-                href="mailto:info@surewestroofing.ca"
-                className="flex items-center gap-2 group"
-              >
-                <Mail className="text-[#C49A2C] w-4 h-4" />
-                <span className="font-body text-sm text-white/80 group-hover:text-[#C49A2C] transition-colors duration-200">
-                  info@surewestroofing.ca
-                </span>
-              </a>
-            </div>
-
-            <div className="mt-4 flex items-center gap-2">
-              <MapPin className="text-[#C49A2C] w-4 h-4 flex-shrink-0" />
-              <span className="font-body text-sm text-white/80">
-                Unit 9 – 225 Railway St E, Cochrane AB
+            <div className="mt-6 flex items-center gap-2">
+              <MapPin className="text-[#D6AE60] w-4 h-4 flex-shrink-0" />
+              <span className="font-body text-sm text-body-text">
+                Cochrane, AB
               </span>
             </div>
           </div>
 
-          {/* Column 2 — Services */}
+          {/* Column 2 */}
           <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
               Services
             </h4>
             <ul className="flex flex-col gap-3">
@@ -92,7 +63,7 @@ export function Footer() {
                 <li key={service.href}>
                   <Link
                     href={service.href}
-                    className="font-body text-sm text-white/70 hover:text-[#C49A2C] transition-colors duration-200"
+                    className="font-body text-sm text-body-text hover:text-[#D6AE60] transition-colors duration-200"
                   >
                     {service.label}
                   </Link>
@@ -101,9 +72,9 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3 — Company */}
+          {/* Column 3 */}
           <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
               Company
             </h4>
             <ul className="flex flex-col gap-3">
@@ -111,7 +82,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="font-body text-sm text-white/70 hover:text-[#C49A2C] transition-colors duration-200"
+                    className="font-body text-sm text-body-text hover:text-[#D6AE60] transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -120,22 +91,20 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4 — Service Area */}
+          {/* Column 4 */}
           <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-[#C49A2C] mb-6">
-              Service Area
+            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
+              Service Areas
             </h4>
-            <p className="font-body text-sm text-white/60 leading-relaxed mb-4">
-              Proudly serving residential roofing clients across the Bow Valley
-              and surrounding communities.
-            </p>
             <ul className="flex flex-col gap-2">
               {serviceAreas.map((area) => (
-                <li
-                  key={area}
-                  className="font-body text-sm text-white/70"
-                >
-                  {area}
+                <li key={area.label}>
+                  <Link
+                    href={area.href}
+                    className="font-body text-sm text-body-text hover:text-[#D6AE60] transition-colors duration-200"
+                  >
+                    {area.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -143,18 +112,14 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Row 3 — Divider */}
-      <div className="border-t border-white/10" />
-
-      {/* Row 4 — Bottom bar */}
+      {/* Bottom bar */}
+      <div className="border-t border-[#EBEBEB]" />
       <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
-        <p className="font-body text-xs text-white/50">
-          © 2025 Sure West Roofing. All rights reserved.
+        <p className="font-body text-xs text-body-text/60">
+          &copy; 2026 Cochrane Roofing Pro. All Rights Reserved.
         </p>
-        <p className="font-body text-xs text-white/50">
-          Cochrane, Alberta{' '}
-          <span className="text-[#C49A2C]">·</span>{' '}
-          Red Seal Certified
+        <p className="font-body text-xs text-body-text/60">
+          Cochrane, Alberta. Red Seal Certified.
         </p>
       </div>
     </footer>

@@ -1,8 +1,8 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { SectionLabel } from '@/components/ui/SectionLabel'
+import { Button } from '@/components/ui/Button'
+import { ArrowRight } from 'lucide-react'
 
 interface Step {
   number: number
@@ -13,6 +13,7 @@ interface Step {
 interface CredibilitySectionProps {
   label: string
   heading: string
+  body?: string
   image: string
   imageAlt: string
   badgeNumber: string
@@ -20,107 +21,88 @@ interface CredibilitySectionProps {
   steps: Step[]
 }
 
-const stats = [
-  { number: '500+', label: 'Roofs Completed' },
-  { number: '15+', label: 'Years Experience' },
-  { number: '100%', label: 'Insured & Bonded' },
-  { number: '50+', label: '5-Star Reviews' },
-]
-
 export function CredibilitySection({
   label,
   heading,
-  image,
-  imageAlt,
-  badgeNumber,
-  badgeLabel,
+  body,
   steps,
 }: CredibilitySectionProps) {
   return (
-    <section className="bg-[#F9F8F5] py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* LEFT — Image with badge */}
-          <motion.div
-            className="relative"
-            initial={{ x: -40, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
-          >
-            <div className="aspect-[4/5] w-full max-w-lg rounded-2xl overflow-hidden relative">
-              <Image
-                src={image}
-                alt={imageAlt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
+    <section className="bg-white py-16 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        {/* Header — centered */}
+        <motion.div
+          className="text-center max-w-2xl mx-auto mb-14"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+            {label}
+          </span>
+          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
+            {heading}
+          </h2>
+          {body && (
+            <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
+              {body}
+            </p>
+          )}
+        </motion.div>
 
-            {/* Badge overlay */}
-            <div className="absolute bottom-8 left-8 bg-[#1B3558] text-white rounded-2xl p-6 border-l-4 border-[#C49A2C]">
-              <div className="font-display font-bold text-4xl text-[#C49A2C] tracking-wide">
-                {badgeNumber}
-              </div>
-              <div className="font-body text-xs text-white/70 uppercase tracking-widest mt-1">
-                {badgeLabel}
-              </div>
-            </div>
-          </motion.div>
+        {/* 3 step cards with connecting line */}
+        <div className="relative">
+          {/* Connecting line — desktop only */}
+          <div className="hidden lg:block absolute top-16 left-[16%] right-[16%] h-px bg-[#D6AE60]/20" />
 
-          {/* RIGHT — Content */}
-          <motion.div
-            initial={{ x: 40, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
-          >
-            <SectionLabel text={label} />
-
-            <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-wide leading-tight mt-3 mb-10">
-              {heading}
-            </h2>
-
-            {/* Steps */}
-            <div className="flex flex-col gap-8">
-              {steps.map((step) => (
-                <div key={step.number} className="flex items-start gap-5">
-                  <div className="w-12 h-12 rounded-full bg-[#4A7FA8] flex-shrink-0 flex items-center justify-center">
-                    <span className="font-display font-bold text-lg text-white tracking-wide">
-                      {step.number}
-                    </span>
-                  </div>
-                  <div>
-                    <h3 className="font-display font-semibold text-dark text-base tracking-wide mb-1">
-                      {step.title}
-                    </h3>
-                    <p className="font-body text-sm text-body-text leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-6">
+            {steps.map((step, i) => (
+              <motion.div
+                key={step.number}
+                className="relative text-center"
+                initial={{ y: 30, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                viewport={{ once: true, margin: '-30px' }}
+                transition={{ duration: 0.5, delay: i * 0.15, ease: 'easeOut' }}
+              >
+                {/* Step number */}
+                <div className="w-14 h-14 rounded-2xl bg-[#D6AE60]/10 flex items-center justify-center mx-auto mb-6 relative z-10">
+                  <span className="font-display font-extrabold text-2xl text-[#D6AE60]">
+                    {step.number}
+                  </span>
                 </div>
-              ))}
-            </div>
 
-            {/* Stats */}
-            <div className="mt-10 grid grid-cols-2 gap-6">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-white border border-[#E5E2D9] rounded-2xl p-5"
-                >
-                  <div className="font-display font-bold text-3xl text-[#C49A2C] tracking-wide">
-                    {stat.number}
+                <h3 className="font-display font-bold text-dark text-xl tracking-tight mb-3">
+                  {step.title}
+                </h3>
+                <p className="font-body text-sm text-body-text leading-relaxed max-w-xs mx-auto">
+                  {step.description}
+                </p>
+
+                {/* Arrow between steps — desktop only */}
+                {i < steps.length - 1 && (
+                  <div className="hidden lg:flex absolute -right-3 top-16 -translate-y-1/2 z-10">
+                    <ArrowRight className="w-5 h-5 text-[#D6AE60]/40" />
                   </div>
-                  <div className="font-body text-xs text-body-text mt-1 uppercase tracking-wide">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+                )}
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        {/* CTA */}
+        <motion.div
+          className="text-center mt-12"
+          initial={{ y: 15, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
+        >
+          <Button variant="primary" href="/contact">
+            Book A Free Inspection
+          </Button>
+        </motion.div>
       </div>
     </section>
   )

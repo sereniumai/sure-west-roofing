@@ -21,8 +21,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#C49A2C',
-        'primary-dark': '#A6821E',
+        primary: '#D6AE60',
+        'primary-dark': '#B8943F',
         navy: '#1B3558',
         'navy-light': '#243F6B',
         steel: '#4A7FA8',
@@ -33,7 +33,7 @@ const config: Config = {
         'border-col': '#E5E2D9',
       },
       fontFamily: {
-        display: ['Oswald', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
       },
     },

@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { SectionLabel } from '@/components/ui/SectionLabel'
-import { FAQItem } from '@/components/ui/FAQItem'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Plus } from 'lucide-react'
 import { generateFAQSchema } from '@/lib/faq-schema'
 import type { FAQItem as FAQItemType } from '@/lib/types'
 
@@ -16,7 +16,6 @@ interface FAQSectionProps {
 }
 
 export function FAQSection({
-  label,
   heading,
   body,
   faqs,
@@ -35,46 +34,82 @@ export function FAQSection({
       )}
 
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
-          <SectionLabel text={label} className="justify-center" />
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20">
+          {/* LEFT — Header */}
+          <motion.div
+            className="lg:col-span-2"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h2 className="font-display font-extrabold text-3xl lg:text-[44px] text-dark tracking-tight leading-tight">
+              {heading}
+            </h2>
 
-          <h2 className="font-display font-bold text-3xl lg:text-4xl text-dark tracking-wide mt-3">
-            {heading}
-          </h2>
+            <p className="font-body text-body-text leading-relaxed mt-4">
+              {body}
+            </p>
 
-          <p className="font-body text-body-text leading-relaxed mt-4">
-            {body}
-          </p>
-        </div>
+            <p className="font-body text-body-text text-sm mt-8">
+              Have a question not listed here?{' '}
+              <Link
+                href="/contact"
+                className="text-[#D6AE60] font-semibold hover:text-[#B8943F] transition-colors"
+              >
+                Contact us
+              </Link>
+            </p>
+          </motion.div>
 
-        {/* FAQ list */}
-        <div className="max-w-3xl mx-auto bg-[#F9F8F5] rounded-2xl border border-[#E5E2D9] overflow-hidden px-6 md:px-10">
-          {faqs.map((faq, index) => (
-            <FAQItem
-              key={index}
-              question={faq.question}
-              answer={faq.answer}
-              isOpen={index === openIndex}
-              onToggle={() =>
-                setOpenIndex(index === openIndex ? null : index)
-              }
-              index={index}
-            />
-          ))}
-        </div>
+          {/* RIGHT — FAQ accordion */}
+          <motion.div
+            className="lg:col-span-3"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="bg-white border border-[#EBEBEB] rounded-2xl overflow-hidden">
+              {faqs.map((faq, index) => (
+                <div key={index} className="border-b border-[#EBEBEB] last:border-0">
+                  <button
+                    onClick={() => setOpenIndex(index === openIndex ? null : index)}
+                    className="flex justify-between items-center py-6 px-7 w-full text-left cursor-pointer group"
+                    aria-expanded={index === openIndex}
+                  >
+                    <span className="font-display font-bold text-base text-dark tracking-tight group-hover:text-[#D6AE60] transition-colors duration-200 pr-6">
+                      {faq.question}
+                    </span>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                      index === openIndex
+                        ? 'bg-[#D6AE60] text-white rotate-45'
+                        : 'bg-[#F8F8F8] text-dark/40 group-hover:bg-[#D6AE60]/10 group-hover:text-[#D6AE60]'
+                    }`}>
+                      <Plus className="w-4 h-4" />
+                    </div>
+                  </button>
 
-        {/* Bottom CTA */}
-        <div className="mt-12 text-center">
-          <p className="font-body text-body-text text-sm">
-            Have a question not listed here?{' '}
-            <Link
-              href="/contact"
-              className="text-[#C49A2C] font-semibold hover:underline"
-            >
-              Contact us
-            </Link>
-          </p>
+                  <AnimatePresence initial={false}>
+                    {index === openIndex && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <p
+                          className="font-body text-sm text-body-text leading-relaxed px-7 pb-6 pr-16 [&_a]:text-[#D6AE60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
+                          dangerouslySetInnerHTML={{ __html: faq.answer }}
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

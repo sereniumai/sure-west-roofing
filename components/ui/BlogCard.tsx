@@ -21,7 +21,7 @@ export function BlogCard({
   return (
     <Link
       href={`/blog/${slug}`}
-      className="block bg-white border border-[#E5E2D9] rounded-2xl overflow-hidden hover:shadow-md hover:border-[#C49A2C] transition-all duration-300 group"
+      className="block bg-white rounded-2xl overflow-hidden shadow-[0_1px_3px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08),0_2px_8px_rgba(0,0,0,0.04)] hover:-translate-y-1 transition-all duration-500 group"
     >
       <div className="aspect-video relative overflow-hidden">
         <Image
@@ -34,11 +34,11 @@ export function BlogCard({
       </div>
 
       <div className="p-5">
-        <span className="bg-[#C49A2C]/10 text-[#C49A2C] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
+        <span className="bg-[#D6AE60]/10 text-[#D6AE60] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
           {category}
         </span>
 
-        <h3 className="font-display font-semibold text-base text-dark tracking-wide leading-snug mb-2">
+        <h3 className="font-display font-semibold text-base text-dark tracking-tight leading-snug mb-2">
           {title}
         </h3>
 

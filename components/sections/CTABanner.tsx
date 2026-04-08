@@ -1,16 +1,15 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { ShieldCheck, Phone } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Phone } from 'lucide-react'
 
 interface CTABannerProps {
   heading: string
   subtext: string
   primaryCTA: { label: string; href: string }
   secondaryCTA?: { label: string; href: string }
-  backgroundImage: string
+  backgroundImage?: string
 }
 
 export function CTABanner({
@@ -18,61 +17,53 @@ export function CTABanner({
   subtext,
   primaryCTA,
   secondaryCTA,
-  backgroundImage,
 }: CTABannerProps) {
   return (
-    <section className="relative py-28 overflow-hidden">
-      {/* Background */}
-      <Image
-        src={backgroundImage}
-        alt=""
-        fill
-        className="object-cover"
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(10,18,35,0.85)] to-[rgba(10,18,35,0.60)]" />
-
-      {/* Content */}
-      <motion.div
-        className="relative z-10 max-w-6xl mx-auto px-6"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6, ease: [0, 0, 0.2, 1] }}
-      >
-        <div className="max-w-2xl">
-          <h2 className="font-display font-bold text-3xl lg:text-5xl text-white tracking-wide leading-tight">
-            {heading}
-          </h2>
-
-          <p className="font-body text-white/70 text-base leading-relaxed mt-4 max-w-lg">
-            {subtext}
-          </p>
-
-          <div className="flex flex-wrap gap-4 mt-8 items-center">
-            <Button variant="ghost" href={primaryCTA.href}>
-              {primaryCTA.label}
-            </Button>
-
-            {secondaryCTA && (
-              <a
-                href={secondaryCTA.href}
-                className="inline-flex items-center gap-2 font-body font-semibold text-white hover:text-[#C49A2C] transition-colors duration-200"
-              >
-                <Phone className="w-5 h-5" />
-                {secondaryCTA.label}
-              </a>
-            )}
+    <section className="bg-[#F8F8F8] py-16 lg:py-24">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <motion.div
+          className="relative bg-gradient-to-br from-[#D6AE60] via-[#C9A355] to-[#B8943F] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 overflow-hidden"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        >
+          {/* Subtle texture */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-white/[0.07]" />
+            <div className="absolute -bottom-32 -left-20 w-[400px] h-[400px] rounded-full bg-black/[0.04]" />
           </div>
 
-          <div className="mt-8 flex items-center gap-3">
-            <ShieldCheck className="text-[#C49A2C] w-5 h-5 flex-shrink-0" />
-            <span className="font-body text-sm text-white/60">
-              Red Seal Certified · Free Estimates · Serving Cochrane &amp; Area
-            </span>
+          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            {/* Left — Text */}
+            <div className="lg:max-w-lg">
+              <h2 className="font-display font-extrabold text-3xl lg:text-[44px] text-white tracking-tight leading-[1.1]">
+                {heading}
+              </h2>
+              <p className="font-body text-white/80 text-base leading-relaxed mt-4">
+                {subtext}
+              </p>
+            </div>
+
+            {/* Right — CTAs stacked */}
+            <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end flex-shrink-0">
+              <Button variant="secondary" size="lg" href={primaryCTA.href}>
+                {primaryCTA.label}
+              </Button>
+
+              {secondaryCTA && (
+                <a
+                  href={secondaryCTA.href}
+                  className="inline-flex items-center justify-center gap-2 font-body font-semibold text-white hover:text-white/80 transition-colors duration-300 text-base bg-white/[0.15] hover:bg-white/[0.25] backdrop-blur-sm rounded-full px-6 py-3"
+                >
+                  <Phone className="w-4 h-4" />
+                  {secondaryCTA.label}
+                </a>
+              )}
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   )
 }
