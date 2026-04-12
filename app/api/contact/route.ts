@@ -3,6 +3,14 @@ import { NextRequest, NextResponse } from 'next/server'
 const WEBHOOK_URL =
   'https://services.leadconnectorhq.com/hooks/TjHzWgaPLrjgr7iKEvaP/webhook-trigger/aea2b8d3-1a0e-4925-902e-0ec85a887b5c'
 
+/** Capitalise first letter of each word, lowercase the rest */
+function titleCase(str: string): string {
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
 const VALID_SERVICES = [
   'Roof Replacement',
   'Roof Repair',
@@ -71,11 +79,11 @@ function validatePayload(
   return {
     ok: true,
     data: {
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
+      firstName: titleCase(firstName),
+      lastName: titleCase(lastName),
       email: email.trim().toLowerCase(),
       phone: digits,
-      address: address.trim(),
+      address: titleCase(address),
       service,
     },
   }
