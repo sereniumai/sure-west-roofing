@@ -117,6 +117,42 @@ h1, h2, h3, h4, h5, h6 {
   outline-offset: 2px;
 }
 
+/* ── Google Places autocomplete ─────────────── */
+
+.pac-container {
+  z-index: 9999 !important;
+  border-radius: 12px;
+  border: 1px solid #E5E2D9;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  margin-top: 4px;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.pac-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  border-top: 1px solid #F0EDE6;
+}
+
+.pac-item:first-child {
+  border-top: none;
+}
+
+.pac-item:hover,
+.pac-item-selected {
+  background-color: #FBF8F1;
+}
+
+.pac-icon {
+  display: none;
+}
+
+.pac-item-query {
+  color: #1B3558;
+  font-weight: 500;
+}
+
 /* ── Reduced motion ──────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
