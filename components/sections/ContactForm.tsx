@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Send, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react'
 
@@ -16,26 +16,34 @@ const services = [
 ]
 
 interface FormData {
-  name: string
+  firstName: string
+  lastName: string
   email: string
   phone: string
   address: string
   service: string
+  consent: boolean
 }
 
 interface FormErrors {
-  name?: string
+  firstName?: string
+  lastName?: string
   email?: string
   phone?: string
   address?: string
   service?: string
+  consent?: string
 }
 
 function validateForm(data: FormData): FormErrors {
   const errors: FormErrors = {}
 
-  if (!data.name.trim() || data.name.trim().length < 2) {
-    errors.name = 'Please enter your full name'
+  if (!data.firstName.trim() || data.firstName.trim().length < 2) {
+    errors.firstName = 'Please enter your first name'
+  }
+
+  if (!data.lastName.trim() || data.lastName.trim().length < 2) {
+    errors.lastName = 'Please enter your last name'
   }
 
   if (!data.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
@@ -55,6 +63,10 @@ function validateForm(data: FormData): FormErrors {
     errors.service = 'Please select a service'
   }
 
+  if (!data.consent) {
+    errors.consent = 'You must consent to receive communications to submit'
+  }
+
   return errors
 }
 
@@ -62,19 +74,69 @@ const inputBase =
   'w-full px-4 py-3.5 rounded-lg border bg-white font-body text-sm text-dark placeholder:text-muted focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200'
 const inputNormal = `${inputBase} border-[#E5E2D9] focus:ring-[#D6AE60]/50 focus:border-[#D6AE60]`
 const inputError = `${inputBase} border-red-400 focus:ring-red-400/50 focus:border-red-400`
+const labelClass = 'block font-body text-sm font-medium text-dark mb-1.5'
 
 export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
-    name: '',
+    firstName: '',
+    lastName: '',
     email: '',
     phone: '',
     address: '',
     service: '',
+    consent: false,
   })
   const [errors, setErrors] = useState<FormErrors>({})
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [serverError, setServerError] = useState('')
-  const [smsDelivered, setSmsDelivered] = useState(false)
+
+  const addressInputRef = useRef<HTMLInputElement>(null)
+  const autocompleteRef = useRef<ReturnType<typeof Object> | null>(null)
+
+  // Google Places autocomplete — progressive enhancement
+  useEffect(() => {
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
+    if (!apiKey) return
+
+    function initAutocomplete() {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const google = (window as any).google
+      if (!addressInputRef.current || !google?.maps?.places) return
+
+      autocompleteRef.current = new google.maps.places.Autocomplete(
+        addressInputRef.current,
+        {
+          types: ['address'],
+          componentRestrictions: { country: 'ca' },
+          fields: ['formatted_address'],
+        }
+      )
+
+      autocompleteRef.current.addListener('place_changed', () => {
+        const place = autocompleteRef.current?.getPlace()
+        if (place?.formatted_address) {
+          setFormData((prev) => ({ ...prev, address: place.formatted_address }))
+          setErrors((prev) => ({ ...prev, address: undefined }))
+        }
+      })
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    if ((window as any).google?.maps?.places) {
+      initAutocomplete()
+      return
+    }
+
+    if (document.getElementById('google-maps-places')) return
+
+    const script = document.createElement('script')
+    script.id = 'google-maps-places'
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`
+    script.async = true
+    script.defer = true
+    script.onload = initAutocomplete
+    document.head.appendChild(script)
+  }, [])
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
     const { name, value } = e.target
@@ -97,10 +159,11 @@ export function ContactForm() {
     setServerError('')
 
     try {
+      const { consent: _, ...payload } = formData
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       })
 
       const data = await res.json()
@@ -109,7 +172,6 @@ export function ContactForm() {
         throw new Error(data.error || 'Something went wrong. Please try again.')
       }
 
-      setSmsDelivered(data.smsDelivered ?? false)
       setStatus('success')
     } catch (err) {
       setStatus('error')
@@ -134,10 +196,8 @@ export function ContactForm() {
           Thank You!
         </h3>
         <p className="font-body text-body-text leading-relaxed max-w-md mx-auto">
-          We&apos;ve received your request
-          {smsDelivered ? ' and sent a confirmation to your phone' : ''}. One of
-          our certified roofers will be in touch within 24 hours to schedule your
-          free consultation.
+          We&apos;ve received your request. One of our certified roofers will be
+          in touch within 24 hours to schedule your free consultation.
         </p>
       </motion.div>
     )
@@ -156,28 +216,47 @@ export function ContactForm() {
       </h2>
 
       <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
-        {/* Name */}
-        <div>
-          <label htmlFor="name" className="block font-body text-sm font-medium text-dark mb-1.5">
-            Full Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            placeholder="John Smith"
-            value={formData.name}
-            onChange={handleChange}
-            className={errors.name ? inputError : inputNormal}
-          />
-          {errors.name && (
-            <p className="font-body text-xs text-red-500 mt-1">{errors.name}</p>
-          )}
+        {/* First + Last name row */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label htmlFor="firstName" className={labelClass}>
+              First Name
+            </label>
+            <input
+              id="firstName"
+              name="firstName"
+              type="text"
+              placeholder="John"
+              value={formData.firstName}
+              onChange={handleChange}
+              className={errors.firstName ? inputError : inputNormal}
+            />
+            {errors.firstName && (
+              <p className="font-body text-xs text-red-500 mt-1">{errors.firstName}</p>
+            )}
+          </div>
+          <div>
+            <label htmlFor="lastName" className={labelClass}>
+              Last Name
+            </label>
+            <input
+              id="lastName"
+              name="lastName"
+              type="text"
+              placeholder="Smith"
+              value={formData.lastName}
+              onChange={handleChange}
+              className={errors.lastName ? inputError : inputNormal}
+            />
+            {errors.lastName && (
+              <p className="font-body text-xs text-red-500 mt-1">{errors.lastName}</p>
+            )}
+          </div>
         </div>
 
         {/* Email */}
         <div>
-          <label htmlFor="email" className="block font-body text-sm font-medium text-dark mb-1.5">
+          <label htmlFor="email" className={labelClass}>
             Email Address
           </label>
           <input
@@ -196,7 +275,7 @@ export function ContactForm() {
 
         {/* Phone */}
         <div>
-          <label htmlFor="phone" className="block font-body text-sm font-medium text-dark mb-1.5">
+          <label htmlFor="phone" className={labelClass}>
             Phone Number
           </label>
           <input
@@ -213,16 +292,17 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Address */}
+        {/* Address — Google Places autocomplete when API key is set */}
         <div>
-          <label htmlFor="address" className="block font-body text-sm font-medium text-dark mb-1.5">
+          <label htmlFor="address" className={labelClass}>
             Property Address
           </label>
           <input
+            ref={addressInputRef}
             id="address"
             name="address"
             type="text"
-            placeholder="123 Main Street, Cochrane, AB"
+            placeholder="Start typing your address..."
             value={formData.address}
             onChange={handleChange}
             className={errors.address ? inputError : inputNormal}
@@ -234,7 +314,7 @@ export function ContactForm() {
 
         {/* Service Interest */}
         <div>
-          <label htmlFor="service" className="block font-body text-sm font-medium text-dark mb-1.5">
+          <label htmlFor="service" className={labelClass}>
             Service Interest
           </label>
           <div className="relative">
@@ -260,6 +340,34 @@ export function ContactForm() {
           </div>
           {errors.service && (
             <p className="font-body text-xs text-red-500 mt-1">{errors.service}</p>
+          )}
+        </div>
+
+        {/* CASL consent */}
+        <div className="mt-1">
+          <label className="flex items-start gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={formData.consent}
+              onChange={(e) => {
+                setFormData((prev) => ({ ...prev, consent: e.target.checked }))
+                if (errors.consent) {
+                  setErrors((prev) => ({ ...prev, consent: undefined }))
+                }
+              }}
+              className="mt-0.5 h-4 w-4 rounded border-[#E5E2D9] accent-[#D6AE60] flex-shrink-0 cursor-pointer"
+            />
+            <span className="font-body text-xs text-body-text leading-relaxed">
+              I consent to receive automated SMS messages and email
+              communications from Sure West Roofing regarding my roofing inquiry
+              and related services. Message and data rates may apply. I can
+              withdraw my consent at any time by replying STOP.
+            </span>
+          </label>
+          {errors.consent && (
+            <p className="font-body text-xs text-red-500 mt-1.5 ml-7">
+              {errors.consent}
+            </p>
           )}
         </div>
 
@@ -317,7 +425,14 @@ export function ContactForm() {
         </button>
 
         <p className="font-body text-xs text-muted text-center">
-          We&apos;ll send a confirmation to your phone. No spam, ever.
+          By submitting you agree to our{' '}
+          <a
+            href="/privacy"
+            className="underline hover:text-[#D6AE60] transition-colors"
+          >
+            Privacy Policy
+          </a>
+          . You can unsubscribe at any time by replying STOP.
         </p>
       </form>
     </motion.div>
