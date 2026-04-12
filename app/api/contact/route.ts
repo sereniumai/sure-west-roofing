@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const WEBHOOK_URL =
-  'https://services.leadconnectorhq.com/hooks/vJ6gvA3onFfSgZMjaur4/webhook-trigger/ed240ca2-a9ca-4c08-83af-fbe0271ca83f'
+  'https://services.leadconnectorhq.com/hooks/TjHzWgaPLrjgr7iKEvaP/webhook-trigger/c73ebaff-9275-4c2b-9a02-50bd5efa06d2'
 
 const VALID_SERVICES = [
   'Roof Replacement',
