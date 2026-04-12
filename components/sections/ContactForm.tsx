@@ -229,8 +229,9 @@ export function ContactForm() {
           Thank You!
         </h3>
         <p className="font-body text-body-text leading-relaxed max-w-md mx-auto">
-          We&apos;ve received your request. One of our certified roofers will be
-          in touch within 24 hours to schedule your free consultation.
+          We&apos;ve received your request and sent a confirmation to your
+          phone. One of our certified roofers will be in touch within
+          24&nbsp;hours to schedule your free consultation.
         </p>
       </motion.div>
     )
