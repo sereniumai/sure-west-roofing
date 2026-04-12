@@ -146,6 +146,20 @@ export function ContactForm() {
     }
   }
 
+  function handlePhoneChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const digits = e.target.value.replace(/\D/g, '').slice(0, 10)
+    let formatted = digits
+    if (digits.length > 6) {
+      formatted = `${digits.slice(0, 3)}-${digits.slice(3, 6)}-${digits.slice(6)}`
+    } else if (digits.length > 3) {
+      formatted = `${digits.slice(0, 3)}-${digits.slice(3)}`
+    }
+    setFormData((prev) => ({ ...prev, phone: formatted }))
+    if (errors.phone) {
+      setErrors((prev) => ({ ...prev, phone: undefined }))
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
 
@@ -282,9 +296,9 @@ export function ContactForm() {
             id="phone"
             name="phone"
             type="tel"
-            placeholder="(403) 555-1234"
+            placeholder="403-555-1234"
             value={formData.phone}
-            onChange={handleChange}
+            onChange={handlePhoneChange}
             className={errors.phone ? inputError : inputNormal}
           />
           {errors.phone && (
