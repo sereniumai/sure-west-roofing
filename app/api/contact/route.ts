@@ -72,6 +72,18 @@ function validatePayload(
     return { ok: false, error: 'A valid property address is required' }
   }
 
+  const addressLower = (address as string).toLowerCase()
+  if (
+    !['cochrane', 'calgary', 'canmore'].some((city) =>
+      addressLower.includes(city)
+    )
+  ) {
+    return {
+      ok: false,
+      error: 'Sorry, we currently only serve Cochrane, Calgary, and Canmore.',
+    }
+  }
+
   if (!service || typeof service !== 'string' || !VALID_SERVICES.includes(service)) {
     return { ok: false, error: 'Please select a valid service' }
   }

@@ -35,6 +35,13 @@ interface FormErrors {
   consent?: string
 }
 
+const SERVICE_AREAS = ['cochrane', 'calgary', 'canmore']
+
+function isInServiceArea(address: string): boolean {
+  const lower = address.toLowerCase()
+  return SERVICE_AREAS.some((city) => lower.includes(city))
+}
+
 function validateForm(data: FormData): FormErrors {
   const errors: FormErrors = {}
 
@@ -57,6 +64,9 @@ function validateForm(data: FormData): FormErrors {
 
   if (!data.address.trim() || data.address.trim().length < 5) {
     errors.address = 'Please enter your property address'
+  } else if (!isInServiceArea(data.address)) {
+    errors.address =
+      'Sorry, we currently only serve Cochrane, Calgary, and Canmore.'
   }
 
   if (!data.service) {
@@ -115,8 +125,17 @@ export function ContactForm() {
       autocompleteRef.current.addListener('place_changed', () => {
         const place = autocompleteRef.current?.getPlace()
         if (place?.formatted_address) {
-          setFormData((prev) => ({ ...prev, address: place.formatted_address }))
-          setErrors((prev) => ({ ...prev, address: undefined }))
+          const addr = place.formatted_address as string
+          setFormData((prev) => ({ ...prev, address: addr }))
+          if (!isInServiceArea(addr)) {
+            setErrors((prev) => ({
+              ...prev,
+              address:
+                'Sorry, we currently only serve Cochrane, Calgary, and Canmore.',
+            }))
+          } else {
+            setErrors((prev) => ({ ...prev, address: undefined }))
+          }
         }
       })
     }
@@ -319,6 +338,15 @@ export function ContactForm() {
             placeholder="Start typing your address..."
             value={formData.address}
             onChange={handleChange}
+            onBlur={() => {
+              if (formData.address.trim().length >= 5 && !isInServiceArea(formData.address)) {
+                setErrors((prev) => ({
+                  ...prev,
+                  address:
+                    'Sorry, we currently only serve Cochrane, Calgary, and Canmore.',
+                }))
+              }
+            }}
             className={errors.address ? inputError : inputNormal}
           />
           {errors.address && (
