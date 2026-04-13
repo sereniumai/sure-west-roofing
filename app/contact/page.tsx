@@ -120,7 +120,7 @@ export default function ContactPage() {
       />
 
       {/* ── Main contact section ──────────────────── */}
-      <section className="bg-white pt-32 lg:pt-40 pb-16 lg:pb-24">
+      <section className="bg-[#F8F8F8] pt-32 lg:pt-40 pb-16 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left — info */}
@@ -211,7 +211,7 @@ export default function ContactPage() {
       </section>
 
       {/* ── Map section ───────────────────────────── */}
-      <section className="bg-[#F8F8F8] py-16 lg:py-20 border-t border-[#EBEBEB]">
+      <section className="bg-white py-16 lg:py-20 border-t border-[#EBEBEB]">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           <div className="text-center mb-8">
             <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
