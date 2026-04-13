@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 const WEBHOOK_URL =
-  'https://services.leadconnectorhq.com/hooks/TjHzWgaPLrjgr7iKEvaP/webhook-trigger/aea2b8d3-1a0e-4925-902e-0ec85a887b5c'
+  'https://services.leadconnectorhq.com/hooks/TjHzWgaPLrjgr7iKEvaP/webhook-trigger/b7e5a755-d3f8-4397-8175-f0ef62e26cca'
 
 /** Capitalise first letter of each word, lowercase the rest */
 function titleCase(str: string): string {
