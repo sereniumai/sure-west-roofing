@@ -125,12 +125,6 @@ export default function ContactPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left — info */}
             <div className="lg:col-span-5">
-              <img
-                src="/images/Sure West Dark.png"
-                alt="Sure West Roofing"
-                className="h-14 w-auto mb-8"
-              />
-
               <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
                 Free Estimate
               </span>

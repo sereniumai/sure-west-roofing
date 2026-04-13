@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -69,6 +70,8 @@ const navLinks = [
 ]
 
 export function Nav() {
+  const pathname = usePathname()
+  const isLightPage = pathname === '/contact' || pathname === '/about' || pathname === '/services'
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -92,14 +95,18 @@ export function Nav() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         scrolled
           ? 'bg-white shadow-lg'
-          : 'bg-transparent'
+          : isLightPage
+            ? 'bg-transparent'
+            : 'bg-transparent'
       }`}
     >
       <div className="w-full px-8 lg:px-12 flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
           <img
-            src="/images/Sure West Roofing - Cochrane Roofing Contractor.webp"
+            src={scrolled || isLightPage
+              ? '/images/Sure West Dark.png'
+              : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
             alt="Sure West Roofing"
             className="h-14 w-auto"
           />
@@ -121,7 +128,7 @@ export function Nav() {
                 <Link
                   href={link.href}
                   className={`flex items-center gap-1.5 text-[15px] font-medium tracking-wide transition-colors ${
-                    scrolled
+                    scrolled || isLightPage
                       ? 'text-dark hover:text-[#D6AE60]'
                       : 'text-white hover:text-[#D6AE60]'
                   }`}
@@ -223,7 +230,7 @@ export function Nav() {
                 key={link.label}
                 href={link.href}
                 className={`text-[15px] font-medium tracking-wide transition-colors ${
-                  scrolled
+                  scrolled || isLightPage
                     ? 'text-dark hover:text-[#D6AE60]'
                     : 'text-white hover:text-[#D6AE60]'
                 }`}
@@ -243,7 +250,7 @@ export function Nav() {
 
         {/* Mobile hamburger */}
         <button
-          className={`lg:hidden relative z-10 p-2 ${scrolled ? 'text-dark' : 'text-white'}`}
+          className={`lg:hidden relative z-10 p-2 ${scrolled || isLightPage ? 'text-dark' : 'text-white'}`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         >
