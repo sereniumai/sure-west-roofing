@@ -137,7 +137,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
 
   return (
     <section
-      className="bg-[#F8F8F8] overflow-hidden relative"
+      className="bg-[#0E0E0E] text-white overflow-hidden relative"
       style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
     >
       {/* Centered header */}
@@ -152,14 +152,14 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
       >
-        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#B8943F] mb-6">
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
+        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#D4AF60] mb-6">
+          <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
           Our Portfolio
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
+          <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
         </span>
 
         <h2
-          className="font-display font-semibold leading-[1.02] text-[--color-near-black] max-w-[1000px]"
+          className="font-display font-semibold leading-[1.02] text-white max-w-[1000px]"
           style={{
             fontSize: 'clamp(34px, 5vw, 72px)',
             letterSpacing: '-0.04em',
@@ -173,12 +173,9 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
           ))}
         </h2>
 
-        <div className="flex items-center gap-3 md:gap-4 mt-8 md:mt-10">
+        <div className="flex items-center mt-8 md:mt-10">
           <Button variant="primary" size="md" href="/services">
             View Projects
-          </Button>
-          <Button variant="outline" size="md" href="/gallery">
-            View Gallery
           </Button>
         </div>
       </motion.div>
@@ -234,10 +231,10 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
 
         {/* DRAG pill indicator, bottom-center over the carousel */}
         <div className="absolute bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
-          <div className="bg-[--color-near-black] text-white px-4 h-[36px] flex items-center gap-2 text-[11px] font-body font-bold uppercase tracking-[0.2em] rounded-[--radius-sm]">
-            <span aria-hidden="true" className="opacity-80 leading-none text-[13px]">&laquo;</span>
+          <div className="bg-white text-[--color-near-black] px-4 h-[36px] flex items-center gap-2 text-[11px] font-body font-bold uppercase tracking-[0.2em] rounded-[--radius-sm] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]">
+            <span aria-hidden="true" className="opacity-70 leading-none text-[13px]">&laquo;</span>
             <span>Drag</span>
-            <span aria-hidden="true" className="opacity-80 leading-none text-[13px]">&raquo;</span>
+            <span aria-hidden="true" className="opacity-70 leading-none text-[13px]">&raquo;</span>
           </div>
         </div>
       </div>
