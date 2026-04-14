@@ -12,42 +12,52 @@ const logos = [
   { src: '/images/BBB Accredited Business.webp', alt: 'BBB Accredited Business' },
 ]
 
+// Double the array for seamless infinite scroll
+const marqueeLogos = [...logos, ...logos]
+
 export function TrustLogos() {
   return (
-    <section className="bg-white py-12 lg:py-16 border-t border-[#EBEBEB]">
-      <div className="max-w-6xl mx-auto px-6">
-        <motion.p
-          className="text-center text-sm font-body font-medium text-body-text/60 uppercase tracking-widest mb-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          Trusted certifications &amp; associations
-        </motion.p>
+    <section className="bg-white py-12 lg:py-16 border-t border-[#EBEBEB] overflow-hidden">
+      <motion.p
+        className="text-center text-sm font-body font-medium text-body-text/60 uppercase tracking-widest mb-8 px-6"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        Trusted certifications &amp; associations
+      </motion.p>
+
+      {/* Infinite marquee */}
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+
         <motion.div
-          className="flex flex-wrap items-center justify-center gap-8 lg:gap-12"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="flex items-center gap-16 w-max"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{
+            x: {
+              repeat: Infinity,
+              repeatType: 'loop',
+              duration: 25,
+              ease: 'linear',
+            },
+          }}
         >
-          {logos.map((logo) => (
+          {marqueeLogos.map((logo, i) => (
             <div
-              key={logo.alt}
-              className="relative h-16 lg:h-20 w-auto flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+              key={`${logo.alt}-${i}`}
+              className="relative h-14 lg:h-16 w-auto flex-shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500"
             >
-              {logo.src ? (
-                <Image
-                  src={logo.src}
-                  alt={logo.alt}
-                  height={80}
-                  width={160}
-                  className="h-full w-auto object-contain"
-                />
-              ) : (
-                <div className="h-full w-[120px] bg-[#1B2540] rounded" />
-              )}
+              <Image
+                src={logo.src}
+                alt={logo.alt}
+                height={64}
+                width={140}
+                className="h-full w-auto object-contain"
+              />
             </div>
           ))}
         </motion.div>

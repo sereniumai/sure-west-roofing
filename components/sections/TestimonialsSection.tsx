@@ -49,22 +49,31 @@ export function TestimonialsSection({
           {cards.map((testimonial, i) => (
             <motion.div
               key={testimonial.name}
-              className="bg-white rounded-2xl p-8 border border-[#EBEBEB] flex flex-col"
-              initial={{ y: 30, opacity: 0 }}
+              className="bg-white rounded-2xl p-8 border border-[#EBEBEB] flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-default"
+              initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              {/* Stars */}
+              {/* Stars — animated stagger */}
               <div className="flex gap-0.5 mb-6">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <span
+                  <motion.span
                     key={j}
                     className={`text-lg ${j < testimonial.rating ? 'text-[#D6AE60]' : 'text-[#E5E2D9]'}`}
                     aria-hidden="true"
+                    initial={{ opacity: 0, scale: 0, rotate: -30 }}
+                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      type: 'spring',
+                      stiffness: 400,
+                      damping: 15,
+                      delay: i * 0.15 + j * 0.06,
+                    }}
                   >
                     ★
-                  </span>
+                  </motion.span>
                 ))}
               </div>
 
@@ -75,7 +84,7 @@ export function TestimonialsSection({
 
               {/* Divider + Location */}
               <div className="border-t border-[#EBEBEB] pt-5">
-                <p className="font-body text-[#D6AE60] text-sm">
+                <p className="font-body text-[#D6AE60] text-sm font-medium">
                   {testimonial.location}
                 </p>
               </div>
@@ -96,10 +105,10 @@ export function TestimonialsSection({
               href={googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-display font-semibold text-[#D6AE60] hover:text-[#B8943F] transition-colors text-sm"
+              className="group inline-flex items-center gap-2 font-display font-semibold text-[#D6AE60] hover:text-[#B8943F] transition-colors text-sm"
             >
               See All Google Reviews
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+              <svg className="group-hover:translate-x-1 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
             </a>
           </motion.div>
         )}

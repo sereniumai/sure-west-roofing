@@ -49,15 +49,21 @@ export function ServiceAreasSection() {
           {areas.map((area, i) => (
             <motion.div
               key={area.name}
-              className="bg-[#F8F8F8] rounded-2xl p-8 border border-[#EBEBEB] text-center"
-              initial={{ y: 30, opacity: 0 }}
+              className="group bg-[#F8F8F8] rounded-2xl p-8 border border-[#EBEBEB] text-center hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-[#D6AE60]/20 transition-all duration-500"
+              initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="w-12 h-12 rounded-2xl bg-[#D6AE60]/10 flex items-center justify-center mx-auto mb-5">
+              <motion.div
+                className="w-12 h-12 rounded-2xl bg-[#D6AE60]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#D6AE60]/20 group-hover:scale-110 transition-all duration-500"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20, delay: i * 0.15 + 0.2 }}
+              >
                 <MapPin className="w-5 h-5 text-[#D6AE60]" />
-              </div>
+              </motion.div>
               <h3 className="font-display font-bold text-dark text-xl tracking-tight mb-3">
                 {area.name}
               </h3>

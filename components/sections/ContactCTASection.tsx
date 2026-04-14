@@ -21,36 +21,73 @@ export function ContactCTASection() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+          <motion.span
+            className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: 0.1 }}
+          >
             Get Started Today
-          </span>
-          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight max-w-2xl mx-auto">
+          </motion.span>
+          <motion.h2
+            className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
             Ready to Protect Your{'\n'}Cochrane Home?
-          </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p
+            className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             Book your free roof inspection today. No pressure, no obligation, just an honest assessment from a certified Cochrane roofing contractor.
-          </p>
+          </motion.p>
 
-          {/* Bullets */}
+          {/* Bullets — staggered */}
           <div className="flex flex-wrap justify-center gap-6 mt-8">
-            {bullets.map((bullet) => (
-              <div key={bullet} className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-[#D6AE60]/20 flex items-center justify-center flex-shrink-0">
+            {bullets.map((bullet, i) => (
+              <motion.div
+                key={bullet}
+                className="flex items-center gap-2"
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+              >
+                <motion.div
+                  className="w-5 h-5 rounded-full bg-[#D6AE60]/20 flex items-center justify-center flex-shrink-0"
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 15, delay: 0.35 + i * 0.1 }}
+                >
                   <Check className="w-3 h-3 text-[#D6AE60]" />
-                </div>
+                </motion.div>
                 <span className="font-body text-sm text-body-text">{bullet}</span>
-              </div>
+              </motion.div>
             ))}
           </div>
 
-          <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <motion.div
+            className="flex flex-wrap justify-center gap-4 mt-8"
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <Button variant="primary" size="lg" href="/contact">
               Get a Free Estimate
             </Button>
             <Button variant="outline" size="lg" href="/services">
               Explore Our Services
             </Button>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>
