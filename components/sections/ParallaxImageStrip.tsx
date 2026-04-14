@@ -24,8 +24,8 @@ export function ParallaxImageStrip({
     offset: ['start end', 'end start'],
   })
 
-  // ~2× parallax velocity — media moves at 1.5× rate relative to container
-  const y = useTransform(scrollYProgress, [0, 1], ['100px', '-200px'])
+  // Gentle parallax — motion content is taller than the container, shifts ±120px
+  const y = useTransform(scrollYProgress, [0, 1], ['120px', '-120px'])
 
   // Smooth crossfade at loop boundary — fade out in the last FADE seconds
   // and fade back in at the start of each loop.
@@ -58,19 +58,21 @@ export function ParallaxImageStrip({
       className="relative overflow-visible z-[2]"
       style={{ height: '0px' }}
     >
-      {/* Overflow container — bridges hero-services boundary: extends 200px up into hero, 300px down into services */}
+      {/* Overflow container — full-width (minus side padding), 16:9 aspect ratio */}
       <div
-        className="absolute overflow-hidden left-1/2 -translate-x-1/2"
+        className="absolute overflow-hidden"
         style={{
           top: '-200px',
-          width: 'min(1280px, calc(100% - 100px))',
-          height: '500px',
+          left: 'var(--section-pad-x)',
+          width: 'calc(100% - 100px)',
+          aspectRatio: '16 / 9',
         }}
       >
         <motion.div
           className="w-full"
           style={{
-            height: '848px',
+            height: 'calc(100% + 240px)',
+            marginTop: '-120px',
             y,
           }}
         >
