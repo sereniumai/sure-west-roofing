@@ -78,42 +78,48 @@ export default function HomePage() {
           {
             title: 'Roof Replacement',
             href: '/roof-replacement-cochrane',
-            description: "A new roof, a new vibe — let's protect your home in style.",
+            description:
+              'Full roof replacement in Cochrane — architectural asphalt shingles, metal roofing and premium underlayment built to handle Alberta weather for 25+ years.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof replacement Cochrane AB',
           },
           {
             title: 'Roof Repair',
             href: '/roof-repair-cochrane',
-            description: "Got a leak? We'll be there faster than you can say 'bucket'.",
+            description:
+              'Fast, lasting roof repair in Cochrane for leaks, missing shingles and wind damage. Most jobs completed the same week, backed by a written warranty.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof repair Cochrane AB',
           },
           {
             title: 'Hail Damage Repair',
             href: '/hail-damage-repair-cochrane',
-            description: 'Out with the old, in with the weatherproof.',
+            description:
+              'Hail damage roof repair in Cochrane with full insurance-claim support. We document damage, meet your adjuster on-site and restore your roof end-to-end.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Hail damage repair Cochrane AB',
           },
           {
             title: 'Roof Inspection',
             href: '/roof-inspection-cochrane',
-            description: 'Spot problems early, fix them fast, and keep your roof happy.',
+            description:
+              'Certified roof inspection in Cochrane with photo documentation and a written condition report. Ideal for pre-purchase, insurance and annual peace of mind.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof inspection Cochrane AB',
           },
           {
             title: 'Roof Maintenance',
             href: '/roof-maintenance-cochrane',
-            description: "It's like sunscreen... but for your roof.",
+            description:
+              'Annual roof maintenance in Cochrane to extend the life of your roof by 5–10 years. Flashing, caulking, vent resealing and priority service when storms hit.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof maintenance Cochrane AB',
           },
           {
             title: 'Skylight Installation',
             href: '/skylight-installation-cochrane',
-            description: "From the ground up to the top of the roof — we've got you covered.",
+            description:
+              'Skylight installation in Cochrane — Velux-certified flashing, code-compliant cutouts and leak-free performance backed by a 10-year workmanship warranty.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Skylight installation Cochrane AB',
           },
