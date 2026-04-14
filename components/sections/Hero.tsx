@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Award, BadgeCheck, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -48,7 +49,7 @@ export function Hero({
     >
       {/* Credential badges — 2 on mobile, 3 on desktop */}
       <motion.div
-        className="flex flex-wrap justify-start md:justify-between items-center gap-2 md:gap-3 pt-0 md:pt-2"
+        className="flex flex-wrap justify-start items-center gap-2 md:gap-3 pt-0 md:pt-2"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -70,7 +71,7 @@ export function Hero({
       </motion.div>
 
       {/* Divider */}
-      <div className="w-full h-px bg-white/15 my-5 md:my-3.5" />
+      <div className="w-full max-w-[280px] md:max-w-[420px] h-px bg-white/15 my-5 md:my-3.5" />
 
       {/* Giant headline */}
       <motion.h1
@@ -93,7 +94,7 @@ export function Hero({
       </motion.h1>
 
       {/* Divider */}
-      <div className="w-full h-px bg-white/15 my-5 md:my-3.5" />
+      <div className="w-full max-w-[280px] md:max-w-[420px] h-px bg-white/15 my-5 md:my-3.5" />
 
       {/* Bottom row: CTAs + tagline */}
       <motion.div
@@ -102,7 +103,7 @@ export function Hero({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto">
+        <div className="flex flex-row flex-nowrap items-center gap-3 sm:gap-6 w-full lg:w-auto">
           <Button
             variant="secondary"
             size="lg"
@@ -112,14 +113,17 @@ export function Hero({
             {primaryCTA.label}
           </Button>
           {secondaryCTA && (
-            <Button
-              variant="ghost"
-              size="lg"
+            <Link
               href={secondaryCTA.href}
-              className="flex-1 lg:flex-none !h-[44px] md:!h-[56px] !px-3 md:!px-[26px] !text-[12px] md:!text-[16px] justify-center whitespace-nowrap [&_.btn-arrow]:hidden md:[&_.btn-arrow]:inline-flex"
+              className="group inline-flex items-center gap-2 h-[44px] md:h-[56px] font-body font-bold uppercase tracking-[0.04em] whitespace-nowrap transition-colors text-white/90 hover:text-[#D4AF60] text-[12px] md:text-[15px]"
             >
               {secondaryCTA.label}
-            </Button>
+              <span className="btn-arrow hidden md:inline-flex" aria-hidden="true">
+                <span className="btn-chev">&rsaquo;</span>
+                <span className="btn-chev">&rsaquo;</span>
+                <span className="btn-chev">&rsaquo;</span>
+              </span>
+            </Link>
           )}
         </div>
 
