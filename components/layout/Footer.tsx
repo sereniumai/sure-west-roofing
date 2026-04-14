@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { MapPin } from 'lucide-react'
 
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
@@ -25,102 +24,84 @@ const serviceAreas = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#F8F8F8]">
-      <div className="border-t border-[#EBEBEB]" />
-
-      {/* Main footer content */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Column 1 */}
-          <div>
-            <img
-              src="/images/Sure West Roofing - Cochrane Roofing Contractor.webp"
-              alt="Sure West Roofing"
-              className="h-14 w-auto"
-            />
-
-            <p className="font-body text-sm text-body-text leading-relaxed max-w-xs mt-6">
-              Red Seal Journeyman certified roofing contractor proudly serving
-              Cochrane, Calgary, and Canmore. Quality craftsmanship on every
-              project.
-            </p>
-
-            <div className="mt-6 flex items-center gap-2">
-              <MapPin className="text-[#D6AE60] w-4 h-4 flex-shrink-0" />
-              <span className="font-body text-sm text-body-text">
-                Cochrane, AB
-              </span>
+    <footer className="bg-[#111111]">
+      {/* Contact info bar */}
+      <div className="border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div>
+              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+                Phone
+              </h4>
+              <p className="font-body text-white/70 text-sm">Call for a free estimate</p>
+            </div>
+            <div>
+              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+                Email
+              </h4>
+              <p className="font-body text-white/70 text-sm">info@surewestroofing.ca</p>
+            </div>
+            <div>
+              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+                Address
+              </h4>
+              <p className="font-body text-white/70 text-sm">Cochrane, AB, Canada</p>
+            </div>
+            <div>
+              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+                Opening Hours
+              </h4>
+              <p className="font-body text-white/70 text-sm">Mon to Sat: 8:00am - 6:00pm</p>
+              <p className="font-body text-white/40 text-sm">Sun: Closed</p>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Column 2 */}
-          <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
-              Services
-            </h4>
-            <ul className="flex flex-col gap-3">
-              {services.map((service) => (
-                <li key={service.href}>
-                  <Link
-                    href={service.href}
-                    className="font-body text-sm text-body-text hover:text-[#D6AE60] transition-colors duration-200"
-                  >
-                    {service.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+      {/* Large brand name + tagline */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
+        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
+          {/* Big brand name */}
+          <h2 className="font-display font-extrabold uppercase text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-white leading-[0.85] tracking-tighter">
+            Sure West
+          </h2>
 
-          {/* Column 3 */}
-          <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
-              Company
-            </h4>
-            <ul className="flex flex-col gap-3">
-              {companyLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="font-body text-sm text-body-text hover:text-[#D6AE60] transition-colors duration-200"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4 */}
-          <div>
-            <h4 className="font-display font-semibold text-sm tracking-widest uppercase text-dark mb-6">
-              Service Areas
-            </h4>
-            <ul className="flex flex-col gap-2">
-              {serviceAreas.map((area) => (
-                <li key={area.label}>
-                  <Link
-                    href={area.href}
-                    className="font-body text-sm text-body-text hover:text-[#D6AE60] transition-colors duration-200"
-                  >
-                    {area.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Tagline */}
+          <div className="lg:max-w-xs lg:text-right">
+            <p className="font-body text-white/50 text-sm leading-relaxed">
+              Roofs built to last.
+              <br />
+              Service built on trust.
+              <br />
+              Proudly serving Cochrane, Calgary, and
+              Canmore with real people, real tools,
+              and real results.
+            </p>
           </div>
         </div>
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-[#EBEBEB]" />
-      <div className="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center flex-wrap gap-4">
-        <p className="font-body text-xs text-body-text/60">
-          &copy; 2026 Sure West Roofing. All Rights Reserved.
-        </p>
-        <p className="font-body text-xs text-body-text/60">
-          Cochrane, Alberta. Red Seal Certified.
-        </p>
+      <div className="border-t border-white/10">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <div className="flex items-center gap-6">
+            <Link
+              href="/about"
+              className="font-body text-xs text-white/40 hover:text-white/70 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/about"
+              className="font-body text-xs text-white/40 hover:text-white/70 transition-colors"
+            >
+              Terms
+            </Link>
+          </div>
+          <p className="font-body text-xs text-white/30">
+            &copy; 2026 Sure West Roofing. All Rights Reserved. Red Seal Certified.
+          </p>
+        </div>
       </div>
     </footer>
   )

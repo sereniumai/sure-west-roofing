@@ -24,7 +24,7 @@ const areas = [
 export function ServiceAreasSection() {
   return (
     <section className="bg-white py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <motion.div
           className="text-center mb-12"
@@ -33,14 +33,16 @@ export function ServiceAreasSection() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+          <span className="section-label text-[#F97316] mb-4 inline-flex justify-center">
             Service Areas
           </span>
-          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
-            Roofing Contractor Serving Cochrane,<br className="hidden lg:block" />{' '}Calgary and Canmore
+          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
+            Roofing Contractor Serving Cochrane,
+            <br className="hidden lg:block" /> Calgary and Canmore
           </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
-            Based in Cochrane, Alberta. We serve homeowners across the Bow Valley corridor and the Calgary region. Wherever you are, our certified roofing team is ready to help.
+          <p className="font-body text-[#666] leading-relaxed mt-4 text-lg max-w-2xl mx-auto">
+            Based in Cochrane, Alberta. We serve homeowners across the Bow Valley
+            corridor and the Calgary region.
           </p>
         </motion.div>
 
@@ -49,25 +51,23 @@ export function ServiceAreasSection() {
           {areas.map((area, i) => (
             <motion.div
               key={area.name}
-              className="group bg-[#F8F8F8] rounded-2xl p-8 border border-[#EBEBEB] text-center hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:border-[#D6AE60]/20 transition-all duration-500"
+              className="group bg-[#F5F5F5] p-8 border border-[#E5E5E5] text-center hover:-translate-y-2 hover:border-[#F97316]/20 transition-all duration-500"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
-              <motion.div
-                className="w-12 h-12 rounded-2xl bg-[#D6AE60]/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-[#D6AE60]/20 group-hover:scale-110 transition-all duration-500"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20, delay: i * 0.15 + 0.2 }}
-              >
-                <MapPin className="w-5 h-5 text-[#D6AE60]" />
-              </motion.div>
-              <h3 className="font-display font-bold text-dark text-xl tracking-tight mb-3">
+              <div className="w-12 h-12 bg-[#1A1A1A] group-hover:bg-[#F97316] flex items-center justify-center mx-auto mb-5 transition-colors duration-500">
+                <MapPin className="w-5 h-5 text-white" />
+              </div>
+              <h3 className="font-display font-bold text-[#1A1A1A] uppercase text-base tracking-wider mb-3">
                 {area.name}
               </h3>
-              <p className="font-body text-sm text-body-text leading-relaxed mb-6 max-w-xs mx-auto">
+              <p className="font-body text-sm text-[#666] leading-relaxed mb-6 max-w-xs mx-auto">
                 {area.description}
               </p>
               <Button variant="primary" size="sm" href={area.href}>

@@ -120,21 +120,21 @@ export default function ContactPage() {
       />
 
       {/* ── Main contact section ──────────────────── */}
-      <section className="bg-[#F8F8F8] pt-32 lg:pt-40 pb-16 lg:pb-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="bg-[#F5F5F5] pt-32 lg:pt-40 pb-16 lg:pb-24">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left — info */}
             <div className="lg:col-span-5">
-              <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+              <span className="section-label text-[#F97316] mb-3 block">
                 Free Estimate
               </span>
 
-              <h1 className="font-display font-extrabold text-3xl lg:text-[44px] text-dark tracking-tight leading-[1.1]">
+              <h1 className="font-display font-extrabold uppercase text-3xl lg:text-[44px] text-[#1A1A1A] tracking-tight leading-[1.1]">
                 Get Your Free Roofing{' '}
-                <span className="text-[#D6AE60]">Estimate&nbsp;in&nbsp;Cochrane</span>
+                <span className="text-[#F97316]">Estimate&nbsp;in&nbsp;Cochrane</span>
               </h1>
 
-              <p className="font-body text-body-text leading-relaxed mt-5 text-base lg:text-lg">
+              <p className="font-body text-[#666] leading-relaxed mt-5 text-base lg:text-lg">
                 Book your no-obligation roof inspection today. Our certified
                 team will assess your roof, answer every question, and deliver a
                 clear written quote within 24&nbsp;hours. No pressure. No
@@ -145,27 +145,27 @@ export default function ContactPage() {
               <div className="flex flex-col gap-3 mt-8">
                 {benefits.map((b) => (
                   <div key={b} className="flex items-center gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-[#D6AE60]/15 flex items-center justify-center flex-shrink-0">
-                      <Check className="w-3 h-3 text-[#D6AE60]" />
+                    <div className="w-5 h-5 bg-[#F97316]/15 flex items-center justify-center flex-shrink-0">
+                      <Check className="w-3 h-3 text-[#F97316]" />
                     </div>
-                    <span className="font-body text-sm text-body-text">{b}</span>
+                    <span className="font-body text-sm text-[#666]">{b}</span>
                   </div>
                 ))}
               </div>
 
               {/* Contact details */}
-              <div className="mt-8 pt-8 border-t border-[#E5E2D9] flex flex-col gap-4">
+              <div className="mt-8 pt-8 border-t border-[#E5E5E5] flex flex-col gap-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-4 h-4 text-[#D6AE60]" />
+                  <div className="w-10 h-10 bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-4 h-4 text-[#F97316]" />
                   </div>
                   <div>
-                    <span className="block font-body text-xs text-muted uppercase tracking-wider">
+                    <span className="block font-body text-xs text-[#999] uppercase tracking-wider">
                       Email
                     </span>
                     <a
                       href="mailto:info@surewestroofing.ca"
-                      className="font-body text-sm text-dark hover:text-[#D6AE60] transition-colors"
+                      className="font-body text-sm text-[#1A1A1A] hover:text-[#F97316] transition-colors"
                     >
                       info@surewestroofing.ca
                     </a>
@@ -173,28 +173,28 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-4 h-4 text-[#D6AE60]" />
+                  <div className="w-10 h-10 bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-4 h-4 text-[#F97316]" />
                   </div>
                   <div>
-                    <span className="block font-body text-xs text-muted uppercase tracking-wider">
+                    <span className="block font-body text-xs text-[#999] uppercase tracking-wider">
                       Hours
                     </span>
-                    <span className="font-body text-sm text-dark">
+                    <span className="font-body text-sm text-[#1A1A1A]">
                       Mon – Sat, 8:00&nbsp;AM – 6:00&nbsp;PM
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-4 h-4 text-[#D6AE60]" />
+                  <div className="w-10 h-10 bg-[#F97316]/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-4 h-4 text-[#F97316]" />
                   </div>
                   <div>
-                    <span className="block font-body text-xs text-muted uppercase tracking-wider">
+                    <span className="block font-body text-xs text-[#999] uppercase tracking-wider">
                       Location
                     </span>
-                    <span className="font-body text-sm text-dark">
+                    <span className="font-body text-sm text-[#1A1A1A]">
                       Cochrane, AB
                     </span>
                   </div>
@@ -211,18 +211,18 @@ export default function ContactPage() {
       </section>
 
       {/* ── Map section ───────────────────────────── */}
-      <section className="bg-white py-16 lg:py-20 border-t border-[#EBEBEB]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
+      <section className="bg-white py-16 lg:py-20 border-t border-[#E5E5E5]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-8">
-            <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+            <span className="section-label text-[#F97316] mb-3 inline-flex justify-center">
               Our Location
             </span>
-            <h2 className="font-display font-extrabold text-2xl lg:text-4xl text-dark tracking-tight">
+            <h2 className="font-display font-extrabold uppercase text-2xl lg:text-4xl text-[#1A1A1A] tracking-tight mt-3">
               Serving Cochrane, Calgary &amp; Canmore
             </h2>
           </div>
 
-          <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] rounded-2xl overflow-hidden border border-[#EBEBEB] shadow-[0_4px_24px_rgba(0,0,0,0.06)]">
+          <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] overflow-hidden border border-[#E5E5E5]">
             <iframe
               src="https://maps.google.com/maps?q=Cochrane+AB+Canada&t=&z=12&ie=UTF8&iwloc=&output=embed"
               className="absolute inset-0 w-full h-full border-0"

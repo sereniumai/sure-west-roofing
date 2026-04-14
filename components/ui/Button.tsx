@@ -1,9 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { ArrowRight } from 'lucide-react'
 
-type ButtonVariant = 'primary' | 'ghost' | 'outline' | 'secondary'
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface ButtonProps {
@@ -14,30 +14,24 @@ interface ButtonProps {
   onClick?: () => void
   type?: 'button' | 'submit'
   className?: string
+  showArrow?: boolean
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#D6AE60] text-white font-body font-semibold rounded-lg shadow-[0_4px_0_rgba(0,0,0,0.15)] overflow-hidden relative',
+    'bg-[#1A1A1A] text-white hover:bg-[#333333] active:bg-[#111]',
   secondary:
-    'bg-[#1B3558] text-white font-body font-semibold rounded-lg overflow-hidden relative',
+    'bg-[#F97316] text-white hover:bg-[#EA580C] active:bg-[#C2410C]',
   ghost:
-    'border border-white/50 text-white font-body font-semibold rounded-lg overflow-hidden relative',
+    'bg-transparent text-white border border-white/40 hover:bg-white hover:text-[#1A1A1A]',
   outline:
-    'border-2 border-[#1B3558] text-[#1B3558] font-body font-semibold rounded-lg overflow-hidden relative',
+    'bg-transparent text-[#1A1A1A] border-2 border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white',
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'px-5 py-2.5 text-sm',
-  md: 'px-7 py-4 text-base',
-  lg: 'px-[30px] py-[26px] text-lg',
-}
-
-const hoverBg: Record<ButtonVariant, string> = {
-  primary: '#B8943F',
-  secondary: '#243F6B',
-  ghost: 'rgba(255,255,255,1)',
-  outline: '#1B3558',
+  sm: 'px-5 py-2.5 text-xs',
+  md: 'px-7 py-3.5 text-sm',
+  lg: 'px-8 py-4 text-base',
 }
 
 export function Button({
@@ -48,75 +42,28 @@ export function Button({
   onClick,
   type = 'button',
   className = '',
+  showArrow = true,
 }: ButtonProps) {
-  const baseStyles = `${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
+  const styles = `inline-flex items-center justify-center gap-2 font-body font-semibold uppercase tracking-wider transition-all duration-300 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
 
-  const inner = (
+  const content = (
     <>
-      {/* Shine sweep on hover */}
-      <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full pointer-events-none" />
-      <span className="relative z-10">{children}</span>
+      <span>{children}</span>
+      {showArrow && <ArrowRight className="w-4 h-4" />}
     </>
   )
 
   if (href) {
     return (
-      <motion.div
-        className="inline-block"
-        whileHover={{
-          scale: 1.03,
-          y: -2,
-        }}
-        whileTap={{ scale: 0.97 }}
-        transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-      >
-        <Link
-          href={href}
-          className={`group inline-flex items-center justify-center text-center ${baseStyles}`}
-          style={{ transition: `background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease` }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = hoverBg[variant]
-            if (variant === 'ghost') e.currentTarget.style.color = '#1B3558'
-            if (variant === 'outline') e.currentTarget.style.color = '#fff'
-            if (variant === 'primary') e.currentTarget.style.boxShadow = '0 6px 20px rgba(214,174,96,0.4)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = ''
-            e.currentTarget.style.color = ''
-            e.currentTarget.style.boxShadow = ''
-          }}
-        >
-          {inner}
-        </Link>
-      </motion.div>
+      <Link href={href} className={styles}>
+        {content}
+      </Link>
     )
   }
 
   return (
-    <motion.button
-      type={type}
-      onClick={onClick}
-      className={`group inline-flex items-center justify-center ${baseStyles}`}
-      style={{ transition: `background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease` }}
-      whileHover={{
-        scale: 1.03,
-        y: -2,
-      }}
-      whileTap={{ scale: 0.97 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.backgroundColor = hoverBg[variant]
-        if (variant === 'ghost') e.currentTarget.style.color = '#1B3558'
-        if (variant === 'outline') e.currentTarget.style.color = '#fff'
-        if (variant === 'primary') e.currentTarget.style.boxShadow = '0 6px 20px rgba(214,174,96,0.4)'
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.backgroundColor = ''
-        e.currentTarget.style.color = ''
-        e.currentTarget.style.boxShadow = ''
-      }}
-    >
-      {inner}
-    </motion.button>
+    <button type={type} onClick={onClick} className={styles}>
+      {content}
+    </button>
   )
 }

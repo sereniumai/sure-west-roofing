@@ -5,10 +5,22 @@ import { motion } from 'framer-motion'
 
 const logos = [
   { src: '/images/Emerald Pro Contractor.webp', alt: 'Emerald Pro Contractor' },
-  { src: '/images/Certified Residential Contractor.webp', alt: 'Certified Residential Contractor' },
-  { src: '/images/AARA Roofing Association.webp', alt: 'Alberta Allied Roofing Association' },
-  { src: '/images/Roofing Contractor Shingle Master.webp', alt: 'CertainTeed ShingleMaster Roofing Contractor' },
-  { src: '/images/Canada Roofing Standards.webp', alt: 'Canada Roofing Standards' },
+  {
+    src: '/images/Certified Residential Contractor.webp',
+    alt: 'Certified Residential Contractor',
+  },
+  {
+    src: '/images/AARA Roofing Association.webp',
+    alt: 'Alberta Allied Roofing Association',
+  },
+  {
+    src: '/images/Roofing Contractor Shingle Master.webp',
+    alt: 'CertainTeed ShingleMaster Roofing Contractor',
+  },
+  {
+    src: '/images/Canada Roofing Standards.webp',
+    alt: 'Canada Roofing Standards',
+  },
   { src: '/images/BBB Accredited Business.webp', alt: 'BBB Accredited Business' },
 ]
 
@@ -17,9 +29,9 @@ const marqueeLogos = [...logos, ...logos]
 
 export function TrustLogos() {
   return (
-    <section className="bg-white py-12 lg:py-16 border-t border-[#EBEBEB] overflow-hidden">
+    <section className="bg-white py-10 lg:py-14 border-b border-[#E5E5E5] overflow-hidden">
       <motion.p
-        className="text-center text-sm font-body font-medium text-body-text/60 uppercase tracking-widest mb-8 px-6"
+        className="text-center text-xs font-body font-semibold text-[#999] uppercase tracking-widest mb-8 px-6"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -49,13 +61,13 @@ export function TrustLogos() {
           {marqueeLogos.map((logo, i) => (
             <div
               key={`${logo.alt}-${i}`}
-              className="relative h-14 lg:h-16 w-auto flex-shrink-0 grayscale opacity-50 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500"
+              className="relative h-12 lg:h-14 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500"
             >
               <Image
                 src={logo.src}
                 alt={logo.alt}
-                height={64}
-                width={140}
+                height={56}
+                width={120}
                 className="h-full w-auto object-contain"
               />
             </div>

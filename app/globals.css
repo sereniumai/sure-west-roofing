@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -23,8 +23,8 @@ html {
 body {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 400;
-  color: #111827;
-  background-color: #F9F8F5;
+  color: #1A1A1A;
+  background-color: #ffffff;
 }
 
 /* ── Headings ────────────────────────────────── */
@@ -32,14 +32,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #1B3558;
+  letter-spacing: -0.03em;
+  color: #1A1A1A;
 }
 
 /* ── Selection ───────────────────────────────── */
 
 ::selection {
-  background-color: #D6AE60;
+  background-color: #F97316;
   color: #ffffff;
 }
 
@@ -50,22 +50,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F9F8F5;
+  background: #1A1A1A;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #D6AE60;
+  background: #F97316;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #B8943F;
+  background: #EA580C;
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: #D6AE60 #F9F8F5;
+  scrollbar-color: #F97316 #1A1A1A;
 }
 
 /* Hide scrollbar for carousels */
@@ -79,7 +79,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ── Focus visible ───────────────────────────── */
 
 :focus-visible {
-  outline: 2px solid #D6AE60;
+  outline: 2px solid #F97316;
   outline-offset: 2px;
 }
 
@@ -106,14 +106,14 @@ h1, h2, h3, h4, h5, h6 {
   width: auto;
   height: auto;
   padding: 12px 24px;
-  background: #1B3558;
+  background: #1A1A1A;
   color: white;
   font-family: 'Inter', system-ui, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 9999px;
+  border-radius: 4px;
   z-index: 9999;
-  outline: 2px solid #D6AE60;
+  outline: 2px solid #F97316;
   outline-offset: 2px;
 }
 
@@ -121,8 +121,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .pac-container {
   z-index: 9999 !important;
-  border-radius: 12px;
-  border: 1px solid #E5E2D9;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   margin-top: 4px;
   font-family: 'Inter', system-ui, sans-serif;
@@ -132,7 +132,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 8px 12px;
   cursor: pointer;
   font-size: 14px;
-  border-top: 1px solid #F0EDE6;
+  border-top: 1px solid #F0F0F0;
 }
 
 .pac-item:first-child {
@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .pac-item:hover,
 .pac-item-selected {
-  background-color: #FBF8F1;
+  background-color: #FFF7ED;
 }
 
 .pac-icon {
@@ -149,8 +149,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .pac-item-query {
-  color: #1B3558;
+  color: #1A1A1A;
   font-weight: 500;
+}
+
+/* ── Section label dots ─────────────────────── */
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+.section-label::before,
+.section-label::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #F97316;
+  display: inline-block;
 }
 
 /* ── Reduced motion ──────────────────────────── */

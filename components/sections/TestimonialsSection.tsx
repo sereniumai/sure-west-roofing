@@ -14,7 +14,6 @@ interface TestimonialsSectionProps {
 }
 
 export function TestimonialsSection({
-  label,
   heading,
   body,
   testimonials,
@@ -23,70 +22,78 @@ export function TestimonialsSection({
   const cards = testimonials.slice(0, 3)
 
   return (
-    <section className="bg-[#F8F8F8] py-20 lg:py-28">
+    <section className="bg-[#1A1A1A] py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Header — centered */}
+        {/* Header */}
         <motion.div
-          className="text-center max-w-2xl mx-auto mb-14"
+          className="text-center max-w-3xl mx-auto mb-14"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
-            {label}
+          <span className="section-label text-[#F97316] mb-4 inline-flex justify-center">
+            Client Reviews
           </span>
-          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
+          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-white mt-4">
             {heading}
           </h2>
-          <p className="font-body text-body-text leading-relaxed mt-4">
+          <p className="font-body text-white/50 leading-relaxed mt-4">
             {body}
           </p>
         </motion.div>
 
-        {/* 3 cards in a row */}
+        {/* Review cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((testimonial, i) => (
             <motion.div
               key={testimonial.name}
-              className="bg-white rounded-2xl p-8 border border-[#EBEBEB] flex flex-col hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] transition-all duration-500 cursor-default"
+              className="bg-[#2A2A2A] p-8 border border-white/5 flex flex-col hover:-translate-y-2 hover:border-[#F97316]/20 transition-all duration-500 cursor-default"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
+              transition={{
+                duration: 0.6,
+                delay: i * 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              }}
             >
-              {/* Stars — animated stagger */}
-              <div className="flex gap-0.5 mb-6">
+              {/* Stars */}
+              <div className="flex gap-1 mb-6">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <motion.span
+                  <span
                     key={j}
-                    className={`text-lg ${j < testimonial.rating ? 'text-[#D6AE60]' : 'text-[#E5E2D9]'}`}
-                    aria-hidden="true"
-                    initial={{ opacity: 0, scale: 0, rotate: -30 }}
-                    whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                    viewport={{ once: true }}
-                    transition={{
-                      type: 'spring',
-                      stiffness: 400,
-                      damping: 15,
-                      delay: i * 0.15 + j * 0.06,
-                    }}
+                    className={`text-lg ${
+                      j < testimonial.rating
+                        ? 'text-[#F97316]'
+                        : 'text-white/10'
+                    }`}
                   >
                     ★
-                  </motion.span>
+                  </span>
                 ))}
               </div>
 
               {/* Quote */}
-              <p className="font-body text-body-text leading-relaxed flex-1 mb-8">
+              <p className="font-body text-white/70 leading-relaxed flex-1 mb-8">
                 &ldquo;{testimonial.text}&rdquo;
               </p>
 
-              {/* Divider + Location */}
-              <div className="border-t border-[#EBEBEB] pt-5">
-                <p className="font-body text-[#D6AE60] text-sm font-medium">
-                  {testimonial.location}
-                </p>
+              {/* Author */}
+              <div className="border-t border-white/10 pt-5 flex items-center gap-3">
+                <div className="w-10 h-10 bg-[#F97316] flex items-center justify-center flex-shrink-0">
+                  <span className="font-display font-bold text-white text-sm">
+                    {testimonial.initials}
+                  </span>
+                </div>
+                <div>
+                  <p className="font-body text-white text-sm font-semibold">
+                    {testimonial.name}
+                  </p>
+                  <p className="font-body text-white/40 text-xs">
+                    {testimonial.location}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -105,10 +112,24 @@ export function TestimonialsSection({
               href={googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 font-display font-semibold text-[#D6AE60] hover:text-[#B8943F] transition-colors text-sm"
+              className="inline-flex items-center gap-2 font-body font-semibold text-[#F97316] hover:text-[#EA580C] transition-colors text-sm uppercase tracking-wider"
             >
               See All Google Reviews
-              <svg className="group-hover:translate-x-1 transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /><polyline points="15 3 21 3 21 9" /><line x1="10" y1="14" x2="21" y2="3" /></svg>
+              <svg
+                className="group-hover:translate-x-1 transition-transform duration-300"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <polyline points="15 3 21 3 21 9" />
+                <line x1="10" y1="14" x2="21" y2="3" />
+              </svg>
             </a>
           </motion.div>
         )}
