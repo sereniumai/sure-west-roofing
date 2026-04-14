@@ -122,7 +122,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                   type="button"
                   onClick={() => setActive(isActive ? -1 : i)}
                   onMouseEnter={() => setActive(i)}
-                  className="relative w-full flex items-center gap-5 md:gap-7 py-4 md:py-5 text-left pl-4 md:pl-6 pr-2"
+                  className="relative w-full flex items-center gap-5 md:gap-7 py-[22px] md:py-[26px] text-left pl-4 md:pl-6 pr-2"
                   aria-expanded={isActive}
                 >
                   {/* Title */}
