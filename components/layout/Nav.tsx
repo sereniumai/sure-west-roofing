@@ -64,7 +64,7 @@ const navLinks = [
 
 export function Nav() {
   const pathname = usePathname()
-  const isLightPage = pathname === '/contact' || pathname === '/about' || pathname === '/services'
+  const isLightPage = pathname !== '/'
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
