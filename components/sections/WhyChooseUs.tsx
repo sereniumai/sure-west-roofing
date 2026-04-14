@@ -95,7 +95,7 @@ function TiltCard({ feature, index }: { feature: Feature; index: number }) {
 export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
   return (
     <section
-      className="bg-[--color-cream]"
+      className="bg-white"
       style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
     >
       <div className="max-w-7xl mx-auto">
@@ -110,12 +110,12 @@ export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Why Choose Us
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-black mt-4 max-w-3xl mx-auto">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4 max-w-3xl mx-auto">
             {heading}
           </h2>
         </motion.div>
 
-        {/* Feature grid — 2x3 layout with 3D tilt */}
+        {/* Feature grid, 2x3 layout with 3D tilt */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
             <TiltCard key={feature.title} feature={feature} index={i} />

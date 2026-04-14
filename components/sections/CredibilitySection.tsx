@@ -34,7 +34,7 @@ export function CredibilitySection({
   return (
     <section ref={sectionRef} className="bg-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header — centered */}
+        {/* Header, centered */}
         <motion.div
           className="text-center max-w-2xl mx-auto mb-14"
           initial={{ y: 30, opacity: 0 }}
@@ -57,7 +57,7 @@ export function CredibilitySection({
 
         {/* 3 step cards with animated connecting line */}
         <div className="relative">
-          {/* Animated connecting line — desktop only */}
+          {/* Animated connecting line, desktop only */}
           <div className="hidden lg:block absolute top-16 left-[16%] right-[16%] h-px bg-[#D6AE60]/10">
             <motion.div
               className="h-full bg-[#D6AE60]/30"
@@ -77,7 +77,7 @@ export function CredibilitySection({
                 viewport={{ once: true, margin: '-30px' }}
                 transition={{ duration: 0.5, delay: i * 0.2, ease: [0.16, 1, 0.3, 1] }}
               >
-                {/* Step number — animated scale */}
+                {/* Step number, animated scale */}
                 <motion.div
                   className="w-14 h-14 rounded-2xl bg-[#D6AE60]/10 flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:bg-[#D6AE60]/20 transition-colors duration-300"
                   initial={{ scale: 0, rotate: -10 }}
@@ -102,7 +102,7 @@ export function CredibilitySection({
                   {step.description}
                 </p>
 
-                {/* Arrow between steps — desktop only */}
+                {/* Arrow between steps, desktop only */}
                 {i < steps.length - 1 && (
                   <motion.div
                     className="hidden lg:flex absolute -right-3 top-16 -translate-y-1/2 z-10"

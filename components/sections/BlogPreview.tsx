@@ -45,7 +45,7 @@ export function BlogPreview({
 
         {/* Magazine layout: featured large + 2 stacked */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
-          {/* Featured post — large */}
+          {/* Featured post, large */}
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -86,7 +86,7 @@ export function BlogPreview({
             </Link>
           </motion.div>
 
-          {/* Smaller posts — stacked */}
+          {/* Smaller posts, stacked */}
           <div className="flex flex-col gap-7">
             {rest.map((post, i) => (
               <motion.div

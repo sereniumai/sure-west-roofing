@@ -125,7 +125,7 @@ export function StatsVideoReveal({
 
   return (
     <section ref={sectionRef} className="relative bg-[--color-gray]" style={{ height: '250vh' }}>
-      {/* Scroll runway — the sticky element sits inside this */}
+      {/* Scroll runway, the sticky element sits inside this */}
       <div className="relative" style={{ height: '200vh' }}>
         <div
           ref={stickyRef}
@@ -163,7 +163,7 @@ export function StatsVideoReveal({
             {stats[3] && <AnimatedCounter stat={stats[3]} started={countersStarted} />}
           </div>
 
-          {/* Video container — slides up from translateY(170px) */}
+          {/* Video container, slides up from translateY(170px) */}
           <div
             ref={videoRef}
             className="absolute inset-0 z-[1]"
@@ -238,7 +238,7 @@ export function StatsVideoReveal({
         </div>
         <div className="flex-1">
           <p className="font-body font-semibold leading-relaxed" style={{ color: 'rgba(20,20,20,0.65)' }}>
-            Sure West Roofing is a Red Seal certified roofing contractor proudly serving Cochrane, Calgary, and Canmore. We&apos;re not the biggest roofing company — we&apos;re the one that shows up, does it right, and stands behind every job. Alberta&apos;s weather doesn&apos;t take days off, and neither do we. From hailstorms to heavy snow loads, we build roofs that hold up when it matters most.
+            Sure West Roofing is a Red Seal certified roofing contractor proudly serving Cochrane, Calgary, and Canmore. We&apos;re not the biggest roofing company, we&apos;re the one that shows up, does it right, and stands behind every job. Alberta&apos;s weather doesn&apos;t take days off, and neither do we. From hailstorms to heavy snow loads, we build roofs that hold up when it matters most.
           </p>
           <div className="mt-6 pt-6 border-t" style={{ borderColor: 'var(--color-border)' }}>
             <span className="font-display font-semibold text-[#D4AF60] text-sm uppercase tracking-wider">

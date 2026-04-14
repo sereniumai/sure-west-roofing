@@ -103,7 +103,7 @@ export function ContactForm() {
   const addressInputRef = useRef<HTMLInputElement>(null)
   const autocompleteRef = useRef<ReturnType<typeof Object> | null>(null)
 
-  // Google Places autocomplete — progressive enhancement
+  // Google Places autocomplete, progressive enhancement
   useEffect(() => {
     const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
     if (!apiKey) return
@@ -326,7 +326,7 @@ export function ContactForm() {
           )}
         </div>
 
-        {/* Address — Google Places autocomplete when API key is set */}
+        {/* Address, Google Places autocomplete when API key is set */}
         <div>
           <label htmlFor="address" className={labelClass}>
             Property Address

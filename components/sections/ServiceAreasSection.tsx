@@ -24,7 +24,7 @@ const areas = [
 export function ServiceAreasSection() {
   return (
     <section
-      className="bg-[--color-cream]"
+      className="bg-[#F8F8F8]"
       style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
     >
       <div className="max-w-7xl mx-auto">
@@ -39,7 +39,7 @@ export function ServiceAreasSection() {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Service Areas
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-black mt-4">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
             Roofing Contractor Serving Cochrane,
             <br className="hidden lg:block" /> Calgary and Canmore
           </h2>

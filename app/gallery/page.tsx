@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Roofing Gallery | Sure West Roofing — Cochrane Projects',
+  title: 'Roofing Gallery | Sure West Roofing, Cochrane Projects',
   description:
-    'Recent roofing projects from Sure West Roofing across Cochrane, Calgary and Canmore — replacements, repairs, and hail damage restoration.',
+    'Recent roofing projects from Sure West Roofing across Cochrane, Calgary and Canmore, replacements, repairs, and hail damage restoration.',
 }
 
 const images = [

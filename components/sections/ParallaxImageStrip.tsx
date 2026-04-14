@@ -23,7 +23,7 @@ export function ParallaxImageStrip({
     offset: ['start end', 'end start'],
   })
 
-  // Gentle parallax — motion content is taller than the container, shifts ±120px
+  // Gentle parallax, motion content is taller than the container, shifts ±120px
   const y = useTransform(scrollYProgress, [0, 1], ['120px', '-120px'])
 
   // Seamless cinematic loop using a dual-video crossfade.
@@ -39,12 +39,12 @@ export function ParallaxImageStrip({
     const b = videoBRef.current
     if (!a || !b) return
 
-    const OVERLAP = 1.2 // seconds — length of the crossfade window
+    const OVERLAP = 1.2 // seconds, length of the crossfade window
     let active: HTMLVideoElement = a
     let inactive: HTMLVideoElement = b
     let handoffArmed = true
 
-    // Initial state — A on top and visible, B primed and hidden
+    // Initial state, A on top and visible, B primed and hidden
     a.style.opacity = '1'
     b.style.opacity = '0'
     b.currentTime = 0
@@ -111,7 +111,7 @@ export function ParallaxImageStrip({
       className="relative overflow-visible z-[2]"
       style={{ height: '0px' }}
     >
-      {/* Overflow container —
+      {/* Overflow container -
           mobile: native 16:9 with modest overlap into the hero above
           desktop: fixed 720px cinematic letterbox */}
       <div

@@ -76,7 +76,7 @@ export function ServicesGrid({
 
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
-          {/* Tabs — clean underline style */}
+          {/* Tabs, clean underline style */}
           <div className="relative flex items-center gap-8 mb-10 border-b border-[#EBEBEB]">
             {services.map((service, i) => (
               <button
@@ -100,7 +100,7 @@ export function ServicesGrid({
             ))}
           </div>
 
-          {/* Showcase — image with floating glass card */}
+          {/* Showcase, image with floating glass card */}
           <div className="relative">
             {/* Image container */}
             <div className="relative w-full h-[600px] rounded-2xl overflow-hidden">
@@ -129,7 +129,7 @@ export function ServicesGrid({
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* Floating glass card — anchored bottom-right, overlapping the image */}
+            {/* Floating glass card, anchored bottom-right, overlapping the image */}
             <div className="absolute bottom-8 right-8 w-[440px] z-10">
               <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-white/60">
                 {/* Gold accent bar */}

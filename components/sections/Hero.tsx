@@ -43,10 +43,10 @@ export function Hero({
 }: HeroProps) {
   return (
     <section
-      className="md:min-h-screen bg-[#EBEBEB] flex flex-col justify-start md:justify-center relative pt-[120px] md:pt-[95px] pb-[120px] md:pb-[280px]"
+      className="md:min-h-screen bg-[#F8F8F8] flex flex-col justify-start md:justify-center relative pt-[120px] md:pt-[95px] pb-[120px] md:pb-[280px]"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
-      {/* Credential badges — 2 on mobile, 3 on desktop */}
+      {/* Credential badges, 2 on mobile, 3 on desktop */}
       <motion.div
         className="flex flex-wrap justify-start md:justify-between items-center gap-2 md:gap-3 pt-0 md:pt-2"
         variants={containerVariants}

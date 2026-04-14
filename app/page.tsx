@@ -74,7 +74,7 @@ export default function HomePage() {
       <ServicesIconGrid
         eyebrow="What We Do"
         heading={'Every Roofing Service.\nOne Standard.'}
-        body="From full roof replacements to emergency hail damage repair — our Red Seal Journeyman team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
+        body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
         services={[
           {
             title: 'Roof Replacement',
@@ -185,7 +185,7 @@ export default function HomePage() {
             number: '250',
             suffix: '+',
             label: 'Roofs Completed',
-            description: 'From cozy homes to commercial builds — we\'ve covered a lot of ground.',
+            description: 'From cozy homes to commercial builds, we\'ve covered a lot of ground.',
           },
           {
             number: '20',
@@ -197,13 +197,13 @@ export default function HomePage() {
             number: '100',
             suffix: '%',
             label: 'Free Estimates',
-            description: 'Reliable and transparent — how roof estimates should be.',
+            description: 'Reliable and transparent, how roof estimates should be.',
           },
           {
             number: '5',
             suffix: '.0',
             label: 'Google Rating',
-            description: 'Across Google reviews — our customers love the results.',
+            description: 'Across Google reviews, our customers love the results.',
           },
         ]}
         videoEmbed="https://player.vimeo.com/video/917317949"
@@ -245,7 +245,7 @@ export default function HomePage() {
       {/* 10. Testimonials */}
       <TestimonialsSection
         label="Client Reviews"
-        heading={"Don't Take Our Word\nFor It — Take Theirs"}
+        heading={"Don't Take Our Word\nFor It, Take Theirs"}
         body="Every review is from a real Cochrane homeowner. No templates. No filler."
         reviewCount="80+"
         rating={5}

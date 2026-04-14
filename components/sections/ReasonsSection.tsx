@@ -39,7 +39,7 @@ export function ReasonsSection({
   return (
     <section className="bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header — full width, same as ServicesGrid */}
+        {/* Header, full width, same as ServicesGrid */}
         <motion.div
           className="mb-10"
           initial={{ y: 30, opacity: 0 }}
@@ -64,9 +64,9 @@ export function ReasonsSection({
           </p>
         </motion.div>
 
-        {/* Grid — 5/7 split, content left, video right */}
+        {/* Grid, 5/7 split, content left, video right */}
         <div className="grid grid-cols-12 gap-5 items-start">
-          {/* Content card — col-span-5 */}
+          {/* Content card, col-span-5 */}
           <div className="col-span-12 lg:col-span-5 bg-[#F8F8F8] rounded-2xl p-6 lg:p-8 flex flex-col justify-center border border-[#EBEBEB]">
             <div className="flex flex-col gap-4">
               {points.map((point, i) => (
@@ -98,7 +98,7 @@ export function ReasonsSection({
             </Button>
           </div>
 
-          {/* Video side — col-span-7 */}
+          {/* Video side, col-span-7 */}
           <div className="col-span-12 lg:col-span-7">
             {videoEmbed ? (
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">

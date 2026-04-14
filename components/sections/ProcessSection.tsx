@@ -22,7 +22,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
   return (
     <section
       ref={sectionRef}
-      className="bg-[--color-cream] overflow-hidden"
+      className="bg-white overflow-hidden"
       style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
     >
       <div className="max-w-7xl mx-auto">
@@ -37,7 +37,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Process
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-black mt-4">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
             {heading}
           </h2>
           {body && (
@@ -49,7 +49,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
 
         {/* Steps */}
         <div className="relative">
-          {/* Connecting line — desktop */}
+          {/* Connecting line, desktop */}
           <div className="hidden lg:block absolute top-20 left-[16%] right-[16%] h-px bg-[#E5E5E5]">
             <motion.div
               className="h-full bg-[#D4AF60]"

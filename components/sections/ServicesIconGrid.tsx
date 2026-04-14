@@ -47,7 +47,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
           <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
         </span>
         <h2
-          className="font-display font-semibold uppercase leading-[0.9] max-w-[1000px] text-[--color-near-black]"
+          className="font-display font-semibold uppercase leading-[1.05] max-w-[1000px] text-[--color-near-black]"
           style={{
             fontSize: 'clamp(34px, 4.4vw, 64px)',
             letterSpacing: '-0.04em',
@@ -85,7 +85,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                 key={service.title}
                 className="relative border-t border-[--color-near-black]/10 first:border-t-0"
               >
-                {/* Left gold rail — slides in when active */}
+                {/* Left gold rail, slides in when active */}
                 <motion.span
                   aria-hidden="true"
                   className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#D4AF60] origin-top"
@@ -129,7 +129,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                         isActive ? 'bg-[#B8943F]' : 'bg-[--color-near-black]/70'
                       }`}
                     />
-                    {/* Vertical stroke — retracts on active */}
+                    {/* Vertical stroke, retracts on active */}
                     <motion.span
                       className={`absolute top-0 bottom-0 left-1/2 w-px origin-center ${
                         isActive ? 'bg-[#B8943F]' : 'bg-[--color-near-black]/70'
@@ -161,9 +161,6 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                             draggable={false}
                           />
                         </div>
-
-                        {/* Thin gold rule above description */}
-                        <span className="inline-block w-10 h-px bg-[#B8943F] mb-4" />
 
                         <p
                           className="text-[--color-near-black]/75 leading-[1.65] max-w-[56ch]"
@@ -200,7 +197,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
           })}
         </div>
 
-        {/* ── Static image panel (desktop) — matches accordion height ───────────── */}
+        {/* ── Static image panel (desktop), matches accordion height ───────────── */}
         <div className="hidden md:block relative overflow-hidden bg-black">
           <img
             src={featured?.image}

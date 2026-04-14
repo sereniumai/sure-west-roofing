@@ -35,7 +35,7 @@ export function CTABanner({
           </div>
 
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            {/* Left — Text */}
+            {/* Left, Text */}
             <div className="lg:max-w-lg">
               <h2 className="font-display font-semibold text-3xl lg:text-[44px] text-white tracking-tight leading-[1.1]">
                 {heading}
@@ -45,7 +45,7 @@ export function CTABanner({
               </p>
             </div>
 
-            {/* Right — CTAs stacked */}
+            {/* Right, CTAs stacked */}
             <div className="flex flex-col sm:flex-row lg:flex-col gap-3 lg:items-end flex-shrink-0">
               <Button variant="secondary" size="lg" href={primaryCTA.href}>
                 {primaryCTA.label}

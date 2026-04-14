@@ -123,7 +123,7 @@ export default function ContactPage() {
       <section className="bg-[#F5F5F5] pt-32 lg:pt-40 pb-16 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left — info */}
+            {/* Left, info */}
             <div className="lg:col-span-5">
               <span className="section-label text-[#D4AF60] mb-3 block">
                 Free Estimate
@@ -202,7 +202,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Right — form */}
+            {/* Right, form */}
             <div className="lg:col-span-7">
               <ContactForm />
             </div>
@@ -229,7 +229,7 @@ export default function ContactPage() {
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Sure West Roofing — Cochrane, AB location"
+              title="Sure West Roofing, Cochrane, AB location"
             />
           </div>
         </div>

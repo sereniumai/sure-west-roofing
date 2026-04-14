@@ -83,7 +83,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
 
   return (
     <section
-      className="bg-[--color-gray] overflow-hidden"
+      className="bg-[#F8F8F8] overflow-hidden"
       style={{
         padding: 'var(--section-pad-top) 0 var(--section-pad-bot)',
       }}
