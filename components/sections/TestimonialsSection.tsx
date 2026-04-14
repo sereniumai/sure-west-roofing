@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef } from 'react'
 import { motion } from 'framer-motion'
 import type { Testimonial } from '@/lib/types'
 
@@ -19,11 +20,11 @@ export function TestimonialsSection({
   testimonials,
   googleReviewsUrl,
 }: TestimonialsSectionProps) {
-  const cards = testimonials.slice(0, 3)
+  const constraintRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section className="bg-black py-20 lg:py-28">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="bg-black py-20 lg:py-28 overflow-hidden">
+      <div className="w-full px-6 lg:px-12">
         {/* Header */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"
@@ -35,26 +36,33 @@ export function TestimonialsSection({
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Client Reviews
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-white mt-4">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-white mt-4">
             {heading}
           </h2>
-          <p className="font-body text-white/50 leading-relaxed mt-4">
+          <p className="font-body text-white/50 font-normal leading-relaxed mt-4">
             {body}
           </p>
         </motion.div>
+      </div>
 
-        {/* Review cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {cards.map((testimonial, i) => (
+      {/* Draggable horizontal carousel */}
+      <div ref={constraintRef} className="w-full overflow-hidden px-6 lg:px-12">
+        <motion.div
+          className="flex gap-6 cursor-grab active:cursor-grabbing"
+          drag="x"
+          dragConstraints={constraintRef}
+          dragElastic={0.1}
+        >
+          {testimonials.map((testimonial, i) => (
             <motion.div
               key={testimonial.name}
-              className="bg-[#2A2A2A] p-8 border border-white/5 flex flex-col hover:-translate-y-2 hover:border-[#D4AF60]/20 transition-all duration-500 cursor-default"
+              className="bg-[#111111] p-8 border border-white/5 flex flex-col min-w-[320px] md:min-w-[380px] lg:min-w-[420px] flex-shrink-0 select-none"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{
                 duration: 0.6,
-                delay: i * 0.15,
+                delay: i * 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
@@ -75,7 +83,7 @@ export function TestimonialsSection({
               </div>
 
               {/* Quote */}
-              <p className="font-body text-white/70 leading-relaxed flex-1 mb-8">
+              <p className="font-body text-white/70 font-normal leading-relaxed flex-1 mb-8">
                 &ldquo;{testimonial.text}&rdquo;
               </p>
 
@@ -90,19 +98,26 @@ export function TestimonialsSection({
                   <p className="font-body text-white text-sm font-semibold">
                     {testimonial.name}
                   </p>
-                  <p className="font-body text-white/40 text-xs">
+                  <p className="font-body text-white/40 text-xs font-normal">
                     {testimonial.location}
                   </p>
                 </div>
               </div>
             </motion.div>
           ))}
+        </motion.div>
+      </div>
+
+      {/* Drag hint + Google Reviews link */}
+      <div className="w-full px-6 lg:px-12 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white/40 flex items-center gap-2">
+          <span>&lsaquo;</span>
+          <span>Drag to see more</span>
+          <span>&rsaquo;</span>
         </div>
 
-        {/* Google Reviews link */}
         {googleReviewsUrl && (
           <motion.div
-            className="text-center mt-10"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -116,7 +131,6 @@ export function TestimonialsSection({
             >
               See All Google Reviews
               <svg
-                className="group-hover:translate-x-1 transition-transform duration-300"
                 width="16"
                 height="16"
                 viewBox="0 0 24 24"

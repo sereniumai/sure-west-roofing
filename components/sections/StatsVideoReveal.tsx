@@ -49,17 +49,17 @@ function AnimatedCounter({ stat }: { stat: StatItem }) {
   return (
     <div ref={ref} className="text-center lg:text-left">
       <div className="flex items-baseline justify-center lg:justify-start gap-0">
-        <span className="font-display font-semibold text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-white tabular-nums leading-none">
+        <span className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tabular-nums leading-none">
           {count.toLocaleString()}
         </span>
-        <span className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl text-[#D4AF60] leading-none">
+        <span className="font-display font-semibold text-2xl md:text-3xl lg:text-4xl text-[#D4AF60] leading-none">
           {stat.suffix}
         </span>
       </div>
-      <h3 className="font-display font-semibold text-white uppercase text-sm md:text-base tracking-wider mt-2">
+      <h3 className="font-display font-semibold text-white uppercase text-xs md:text-sm tracking-wider mt-2">
         {stat.label}
       </h3>
-      <p className="font-body text-white/50 text-xs md:text-sm font-normal mt-1 leading-relaxed max-w-[240px] mx-auto lg:mx-0">
+      <p className="font-body text-white/40 text-xs font-normal mt-1 leading-relaxed max-w-[200px] mx-auto lg:mx-0">
         {stat.description}
       </p>
     </div>
@@ -79,20 +79,33 @@ export function StatsVideoReveal({
     offset: ['start start', 'end start'],
   })
 
-  const leftX = useTransform(scrollYProgress, [0.2, 0.55], ['0%', '-105%'])
-  const rightX = useTransform(scrollYProgress, [0.2, 0.55], ['0%', '105%'])
-  const videoScale = useTransform(scrollYProgress, [0.3, 0.6], [0.85, 1])
-  const videoOpacity = useTransform(scrollYProgress, [0.15, 0.35], [0, 1])
+  // Phase A (0-0.25): Stats panels slide in from sides
+  // Phase B (0.25-0.55): Overlay splits and reveals video
+  // Phase C (0.55-0.75): Video scales up and becomes prominent
+
+  // Stats panels slide in from ±100% to 0
+  const leftStatsX = useTransform(scrollYProgress, [0, 0.2], ['-100%', '0%'])
+  const rightStatsX = useTransform(scrollYProgress, [0, 0.2], ['100%', '0%'])
+  const statsOpacity = useTransform(scrollYProgress, [0.05, 0.2], [0, 1])
+
+  // Overlay halves split apart
+  const leftX = useTransform(scrollYProgress, [0.3, 0.6], ['0%', '-105%'])
+  const rightX = useTransform(scrollYProgress, [0.3, 0.6], ['0%', '105%'])
+
+  // Video fades in and scales up behind the split
+  const videoOpacity = useTransform(scrollYProgress, [0.25, 0.45], [0, 1])
+  const videoScale = useTransform(scrollYProgress, [0.35, 0.65], [0.8, 1])
+  const videoY = useTransform(scrollYProgress, [0.3, 0.6], ['80px', '0px'])
 
   return (
-    <section ref={sectionRef} className="relative h-[300vh]">
+    <section ref={sectionRef} className="relative h-[350vh]">
       {/* Sticky container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        {/* Video/image layer */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
+        {/* Video/image layer (behind overlay) */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.div
-            className="w-full max-w-4xl mx-auto aspect-video relative"
-            style={{ scale: videoScale, opacity: videoOpacity }}
+            className="w-full max-w-5xl mx-auto aspect-video relative"
+            style={{ scale: videoScale, opacity: videoOpacity, y: videoY }}
           >
             {videoPlaying ? (
               <iframe
@@ -124,7 +137,7 @@ export function StatsVideoReveal({
           </motion.div>
         </div>
 
-        {/* Split overlay */}
+        {/* Split overlay — two halves with stats */}
         <div className="absolute inset-0 flex pointer-events-none">
           {/* Left half */}
           <motion.div
@@ -135,9 +148,13 @@ export function StatsVideoReveal({
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url(${backgroundImage})` }}
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-black/70" />
 
-            <div className="absolute inset-0 flex flex-col justify-between p-8 lg:p-16">
+            {/* Stats — slide in from left */}
+            <motion.div
+              className="absolute inset-0 flex flex-col justify-between p-6 lg:p-12"
+              style={{ x: leftStatsX, opacity: statsOpacity }}
+            >
               {stats[0] && (
                 <div className="self-start">
                   <AnimatedCounter stat={stats[0]} />
@@ -148,7 +165,7 @@ export function StatsVideoReveal({
                   <AnimatedCounter stat={stats[2]} />
                 </div>
               )}
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Right half */}
@@ -163,9 +180,13 @@ export function StatsVideoReveal({
                 backgroundPosition: 'right center',
               }}
             />
-            <div className="absolute inset-0 bg-black/60" />
+            <div className="absolute inset-0 bg-black/70" />
 
-            <div className="absolute inset-0 flex flex-col justify-between p-8 lg:p-16">
+            {/* Stats — slide in from right */}
+            <motion.div
+              className="absolute inset-0 flex flex-col justify-between p-6 lg:p-12"
+              style={{ x: rightStatsX, opacity: statsOpacity }}
+            >
               {stats[1] && (
                 <div className="self-end text-right">
                   <AnimatedCounter stat={stats[1]} />
@@ -176,7 +197,7 @@ export function StatsVideoReveal({
                   <AnimatedCounter stat={stats[3]} />
                 </div>
               )}
-            </div>
+            </motion.div>
           </motion.div>
         </div>
       </div>
