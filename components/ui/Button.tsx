@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { ChevronRight } from 'lucide-react'
 
 type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'outline'
 type ButtonSize = 'sm' | 'md' | 'lg'
@@ -50,9 +51,9 @@ export function Button({
       <span>{children}</span>
       {showArrow && (
         <span className="btn-arrow" aria-hidden="true">
-          <span className="btn-chev">&rsaquo;</span>
-          <span className="btn-chev">&rsaquo;</span>
-          <span className="btn-chev">&rsaquo;</span>
+          <ChevronRight className="btn-chev" strokeWidth={3} />
+          <ChevronRight className="btn-chev" strokeWidth={3} />
+          <ChevronRight className="btn-chev" strokeWidth={3} />
         </span>
       )}
     </>

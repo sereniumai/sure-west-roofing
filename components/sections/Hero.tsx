@@ -124,9 +124,8 @@ export function Hero({
         </div>
 
         <p
-          className="leading-relaxed font-semibold opacity-85 max-w-[400px] lg:text-right"
+          className="leading-relaxed font-bold max-w-[420px] lg:text-right text-[15px] md:text-[18px]"
           style={{
-            fontSize: 'var(--text-body)',
             color: 'var(--color-warm-white)',
           }}
         >
