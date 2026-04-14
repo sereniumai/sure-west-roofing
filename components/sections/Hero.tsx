@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Hammer, Award, Star } from 'lucide-react'
+import { Hammer, Award, ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProps {
@@ -18,7 +18,7 @@ interface HeroProps {
 const badges = [
   { label: '150+ Roofs completed', Icon: Hammer, hideOnMobile: false },
   { label: '10+ Years experience', Icon: Award, hideOnMobile: false },
-  { label: '5.0 Google reviews', Icon: Star, hideOnMobile: true },
+  { label: 'Red Seal certified', Icon: ShieldCheck, hideOnMobile: true },
 ]
 
 const containerVariants = {
@@ -124,7 +124,7 @@ export function Hero({
         </div>
 
         <p
-          className="leading-relaxed font-medium max-w-[420px] lg:text-right text-[15px] md:text-[18px]"
+          className="leading-relaxed font-medium max-w-[420px] text-left text-[15px] md:text-[18px]"
           style={{
             color: 'var(--color-warm-white)',
             fontFamily: "'Inter', system-ui, sans-serif",
