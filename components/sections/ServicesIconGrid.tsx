@@ -1,9 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 interface ServiceCardItem {
   title: string
@@ -173,21 +172,11 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                           {service.description}
                         </p>
 
-                        <Link
-                          href={service.href}
-                          className="inline-flex items-center gap-2.5 mt-5 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#B8943F] relative group/cta"
-                        >
-                          <span className="relative">
+                        <div className="mt-6">
+                          <Button href={service.href} variant="secondary" size="sm">
                             {service.title}
-                            <span className="absolute left-0 -bottom-1 h-px w-full bg-[#B8943F]/60 origin-left scale-x-100 group-hover/cta:scale-x-0 transition-transform duration-500 ease-out" />
-                            <span className="absolute left-0 -bottom-1 h-px w-full bg-[#B8943F] origin-right scale-x-0 group-hover/cta:scale-x-100 transition-transform duration-500 ease-out delay-100" />
-                          </span>
-                          <ArrowUpRight
-                            strokeWidth={2.5}
-                            size={14}
-                            className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
-                          />
-                        </Link>
+                          </Button>
+                        </div>
                       </div>
                     </motion.div>
                   )}
