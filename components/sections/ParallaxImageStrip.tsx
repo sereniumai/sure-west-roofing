@@ -63,7 +63,7 @@ export function ParallaxImageStrip({
         className="absolute overflow-hidden aspect-video md:aspect-auto top-[-80px] md:top-[-200px] h-auto md:h-[650px]"
         style={{
           left: 'var(--section-pad-x)',
-          width: 'calc(100% - 100px)',
+          width: 'calc(100% - 2 * var(--section-pad-x))',
         }}
       >
         <motion.div

@@ -19,7 +19,7 @@ interface ServicesIconGridProps {
 export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
   return (
     <section
-      className="bg-[--color-cream] relative pt-[calc((100vw-100px)*0.5625+40px)] md:pt-[550px]"
+      className="bg-[--color-cream] relative pt-[calc((100vw-40px)*0.5625-20px)] md:pt-[550px]"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
