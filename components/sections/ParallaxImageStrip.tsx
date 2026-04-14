@@ -65,7 +65,7 @@ export function ParallaxImageStrip({
           top: '-200px',
           left: 'var(--section-pad-x)',
           width: 'calc(100% - 100px)',
-          height: '560px',
+          height: '720px',
         }}
       >
         <motion.div

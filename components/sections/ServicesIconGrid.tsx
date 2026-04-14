@@ -21,9 +21,9 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
     <section
       className="bg-[--color-cream] relative"
       style={{
-        // Video strip above is 560px tall, positioned -200px relative to the
-        //   hero/services boundary; 360px of it bleeds into this section, plus clearance.
-        padding: '460px var(--section-pad-x) var(--section-pad-bot)',
+        // Video strip above is 720px tall, positioned -200px relative to the
+        //   hero/services boundary; 520px of it bleeds into this section, plus clearance.
+        padding: '620px var(--section-pad-x) var(--section-pad-bot)',
       }}
     >
       {/* Centered label + heading */}
