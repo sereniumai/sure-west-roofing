@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useCallback, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
@@ -14,102 +14,78 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-const DRAG_FACTOR = 0.24
-const FRICTION = 0.94
-const ANGLE_STEP = 22 // degrees between adjacent panels on the cylinder
+const DRAG_MULTIPLIER = 1.6
+const MOMENTUM_THRESHOLD = 5
+const MOMENTUM_SCALE = 14
 
 export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
-  const sceneRef = useRef<HTMLDivElement>(null)
-  const wrapperRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
+  const startX = useRef(0)
+  const startScrollLeft = useRef(0)
   const lastX = useRef(0)
   const velocity = useRef(0)
-  const rotation = useRef(0)
-  const rafId = useRef<number | null>(null)
-
-  // Viewport-adaptive cylinder geometry
-  const [geometry, setGeometry] = useState({
-    radius: 760,
-    panelW: 260,
-    panelH: 360,
-  })
 
   useEffect(() => {
-    const compute = () => {
-      const w = window.innerWidth
-      if (w < 640) {
-        setGeometry({ radius: 460, panelW: 170, panelH: 230 })
-      } else if (w < 1024) {
-        setGeometry({ radius: 620, panelW: 220, panelH: 300 })
-      } else {
-        setGeometry({ radius: 780, panelW: 270, panelH: 370 })
+    const track = trackRef.current
+    if (!track) return
+
+    const onPointerDown = (e: PointerEvent) => {
+      isDragging.current = true
+      startX.current = e.pageX - track.offsetLeft
+      startScrollLeft.current = track.scrollLeft
+      lastX.current = e.pageX
+      velocity.current = 0
+      track.style.cursor = 'grabbing'
+      track.style.scrollBehavior = 'auto'
+      track.setPointerCapture?.(e.pointerId)
+    }
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!isDragging.current) return
+      e.preventDefault()
+
+      const x = e.pageX - track.offsetLeft
+      const walk = (x - startX.current) * DRAG_MULTIPLIER
+      velocity.current = e.pageX - lastX.current
+      lastX.current = e.pageX
+
+      track.scrollLeft = startScrollLeft.current - walk
+    }
+
+    const endDrag = (e: PointerEvent) => {
+      if (!isDragging.current) return
+      isDragging.current = false
+      track.style.cursor = 'grab'
+      track.style.scrollBehavior = 'smooth'
+      try {
+        track.releasePointerCapture?.(e.pointerId)
+      } catch {}
+
+      // Momentum: one-shot scroll nudge in drag direction, CSS smooth-scroll
+      // interpolates to the target.
+      if (Math.abs(velocity.current) > MOMENTUM_THRESHOLD) {
+        track.scrollLeft -= velocity.current * MOMENTUM_SCALE
       }
     }
-    compute()
-    window.addEventListener('resize', compute)
-    return () => window.removeEventListener('resize', compute)
-  }, [])
 
-  // Full cylinder, continuous drag, no bounds
-  const PANEL_COUNT = Math.round(360 / ANGLE_STEP)
-  const panels = Array.from({ length: PANEL_COUNT }, (_, i) => ({
-    angle: i * ANGLE_STEP,
-    image: images[i % images.length],
-  }))
+    track.addEventListener('pointerdown', onPointerDown)
+    track.addEventListener('pointermove', onPointerMove)
+    track.addEventListener('pointerup', endDrag)
+    track.addEventListener('pointercancel', endDrag)
+    track.addEventListener('pointerleave', endDrag)
 
-  const applyRotation = useCallback((deg: number) => {
-    rotation.current = deg
-    if (sceneRef.current) {
-      sceneRef.current.style.transform = `rotateY(${deg}deg)`
-    }
-  }, [])
-
-  const inertiaLoop = useCallback(() => {
-    if (Math.abs(velocity.current) < 0.01) {
-      velocity.current = 0
-      rafId.current = null
-      return
-    }
-    velocity.current *= FRICTION
-    applyRotation(rotation.current + velocity.current)
-    rafId.current = requestAnimationFrame(inertiaLoop)
-  }, [applyRotation])
-
-  const handlePointerDown = useCallback((e: React.PointerEvent) => {
-    isDragging.current = true
-    lastX.current = e.clientX
-    velocity.current = 0
-    if (rafId.current) {
-      cancelAnimationFrame(rafId.current)
-      rafId.current = null
-    }
-    ;(e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
-  }, [])
-
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (!isDragging.current) return
-    const dx = e.clientX - lastX.current
-    const delta = dx * DRAG_FACTOR
-    velocity.current = delta
-    applyRotation(rotation.current + delta)
-    lastX.current = e.clientX
-  }, [applyRotation])
-
-  const handlePointerUp = useCallback((e: React.PointerEvent) => {
-    if (!isDragging.current) return
-    isDragging.current = false
-    try {
-      ;(e.currentTarget as HTMLElement).releasePointerCapture?.(e.pointerId)
-    } catch {}
-    if (!rafId.current) rafId.current = requestAnimationFrame(inertiaLoop)
-  }, [inertiaLoop])
-
-  useEffect(() => {
-    applyRotation(rotation.current)
     return () => {
-      if (rafId.current) cancelAnimationFrame(rafId.current)
+      track.removeEventListener('pointerdown', onPointerDown)
+      track.removeEventListener('pointermove', onPointerMove)
+      track.removeEventListener('pointerup', endDrag)
+      track.removeEventListener('pointercancel', endDrag)
+      track.removeEventListener('pointerleave', endDrag)
     }
-  }, [applyRotation])
+  }, [])
+
+  // Duplicate images for a denser strip so short image sets still feel full
+  const cards = images.length >= 8 ? images : [...images, ...images, ...images].slice(0, 12)
 
   return (
     <section
@@ -159,48 +135,32 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
         </div>
       </motion.div>
 
-      {/* Full-width cylindrical carousel */}
-      <div
-        ref={wrapperRef}
-        className="relative w-full cursor-grab active:cursor-grabbing select-none touch-none mt-12 md:mt-20"
-        style={{
-          height: `${geometry.panelH + 60}px`,
-          perspective: '1600px',
-          perspectiveOrigin: '50% 50%',
-        }}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
-      >
+      {/* Full-width drag carousel */}
+      <div className="relative w-full mt-12 md:mt-20">
         <div
-          ref={sceneRef}
-          className="absolute inset-0"
+          ref={trackRef}
+          className="carousel-track flex gap-4 md:gap-5 overflow-x-auto scrollbar-hide cursor-grab select-none touch-pan-y pb-2"
           style={{
-            transformStyle: 'preserve-3d',
-            transform: `rotateY(0deg)`,
-            willChange: 'transform',
+            scrollSnapType: 'x mandatory',
+            scrollBehavior: 'smooth',
+            paddingLeft: 'var(--section-pad-x)',
+            paddingRight: 'var(--section-pad-x)',
+            WebkitOverflowScrolling: 'touch',
           }}
         >
-          {panels.map((panel, i) => (
+          {cards.map((image, index) => (
             <div
-              key={i}
-              className="absolute left-1/2 top-1/2 overflow-hidden rounded-[--radius-md]"
+              key={`${image.src}-${index}`}
+              className="relative flex-shrink-0 overflow-hidden rounded-[--radius-md] shadow-[0_30px_50px_-28px_rgba(0,0,0,0.35)] ring-1 ring-black/5"
               style={{
-                width: `${geometry.panelW}px`,
-                height: `${geometry.panelH}px`,
-                marginLeft: `-${geometry.panelW / 2}px`,
-                marginTop: `-${geometry.panelH / 2}px`,
-                transform: `rotateY(${panel.angle}deg) translateZ(${geometry.radius}px)`,
-                backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden',
-                boxShadow:
-                  '0 30px 50px -24px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.04)',
+                scrollSnapAlign: 'center',
+                width: 'clamp(240px, 26vw, 320px)',
+                height: 'clamp(340px, 42vw, 460px)',
               }}
             >
               <img
-                src={panel.image.src}
-                alt={panel.image.alt}
+                src={image.src}
+                alt={image.alt}
                 className="w-full h-full object-cover pointer-events-none"
                 draggable={false}
               />
@@ -208,8 +168,8 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
           ))}
         </div>
 
-        {/* Drag indicator pill, bottom-right */}
-        <div className="absolute bottom-4 right-6 md:right-10 z-20 pointer-events-none">
+        {/* Drag indicator pill */}
+        <div className="absolute bottom-6 right-6 md:right-10 z-20 pointer-events-none">
           <div className="bg-[--color-near-black] text-white px-4 h-[34px] flex items-center gap-2 text-[11px] font-body font-bold uppercase tracking-[0.18em] rounded-[--radius-sm]">
             <span aria-hidden="true" className="opacity-80">&laquo;</span>
             <span>Drag</span>
