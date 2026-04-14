@@ -64,16 +64,52 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Services Icon Grid */}
+      {/* 2. Services Card Grid */}
       <ServicesIconGrid
         heading={"We Climb So You\nDon't Have To"}
         services={[
-          { icon: 'Home', title: 'Roof Replacement', href: '/roof-replacement/cochrane' },
-          { icon: 'Wrench', title: 'Roof Repair', href: '/roof-repair/cochrane' },
-          { icon: 'CloudLightning', title: 'Hail Damage Repair', href: '/hail-damage-repair/cochrane' },
-          { icon: 'ClipboardCheck', title: 'Roof Maintenance', href: '/roof-maintenance/cochrane' },
-          { icon: 'Search', title: 'Roof Inspection', href: '/roof-inspection/cochrane' },
-          { icon: 'Sun', title: 'Skylight Installation', href: '/skylight-installation/cochrane' },
+          {
+            title: 'Roof Replacement',
+            href: '/roof-replacement/cochrane',
+            description: "A new roof, a new vibe — let's protect your home in style.",
+            image: '/images/Cochrane Roof Replacement.jpg',
+            imageAlt: 'Roof replacement Cochrane AB',
+          },
+          {
+            title: 'Roof Repair',
+            href: '/roof-repair/cochrane',
+            description: "Got a leak? We'll be there faster than you can say 'bucket'.",
+            image: '/images/Cochrane Roof Repair.jpg',
+            imageAlt: 'Roof repair Cochrane AB',
+          },
+          {
+            title: 'Hail Damage Repair',
+            href: '/hail-damage-repair/cochrane',
+            description: 'Out with the old, in with the weatherproof.',
+            image: '/images/Cochrane Roof Replacement.jpg',
+            imageAlt: 'Hail damage repair Cochrane AB',
+          },
+          {
+            title: 'Roof Inspection',
+            href: '/roof-inspection/cochrane',
+            description: 'Spot problems early, fix them fast, and keep your roof happy.',
+            image: '/images/Cochrane Roof Repair.jpg',
+            imageAlt: 'Roof inspection Cochrane AB',
+          },
+          {
+            title: 'Roof Maintenance',
+            href: '/roof-maintenance/cochrane',
+            description: "It's like sunscreen... but for your roof.",
+            image: '/images/Cochrane Roof Replacement.jpg',
+            imageAlt: 'Roof maintenance Cochrane AB',
+          },
+          {
+            title: 'Skylight Installation',
+            href: '/skylight-installation/cochrane',
+            description: "From the ground up to the top of the roof — we've got you covered.",
+            image: '/images/Cochrane Roof Repair.jpg',
+            imageAlt: 'Skylight installation Cochrane AB',
+          },
         ]}
       />
 
@@ -157,6 +193,7 @@ export default function HomePage() {
           },
         ]}
         videoEmbed="https://player.vimeo.com/video/917317949"
+        backgroundImage="/images/Cochrane Roofing Contractors.jpg"
       />
 
       {/* 6. Trust Logos */}

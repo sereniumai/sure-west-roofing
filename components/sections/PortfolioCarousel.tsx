@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { useRef, useState, useCallback, useEffect } from 'react'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
 interface PortfolioImage {
@@ -16,30 +16,36 @@ interface PortfolioCarouselProps {
 
 export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [containerWidth, setContainerWidth] = useState(0)
-  const dragX = useMotionValue(0)
-  const springX = useSpring(dragX, { stiffness: 200, damping: 30 })
+  const isDragging = useRef(false)
+  const lastX = useRef(0)
 
-  // Number of items and arc geometry
+  // Rotation angle driven by drag
+  const rawAngle = useMotionValue(0)
+  const angle = useSpring(rawAngle, { stiffness: 120, damping: 25 })
+
   const totalItems = images.length
-  const itemWidth = 280
-  const gap = 16
-  const totalWidth = totalItems * (itemWidth + gap)
+  const angleStep = 360 / totalItems
+  const radius = 500 // translateZ radius in px
 
-  useEffect(() => {
-    const updateWidth = () => {
-      if (containerRef.current) {
-        setContainerWidth(containerRef.current.offsetWidth)
-      }
-    }
-    updateWidth()
-    window.addEventListener('resize', updateWidth)
-    return () => window.removeEventListener('resize', updateWidth)
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    isDragging.current = true
+    lastX.current = e.clientX
+    ;(e.target as HTMLElement).setPointerCapture?.(e.pointerId)
   }, [])
 
-  // Clamp drag range
-  const maxDrag = 0
-  const minDrag = -(totalWidth - containerWidth + 100)
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (!isDragging.current) return
+      const dx = e.clientX - lastX.current
+      lastX.current = e.clientX
+      rawAngle.set(rawAngle.get() + dx * 0.3)
+    },
+    [rawAngle]
+  )
+
+  const handlePointerUp = useCallback(() => {
+    isDragging.current = false
+  }, [])
 
   return (
     <section className="bg-[#F5F5F5] py-16 lg:py-24 overflow-hidden">
@@ -50,7 +56,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
         >
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Portfolio
@@ -62,7 +68,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
 
         {/* Buttons */}
         <motion.div
-          className="flex items-center justify-center gap-4 mb-12"
+          className="flex items-center justify-center gap-4 mb-10"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
@@ -77,110 +83,75 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
         </motion.div>
       </div>
 
-      {/* Carousel container with 3D arc effect */}
+      {/* 3D Carousel */}
       <div
         ref={containerRef}
-        className="relative w-full overflow-hidden"
-        style={{ perspective: '1200px' }}
+        className="relative w-full h-[420px] md:h-[480px] lg:h-[520px] cursor-grab active:cursor-grabbing select-none touch-none"
+        style={{ perspective: '1000px' }}
+        onPointerDown={handlePointerDown}
+        onPointerMove={handlePointerMove}
+        onPointerUp={handlePointerUp}
+        onPointerLeave={handlePointerUp}
       >
-        {/* Curved bottom edge */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 z-10 pointer-events-none">
-          <svg
-            viewBox="0 0 1440 120"
-            fill="none"
-            preserveAspectRatio="none"
-            className="absolute bottom-0 w-full h-full"
-          >
-            <path
-              d="M0 120V60C240 0 480 0 720 0C960 0 1200 0 1440 60V120H0Z"
-              fill="#F5F5F5"
-            />
-          </svg>
-        </div>
-
-        {/* Draggable track */}
+        {/* 3D stage */}
         <motion.div
-          className="flex items-end gap-4 px-8 pb-32 pt-4 cursor-grab active:cursor-grabbing"
-          style={{ x: springX }}
-          drag="x"
-          dragConstraints={{ left: minDrag, right: maxDrag }}
-          dragElastic={0.1}
-          onDrag={(_, info) => {
-            dragX.set(dragX.get() + info.delta.x)
+          className="absolute left-1/2 top-1/2 w-0 h-0"
+          style={{
+            transformStyle: 'preserve-3d',
+            rotateY: angle,
+            translateX: '-50%',
+            translateY: '-50%',
           }}
         >
           {images.map((image, i) => {
-            // Calculate a slight arc (bend) effect based on position
-            const centerIndex = (totalItems - 1) / 2
-            const distFromCenter = i - centerIndex
-            const normalizedDist = distFromCenter / centerIndex
-            const rotation = normalizedDist * 8 // Slight rotation
-            const yOffset = Math.abs(normalizedDist) * 40 // Arc height
-
+            const itemAngle = i * angleStep
             return (
-              <CarouselCard
+              <div
                 key={`${image.alt}-${i}`}
-                image={image}
-                rotation={rotation}
-                yOffset={yOffset}
-                index={i}
-              />
+                className="absolute"
+                style={{
+                  width: '240px',
+                  height: '340px',
+                  left: '-120px',
+                  top: '-170px',
+                  transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
+                  backfaceVisibility: 'hidden',
+                }}
+              >
+                <div className="w-full h-full bg-white shadow-2xl overflow-hidden">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-full object-cover pointer-events-none"
+                    draggable={false}
+                  />
+                </div>
+              </div>
             )
           })}
         </motion.div>
 
         {/* Drag indicator */}
-        <motion.div
-          className="absolute bottom-40 left-1/2 -translate-x-1/2 z-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        >
-          <div className="bg-[#1A1A1A] text-white px-4 py-2 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
-            <span>&#171;</span>
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+          <div className="bg-[#1A1A1A] text-white px-5 py-2 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+            <span>&lsaquo;</span>
             <span>Drag</span>
-            <span>&#187;</span>
+            <span>&rsaquo;</span>
           </div>
-        </motion.div>
+        </div>
+      </div>
+
+      {/* Curved bottom edge */}
+      <div className="relative -mt-20 pointer-events-none">
+        <svg
+          viewBox="0 0 1440 100"
+          fill="none"
+          preserveAspectRatio="none"
+          className="w-full h-20"
+        >
+          <path d="M0 100V40C360 0 720 0 720 0C720 0 1080 0 1440 40V100H0Z" fill="#F5F5F5" />
+        </svg>
       </div>
     </section>
-  )
-}
-
-function CarouselCard({
-  image,
-  rotation,
-  yOffset,
-  index,
-}: {
-  image: PortfolioImage
-  rotation: number
-  yOffset: number
-  index: number
-}) {
-  return (
-    <motion.div
-      className="flex-shrink-0 w-[240px] md:w-[280px] lg:w-[320px] select-none"
-      style={{
-        transform: `rotateY(${rotation}deg) translateY(${yOffset}px)`,
-        transformOrigin: 'bottom center',
-      }}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.08 }}
-    >
-      <div className="relative aspect-[3/4] overflow-hidden shadow-xl">
-        <img
-          src={image.src}
-          alt={image.alt}
-          className="w-full h-full object-cover pointer-events-none"
-          draggable={false}
-        />
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-      </div>
-    </motion.div>
   )
 }
