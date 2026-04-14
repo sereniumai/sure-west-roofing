@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useCallback, useEffect, useState } from 'react'
+import { useRef, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
@@ -14,130 +14,139 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// Drag tuning
-const FRICTION = 0.94           // inertia decay per frame
-const MIN_VELOCITY = 0.01       // degrees/frame floor before stop
-const ANGLE_STEP = 18           // degrees between adjacent panels
-
-// Viewport-adaptive cylinder geometry
-type Geo = { radius: number; panelW: number; panelH: number }
-
-function computeGeo(w: number): Geo {
-  if (w < 640) return { radius: 560, panelW: 170, panelH: 240 }
-  if (w < 1024) return { radius: 820, panelW: 220, panelH: 310 }
-  if (w < 1440) return { radius: 1040, panelW: 260, panelH: 370 }
-  return { radius: 1180, panelW: 290, panelH: 410 }
-}
+// Arc shape tuning — applied per-card based on its distance from the
+// viewport center. Pure 2D transforms, no CSS 3D.
+const ARC_ROTATE_DEG = 38        // ±deg at the extremes
+const ARC_TRANSLATE_Y = 120      // px drop at the extremes
+const ARC_SCALE_MIN = 0.72       // scale at the extremes (1 at center)
+const DRAG_MULTIPLIER = 1.5
+const MOMENTUM_MIN = 4
+const MOMENTUM_SCALE = 16
 
 export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
-  const sceneRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
 
   const isDragging = useRef(false)
+  const startX = useRef(0)
+  const startScrollLeft = useRef(0)
   const lastX = useRef(0)
   const velocity = useRef(0)
-  const rotation = useRef(0)
   const rafId = useRef<number | null>(null)
-  const radiusRef = useRef(1040)
 
-  const [geometry, setGeometry] = useState<Geo>(() => ({
-    radius: 1040,
-    panelW: 260,
-    panelH: 370,
-  }))
+  // Pad out short image pools so the track is dense
+  const cards = images.length >= 10 ? images : Array.from({ length: 12 }, (_, i) => images[i % images.length])
+
+  const updateArcTransforms = useCallback(() => {
+    const track = trackRef.current
+    const wrapper = wrapperRef.current
+    if (!track || !wrapper) return
+
+    const wrapperRect = wrapper.getBoundingClientRect()
+    const viewportCenter = wrapperRect.left + wrapperRect.width / 2
+    const halfWidth = wrapperRect.width / 2
+
+    const items = track.children
+    for (let i = 0; i < items.length; i++) {
+      const el = items[i] as HTMLElement
+      const rect = el.getBoundingClientRect()
+      const cardCenter = rect.left + rect.width / 2
+      // Normalize: -1 at left edge, 0 at center, 1 at right edge
+      const t = Math.max(-1.2, Math.min(1.2, (cardCenter - viewportCenter) / halfWidth))
+
+      const rot = t * ARC_ROTATE_DEG
+      const dy = (t * t) * ARC_TRANSLATE_Y
+      const scale = 1 - Math.abs(t) * (1 - ARC_SCALE_MIN)
+
+      el.style.transform = `translateY(${dy.toFixed(2)}px) rotate(${rot.toFixed(2)}deg) scale(${scale.toFixed(3)})`
+      el.style.zIndex = String(Math.round(100 - Math.abs(t) * 50))
+    }
+  }, [])
+
+  const scheduleUpdate = useCallback(() => {
+    if (rafId.current) return
+    rafId.current = requestAnimationFrame(() => {
+      rafId.current = null
+      updateArcTransforms()
+    })
+  }, [updateArcTransforms])
 
   useEffect(() => {
-    const compute = () => {
-      const g = computeGeo(window.innerWidth)
-      radiusRef.current = g.radius
-      setGeometry(g)
+    const track = trackRef.current
+    if (!track) return
+
+    // Initial centering: scroll to middle of the track so users can drag either way
+    const centerScroll = () => {
+      const mid = (track.scrollWidth - track.clientWidth) / 2
+      track.scrollLeft = mid
+      updateArcTransforms()
     }
-    compute()
-    window.addEventListener('resize', compute)
-    return () => window.removeEventListener('resize', compute)
-  }, [])
 
-  // Enough panels to fill a full circle. Images cycle through slots.
-  const PANEL_COUNT = Math.round(360 / ANGLE_STEP)
-  const panels = Array.from({ length: PANEL_COUNT }, (_, i) => ({
-    angle: i * ANGLE_STEP,
-    image: images[i % images.length],
-  }))
+    centerScroll()
 
-  const applyRotation = useCallback((deg: number) => {
-    rotation.current = deg
-    if (sceneRef.current) {
-      sceneRef.current.style.transform = `rotateY(${deg}deg)`
+    const onScroll = () => scheduleUpdate()
+    const onResize = () => {
+      centerScroll()
+      scheduleUpdate()
     }
-  }, [])
 
-  // Convert horizontal pixel movement to rotation so the panel under
-  // the pointer tracks your finger along the surface of the cylinder.
-  // arc length = radius × angle_rad  →  angle_deg = dx × 180 / (π × radius)
-  const pxToDeg = useCallback((dx: number) => {
-    return (dx * 180) / (Math.PI * radiusRef.current)
-  }, [])
-
-  const inertiaLoop = useCallback(() => {
-    if (Math.abs(velocity.current) < MIN_VELOCITY) {
+    const onPointerDown = (e: PointerEvent) => {
+      isDragging.current = true
+      startX.current = e.pageX - track.offsetLeft
+      startScrollLeft.current = track.scrollLeft
+      lastX.current = e.pageX
       velocity.current = 0
-      rafId.current = null
-      return
+      track.style.cursor = 'grabbing'
+      track.style.scrollBehavior = 'auto'
+      track.setPointerCapture?.(e.pointerId)
     }
-    velocity.current *= FRICTION
-    applyRotation(rotation.current + velocity.current)
-    rafId.current = requestAnimationFrame(inertiaLoop)
-  }, [applyRotation])
 
-  const handlePointerDown = useCallback((e: React.PointerEvent) => {
-    isDragging.current = true
-    lastX.current = e.clientX
-    velocity.current = 0
-    if (rafId.current) {
-      cancelAnimationFrame(rafId.current)
-      rafId.current = null
-    }
-    ;(e.currentTarget as HTMLElement).setPointerCapture?.(e.pointerId)
-  }, [])
-
-  const handlePointerMove = useCallback(
-    (e: React.PointerEvent) => {
+    const onPointerMove = (e: PointerEvent) => {
       if (!isDragging.current) return
-      const dx = e.clientX - lastX.current
-      // Drag right rotates cylinder so panels on the right come toward you
-      // (negative rotateY on a right-handed Y axis). This matches the
-      // "scroll right → content moves right" mental model from the Rooferio
-      // reference, where dragging the DRAG pill right slides the arc right.
-      const delta = pxToDeg(dx)
-      velocity.current = delta
-      applyRotation(rotation.current + delta)
-      lastX.current = e.clientX
-    },
-    [applyRotation, pxToDeg]
-  )
+      e.preventDefault()
+      const x = e.pageX - track.offsetLeft
+      const walk = (x - startX.current) * DRAG_MULTIPLIER
+      velocity.current = e.pageX - lastX.current
+      lastX.current = e.pageX
+      track.scrollLeft = startScrollLeft.current - walk
+    }
 
-  const handlePointerUp = useCallback(
-    (e: React.PointerEvent) => {
+    const onPointerUp = (e: PointerEvent) => {
       if (!isDragging.current) return
       isDragging.current = false
+      track.style.cursor = 'grab'
+      track.style.scrollBehavior = 'smooth'
       try {
-        ;(e.currentTarget as HTMLElement).releasePointerCapture?.(e.pointerId)
+        track.releasePointerCapture?.(e.pointerId)
       } catch {}
-      if (!rafId.current) rafId.current = requestAnimationFrame(inertiaLoop)
-    },
-    [inertiaLoop]
-  )
+      if (Math.abs(velocity.current) > MOMENTUM_MIN) {
+        track.scrollLeft -= velocity.current * MOMENTUM_SCALE
+      }
+    }
 
-  useEffect(() => {
-    applyRotation(rotation.current)
+    track.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onResize)
+    track.addEventListener('pointerdown', onPointerDown)
+    track.addEventListener('pointermove', onPointerMove)
+    track.addEventListener('pointerup', onPointerUp)
+    track.addEventListener('pointercancel', onPointerUp)
+    track.addEventListener('pointerleave', onPointerUp)
+
     return () => {
+      track.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+      track.removeEventListener('pointerdown', onPointerDown)
+      track.removeEventListener('pointermove', onPointerMove)
+      track.removeEventListener('pointerup', onPointerUp)
+      track.removeEventListener('pointercancel', onPointerUp)
+      track.removeEventListener('pointerleave', onPointerUp)
       if (rafId.current) cancelAnimationFrame(rafId.current)
     }
-  }, [applyRotation])
+  }, [scheduleUpdate, updateArcTransforms])
 
   return (
     <section
-      className="bg-[#0E0E0E] text-white overflow-hidden relative"
+      className="bg-[#F8F8F8] overflow-hidden relative"
       style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
     >
       {/* Centered header */}
@@ -152,14 +161,14 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
       >
-        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#D4AF60] mb-6">
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
+        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#B8943F] mb-6">
+          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
           Our Portfolio
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
+          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
         </span>
 
         <h2
-          className="font-display font-semibold leading-[1.02] text-white max-w-[1000px]"
+          className="font-display font-semibold leading-[1.02] text-[--color-near-black] max-w-[1000px]"
           style={{
             fontSize: 'clamp(34px, 5vw, 72px)',
             letterSpacing: '-0.04em',
@@ -173,55 +182,57 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
           ))}
         </h2>
 
-        <div className="flex items-center mt-8 md:mt-10">
-          <Button variant="primary" size="md" href="/services">
+        <div className="flex items-center gap-3 md:gap-4 mt-8 md:mt-10">
+          <Button
+            variant="primary"
+            size="md"
+            href="/services"
+            className="!bg-[--color-near-black] !text-white hover:!bg-black hover:!shadow-[0_10px_30px_-10px_rgba(0,0,0,0.55)]"
+          >
             View Projects
+          </Button>
+          <Button
+            variant="primary"
+            size="md"
+            href="/gallery"
+            className="!bg-[--color-near-black] !text-white hover:!bg-black hover:!shadow-[0_10px_30px_-10px_rgba(0,0,0,0.55)]"
+          >
+            View Gallery
           </Button>
         </div>
       </motion.div>
 
-      {/* Full-width cylindrical drag carousel */}
+      {/* Full-width 2D arc carousel */}
       <div
         ref={wrapperRef}
-        className="relative w-full cursor-grab active:cursor-grabbing select-none touch-none mt-12 md:mt-20"
-        style={{
-          height: `${geometry.panelH + 60}px`,
-          perspective: '1800px',
-          perspectiveOrigin: '50% 45%',
-        }}
-        onPointerDown={handlePointerDown}
-        onPointerMove={handlePointerMove}
-        onPointerUp={handlePointerUp}
-        onPointerCancel={handlePointerUp}
+        className="relative w-full mt-14 md:mt-24 overflow-hidden"
       >
         <div
-          ref={sceneRef}
-          className="absolute inset-0"
+          ref={trackRef}
+          className="relative flex items-start gap-4 md:gap-5 overflow-x-auto scrollbar-hide cursor-grab select-none touch-pan-y"
           style={{
-            transformStyle: 'preserve-3d',
-            transform: `rotateY(0deg)`,
-            willChange: 'transform',
+            scrollBehavior: 'smooth',
+            paddingTop: '60px',
+            paddingBottom: '140px',
+            paddingLeft: '40vw',
+            paddingRight: '40vw',
+            WebkitOverflowScrolling: 'touch',
           }}
         >
-          {panels.map((panel, i) => (
+          {cards.map((image, index) => (
             <div
-              key={i}
-              className="absolute left-1/2 top-1/2 overflow-hidden rounded-[--radius-md]"
+              key={`${image.src}-${index}`}
+              className="relative flex-shrink-0 overflow-hidden rounded-[--radius-md] shadow-[0_30px_50px_-28px_rgba(0,0,0,0.35)] ring-1 ring-black/5 bg-black"
               style={{
-                width: `${geometry.panelW}px`,
-                height: `${geometry.panelH}px`,
-                marginLeft: `-${geometry.panelW / 2}px`,
-                marginTop: `-${geometry.panelH / 2}px`,
-                transform: `rotateY(${panel.angle}deg) translateZ(${geometry.radius}px)`,
-                backfaceVisibility: 'hidden',
-                WebkitBackfaceVisibility: 'hidden',
-                boxShadow:
-                  '0 30px 50px -24px rgba(0,0,0,0.38), 0 0 0 1px rgba(0,0,0,0.04)',
+                width: 'clamp(200px, 22vw, 280px)',
+                height: 'clamp(280px, 32vw, 400px)',
+                transformOrigin: '50% 100%',
+                willChange: 'transform',
               }}
             >
               <img
-                src={panel.image.src}
-                alt={panel.image.alt}
+                src={image.src}
+                alt={image.alt}
                 className="w-full h-full object-cover pointer-events-none"
                 draggable={false}
               />
@@ -229,12 +240,12 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
           ))}
         </div>
 
-        {/* DRAG pill indicator, bottom-center over the carousel */}
-        <div className="absolute bottom-5 md:bottom-8 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
-          <div className="bg-white text-[--color-near-black] px-4 h-[36px] flex items-center gap-2 text-[11px] font-body font-bold uppercase tracking-[0.2em] rounded-[--radius-sm] shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)]">
-            <span aria-hidden="true" className="opacity-70 leading-none text-[13px]">&laquo;</span>
+        {/* DRAG pill indicator, bottom-center */}
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
+          <div className="bg-[--color-near-black] text-white px-4 h-[36px] flex items-center gap-2 text-[11px] font-body font-bold uppercase tracking-[0.2em] rounded-[--radius-sm]">
+            <span aria-hidden="true" className="opacity-80 leading-none text-[13px]">&laquo;</span>
             <span>Drag</span>
-            <span aria-hidden="true" className="opacity-70 leading-none text-[13px]">&raquo;</span>
+            <span aria-hidden="true" className="opacity-80 leading-none text-[13px]">&raquo;</span>
           </div>
         </div>
       </div>
