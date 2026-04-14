@@ -86,7 +86,7 @@ export default function HomePage() {
             review: {
               quote:
                 "I sought out this company to replace my aging roof due to their solid reputation in the community. They did not disappoint.",
-              author: 'Bruce E.',
+              author: 'Bruce E',
               location: 'Cochrane, AB',
             },
           },
