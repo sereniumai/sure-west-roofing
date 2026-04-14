@@ -23,36 +23,42 @@ const serviceLinks = [
     description: 'Complete tear-off and replacement',
     href: '/roof-replacement/cochrane',
     icon: Home,
+    image: '/images/Cochrane Roof Replacement.jpg',
   },
   {
     label: 'Roof Repair',
     description: 'Fast, lasting leak and shingle repair',
     href: '/roof-repair/cochrane',
     icon: Wrench,
+    image: '/images/Cochrane Roof Repair.jpg',
   },
   {
     label: 'Hail Damage Repair',
     description: 'Insurance claims and restoration',
     href: '/hail-damage-repair/cochrane',
     icon: CloudLightning,
+    image: '/images/Cochrane Roofing Contractors.jpg',
   },
   {
     label: 'Roof Maintenance',
     description: 'Annual care to extend roof life',
     href: '/roof-maintenance/cochrane',
     icon: ClipboardCheck,
+    image: '/images/Cochrane Roof Replacement.jpg',
   },
   {
     label: 'Roof Inspection',
     description: 'Detailed condition reports',
     href: '/roof-inspection/cochrane',
     icon: Search,
+    image: '/images/Cochrane Roofing Contractors.jpg',
   },
   {
     label: 'Skylight Installation',
     description: 'Code-compliant skylight installs',
     href: '/skylight-installation/cochrane',
     icon: Sun,
+    image: '/images/Cochrane Roof Repair.jpg',
   },
 ]
 
@@ -106,7 +112,7 @@ export function Nav() {
                 : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'
             }
             alt="Sure West Roofing"
-            className="h-12 w-auto"
+            className="h-12 lg:h-[56px] w-auto"
           />
         </Link>
 
@@ -141,36 +147,40 @@ export function Nav() {
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-white border border-gray-100 shadow-2xl w-[320px] overflow-hidden">
-                    {serviceLinks.map((service) => {
-                      const Icon = service.icon
-                      return (
+                  <div className="bg-white border border-gray-100 shadow-2xl w-[640px] overflow-hidden">
+                    <div className="grid grid-cols-2">
+                      {serviceLinks.map((service) => (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#FBF8F1] transition-colors group"
+                          className="flex items-center gap-3 px-4 py-3 hover:bg-[#FBF8F1] transition-colors group border-b border-gray-100 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-child(odd)]:border-r"
                           onClick={() => setServicesOpen(false)}
                         >
-                          <div className="w-9 h-9 bg-gray-100 group-hover:bg-[#D4AF60]/10 flex items-center justify-center flex-shrink-0 transition-colors">
-                            <Icon className="w-4 h-4 text-gray-400 group-hover:text-[#D4AF60] transition-colors" />
+                          <div className="w-[72px] h-[52px] flex-shrink-0 overflow-hidden bg-gray-100">
+                            <img
+                              src={service.image}
+                              alt={service.label}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                              draggable={false}
+                            />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p className="font-display font-bold text-sm text-[#1A1A1A] tracking-tight">
+                            <p className="font-display font-bold text-sm text-[#1A1A1A] tracking-tight uppercase">
                               {service.label}
                             </p>
-                            <p className="text-xs text-[#666] mt-0.5">
+                            <p className="text-xs text-[#666] mt-0.5 truncate">
                               {service.description}
                             </p>
                           </div>
-                          <ArrowRight className="w-3.5 h-3.5 text-[#D4AF60] opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <ArrowRight className="w-3.5 h-3.5 text-[#D4AF60] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
                         </Link>
-                      )
-                    })}
-                    <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
+                      ))}
+                    </div>
+                    <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between bg-[#FBF8F1]">
                       <p className="text-xs text-[#666]">Not sure what you need?</p>
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#D4AF60] hover:text-[#B8943F] transition-colors"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#D4AF60] hover:text-[#B8943F] transition-colors uppercase tracking-wider"
                         onClick={() => setServicesOpen(false)}
                       >
                         Contact us
