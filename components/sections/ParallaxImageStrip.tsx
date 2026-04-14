@@ -55,16 +55,16 @@ export function ParallaxImageStrip({
   return (
     <section
       ref={ref}
-      className="relative bg-black overflow-visible"
-      style={{ height: '306px' }}
+      className="relative bg-black overflow-visible z-[2]"
+      style={{ height: '400px', marginTop: '-150px' }}
     >
       {/* Overflow container — matches hero 1280px cap, centered */}
       <div
         className="absolute overflow-hidden left-1/2 -translate-x-1/2"
         style={{
-          top: '-100px',
+          top: '0px',
           width: 'min(1280px, calc(100% - 100px))',
-          height: '565px',
+          height: '400px',
         }}
       >
         <motion.div
