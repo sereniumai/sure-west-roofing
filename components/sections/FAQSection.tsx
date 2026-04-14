@@ -64,7 +64,7 @@ export function FAQSection({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="bg-white border border-[#E5E5E5] overflow-hidden">
+          <div className="bg-white border border-[#E5E5E5] overflow-hidden rounded-[--radius-md]">
             {faqs.map((faq, index) => (
               <div
                 key={index}
@@ -81,7 +81,7 @@ export function FAQSection({
                     {faq.question}
                   </span>
                   <div
-                    className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                    className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all duration-300 rounded-full ${
                       index === openIndex
                         ? 'bg-[#D4AF60] text-white rotate-45'
                         : 'bg-[#F5F5F5] text-[#1A1A1A]/40 group-hover:bg-[#D4AF60]/10 group-hover:text-[#D4AF60]'

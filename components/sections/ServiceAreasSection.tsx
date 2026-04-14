@@ -54,7 +54,7 @@ export function ServiceAreasSection() {
           {areas.map((area, i) => (
             <motion.div
               key={area.name}
-              className="group bg-[#F5F5F5] p-8 border border-[#E5E5E5] text-center hover:-translate-y-2 hover:border-[#D4AF60]/20 transition-all duration-500"
+              className="group bg-[#F5F5F5] p-8 border border-[#E5E5E5] text-center hover:-translate-y-2 hover:border-[#D4AF60]/20 transition-all duration-500 rounded-[--radius-md]"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-30px' }}
@@ -64,7 +64,7 @@ export function ServiceAreasSection() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <div className="w-12 h-12 bg-black group-hover:bg-[#D4AF60] flex items-center justify-center mx-auto mb-5 transition-colors duration-500">
+              <div className="w-12 h-12 bg-black group-hover:bg-[#D4AF60] flex items-center justify-center mx-auto mb-5 transition-colors duration-500 rounded-[--radius-sm]">
                 <MapPin className="w-5 h-5 text-white" />
               </div>
               <h3 className="font-display font-semibold text-black text-xl tracking-tight mb-3">

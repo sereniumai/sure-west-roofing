@@ -81,7 +81,7 @@ function validateForm(data: FormData): FormErrors {
 }
 
 const inputBase =
-  'w-full px-4 py-3.5 border bg-white font-body text-sm text-[#1A1A1A] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200'
+  'w-full px-4 py-3.5 border bg-white font-body text-sm text-[#1A1A1A] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 rounded-[--radius-sm]'
 const inputNormal = `${inputBase} border-[#E5E5E5] focus:ring-[#D4AF60]/50 focus:border-[#D4AF60]`
 const inputError = `${inputBase} border-red-400 focus:ring-red-400/50 focus:border-red-400`
 const labelClass = 'block font-body text-sm font-medium text-[#1A1A1A] mb-1.5'
@@ -217,7 +217,7 @@ export function ContactForm() {
   if (status === 'success') {
     return (
       <motion.div
-        className="bg-white rounded-none border border-[#E5E5E5] p-8 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+        className="bg-white rounded-[--radius-md] border border-[#E5E5E5] p-8 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -239,7 +239,7 @@ export function ContactForm() {
 
   return (
     <motion.div
-      className="bg-white rounded-none border border-[#E5E5E5] p-6 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+      className="bg-white rounded-[--radius-md] border border-[#E5E5E5] p-6 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
       initial={{ y: 30, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: '-80px' }}
@@ -417,7 +417,7 @@ export function ContactForm() {
         {/* Server error */}
         {status === 'error' && serverError && (
           <motion.div
-            className="flex items-start gap-2.5 bg-red-50 text-red-700 rounded-none px-4 py-3"
+            className="flex items-start gap-2.5 bg-red-50 text-red-700 rounded-[--radius-sm] px-4 py-3"
             initial={{ opacity: 0, y: -5 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
@@ -431,7 +431,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className={`group w-full px-7 py-4 rounded-none font-body font-semibold text-base text-white bg-[#D4AF60] shadow-[0_4px_0_rgba(0,0,0,0.15)] overflow-hidden relative flex items-center justify-center gap-2 mt-1 transition-all duration-200 ${
+          className={`group w-full px-7 py-4 rounded-[--radius-sm] font-body font-semibold text-base text-white bg-[#D4AF60] shadow-[0_4px_0_rgba(0,0,0,0.15)] overflow-hidden relative flex items-center justify-center gap-2 mt-1 transition-all duration-200 ${
             status === 'submitting'
               ? 'opacity-70 cursor-not-allowed'
               : 'hover:bg-[#B8943F] hover:shadow-[0_6px_20px_rgba(214,174,96,0.4)] active:scale-[0.98]'

@@ -199,7 +199,7 @@ export function StatsVideoReveal({
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
                   {/* Gold play button */}
                   <div
-                    className="absolute flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                    className="absolute flex items-center justify-center group-hover:scale-110 transition-transform duration-300 rounded-full"
                     style={{
                       width: '80px',
                       height: '80px',

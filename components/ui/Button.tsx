@@ -44,7 +44,7 @@ export function Button({
   className = '',
   showArrow = true,
 }: ButtonProps) {
-  const styles = `group inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-[background-color,box-shadow,transform,border-color] duration-200 ease-out cursor-pointer border-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
+  const styles = `group inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-[background-color,box-shadow,transform,border-color] duration-200 ease-out cursor-pointer border-0 rounded-[--radius-sm] ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
 
   const content = (
     <>

@@ -71,14 +71,14 @@ function TiltCard({ feature, index }: { feature: Feature; index: number }) {
       onMouseLeave={handleMouseLeave}
     >
       <motion.div
-        className="bg-[#F5F5F5] p-8 hover:bg-black transition-colors duration-500 h-full"
+        className="bg-[#F5F5F5] p-8 hover:bg-black transition-colors duration-500 h-full rounded-[--radius-md]"
         style={{
           rotateX: springX,
           rotateY: springY,
           transformStyle: 'preserve-3d',
         }}
       >
-        <div className="w-12 h-12 bg-black group-hover:bg-[#D4AF60] flex items-center justify-center mb-5 transition-colors duration-500">
+        <div className="w-12 h-12 bg-black group-hover:bg-[#D4AF60] flex items-center justify-center mb-5 transition-colors duration-500 rounded-[--radius-sm]">
           {Icon && <Icon className="w-5 h-5 text-white" />}
         </div>
         <h3 className="font-display font-semibold text-black group-hover:text-white text-xl tracking-tight mb-3 transition-colors duration-500">

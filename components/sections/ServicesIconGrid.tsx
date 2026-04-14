@@ -176,7 +176,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                     >
                       <div className="pb-5 md:pb-6 pl-4 md:pl-6 pr-4 md:pr-6 -mt-1">
                         {/* Mobile image preview */}
-                        <div className="md:hidden relative aspect-[16/10] overflow-hidden mb-5">
+                        <div className="md:hidden relative aspect-[16/10] overflow-hidden mb-5 rounded-[--radius-md]">
                           <img
                             src={service.image}
                             alt={service.imageAlt}
@@ -211,7 +211,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
         </div>
 
         {/* ── Editorial image panel (desktop), matches accordion height ───────────── */}
-        <div className="hidden md:block relative overflow-hidden bg-black group/img">
+        <div className="hidden md:block relative overflow-hidden bg-black group/img rounded-[--radius-lg]">
           <img
             src={featured?.image}
             alt={featured?.imageAlt ?? ''}
@@ -233,7 +233,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                 >
                   {/* Card shell with warm cream tint and refined shadow */}
                   <div
-                    className="relative overflow-hidden"
+                    className="relative overflow-hidden rounded-[--radius-md]"
                     style={{
                       background: 'linear-gradient(180deg, #FDFBF5 0%, #F7F3E8 100%)',
                       boxShadow:

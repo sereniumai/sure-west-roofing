@@ -71,7 +71,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
               >
                 {/* Step number circle */}
                 <motion.div
-                  className="w-16 h-16 bg-black flex items-center justify-center mx-auto mb-6 relative z-10"
+                  className="w-16 h-16 bg-black flex items-center justify-center mx-auto mb-6 relative z-10 rounded-full"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}

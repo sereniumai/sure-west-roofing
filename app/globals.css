@@ -33,6 +33,11 @@
   --section-pad-bot:   80px;
   --nav-height:        80px;
 
+  /* Radius */
+  --radius-sm:         8px;
+  --radius-md:         14px;
+  --radius-lg:         20px;
+
   /* Animations */
   --ease-out:          cubic-bezier(0.16, 1, 0.3, 1);
   --ease-spring:       cubic-bezier(0.34, 1.56, 0.64, 1);

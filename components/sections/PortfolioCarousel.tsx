@@ -156,7 +156,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
             >
               {/* Right face */}
               <div
-                className="absolute overflow-hidden"
+                className="absolute overflow-hidden rounded-[--radius-md]"
                 style={{
                   width: '280px',
                   height: '330px',
@@ -174,7 +174,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
               </div>
               {/* Left face */}
               <div
-                className="absolute overflow-hidden"
+                className="absolute overflow-hidden rounded-[--radius-md]"
                 style={{
                   width: '280px',
                   height: '330px',

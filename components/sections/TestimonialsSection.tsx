@@ -59,7 +59,7 @@ export function TestimonialsSection({
           {testimonials.map((testimonial, i) => (
             <motion.div
               key={testimonial.name}
-              className="bg-[#111111] p-8 border border-white/5 flex flex-col min-w-[320px] md:min-w-[380px] lg:min-w-[420px] flex-shrink-0 select-none"
+              className="bg-[#111111] p-8 border border-white/5 flex flex-col min-w-[320px] md:min-w-[380px] lg:min-w-[420px] flex-shrink-0 select-none rounded-[--radius-md]"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
@@ -92,7 +92,7 @@ export function TestimonialsSection({
 
               {/* Author */}
               <div className="border-t border-white/10 pt-5 flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#D4AF60] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-[#D4AF60] flex items-center justify-center flex-shrink-0 rounded-full">
                   <span className="font-display font-bold text-white text-sm">
                     {testimonial.initials}
                   </span>
