@@ -204,7 +204,7 @@ a { text-decoration: none; color: inherit; }
   width: 1.1em;
   height: 1.1em;
   line-height: 1;
-  overflow: hidden;
+  overflow: visible;
   flex-shrink: 0;
 }
 
@@ -217,30 +217,46 @@ a { text-decoration: none; color: inherit; }
   line-height: 1;
   opacity: 0;
   transform: translate(0, -50%);
-  transition: opacity 0.2s ease;
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Rest: only rightmost chevron visible */
 .btn-arrow .btn-chev:last-child {
   opacity: 1;
 }
 
-.group:hover .btn-arrow .btn-chev:last-child {
-  opacity: 0;
-  transition: opacity 0s;
+/* Rightmost stays put, just pulses after the others emerge */
+.group:hover .btn-arrow .btn-chev:nth-child(3) {
+  animation: btn-chev-pulse 1.4s ease-in-out 0.55s infinite;
 }
 
-.group:hover .btn-chev {
-  animation: btn-chev-march 1.05s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+/* 2nd emerges left from under the rightmost, then pulses */
+.group:hover .btn-arrow .btn-chev:nth-child(2) {
+  animation:
+    btn-chev-emerge-2 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
+    btn-chev-pulse 1.4s ease-in-out 0.7s infinite;
 }
-.group:hover .btn-chev:nth-child(1) { animation-delay: 0s; }
-.group:hover .btn-chev:nth-child(2) { animation-delay: 0.35s; }
-.group:hover .btn-chev:nth-child(3) { animation-delay: 0.7s; }
 
-@keyframes btn-chev-march {
-  0%   { opacity: 0; transform: translate(12px, -50%); }
-  30%  { opacity: 1; transform: translate(0, -50%); }
-  70%  { opacity: 1; transform: translate(0, -50%); }
-  100% { opacity: 0; transform: translate(-12px, -50%); }
+/* 3rd emerges even further left, then pulses */
+.group:hover .btn-arrow .btn-chev:nth-child(1) {
+  animation:
+    btn-chev-emerge-1 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards,
+    btn-chev-pulse 1.4s ease-in-out 0.85s infinite;
+}
+
+@keyframes btn-chev-emerge-2 {
+  0%   { opacity: 0; transform: translate(0, -50%); }
+  100% { opacity: 1; transform: translate(-0.35em, -50%); }
+}
+
+@keyframes btn-chev-emerge-1 {
+  0%   { opacity: 0; transform: translate(0, -50%); }
+  100% { opacity: 1; transform: translate(-0.7em, -50%); }
+}
+
+@keyframes btn-chev-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
 }
 
 /* ── Section label dots ─────────────────────── */
