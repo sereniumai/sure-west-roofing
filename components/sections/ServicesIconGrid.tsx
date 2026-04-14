@@ -21,13 +21,9 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
     <section
       className="bg-[--color-cream] relative"
       style={{
-        // Top padding tracks the aspect-ratio-locked video above:
-        //   container height = (100vw - 100px) * 9/16, video extends 200px above boundary,
-        //   so (height - 200) bleeds into this section. Add 100px clearance below the video.
-        paddingTop: 'max(200px, calc((100vw - 100px) * 9 / 16 - 100px))',
-        paddingLeft: 'var(--section-pad-x)',
-        paddingRight: 'var(--section-pad-x)',
-        paddingBottom: 'var(--section-pad-bot)',
+        // Video strip above is 560px tall, positioned -200px relative to the
+        //   hero/services boundary; 360px of it bleeds into this section, plus clearance.
+        padding: '460px var(--section-pad-x) var(--section-pad-bot)',
       }}
     >
       {/* Centered label + heading */}
