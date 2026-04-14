@@ -3,18 +3,7 @@
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import {
-  Menu,
-  X,
-  ChevronDown,
-  Home,
-  Wrench,
-  CloudLightning,
-  ClipboardCheck,
-  Search,
-  Sun,
-  ArrowRight,
-} from 'lucide-react'
+import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const serviceLinks = [
@@ -22,43 +11,31 @@ const serviceLinks = [
     label: 'Roof Replacement',
     description: 'Complete tear-off and replacement',
     href: '/roof-replacement/cochrane',
-    icon: Home,
-    image: '/images/Cochrane Roof Replacement.jpg',
   },
   {
     label: 'Roof Repair',
     description: 'Fast, lasting leak and shingle repair',
     href: '/roof-repair/cochrane',
-    icon: Wrench,
-    image: '/images/Cochrane Roof Repair.jpg',
   },
   {
     label: 'Hail Damage Repair',
     description: 'Insurance claims and restoration',
     href: '/hail-damage-repair/cochrane',
-    icon: CloudLightning,
-    image: '/images/Cochrane Roofing Contractors.jpg',
   },
   {
     label: 'Roof Maintenance',
     description: 'Annual care to extend roof life',
     href: '/roof-maintenance/cochrane',
-    icon: ClipboardCheck,
-    image: '/images/Cochrane Roof Replacement.jpg',
   },
   {
     label: 'Roof Inspection',
     description: 'Detailed condition reports',
     href: '/roof-inspection/cochrane',
-    icon: Search,
-    image: '/images/Cochrane Roofing Contractors.jpg',
   },
   {
     label: 'Skylight Installation',
     description: 'Code-compliant skylight installs',
     href: '/skylight-installation/cochrane',
-    icon: Sun,
-    image: '/images/Cochrane Roof Repair.jpg',
   },
 ]
 
@@ -147,46 +124,43 @@ export function Nav() {
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-white border border-gray-100 shadow-2xl w-[640px] overflow-hidden">
+                  <div className="bg-black border border-white/10 shadow-2xl w-[560px] overflow-hidden">
                     <div className="grid grid-cols-2">
                       {serviceLinks.map((service) => (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className="flex items-center gap-3 px-4 py-3 hover:bg-[#FBF8F1] transition-colors group border-b border-gray-100 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-child(odd)]:border-r"
+                          className="group flex items-center justify-between gap-4 px-6 py-5 transition-colors border-b border-white/10 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-child(odd)]:border-r hover:bg-white/5"
                           onClick={() => setServicesOpen(false)}
                         >
-                          <div className="w-[72px] h-[52px] flex-shrink-0 overflow-hidden bg-gray-100">
-                            <img
-                              src={service.image}
-                              alt={service.label}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                              draggable={false}
-                            />
-                          </div>
                           <div className="flex-1 min-w-0">
-                            <p className="font-display font-bold text-sm text-[#1A1A1A] tracking-tight uppercase">
+                            <p
+                              className="font-display font-semibold uppercase tracking-tight text-white group-hover:text-[#D4AF60] transition-colors"
+                              style={{ fontSize: '16px', letterSpacing: '-0.02em' }}
+                            >
                               {service.label}
                             </p>
-                            <p className="text-xs text-[#666] mt-0.5 truncate">
+                            <p className="text-[11px] text-white/50 mt-1 font-medium truncate">
                               {service.description}
                             </p>
                           </div>
-                          <ArrowRight className="w-3.5 h-3.5 text-[#D4AF60] opacity-0 group-hover:opacity-100 transition-opacity flex-shrink-0" />
+                          <ArrowRight className="w-4 h-4 text-[#D4AF60] -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" />
                         </Link>
                       ))}
                     </div>
-                    <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between bg-[#FBF8F1]">
-                      <p className="text-xs text-[#666]">Not sure what you need?</p>
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#D4AF60] hover:text-[#B8943F] transition-colors uppercase tracking-wider"
-                        onClick={() => setServicesOpen(false)}
-                      >
+                    <Link
+                      href="/contact"
+                      onClick={() => setServicesOpen(false)}
+                      className="flex items-center justify-between px-6 py-4 bg-[#0A0A0A] border-t border-white/10 group hover:bg-[#141414] transition-colors"
+                    >
+                      <p className="text-[11px] text-white/60 uppercase tracking-[0.18em] font-bold">
+                        Not sure what you need?
+                      </p>
+                      <span className="inline-flex items-center gap-2 text-[12px] font-bold text-[#D4AF60] uppercase tracking-[0.14em] group-hover:gap-3 transition-all">
                         Contact us
-                        <ArrowRight className="w-3 h-3" />
-                      </Link>
-                    </div>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </span>
+                    </Link>
                   </div>
                 </div>
               </div>
