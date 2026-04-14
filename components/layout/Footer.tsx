@@ -62,7 +62,7 @@ export function Footer() {
       <div className="py-16 lg:py-24" style={{ padding: '64px var(--section-pad-x)' }}>
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
           {/* Big brand name */}
-          <h2 className="font-display font-semibold uppercase text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-white leading-[0.85] tracking-tighter">
+          <h2 className="font-display font-semibold text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-white leading-[0.85] tracking-tighter">
             Sure West
           </h2>
 

@@ -48,7 +48,7 @@ export function FAQSection({
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             FAQs
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
             {heading}
           </h2>
           <p className="font-body text-[#666] leading-relaxed mt-4">
@@ -77,7 +77,7 @@ export function FAQSection({
                   className="flex justify-between items-center py-5 px-6 w-full text-left cursor-pointer group"
                   aria-expanded={index === openIndex}
                 >
-                  <span className="font-display font-bold text-sm text-[#1A1A1A] uppercase tracking-wider group-hover:text-[#D4AF60] transition-colors duration-200 pr-6">
+                  <span className="font-display font-semibold text-[17px] text-[#1A1A1A] tracking-tight group-hover:text-[#D4AF60] transition-colors duration-200 pr-6">
                     {faq.question}
                   </span>
                   <div

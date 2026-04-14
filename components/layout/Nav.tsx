@@ -142,7 +142,7 @@ export function Nav() {
                         >
                           <div className="flex-1 min-w-0">
                             <p
-                              className="font-display font-semibold uppercase tracking-tight text-[--color-near-black] group-hover:text-[#B8943F] transition-colors"
+                              className="font-display font-semibold tracking-tight text-[--color-near-black] group-hover:text-[#B8943F] transition-colors"
                               style={{ fontSize: '16px', letterSpacing: '-0.02em' }}
                             >
                               {service.label}

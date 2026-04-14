@@ -37,7 +37,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Process
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
             {heading}
           </h2>
           {body && (
@@ -87,7 +87,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
                   </span>
                 </motion.div>
 
-                <h3 className="font-display font-semibold text-black uppercase text-base tracking-wider mb-3">
+                <h3 className="font-display font-semibold text-black text-xl tracking-tight mb-3">
                   {step.title}
                 </h3>
                 <p className="font-body text-sm text-[#666] leading-relaxed max-w-xs mx-auto">

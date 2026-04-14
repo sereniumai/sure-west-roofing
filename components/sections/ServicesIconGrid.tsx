@@ -56,7 +56,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
           <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
         </span>
         <h2
-          className="font-display font-semibold uppercase leading-[1.05] max-w-[1000px] text-[--color-near-black]"
+          className="font-display font-semibold leading-[1.05] max-w-[1000px] text-[--color-near-black]"
           style={{
             fontSize: 'clamp(34px, 4.4vw, 64px)',
             letterSpacing: '-0.04em',
@@ -125,7 +125,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                 >
                   {/* Title */}
                   <motion.h3
-                    className={`flex-1 font-display font-semibold uppercase leading-[0.95] transition-colors duration-300 ${
+                    className={`flex-1 font-display font-semibold leading-[0.95] transition-colors duration-300 ${
                       isActive
                         ? 'text-[--color-near-black]'
                         : 'text-[--color-near-black]/45 group-hover/row:text-[--color-near-black]/85'

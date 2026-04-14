@@ -74,7 +74,7 @@ export function Hero({
 
       {/* Giant headline */}
       <motion.h1
-        className="font-display font-semibold uppercase leading-[0.95] md:leading-none"
+        className="font-display font-semibold leading-[0.95] md:leading-none"
         style={{
           fontSize: 'var(--text-hero)',
           letterSpacing: '-0.044em',

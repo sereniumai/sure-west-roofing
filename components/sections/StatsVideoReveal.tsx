@@ -53,7 +53,7 @@ function AnimatedCounter({ stat, started }: { stat: StatItem; started: boolean }
         </span>
       </div>
       <h3
-        className="font-display font-semibold uppercase mt-2"
+        className="font-display font-semibold mt-2"
         style={{ fontSize: '28px', color: 'var(--color-warm-white)' }}
       >
         {stat.label}
@@ -227,7 +227,7 @@ export function StatsVideoReveal({
             About Us
           </span>
           <h2
-            className="font-display font-semibold uppercase leading-none mt-1"
+            className="font-display font-semibold leading-none mt-1"
             style={{
               fontSize: 'var(--text-section)',
               letterSpacing: '-0.04em',

@@ -102,7 +102,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
               Our Portfolio
             </span>
             <h2
-              className="font-display font-semibold uppercase leading-none mt-1"
+              className="font-display font-semibold leading-none mt-1"
               style={{
                 fontSize: 'var(--text-section)',
                 letterSpacing: '-0.04em',

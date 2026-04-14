@@ -23,7 +23,7 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
             <span className="section-label text-[#D4AF60] mb-4 block">
               Our Story
             </span>
-            <h2 className="font-display font-semibold uppercase text-4xl md:text-5xl lg:text-6xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-white mt-4">
+            <h2 className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-white mt-4">
               {heading}
             </h2>
           </motion.div>

@@ -81,7 +81,7 @@ function TiltCard({ feature, index }: { feature: Feature; index: number }) {
         <div className="w-12 h-12 bg-black group-hover:bg-[#D4AF60] flex items-center justify-center mb-5 transition-colors duration-500">
           {Icon && <Icon className="w-5 h-5 text-white" />}
         </div>
-        <h3 className="font-display font-bold text-black group-hover:text-white uppercase text-sm tracking-wider mb-3 transition-colors duration-500">
+        <h3 className="font-display font-semibold text-black group-hover:text-white text-xl tracking-tight mb-3 transition-colors duration-500">
           {feature.title}
         </h3>
         <p className="font-body text-[#666] group-hover:text-white/60 text-sm font-normal leading-relaxed transition-colors duration-500">
@@ -110,7 +110,7 @@ export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Why Choose Us
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4 max-w-3xl mx-auto">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4 max-w-3xl mx-auto">
             {heading}
           </h2>
         </motion.div>

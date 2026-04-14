@@ -39,7 +39,7 @@ export function ServiceAreasSection() {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Service Areas
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
             Roofing Contractor Serving Cochrane,
             <br className="hidden lg:block" /> Calgary and Canmore
           </h2>
@@ -67,7 +67,7 @@ export function ServiceAreasSection() {
               <div className="w-12 h-12 bg-black group-hover:bg-[#D4AF60] flex items-center justify-center mx-auto mb-5 transition-colors duration-500">
                 <MapPin className="w-5 h-5 text-white" />
               </div>
-              <h3 className="font-display font-semibold text-black uppercase text-base tracking-wider mb-3">
+              <h3 className="font-display font-semibold text-black text-xl tracking-tight mb-3">
                 {area.name}
               </h3>
               <p className="font-body text-sm text-[#666] leading-relaxed mb-6 max-w-xs mx-auto">

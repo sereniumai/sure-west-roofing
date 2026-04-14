@@ -49,7 +49,7 @@ export function FinalCTA() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display font-semibold uppercase text-4xl md:text-5xl lg:text-6xl xl:text-[80px] tracking-[-0.04em] leading-[1.05] text-white">
+          <h2 className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-[80px] tracking-[-0.04em] leading-[1.05] text-white">
             You Click, We Climb.{' '}
             <span className="text-[#D4AF60]">Deal?</span>
           </h2>
