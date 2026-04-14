@@ -51,7 +51,7 @@ export function ServicesGrid({
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
         <motion.div
-          className="mb-10"
+          className="mb-12"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -76,109 +76,108 @@ export function ServicesGrid({
 
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
-          {/* Full-bleed showcase container */}
-          <div className="relative rounded-2xl overflow-hidden min-h-[580px] shadow-[0_12px_50px_rgba(0,0,0,0.15)]">
-            {/* Full background image */}
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={active}
-                initial={{ opacity: 0, scale: 1.05 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="absolute inset-0"
+          {/* Tabs — clean underline style */}
+          <div className="relative flex items-center gap-8 mb-10 border-b border-[#EBEBEB]">
+            {services.map((service, i) => (
+              <button
+                key={service.href}
+                onClick={() => goTo(i)}
+                className={`relative pb-4 font-display font-semibold text-sm tracking-tight transition-colors duration-300 ${
+                  active === i
+                    ? 'text-dark'
+                    : 'text-body-text/50 hover:text-body-text'
+                }`}
               >
-                {current?.image && (
-                  <Image
-                    src={current.image}
-                    alt={current.imageAlt || current.title}
-                    fill
-                    className="object-cover"
-                    sizes="90vw"
-                    priority
+                {service.title}
+                {active === i && (
+                  <motion.div
+                    layoutId="activeServiceUnderline"
+                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#D6AE60] rounded-t-full"
+                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                   />
                 )}
-              </motion.div>
-            </AnimatePresence>
+              </button>
+            ))}
+          </div>
 
-            {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1B2540]/80 via-[#1B2540]/30 to-transparent pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1B2540]/60 via-transparent to-transparent pointer-events-none" />
-
-            {/* Tabs — floating top-left */}
-            <div className="absolute top-6 left-6 right-6 z-20 flex items-center gap-1 flex-wrap">
-              {services.map((service, i) => (
-                <button
-                  key={service.href}
-                  onClick={() => goTo(i)}
-                  className={`relative px-4 py-2 rounded-full font-display font-semibold text-sm tracking-tight transition-all duration-300 ${
-                    active === i
-                      ? 'text-[#1B2540]'
-                      : 'text-white/70 hover:text-white'
-                  }`}
-                >
-                  {active === i && (
-                    <motion.div
-                      layoutId="activeServiceTab"
-                      className="absolute inset-0 bg-[#D6AE60] rounded-full"
-                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{service.title}</span>
-                </button>
-              ))}
-            </div>
-
-            {/* Content — floating bottom-left */}
-            <div className="absolute bottom-0 left-0 right-0 z-10 p-8 lg:p-10">
+          {/* Showcase — image with floating glass card */}
+          <div className="relative">
+            {/* Image container */}
+            <div className="relative w-full h-[600px] rounded-2xl overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="max-w-xl"
+                  initial={{ opacity: 0, scale: 1.03 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className="absolute inset-0"
                 >
-                  {/* Service number */}
-                  <span className="font-display font-extrabold text-[80px] leading-none text-white/10 absolute -top-14 left-0 select-none pointer-events-none">
-                    {String(active + 1).padStart(2, '0')}
-                  </span>
-
-                  <h3 className="font-display font-extrabold text-3xl lg:text-4xl text-white tracking-tight leading-tight mb-3">
-                    {current.title}
-                  </h3>
-                  <p className="font-body text-white/80 text-base leading-relaxed mb-5">
-                    {current.description}
-                  </p>
-
-                  {/* Feature bullets — inline row */}
-                  {current.features && current.features.length > 0 && (
-                    <div className="flex flex-wrap gap-x-6 gap-y-2 mb-6">
-                      {current.features.map((feature) => (
-                        <span key={feature} className="flex items-center gap-2">
-                          <Check className="w-4 h-4 text-[#D6AE60] flex-shrink-0" />
-                          <span className="font-body text-sm text-white/70">{feature}</span>
-                        </span>
-                      ))}
-                    </div>
+                  {current?.image && (
+                    <Image
+                      src={current.image}
+                      alt={current.imageAlt || current.title}
+                      fill
+                      className="object-cover"
+                      sizes="90vw"
+                      priority
+                    />
                   )}
-
-                  <Button variant="primary" href={current.href}>
-                    {current.title} <ArrowRight className="w-4 h-4 ml-2 inline" />
-                  </Button>
                 </motion.div>
               </AnimatePresence>
+              {/* Subtle vignette */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* Progress bar */}
-            <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 z-20">
-              <motion.div
-                className="h-full bg-[#D6AE60]"
-                initial={{ width: 0 }}
-                animate={{ width: `${((active + 1) / services.length) * 100}%` }}
-                transition={{ type: 'spring', stiffness: 200, damping: 30 }}
-              />
+            {/* Floating glass card — anchored bottom-right, overlapping the image */}
+            <div className="absolute bottom-8 right-8 w-[440px] z-10">
+              <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-white/60">
+                {/* Gold accent bar */}
+                <div className="absolute top-0 left-8 right-8 h-[3px] bg-gradient-to-r from-[#D6AE60] to-[#C49B4A] rounded-b-full" />
+
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={active}
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {/* Counter */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="font-display font-bold text-xs text-[#D6AE60] tracking-widest">
+                        {String(active + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
+                      </span>
+                      <div className="flex-1 h-px bg-[#EBEBEB]" />
+                    </div>
+
+                    <h3 className="font-display font-extrabold text-2xl text-dark tracking-tight leading-tight mb-3">
+                      {current.title}
+                    </h3>
+                    <p className="font-body text-body-text text-[15px] leading-relaxed mb-5">
+                      {current.description}
+                    </p>
+
+                    {/* Features */}
+                    {current.features && current.features.length > 0 && (
+                      <ul className="space-y-2.5 mb-6">
+                        {current.features.map((feature) => (
+                          <li key={feature} className="flex items-center gap-2.5">
+                            <div className="w-5 h-5 rounded-full bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0">
+                              <Check className="w-3 h-3 text-[#D6AE60]" />
+                            </div>
+                            <span className="font-body text-sm text-body-text">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    <Button variant="primary" href={current.href}>
+                      {current.title} <ArrowRight className="w-4 h-4 ml-2 inline" />
+                    </Button>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>
