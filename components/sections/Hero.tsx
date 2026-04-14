@@ -43,12 +43,12 @@ export function Hero({
 }: HeroProps) {
   return (
     <section
-      className="min-h-screen bg-black flex flex-col justify-center relative pb-[140px] md:pb-[280px]"
-      style={{ paddingTop: '110px', paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+      className="min-h-screen bg-black flex flex-col justify-center relative pb-[100px] md:pb-[280px]"
+      style={{ paddingTop: '95px', paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       {/* Credential badges — 2 on mobile, 3 on desktop */}
       <motion.div
-        className="flex flex-wrap justify-start md:justify-between items-center gap-2 md:gap-3 pt-2 md:pt-8"
+        className="flex flex-wrap justify-start md:justify-between items-center gap-2 md:gap-3 pt-0 md:pt-2"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -102,12 +102,12 @@ export function Hero({
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-3 sm:gap-4 w-full lg:w-auto">
+        <div className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto">
           <Button
             variant="secondary"
             size="lg"
             href={primaryCTA.href}
-            className="w-full sm:w-auto justify-center"
+            className="flex-1 lg:flex-none !h-[44px] md:!h-[56px] !px-3 md:!px-[26px] !text-[12px] md:!text-[16px] justify-center whitespace-nowrap [&_.btn-arrow]:hidden md:[&_.btn-arrow]:inline"
           >
             {primaryCTA.label}
           </Button>
@@ -116,7 +116,7 @@ export function Hero({
               variant="ghost"
               size="lg"
               href={secondaryCTA.href}
-              className="w-full sm:w-auto justify-center"
+              className="flex-1 lg:flex-none !h-[44px] md:!h-[56px] !px-3 md:!px-[26px] !text-[12px] md:!text-[16px] justify-center whitespace-nowrap [&_.btn-arrow]:hidden md:[&_.btn-arrow]:inline"
             >
               {secondaryCTA.label}
             </Button>

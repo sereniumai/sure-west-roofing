@@ -48,7 +48,7 @@ export function Button({
   const content = (
     <>
       <span>{children}</span>
-      {showArrow && <span className="text-sm">&rsaquo;</span>}
+      {showArrow && <span className="btn-arrow text-sm">&rsaquo;</span>}
     </>
   )
 
