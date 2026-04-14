@@ -74,7 +74,7 @@ export default function HomePage() {
       <ServicesIconGrid
         eyebrow="What We Do"
         heading={'Every Roofing Service.\nOne Standard.'}
-        body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job. No subcontractors. No shortcuts. No exceptions."
+        body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job."
         services={[
           {
             title: 'Roof Replacement',
