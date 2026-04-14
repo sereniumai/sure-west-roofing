@@ -175,13 +175,13 @@ export default function HomePage() {
       <StatsVideoReveal
         stats={[
           {
-            number: '150',
+            number: '250',
             suffix: '+',
             label: 'Roofs Completed',
             description: 'From cozy homes to commercial builds — we\'ve covered a lot of ground.',
           },
           {
-            number: '10',
+            number: '20',
             suffix: '+',
             label: 'Years Experience',
             description: 'Skilled, certified, and always up for the climb.',

@@ -16,8 +16,8 @@ interface HeroProps {
 }
 
 const badges = [
-  { label: '150+ Roofs completed', Icon: Hammer, hideOnMobile: false },
-  { label: '10+ Years experience', Icon: Award, hideOnMobile: false },
+  { label: '250+ Roofs completed', Icon: Hammer, hideOnMobile: false },
+  { label: '20+ Years experience', Icon: Award, hideOnMobile: false },
   { label: 'Red Seal certified', Icon: ShieldCheck, hideOnMobile: true },
 ]
 
