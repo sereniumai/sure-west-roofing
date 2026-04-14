@@ -43,7 +43,7 @@ export function Hero({
 }: HeroProps) {
   return (
     <section
-      className="min-h-[70vh] md:min-h-screen bg-black flex flex-col justify-start md:justify-center relative pt-[90px] md:pt-[95px] pb-[40px] md:pb-[280px]"
+      className="md:min-h-screen bg-black flex flex-col justify-start md:justify-center relative pt-[120px] md:pt-[95px] pb-[120px] md:pb-[280px]"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       {/* Credential badges — 2 on mobile, 3 on desktop */}
