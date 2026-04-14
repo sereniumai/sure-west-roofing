@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Award, BadgeCheck, MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProps {
@@ -15,9 +16,9 @@ interface HeroProps {
 }
 
 const badges = [
-  '10+ Years Experience',
-  'Certified Contractor',
-  'Trusted in Cochrane 2025',
+  { label: '10+ years of experience', Icon: Award },
+  { label: 'Certified contractor', Icon: BadgeCheck },
+  { label: 'Trusted in Cochrane 2025', Icon: MapPin },
 ]
 
 const containerVariants = {
@@ -51,18 +52,18 @@ export function Hero({
         initial="hidden"
         animate="visible"
       >
-        {badges.map((badge) => (
+        {badges.map(({ label, Icon }) => (
           <motion.span
-            key={badge}
-            className="inline-flex items-center gap-1.5 px-3 h-7 text-[length:var(--text-label)] font-semibold tracking-wide uppercase"
+            key={label}
+            className="inline-flex items-center gap-2 rounded-full px-4 h-9 text-[14px] font-bold"
             style={{
               background: 'var(--color-glass)',
               color: 'var(--color-warm-white)',
             }}
             variants={itemVariants}
           >
-            <span className="w-2 h-2 bg-[#D4AF60] flex-shrink-0" />
-            {badge}
+            <Icon className="w-4 h-4 flex-shrink-0" style={{ color: '#D4AF60' }} />
+            {label}
           </motion.span>
         ))}
       </motion.div>
