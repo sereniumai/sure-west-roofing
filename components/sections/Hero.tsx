@@ -42,8 +42,9 @@ export function Hero({
   secondaryCTA,
 }: HeroProps) {
   return (
-    <section className="min-h-screen bg-black flex flex-col justify-center relative"
-      style={{ padding: '110px var(--section-pad-x) 280px' }}
+    <section
+      className="min-h-screen bg-black flex flex-col justify-center relative pb-[140px] md:pb-[280px]"
+      style={{ paddingTop: '110px', paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       {/* Three credential badges — top row */}
       <motion.div

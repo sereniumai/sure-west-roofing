@@ -19,11 +19,11 @@ interface ServicesIconGridProps {
 export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
   return (
     <section
-      className="bg-[--color-cream] relative"
+      className="bg-[--color-cream] relative pt-[calc((100vw-100px)*0.5625+40px)] md:pt-[620px]"
       style={{
-        // Video strip above is 720px tall, positioned -200px relative to the
-        //   hero/services boundary; 520px of it bleeds into this section, plus clearance.
-        padding: '620px var(--section-pad-x) var(--section-pad-bot)',
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+        paddingBottom: 'var(--section-pad-bot)',
       }}
     >
       {/* Centered label + heading */}

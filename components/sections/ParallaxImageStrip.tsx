@@ -56,14 +56,14 @@ export function ParallaxImageStrip({
       className="relative overflow-visible z-[2]"
       style={{ height: '0px' }}
     >
-      {/* Overflow container — full-width, fixed-height cinematic strip (crops 16:9 source) */}
+      {/* Overflow container —
+          mobile: native 16:9 with modest overlap into the hero above
+          desktop: fixed 720px cinematic letterbox */}
       <div
-        className="absolute overflow-hidden"
+        className="absolute overflow-hidden aspect-video md:aspect-auto top-[-80px] md:top-[-200px] h-auto md:h-[720px]"
         style={{
-          top: '-200px',
           left: 'var(--section-pad-x)',
           width: 'calc(100% - 100px)',
-          height: '720px',
         }}
       >
         <motion.div
