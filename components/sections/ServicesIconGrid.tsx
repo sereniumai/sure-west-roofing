@@ -14,11 +14,13 @@ interface ServiceCardItem {
 }
 
 interface ServicesIconGridProps {
+  eyebrow?: string
   heading: string
+  body?: string
   services: ServiceCardItem[]
 }
 
-export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
+export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, services }: ServicesIconGridProps) {
   const [active, setActive] = useState(0)
   const activeIndex = active < 0 ? 0 : active
   const activeService = services[activeIndex]
@@ -54,7 +56,7 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
       >
         <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#D4AF60] mb-6">
           <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
-          Our Services
+          {eyebrow}
           <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
         </span>
         <h2
@@ -71,6 +73,18 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
             </span>
           ))}
         </h2>
+        {body && (
+          <p
+            className="mt-7 max-w-[680px] text-white/65 leading-[1.7]"
+            style={{
+              fontSize: '16px',
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontWeight: 400,
+            }}
+          >
+            {body}
+          </p>
+        )}
       </motion.div>
 
       {/* Editorial accordion layout */}
