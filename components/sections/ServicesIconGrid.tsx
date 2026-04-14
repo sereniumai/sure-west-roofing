@@ -231,88 +231,131 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
           />
 
           {/* Floating Google review card, syncs to active service */}
-          <div className="absolute top-5 right-5 left-5 md:left-auto flex justify-end pointer-events-none">
+          <div className="absolute top-6 right-6 left-6 md:left-auto flex justify-end pointer-events-none">
             <AnimatePresence mode="wait">
               {activeService?.review && (
                 <motion.div
                   key={activeService.title + '-review'}
-                  className="relative w-full md:w-[290px] bg-white shadow-[0_18px_40px_-12px_rgba(0,0,0,0.35)] pointer-events-auto"
-                  initial={{ y: -12, opacity: 0 }}
+                  className="relative w-full md:w-[330px] pointer-events-auto"
+                  initial={{ y: -14, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -8, opacity: 0 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
                 >
-                  {/* Thin gold top edge */}
-                  <span className="absolute top-0 left-0 right-0 h-[2px] bg-[#D4AF60]" />
+                  {/* Card shell with warm cream tint and refined shadow */}
+                  <div
+                    className="relative overflow-hidden"
+                    style={{
+                      background: 'linear-gradient(180deg, #FDFBF5 0%, #F7F3E8 100%)',
+                      boxShadow:
+                        '0 30px 60px -20px rgba(0,0,0,0.45), 0 0 0 1px rgba(212,175,96,0.18)',
+                    }}
+                  >
+                    {/* Gold vertical accent bar */}
+                    <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#D4AF60] via-[#B8943F] to-[#D4AF60]" />
 
-                  <div className="p-5">
-                    {/* Stars + Google mark */}
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-0.5">
-                        {[0, 1, 2, 3, 4].map((n) => (
-                          <Star
-                            key={n}
-                            size={13}
-                            className="fill-[#F4B400] text-[#F4B400]"
-                            strokeWidth={0}
-                          />
-                        ))}
-                      </div>
-                      {/* Google G mark */}
-                      <svg
-                        viewBox="0 0 24 24"
-                        className="w-[14px] h-[14px]"
-                        aria-label="Google"
-                      >
-                        <path
-                          fill="#4285F4"
-                          d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                        />
-                        <path
-                          fill="#34A853"
-                          d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                        />
-                        <path
-                          fill="#FBBC05"
-                          d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.83z"
-                        />
-                        <path
-                          fill="#EA4335"
-                          d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.83C6.71 7.31 9.14 5.38 12 5.38z"
-                        />
-                      </svg>
-                    </div>
-
-                    {/* Quote */}
-                    <p
-                      className="text-[--color-near-black]/85 leading-[1.55]"
-                      style={{
-                        fontSize: '13px',
-                        fontFamily: "'Inter', system-ui, sans-serif",
-                        fontWeight: 400,
-                      }}
+                    {/* Decorative oversized quote mark */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute -top-3 right-4 font-display font-semibold text-[#D4AF60]/20 select-none pointer-events-none"
+                      style={{ fontSize: '110px', lineHeight: 1 }}
                     >
-                      “{activeService.review.quote}”
-                    </p>
+                      “
+                    </span>
 
-                    {/* Divider */}
-                    <span className="block w-8 h-px bg-[--color-near-black]/15 my-3" />
-
-                    {/* Author */}
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-[11px] font-body font-bold uppercase tracking-[0.14em] text-[--color-near-black]">
-                          {activeService.review.author}
-                        </p>
-                        {activeService.review.location && (
-                          <p className="text-[10px] font-body font-medium uppercase tracking-[0.18em] text-[--color-near-black]/45 mt-0.5">
-                            {activeService.review.location}
-                          </p>
-                        )}
+                    <div className="relative p-6 pl-7">
+                      {/* Header: stars + rating + google mark */}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-2.5">
+                          <div className="flex items-center gap-[3px]">
+                            {[0, 1, 2, 3, 4].map((n) => (
+                              <Star
+                                key={n}
+                                size={14}
+                                className="fill-[#E5A94B] text-[#E5A94B]"
+                                strokeWidth={0}
+                              />
+                            ))}
+                          </div>
+                          <span className="text-[11px] font-body font-bold text-[--color-near-black]/55 tabular-nums">
+                            5.0
+                          </span>
+                        </div>
+                        <svg
+                          viewBox="0 0 24 24"
+                          className="w-[15px] h-[15px] opacity-90"
+                          aria-label="Google"
+                        >
+                          <path
+                            fill="#4285F4"
+                            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                          />
+                          <path
+                            fill="#34A853"
+                            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                          />
+                          <path
+                            fill="#FBBC05"
+                            d="M5.84 14.1c-.22-.66-.35-1.36-.35-2.1s.13-1.44.35-2.1V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.83z"
+                          />
+                          <path
+                            fill="#EA4335"
+                            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.83C6.71 7.31 9.14 5.38 12 5.38z"
+                          />
+                        </svg>
                       </div>
-                      <span className="text-[9px] font-body font-bold uppercase tracking-[0.2em] text-[--color-near-black]/40">
-                        Verified
-                      </span>
+
+                      {/* Editorial serif italic quote */}
+                      <p
+                        className="text-[--color-near-black]/88 relative"
+                        style={{
+                          fontFamily: "'Cormorant Garamond', 'Georgia', 'Times New Roman', serif",
+                          fontSize: '17px',
+                          fontWeight: 500,
+                          lineHeight: 1.45,
+                          fontStyle: 'italic',
+                          letterSpacing: '-0.005em',
+                        }}
+                      >
+                        {activeService.review.quote}
+                      </p>
+
+                      {/* Gold hairline divider */}
+                      <div className="flex items-center gap-2 mt-5 mb-4">
+                        <span className="h-px w-8 bg-[#D4AF60]" />
+                        <span className="h-px flex-1 bg-[--color-near-black]/10" />
+                      </div>
+
+                      {/* Author row with monogram */}
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-semibold"
+                          style={{
+                            background:
+                              'linear-gradient(135deg, #D4AF60 0%, #B8943F 100%)',
+                            fontSize: '13px',
+                            letterSpacing: '0.04em',
+                          }}
+                          aria-hidden="true"
+                        >
+                          {activeService.review.author
+                            .split(' ')
+                            .map((n) => n[0])
+                            .slice(0, 2)
+                            .join('')}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <p className="text-[12px] font-body font-bold uppercase tracking-[0.14em] text-[--color-near-black] truncate">
+                            {activeService.review.author}
+                          </p>
+                          <p className="text-[10px] font-body font-medium uppercase tracking-[0.2em] text-[--color-near-black]/50 mt-0.5 truncate">
+                            {activeService.review.location ?? 'Verified homeowner'}
+                          </p>
+                        </div>
+                        <span className="text-[9px] font-body font-bold uppercase tracking-[0.2em] text-[#B8943F] flex-shrink-0">
+                          Verified
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </motion.div>
