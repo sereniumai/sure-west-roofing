@@ -82,7 +82,7 @@ function validateForm(data: FormData): FormErrors {
 
 const inputBase =
   'w-full px-4 py-3.5 border bg-white font-body text-sm text-[#1A1A1A] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200'
-const inputNormal = `${inputBase} border-[#E5E5E5] focus:ring-[#F97316]/50 focus:border-[#F97316]`
+const inputNormal = `${inputBase} border-[#E5E5E5] focus:ring-[#D4AF60]/50 focus:border-[#D4AF60]`
 const inputError = `${inputBase} border-red-400 focus:ring-red-400/50 focus:border-red-400`
 const labelClass = 'block font-body text-sm font-medium text-[#1A1A1A] mb-1.5'
 
@@ -398,7 +398,7 @@ export function ContactForm() {
                   setErrors((prev) => ({ ...prev, consent: undefined }))
                 }
               }}
-              className="mt-0.5 h-4 w-4 rounded border-[#E5E5E5] accent-[#F97316] flex-shrink-0 cursor-pointer"
+              className="mt-0.5 h-4 w-4 rounded border-[#E5E5E5] accent-[#D4AF60] flex-shrink-0 cursor-pointer"
             />
             <span className="font-body text-xs text-body-text leading-relaxed">
               I consent to receive automated SMS messages and email
@@ -431,10 +431,10 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === 'submitting'}
-          className={`group w-full px-7 py-4 rounded-none font-body font-semibold text-base text-white bg-[#F97316] shadow-[0_4px_0_rgba(0,0,0,0.15)] overflow-hidden relative flex items-center justify-center gap-2 mt-1 transition-all duration-200 ${
+          className={`group w-full px-7 py-4 rounded-none font-body font-semibold text-base text-white bg-[#D4AF60] shadow-[0_4px_0_rgba(0,0,0,0.15)] overflow-hidden relative flex items-center justify-center gap-2 mt-1 transition-all duration-200 ${
             status === 'submitting'
               ? 'opacity-70 cursor-not-allowed'
-              : 'hover:bg-[#EA580C] hover:shadow-[0_6px_20px_rgba(214,174,96,0.4)] active:scale-[0.98]'
+              : 'hover:bg-[#B8943F] hover:shadow-[0_6px_20px_rgba(214,174,96,0.4)] active:scale-[0.98]'
           }`}
         >
           <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full pointer-events-none" />
@@ -471,7 +471,7 @@ export function ContactForm() {
           By submitting you agree to our{' '}
           <a
             href="/privacy"
-            className="underline hover:text-[#F97316] transition-colors"
+            className="underline hover:text-[#D4AF60] transition-colors"
           >
             Privacy Policy
           </a>

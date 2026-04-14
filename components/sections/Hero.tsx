@@ -79,7 +79,7 @@ export function Hero({
       >
         {/* Location label */}
         <motion.div className="mb-6" variants={itemVariants}>
-          <span className="section-label text-[#F97316]">
+          <span className="section-label text-[#D4AF60]">
             Roofing Contractor · Cochrane, AB
           </span>
         </motion.div>
@@ -110,7 +110,7 @@ export function Hero({
           className="flex items-center gap-3 mt-6"
           variants={itemVariants}
         >
-          <span className="font-display font-extrabold text-[#F97316] text-2xl">
+          <span className="font-display font-extrabold text-[#D4AF60] text-2xl">
             {socialProofCount}
           </span>
           <span className="font-body text-white/50 text-sm uppercase tracking-wider">

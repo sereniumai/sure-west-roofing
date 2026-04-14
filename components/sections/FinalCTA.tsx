@@ -48,7 +48,7 @@ export function FinalCTA() {
         >
           <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[0.95] text-white">
             You Click, We Climb.{' '}
-            <span className="text-[#F97316]">Deal?</span>
+            <span className="text-[#D4AF60]">Deal?</span>
           </h2>
           <p className="font-body text-white/50 text-lg leading-relaxed mt-6 max-w-2xl mx-auto">
             Book your free roof inspection today. No pressure, no obligation,

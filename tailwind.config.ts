@@ -5,8 +5,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        accent: '#F97316',
-        'accent-dark': '#EA580C',
+        accent: '#D4AF60',
+        'accent-dark': '#B8943F',
         dark: '#1A1A1A',
         'dark-deep': '#111111',
         'dark-card': '#2A2A2A',
@@ -15,8 +15,8 @@ const config: Config = {
         'body-text-light': '#999999',
         'border-col': '#E5E5E5',
         surface: '#F9F8F5',
-        primary: '#F97316',
-        'primary-dark': '#EA580C',
+        primary: '#D4AF60',
+        'primary-dark': '#B8943F',
         navy: '#1A1A1A',
         'navy-light': '#2A2A2A',
       },

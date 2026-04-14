@@ -30,25 +30,25 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
-              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
                 Phone
               </h4>
               <p className="font-body text-white/70 text-sm">Call for a free estimate</p>
             </div>
             <div>
-              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
                 Email
               </h4>
               <p className="font-body text-white/70 text-sm">info@surewestroofing.ca</p>
             </div>
             <div>
-              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
                 Address
               </h4>
               <p className="font-body text-white/70 text-sm">Cochrane, AB, Canada</p>
             </div>
             <div>
-              <h4 className="font-body text-[#F97316] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
                 Opening Hours
               </h4>
               <p className="font-body text-white/70 text-sm">Mon to Sat: 8:00am - 6:00pm</p>

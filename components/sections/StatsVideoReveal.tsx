@@ -58,10 +58,10 @@ function Counter({ stat }: { stat: StatItem }) {
   return (
     <div ref={ref}>
       <div className="flex items-baseline gap-0">
-        <span className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl text-[#F97316] tracking-tight tabular-nums">
+        <span className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl text-[#D4AF60] tracking-tight tabular-nums">
           {count.toLocaleString()}
         </span>
-        <span className="font-display font-extrabold text-2xl md:text-3xl text-[#F97316]/70">
+        <span className="font-display font-extrabold text-2xl md:text-3xl text-[#D4AF60]/70">
           {stat.suffix}
         </span>
       </div>
@@ -141,7 +141,7 @@ export function StatsVideoReveal({
                   className="w-full h-full object-cover opacity-60 group-hover:opacity-70 transition-opacity"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[#F97316] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[#D4AF60] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
                     <Play className="w-7 h-7 lg:w-8 lg:h-8 text-white fill-white ml-1" />
                   </div>
                 </div>

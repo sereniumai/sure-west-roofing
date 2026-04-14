@@ -20,7 +20,7 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="section-label text-[#F97316] mb-4 block">
+            <span className="section-label text-[#D4AF60] mb-4 block">
               Our Story
             </span>
             <h2 className="font-display font-extrabold uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
@@ -39,7 +39,7 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
               {body}
             </p>
             <div className="mt-6 pt-6 border-t border-[#E5E5E5]">
-              <span className="font-display font-extrabold text-[#F97316] text-sm uppercase tracking-wider">
+              <span className="font-display font-extrabold text-[#D4AF60] text-sm uppercase tracking-wider">
                 Proudly serving since {since}
               </span>
             </div>

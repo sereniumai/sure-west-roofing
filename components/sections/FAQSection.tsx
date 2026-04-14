@@ -42,7 +42,7 @@ export function FAQSection({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="section-label text-[#F97316] mb-4 inline-flex justify-center">
+          <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             FAQs
           </span>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
@@ -74,14 +74,14 @@ export function FAQSection({
                   className="flex justify-between items-center py-5 px-6 w-full text-left cursor-pointer group"
                   aria-expanded={index === openIndex}
                 >
-                  <span className="font-display font-bold text-sm text-[#1A1A1A] uppercase tracking-wider group-hover:text-[#F97316] transition-colors duration-200 pr-6">
+                  <span className="font-display font-bold text-sm text-[#1A1A1A] uppercase tracking-wider group-hover:text-[#D4AF60] transition-colors duration-200 pr-6">
                     {faq.question}
                   </span>
                   <div
                     className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       index === openIndex
-                        ? 'bg-[#F97316] text-white rotate-45'
-                        : 'bg-[#F5F5F5] text-[#1A1A1A]/40 group-hover:bg-[#F97316]/10 group-hover:text-[#F97316]'
+                        ? 'bg-[#D4AF60] text-white rotate-45'
+                        : 'bg-[#F5F5F5] text-[#1A1A1A]/40 group-hover:bg-[#D4AF60]/10 group-hover:text-[#D4AF60]'
                     }`}
                   >
                     <Plus className="w-4 h-4" />
@@ -98,7 +98,7 @@ export function FAQSection({
                       className="overflow-hidden"
                     >
                       <p
-                        className="font-body text-sm text-[#666] leading-relaxed px-6 pb-6 pr-16 [&_a]:text-[#F97316] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#EA580C] [&_a]:transition-colors"
+                        className="font-body text-sm text-[#666] leading-relaxed px-6 pb-6 pr-16 [&_a]:text-[#D4AF60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
                         dangerouslySetInnerHTML={{ __html: faq.answer }}
                       />
                     </motion.div>
@@ -112,7 +112,7 @@ export function FAQSection({
             Have a question not listed here?{' '}
             <Link
               href="/contact"
-              className="text-[#F97316] font-semibold hover:text-[#EA580C] transition-colors"
+              className="text-[#D4AF60] font-semibold hover:text-[#B8943F] transition-colors"
             >
               Contact us
             </Link>

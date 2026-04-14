@@ -33,7 +33,7 @@ export function ServiceAreasSection() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="section-label text-[#F97316] mb-4 inline-flex justify-center">
+          <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Service Areas
           </span>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
@@ -51,7 +51,7 @@ export function ServiceAreasSection() {
           {areas.map((area, i) => (
             <motion.div
               key={area.name}
-              className="group bg-[#F5F5F5] p-8 border border-[#E5E5E5] text-center hover:-translate-y-2 hover:border-[#F97316]/20 transition-all duration-500"
+              className="group bg-[#F5F5F5] p-8 border border-[#E5E5E5] text-center hover:-translate-y-2 hover:border-[#D4AF60]/20 transition-all duration-500"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-30px' }}
@@ -61,7 +61,7 @@ export function ServiceAreasSection() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <div className="w-12 h-12 bg-[#1A1A1A] group-hover:bg-[#F97316] flex items-center justify-center mx-auto mb-5 transition-colors duration-500">
+              <div className="w-12 h-12 bg-[#1A1A1A] group-hover:bg-[#D4AF60] flex items-center justify-center mx-auto mb-5 transition-colors duration-500">
                 <MapPin className="w-5 h-5 text-white" />
               </div>
               <h3 className="font-display font-bold text-[#1A1A1A] uppercase text-base tracking-wider mb-3">

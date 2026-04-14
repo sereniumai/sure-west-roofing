@@ -85,7 +85,7 @@ export function Nav() {
   }, [mobileOpen])
 
   const textColor = scrolled || isLightPage ? 'text-[#1A1A1A]' : 'text-white'
-  const hoverColor = 'hover:text-[#F97316]'
+  const hoverColor = 'hover:text-[#D4AF60]'
 
   return (
     <nav
@@ -145,11 +145,11 @@ export function Nav() {
                         <Link
                           key={service.href}
                           href={service.href}
-                          className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#FFF7ED] transition-colors group"
+                          className="flex items-center gap-3 px-5 py-3.5 hover:bg-[#FBF8F1] transition-colors group"
                           onClick={() => setServicesOpen(false)}
                         >
-                          <div className="w-9 h-9 bg-gray-100 group-hover:bg-[#F97316]/10 flex items-center justify-center flex-shrink-0 transition-colors">
-                            <Icon className="w-4 h-4 text-gray-400 group-hover:text-[#F97316] transition-colors" />
+                          <div className="w-9 h-9 bg-gray-100 group-hover:bg-[#D4AF60]/10 flex items-center justify-center flex-shrink-0 transition-colors">
+                            <Icon className="w-4 h-4 text-gray-400 group-hover:text-[#D4AF60] transition-colors" />
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="font-display font-bold text-sm text-[#1A1A1A] tracking-tight">
@@ -159,7 +159,7 @@ export function Nav() {
                               {service.description}
                             </p>
                           </div>
-                          <ArrowRight className="w-3.5 h-3.5 text-[#F97316] opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <ArrowRight className="w-3.5 h-3.5 text-[#D4AF60] opacity-0 group-hover:opacity-100 transition-opacity" />
                         </Link>
                       )
                     })}
@@ -167,7 +167,7 @@ export function Nav() {
                       <p className="text-xs text-[#666]">Not sure what you need?</p>
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#F97316] hover:text-[#EA580C] transition-colors"
+                        className="inline-flex items-center gap-1 text-xs font-semibold text-[#D4AF60] hover:text-[#B8943F] transition-colors"
                         onClick={() => setServicesOpen(false)}
                       >
                         Contact us
@@ -241,7 +241,7 @@ export function Nav() {
                     <Link
                       key={service.href}
                       href={service.href}
-                      className="block py-3 pl-4 text-base text-white/60 hover:text-[#F97316] transition-colors"
+                      className="block py-3 pl-4 text-base text-white/60 hover:text-[#D4AF60] transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {service.label}

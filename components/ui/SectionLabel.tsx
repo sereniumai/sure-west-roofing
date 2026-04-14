@@ -5,7 +5,7 @@ interface SectionLabelProps {
 
 export function SectionLabel({ text, className = '' }: SectionLabelProps) {
   return (
-    <span className={`section-label text-[#F97316] ${className}`.trim()}>
+    <span className={`section-label text-[#D4AF60] ${className}`.trim()}>
       {text}
     </span>
   )

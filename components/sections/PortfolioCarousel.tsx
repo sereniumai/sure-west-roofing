@@ -52,7 +52,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="section-label text-[#F97316] mb-4 inline-flex justify-center">
+          <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Portfolio
           </span>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">

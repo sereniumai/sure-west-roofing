@@ -62,7 +62,7 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
                   href={service.href}
                   className="group flex flex-col items-center text-center py-6 px-3 hover:bg-[#F5F5F5] transition-colors duration-300"
                 >
-                  <div className="w-14 h-14 bg-[#1A1A1A] flex items-center justify-center mb-4 group-hover:bg-[#F97316] transition-colors duration-300">
+                  <div className="w-14 h-14 bg-[#1A1A1A] flex items-center justify-center mb-4 group-hover:bg-[#D4AF60] transition-colors duration-300">
                     {Icon && <Icon className="w-6 h-6 text-white" />}
                   </div>
                   <h3 className="font-display font-bold text-xs uppercase tracking-wider text-[#1A1A1A]">

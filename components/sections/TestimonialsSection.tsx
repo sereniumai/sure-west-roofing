@@ -32,7 +32,7 @@ export function TestimonialsSection({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="section-label text-[#F97316] mb-4 inline-flex justify-center">
+          <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Client Reviews
           </span>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-white mt-4">
@@ -48,7 +48,7 @@ export function TestimonialsSection({
           {cards.map((testimonial, i) => (
             <motion.div
               key={testimonial.name}
-              className="bg-[#2A2A2A] p-8 border border-white/5 flex flex-col hover:-translate-y-2 hover:border-[#F97316]/20 transition-all duration-500 cursor-default"
+              className="bg-[#2A2A2A] p-8 border border-white/5 flex flex-col hover:-translate-y-2 hover:border-[#D4AF60]/20 transition-all duration-500 cursor-default"
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
@@ -65,7 +65,7 @@ export function TestimonialsSection({
                     key={j}
                     className={`text-lg ${
                       j < testimonial.rating
-                        ? 'text-[#F97316]'
+                        ? 'text-[#D4AF60]'
                         : 'text-white/10'
                     }`}
                   >
@@ -81,7 +81,7 @@ export function TestimonialsSection({
 
               {/* Author */}
               <div className="border-t border-white/10 pt-5 flex items-center gap-3">
-                <div className="w-10 h-10 bg-[#F97316] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-[#D4AF60] flex items-center justify-center flex-shrink-0">
                   <span className="font-display font-bold text-white text-sm">
                     {testimonial.initials}
                   </span>
@@ -112,7 +112,7 @@ export function TestimonialsSection({
               href={googleReviewsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-body font-semibold text-[#F97316] hover:text-[#EA580C] transition-colors text-sm uppercase tracking-wider"
+              className="inline-flex items-center gap-2 font-body font-semibold text-[#D4AF60] hover:text-[#B8943F] transition-colors text-sm uppercase tracking-wider"
             >
               See All Google Reviews
               <svg

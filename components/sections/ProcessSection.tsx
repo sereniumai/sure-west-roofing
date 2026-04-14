@@ -30,7 +30,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="section-label text-[#F97316] mb-4 inline-flex justify-center">
+          <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Process
           </span>
           <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
@@ -48,7 +48,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
           {/* Connecting line — desktop */}
           <div className="hidden lg:block absolute top-20 left-[16%] right-[16%] h-px bg-[#E5E5E5]">
             <motion.div
-              className="h-full bg-[#F97316]"
+              className="h-full bg-[#D4AF60]"
               initial={{ width: '0%' }}
               animate={isInView ? { width: '100%' } : { width: '0%' }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -78,7 +78,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
                     delay: i * 0.2 + 0.1,
                   }}
                 >
-                  <span className="font-display font-extrabold text-2xl text-[#F97316]">
+                  <span className="font-display font-extrabold text-2xl text-[#D4AF60]">
                     {step.number}
                   </span>
                 </motion.div>
