@@ -15,7 +15,8 @@ export function ParallaxImageStrip({
   video,
 }: ParallaxImageStripProps) {
   const ref = useRef<HTMLDivElement>(null)
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoARef = useRef<HTMLVideoElement>(null)
+  const videoBRef = useRef<HTMLVideoElement>(null)
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -25,29 +26,83 @@ export function ParallaxImageStrip({
   // Gentle parallax — motion content is taller than the container, shifts ±120px
   const y = useTransform(scrollYProgress, [0, 1], ['120px', '-120px'])
 
-  // Smooth crossfade at loop boundary — fade out in the last FADE seconds
-  // and fade back in at the start of each loop.
+  // Seamless cinematic loop using a dual-video crossfade.
+  // Both videos share the same source. While video A plays, it fades
+  // into video B (rewound to 0) during the final OVERLAP seconds,
+  // then B becomes the active track and the process reverses. This
+  // completely hides the HTMLMediaElement loop seam and gives a
+  // premium, uninterrupted motion feel.
   useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
+    if (!video) return
 
-    const FADE = 0.7 // seconds
+    const a = videoARef.current
+    const b = videoBRef.current
+    if (!a || !b) return
 
-    const handleTimeUpdate = () => {
-      const duration = v.duration
-      if (!isFinite(duration) || duration <= FADE * 2) return
-      const t = v.currentTime
-      let opacity = 1
-      if (t > duration - FADE) {
-        opacity = Math.max(0, (duration - t) / FADE)
-      } else if (t < FADE) {
-        opacity = Math.min(1, t / FADE)
-      }
-      v.style.opacity = String(opacity)
+    const OVERLAP = 1.2 // seconds — length of the crossfade window
+    let active: HTMLVideoElement = a
+    let inactive: HTMLVideoElement = b
+    let handoffArmed = true
+
+    // Initial state — A on top and visible, B primed and hidden
+    a.style.opacity = '1'
+    b.style.opacity = '0'
+    b.currentTime = 0
+    b.pause()
+
+    const swapRoles = () => {
+      ;[active, inactive] = [inactive, active]
+      handoffArmed = true
     }
 
-    v.addEventListener('timeupdate', handleTimeUpdate)
-    return () => v.removeEventListener('timeupdate', handleTimeUpdate)
+    const onTimeUpdate = (e: Event) => {
+      const v = e.currentTarget as HTMLVideoElement
+      if (v !== active) return
+      const duration = v.duration
+      if (!isFinite(duration) || duration <= OVERLAP + 0.2) return
+
+      const remaining = duration - v.currentTime
+
+      if (handoffArmed && remaining <= OVERLAP) {
+        handoffArmed = false
+        // Kick off the inactive track from the start
+        inactive.currentTime = 0
+        const playPromise = inactive.play()
+        if (playPromise) playPromise.catch(() => {})
+      }
+
+      if (remaining <= OVERLAP) {
+        const progress = Math.max(0, Math.min(1, (OVERLAP - remaining) / OVERLAP))
+        active.style.opacity = String(1 - progress)
+        inactive.style.opacity = String(progress)
+      } else {
+        active.style.opacity = '1'
+        inactive.style.opacity = '0'
+      }
+    }
+
+    const onEnded = (e: Event) => {
+      const v = e.currentTarget as HTMLVideoElement
+      if (v !== active) return
+      // Snap the faded-out track back to the start for its next turn
+      active.style.opacity = '0'
+      inactive.style.opacity = '1'
+      active.currentTime = 0
+      active.pause()
+      swapRoles()
+    }
+
+    a.addEventListener('timeupdate', onTimeUpdate)
+    b.addEventListener('timeupdate', onTimeUpdate)
+    a.addEventListener('ended', onEnded)
+    b.addEventListener('ended', onEnded)
+
+    return () => {
+      a.removeEventListener('timeupdate', onTimeUpdate)
+      b.removeEventListener('timeupdate', onTimeUpdate)
+      a.removeEventListener('ended', onEnded)
+      b.removeEventListener('ended', onEnded)
+    }
   }, [video])
 
   return (
@@ -67,7 +122,7 @@ export function ParallaxImageStrip({
         }}
       >
         <motion.div
-          className="w-full"
+          className="w-full h-full relative"
           style={{
             height: 'calc(100% + 240px)',
             marginTop: '-120px',
@@ -75,21 +130,47 @@ export function ParallaxImageStrip({
           }}
         >
           {video ? (
-            <video
-              ref={videoRef}
-              src={video}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="auto"
-              aria-label={alt}
-              className="w-full h-full object-cover bg-black"
-              style={{
-                objectPosition: 'center 30%',
-                transition: 'opacity 120ms linear',
-              }}
-            />
+            <>
+              <video
+                ref={videoARef}
+                src={video}
+                autoPlay
+                muted
+                playsInline
+                preload="auto"
+                aria-label={alt}
+                className="absolute inset-0 w-full h-full object-cover bg-black"
+                style={{
+                  objectPosition: 'center 30%',
+                  opacity: 1,
+                  transition: 'opacity 60ms linear',
+                  willChange: 'opacity',
+                }}
+              />
+              <video
+                ref={videoBRef}
+                src={video}
+                muted
+                playsInline
+                preload="auto"
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover bg-black"
+                style={{
+                  objectPosition: 'center 30%',
+                  opacity: 0,
+                  transition: 'opacity 60ms linear',
+                  willChange: 'opacity',
+                }}
+              />
+              {/* Subtle top and bottom vignette for cinematic framing */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 82%, rgba(0,0,0,0.25) 100%)',
+                }}
+              />
+            </>
           ) : (
             <img
               src={src}

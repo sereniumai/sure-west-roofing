@@ -85,7 +85,7 @@ export function Hero({
         transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
       >
         {h1.split('\n').map((line, i) => (
-          <span key={i} style={i > 0 ? { color: '#D4AF60' } : undefined}>
+          <span key={i}>
             {i > 0 && <br />}
             {line}
           </span>
