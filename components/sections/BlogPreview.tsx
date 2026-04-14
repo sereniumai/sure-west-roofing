@@ -35,7 +35,7 @@ export function BlogPreview({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display font-extrabold text-3xl lg:text-[44px] text-dark tracking-tight leading-tight">
+          <h2 className="font-display font-semibold text-3xl lg:text-[44px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
           <p className="font-body text-body-text leading-relaxed mt-4 max-w-2xl">

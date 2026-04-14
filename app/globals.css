@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-weight: 400;
   color: #1A1A1A;
   background-color: #ffffff;
@@ -30,9 +30,9 @@ body {
 /* ── Headings ────────────────────────────────── */
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.04em;
   color: #1A1A1A;
 }
 
@@ -55,7 +55,6 @@ h1, h2, h3, h4, h5, h6 {
 
 ::-webkit-scrollbar-thumb {
   background: #D4AF60;
-  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -108,10 +107,10 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px 24px;
   background: #1A1A1A;
   color: white;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  border-radius: 4px;
+  border-radius: 0;
   z-index: 9999;
   outline: 2px solid #D4AF60;
   outline-offset: 2px;
@@ -121,11 +120,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .pac-container {
   z-index: 9999 !important;
-  border-radius: 8px;
   border: 1px solid #E5E5E5;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   margin-top: 4px;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Oswald', sans-serif;
 }
 
 .pac-item {
@@ -159,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;

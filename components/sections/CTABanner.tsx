@@ -37,7 +37,7 @@ export function CTABanner({
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             {/* Left — Text */}
             <div className="lg:max-w-lg">
-              <h2 className="font-display font-extrabold text-3xl lg:text-[44px] text-white tracking-tight leading-[1.1]">
+              <h2 className="font-display font-semibold text-3xl lg:text-[44px] text-white tracking-tight leading-[1.1]">
                 {heading}
               </h2>
               <p className="font-body text-white/80 text-base leading-relaxed mt-4">

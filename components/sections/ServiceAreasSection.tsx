@@ -36,7 +36,7 @@ export function ServiceAreasSection() {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Service Areas
           </span>
-          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
             Roofing Contractor Serving Cochrane,
             <br className="hidden lg:block" /> Calgary and Canmore
           </h2>

@@ -60,7 +60,7 @@ export function ServicesGrid({
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
             {label}
           </span>
-          <h2 className="font-display font-extrabold text-4xl lg:text-[56px] text-dark tracking-tight leading-tight">
+          <h2 className="font-display font-semibold text-4xl lg:text-[56px] text-dark tracking-tight leading-tight">
             {heading}
             {headingAccent && (
               <>
@@ -151,7 +151,7 @@ export function ServicesGrid({
                       <div className="flex-1 h-px bg-[#EBEBEB]" />
                     </div>
 
-                    <h3 className="font-display font-extrabold text-2xl text-dark tracking-tight leading-tight mb-3">
+                    <h3 className="font-display font-semibold text-2xl text-dark tracking-tight leading-tight mb-3">
                       {current.title}
                     </h3>
                     <p className="font-body text-body-text text-[15px] leading-relaxed mb-5">

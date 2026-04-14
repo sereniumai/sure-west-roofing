@@ -18,8 +18,8 @@ interface ServicesIconGridProps {
 
 export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
   return (
-    <section className="bg-white py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="bg-[#FFFCFC] py-16 lg:py-24">
+      <div className="w-full px-6 lg:px-12">
         {/* Heading */}
         <motion.div
           className="text-center mb-12 lg:mb-16"
@@ -31,13 +31,13 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Services
           </span>
-          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-[#1A1A1A] mt-4">
             {heading}
           </h2>
         </motion.div>
 
         {/* 3x2 service card grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -48,16 +48,19 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
             >
               <Link
                 href={service.href}
-                className="group block bg-[#F5F5F5] hover:bg-[#EBEBEB] transition-colors duration-300 relative overflow-hidden h-full"
+                className="group block bg-[#F5F5F5] transition-colors duration-300 relative overflow-hidden h-full"
               >
+                {/* Hover blue reveal overlay */}
+                <div className="absolute inset-0 bg-[rgb(153,238,255)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[1]" />
+
                 <div className="flex flex-col justify-between h-full min-h-[260px] p-6 lg:p-8">
                   {/* Title */}
-                  <h3 className="font-display font-extrabold uppercase text-xl lg:text-2xl tracking-tight text-[#1A1A1A] relative z-10 max-w-[55%]">
+                  <h3 className="font-display font-semibold uppercase text-xl lg:text-2xl tracking-tight text-[#1A1A1A] relative z-10 max-w-[55%] group-hover:text-black transition-colors">
                     {service.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="font-body text-[#666] text-sm leading-relaxed relative z-10 max-w-[55%] mt-auto">
+                  <p className="font-body text-[#666] text-sm font-normal leading-relaxed relative z-10 max-w-[55%] mt-auto group-hover:text-black/70 transition-colors">
                     {service.description}
                   </p>
 

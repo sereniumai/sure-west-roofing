@@ -45,7 +45,7 @@ export function CredibilitySection({
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
             {label}
           </span>
-          <h2 className="font-display font-extrabold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
+          <h2 className="font-display font-semibold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
           {body && (
@@ -90,7 +90,7 @@ export function CredibilitySection({
                     delay: i * 0.2 + 0.1,
                   }}
                 >
-                  <span className="font-display font-extrabold text-2xl text-[#D6AE60]">
+                  <span className="font-display font-semibold text-2xl text-[#D6AE60]">
                     {step.number}
                   </span>
                 </motion.div>

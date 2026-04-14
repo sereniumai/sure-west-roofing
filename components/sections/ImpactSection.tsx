@@ -56,7 +56,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
     >
-      <span className="font-display font-extrabold text-5xl md:text-6xl lg:text-7xl text-[#D6AE60] tracking-tight tabular-nums">
+      <span className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl text-[#D6AE60] tracking-tight tabular-nums">
         {count}{suffix}
       </span>
     </motion.div>

@@ -129,7 +129,7 @@ export default function ContactPage() {
                 Free Estimate
               </span>
 
-              <h1 className="font-display font-extrabold uppercase text-3xl lg:text-[44px] text-[#1A1A1A] tracking-tight leading-[1.1]">
+              <h1 className="font-display font-semibold uppercase text-3xl lg:text-[44px] text-[#1A1A1A] tracking-tight leading-[1.1]">
                 Get Your Free Roofing{' '}
                 <span className="text-[#D4AF60]">Estimate&nbsp;in&nbsp;Cochrane</span>
               </h1>
@@ -217,7 +217,7 @@ export default function ContactPage() {
             <span className="section-label text-[#D4AF60] mb-3 inline-flex justify-center">
               Our Location
             </span>
-            <h2 className="font-display font-extrabold uppercase text-2xl lg:text-4xl text-[#1A1A1A] tracking-tight mt-3">
+            <h2 className="font-display font-semibold uppercase text-2xl lg:text-4xl text-[#1A1A1A] tracking-tight mt-3">
               Serving Cochrane, Calgary &amp; Canmore
             </h2>
           </div>

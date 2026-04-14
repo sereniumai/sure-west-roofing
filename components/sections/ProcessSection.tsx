@@ -33,7 +33,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Process
           </span>
-          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
             {heading}
           </h2>
           {body && (
@@ -78,7 +78,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
                     delay: i * 0.2 + 0.1,
                   }}
                 >
-                  <span className="font-display font-extrabold text-2xl text-[#D4AF60]">
+                  <span className="font-display font-semibold text-2xl text-[#D4AF60]">
                     {step.number}
                   </span>
                 </motion.div>

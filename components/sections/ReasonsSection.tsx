@@ -50,7 +50,7 @@ export function ReasonsSection({
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
             {label}
           </span>
-          <h2 className="font-display font-extrabold text-4xl lg:text-[56px] text-dark tracking-tight leading-tight">
+          <h2 className="font-display font-semibold text-4xl lg:text-[56px] text-dark tracking-tight leading-tight">
             {heading}
             {headingAccent && (
               <>

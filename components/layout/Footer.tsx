@@ -62,7 +62,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
           {/* Big brand name */}
-          <h2 className="font-display font-extrabold uppercase text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-white leading-[0.85] tracking-tighter">
+          <h2 className="font-display font-semibold uppercase text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-white leading-[0.85] tracking-tighter">
             Sure West
           </h2>
 

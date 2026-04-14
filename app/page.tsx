@@ -13,6 +13,7 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { ServiceAreasSection } from '@/components/sections/ServiceAreasSection'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { FinalCTA } from '@/components/sections/FinalCTA'
+import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
 
 export const metadata: Metadata = {
   title:
@@ -64,7 +65,13 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Services Card Grid */}
+      {/* 2. Parallax Image Strip */}
+      <ParallaxImageStrip
+        src="/images/Cochrane Roofing Contractors.jpg"
+        alt="Cochrane roofing aerial view"
+      />
+
+      {/* 3. Services Card Grid */}
       <ServicesIconGrid
         heading={"We Climb So You\nDon't Have To"}
         services={[

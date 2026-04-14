@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useCallback, useEffect } from 'react'
+import { useRef, useCallback } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
@@ -24,8 +24,8 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
   const angle = useSpring(rawAngle, { stiffness: 120, damping: 25 })
 
   const totalItems = images.length
-  const angleStep = 360 / totalItems
-  const radius = 500 // translateZ radius in px
+  const angleStep = 180 / totalItems // half-cylinder: 0-180°
+  const radius = 450
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     isDragging.current = true
@@ -49,7 +49,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
 
   return (
     <section className="bg-[#F5F5F5] py-16 lg:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <div className="w-full px-6 lg:px-12">
         {/* Header */}
         <motion.div
           className="text-center mb-6"
@@ -61,7 +61,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Portfolio
           </span>
-          <h2 className="font-display font-extrabold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
+          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-[#1A1A1A] mt-4">
             {heading}
           </h2>
         </motion.div>
@@ -87,7 +87,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
       <div
         ref={containerRef}
         className="relative w-full h-[420px] md:h-[480px] lg:h-[520px] cursor-grab active:cursor-grabbing select-none touch-none"
-        style={{ perspective: '1000px' }}
+        style={{ perspective: '600px' }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -133,7 +133,7 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
 
         {/* Drag indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
-          <div className="bg-[#1A1A1A] text-white px-5 py-2 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+          <div className="bg-black text-white px-5 py-2 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
             <span>&lsaquo;</span>
             <span>Drag</span>
             <span>&rsaquo;</span>
