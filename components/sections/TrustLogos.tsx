@@ -9,7 +9,6 @@ const logos = [
   { src: '/images/AARA Roofing Association.webp', alt: 'Alberta Allied Roofing Association' },
   { src: '/images/Roofing Contractor Shingle Master.webp', alt: 'CertainTeed ShingleMaster Roofing Contractor' },
   { src: '/images/Canada Roofing Standards.webp', alt: 'Canada Roofing Standards' },
-  { src: '/images/Interprovincial Roofing Standard.webp', alt: 'Interprovincial Roofing Standard' },
   { src: '/images/BBB Accredited Business.webp', alt: 'BBB Accredited Business' },
 ]
 
