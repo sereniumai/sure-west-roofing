@@ -173,8 +173,6 @@ export default function HomePage() {
         label="Built on Trust"
         heading="Cochrane's Certified Roofing Contractor"
         body="Most roofers show up, do the job, and move on. We don't want that. Every roof we touch gets the same care we'd put into our own home. That's the standard Cochrane homeowners keep coming back for."
-        image="/images/Cochrane Roofing Contractors.jpg"
-        imageAlt="Sure West Roofing team — certified roofing contractor in Cochrane, AB"
         videoEmbed="https://player.vimeo.com/video/917317949"
         points={[
           {
