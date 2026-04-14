@@ -24,10 +24,10 @@ const serviceAreas = [
 
 export function Footer() {
   return (
-    <footer className="bg-black">
+    <footer className="bg-[--color-black]">
       {/* Contact info bar */}
       <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-8">
+        <div className="py-8" style={{ padding: '32px var(--section-pad-x)' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
@@ -59,7 +59,7 @@ export function Footer() {
       </div>
 
       {/* Large brand name + tagline */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 lg:py-24">
+      <div className="py-16 lg:py-24" style={{ padding: '64px var(--section-pad-x)' }}>
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
           {/* Big brand name */}
           <h2 className="font-display font-semibold uppercase text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-white leading-[0.85] tracking-tighter">
@@ -83,7 +83,7 @@ export function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="py-6 flex flex-col sm:flex-row justify-between items-center gap-4" style={{ padding: '24px var(--section-pad-x)' }}>
           <div className="flex items-center gap-6">
             <Link
               href="/about"

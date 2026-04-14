@@ -5,7 +5,10 @@ import { Button } from '@/components/ui/Button'
 
 export function FinalCTA() {
   return (
-    <section className="relative bg-black py-20 lg:py-28 overflow-hidden">
+    <section
+      className="relative bg-[--color-black] overflow-hidden"
+      style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
+    >
       {/* Silhouette decoration */}
       <div className="absolute bottom-0 left-0 right-0 h-48 opacity-10 pointer-events-none">
         <svg

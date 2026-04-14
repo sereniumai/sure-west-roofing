@@ -24,7 +24,10 @@ export function FAQSection({
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="bg-[#F5F5F5] py-20 lg:py-28">
+    <section
+      className="bg-[--color-gray]"
+      style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
+    >
       {/* FAQ Schema */}
       {schemaEnabled && (
         <script
@@ -33,7 +36,7 @@ export function FAQSection({
         />
       )}
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto" style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Header */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"

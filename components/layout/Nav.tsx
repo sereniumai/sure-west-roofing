@@ -90,10 +90,13 @@ export function Nav() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+        scrolled
+          ? 'bg-[rgba(255,252,252,0.92)] backdrop-blur-[12px] border-b'
+          : 'bg-transparent border-b border-transparent'
       }`}
+      style={{ height: 'var(--nav-height)', borderColor: scrolled ? 'var(--color-border)' : 'transparent' }}
     >
-      <div className="w-full px-6 lg:px-12 flex items-center justify-between h-20">
+      <div className="w-full flex items-center justify-between h-full" style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
           <img
@@ -119,7 +122,7 @@ export function Nav() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1.5 text-sm font-semibold uppercase tracking-wider transition-colors ${textColor} ${hoverColor}`}
+                  className={`flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
                 >
                   {link.label}
                   <ChevronDown
@@ -181,7 +184,7 @@ export function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-sm font-semibold uppercase tracking-wider transition-colors ${textColor} ${hoverColor}`}
+                className={`text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
               >
                 {link.label}
               </Link>

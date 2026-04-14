@@ -18,26 +18,37 @@ interface ServicesIconGridProps {
 
 export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
   return (
-    <section className="bg-[#FFFCFC] py-16 lg:py-24">
-      <div className="w-full px-6 lg:px-12">
-        {/* Heading */}
+    <section
+      className="bg-[--color-cream]"
+      style={{
+        padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)',
+      }}
+    >
+      <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+        {/* Left column: label + heading */}
         <motion.div
-          className="text-center mb-12 lg:mb-16"
+          className="lg:w-[400px] flex-shrink-0 lg:sticky lg:top-28"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
         >
-          <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
+          <span className="section-label text-[#D4AF60] mb-4 block">
             Our Services
           </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-[#1A1A1A] mt-4">
+          <h2
+            className="font-display font-semibold uppercase leading-none mt-1"
+            style={{
+              fontSize: 'var(--text-section)',
+              letterSpacing: '-0.04em',
+            }}
+          >
             {heading}
           </h2>
         </motion.div>
 
-        {/* 3x2 service card grid */}
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {/* Right column: service cards list */}
+        <div className="flex-1 flex flex-col">
           {services.map((service, i) => (
             <motion.div
               key={service.title}
@@ -48,31 +59,46 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
             >
               <Link
                 href={service.href}
-                className="group block bg-[#F5F5F5] transition-colors duration-300 relative overflow-hidden h-full"
+                className="group relative flex items-center gap-6 lg:gap-8 p-5 bg-[--color-gray] border-b overflow-hidden"
+                style={{ borderColor: 'var(--color-border)' }}
               >
-                {/* Hover blue reveal overlay */}
-                <div className="absolute inset-0 bg-[rgb(153,238,255)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-[1]" />
+                {/* Blue hover reveal overlay */}
+                <div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                  style={{ background: 'var(--color-blue-hover)' }}
+                />
 
-                <div className="flex flex-col justify-between h-full min-h-[260px] p-6 lg:p-8">
-                  {/* Title */}
-                  <h3 className="font-display font-semibold uppercase text-xl lg:text-2xl tracking-tight text-[#1A1A1A] relative z-10 max-w-[55%] group-hover:text-black transition-colors">
+                {/* Thumbnail */}
+                <div className="w-[140px] h-[150px] lg:w-[180px] lg:h-[184px] flex-shrink-0 relative z-[1] overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.imageAlt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    draggable={false}
+                  />
+                </div>
+
+                {/* Text */}
+                <div className="flex-1 relative z-[1]">
+                  <h3
+                    className="font-display font-bold uppercase tracking-tight group-hover:mix-blend-multiply"
+                    style={{
+                      fontSize: 'var(--text-card)',
+                      letterSpacing: '-0.005em',
+                    }}
+                  >
                     {service.title}
                   </h3>
-
-                  {/* Description */}
-                  <p className="font-body text-[#666] text-sm font-normal leading-relaxed relative z-10 max-w-[55%] mt-auto group-hover:text-black/70 transition-colors">
+                  <p className="font-body text-[--color-near-black]/65 font-semibold leading-snug mt-2 group-hover:mix-blend-multiply">
                     {service.description}
                   </p>
+                </div>
 
-                  {/* Image — positioned right */}
-                  <div className="absolute right-0 top-2 bottom-2 w-[42%]">
-                    <img
-                      src={service.image}
-                      alt={service.imageAlt}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      draggable={false}
-                    />
-                  </div>
+                {/* Arrow */}
+                <div className="relative z-[1] opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M5 12h14" /><path d="m12 5 7 7-7 7" />
+                  </svg>
                 </div>
               </Link>
             </motion.div>

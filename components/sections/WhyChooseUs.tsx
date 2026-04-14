@@ -94,8 +94,11 @@ function TiltCard({ feature, index }: { feature: Feature; index: number }) {
 
 export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
   return (
-    <section className="bg-[#FFFCFC] py-16 lg:py-24">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section
+      className="bg-[--color-cream]"
+      style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
+    >
+      <div className="max-w-7xl mx-auto">
         {/* Heading */}
         <motion.div
           className="text-center mb-12 lg:mb-16"

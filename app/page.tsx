@@ -6,7 +6,6 @@ import { TrustLogos } from '@/components/sections/TrustLogos'
 import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
 import { WhyChooseUs } from '@/components/sections/WhyChooseUs'
 import { StatsVideoReveal } from '@/components/sections/StatsVideoReveal'
-import { HistorySection } from '@/components/sections/HistorySection'
 import { ProcessSection } from '@/components/sections/ProcessSection'
 import { ContactCTASection } from '@/components/sections/ContactCTASection'
 import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
@@ -206,14 +205,7 @@ export default function HomePage() {
       {/* 6. Trust Logos */}
       <TrustLogos />
 
-      {/* 7. History */}
-      <HistorySection
-        heading={"Serving Roofs\nSince Day One"}
-        body="Sure West Roofing is a Red Seal certified roofing contractor proudly serving Cochrane, Calgary, and Canmore. We're not the biggest roofing company — we're the one that shows up, does it right, and stands behind every job. Alberta's weather doesn't take days off, and neither do we. From hailstorms to heavy snow loads, we build roofs that hold up when it matters most."
-        since="2014"
-      />
-
-      {/* 8. Process */}
+      {/* 7. Process */}
       <ProcessSection
         heading={"Here's How We Make\nRoofing Easy-Peasy"}
         body="Three simple steps. From your first enquiry to the final walkthrough. Every stage is managed with complete transparency."

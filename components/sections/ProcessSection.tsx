@@ -20,8 +20,12 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
-    <section ref={sectionRef} className="bg-[#FFFCFC] py-16 lg:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section
+      ref={sectionRef}
+      className="bg-[--color-cream] overflow-hidden"
+      style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
+    >
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"

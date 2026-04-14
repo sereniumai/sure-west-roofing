@@ -23,8 +23,11 @@ export function TestimonialsSection({
   const constraintRef = useRef<HTMLDivElement>(null)
 
   return (
-    <section className="bg-black py-20 lg:py-28 overflow-hidden">
-      <div className="w-full px-6 lg:px-12">
+    <section
+      className="bg-[--color-black] overflow-hidden"
+      style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
+    >
+      <div style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Header */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"
@@ -46,7 +49,7 @@ export function TestimonialsSection({
       </div>
 
       {/* Draggable horizontal carousel */}
-      <div ref={constraintRef} className="w-full overflow-hidden px-6 lg:px-12">
+      <div ref={constraintRef} className="w-full overflow-hidden" style={{ padding: '0 var(--section-pad-x)' }}>
         <motion.div
           className="flex gap-6 cursor-grab active:cursor-grabbing"
           drag="x"
@@ -109,7 +112,7 @@ export function TestimonialsSection({
       </div>
 
       {/* Drag hint + Google Reviews link */}
-      <div className="w-full px-6 lg:px-12 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div className="w-full mt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ padding: '0 var(--section-pad-x)' }}>
         <div className="bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white/40 flex items-center gap-2">
           <span>&lsaquo;</span>
           <span>Drag to see more</span>

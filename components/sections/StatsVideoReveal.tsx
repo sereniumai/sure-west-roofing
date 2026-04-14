@@ -1,7 +1,6 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef, useState, useEffect, useCallback } from 'react'
 import { Play } from 'lucide-react'
 
 interface StatItem {
@@ -17,49 +16,52 @@ interface StatsVideoRevealProps {
   backgroundImage: string
 }
 
-function AnimatedCounter({ stat }: { stat: StatItem }) {
-  const ref = useRef<HTMLDivElement>(null)
+function AnimatedCounter({ stat, started }: { stat: StatItem; started: boolean }) {
   const [count, setCount] = useState(0)
-  const [started, setStarted] = useState(false)
   const target = parseInt(stat.number.replace(/,/g, ''))
 
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting && !started) setStarted(true) },
-      { threshold: 0.3 }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [started])
-
-  useEffect(() => {
     if (!started) return
-    let cur = 0
-    const step = Math.ceil(target / 120)
-    const timer = setInterval(() => {
-      cur += step
-      if (cur >= target) { setCount(target); clearInterval(timer) }
-      else setCount(cur)
-    }, 16)
-    return () => clearInterval(timer)
+    const startTime = performance.now()
+    const duration = 2000
+
+    function update(now: number) {
+      const elapsed = now - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      // Ease out cubic
+      const ease = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.round(target * ease))
+      if (progress < 1) requestAnimationFrame(update)
+    }
+    requestAnimationFrame(update)
   }, [started, target])
 
   return (
-    <div ref={ref} className="text-center lg:text-left">
-      <div className="flex items-baseline justify-center lg:justify-start gap-0">
-        <span className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-white tabular-nums leading-none">
+    <div className="mb-8 last:mb-0">
+      <div className="flex items-baseline gap-1">
+        <span
+          className="font-display font-bold leading-none tabular-nums"
+          style={{ fontSize: '80px', color: 'var(--color-warm-white)' }}
+        >
           {count.toLocaleString()}
         </span>
-        <span className="font-display font-semibold text-2xl md:text-3xl lg:text-4xl text-[#D4AF60] leading-none">
+        <span
+          className="font-display font-medium leading-none"
+          style={{ fontSize: '41px', color: 'var(--color-accent)' }}
+        >
           {stat.suffix}
         </span>
       </div>
-      <h3 className="font-display font-semibold text-white uppercase text-xs md:text-sm tracking-wider mt-2">
+      <h3
+        className="font-display font-semibold uppercase mt-2"
+        style={{ fontSize: '28px', color: 'var(--color-warm-white)' }}
+      >
         {stat.label}
       </h3>
-      <p className="font-body text-white/40 text-xs font-normal mt-1 leading-relaxed max-w-[200px] mx-auto lg:mx-0">
+      <p
+        className="font-body font-semibold leading-snug mt-1.5 max-w-[260px]"
+        style={{ fontSize: 'var(--text-body)', color: 'rgba(255,251,245,0.7)' }}
+      >
         {stat.description}
       </p>
     </div>
@@ -72,133 +74,177 @@ export function StatsVideoReveal({
   backgroundImage,
 }: StatsVideoRevealProps) {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const stickyRef = useRef<HTMLDivElement>(null)
+  const statsLeftRef = useRef<HTMLDivElement>(null)
+  const statsRightRef = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLDivElement>(null)
   const [videoPlaying, setVideoPlaying] = useState(false)
+  const [countersStarted, setCountersStarted] = useState(false)
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start start', 'end start'],
-  })
+  const updateOnScroll = useCallback(() => {
+    const section = sectionRef.current
+    if (!section || !statsLeftRef.current || !statsRightRef.current || !videoRef.current) return
 
-  // Phase A (0-0.25): Stats panels slide in from sides
-  // Phase B (0.25-0.55): Overlay splits and reveals video
-  // Phase C (0.55-0.75): Video scales up and becomes prominent
+    const rect = section.getBoundingClientRect()
+    const sectionProgress = -rect.top / (section.offsetHeight - window.innerHeight)
+    const p = Math.max(0, Math.min(1, sectionProgress))
 
-  // Stats panels slide in from ±100% to 0
-  const leftStatsX = useTransform(scrollYProgress, [0, 0.2], ['-100%', '0%'])
-  const rightStatsX = useTransform(scrollYProgress, [0, 0.2], ['100%', '0%'])
-  const statsOpacity = useTransform(scrollYProgress, [0.05, 0.2], [0, 1])
+    // Stats slide in during first 40% of scroll through section
+    if (p < 0.4) {
+      const inP = p / 0.4
+      const offset = (1 - inP) * 2500
+      statsLeftRef.current.style.transform = `translateX(${-offset}px)`
+      statsRightRef.current.style.transform = `translateX(${offset}px)`
+      videoRef.current.style.transform = 'translateY(170px)'
 
-  // Overlay halves split apart
-  const leftX = useTransform(scrollYProgress, [0.3, 0.6], ['0%', '-105%'])
-  const rightX = useTransform(scrollYProgress, [0.3, 0.6], ['0%', '105%'])
+      // Start counters when stats are mostly visible
+      if (inP > 0.5 && !countersStarted) {
+        setCountersStarted(true)
+      }
+    }
+    // Video reveals + stats slide out during next 40%
+    else if (p < 0.8) {
+      const vidP = (p - 0.4) / 0.4
+      statsLeftRef.current.style.transform = `translateX(${-vidP * 2500}px)`
+      statsRightRef.current.style.transform = `translateX(${vidP * 2500}px)`
+      videoRef.current.style.transform = `translateY(${170 - vidP * 170}px)`
+    }
+    // Fully revealed
+    else {
+      statsLeftRef.current.style.transform = 'translateX(-2500px)'
+      statsRightRef.current.style.transform = 'translateX(2500px)'
+      videoRef.current.style.transform = 'translateY(0)'
+    }
+  }, [countersStarted])
 
-  // Video fades in and scales up behind the split
-  const videoOpacity = useTransform(scrollYProgress, [0.25, 0.45], [0, 1])
-  const videoScale = useTransform(scrollYProgress, [0.35, 0.65], [0.8, 1])
-  const videoY = useTransform(scrollYProgress, [0.3, 0.6], ['80px', '0px'])
+  useEffect(() => {
+    window.addEventListener('scroll', updateOnScroll, { passive: true })
+    updateOnScroll()
+    return () => window.removeEventListener('scroll', updateOnScroll)
+  }, [updateOnScroll])
 
   return (
-    <section ref={sectionRef} className="relative h-[350vh]">
-      {/* Sticky container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-black">
-        {/* Video/image layer (behind overlay) */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <motion.div
-            className="w-full max-w-5xl mx-auto aspect-video relative"
-            style={{ scale: videoScale, opacity: videoOpacity, y: videoY }}
+    <section ref={sectionRef} className="relative bg-[--color-gray]" style={{ height: '250vh' }}>
+      {/* Scroll runway — the sticky element sits inside this */}
+      <div className="relative" style={{ height: '200vh' }}>
+        <div
+          ref={stickyRef}
+          className="sticky top-0 h-screen w-full overflow-hidden flex items-stretch"
+        >
+          {/* Left stats panel */}
+          <div
+            ref={statsLeftRef}
+            className="absolute top-0 left-0 w-1/2 h-full z-[2] flex flex-col justify-between"
+            style={{
+              background: 'var(--color-gray)',
+              padding: '114px 60px 50px',
+              willChange: 'transform',
+              transition: 'none',
+              transform: 'translateX(-2500px)',
+            }}
           >
-            {videoPlaying ? (
-              <iframe
-                src={`${videoEmbed}${videoEmbed.includes('?') ? '&' : '?'}autoplay=1`}
-                className="absolute inset-0 w-full h-full border-0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Sure West Roofing"
-              />
-            ) : (
-              <button
-                onClick={() => setVideoPlaying(true)}
-                className="absolute inset-0 w-full h-full cursor-pointer group"
-                aria-label="Play video"
-              >
-                <img
-                  src="/images/Cochrane Roofing Contractors.jpg"
-                  alt="Play video"
-                  className="w-full h-full object-cover grayscale contrast-[1.05]"
+            {stats[0] && <AnimatedCounter stat={stats[0]} started={countersStarted} />}
+            {stats[2] && <AnimatedCounter stat={stats[2]} started={countersStarted} />}
+          </div>
+
+          {/* Right stats panel */}
+          <div
+            ref={statsRightRef}
+            className="absolute top-0 right-0 w-1/2 h-full z-[2] flex flex-col justify-between items-end text-right"
+            style={{
+              background: 'var(--color-gray)',
+              padding: '114px 60px 50px',
+              willChange: 'transform',
+              transition: 'none',
+              transform: 'translateX(2500px)',
+            }}
+          >
+            {stats[1] && <AnimatedCounter stat={stats[1]} started={countersStarted} />}
+            {stats[3] && <AnimatedCounter stat={stats[3]} started={countersStarted} />}
+          </div>
+
+          {/* Video container — slides up from translateY(170px) */}
+          <div
+            ref={videoRef}
+            className="absolute inset-0 z-[1]"
+            style={{
+              willChange: 'transform',
+              transition: 'none',
+              transform: 'translateY(170px)',
+            }}
+          >
+            <div
+              className="w-full h-full relative"
+              style={{ filter: videoPlaying ? 'none' : 'contrast(1.05) grayscale(1)' }}
+            >
+              {videoPlaying ? (
+                <iframe
+                  src={`${videoEmbed}${videoEmbed.includes('?') ? '&' : '?'}autoplay=1`}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Sure West Roofing"
                 />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[#D4AF60] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <Play className="w-7 h-7 lg:w-8 lg:h-8 text-white fill-white ml-1" />
+              ) : (
+                <button
+                  onClick={() => setVideoPlaying(true)}
+                  className="absolute inset-0 w-full h-full cursor-pointer group"
+                  aria-label="Play video"
+                >
+                  <img
+                    src={backgroundImage}
+                    alt="Play video"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+                  {/* Gold play button */}
+                  <div
+                    className="absolute flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                    style={{
+                      width: '80px',
+                      height: '80px',
+                      background: 'var(--color-accent)',
+                      bottom: '240px',
+                      right: '30%',
+                    }}
+                  >
+                    <Play className="w-8 h-8 text-white fill-white ml-1" />
                   </div>
-                </div>
-              </button>
-            )}
-          </motion.div>
+                </button>
+              )}
+            </div>
+          </div>
         </div>
+      </div>
 
-        {/* Split overlay — two halves with stats */}
-        <div className="absolute inset-0 flex pointer-events-none">
-          {/* Left half */}
-          <motion.div
-            className="w-1/2 h-full relative overflow-hidden"
-            style={{ x: leftX }}
+      {/* About content below the sticky panel */}
+      <div
+        className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start"
+        style={{ padding: '100px var(--section-pad-x)' }}
+      >
+        <div className="lg:w-[400px] flex-shrink-0">
+          <span className="section-label text-[#D4AF60] mb-4 block">
+            About Us
+          </span>
+          <h2
+            className="font-display font-semibold uppercase leading-none mt-1"
+            style={{
+              fontSize: 'var(--text-section)',
+              letterSpacing: '-0.04em',
+            }}
           >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${backgroundImage})` }}
-            />
-            <div className="absolute inset-0 bg-black/70" />
-
-            {/* Stats — slide in from left */}
-            <motion.div
-              className="absolute inset-0 flex flex-col justify-between p-6 lg:p-12"
-              style={{ x: leftStatsX, opacity: statsOpacity }}
-            >
-              {stats[0] && (
-                <div className="self-start">
-                  <AnimatedCounter stat={stats[0]} />
-                </div>
-              )}
-              {stats[2] && (
-                <div className="self-start">
-                  <AnimatedCounter stat={stats[2]} />
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
-
-          {/* Right half */}
-          <motion.div
-            className="w-1/2 h-full relative overflow-hidden"
-            style={{ x: rightX }}
-          >
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: `url(${backgroundImage})`,
-                backgroundPosition: 'right center',
-              }}
-            />
-            <div className="absolute inset-0 bg-black/70" />
-
-            {/* Stats — slide in from right */}
-            <motion.div
-              className="absolute inset-0 flex flex-col justify-between p-6 lg:p-12"
-              style={{ x: rightStatsX, opacity: statsOpacity }}
-            >
-              {stats[1] && (
-                <div className="self-end text-right">
-                  <AnimatedCounter stat={stats[1]} />
-                </div>
-              )}
-              {stats[3] && (
-                <div className="self-end text-right">
-                  <AnimatedCounter stat={stats[3]} />
-                </div>
-              )}
-            </motion.div>
-          </motion.div>
+            Serving Roofs<br />Since Day One
+          </h2>
+        </div>
+        <div className="flex-1">
+          <p className="font-body font-semibold leading-relaxed" style={{ color: 'rgba(20,20,20,0.65)' }}>
+            Sure West Roofing is a Red Seal certified roofing contractor proudly serving Cochrane, Calgary, and Canmore. We&apos;re not the biggest roofing company — we&apos;re the one that shows up, does it right, and stands behind every job. Alberta&apos;s weather doesn&apos;t take days off, and neither do we. From hailstorms to heavy snow loads, we build roofs that hold up when it matters most.
+          </p>
+          <div className="mt-6 pt-6 border-t" style={{ borderColor: 'var(--color-border)' }}>
+            <span className="font-display font-semibold text-[#D4AF60] text-sm uppercase tracking-wider">
+              Proudly serving since 2014
+            </span>
+          </div>
         </div>
       </div>
     </section>

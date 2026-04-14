@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef, useCallback } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { useRef, useCallback, useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
 interface PortfolioImage {
@@ -14,143 +14,194 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
+const DRAG_FACTOR = 0.15
+const FRICTION = 0.92
+const MIN_ROTATION = -180
+const MAX_ROTATION = 0
+const INITIAL_ROTATION = -54
+
 export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
   const isDragging = useRef(false)
   const lastX = useRef(0)
+  const velocity = useRef(0)
+  const rotation = useRef(INITIAL_ROTATION)
+  const rafId = useRef<number | null>(null)
+  const sceneRef = useRef<HTMLDivElement>(null)
+  const [, forceUpdate] = useState(0)
 
-  // Rotation angle driven by drag
-  const rawAngle = useMotionValue(0)
-  const angle = useSpring(rawAngle, { stiffness: 120, damping: 25 })
+  // Build 7 panels, each with 2 images (14 total images needed, repeat if fewer)
+  const panels = Array.from({ length: 7 }, (_, i) => ({
+    angle: i * 30,
+    rightImage: images[(i * 2) % images.length],
+    leftImage: images[(i * 2 + 1) % images.length],
+  }))
 
-  const totalItems = images.length
-  const angleStep = 180 / totalItems // half-cylinder: 0-180°
-  const radius = 450
+  const setRotation = useCallback((deg: number) => {
+    rotation.current = Math.max(MIN_ROTATION, Math.min(MAX_ROTATION, deg))
+    if (sceneRef.current) {
+      sceneRef.current.style.transform = `perspective(600px) rotateY(${rotation.current}deg)`
+    }
+  }, [])
+
+  const inertiaLoop = useCallback(() => {
+    if (Math.abs(velocity.current) < 0.01) {
+      velocity.current = 0
+      return
+    }
+    velocity.current *= FRICTION
+    setRotation(rotation.current + velocity.current)
+    rafId.current = requestAnimationFrame(inertiaLoop)
+  }, [setRotation])
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     isDragging.current = true
     lastX.current = e.clientX
+    velocity.current = 0
+    if (rafId.current) cancelAnimationFrame(rafId.current)
     ;(e.target as HTMLElement).setPointerCapture?.(e.pointerId)
   }, [])
 
-  const handlePointerMove = useCallback(
-    (e: React.PointerEvent) => {
-      if (!isDragging.current) return
-      const dx = e.clientX - lastX.current
-      lastX.current = e.clientX
-      rawAngle.set(rawAngle.get() + dx * 0.3)
-    },
-    [rawAngle]
-  )
+  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+    if (!isDragging.current) return
+    const dx = e.clientX - lastX.current
+    velocity.current = dx * DRAG_FACTOR
+    setRotation(rotation.current + velocity.current)
+    lastX.current = e.clientX
+  }, [setRotation])
 
   const handlePointerUp = useCallback(() => {
+    if (!isDragging.current) return
     isDragging.current = false
-  }, [])
+    rafId.current = requestAnimationFrame(inertiaLoop)
+  }, [inertiaLoop])
+
+  // Set initial rotation on mount
+  useEffect(() => {
+    setRotation(INITIAL_ROTATION)
+  }, [setRotation])
 
   return (
-    <section className="bg-[#F5F5F5] py-16 lg:py-24 overflow-hidden">
-      <div className="w-full px-6 lg:px-12">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-6"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
-        >
-          <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
-            Our Portfolio
-          </span>
-          <h2 className="font-display font-semibold uppercase text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[0.95] text-[#1A1A1A] mt-4">
-            {heading}
-          </h2>
-        </motion.div>
-
-        {/* Buttons */}
-        <motion.div
-          className="flex items-center justify-center gap-4 mb-10"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-        >
-          <Button variant="primary" size="sm" href="/services">
-            View Projects
-          </Button>
-          <Button variant="primary" size="sm" href="/contact">
-            View Gallery
-          </Button>
-        </motion.div>
+    <section
+      className="bg-[--color-gray] overflow-hidden"
+      style={{
+        padding: 'var(--section-pad-top) 0 var(--section-pad-bot)',
+      }}
+    >
+      <div style={{ padding: '0 var(--section-pad-x)' }}>
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+          {/* Left column: label + heading */}
+          <motion.div
+            className="lg:w-[400px] flex-shrink-0"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
+          >
+            <span className="section-label text-[#D4AF60] mb-4 block">
+              Our Portfolio
+            </span>
+            <h2
+              className="font-display font-semibold uppercase leading-none mt-1"
+              style={{
+                fontSize: 'var(--text-section)',
+                letterSpacing: '-0.04em',
+              }}
+            >
+              {heading}
+            </h2>
+            <div className="flex items-center gap-4 mt-8">
+              <Button variant="primary" size="sm" href="/services">
+                View Projects
+              </Button>
+              <Button variant="secondary" size="sm" href="/contact">
+                View Gallery
+              </Button>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* 3D Carousel */}
+      {/* Drag Arc */}
       <div
-        ref={containerRef}
-        className="relative w-full h-[420px] md:h-[480px] lg:h-[520px] cursor-grab active:cursor-grabbing select-none touch-none"
-        style={{ perspective: '600px' }}
+        ref={wrapperRef}
+        className="relative w-full cursor-grab active:cursor-grabbing select-none touch-none mt-16"
+        style={{ height: '350px', overflow: 'hidden' }}
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
         onPointerLeave={handlePointerUp}
       >
-        {/* 3D stage */}
-        <motion.div
-          className="absolute left-1/2 top-1/2 w-0 h-0"
+        <div
+          ref={sceneRef}
+          className="w-full h-full"
           style={{
             transformStyle: 'preserve-3d',
-            rotateY: angle,
-            translateX: '-50%',
-            translateY: '-50%',
+            userSelect: 'none',
+            touchAction: 'none',
+            transform: `perspective(600px) rotateY(${INITIAL_ROTATION}deg)`,
+            willChange: 'transform',
           }}
         >
-          {images.map((image, i) => {
-            const itemAngle = i * angleStep
-            return (
+          {panels.map((panel) => (
+            <div
+              key={panel.angle}
+              className="absolute top-0 left-0"
+              style={{
+                width: '1400px',
+                height: '240px',
+                transformStyle: 'preserve-3d',
+                transform: `rotateY(${panel.angle}deg)`,
+              }}
+            >
+              {/* Right face */}
               <div
-                key={`${image.alt}-${i}`}
-                className="absolute"
+                className="absolute overflow-hidden"
                 style={{
-                  width: '240px',
-                  height: '340px',
-                  left: '-120px',
-                  top: '-170px',
-                  transform: `rotateY(${itemAngle}deg) translateZ(${radius}px)`,
-                  backfaceVisibility: 'hidden',
+                  width: '280px',
+                  height: '330px',
+                  top: '-45px',
+                  right: 0,
+                  transform: 'rotateY(90deg)',
                 }}
               >
-                <div className="w-full h-full bg-white shadow-2xl overflow-hidden">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover pointer-events-none"
-                    draggable={false}
-                  />
-                </div>
+                <img
+                  src={panel.rightImage.src}
+                  alt={panel.rightImage.alt}
+                  className="w-full h-full object-cover pointer-events-none"
+                  draggable={false}
+                />
               </div>
-            )
-          })}
-        </motion.div>
+              {/* Left face */}
+              <div
+                className="absolute overflow-hidden"
+                style={{
+                  width: '280px',
+                  height: '330px',
+                  top: '-45px',
+                  left: 0,
+                  transform: 'rotateY(-90deg)',
+                }}
+              >
+                <img
+                  src={panel.leftImage.src}
+                  alt={panel.leftImage.alt}
+                  className="w-full h-full object-cover pointer-events-none"
+                  draggable={false}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* Drag indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
-          <div className="bg-black text-white px-5 py-2 text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
+          <div className="bg-black text-white px-5 py-2 text-xs font-bold uppercase tracking-wider flex items-center gap-2">
             <span>&lsaquo;</span>
             <span>Drag</span>
             <span>&rsaquo;</span>
           </div>
         </div>
-      </div>
-
-      {/* Curved bottom edge */}
-      <div className="relative -mt-20 pointer-events-none">
-        <svg
-          viewBox="0 0 1440 100"
-          fill="none"
-          preserveAspectRatio="none"
-          className="w-full h-20"
-        >
-          <path d="M0 100V40C360 0 720 0 720 0C720 0 1080 0 1440 40V100H0Z" fill="#F5F5F5" />
-        </svg>
       </div>
     </section>
   )
