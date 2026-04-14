@@ -55,7 +55,7 @@ export function Hero({
         {badges.map(({ label, Icon }) => (
           <motion.span
             key={label}
-            className="inline-flex items-center gap-2 rounded-full px-4 h-9 text-[14px] font-bold"
+            className="inline-flex items-center gap-2 px-4 h-9 text-[14px] font-bold"
             style={{
               background: 'var(--color-glass)',
               color: 'var(--color-warm-white)',
