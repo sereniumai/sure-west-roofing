@@ -114,22 +114,9 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                   type="button"
                   onClick={() => setActive(isActive ? -1 : i)}
                   onMouseEnter={() => setActive(i)}
-                  className="relative w-full flex items-center gap-5 md:gap-7 py-6 md:py-8 text-left pl-4 md:pl-7 pr-2"
+                  className="relative w-full flex items-center gap-5 md:gap-7 py-4 md:py-5 text-left pl-4 md:pl-6 pr-2"
                   aria-expanded={isActive}
                 >
-                  {/* Gold disc marker, scales in when active */}
-                  <motion.span
-                    aria-hidden="true"
-                    className="flex-shrink-0 block rounded-full bg-[#D4AF60]"
-                    initial={false}
-                    animate={{
-                      width: isActive ? 10 : 4,
-                      height: isActive ? 10 : 4,
-                      opacity: isActive ? 1 : 0.22,
-                    }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
-                  />
-
                   {/* Title */}
                   <motion.h3
                     className={`flex-1 font-display font-semibold uppercase leading-[0.95] transition-colors duration-300 ${
@@ -181,7 +168,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
                       className="overflow-hidden relative"
                     >
-                      <div className="pb-8 md:pb-10 pl-4 md:pl-[44px] pr-4 md:pr-6">
+                      <div className="pb-5 md:pb-6 pl-4 md:pl-6 pr-4 md:pr-6 -mt-1">
                         {/* Mobile image preview */}
                         <div className="md:hidden relative aspect-[16/10] overflow-hidden mb-5">
                           <img
@@ -203,14 +190,10 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                           {service.description}
                         </p>
 
-                        <div className="mt-7 flex items-center gap-5">
+                        <div className="mt-4">
                           <Button href={service.href} variant="secondary" size="sm">
                             {service.title}
                           </Button>
-                          <span className="hidden sm:inline-block h-px w-10 bg-[--color-near-black]/15" />
-                          <span className="hidden sm:inline-block text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[--color-near-black]/45">
-                            Free inspection
-                          </span>
                         </div>
                       </div>
                     </motion.div>
@@ -238,14 +221,6 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0) 55%)',
             }}
           />
-
-          {/* Top-right editorial meta tag */}
-          <div className="absolute top-5 right-5 flex items-center gap-2 bg-white/10 backdrop-blur-[6px] border border-white/20 px-3 py-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF60] animate-pulse" />
-            <span className="text-[10px] font-body font-bold uppercase tracking-[0.22em] text-white/90">
-              Red Seal Certified
-            </span>
-          </div>
 
           {/* Bottom-left editorial caption, syncs title text to active row */}
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
