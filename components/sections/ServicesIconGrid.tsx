@@ -21,7 +21,7 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
     <section
       className="bg-[--color-cream] relative"
       style={{
-        padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)',
+        padding: '380px var(--section-pad-x) var(--section-pad-bot)',
       }}
     >
       {/* Centered label + heading */}
