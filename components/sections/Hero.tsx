@@ -45,6 +45,7 @@ export function Hero({
     <section className="min-h-screen bg-black flex flex-col justify-center relative"
       style={{ padding: '110px var(--section-pad-x) 170px' }}
     >
+      <div className="w-full mx-auto" style={{ maxWidth: '1280px' }}>
       {/* Three credential badges — top row */}
       <motion.div
         className="flex flex-wrap justify-between items-center gap-3 pt-8"
@@ -132,6 +133,7 @@ export function Hero({
           {subtitle}
         </p>
       </motion.div>
+      </div>
     </section>
   )
 }
