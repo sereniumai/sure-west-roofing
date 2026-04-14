@@ -1,8 +1,9 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Check } from 'lucide-react'
+import { Check, Play } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface ReasonPoint {
@@ -19,6 +20,7 @@ interface ReasonsSectionProps {
   image?: string
   imageAlt?: string
   videoEmbed?: string
+  videoPoster?: string
   points: ReasonPoint[]
 }
 
@@ -30,8 +32,10 @@ export function ReasonsSection({
   image,
   imageAlt,
   videoEmbed,
+  videoPoster,
   points,
 }: ReasonsSectionProps) {
+  const [videoPlaying, setVideoPlaying] = useState(false)
   return (
     <section className="bg-[#F8F8F8] py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -98,13 +102,39 @@ export function ReasonsSection({
           <div className="col-span-12 lg:col-span-7">
             {videoEmbed ? (
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
-                <iframe
-                  src={videoEmbed}
-                  className="absolute inset-0 w-full h-full border-0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title="Sure West Roofing"
-                />
+                {videoPlaying ? (
+                  <iframe
+                    src={`${videoEmbed}${videoEmbed.includes('?') ? '&' : '?'}autoplay=1`}
+                    className="absolute inset-0 w-full h-full border-0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title="Sure West Roofing"
+                  />
+                ) : (
+                  <button
+                    onClick={() => setVideoPlaying(true)}
+                    className="absolute inset-0 w-full h-full cursor-pointer group"
+                    aria-label="Play video"
+                  >
+                    {videoPoster ? (
+                      <Image
+                        src={videoPoster}
+                        alt="Play video"
+                        fill
+                        className="object-cover"
+                        sizes="60vw"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]" />
+                    )}
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
+                        <Play className="w-7 h-7 lg:w-8 lg:h-8 text-[#1B3558] fill-[#1B3558] ml-1" />
+                      </div>
+                    </div>
+                  </button>
+                )}
               </div>
             ) : image ? (
               <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
