@@ -58,8 +58,8 @@ export function Hero({
             key={label}
             className={`inline-flex items-center gap-2 px-3 md:px-4 h-8 md:h-9 text-[13px] md:text-[14px] font-bold ${hideOnMobile ? 'hidden md:inline-flex' : ''}`}
             style={{
-              background: 'var(--color-glass)',
-              color: 'var(--color-warm-white)',
+              background: 'rgba(0,0,0,0.04)',
+              color: 'var(--color-near-black)',
             }}
             variants={itemVariants}
           >
@@ -70,7 +70,7 @@ export function Hero({
       </motion.div>
 
       {/* Divider */}
-      <div className="w-full h-px bg-white/15 my-5 md:my-3.5" />
+      <div className="w-full h-px bg-black/12 my-5 md:my-3.5" />
 
       {/* Giant headline */}
       <motion.h1
@@ -93,7 +93,7 @@ export function Hero({
       </motion.h1>
 
       {/* Divider */}
-      <div className="w-full h-px bg-white/15 my-5 md:my-3.5" />
+      <div className="w-full h-px bg-black/12 my-5 md:my-3.5" />
 
       {/* Bottom row: CTAs + tagline */}
       <motion.div
@@ -113,7 +113,7 @@ export function Hero({
           </Button>
           {secondaryCTA && (
             <Button
-              variant="ghost"
+              variant="outline"
               size="lg"
               href={secondaryCTA.href}
               className="flex-1 lg:flex-none !h-[44px] md:!h-[56px] !px-3 md:!px-[26px] !text-[12px] md:!text-[16px] justify-center whitespace-nowrap [&_.btn-arrow]:hidden md:[&_.btn-arrow]:inline-flex"
@@ -126,7 +126,7 @@ export function Hero({
         <p
           className="leading-relaxed font-medium max-w-[420px] text-left text-[15px] md:text-[18px]"
           style={{
-            color: 'var(--color-warm-white)',
+            color: 'var(--color-near-black)',
             fontFamily: "'Inter', system-ui, sans-serif",
           }}
         >

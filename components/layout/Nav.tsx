@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -47,8 +46,8 @@ const navLinks = [
 ]
 
 export function Nav() {
-  const pathname = usePathname()
-  const isLightPage = pathname !== '/'
+  // Every page now uses a light hero, so treat the top nav as light everywhere.
+  const isLightPage = true
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
