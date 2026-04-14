@@ -83,6 +83,12 @@ export default function HomePage() {
               "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather. Free inspection included.",
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof replacement Cochrane AB',
+            review: {
+              quote:
+                "They replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time.",
+              author: 'Michelle T',
+              location: 'Cochrane, AB',
+            },
           },
           {
             title: 'Roof Repair',
