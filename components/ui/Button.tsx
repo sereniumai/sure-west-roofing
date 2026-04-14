@@ -18,9 +18,9 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-[--color-accent] text-[--color-near-black] hover:opacity-85',
+    'bg-[--color-accent] text-[--color-near-black] hover:bg-[--color-accent-dark] hover:shadow-[0_8px_24px_-8px_rgba(184,148,63,0.55)]',
   secondary:
-    'bg-[--color-accent] text-[--color-near-black] hover:opacity-85',
+    'bg-[--color-accent] text-[--color-near-black] hover:bg-[--color-accent-dark] hover:shadow-[0_8px_24px_-8px_rgba(184,148,63,0.55)]',
   ghost:
     'bg-transparent text-white border border-white/40 hover:bg-white/10 hover:border-white/70',
   outline:
@@ -43,7 +43,7 @@ export function Button({
   className = '',
   showArrow = true,
 }: ButtonProps) {
-  const styles = `inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-opacity duration-200 cursor-pointer border-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
+  const styles = `inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-[background-color,box-shadow,transform,border-color] duration-200 ease-out cursor-pointer border-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
 
   const content = (
     <>
