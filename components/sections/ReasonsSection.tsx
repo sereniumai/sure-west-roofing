@@ -116,7 +116,7 @@ export function ReasonsSection({
                     className="absolute inset-0 w-full h-full cursor-pointer group"
                     aria-label="Play video"
                   >
-                    {videoPoster ? (
+                    {videoPoster && (
                       <Image
                         src={videoPoster}
                         alt="Play video"
@@ -124,9 +124,8 @@ export function ReasonsSection({
                         className="object-cover"
                         sizes="60vw"
                       />
-                    ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]" />
                     )}
+                    <div className="absolute inset-0 bg-[#1B3558]" />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-white/90 group-hover:bg-white group-hover:scale-110 transition-all duration-300 flex items-center justify-center shadow-lg">
