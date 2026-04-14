@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowUpRight, Plus } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 interface ServiceCardItem {
   title: string
@@ -20,32 +20,47 @@ interface ServicesIconGridProps {
 
 export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
   const [active, setActive] = useState(0)
-  const activeService = services[active]
+  const activeIndex = active < 0 ? 0 : active
+  const activeService = services[activeIndex]
+  const activeNum = String(activeIndex + 1).padStart(2, '0')
+  const totalNum = String(services.length).padStart(2, '0')
 
   return (
     <section
-      className="bg-white relative pt-[calc((100vw-40px)*0.5625-20px)] md:pt-[550px]"
+      className="bg-[--color-near-black] relative pt-[calc((100vw-40px)*0.5625-20px)] md:pt-[550px] overflow-hidden"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
-        paddingBottom: 'var(--section-pad-bot)',
+        paddingBottom: 'calc(var(--section-pad-bot) + 40px)',
       }}
     >
-      {/* Centered label + heading */}
+      {/* Subtle radial atmosphere */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-60"
+        style={{
+          background:
+            'radial-gradient(1200px 500px at 50% -10%, rgba(212,175,96,0.08) 0%, rgba(212,175,96,0) 60%)',
+        }}
+      />
+
+      {/* Kicker + heading */}
       <motion.div
-        className="flex flex-col items-center text-center mb-10 md:mb-16"
+        className="relative flex flex-col items-center text-center mb-14 md:mb-24"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
       >
-        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.18em] text-[--color-near-black] mb-4">
+        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#D4AF60] mb-6">
+          <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
           Our Services
+          <span className="inline-block w-8 h-px bg-[#D4AF60]/60" />
         </span>
         <h2
-          className="font-display font-semibold uppercase leading-[0.9] max-w-[900px]"
+          className="font-display font-semibold uppercase leading-[0.9] max-w-[1000px] text-[--color-warm-white]"
           style={{
-            fontSize: 'clamp(32px, 4.2vw, 56px)',
+            fontSize: 'clamp(34px, 4.4vw, 64px)',
             letterSpacing: '-0.04em',
           }}
         >
@@ -58,9 +73,9 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
         </h2>
       </motion.div>
 
-      {/* Premium accordion with synchronised image panel */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_minmax(0,480px)] gap-6 md:gap-12 items-start max-w-[1280px] mx-auto">
-        {/* Accordion column */}
+      {/* Editorial accordion layout */}
+      <div className="relative grid grid-cols-1 md:grid-cols-[1fr_minmax(0,520px)] gap-8 md:gap-16 items-start max-w-[1280px] mx-auto">
+        {/* ── Accordion column ─────────────────────────── */}
         <div className="flex flex-col">
           {services.map((service, i) => {
             const num = String(i + 1).padStart(2, '0')
@@ -68,26 +83,33 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
             return (
               <div
                 key={service.title}
-                className="border-t border-[--color-border] last:border-b"
+                className="relative border-t border-white/10 last:border-b"
               >
+                {/* Left gold rail — slides in when active */}
+                <motion.span
+                  aria-hidden="true"
+                  className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#D4AF60] origin-top"
+                  initial={false}
+                  animate={{ scaleY: isActive ? 1 : 0, opacity: isActive ? 1 : 0 }}
+                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
+                />
+
                 <button
                   type="button"
                   onClick={() => setActive(isActive ? -1 : i)}
                   onMouseEnter={() => setActive(i)}
-                  className="w-full flex items-center gap-4 md:gap-6 py-5 md:py-6 text-left group"
+                  className="w-full flex items-center gap-5 md:gap-8 py-6 md:py-8 text-left group pl-4 md:pl-7 pr-1"
                   aria-expanded={isActive}
                 >
                   {/* Index */}
                   <span
                     className={`font-display font-semibold tabular-nums transition-colors duration-300 ${
-                      isActive
-                        ? 'text-[#D4AF60]'
-                        : 'text-[--color-near-black]/35'
+                      isActive ? 'text-[#D4AF60]' : 'text-white/30 group-hover:text-white/60'
                     }`}
                     style={{
-                      fontSize: '14px',
-                      letterSpacing: '0.14em',
-                      minWidth: '28px',
+                      fontSize: '13px',
+                      letterSpacing: '0.18em',
+                      minWidth: '32px',
                     }}
                   >
                     {num}
@@ -95,28 +117,41 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
 
                   {/* Title */}
                   <h3
-                    className={`flex-1 font-display font-semibold uppercase leading-[0.95] transition-colors duration-300 ${
+                    className={`flex-1 font-display font-semibold uppercase leading-[0.92] transition-colors duration-300 ${
                       isActive
-                        ? 'text-[--color-near-black]'
-                        : 'text-[--color-near-black]/55 group-hover:text-[--color-near-black]'
+                        ? 'text-[--color-warm-white]'
+                        : 'text-white/35 group-hover:text-white/80'
                     }`}
                     style={{
-                      fontSize: 'clamp(24px, 3vw, 40px)',
-                      letterSpacing: '-0.03em',
+                      fontSize: 'clamp(26px, 3.2vw, 48px)',
+                      letterSpacing: '-0.035em',
                     }}
                   >
                     {service.title}
                   </h3>
 
-                  {/* Plus / toggle icon */}
+                  {/* Minimal stroke toggle */}
                   <span
-                    className={`flex-shrink-0 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition-all duration-300 ${
-                      isActive
-                        ? 'bg-[#D4AF60] text-[--color-near-black] rotate-45'
-                        : 'bg-transparent border border-[--color-near-black]/20 text-[--color-near-black]/60 group-hover:border-[#D4AF60] group-hover:text-[#D4AF60]'
+                    className={`flex-shrink-0 relative w-7 h-7 transition-opacity duration-300 ${
+                      isActive ? 'opacity-100' : 'opacity-50 group-hover:opacity-100'
                     }`}
+                    aria-hidden="true"
                   >
-                    <Plus strokeWidth={2} size={18} />
+                    {/* Horizontal stroke */}
+                    <span
+                      className={`absolute top-1/2 left-0 right-0 h-px origin-center ${
+                        isActive ? 'bg-[#D4AF60]' : 'bg-white/70'
+                      }`}
+                    />
+                    {/* Vertical stroke — retracts on active */}
+                    <motion.span
+                      className={`absolute top-0 bottom-0 left-1/2 w-px origin-center ${
+                        isActive ? 'bg-[#D4AF60]' : 'bg-white/70'
+                      }`}
+                      initial={false}
+                      animate={{ scaleY: isActive ? 0 : 1 }}
+                      transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
+                    />
                   </span>
                 </button>
 
@@ -127,13 +162,12 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
+                      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-6 md:pb-8 md:pl-[52px]">
-                        {/* Mobile image preview — only visible on mobile since the
-                            desktop layout has a persistent image panel */}
-                        <div className="md:hidden relative aspect-[16/10] overflow-hidden mb-5">
+                      <div className="pb-8 md:pb-10 pl-4 md:pl-[84px] pr-6 md:pr-8">
+                        {/* Mobile image preview */}
+                        <div className="md:hidden relative aspect-[16/10] overflow-hidden mb-6">
                           <img
                             src={service.image}
                             alt={service.imageAlt}
@@ -141,23 +175,33 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
                             draggable={false}
                           />
                         </div>
+
+                        {/* Thin gold rule above description */}
+                        <span className="inline-block w-10 h-px bg-[#D4AF60] mb-5" />
+
                         <p
-                          className="text-[--color-near-black]/75 font-medium leading-relaxed max-w-[54ch]"
+                          className="text-white/70 leading-[1.65] max-w-[56ch]"
                           style={{
-                            fontSize: '15px',
+                            fontSize: '15.5px',
                             fontFamily: "'Inter', system-ui, sans-serif",
+                            fontWeight: 400,
                           }}
                         >
                           {service.description}
                         </p>
+
                         <Link
                           href={service.href}
-                          className="inline-flex items-center gap-2 mt-5 text-[12px] font-body font-bold uppercase tracking-[0.14em] text-[--color-near-black] hover:text-[#B8943F] transition-all group/cta"
+                          className="inline-flex items-center gap-2.5 mt-7 text-[11.5px] font-body font-bold uppercase tracking-[0.22em] text-[#D4AF60] relative group/cta"
                         >
-                          Explore {service.title}
+                          <span className="relative">
+                            Explore this service
+                            <span className="absolute left-0 -bottom-1 h-px w-full bg-[#D4AF60]/60 origin-left scale-x-100 group-hover/cta:scale-x-0 transition-transform duration-500 ease-out" />
+                            <span className="absolute left-0 -bottom-1 h-px w-full bg-[#D4AF60] origin-right scale-x-0 group-hover/cta:scale-x-100 transition-transform duration-500 ease-out delay-100" />
+                          </span>
                           <ArrowUpRight
                             strokeWidth={2.5}
-                            size={16}
+                            size={14}
                             className="transition-transform duration-300 group-hover/cta:translate-x-0.5 group-hover/cta:-translate-y-0.5"
                           />
                         </Link>
@@ -170,53 +214,76 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
           })}
         </div>
 
-        {/* Persistent synchronised image panel — desktop only */}
+        {/* ── Synced image panel (desktop) ───────────── */}
         <div className="hidden md:block sticky top-[120px]">
-          <div className="relative aspect-[4/5] overflow-hidden bg-[--color-near-black]">
+          {/* Caption strip above image */}
+          <div className="flex items-center justify-between mb-4">
+            <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-white/50">
+              <span className="inline-block w-5 h-px bg-white/30" />
+              Now viewing
+            </span>
+            <span
+              className="font-display font-semibold tabular-nums text-white/50"
+              style={{ fontSize: '13px', letterSpacing: '0.18em' }}
+            >
+              <span className="text-[#D4AF60]">{activeNum}</span>
+              <span className="mx-1.5">/</span>
+              {totalNum}
+            </span>
+          </div>
+
+          {/* Image frame with thin gold inset */}
+          <div className="relative aspect-[4/5] overflow-hidden bg-black">
             <AnimatePresence mode="wait">
               <motion.img
                 key={activeService?.image ?? 'fallback'}
                 src={activeService?.image}
                 alt={activeService?.imageAlt ?? ''}
                 className="absolute inset-0 w-full h-full object-cover"
-                initial={{ opacity: 0, scale: 1.06 }}
+                initial={{ opacity: 0, scale: 1.07 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
                 draggable={false}
               />
             </AnimatePresence>
-            {/* Bottom gradient + title overlay for identity */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
+
+            {/* Bottom gradient for overlay legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20 pointer-events-none" />
+
+            {/* Hairline gold frame */}
+            <div
+              aria-hidden="true"
+              className="absolute inset-2 border border-[#D4AF60]/25 pointer-events-none"
+            />
+
+            {/* Bottom info block */}
             <AnimatePresence mode="wait">
               {activeService && (
                 <motion.div
-                  key={`title-${activeService.title}`}
-                  initial={{ y: 12, opacity: 0 }}
+                  key={`meta-${activeService.title}`}
+                  initial={{ y: 16, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: 12, opacity: 0 }}
-                  transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
-                  className="absolute left-0 right-0 bottom-0 p-6 md:p-8 flex items-end justify-between gap-4"
+                  exit={{ y: 16, opacity: 0 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
+                  className="absolute left-0 right-0 bottom-0 p-6 md:p-8"
                 >
+                  <span className="inline-block w-10 h-px bg-[#D4AF60] mb-4" />
                   <h4
-                    className="font-display font-semibold uppercase text-white leading-[0.95]"
+                    className="font-display font-semibold uppercase text-white leading-[0.95] mb-5"
                     style={{
-                      fontSize: 'clamp(22px, 2.2vw, 30px)',
-                      letterSpacing: '-0.02em',
+                      fontSize: 'clamp(24px, 2.4vw, 34px)',
+                      letterSpacing: '-0.025em',
                     }}
                   >
                     {activeService.title}
                   </h4>
                   <Link
                     href={activeService.href}
-                    aria-label={`Explore ${activeService.title}`}
-                    className="flex-shrink-0 w-11 h-11 bg-[#D4AF60] flex items-center justify-center transition-transform duration-300 ease-out hover:rotate-45"
+                    className="inline-flex items-center gap-2.5 h-11 px-5 bg-[#D4AF60] text-[--color-near-black] text-[11px] font-body font-bold uppercase tracking-[0.2em] hover:bg-[--color-warm-white] hover:shadow-[0_10px_30px_-10px_rgba(212,175,96,0.55)] transition-all duration-300"
                   >
-                    <ArrowUpRight
-                      className="text-[--color-near-black]"
-                      strokeWidth={2.5}
-                      size={20}
-                    />
+                    Visit service
+                    <ArrowUpRight strokeWidth={2.5} size={14} />
                   </Link>
                 </motion.div>
               )}
