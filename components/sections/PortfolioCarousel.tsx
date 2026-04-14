@@ -15,10 +15,11 @@ interface PortfolioCarouselProps {
 }
 
 // Arc shape tuning — applied per-card based on its distance from the
-// viewport center. Pure 2D transforms, no CSS 3D.
-const ARC_ROTATE_DEG = 38        // ±deg at the extremes
-const ARC_TRANSLATE_Y = 120      // px drop at the extremes
-const ARC_SCALE_MIN = 0.72       // scale at the extremes (1 at center)
+// viewport center. Pure 2D transforms, no CSS 3D. Cards lean INWARD
+// toward the focal center (rotation sign is negated against t).
+const ARC_ROTATE_DEG = 14        // max tilt at the extremes, inward
+const ARC_TRANSLATE_Y = 28       // subtle quadratic drop at the edges
+const ARC_SCALE_MIN = 0.88       // gentle foreshortening at the edges
 const DRAG_MULTIPLIER = 1.5
 const MOMENTUM_MIN = 4
 const MOMENTUM_SCALE = 16
@@ -54,11 +55,15 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
       // Normalize: -1 at left edge, 0 at center, 1 at right edge
       const t = Math.max(-1.2, Math.min(1.2, (cardCenter - viewportCenter) / halfWidth))
 
-      const rot = t * ARC_ROTATE_DEG
+      // Negative sign so cards LEAN INWARD toward the focal center.
+      // A card at t = -0.8 (left of center) rotates +11.2deg → its top
+      // tilts rightward, toward the middle of the arc. Books on a shelf.
+      const rot = -t * ARC_ROTATE_DEG
       const dy = (t * t) * ARC_TRANSLATE_Y
       const scale = 1 - Math.abs(t) * (1 - ARC_SCALE_MIN)
 
       el.style.transform = `translateY(${dy.toFixed(2)}px) rotate(${rot.toFixed(2)}deg) scale(${scale.toFixed(3)})`
+      // Center cards paint on top so edge cards tuck behind cleanly
       el.style.zIndex = String(Math.round(100 - Math.abs(t) * 50))
     }
   }, [])
@@ -209,25 +214,27 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
       >
         <div
           ref={trackRef}
-          className="relative flex items-start gap-4 md:gap-5 overflow-x-auto scrollbar-hide cursor-grab select-none touch-pan-y"
+          className="relative flex items-end gap-5 md:gap-6 overflow-x-auto scrollbar-hide cursor-grab select-none touch-pan-y"
           style={{
             scrollBehavior: 'smooth',
-            paddingTop: '60px',
-            paddingBottom: '140px',
-            paddingLeft: '40vw',
-            paddingRight: '40vw',
+            paddingTop: '40px',
+            paddingBottom: '90px',
+            paddingLeft: '42vw',
+            paddingRight: '42vw',
             WebkitOverflowScrolling: 'touch',
           }}
         >
           {cards.map((image, index) => (
             <div
               key={`${image.src}-${index}`}
-              className="relative flex-shrink-0 overflow-hidden rounded-[--radius-md] shadow-[0_30px_50px_-28px_rgba(0,0,0,0.35)] ring-1 ring-black/5 bg-black"
+              className="relative flex-shrink-0 overflow-hidden rounded-[--radius-md]"
               style={{
-                width: 'clamp(200px, 22vw, 280px)',
-                height: 'clamp(280px, 32vw, 400px)',
-                transformOrigin: '50% 100%',
+                width: 'clamp(240px, 24vw, 320px)',
+                height: 'clamp(340px, 36vw, 460px)',
+                transformOrigin: '50% 95%',
                 willChange: 'transform',
+                boxShadow:
+                  '0 34px 48px -30px rgba(20,20,20,0.35), 0 12px 22px -14px rgba(20,20,20,0.18)',
               }}
             >
               <img
