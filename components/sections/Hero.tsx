@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Award, BadgeCheck, MapPin } from 'lucide-react'
+import { Hammer, Award, ClipboardCheck, Star } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface HeroProps {
@@ -16,9 +16,10 @@ interface HeroProps {
 }
 
 const badges = [
-  { label: '10+ years of experience', Icon: Award, hideOnMobile: false },
-  { label: 'Certified contractor', Icon: BadgeCheck, hideOnMobile: false },
-  { label: 'Trusted in Cochrane 2025', Icon: MapPin, hideOnMobile: true },
+  { label: 'Roofs completed', Icon: Hammer, hideOnMobile: false },
+  { label: 'Years experience', Icon: Award, hideOnMobile: false },
+  { label: 'Free estimates', Icon: ClipboardCheck, hideOnMobile: true },
+  { label: 'Google rated', Icon: Star, hideOnMobile: true },
 ]
 
 const containerVariants = {
