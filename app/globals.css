@@ -191,6 +191,44 @@ a { text-decoration: none; color: inherit; }
   font-weight: 500;
 }
 
+/* ── Button chevron cascade ─────────────────── */
+
+.btn-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 2px;
+  line-height: 1;
+}
+
+.btn-chev {
+  display: inline-block;
+  font-size: 0.95em;
+  line-height: 1;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.btn-arrow .btn-chev:first-child {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.group:hover .btn-chev {
+  animation: btn-chev-cascade 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+.group:hover .btn-chev:nth-child(1) { animation-delay: 0s; }
+.group:hover .btn-chev:nth-child(2) { animation-delay: 0.12s; }
+.group:hover .btn-chev:nth-child(3) { animation-delay: 0.24s; }
+
+@keyframes btn-chev-cascade {
+  0%   { opacity: 0; transform: translateX(-6px); }
+  25%  { opacity: 1; transform: translateX(0); }
+  75%  { opacity: 1; transform: translateX(0); }
+  100% { opacity: 0; transform: translateX(8px); }
+}
+
 /* ── Section label dots ─────────────────────── */
 
 .section-label {

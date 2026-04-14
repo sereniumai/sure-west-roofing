@@ -43,12 +43,18 @@ export function Button({
   className = '',
   showArrow = true,
 }: ButtonProps) {
-  const styles = `inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-[background-color,box-shadow,transform,border-color] duration-200 ease-out cursor-pointer border-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
+  const styles = `group inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-[background-color,box-shadow,transform,border-color] duration-200 ease-out cursor-pointer border-0 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
 
   const content = (
     <>
       <span>{children}</span>
-      {showArrow && <span className="btn-arrow text-sm">&rsaquo;</span>}
+      {showArrow && (
+        <span className="btn-arrow" aria-hidden="true">
+          <span className="btn-chev">&rsaquo;</span>
+          <span className="btn-chev">&rsaquo;</span>
+          <span className="btn-chev">&rsaquo;</span>
+        </span>
+      )}
     </>
   )
 

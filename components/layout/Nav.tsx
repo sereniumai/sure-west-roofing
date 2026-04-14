@@ -124,23 +124,29 @@ export function Nav() {
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-black border border-white/10 shadow-2xl w-[560px] overflow-hidden">
+                  <div
+                    className="bg-[--color-cream] shadow-2xl w-[560px] overflow-hidden"
+                    style={{ border: '1px solid var(--color-border)' }}
+                  >
                     <div className="grid grid-cols-2">
                       {serviceLinks.map((service) => (
                         <Link
                           key={service.href}
                           href={service.href}
-                          className="group flex items-center justify-between gap-4 px-6 py-5 transition-colors border-b border-white/10 [&:nth-last-child(-n+2)]:border-b-0 [&:nth-child(odd)]:border-r hover:bg-white/5"
+                          className="group flex items-center justify-between gap-4 px-6 py-5 transition-colors border-b [&:nth-last-child(-n+2)]:border-b-0 [&:nth-child(odd)]:border-r hover:bg-white"
+                          style={{
+                            borderColor: 'var(--color-border)',
+                          }}
                           onClick={() => setServicesOpen(false)}
                         >
                           <div className="flex-1 min-w-0">
                             <p
-                              className="font-display font-semibold uppercase tracking-tight text-white group-hover:text-[#D4AF60] transition-colors"
+                              className="font-display font-semibold uppercase tracking-tight text-[--color-near-black] group-hover:text-[#B8943F] transition-colors"
                               style={{ fontSize: '16px', letterSpacing: '-0.02em' }}
                             >
                               {service.label}
                             </p>
-                            <p className="text-[11px] text-white/50 mt-1 font-medium truncate">
+                            <p className="text-[11px] text-[--color-near-black]/60 mt-1 font-medium truncate">
                               {service.description}
                             </p>
                           </div>
@@ -151,12 +157,13 @@ export function Nav() {
                     <Link
                       href="/contact"
                       onClick={() => setServicesOpen(false)}
-                      className="flex items-center justify-between px-6 py-4 bg-[#0A0A0A] border-t border-white/10 group hover:bg-[#141414] transition-colors"
+                      className="flex items-center justify-between px-6 py-4 bg-white group hover:bg-[#FBF8F1] transition-colors"
+                      style={{ borderTop: '1px solid var(--color-border)' }}
                     >
-                      <p className="text-[11px] text-white/60 uppercase tracking-[0.18em] font-bold">
+                      <p className="text-[11px] text-[--color-near-black]/70 uppercase tracking-[0.18em] font-bold">
                         Not sure what you need?
                       </p>
-                      <span className="inline-flex items-center gap-2 text-[12px] font-bold text-[#D4AF60] uppercase tracking-[0.14em] group-hover:gap-3 transition-all">
+                      <span className="inline-flex items-center gap-2 text-[12px] font-bold text-[#B8943F] uppercase tracking-[0.14em] group-hover:gap-3 transition-all">
                         Contact us
                         <ArrowRight className="w-3.5 h-3.5" />
                       </span>
