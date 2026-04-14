@@ -238,7 +238,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
             </span>
           </div>
 
-          {/* Image frame with thin gold inset */}
+          {/* Clean image frame */}
           <div className="relative aspect-[4/5] overflow-hidden bg-black">
             <AnimatePresence mode="wait">
               <motion.img
@@ -252,47 +252,6 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
                 draggable={false}
               />
-            </AnimatePresence>
-
-            {/* Bottom gradient for overlay legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/20 pointer-events-none" />
-
-            {/* Hairline gold frame */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-2 border border-[#D4AF60]/25 pointer-events-none"
-            />
-
-            {/* Bottom info block */}
-            <AnimatePresence mode="wait">
-              {activeService && (
-                <motion.div
-                  key={`meta-${activeService.title}`}
-                  initial={{ y: 16, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: 16, opacity: 0 }}
-                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
-                  className="absolute left-0 right-0 bottom-0 p-6 md:p-8"
-                >
-                  <span className="inline-block w-10 h-px bg-[#D4AF60] mb-4" />
-                  <h4
-                    className="font-display font-semibold uppercase text-white leading-[0.95] mb-5"
-                    style={{
-                      fontSize: 'clamp(22px, 2.2vw, 30px)',
-                      letterSpacing: '-0.025em',
-                    }}
-                  >
-                    {activeService.title}
-                  </h4>
-                  <Link
-                    href={activeService.href}
-                    className="inline-flex items-center gap-2.5 h-11 px-5 bg-[#D4AF60] text-[--color-near-black] text-[11px] font-body font-bold uppercase tracking-[0.2em] hover:bg-[--color-warm-white] hover:shadow-[0_10px_30px_-10px_rgba(212,175,96,0.55)] transition-all duration-300"
-                  >
-                    {activeService.title}
-                    <ArrowUpRight strokeWidth={2.5} size={14} />
-                  </Link>
-                </motion.div>
-              )}
             </AnimatePresence>
           </div>
         </div>
