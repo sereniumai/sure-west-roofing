@@ -77,42 +77,42 @@ export default function HomePage() {
         services={[
           {
             title: 'Roof Replacement',
-            href: '/roof-replacement/cochrane',
+            href: '/roof-replacement-cochrane',
             description: "A new roof, a new vibe — let's protect your home in style.",
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof replacement Cochrane AB',
           },
           {
             title: 'Roof Repair',
-            href: '/roof-repair/cochrane',
+            href: '/roof-repair-cochrane',
             description: "Got a leak? We'll be there faster than you can say 'bucket'.",
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof repair Cochrane AB',
           },
           {
             title: 'Hail Damage Repair',
-            href: '/hail-damage-repair/cochrane',
+            href: '/hail-damage-repair-cochrane',
             description: 'Out with the old, in with the weatherproof.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Hail damage repair Cochrane AB',
           },
           {
             title: 'Roof Inspection',
-            href: '/roof-inspection/cochrane',
+            href: '/roof-inspection-cochrane',
             description: 'Spot problems early, fix them fast, and keep your roof happy.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof inspection Cochrane AB',
           },
           {
             title: 'Roof Maintenance',
-            href: '/roof-maintenance/cochrane',
+            href: '/roof-maintenance-cochrane',
             description: "It's like sunscreen... but for your roof.",
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof maintenance Cochrane AB',
           },
           {
             title: 'Skylight Installation',
-            href: '/skylight-installation/cochrane',
+            href: '/skylight-installation-cochrane',
             description: "From the ground up to the top of the roof — we've got you covered.",
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Skylight installation Cochrane AB',
@@ -294,18 +294,18 @@ export default function HomePage() {
             question:
               'How do I know if my roof needs replacing or just repairing?',
             answer:
-              'If your roof is under 15 years old and the damage is isolated, a <a href="/roof-repair/cochrane">roof repair</a> is usually the right call. If it is over 20 years old, has widespread damage, or is failing in multiple areas, <a href="/roof-replacement/cochrane">replacement</a> is likely more cost effective long term. Our team offers free <a href="/roof-inspection/cochrane">roof inspections in Cochrane</a> to help you make the right decision without any sales pressure.',
+              'If your roof is under 15 years old and the damage is isolated, a <a href="/roof-repair-cochrane">roof repair</a> is usually the right call. If it is over 20 years old, has widespread damage, or is failing in multiple areas, <a href="/roof-replacement-cochrane">replacement</a> is likely more cost effective long term. Our team offers free <a href="/roof-inspection-cochrane">roof inspections in Cochrane</a> to help you make the right decision without any sales pressure.',
           },
           {
             question:
               'Do you handle Alberta insurance claims for hail damage?',
             answer:
-              'Yes. We have extensive experience working with Alberta insurance companies on hail damage roof repair claims in Cochrane and Calgary. We document all damage with photographs and a detailed inspection report, and we work directly alongside your insurance adjuster to make the process as smooth as possible. Learn more about our <a href="/hail-damage-repair/cochrane">hail damage repair service in Cochrane</a>.',
+              'Yes. We have extensive experience working with Alberta insurance companies on hail damage roof repair claims in Cochrane and Calgary. We document all damage with photographs and a detailed inspection report, and we work directly alongside your insurance adjuster to make the process as smooth as possible. Learn more about our <a href="/hail-damage-repair-cochrane">hail damage repair service in Cochrane</a>.',
           },
           {
             question: 'How long does a roof replacement take in Cochrane?',
             answer:
-              'Most residential <a href="/roof-replacement/cochrane">roof replacements in Cochrane</a> are completed within one to two days depending on the size and complexity of your roof. We provide a clear timeline before work begins and keep you updated throughout every stage of the project.',
+              'Most residential <a href="/roof-replacement-cochrane">roof replacements in Cochrane</a> are completed within one to two days depending on the size and complexity of your roof. We provide a clear timeline before work begins and keep you updated throughout every stage of the project.',
           },
           {
             question: 'Are you licensed and insured to work in Alberta?',
@@ -326,7 +326,7 @@ export default function HomePage() {
           {
             question: 'Do you offer emergency roof repair in Cochrane?',
             answer:
-              'Yes. We understand that a damaged roof cannot wait. We offer <a href="/roof-repair/cochrane">emergency roof repair in Cochrane</a> and the surrounding area, responding as fast as possible to prevent further water damage to your home.',
+              'Yes. We understand that a damaged roof cannot wait. We offer <a href="/roof-repair-cochrane">emergency roof repair in Cochrane</a> and the surrounding area, responding as fast as possible to prevent further water damage to your home.',
           },
         ]}
       />

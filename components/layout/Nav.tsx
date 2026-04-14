@@ -10,38 +10,38 @@ const serviceLinks = [
   {
     label: 'Roof Replacement',
     description: 'Complete tear-off and replacement',
-    href: '/roof-replacement/cochrane',
+    href: '/roof-replacement-cochrane',
   },
   {
     label: 'Roof Repair',
     description: 'Fast, lasting leak and shingle repair',
-    href: '/roof-repair/cochrane',
+    href: '/roof-repair-cochrane',
   },
   {
     label: 'Hail Damage Repair',
     description: 'Insurance claims and restoration',
-    href: '/hail-damage-repair/cochrane',
+    href: '/hail-damage-repair-cochrane',
   },
   {
     label: 'Roof Maintenance',
     description: 'Annual care to extend roof life',
-    href: '/roof-maintenance/cochrane',
+    href: '/roof-maintenance-cochrane',
   },
   {
     label: 'Roof Inspection',
     description: 'Detailed condition reports',
-    href: '/roof-inspection/cochrane',
+    href: '/roof-inspection-cochrane',
   },
   {
     label: 'Skylight Installation',
     description: 'Code-compliant skylight installs',
-    href: '/skylight-installation/cochrane',
+    href: '/skylight-installation-cochrane',
   },
 ]
 
 const navLinks = [
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services', dropdown: true },
+  { label: 'Services', dropdown: true },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -104,8 +104,9 @@ export function Nav() {
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
-                <Link
-                  href={link.href}
+                <button
+                  type="button"
+                  onClick={() => setServicesOpen((open) => !open)}
                   className={`flex items-center gap-1.5 text-[16px] font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
                 >
                   {link.label}
@@ -115,7 +116,7 @@ export function Nav() {
                       servicesOpen ? 'rotate-180' : ''
                     }`}
                   />
-                </Link>
+                </button>
 
                 {/* Dropdown */}
                 <div
@@ -175,7 +176,7 @@ export function Nav() {
             ) : (
               <Link
                 key={link.label}
-                href={link.href}
+                href={link.href ?? '#'}
                 className={`text-[16px] font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
               >
                 {link.label}
@@ -247,7 +248,7 @@ export function Nav() {
             ) : (
               <Link
                 key={link.label}
-                href={link.href}
+                href={link.href ?? '#'}
                 className="py-4 text-lg text-white font-semibold uppercase tracking-wider border-b border-white/10"
                 onClick={() => setMobileOpen(false)}
               >

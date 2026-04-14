@@ -1,12 +1,12 @@
 import Link from 'next/link'
 
 const services = [
-  { label: 'Roof Replacement', href: '/roof-replacement/cochrane' },
-  { label: 'Roof Repair', href: '/roof-repair/cochrane' },
-  { label: 'Hail Damage Repair', href: '/hail-damage-repair/cochrane' },
-  { label: 'Roof Maintenance', href: '/roof-maintenance/cochrane' },
-  { label: 'Roof Inspection', href: '/roof-inspection/cochrane' },
-  { label: 'Skylight Installation', href: '/skylight-installation/cochrane' },
+  { label: 'Roof Replacement', href: '/roof-replacement-cochrane' },
+  { label: 'Roof Repair', href: '/roof-repair-cochrane' },
+  { label: 'Hail Damage Repair', href: '/hail-damage-repair-cochrane' },
+  { label: 'Roof Maintenance', href: '/roof-maintenance-cochrane' },
+  { label: 'Roof Inspection', href: '/roof-inspection-cochrane' },
+  { label: 'Skylight Installation', href: '/skylight-installation-cochrane' },
 ]
 
 const companyLinks = [
