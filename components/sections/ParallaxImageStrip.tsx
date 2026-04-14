@@ -47,8 +47,6 @@ export function ParallaxImageStrip({
           style={{
             height: '848px',
             y,
-            scale: 1.3,
-            filter: 'contrast(1.05) grayscale(1)',
           }}
         >
           {video ? (
