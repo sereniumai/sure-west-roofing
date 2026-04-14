@@ -32,8 +32,6 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
   const activeIndex = active < 0 ? 0 : active
   const activeService = services[activeIndex] ?? services[0]
   const featured = services[0]
-  const totalNum = String(services.length).padStart(2, '0')
-  const activeNum = String(activeIndex + 1).padStart(2, '0')
 
   return (
     <section
@@ -221,17 +219,8 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
             draggable={false}
           />
 
-          {/* Subtle editorial gradient for caption legibility */}
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                'linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.2) 28%, rgba(0,0,0,0) 55%)',
-            }}
-          />
-
           {/* Floating Google review card, syncs to active service */}
-          <div className="absolute top-6 right-6 left-6 md:left-auto flex justify-end pointer-events-none">
+          <div className="absolute bottom-6 right-6 left-6 md:left-auto flex justify-end pointer-events-none">
             <AnimatePresence mode="wait">
               {activeService?.review && (
                 <motion.div
@@ -363,44 +352,6 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
             </AnimatePresence>
           </div>
 
-          {/* Bottom-left editorial caption, syncs title text to active row */}
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="inline-block w-8 h-px bg-[#D4AF60]" />
-              <span className="text-[10px] font-body font-bold uppercase tracking-[0.26em] text-white/70">
-                Now exploring
-              </span>
-            </div>
-            <AnimatePresence mode="wait">
-              <motion.h4
-                key={activeService?.title ?? 'title'}
-                className="font-display font-semibold uppercase text-white leading-[1] max-w-[320px]"
-                style={{
-                  fontSize: 'clamp(22px, 2vw, 32px)',
-                  letterSpacing: '-0.025em',
-                }}
-                initial={{ y: 12, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -8, opacity: 0 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] as const }}
-              >
-                {activeService?.title}
-              </motion.h4>
-            </AnimatePresence>
-            <div className="mt-4 flex items-center justify-between">
-              <span className="text-[11px] font-body font-medium uppercase tracking-[0.2em] text-white/60">
-                Cochrane · Calgary · Canmore
-              </span>
-              <span
-                className="font-display font-semibold tabular-nums text-white/80"
-                style={{ fontSize: '13px', letterSpacing: '0.18em' }}
-              >
-                <span className="text-[#D4AF60]">{activeNum}</span>
-                <span className="mx-1.5 text-white/40">/</span>
-                {totalNum}
-              </span>
-            </div>
-          </div>
         </div>
       </div>
     </section>
