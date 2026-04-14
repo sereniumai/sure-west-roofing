@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 interface ParallaxImageStripProps {
@@ -17,6 +17,7 @@ export function ParallaxImageStrip({
   poster,
 }: ParallaxImageStripProps) {
   const ref = useRef<HTMLDivElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -25,6 +26,31 @@ export function ParallaxImageStrip({
 
   // ~2× parallax velocity — media moves at 1.5× rate relative to container
   const y = useTransform(scrollYProgress, [0, 1], ['100px', '-200px'])
+
+  // Smooth crossfade at loop boundary — fade out in the last FADE seconds
+  // and fade back in at the start of each loop.
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+
+    const FADE = 0.7 // seconds
+
+    const handleTimeUpdate = () => {
+      const duration = v.duration
+      if (!isFinite(duration) || duration <= FADE * 2) return
+      const t = v.currentTime
+      let opacity = 1
+      if (t > duration - FADE) {
+        opacity = Math.max(0, (duration - t) / FADE)
+      } else if (t < FADE) {
+        opacity = Math.min(1, t / FADE)
+      }
+      v.style.opacity = String(opacity)
+    }
+
+    v.addEventListener('timeupdate', handleTimeUpdate)
+    return () => v.removeEventListener('timeupdate', handleTimeUpdate)
+  }, [video])
 
   return (
     <section
@@ -50,6 +76,7 @@ export function ParallaxImageStrip({
         >
           {video ? (
             <video
+              ref={videoRef}
               src={video}
               poster={poster ?? src}
               autoPlay
@@ -59,7 +86,10 @@ export function ParallaxImageStrip({
               preload="auto"
               aria-label={alt}
               className="w-full h-full object-cover"
-              style={{ objectPosition: 'center 30%' }}
+              style={{
+                objectPosition: 'center 30%',
+                transition: 'opacity 120ms linear',
+              }}
             />
           ) : (
             <img
