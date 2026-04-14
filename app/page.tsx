@@ -85,8 +85,8 @@ export default function HomePage() {
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
               quote:
-                "They replaced our roof after last summer's hailstorm. From the inspection to the final cleanup, everything was professional and on time.",
-              author: 'Michelle T',
+                "I sought out this company to replace my aging roof due to their solid reputation in the community. They did not disappoint.",
+              author: 'Bruce E.',
               location: 'Cochrane, AB',
             },
           },
@@ -97,6 +97,12 @@ export default function HomePage() {
               'Fast, affordable, Journeyman-approved repairs that get you back to normal without the stress or the disruption.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof repair Cochrane AB',
+            review: {
+              quote:
+                "I had a leak in my roof and they fix it in no time with extreme quality. Very honest and hard working people.",
+              author: 'Caroline Esteves',
+              location: 'Cochrane, AB',
+            },
           },
           {
             title: 'Hail Damage Repair',
@@ -105,6 +111,12 @@ export default function HomePage() {
               'Alberta storms hit hard. We respond fast, document everything, and work directly with your insurance adjuster.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Hail damage repair Cochrane AB',
+            review: {
+              quote:
+                "Sure West Roofing provided great service from the very prompt initial inspection to determine the extent of hail damage to the roof.",
+              author: 'Karen Kerkhoff',
+              location: 'Cochrane, AB',
+            },
           },
           {
             title: 'Roof Maintenance',
@@ -113,6 +125,12 @@ export default function HomePage() {
               'Extend the life of your roof and avoid costly emergency repairs with expert ongoing maintenance from a certified team.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof maintenance Cochrane AB',
+            review: {
+              quote:
+                "I've had Sure West come fix some small issues with my roof a few times. They are always honest and do great work.",
+              author: 'BOA REI',
+              location: 'Cochrane, AB',
+            },
           },
           {
             title: 'Roof Inspection',
@@ -121,6 +139,12 @@ export default function HomePage() {
               'Red Seal certified roof and attic inspections that give you the full picture before problems become expensive disasters.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof inspection Cochrane AB',
+            review: {
+              quote:
+                "Didn't try to sell me a new roof, but gave an honest opinion on how much life the roof has.",
+              author: 'Greg Carmichael',
+              location: 'Cochrane, AB',
+            },
           },
           {
             title: 'Skylight Installation',
@@ -129,6 +153,12 @@ export default function HomePage() {
               'Brighten your home with natural light. Properly installed by a Journeyman certified team. Completely hassle-free.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Skylight installation Cochrane AB',
+            review: {
+              quote:
+                "We ran into an issue with our skylight and they handled the job in the most professional way.",
+              author: 'M D',
+              location: 'Cochrane, AB',
+            },
           },
         ]}
       />

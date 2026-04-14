@@ -243,15 +243,6 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                     {/* Gold vertical accent bar */}
                     <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-gradient-to-b from-[#D4AF60] via-[#B8943F] to-[#D4AF60]" />
 
-                    {/* Decorative oversized quote mark */}
-                    <span
-                      aria-hidden="true"
-                      className="absolute -top-3 right-4 font-display font-semibold text-[#D4AF60]/20 select-none pointer-events-none"
-                      style={{ fontSize: '110px', lineHeight: 1 }}
-                    >
-                      “
-                    </span>
-
                     <div className="relative p-6 pl-7">
                       {/* Header: stars + rating + google mark */}
                       <div className="flex items-center justify-between mb-4">
@@ -309,41 +300,16 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                         {activeService.review.quote}
                       </p>
 
-                      {/* Gold hairline divider */}
-                      <div className="flex items-center gap-2 mt-5 mb-4">
-                        <span className="h-px w-8 bg-[#D4AF60]" />
-                        <span className="h-px flex-1 bg-[--color-near-black]/10" />
-                      </div>
-
-                      {/* Author row with monogram */}
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-semibold"
-                          style={{
-                            background:
-                              'linear-gradient(135deg, #D4AF60 0%, #B8943F 100%)',
-                            fontSize: '13px',
-                            letterSpacing: '0.04em',
-                          }}
-                          aria-hidden="true"
-                        >
-                          {activeService.review.author
-                            .split(' ')
-                            .map((n) => n[0])
-                            .slice(0, 2)
-                            .join('')}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-[12px] font-body font-bold uppercase tracking-[0.14em] text-[--color-near-black] truncate">
-                            {activeService.review.author}
+                      {/* Author row */}
+                      <div className="flex items-center justify-between mt-5">
+                        <p className="text-[12px] font-body font-bold uppercase tracking-[0.14em] text-[--color-near-black] truncate">
+                          {activeService.review.author}
+                        </p>
+                        {activeService.review.location && (
+                          <p className="text-[10px] font-body font-medium uppercase tracking-[0.2em] text-[--color-near-black]/50 truncate ml-3">
+                            {activeService.review.location}
                           </p>
-                          <p className="text-[10px] font-body font-medium uppercase tracking-[0.2em] text-[--color-near-black]/50 mt-0.5 truncate">
-                            {activeService.review.location ?? 'Verified homeowner'}
-                          </p>
-                        </div>
-                        <span className="text-[9px] font-body font-bold uppercase tracking-[0.2em] text-[#B8943F] flex-shrink-0">
-                          Verified
-                        </span>
+                        )}
                       </div>
                     </div>
                   </div>
