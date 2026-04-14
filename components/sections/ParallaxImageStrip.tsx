@@ -6,9 +6,16 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 interface ParallaxImageStripProps {
   src: string
   alt: string
+  video?: string
+  poster?: string
 }
 
-export function ParallaxImageStrip({ src, alt }: ParallaxImageStripProps) {
+export function ParallaxImageStrip({
+  src,
+  alt,
+  video,
+  poster,
+}: ParallaxImageStripProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   const { scrollYProgress } = useScroll({
@@ -16,7 +23,7 @@ export function ParallaxImageStrip({ src, alt }: ParallaxImageStripProps) {
     offset: ['start end', 'end start'],
   })
 
-  // ~2× parallax velocity — image moves at 1.5× rate relative to container
+  // ~2× parallax velocity — media moves at 1.5× rate relative to container
   const y = useTransform(scrollYProgress, [0, 1], ['100px', '-200px'])
 
   return (
@@ -44,13 +51,28 @@ export function ParallaxImageStrip({ src, alt }: ParallaxImageStripProps) {
             filter: 'contrast(1.05) grayscale(1)',
           }}
         >
-          <img
-            src={src}
-            alt={alt}
-            className="w-full h-full object-cover"
-            style={{ objectPosition: 'center 30%' }}
-            draggable={false}
-          />
+          {video ? (
+            <video
+              src={video}
+              poster={poster ?? src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              aria-label={alt}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: 'center 30%' }}
+            />
+          ) : (
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: 'center 30%' }}
+              draggable={false}
+            />
+          )}
         </motion.div>
       </div>
     </section>

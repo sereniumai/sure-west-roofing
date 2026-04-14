@@ -64,9 +64,10 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Parallax Image Strip */}
+      {/* 2. Parallax Video Strip */}
       <ParallaxImageStrip
         src="/images/Cochrane Roofing Contractors.jpg"
+        video="/images/Cochrane Roofing Contractor.mp4"
         alt="Cochrane roofing aerial view"
       />
 
