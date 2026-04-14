@@ -60,7 +60,7 @@ export function ParallaxImageStrip({
           mobile: native 16:9 with modest overlap into the hero above
           desktop: fixed 720px cinematic letterbox */}
       <div
-        className="absolute overflow-hidden aspect-video md:aspect-auto top-[-80px] md:top-[-200px] h-auto md:h-[650px]"
+        className="absolute overflow-hidden aspect-video md:aspect-auto top-[-80px] md:top-[-200px] h-auto md:h-[650px] shadow-[0_20px_60px_-20px_rgba(0,0,0,0.45)] md:shadow-[0_40px_120px_-30px_rgba(0,0,0,0.55)]"
         style={{
           left: 'var(--section-pad-x)',
           width: 'calc(100% - 2 * var(--section-pad-x))',
