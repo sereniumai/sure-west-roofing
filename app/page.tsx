@@ -55,7 +55,7 @@ export default function HomePage() {
       {/* 1. Hero */}
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
-        subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather. Hail, ice, and everything in between. Certified roofing contractors. Free estimates."
+        subtitle="Protecting homes across Cochrane, Calgary, and Canmore from Alberta's toughest weather. Hail, ice, and everything in between."
         backgroundVideo="/images/Cochrane Roofing Contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/contact' }}
