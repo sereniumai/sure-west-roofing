@@ -29,7 +29,7 @@ const marqueeLogos = [...logos, ...logos]
 
 export function TrustLogos() {
   return (
-    <section className="bg-[#FFFCFC] py-10 lg:py-14 border-b border-[#E5E5E5] overflow-hidden">
+    <section className="bg-[--color-cream] py-10 lg:py-14 border-b overflow-hidden" style={{ borderColor: 'var(--color-border)' }}>
       <motion.p
         className="text-center text-xs font-body font-semibold text-[#999] uppercase tracking-widest mb-8 px-6"
         initial={{ opacity: 0 }}
@@ -43,8 +43,8 @@ export function TrustLogos() {
       {/* Infinite marquee */}
       <div className="relative">
         {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#FFFCFC] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#FFFCFC] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[--color-cream] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[--color-cream] to-transparent z-10 pointer-events-none" />
 
         <motion.div
           className="flex items-center gap-16 w-max"

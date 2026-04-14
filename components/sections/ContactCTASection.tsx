@@ -5,8 +5,8 @@ import { Phone, Mail, MapPin } from 'lucide-react'
 
 export function ContactCTASection() {
   return (
-    <section className="bg-[#D4AF60] py-6">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section className="bg-[--color-accent] py-6">
+      <div style={{ padding: '0 var(--section-pad-x)' }}>
         <motion.div
           className="flex flex-col md:flex-row items-center justify-between gap-4"
           initial={{ y: 20, opacity: 0 }}
