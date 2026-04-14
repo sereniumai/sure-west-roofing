@@ -89,11 +89,18 @@ export function ServicesGrid({
                 }`}
               >
                 {active === i && (
-                  <motion.div
-                    layoutId="activeServiceTab"
-                    className="absolute inset-0 bg-white rounded-xl shadow-sm"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
+                  <>
+                    <motion.div
+                      layoutId="activeServiceTab"
+                      className="absolute inset-0 bg-white rounded-xl shadow-sm"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                    <motion.div
+                      layoutId="activeServiceAccent"
+                      className="absolute bottom-0 left-3 right-3 h-[2px] bg-[#D6AE60] rounded-full"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  </>
                 )}
                 <span className="relative z-10">{service.title}</span>
               </button>
@@ -101,9 +108,9 @@ export function ServicesGrid({
           </div>
 
           {/* Showcase area */}
-          <div className="grid grid-cols-12 gap-5 items-stretch min-h-[460px]">
+          <div className="grid grid-cols-12 gap-5 items-stretch min-h-[520px]">
             {/* Image side */}
-            <div className="col-span-7 relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
+            <div className="col-span-8 relative rounded-2xl overflow-hidden shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -125,10 +132,11 @@ export function ServicesGrid({
                   )}
                 </motion.div>
               </AnimatePresence>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Content side */}
-            <div className="col-span-5 bg-[#F8F8F8] rounded-2xl p-8 lg:p-10 flex flex-col justify-center border border-[#EBEBEB]">
+            <div className="col-span-4 bg-[#1B2540] rounded-2xl p-8 lg:p-10 flex flex-col justify-center shadow-[0_8px_40px_rgba(0,0,0,0.12)]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -137,10 +145,10 @@ export function ServicesGrid({
                   exit={{ opacity: 0, y: -15 }}
                   transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <h3 className="font-display font-extrabold text-2xl lg:text-3xl text-dark tracking-tight leading-tight mb-3">
+                  <h3 className="font-display font-extrabold text-2xl lg:text-3xl text-white tracking-tight leading-tight mb-3">
                     {current.title}
                   </h3>
-                  <p className="font-body text-body-text text-base leading-relaxed mb-6">
+                  <p className="font-body text-white/70 text-base leading-relaxed mb-6">
                     {current.description}
                   </p>
 
@@ -152,7 +160,7 @@ export function ServicesGrid({
                           <div className="w-5 h-5 rounded-full bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                             <Check className="w-3 h-3 text-[#D6AE60]" />
                           </div>
-                          <span className="font-body text-sm text-body-text leading-relaxed">{feature}</span>
+                          <span className="font-body text-sm text-white/70 leading-relaxed">{feature}</span>
                         </li>
                       ))}
                     </ul>
