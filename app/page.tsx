@@ -81,7 +81,7 @@ export default function HomePage() {
             href: '/roof-replacement-cochrane',
             description:
               "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather. Free inspection included.",
-            image: '/images/Cochrane Roof Replacement.jpg',
+            image: '/images/Cochrane Roof by Sure West Roofing.webp',
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
               quote:
