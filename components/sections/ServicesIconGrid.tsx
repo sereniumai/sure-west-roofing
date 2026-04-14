@@ -22,10 +22,7 @@ interface ServicesIconGridProps {
 
 export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, services }: ServicesIconGridProps) {
   const [active, setActive] = useState(0)
-  const activeIndex = active < 0 ? 0 : active
-  const activeService = services[activeIndex]
-  const activeNum = String(activeIndex + 1).padStart(2, '0')
-  const totalNum = String(services.length).padStart(2, '0')
+  const featured = services[0]
 
   return (
     <section
@@ -78,11 +75,10 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
       </motion.div>
 
       {/* Editorial accordion layout */}
-      <div className="relative grid grid-cols-1 md:grid-cols-[1fr_minmax(0,520px)] gap-6 md:gap-12 items-start max-w-[1280px] mx-auto">
+      <div className="relative grid grid-cols-1 md:grid-cols-[1fr_minmax(0,520px)] gap-6 md:gap-12 items-stretch max-w-[1280px] mx-auto">
         {/* ── Accordion column ─────────────────────────── */}
-        <div className="flex flex-col bg-[#EBEBEB] p-4 md:p-7">
+        <div className="flex flex-col">
           {services.map((service, i) => {
-            const num = String(i + 1).padStart(2, '0')
             const isActive = active === i
             return (
               <div
@@ -102,25 +98,9 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                   type="button"
                   onClick={() => setActive(isActive ? -1 : i)}
                   onMouseEnter={() => setActive(i)}
-                  className="w-full flex items-center gap-4 md:gap-6 py-4 md:py-5 text-left group pl-3 md:pl-5 pr-1"
+                  className="w-full flex items-center gap-4 md:gap-6 py-5 md:py-6 text-left group pl-3 md:pl-5 pr-1"
                   aria-expanded={isActive}
                 >
-                  {/* Index */}
-                  <span
-                    className={`font-display font-semibold tabular-nums transition-colors duration-300 ${
-                      isActive
-                        ? 'text-[#B8943F]'
-                        : 'text-[--color-near-black]/40 group-hover:text-[--color-near-black]/70'
-                    }`}
-                    style={{
-                      fontSize: '12px',
-                      letterSpacing: '0.18em',
-                      minWidth: '28px',
-                    }}
-                  >
-                    {num}
-                  </span>
-
                   {/* Title */}
                   <h3
                     className={`flex-1 font-display font-semibold uppercase leading-[0.95] transition-colors duration-300 ${
@@ -129,7 +109,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                         : 'text-[--color-near-black]/50 group-hover:text-[--color-near-black]/85'
                     }`}
                     style={{
-                      fontSize: 'clamp(18px, 2vw, 26px)',
+                      fontSize: 'clamp(22px, 2.6vw, 34px)',
                       letterSpacing: '-0.025em',
                     }}
                   >
@@ -171,7 +151,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] as const }}
                       className="overflow-hidden"
                     >
-                      <div className="pb-6 md:pb-7 pl-3 md:pl-[60px] pr-4 md:pr-6">
+                      <div className="pb-6 md:pb-7 pl-3 md:pl-5 pr-4 md:pr-6">
                         {/* Mobile image preview */}
                         <div className="md:hidden relative aspect-[16/10] overflow-hidden mb-5">
                           <img
@@ -220,40 +200,14 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
           })}
         </div>
 
-        {/* ── Synced image panel (desktop) ───────────── */}
-        <div className="hidden md:block sticky top-[120px]">
-          {/* Caption strip above image */}
-          <div className="flex items-center justify-between mb-4">
-            <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[--color-near-black]/55">
-              <span className="inline-block w-5 h-px bg-[--color-near-black]/30" />
-              Now viewing
-            </span>
-            <span
-              className="font-display font-semibold tabular-nums text-[--color-near-black]/55"
-              style={{ fontSize: '13px', letterSpacing: '0.18em' }}
-            >
-              <span className="text-[#B8943F]">{activeNum}</span>
-              <span className="mx-1.5">/</span>
-              {totalNum}
-            </span>
-          </div>
-
-          {/* Clean image frame */}
-          <div className="relative aspect-[4/5] overflow-hidden bg-black">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={activeService?.image ?? 'fallback'}
-                src={activeService?.image}
-                alt={activeService?.imageAlt ?? ''}
-                className="absolute inset-0 w-full h-full object-cover"
-                initial={{ opacity: 0, scale: 1.07 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
-                draggable={false}
-              />
-            </AnimatePresence>
-          </div>
+        {/* ── Static image panel (desktop) — matches accordion height ───────────── */}
+        <div className="hidden md:block relative overflow-hidden bg-black">
+          <img
+            src={featured?.image}
+            alt={featured?.imageAlt ?? ''}
+            className="absolute inset-0 w-full h-full object-cover"
+            draggable={false}
+          />
         </div>
       </div>
     </section>
