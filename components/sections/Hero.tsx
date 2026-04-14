@@ -124,7 +124,7 @@ export function Hero({
         </div>
 
         <p
-          className="leading-relaxed font-medium max-w-[420px] text-left text-[15px] md:text-[18px]"
+          className="leading-relaxed font-medium max-w-[420px] lg:max-w-[560px] text-left text-[15px] md:text-[18px]"
           style={{
             color: 'var(--color-near-black)',
             fontFamily: "'Inter', system-ui, sans-serif",
