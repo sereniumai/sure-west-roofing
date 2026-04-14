@@ -80,7 +80,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
       {/* Editorial accordion layout */}
       <div className="relative grid grid-cols-1 md:grid-cols-[1fr_minmax(0,520px)] gap-6 md:gap-12 items-start max-w-[1280px] mx-auto">
         {/* ── Accordion column ─────────────────────────── */}
-        <div className="flex flex-col bg-[#EDE8E1] p-4 md:p-7">
+        <div className="flex flex-col bg-[#EBEBEB] p-4 md:p-7">
           {services.map((service, i) => {
             const num = String(i + 1).padStart(2, '0')
             const isActive = active === i

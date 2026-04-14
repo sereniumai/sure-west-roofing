@@ -74,7 +74,7 @@ export function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         scrolled
-          ? 'bg-[rgba(237,232,225,0.9)] backdrop-blur-[12px] border-b'
+          ? 'bg-[rgba(235,235,235,0.9)] backdrop-blur-[12px] border-b'
           : 'bg-transparent border-b border-transparent'
       }`}
       style={{ height: 'var(--nav-height)', borderColor: scrolled ? 'var(--color-border)' : 'transparent' }}
