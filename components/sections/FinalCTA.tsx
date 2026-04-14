@@ -46,11 +46,11 @@ export function FinalCTA() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <h2 className="font-display font-semibold uppercase text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight leading-[0.95] text-white">
+          <h2 className="font-display font-semibold uppercase text-4xl md:text-5xl lg:text-6xl xl:text-[80px] tracking-[-0.04em] leading-[0.95] text-white">
             You Click, We Climb.{' '}
             <span className="text-[#D4AF60]">Deal?</span>
           </h2>
-          <p className="font-body text-white/50 text-lg leading-relaxed mt-6 max-w-2xl mx-auto">
+          <p className="font-body text-white/50 text-lg font-normal leading-relaxed mt-6 max-w-2xl mx-auto">
             Book your free roof inspection today. No pressure, no obligation,
             just an honest assessment from a certified Cochrane roofing contractor.
           </p>
