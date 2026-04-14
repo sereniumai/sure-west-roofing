@@ -36,9 +36,7 @@ export function ServicesIconGrid({ heading, services }: ServicesIconGridProps) {
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
       >
         <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.18em] text-[--color-near-black] mb-6">
-          <span className="w-[10px] h-[10px] bg-[#D4AF60] inline-block" />
           Our Services
-          <span className="w-[10px] h-[10px] bg-[#D4AF60] inline-block" />
         </span>
         <h2
           className="font-display font-semibold uppercase leading-[0.9] max-w-[1000px]"
