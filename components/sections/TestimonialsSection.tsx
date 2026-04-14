@@ -22,7 +22,7 @@ export function TestimonialsSection({
   const cards = testimonials.slice(0, 3)
 
   return (
-    <section className="bg-[#1A1A1A] py-20 lg:py-28">
+    <section className="bg-black py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <motion.div

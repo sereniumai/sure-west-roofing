@@ -32,7 +32,7 @@ interface WhyChooseUsProps {
 
 export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
   return (
-    <section className="bg-white py-16 lg:py-24">
+    <section className="bg-[#FFFCFC] py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Heading */}
         <motion.div

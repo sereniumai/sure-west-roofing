@@ -19,13 +19,13 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-[#1A1A1A] text-white hover:bg-[#333333] active:bg-[#111]',
+    'bg-black text-white hover:bg-[#222222] active:bg-[#111]',
   secondary:
     'bg-[#D4AF60] text-white hover:bg-[#B8943F] active:bg-[#C2410C]',
   ghost:
     'bg-transparent text-white border border-white/40 hover:bg-white hover:text-[#1A1A1A]',
   outline:
-    'bg-transparent text-[#1A1A1A] border-2 border-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white',
+    'bg-transparent text-black border-2 border-black hover:bg-black hover:text-white',
 }
 
 const sizeStyles: Record<ButtonSize, string> = {

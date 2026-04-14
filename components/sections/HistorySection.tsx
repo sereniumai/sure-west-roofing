@@ -10,7 +10,7 @@ interface HistorySectionProps {
 
 export function HistorySection({ heading, body, since }: HistorySectionProps) {
   return (
-    <section className="bg-[#F5F5F5] py-16 lg:py-24 overflow-hidden">
+    <section className="bg-black py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left — Large heading */}
@@ -23,7 +23,7 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
             <span className="section-label text-[#D4AF60] mb-4 block">
               Our Story
             </span>
-            <h2 className="font-display font-semibold uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-[#1A1A1A] mt-4">
+            <h2 className="font-display font-semibold uppercase text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[0.95] text-white mt-4">
               {heading}
             </h2>
           </motion.div>
@@ -35,10 +35,10 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p className="font-body text-[#666] text-base lg:text-lg leading-relaxed">
+            <p className="font-body text-white/60 text-base lg:text-lg leading-relaxed">
               {body}
             </p>
-            <div className="mt-6 pt-6 border-t border-[#E5E5E5]">
+            <div className="mt-6 pt-6 border-t border-white/10">
               <span className="font-display font-semibold text-[#D4AF60] text-sm uppercase tracking-wider">
                 Proudly serving since {since}
               </span>
