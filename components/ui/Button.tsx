@@ -18,7 +18,7 @@ interface ButtonProps {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    'bg-[--color-near-black] text-[--color-warm-white] hover:opacity-85',
+    'bg-[--color-accent] text-[--color-near-black] hover:opacity-85',
   secondary:
     'bg-[--color-accent] text-[--color-near-black] hover:opacity-85',
   ghost:
@@ -28,9 +28,9 @@ const variantStyles: Record<ButtonVariant, string> = {
 }
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: 'h-[40px] px-[16px] text-[11px]',
-  md: 'h-[47px] px-[19px] text-[--text-label]',
-  lg: 'h-[52px] px-[24px] text-[13px]',
+  sm: 'h-[44px] px-[18px] text-[14px]',
+  md: 'h-[50px] px-[22px] text-[15px]',
+  lg: 'h-[56px] px-[26px] text-[16px]',
 }
 
 export function Button({

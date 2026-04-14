@@ -122,7 +122,7 @@ export function Nav() {
               >
                 <Link
                   href={link.href}
-                  className={`flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
+                  className={`flex items-center gap-1.5 text-[16px] font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
                 >
                   {link.label}
                   <ChevronDown
@@ -184,7 +184,7 @@ export function Nav() {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
+                className={`text-[16px] font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
               >
                 {link.label}
               </Link>
