@@ -58,12 +58,13 @@ export function ParallaxImageStrip({
       className="relative bg-black overflow-visible"
       style={{ height: '306px' }}
     >
-      {/* Overflow container — capped to video's native 1280px width, centered */}
+      {/* Overflow container — crops top/bottom, inset from edges */}
       <div
-        className="absolute overflow-hidden left-1/2 -translate-x-1/2"
+        className="absolute overflow-hidden"
         style={{
           top: '-100px',
-          width: 'min(1280px, calc(100% - 100px))',
+          left: 'var(--section-pad-x)',
+          width: 'calc(100% - 100px)',
           height: '565px',
         }}
       >
