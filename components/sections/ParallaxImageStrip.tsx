@@ -7,14 +7,12 @@ interface ParallaxImageStripProps {
   src: string
   alt: string
   video?: string
-  poster?: string
 }
 
 export function ParallaxImageStrip({
   src,
   alt,
   video,
-  poster,
 }: ParallaxImageStripProps) {
   const ref = useRef<HTMLDivElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
@@ -80,14 +78,13 @@ export function ParallaxImageStrip({
             <video
               ref={videoRef}
               src={video}
-              poster={poster ?? src}
               autoPlay
               muted
               loop
               playsInline
               preload="auto"
               aria-label={alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover bg-black"
               style={{
                 objectPosition: 'center 30%',
                 transition: 'opacity 120ms linear',
