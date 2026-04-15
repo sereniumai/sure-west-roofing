@@ -25,56 +25,57 @@ const serviceAreas = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-[--color-black] overflow-hidden isolate">
-      {/* Background image */}
+    <footer className="relative bg-white overflow-hidden isolate">
+      {/* Background image, desaturated to gray */}
       <Image
         src="/images/Cochrane Roofers Footer.avif"
         alt=""
         fill
         priority={false}
         sizes="100vw"
-        className="object-cover object-center opacity-40 pointer-events-none select-none"
+        className="object-cover object-center pointer-events-none select-none"
+        style={{ filter: 'grayscale(100%) contrast(0.95)', opacity: 0.22 }}
         aria-hidden="true"
       />
-      {/* Dark gradient overlay for legibility */}
+      {/* Soft white gradient overlay for legibility */}
       <div
         aria-hidden="true"
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.72) 55%, rgba(0,0,0,0.92) 100%)',
+            'linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.78) 55%, rgba(255,255,255,0.92) 100%)',
         }}
       />
       {/* Content wrapper on top */}
       <div className="relative z-10">
       {/* Contact info bar */}
-      <div className="border-b border-white/10">
+      <div className="border-b border-[--color-near-black]/10">
         <div className="py-8" style={{ padding: '32px var(--section-pad-x)' }}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
-              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
                 Phone
               </h4>
-              <p className="font-body text-white/70 text-sm">Call for a free estimate</p>
+              <p className="font-body text-[--color-near-black]/75 text-sm">Call for a free estimate</p>
             </div>
             <div>
-              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
                 Email
               </h4>
-              <p className="font-body text-white/70 text-sm">info@surewestroofing.ca</p>
+              <p className="font-body text-[--color-near-black]/75 text-sm">info@surewestroofing.ca</p>
             </div>
             <div>
-              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
                 Address
               </h4>
-              <p className="font-body text-white/70 text-sm">Cochrane, AB, Canada</p>
+              <p className="font-body text-[--color-near-black]/75 text-sm">Cochrane, AB, Canada</p>
             </div>
             <div>
-              <h4 className="font-body text-[#D4AF60] text-xs font-semibold uppercase tracking-wider mb-2">
+              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
                 Opening Hours
               </h4>
-              <p className="font-body text-white/70 text-sm">Mon to Sat: 8:00am - 6:00pm</p>
-              <p className="font-body text-white/40 text-sm">Sun: Closed</p>
+              <p className="font-body text-[--color-near-black]/75 text-sm">Mon to Sat: 8:00am - 6:00pm</p>
+              <p className="font-body text-[--color-near-black]/45 text-sm">Sun: Closed</p>
             </div>
           </div>
         </div>
@@ -84,13 +85,13 @@ export function Footer() {
       <div className="py-16 lg:py-24" style={{ padding: '64px var(--section-pad-x)' }}>
         <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
           {/* Big brand name */}
-          <h2 className="font-display font-semibold text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-white leading-[0.85] tracking-tighter">
+          <h2 className="font-display font-semibold text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-[--color-near-black] leading-[0.85] tracking-tighter">
             Sure West
           </h2>
 
           {/* Tagline */}
           <div className="lg:max-w-xs lg:text-right">
-            <p className="font-body text-white/50 text-sm leading-relaxed">
+            <p className="font-body text-[--color-near-black]/55 text-sm leading-relaxed">
               Roofs built to last.
               <br />
               Service built on trust.
@@ -104,23 +105,23 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-[--color-near-black]/10">
         <div className="py-6 flex flex-col sm:flex-row justify-between items-center gap-4" style={{ padding: '24px var(--section-pad-x)' }}>
           <div className="flex items-center gap-6">
             <Link
               href="/about"
-              className="font-body text-xs text-white/40 hover:text-white/70 transition-colors"
+              className="font-body text-xs text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               href="/about"
-              className="font-body text-xs text-white/40 hover:text-white/70 transition-colors"
+              className="font-body text-xs text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors"
             >
               Terms
             </Link>
           </div>
-          <p className="font-body text-xs text-white/30">
+          <p className="font-body text-xs text-[--color-near-black]/40">
             &copy; 2026 Sure West Roofing. All Rights Reserved. Red Seal Certified.
           </p>
         </div>
