@@ -1,7 +1,8 @@
 'use client'
 
-import { useRef, useEffect, useCallback } from 'react'
-import { motion } from 'framer-motion'
+import { useRef, useEffect, useCallback, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface PortfolioImage {
@@ -10,21 +11,43 @@ interface PortfolioImage {
 }
 
 interface PortfolioCarouselProps {
-  heading: string
+  heading?: string
   images: PortfolioImage[]
 }
 
-// Arc shape tuning — applied per-card based on its distance from the
-// viewport center. Pure 2D transforms, no CSS 3D. Cards lean INWARD
-// toward the focal center (rotation sign is negated against t).
-const ARC_ROTATE_DEG = 14        // max tilt at the extremes, inward
-const ARC_TRANSLATE_Y = 28       // subtle quadratic drop at the edges
-const ARC_SCALE_MIN = 0.88       // gentle foreshortening at the edges
-const DRAG_MULTIPLIER = 1.5
-const MOMENTUM_MIN = 4
-const MOMENTUM_SCALE = 16
+// Rotating metadata so repeated photos still read as distinct projects.
+const PROJECT_META: Array<{
+  type: string
+  location: string
+  year: string
+  scope: string
+}> = [
+  { type: 'Complete Replacement', location: 'Cochrane, AB', year: "'24", scope: '2,400 sq ft · Architectural Shingle' },
+  { type: 'Hail Damage Restoration', location: 'Calgary, AB', year: "'24", scope: 'Insurance · Full Tear-off' },
+  { type: 'Roof Inspection', location: 'Canmore, AB', year: "'24", scope: 'Pre-sale · Red Seal Certified' },
+  { type: 'Skylight Installation', location: 'Cochrane, AB', year: "'24", scope: 'VELUX · Flashing + Reseal' },
+  { type: 'Emergency Repair', location: 'Cochrane, AB', year: "'23", scope: 'Storm Response · 6 hr turnaround' },
+  { type: 'Cedar to Asphalt', location: 'Calgary, AB', year: "'23", scope: '3,100 sq ft · Malarkey Legacy' },
+  { type: 'Roof Maintenance', location: 'Cochrane, AB', year: "'24", scope: 'Annual Service · 10-point check' },
+]
 
-export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
+// Arc tuning
+const ARC_ROTATE_DEG = 10
+const ARC_TRANSLATE_Y = 30
+const ARC_SCALE_MIN = 0.86
+const FOCAL_THRESHOLD = 0.12
+const DRAG_MULTIPLIER = 1.4
+const MOMENTUM_MIN = 4
+const MOMENTUM_SCALE = 18
+const LOOP_COPIES = 3 // triple the strip so we can silently reset into the middle copy
+
+interface CardData extends PortfolioImage {
+  meta: (typeof PROJECT_META)[number]
+  projectNumber: string
+  realIndex: number // 0..realCount-1, stable across loop copies
+}
+
+export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
 
@@ -34,9 +57,23 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
   const lastX = useRef(0)
   const velocity = useRef(0)
   const rafId = useRef<number | null>(null)
+  const scrollEndTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  // Pad out short image pools so the track is dense
-  const cards = images.length >= 10 ? images : Array.from({ length: 12 }, (_, i) => images[i % images.length])
+  const [activeRealIndex, setActiveRealIndex] = useState(0)
+
+  // Build the real card list, then clone it LOOP_COPIES times so the
+  // strip can loop silently by jumping between equivalent positions.
+  const realCount = Math.max(images.length, 7)
+  const realCards: CardData[] = Array.from({ length: realCount }, (_, i) => ({
+    ...images[i % images.length],
+    meta: PROJECT_META[i % PROJECT_META.length],
+    projectNumber: String(i + 1).padStart(2, '0'),
+    realIndex: i,
+  }))
+  const loopedCards: CardData[] = Array.from(
+    { length: realCount * LOOP_COPIES },
+    (_, i) => realCards[i % realCount]
+  )
 
   const updateArcTransforms = useCallback(() => {
     const track = trackRef.current
@@ -48,25 +85,41 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
     const halfWidth = wrapperRect.width / 2
 
     const items = track.children
+    let bestT = Infinity
+    let bestRealIndex = 0
+
     for (let i = 0; i < items.length; i++) {
       const el = items[i] as HTMLElement
       const rect = el.getBoundingClientRect()
       const cardCenter = rect.left + rect.width / 2
-      // Normalize: -1 at left edge, 0 at center, 1 at right edge
-      const t = Math.max(-1.2, Math.min(1.2, (cardCenter - viewportCenter) / halfWidth))
+      const t = Math.max(
+        -1.25,
+        Math.min(1.25, (cardCenter - viewportCenter) / halfWidth)
+      )
 
-      // Negative sign so cards LEAN INWARD toward the focal center.
-      // A card at t = -0.8 (left of center) rotates +11.2deg → its top
-      // tilts rightward, toward the middle of the arc. Books on a shelf.
+      if (Math.abs(t) < bestT) {
+        bestT = Math.abs(t)
+        bestRealIndex = i % realCount
+      }
+
       const rot = -t * ARC_ROTATE_DEG
-      const dy = (t * t) * ARC_TRANSLATE_Y
-      const scale = 1 - Math.abs(t) * (1 - ARC_SCALE_MIN)
+      const dy = t * t * ARC_TRANSLATE_Y
+      const baseScale = 1 - Math.abs(t) * (1 - ARC_SCALE_MIN)
 
-      el.style.transform = `translateY(${dy.toFixed(2)}px) rotate(${rot.toFixed(2)}deg) scale(${scale.toFixed(3)})`
-      // Center cards paint on top so edge cards tuck behind cleanly
+      const focal = Math.max(0, 1 - Math.abs(t) / FOCAL_THRESHOLD)
+      const scale = baseScale + focal * 0.06
+      const lift = focal * -14
+
+      const saturate = 0.78 + (1 - Math.abs(t)) * 0.22
+      const brightness = 0.9 + (1 - Math.abs(t)) * 0.1
+
+      el.style.transform = `translateY(${(dy + lift).toFixed(2)}px) rotate(${rot.toFixed(2)}deg) scale(${scale.toFixed(3)})`
+      el.style.filter = `saturate(${saturate.toFixed(3)}) brightness(${brightness.toFixed(3)})`
       el.style.zIndex = String(Math.round(100 - Math.abs(t) * 50))
     }
-  }, [])
+
+    setActiveRealIndex(bestRealIndex)
+  }, [realCount])
 
   const scheduleUpdate = useCallback(() => {
     if (rafId.current) return
@@ -76,20 +129,107 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
     })
   }, [updateArcTransforms])
 
+  // Silently jump the strip back into the middle copy if we've drifted
+  // into the outer copies. Runs on scroll-end (not mid-scroll) so it
+  // doesn't interfere with user interaction.
+  const checkLoopReset = useCallback(() => {
+    const track = trackRef.current
+    if (!track) return
+    if (isDragging.current) return
+
+    const setWidth = track.scrollWidth / LOOP_COPIES
+    const sl = track.scrollLeft
+
+    // Keep the visible range inside the middle copy [setWidth, 2*setWidth]
+    if (sl < setWidth * 0.5) {
+      track.style.scrollBehavior = 'auto'
+      track.scrollLeft = sl + setWidth
+      requestAnimationFrame(() => {
+        if (trackRef.current) trackRef.current.style.scrollBehavior = 'smooth'
+        scheduleUpdate()
+      })
+    } else if (sl > setWidth * (LOOP_COPIES - 0.5)) {
+      track.style.scrollBehavior = 'auto'
+      track.scrollLeft = sl - setWidth
+      requestAnimationFrame(() => {
+        if (trackRef.current) trackRef.current.style.scrollBehavior = 'smooth'
+        scheduleUpdate()
+      })
+    }
+  }, [scheduleUpdate])
+
+  // Scroll to a specific real index, choosing the nearest copy so we
+  // never have to traverse the whole strip.
+  const snapToReal = useCallback(
+    (realIdx: number, smooth = true) => {
+      const track = trackRef.current
+      const wrapper = wrapperRef.current
+      if (!track || !wrapper) return
+
+      const wrapperRect = wrapper.getBoundingClientRect()
+      const viewportCenter = wrapperRect.left + wrapperRect.width / 2
+
+      // Find the copy of realIdx whose card is closest to the current center
+      let bestEl: HTMLElement | null = null
+      let bestDist = Infinity
+      for (let i = 0; i < track.children.length; i++) {
+        if (i % realCount !== realIdx) continue
+        const el = track.children[i] as HTMLElement
+        const rect = el.getBoundingClientRect()
+        const c = rect.left + rect.width / 2
+        const d = Math.abs(c - viewportCenter)
+        if (d < bestDist) {
+          bestDist = d
+          bestEl = el
+        }
+      }
+      if (!bestEl) return
+
+      const targetRect = bestEl.getBoundingClientRect()
+      const targetCenter = targetRect.left + targetRect.width / 2
+      const delta = targetCenter - viewportCenter
+
+      track.style.scrollBehavior = smooth ? 'smooth' : 'auto'
+      track.scrollLeft += delta
+    },
+    [realCount]
+  )
+
+  const handleNav = useCallback(
+    (dir: 1 | -1) => {
+      const next = (activeRealIndex + dir + realCount) % realCount
+      snapToReal(next)
+    },
+    [activeRealIndex, realCount, snapToReal]
+  )
+
   useEffect(() => {
     const track = trackRef.current
     if (!track) return
 
-    // Initial centering: scroll to middle of the track so users can drag either way
+    // Start in the middle of the looped strip so you can drag either
+    // direction without hitting an edge.
     const centerScroll = () => {
-      const mid = (track.scrollWidth - track.clientWidth) / 2
-      track.scrollLeft = mid
-      updateArcTransforms()
+      const setWidth = track.scrollWidth / LOOP_COPIES
+      track.style.scrollBehavior = 'auto'
+      track.scrollLeft = setWidth + (track.clientWidth) * 0 // middle copy start
+      // Update to land on the first card of the middle copy
+      requestAnimationFrame(() => {
+        if (trackRef.current) trackRef.current.style.scrollBehavior = 'smooth'
+        updateArcTransforms()
+      })
     }
 
     centerScroll()
 
-    const onScroll = () => scheduleUpdate()
+    const onScroll = () => {
+      scheduleUpdate()
+      if (scrollEndTimer.current) clearTimeout(scrollEndTimer.current)
+      scrollEndTimer.current = setTimeout(() => {
+        checkLoopReset()
+      }, 140)
+    }
+
     const onResize = () => {
       centerScroll()
       scheduleUpdate()
@@ -146,14 +286,27 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
       track.removeEventListener('pointercancel', onPointerUp)
       track.removeEventListener('pointerleave', onPointerUp)
       if (rafId.current) cancelAnimationFrame(rafId.current)
+      if (scrollEndTimer.current) clearTimeout(scrollEndTimer.current)
     }
-  }, [scheduleUpdate, updateArcTransforms])
+  }, [checkLoopReset, scheduleUpdate, updateArcTransforms])
+
+  const activeCard = realCards[activeRealIndex]
 
   return (
     <section
-      className="bg-[#F8F8F8] overflow-hidden relative"
+      className="relative overflow-hidden bg-[#F6F5F1]"
       style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
     >
+      {/* Subtle paper-grain texture */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.55]"
+        style={{
+          background:
+            'radial-gradient(1200px 600px at 20% 10%, rgba(212,175,96,0.08), transparent 60%), radial-gradient(900px 500px at 85% 85%, rgba(26,22,18,0.05), transparent 60%)',
+        }}
+      />
+
       {/* Centered header */}
       <motion.div
         className="relative flex flex-col items-center text-center"
@@ -166,94 +319,192 @@ export function PortfolioCarousel({ heading, images }: PortfolioCarouselProps) {
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
       >
-        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#B8943F] mb-6">
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
-          Our Portfolio
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
+        {/* Chip-style eyebrow, matches the hero credential pills */}
+        <span
+          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
+          style={{
+            background: 'rgba(0,0,0,0.04)',
+            color: 'var(--color-near-black)',
+          }}
+        >
+          Our Work
         </span>
 
         <h2
-          className="font-display font-semibold leading-[1.02] text-[--color-near-black] max-w-[1000px]"
+          className="font-display font-semibold leading-[1.05] text-[--color-near-black] max-w-[980px]"
           style={{
-            fontSize: 'clamp(34px, 5vw, 72px)',
-            letterSpacing: '-0.04em',
+            fontSize: 'clamp(30px, 4.2vw, 60px)',
+            letterSpacing: '-0.035em',
           }}
         >
-          {heading.split('\n').map((line, i) => (
-            <span key={i}>
-              {i > 0 && <br />}
-              {line}
-            </span>
-          ))}
+          Roofing Projects Completed Across Cochrane, Calgary &amp; Canmore
         </h2>
 
-        <div className="flex items-center gap-3 md:gap-4 mt-8 md:mt-10">
-          <Button
-            variant="primary"
-            size="md"
-            href="/services"
-            className="!bg-[--color-near-black] !text-white hover:!bg-black hover:!shadow-[0_10px_30px_-10px_rgba(0,0,0,0.55)]"
-          >
-            View Projects
-          </Button>
-          <Button
-            variant="primary"
-            size="md"
-            href="/gallery"
-            className="!bg-[--color-near-black] !text-white hover:!bg-black hover:!shadow-[0_10px_30px_-10px_rgba(0,0,0,0.55)]"
-          >
+        <p
+          className="mt-6 md:mt-7 max-w-[640px] text-[--color-near-black]/70 leading-[1.7]"
+          style={{
+            fontSize: '16px',
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontWeight: 400,
+          }}
+        >
+          Every roof in our gallery was completed by our in-house Red Seal Journeyman team. No subcontractors. No compromises.
+        </p>
+
+        <div className="flex items-center mt-8 md:mt-10">
+          <Button variant="primary" size="md" href="/gallery">
             View Gallery
           </Button>
         </div>
       </motion.div>
 
-      {/* Full-width 2D arc carousel */}
-      <div
-        ref={wrapperRef}
-        className="relative w-full mt-14 md:mt-24 overflow-hidden"
-      >
+      {/* Full-width looping arc carousel */}
+      <div ref={wrapperRef} className="relative w-full mt-14 md:mt-20 overflow-hidden">
         <div
           ref={trackRef}
-          className="relative flex items-end gap-5 md:gap-6 overflow-x-auto scrollbar-hide cursor-grab select-none touch-pan-y"
+          className="relative flex items-end gap-5 md:gap-7 overflow-x-auto scrollbar-hide cursor-grab select-none touch-pan-y"
           style={{
             scrollBehavior: 'smooth',
-            paddingTop: '40px',
-            paddingBottom: '90px',
+            paddingTop: '50px',
+            paddingBottom: '110px',
             paddingLeft: '42vw',
             paddingRight: '42vw',
             WebkitOverflowScrolling: 'touch',
           }}
         >
-          {cards.map((image, index) => (
-            <div
-              key={`${image.src}-${index}`}
-              className="relative flex-shrink-0 overflow-hidden rounded-[--radius-md]"
-              style={{
-                width: 'clamp(240px, 24vw, 320px)',
-                height: 'clamp(340px, 36vw, 460px)',
-                transformOrigin: '50% 95%',
-                willChange: 'transform',
-                boxShadow:
-                  '0 34px 48px -30px rgba(20,20,20,0.35), 0 12px 22px -14px rgba(20,20,20,0.18)',
-              }}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover pointer-events-none"
-                draggable={false}
-              />
-            </div>
-          ))}
+          {loopedCards.map((card, index) => {
+            const isActive = index % realCount === activeRealIndex
+            return (
+              <div
+                key={index}
+                className="group relative flex-shrink-0 rounded-[--radius-md]"
+                style={{
+                  width: 'clamp(260px, 25vw, 340px)',
+                  height: 'clamp(360px, 38vw, 480px)',
+                  transformOrigin: '50% 95%',
+                  willChange: 'transform, filter',
+                  boxShadow: isActive
+                    ? '0 40px 60px -30px rgba(20,20,20,0.45), 0 18px 28px -16px rgba(20,20,20,0.22), 0 0 0 1px rgba(212,175,96,0.6)'
+                    : '0 34px 48px -30px rgba(20,20,20,0.32), 0 12px 22px -14px rgba(20,20,20,0.16)',
+                  transition: 'box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
+                }}
+              >
+                <div className="absolute inset-0 overflow-hidden rounded-[--radius-md]">
+                  <img
+                    src={card.src}
+                    alt={card.alt}
+                    className="w-full h-full object-cover pointer-events-none"
+                    draggable={false}
+                  />
+
+                  <div
+                    className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
+                    style={{
+                      background:
+                        'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.7) 100%)',
+                    }}
+                  />
+
+                  <div className="absolute top-3 left-3 md:top-4 md:left-4">
+                    <span
+                      className="font-display text-[11px] font-bold uppercase tracking-[0.28em] text-white/85"
+                      style={{ textShadow: '0 1px 8px rgba(0,0,0,0.45)' }}
+                    >
+                      №{card.projectNumber}
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-x-0 bottom-0 p-4 md:p-5 text-white">
+                    <p
+                      className="text-[10.5px] font-body font-bold uppercase tracking-[0.22em] text-[#E9C98A] mb-1.5"
+                      style={{ textShadow: '0 1px 6px rgba(0,0,0,0.4)' }}
+                    >
+                      {card.meta.location} · {card.meta.year}
+                    </p>
+                    <p
+                      className="font-display font-semibold leading-[1.1] text-[17px] md:text-[19px]"
+                      style={{
+                        letterSpacing: '-0.02em',
+                        textShadow: '0 2px 12px rgba(0,0,0,0.45)',
+                      }}
+                    >
+                      {card.meta.type}
+                    </p>
+                  </div>
+                </div>
+
+                {!isActive && (
+                  <button
+                    type="button"
+                    onClick={() => snapToReal(card.realIndex)}
+                    aria-label={`View project ${card.projectNumber}: ${card.meta.type}`}
+                    className="absolute inset-0 rounded-[--radius-md] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF60]"
+                  />
+                )}
+              </div>
+            )
+          })}
         </div>
 
-        {/* DRAG pill indicator, bottom-center */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 pointer-events-none">
-          <div className="bg-[--color-near-black] text-white px-4 h-[36px] flex items-center gap-2 text-[11px] font-body font-bold uppercase tracking-[0.2em] rounded-[--radius-sm]">
-            <span aria-hidden="true" className="opacity-80 leading-none text-[13px]">&laquo;</span>
-            <span>Drag</span>
-            <span aria-hidden="true" className="opacity-80 leading-none text-[13px]">&raquo;</span>
+        {/* Navigation row */}
+        <div className="relative flex items-center justify-center gap-5 mt-4 md:mt-6">
+          <button
+            type="button"
+            onClick={() => handleNav(-1)}
+            aria-label="Previous project"
+            className="group/nav flex items-center justify-center w-11 h-11 rounded-full border border-[--color-near-black]/15 bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[--color-near-black] hover:border-transparent"
+          >
+            <ChevronLeft
+              className="w-5 h-5 text-[--color-near-black] transition-colors duration-300 group-hover/nav:text-white"
+              strokeWidth={2.2}
+            />
+          </button>
+
+          <div className="flex items-center gap-1.5 px-2">
+            {realCards.map((_, i) => {
+              const isOn = i === activeRealIndex
+              return (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => snapToReal(i)}
+                  aria-label={`Jump to project ${i + 1}`}
+                  className="relative h-[3px] rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  style={{
+                    width: isOn ? 28 : 14,
+                    backgroundColor: isOn ? '#1A1612' : 'rgba(26,22,18,0.18)',
+                  }}
+                />
+              )
+            })}
           </div>
+
+          <button
+            type="button"
+            onClick={() => handleNav(1)}
+            aria-label="Next project"
+            className="group/nav flex items-center justify-center w-11 h-11 rounded-full border border-[--color-near-black]/15 bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[--color-near-black] hover:border-transparent"
+          >
+            <ChevronRight
+              className="w-5 h-5 text-[--color-near-black] transition-colors duration-300 group-hover/nav:text-white"
+              strokeWidth={2.2}
+            />
+          </button>
+        </div>
+
+        <div className="relative mt-6 md:mt-8 px-5 flex justify-center min-h-[28px]">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={activeRealIndex}
+              initial={{ y: 8, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -8, opacity: 0 }}
+              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
+              className="text-[12px] md:text-[13px] font-body font-medium tracking-wide text-[--color-near-black]/60"
+            >
+              {activeCard?.meta.scope}
+            </motion.p>
+          </AnimatePresence>
         </div>
       </div>
     </section>
