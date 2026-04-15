@@ -1,7 +1,8 @@
 'use client'
 
+import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/Button'
+import { ArrowUpRight } from 'lucide-react'
 
 interface ServiceReview {
   quote: string
@@ -45,7 +46,7 @@ export function ServicesIconGrid({
     >
       {/* ── Header ───────────────────────────────────────────────── */}
       <motion.div
-        className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
+        className="relative flex flex-col items-center text-center mb-14 md:mb-20 max-w-[920px] mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -85,76 +86,95 @@ export function ServicesIconGrid({
         )}
       </motion.div>
 
-      {/* ── 3 x 2 service card grid ──────────────────────────────── */}
-      <ul className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-[1320px] mx-auto">
+      {/* ── Editorial service grid (no card chrome) ─────────────── */}
+      <ul className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 md:gap-x-8 gap-y-10 md:gap-y-14 max-w-[1320px] mx-auto">
         {services.map((service, i) => (
           <motion.li
             key={service.title}
-            className="group relative flex flex-col rounded-[--radius-lg] bg-white border border-[--color-near-black]/10 shadow-[0_10px_30px_-16px_rgba(26,22,18,0.18)] transition-all duration-400 ease-out hover:-translate-y-1 hover:shadow-[0_30px_60px_-24px_rgba(26,22,18,0.28)] hover:border-[#D4AF60]/40 overflow-hidden"
             initial={{ y: 24, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.55, delay: 0.05 + i * 0.06, ease: EASE_OUT }}
           >
-            {/* Image */}
-            <div className="relative aspect-[16/9] overflow-hidden bg-black">
-              <img
-                src={service.image}
-                alt={service.imageAlt}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
-                draggable={false}
-              />
-              {/* Soft bottom vignette into card body */}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-0 bottom-0 h-1/3"
-                style={{
-                  background:
-                    'linear-gradient(to bottom, transparent, rgba(0,0,0,0.25))',
-                }}
-              />
-              {/* Gold top rule that lights up on hover */}
-              <span
-                aria-hidden="true"
-                className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
-                style={{ background: 'var(--color-accent, #D4AF60)' }}
-              />
-            </div>
-
-            {/* Body */}
-            <div className="relative flex flex-col flex-1 p-4 md:p-5">
-              <h3
-                className="font-display font-semibold leading-[1.1] text-[--color-near-black] transition-colors duration-300 group-hover:text-[#B8943F]"
-                style={{
-                  fontSize: 'clamp(18px, 1.4vw, 22px)',
-                  letterSpacing: '-0.02em',
-                }}
-              >
-                {service.title}
-              </h3>
-
-              <p
-                className="mt-2 text-[--color-near-black]/70 leading-[1.6] flex-1"
-                style={{
-                  fontSize: '13.5px',
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontWeight: 400,
-                }}
-              >
-                {service.description}
-              </p>
-
-              <div className="mt-4">
-                <Button
-                  variant="primary"
-                  size="sm"
-                  href={service.href}
-                  className="w-full sm:w-auto"
-                >
-                  {service.title}
-                </Button>
+            <Link
+              href={service.href}
+              className="group block relative"
+              aria-label={service.title}
+            >
+              {/* Image */}
+              <div className="relative aspect-[16/10] overflow-hidden rounded-[--radius-md] bg-black">
+                <img
+                  src={service.image}
+                  alt={service.imageAlt}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                  draggable={false}
+                />
+                {/* Soft warm vignette */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+                  style={{
+                    background:
+                      'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 80%, rgba(0,0,0,0.35) 100%)',
+                  }}
+                />
               </div>
-            </div>
+
+              {/* Content */}
+              <div className="relative mt-5">
+                {/* Tiny gold index + arrow row */}
+                <div className="flex items-center justify-between text-[--color-near-black]/50">
+                  <span
+                    className="font-display font-semibold tabular-nums"
+                    style={{
+                      fontSize: '12px',
+                      color: 'var(--color-accent, #D4AF60)',
+                      letterSpacing: '0.08em',
+                    }}
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="inline-flex items-center justify-center w-9 h-9 rounded-full transition-all duration-400 ease-out translate-x-0 group-hover:translate-x-0 group-hover:bg-[--color-near-black] group-hover:text-white"
+                    style={{ background: 'rgba(26,22,18,0.06)' }}
+                  >
+                    <ArrowUpRight
+                      className="w-4 h-4 transition-transform duration-500 ease-out group-hover:rotate-0"
+                      strokeWidth={2}
+                    />
+                  </span>
+                </div>
+
+                {/* Title with gold underline on hover */}
+                <h3
+                  className="relative mt-3 font-display font-semibold leading-[1.05] text-[--color-near-black] inline-block"
+                  style={{
+                    fontSize: 'clamp(22px, 1.8vw, 28px)',
+                    letterSpacing: '-0.028em',
+                  }}
+                >
+                  <span>{service.title}</span>
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 right-0 -bottom-1 h-[2px] origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
+                    style={{ background: 'var(--color-accent, #D4AF60)' }}
+                  />
+                </h3>
+
+                <p
+                  className="mt-3 text-[--color-near-black]/65 leading-[1.65] max-w-[46ch]"
+                  style={{
+                    fontSize: '14px',
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontWeight: 400,
+                  }}
+                >
+                  {service.description}
+                </p>
+              </div>
+            </Link>
           </motion.li>
         ))}
       </ul>
