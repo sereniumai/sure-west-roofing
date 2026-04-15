@@ -1,7 +1,6 @@
 'use client'
 
-import { motion, useAnimationFrame } from 'framer-motion'
-import { useRef } from 'react'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
 interface PortfolioImage {
@@ -19,52 +18,29 @@ interface PortfolioCarouselProps {
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 // Slow + cinematic — the strip should feel like it's drifting, not racing.
 const MARQUEE_DURATION_SEC = 130
-// Centre vs. edge scaling. The card whose centre lines up with the viewport
-// centre renders at 1.0; cards at the viewport edge render at MIN_SCALE.
-const MIN_SCALE = 0.66
-const MIN_OPACITY = 0.5
+
+// ── Editorial rhythm ─────────────────────────────────────────────────
+// Instead of uniform tiles, cards rotate through a deterministic
+// pattern of three shapes (tall portrait / wide landscape / standard).
+// Combined with a subtle vertical baseline offset, the strip reads
+// like a curated gallery wall — coffee-table-book pacing, not a bar.
+type Shape = 'tall' | 'wide' | 'std'
+
+const RHYTHM: Shape[] = ['std', 'tall', 'wide', 'std', 'tall', 'std', 'wide', 'tall']
+// Vertical baseline offsets in px — small, just enough to break the
+// dead-flat alignment without making it feel disorganised.
+const Y_OFFSETS = [0, 14, -10, 6, -4, 12, -8, 2]
+
+const SHAPE_STYLES: Record<Shape, { width: string; height: string }> = {
+  tall: { width: 'clamp(220px, 21vw, 320px)', height: 'clamp(360px, 34vw, 500px)' },
+  wide: { width: 'clamp(360px, 34vw, 520px)', height: 'clamp(260px, 24vw, 360px)' },
+  std:  { width: 'clamp(280px, 26vw, 400px)', height: 'clamp(320px, 28vw, 420px)' },
+}
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
-  const N = images.length
   // Duplicate the source list so the marquee can translate -50% and seam back
   // onto an identical copy with no visible jump.
   const doubled = [...images, ...images]
-
-  // Per-card refs — we read each card's bounding rect every frame and write
-  // a `scale()` to its inner wrapper so the card closest to the viewport
-  // centre is biggest, falling off smoothly toward the edges.
-  const cardRefs = useRef<Array<HTMLDivElement | null>>([])
-
-  useAnimationFrame(() => {
-    if (typeof window === 'undefined') return
-    const vw = window.innerWidth
-    const centre = vw / 2
-    // Cards beyond ~half the viewport from centre clamp to MIN_SCALE.
-    const maxDist = vw * 0.5
-
-    // Read pass — collect every card's distance from centre.
-    const updates: Array<{ inner: HTMLElement; scale: number; opacity: number }> = []
-    for (const card of cardRefs.current) {
-      if (!card) continue
-      const inner = card.firstElementChild as HTMLElement | null
-      if (!inner) continue
-      const rect = card.getBoundingClientRect()
-      const cardCentre = rect.left + rect.width / 2
-      const dist = Math.abs(cardCentre - centre)
-      const t = Math.min(1, dist / maxDist)
-      // Smoothstep for a softer, more organic falloff than linear.
-      const eased = t * t * (3 - 2 * t)
-      const scale = 1 - eased * (1 - MIN_SCALE)
-      const opacity = 1 - eased * (1 - MIN_OPACITY)
-      updates.push({ inner, scale, opacity })
-    }
-
-    // Write pass — apply transforms in a single batch (avoids layout thrash).
-    for (const { inner, scale, opacity } of updates) {
-      inner.style.transform = `scale(${scale.toFixed(3)})`
-      inner.style.opacity = opacity.toFixed(3)
-    }
-  })
 
   return (
     <section
@@ -142,23 +118,29 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.2, ease: EASE_OUT }}
         >
+          {/* Generous track height so vertical offsets never clip */}
           <div
             className="flex items-center w-max sw-marquee-track"
             style={{
-              gap: 'clamp(16px, 1.6vw, 32px)',
+              gap: 'clamp(20px, 2vw, 36px)',
               animationDuration: `${MARQUEE_DURATION_SEC}s`,
+              paddingTop: '24px',
+              paddingBottom: '24px',
             }}
           >
-            {doubled.map((img, i) => (
-              <PhotoCard
-                key={i}
-                img={img}
-                refCb={(el) => {
-                  cardRefs.current[i] = el
-                }}
-                ariaHidden={i >= N /* second copy is decorative */}
-              />
-            ))}
+            {doubled.map((img, i) => {
+              const shape = RHYTHM[i % RHYTHM.length]
+              const yOffset = Y_OFFSETS[i % Y_OFFSETS.length]
+              return (
+                <PhotoCard
+                  key={i}
+                  img={img}
+                  shape={shape}
+                  yOffset={yOffset}
+                  ariaHidden={i >= images.length /* second copy is decorative */}
+                />
+              )
+            })}
           </div>
 
           {/* Edge fades — barely-there feather, just to soften the hard
@@ -236,32 +218,29 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
 // ── Single photo card ─────────────────────────────────────────────────
 interface PhotoCardProps {
   img: PortfolioImage
-  refCb?: (el: HTMLDivElement | null) => void
+  shape?: Shape
+  yOffset?: number
   mobile?: boolean
   ariaHidden?: boolean
 }
 
-function PhotoCard({ img, refCb, mobile, ariaHidden }: PhotoCardProps) {
-  // Uniform card size — the centre-emphasis effect comes from a runtime
-  // scale on the inner wrapper, not from a different rest size.
+function PhotoCard({ img, shape = 'std', yOffset = 0, mobile, ariaHidden }: PhotoCardProps) {
   const sizeStyle = mobile
     ? { width: 'min(70vw, 320px)', height: 'min(92vw, 420px)' }
-    : { width: 'clamp(240px, 23vw, 360px)', height: 'clamp(320px, 30vw, 440px)' }
+    : SHAPE_STYLES[shape]
 
   return (
     <div
-      ref={refCb}
       aria-hidden={ariaHidden || undefined}
       className={['relative flex-none', mobile ? 'snap-center' : ''].join(' ')}
-      style={sizeStyle}
+      style={{
+        ...sizeStyle,
+        transform: mobile ? undefined : `translateY(${yOffset}px)`,
+      }}
     >
-      {/* Inner wrapper — receives the centre-distance scale/opacity each
-          frame. Kept inside an outer slot so the marquee layout remains
-          uniform regardless of how the inner is currently scaled. */}
       <div
-        className="absolute inset-0 overflow-hidden rounded-[--radius-md] will-change-transform"
+        className="absolute inset-0 overflow-hidden rounded-[--radius-md]"
         style={{
-          transformOrigin: '50% 50%',
           boxShadow:
             '0 22px 38px -22px rgba(20,20,20,0.40), 0 10px 18px -12px rgba(20,20,20,0.18)',
         }}
