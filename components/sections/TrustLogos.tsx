@@ -13,8 +13,8 @@ const logos = [
     alt: 'BBB Accredited Business - Sure West Roofing Cochrane Alberta',
   },
   {
-    src: '/images/logos/Canada Roofing Standards.webp',
-    alt: 'Canada Roofing Standards certified - Sure West Roofing',
+    src: '/images/logos/WCB Roofing Contractors.webp',
+    alt: 'WCB covered roofing contractor - Sure West Roofing Cochrane Alberta',
   },
   {
     src: '/images/logos/Certified Residential Contractor.webp',
