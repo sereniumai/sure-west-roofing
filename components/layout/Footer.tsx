@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement-cochrane' },
@@ -24,7 +25,28 @@ const serviceAreas = [
 
 export function Footer() {
   return (
-    <footer className="bg-[--color-black]">
+    <footer className="relative bg-[--color-black] overflow-hidden isolate">
+      {/* Background image */}
+      <Image
+        src="/images/Cochrane Roofers Footer.avif"
+        alt=""
+        fill
+        priority={false}
+        sizes="100vw"
+        className="object-cover object-center opacity-40 pointer-events-none select-none"
+        aria-hidden="true"
+      />
+      {/* Dark gradient overlay for legibility */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(180deg, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.72) 55%, rgba(0,0,0,0.92) 100%)',
+        }}
+      />
+      {/* Content wrapper on top */}
+      <div className="relative z-10">
       {/* Contact info bar */}
       <div className="border-b border-white/10">
         <div className="py-8" style={{ padding: '32px var(--section-pad-x)' }}>
@@ -102,6 +124,7 @@ export function Footer() {
             &copy; 2026 Sure West Roofing. All Rights Reserved. Red Seal Certified.
           </p>
         </div>
+      </div>
       </div>
     </footer>
   )
