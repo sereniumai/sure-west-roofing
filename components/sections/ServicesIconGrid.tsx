@@ -1,8 +1,18 @@
 'use client'
 
+import { useRef, useState } from 'react'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
+import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
+import {
+  ArrowUpRight,
+  Hammer,
+  Wrench,
+  CloudHail,
+  ClipboardCheck,
+  ScanSearch,
+  Sun,
+  type LucideIcon,
+} from 'lucide-react'
 
 interface ServiceReview {
   quote: string
@@ -30,20 +40,38 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 type CardSize = 'feature' | 'secondary' | 'tertiary'
 
+// Map the service title to a Lucide icon. Falls back to Hammer for anything
+// new that isn't in this map.
+function iconFor(title: string): LucideIcon {
+  const key = title.toLowerCase()
+  if (key.includes('replacement')) return Hammer
+  if (key.includes('hail')) return CloudHail
+  if (key.includes('repair')) return Wrench
+  if (key.includes('maintenance')) return ClipboardCheck
+  if (key.includes('inspection')) return ScanSearch
+  if (key.includes('skylight')) return Sun
+  return Hammer
+}
+
 function ServiceTile({
   service,
   index,
   total,
   size,
   delay,
+  onHoverStart,
+  onHoverEnd,
 }: {
   service: ServiceCardItem
   index: number
   total: number
   size: CardSize
   delay: number
+  onHoverStart: (src: string, alt: string) => void
+  onHoverEnd: () => void
 }) {
   const isFeature = size === 'feature'
+  const Icon = iconFor(service.title)
 
   return (
     <motion.li
@@ -58,35 +86,32 @@ function ServiceTile({
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, delay, ease: EASE_OUT }}
+      onMouseEnter={() => onHoverStart(service.image, service.imageAlt)}
+      onMouseLeave={onHoverEnd}
     >
       <Link
         href={service.href}
         aria-label={service.title}
-        className="group relative block h-full w-full overflow-hidden rounded-[--radius-md] bg-black ring-1 ring-black/5 shadow-[0_10px_30px_-16px_rgba(26,22,18,0.25)] transition-all duration-500 ease-out hover:shadow-[0_30px_60px_-24px_rgba(26,22,18,0.38)]"
+        className="group relative block h-full w-full overflow-hidden rounded-[--radius-md] ring-1 ring-black/5 shadow-[0_10px_30px_-16px_rgba(26,22,18,0.25)] transition-all duration-500 ease-out hover:shadow-[0_30px_60px_-24px_rgba(26,22,18,0.38)]"
+        style={{
+          background:
+            'radial-gradient(120% 120% at 0% 0%, rgba(255,255,255,0.05), transparent 55%), linear-gradient(145deg, #1a1612 0%, #0f0d0a 100%)',
+        }}
       >
-        {/* Image */}
-        <img
-          src={service.image}
-          alt={service.imageAlt}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.07]"
-          draggable={false}
-        />
-
-        {/* Cinematic gradient */}
+        {/* Subtle warm grain */}
         <span
           aria-hidden="true"
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none opacity-[0.35]"
           style={{
-            background: isFeature
-              ? 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.05) 35%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.85) 100%)'
-              : 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0.65) 100%)',
+            background:
+              'radial-gradient(450px 200px at 20% 10%, rgba(212,175,96,0.12), transparent 60%), radial-gradient(350px 180px at 100% 100%, rgba(212,175,96,0.06), transparent 60%)',
           }}
         />
 
         {/* Gold index top-left */}
         <span
           aria-hidden="true"
-          className="absolute top-4 md:top-5 left-4 md:left-5 font-display font-semibold tabular-nums"
+          className="absolute top-4 md:top-5 left-4 md:left-5 font-display font-semibold tabular-nums z-10"
           style={{
             fontSize: isFeature ? '13px' : '12px',
             color: 'var(--color-accent, #D4AF60)',
@@ -100,7 +125,7 @@ function ServiceTile({
         {/* Arrow chip top-right */}
         <span
           aria-hidden="true"
-          className="absolute top-4 md:top-5 right-4 md:right-5 inline-flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full backdrop-blur-[6px] bg-white/15 text-white transition-all duration-400 ease-out group-hover:bg-[--color-accent] group-hover:text-[--color-near-black]"
+          className="absolute top-4 md:top-5 right-4 md:right-5 inline-flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full backdrop-blur-[6px] bg-white/10 text-white transition-all duration-400 ease-out group-hover:bg-[--color-accent] group-hover:text-[--color-near-black] z-10"
         >
           <ArrowUpRight
             className="w-4 h-4 md:w-[18px] md:h-[18px] transition-transform duration-400 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -108,7 +133,29 @@ function ServiceTile({
           />
         </span>
 
-        {/* Content */}
+        {/* Icon (big, centered, offset up so title can sit below) */}
+        <span
+          aria-hidden="true"
+          className={
+            isFeature
+              ? 'absolute left-6 md:left-9 top-1/2 -translate-y-[70%] transition-transform duration-500 ease-out group-hover:-translate-y-[80%]'
+              : 'absolute left-4 md:left-5 top-1/2 -translate-y-[80%] transition-transform duration-500 ease-out group-hover:-translate-y-[90%]'
+          }
+          style={{ color: 'var(--color-accent, #D4AF60)' }}
+        >
+          <Icon
+            className={
+              isFeature
+                ? 'w-14 h-14 md:w-[68px] md:h-[68px]'
+                : size === 'secondary'
+                  ? 'w-9 h-9 md:w-11 md:h-11'
+                  : 'w-8 h-8 md:w-10 md:h-10'
+            }
+            strokeWidth={1.5}
+          />
+        </span>
+
+        {/* Content bottom-left */}
         <div
           className={
             isFeature
@@ -117,7 +164,7 @@ function ServiceTile({
           }
         >
           <h3
-            className="font-display font-semibold leading-[1.02] transition-transform duration-500 ease-out"
+            className="font-display font-semibold leading-[1.02]"
             style={{
               fontSize: isFeature
                 ? 'clamp(30px, 3.2vw, 48px)'
@@ -130,7 +177,7 @@ function ServiceTile({
             {service.title}
           </h3>
 
-          {/* Gold underline slides in under the title on hover */}
+          {/* Gold underline */}
           <span
             aria-hidden="true"
             className="block h-[2px] mt-2 origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100"
@@ -142,7 +189,7 @@ function ServiceTile({
 
           {isFeature && (
             <p
-              className="mt-4 max-w-[540px] text-white/80 leading-[1.65]"
+              className="mt-4 max-w-[540px] text-white/75 leading-[1.65]"
               style={{
                 fontSize: '15px',
                 fontFamily: "'Inter', system-ui, sans-serif",
@@ -164,12 +211,29 @@ export function ServicesIconGrid({
   body,
   services,
 }: ServicesIconGridProps) {
-  // First service is the feature; next two are secondary; rest are tertiary.
   const sized: CardSize[] = services.map((_, i) => {
     if (i === 0) return 'feature'
     if (i <= 2) return 'secondary'
     return 'tertiary'
   })
+
+  // Cursor-following image preview
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const [hover, setHover] = useState<{ src: string; alt: string } | null>(null)
+
+  // Raw mouse coords, relative to the section
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+  // Slightly lagged / eased so the preview floats instead of snapping
+  const springX = useSpring(x, { stiffness: 220, damping: 22, mass: 0.5 })
+  const springY = useSpring(y, { stiffness: 220, damping: 22, mass: 0.5 })
+
+  function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (!sectionRef.current) return
+    const rect = sectionRef.current.getBoundingClientRect()
+    x.set(e.clientX - rect.left)
+    y.set(e.clientY - rect.top)
+  }
 
   return (
     <section
@@ -223,19 +287,63 @@ export function ServicesIconGrid({
         )}
       </motion.div>
 
-      {/* ── Bento-grid services ──────────────────────────────────── */}
-      <ul className="relative grid grid-cols-1 md:grid-cols-6 md:auto-rows-[180px] lg:auto-rows-[220px] gap-4 md:gap-5 max-w-[1320px] mx-auto">
-        {services.map((service, i) => (
-          <ServiceTile
-            key={service.title}
-            service={service}
-            index={i}
-            total={services.length}
-            size={sized[i]}
-            delay={0.05 + i * 0.06}
-          />
-        ))}
-      </ul>
+      {/* ── Bento-grid services with cursor-follow image reveal ─── */}
+      <div
+        ref={sectionRef}
+        onMouseMove={handleMouseMove}
+        className="relative max-w-[1320px] mx-auto"
+      >
+        <ul className="relative grid grid-cols-1 md:grid-cols-6 md:auto-rows-[180px] lg:auto-rows-[220px] gap-4 md:gap-5">
+          {services.map((service, i) => (
+            <ServiceTile
+              key={service.title}
+              service={service}
+              index={i}
+              total={services.length}
+              size={sized[i]}
+              delay={0.05 + i * 0.06}
+              onHoverStart={(src, alt) => setHover({ src, alt })}
+              onHoverEnd={() => setHover(null)}
+            />
+          ))}
+        </ul>
+
+        {/* Cursor-follow image preview */}
+        <AnimatePresence>
+          {hover && (
+            <motion.div
+              className="pointer-events-none absolute top-0 left-0 hidden md:block z-20"
+              style={{ x: springX, y: springY }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.25, ease: EASE_OUT }}
+            >
+              {/* translate so the image sits just below + right of the cursor */}
+              <div className="-translate-x-1/2 translate-y-6">
+                <div className="relative w-[300px] lg:w-[340px] aspect-[4/3] overflow-hidden rounded-[--radius-md] ring-1 ring-black/10 shadow-[0_30px_60px_-20px_rgba(26,22,18,0.55)]">
+                  <motion.img
+                    key={hover.src}
+                    src={hover.src}
+                    alt={hover.alt}
+                    className="absolute inset-0 w-full h-full object-cover"
+                    initial={{ scale: 1.06, opacity: 0.85 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.4, ease: EASE_OUT }}
+                    draggable={false}
+                  />
+                  {/* Gold rim */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-x-0 bottom-0 h-1"
+                    style={{ background: 'var(--color-accent, #D4AF60)' }}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   )
 }
