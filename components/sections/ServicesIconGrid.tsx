@@ -51,13 +51,11 @@ function iconFor(title: string): LucideIcon {
 
 function ServiceCard({
   service,
-  index,
   delay,
   onHoverStart,
   onHoverEnd,
 }: {
   service: ServiceCardItem
-  index: number
   delay: number
   onHoverStart: (s: ServiceCardItem) => void
   onHoverEnd: () => void
@@ -78,32 +76,22 @@ function ServiceCard({
         href={service.href}
         className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/8 bg-white p-7 md:p-8 shadow-[0_1px_2px_rgba(26,22,18,0.04),0_6px_20px_-10px_rgba(26,22,18,0.08)] transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-[3px] hover:border-[#D4AF60]/50 hover:shadow-[0_2px_4px_rgba(26,22,18,0.04),0_24px_48px_-20px_rgba(184,148,63,0.28)]"
       >
-        {/* Top meta row: number + thin rule */}
-        <div className="flex items-center justify-between mb-7">
+        {/* Icon tile — gold with dark glyph, matches site palette */}
+        <div className="mb-6">
           <span
             aria-hidden="true"
-            className="inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[#1A1612] transition-colors duration-500 ease-out group-hover:bg-[#D4AF60]"
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full transition-transform duration-500 ease-out group-hover:scale-105"
+            style={{
+              background: 'var(--color-accent, #D4AF60)',
+              boxShadow:
+                '0 6px 14px -8px rgba(184,148,63,0.5), inset 0 0 0 1px rgba(255,255,255,0.25)',
+            }}
           >
             <Icon
-              className="w-[22px] h-[22px] transition-colors duration-500 ease-out text-[#D4AF60] group-hover:text-[#1A1612]"
-              strokeWidth={1.6}
+              className="w-[17px] h-[17px] text-[--color-near-black]"
+              strokeWidth={1.85}
             />
           </span>
-
-          <div className="flex items-center gap-2">
-            <span
-              aria-hidden="true"
-              className="h-px w-6 bg-[--color-near-black]/15 transition-all duration-500 ease-out group-hover:w-10 group-hover:bg-[#D4AF60]"
-            />
-            <span
-              aria-hidden="true"
-              className="font-display font-semibold tabular-nums text-[11px] text-[--color-near-black]/40"
-              style={{ letterSpacing: '0.14em' }}
-            >
-              {String(index + 1).padStart(2, '0')}
-              <span className="text-[--color-near-black]/20"> / 06</span>
-            </span>
-          </div>
         </div>
 
         <h3
@@ -127,12 +115,12 @@ function ServiceCard({
           {service.description}
         </p>
 
-        {/* Refined text-link CTA */}
+        {/* Refined text-link CTA — uses service keyword */}
         <div className="mt-7 pt-5 border-t border-[--color-near-black]/8">
           <span className="inline-flex items-center gap-2 font-display font-semibold text-[13px] text-[--color-near-black] transition-colors duration-300 group-hover:text-[#B8943F]"
             style={{ letterSpacing: '0.02em' }}
           >
-            Learn more
+            {service.title}
             <span className="relative inline-flex items-center justify-center w-6 h-6 rounded-full bg-[--color-near-black]/5 transition-all duration-500 ease-out group-hover:bg-[#D4AF60] group-hover:scale-110">
               <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 ease-out group-hover:translate-x-[1px] group-hover:-translate-y-[1px]" strokeWidth={2.25} />
             </span>
@@ -227,7 +215,6 @@ export function ServicesIconGrid({
             <li key={service.title} className="h-full">
               <ServiceCard
                 service={service}
-                index={i}
                 delay={0.05 + i * 0.06}
                 onHoverStart={(s) => setHover(s)}
                 onHoverEnd={() => setHover(null)}
