@@ -27,8 +27,9 @@ export function PortfolioCarousel({
   images,
   fanCount,
 }: PortfolioCarouselProps) {
-  // Default to 7 cards, or fewer if we don't have that many images (clamp to odd).
-  const defaultCount = Math.min(7, images.length % 2 === 0 ? images.length - 1 : images.length)
+  // Default to 5 cards (2 on each side of centre), or fewer if we don't
+  // have that many images. Always clamped to an odd number.
+  const defaultCount = Math.min(5, images.length % 2 === 0 ? images.length - 1 : images.length)
   const count = fanCount ?? (defaultCount > 0 ? defaultCount : 1)
   const fanImages = images.slice(0, count).map((img) => img.src)
 
@@ -98,13 +99,13 @@ export function PortfolioCarousel({
              Full-bleed; outer cards are allowed to overflow the viewport
              edges — the section clips with overflow-x-clip. */}
         <motion.div
-          className="relative mt-12 md:mt-16 flex items-center justify-center w-screen left-1/2 -translate-x-1/2"
+          className="relative mt-12 md:mt-16 flex items-center justify-center max-w-[1320px] mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.15, ease: EASE_OUT }}
         >
-          <div className="scale-[0.55] sm:scale-75 md:scale-90 lg:scale-100 xl:scale-110 transition-transform">
+          <div className="scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
         </motion.div>
