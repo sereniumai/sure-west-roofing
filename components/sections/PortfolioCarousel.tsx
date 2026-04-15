@@ -93,13 +93,17 @@ export function PortfolioCarousel({
             Every roof in our gallery was completed by our in-house Red Seal
             Journeyman team. No subcontractors. No compromises.
           </p>
+
+          <div className="mt-8 md:mt-10">
+            <Button variant="primary" size="md" href="/gallery">
+              View Full Gallery
+            </Button>
+          </div>
         </motion.div>
 
-        {/* ── Wide fan reveal ──────────────────────────────────────────
-             Full-bleed; outer cards are allowed to overflow the viewport
-             edges — the section clips with overflow-x-clip. */}
+        {/* ── Wide fan reveal ─────────────────────────────────────────── */}
         <motion.div
-          className="relative mt-12 md:mt-16 flex items-center justify-center max-w-[1320px] mx-auto"
+          className="relative mt-6 md:mt-8 flex items-center justify-center max-w-[1320px] mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -108,23 +112,6 @@ export function PortfolioCarousel({
           <div className="scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
-        </motion.div>
-
-        {/* ── CTA ───────────────────────────────────────────────────── */}
-        <motion.div
-          className="mt-12 md:mt-16 flex justify-center"
-          style={{
-            paddingLeft: 'var(--section-pad-x)',
-            paddingRight: 'var(--section-pad-x)',
-          }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7, delay: 0.2, ease: EASE_OUT }}
-        >
-          <Button variant="primary" size="md" href="/gallery">
-            View Full Gallery
-          </Button>
         </motion.div>
       </div>
     </section>
