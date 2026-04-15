@@ -111,16 +111,16 @@ export function ParallaxImageStrip({
       className="relative overflow-visible z-[2]"
       style={{ height: '0px' }}
     >
-      {/* Overflow container -
-          mobile: native 16:9 with modest overlap into the hero above
-          desktop: fixed 720px cinematic letterbox */}
+      {/* Outer positioner — full-bleed absolute; inner caps at the Hero's
+          1320px container so the strip lines up with the headline above. */}
       <div
-        className="absolute overflow-hidden aspect-video md:aspect-auto top-[-80px] md:top-[-200px] h-auto md:h-[650px] rounded-[--radius-lg]"
+        className="absolute left-0 right-0 top-[-80px] md:top-[-200px] h-auto md:h-[650px]"
         style={{
-          left: 'var(--section-pad-x)',
-          width: 'calc(100% - 2 * var(--section-pad-x))',
+          paddingLeft: 'var(--section-pad-x)',
+          paddingRight: 'var(--section-pad-x)',
         }}
       >
+        <div className="relative mx-auto w-full max-w-[1320px] h-auto md:h-[650px] aspect-video md:aspect-auto overflow-hidden rounded-[--radius-lg]">
         <motion.div
           className="w-full h-full relative"
           style={{
@@ -181,6 +181,7 @@ export function ParallaxImageStrip({
             />
           )}
         </motion.div>
+        </div>
       </div>
     </section>
   )
