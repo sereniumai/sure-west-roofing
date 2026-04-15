@@ -1,8 +1,6 @@
 'use client'
 
-import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Play } from 'lucide-react'
 import { Accordian, type AccordianItem } from '@/components/ui/accordian'
 
 interface Pillar {
@@ -31,11 +29,8 @@ const pillars: Pillar[] = [
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 const VIMEO_ID = '917317949'
-const THUMBNAIL = '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'
 
 export function WhySureWest() {
-  const [playing, setPlaying] = useState(false)
-
   const accordianItems: AccordianItem[] = pillars.map((p, i) => ({
     id: p.id,
     title: p.title,
@@ -94,10 +89,10 @@ export function WhySureWest() {
 
           <h2
             id="why-sure-west-heading"
-            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 max-w-[620px]"
+            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 max-w-[720px]"
             style={{
-              fontSize: 'clamp(30px, 3.6vw, 52px)',
-              letterSpacing: '-0.035em',
+              fontSize: 'clamp(34px, 4.4vw, 64px)',
+              letterSpacing: '-0.04em',
             }}
           >
             Cochrane&apos;s Red Seal Certified<br />Roofing Contractor
@@ -136,54 +131,13 @@ export function WhySureWest() {
           transition={{ duration: 0.8, delay: 0.1, ease: EASE_OUT }}
         >
           <div className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] shadow-[0_30px_70px_-25px_rgba(26,22,18,0.45)] bg-black">
-            {playing ? (
-              <iframe
-                src={`https://player.vimeo.com/video/${VIMEO_ID}?autoplay=1&title=0&byline=0&portrait=0`}
-                className="absolute inset-0 w-full h-full border-0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Sure West Roofing - Cochrane, Alberta"
-              />
-            ) : (
-              <button
-                type="button"
-                onClick={() => setPlaying(true)}
-                aria-label="Play Sure West Roofing video"
-                className="group absolute inset-0 w-full h-full"
-              >
-                <img
-                  src={THUMBNAIL}
-                  alt="Sure West Roofing team on a Cochrane project"
-                  className="w-full h-full object-cover"
-                  draggable={false}
-                />
-                {/* Warm darken + vignette */}
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 transition-colors duration-500 group-hover:bg-black/30"
-                  style={{
-                    background:
-                      'linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 60%, rgba(0,0,0,0.4) 100%)',
-                  }}
-                />
-                {/* Gold play button */}
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  <span
-                    className="flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 shadow-[0_15px_40px_-10px_rgba(212,175,96,0.7)]"
-                    style={{
-                      width: '84px',
-                      height: '84px',
-                      background: 'var(--color-accent, #D4AF60)',
-                    }}
-                  >
-                    <Play className="w-8 h-8 text-white fill-white ml-1" />
-                  </span>
-                </span>
-              </button>
-            )}
+            <iframe
+              src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
+              className="absolute inset-0 w-full h-full border-0"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="Sure West Roofing - Cochrane, Alberta"
+            />
           </div>
 
           <p

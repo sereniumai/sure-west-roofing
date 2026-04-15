@@ -98,7 +98,7 @@ export function TrustLogos() {
                   alt={logo.alt}
                   width={260}
                   height={80}
-                  className="h-full w-auto object-contain grayscale opacity-70 transition-all duration-500 ease-out hover:grayscale-0 hover:opacity-100 hover:-translate-y-0.5 hover:scale-[1.04]"
+                  className="h-full w-auto object-contain opacity-85 transition-all duration-500 ease-out hover:opacity-100 hover:-translate-y-0.5 hover:scale-[1.04]"
                 />
               </li>
             ))}
