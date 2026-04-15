@@ -98,7 +98,7 @@ export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
       className="bg-white"
       style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1320px] mx-auto">
         {/* Heading */}
         <motion.div
           className="text-center mb-12 lg:mb-16"

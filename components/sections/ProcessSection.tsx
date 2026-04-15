@@ -25,7 +25,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
       className="bg-white overflow-hidden"
       style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-[1320px] mx-auto">
         {/* Header */}
         <motion.div
           className="text-center max-w-3xl mx-auto mb-14"

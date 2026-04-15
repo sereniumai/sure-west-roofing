@@ -52,9 +52,9 @@ export function PortfolioCarousel({
       />
 
       <div className="relative">
-        {/* ── Header ────────────────────────────────────────────────── */}
+        {/* ── Header (constrained to 1320px like other sections) ─────── */}
         <motion.div
-          className="flex flex-col items-center text-center"
+          className="flex flex-col items-center text-center max-w-[1320px] mx-auto"
           style={{
             paddingLeft: 'var(--section-pad-x)',
             paddingRight: 'var(--section-pad-x)',
