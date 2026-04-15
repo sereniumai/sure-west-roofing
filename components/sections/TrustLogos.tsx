@@ -39,9 +39,8 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 export function TrustLogos() {
   return (
     <section
-      className="bg-[#F8F8F8] border-b"
+      className="bg-white"
       style={{
-        borderColor: 'var(--color-border)',
         paddingTop: '56px',
         paddingBottom: '56px',
         paddingLeft: 'var(--section-pad-x)',
