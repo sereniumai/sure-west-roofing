@@ -59,7 +59,7 @@ export function Hero({
             key={label}
             className={`inline-flex items-center gap-2 px-3 md:px-4 h-8 md:h-9 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] ${hideOnMobile ? 'hidden md:inline-flex' : ''}`}
             style={{
-              background: 'rgba(212,175,96,0.12)',
+              background: 'rgba(0,0,0,0.04)',
               color: 'var(--color-accent, #D4AF60)',
             }}
             variants={itemVariants}
