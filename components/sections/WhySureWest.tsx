@@ -1,11 +1,19 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import {
+  Handshake,
+  Award,
+  ClipboardCheck,
+  MapPin,
+  type LucideIcon,
+} from 'lucide-react'
 
 interface Pillar {
   id: string
   title: string
   body: string
+  Icon: LucideIcon
 }
 
 const pillars: Pillar[] = [
@@ -13,21 +21,25 @@ const pillars: Pillar[] = [
     id: 'character',
     title: 'Character',
     body: 'Owner-operated and personally accountable. Deal directly with the owner from estimate to finish - no salespeople, no middlemen.',
+    Icon: Handshake,
   },
   {
     id: 'competency',
     title: 'Competency',
     body: 'Red Seal Journeyman certified. The highest credential in the Alberta roofing trade - few contractors can say that.',
+    Icon: Award,
   },
   {
     id: 'proven-processes',
     title: 'Proven Processes',
     body: 'Written quotes, clear timelines, and a 10-year workmanship guarantee in writing before a nail is driven.',
+    Icon: ClipboardCheck,
   },
   {
     id: 'local-roots',
     title: 'Local Roots',
     body: 'Born and based in Cochrane. We live where we work, so every roof we build is personal.',
+    Icon: MapPin,
   },
 ]
 
@@ -98,64 +110,62 @@ export function WhySureWest() {
         </motion.div>
 
         {/* ── Two-column: pillars left | video right ──────────────── */}
-        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,600px)] gap-12 lg:gap-20 items-start">
-          {/* LEFT: pillar cards (2 x 2 on md+, stacked on mobile) */}
+        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,500px)] gap-10 lg:gap-16 items-start">
+          {/* LEFT: pillar cards (2 x 2 on sm+, stacked on mobile) */}
           <motion.ul
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 auto-rows-fr"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
             transition={{ duration: 0.7, ease: EASE_OUT }}
           >
-            {pillars.map((p, i) => (
-              <motion.li
-                key={p.id}
-                className="group relative rounded-[--radius-md] border border-[--color-near-black]/10 bg-white/70 backdrop-blur-[2px] p-5 md:p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-20px_rgba(26,22,18,0.25)] hover:border-[--color-near-black]/15"
-                initial={{ y: 14, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.5, delay: 0.1 + i * 0.07, ease: EASE_OUT }}
-              >
-                {/* Gold top rule — lights up on hover */}
-                <span
-                  aria-hidden="true"
-                  className="absolute left-5 md:left-6 top-0 h-[2px] w-6 origin-left scale-x-75 transition-transform duration-500 group-hover:scale-x-100"
-                  style={{ background: 'var(--color-accent, #D4AF60)' }}
-                />
-                <div className="flex items-baseline gap-3">
+            {pillars.map((p, i) => {
+              const { Icon } = p
+              return (
+                <motion.li
+                  key={p.id}
+                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-6 md:p-7 shadow-[0_8px_20px_-12px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  initial={{ y: 14, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.07, ease: EASE_OUT }}
+                >
+                  {/* Icon in a gold-tinted tile */}
                   <span
-                    className="font-display font-semibold leading-none tabular-nums flex-shrink-0"
-                    style={{
-                      fontSize: '13px',
-                      color: 'var(--color-accent, #D4AF60)',
-                      letterSpacing: '0.05em',
-                    }}
                     aria-hidden="true"
+                    className="inline-flex items-center justify-center w-11 h-11 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
+                    style={{ background: 'rgba(212,175,96,0.12)' }}
                   >
-                    0{i + 1}
+                    <Icon
+                      className="w-5 h-5"
+                      style={{ color: 'var(--color-accent, #D4AF60)' }}
+                      strokeWidth={1.75}
+                    />
                   </span>
+
                   <h3
-                    className="font-display font-semibold leading-[1.1] text-[--color-near-black]"
+                    className="mt-5 font-display font-semibold leading-[1.1] text-[--color-near-black]"
                     style={{
-                      fontSize: '20px',
+                      fontSize: '22px',
                       letterSpacing: '-0.02em',
                     }}
                   >
                     {p.title}
                   </h3>
-                </div>
-                <p
-                  className="mt-3 text-[--color-near-black]/70 leading-[1.65]"
-                  style={{
-                    fontSize: '14.5px',
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 400,
-                  }}
-                >
-                  {p.body}
-                </p>
-              </motion.li>
-            ))}
+
+                  <p
+                    className="mt-2.5 text-[--color-near-black]/70 leading-[1.65]"
+                    style={{
+                      fontSize: '14.5px',
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {p.body}
+                  </p>
+                </motion.li>
+              )
+            })}
           </motion.ul>
 
           {/* RIGHT: video (sticky) */}
