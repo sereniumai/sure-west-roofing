@@ -1,29 +1,45 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check } from 'lucide-react'
+import {
+  Award,
+  Handshake,
+  ShieldCheck,
+  MapPin,
+  type LucideIcon,
+} from 'lucide-react'
 
 interface Pillar {
   id: string
   title: string
   body: string
+  Icon: LucideIcon
 }
 
 const pillars: Pillar[] = [
   {
-    id: 'character',
-    title: 'Character',
-    body: 'Owner-operated and personally accountable. Deal directly with the owner from estimate to finish.',
+    id: 'red-seal',
+    title: 'Red Seal Certified',
+    body: "Alberta's highest roofing credential. On every project.",
+    Icon: Award,
   },
   {
-    id: 'competency',
-    title: 'Competency',
-    body: 'Red Seal Journeyman certified - the highest credential in the Alberta roofing trade.',
+    id: 'owner-operated',
+    title: 'Owner On Every Job',
+    body: 'No salespeople. No middlemen. You deal with us.',
+    Icon: Handshake,
   },
   {
-    id: 'proven-processes',
-    title: 'Proven Processes',
-    body: 'Written quotes, clear timelines, and a 10-year workmanship guarantee in writing before a nail is driven.',
+    id: 'guarantee',
+    title: '10-Year Guarantee',
+    body: 'Workmanship in writing before a nail is driven.',
+    Icon: ShieldCheck,
+  },
+  {
+    id: 'local',
+    title: 'Local To Cochrane',
+    body: 'Born and based here. We live where we work.',
+    Icon: MapPin,
   },
 ]
 
@@ -53,7 +69,7 @@ export function WhySureWest() {
         }}
       />
 
-      <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,480px)_1fr] gap-10 lg:gap-20 items-center">
+      <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
         {/* ── Copy column (right on desktop) ────────────────────── */}
         <motion.div
           className="lg:order-2"
@@ -92,43 +108,54 @@ export function WhySureWest() {
             Here is what actually sets Sure West apart.
           </p>
 
-          {/* ── Bullet list ───────────────────────────────────────── */}
-          <ul className="mt-4 md:mt-5 space-y-4 md:space-y-5 max-w-[620px]">
-            {pillars.map((p, i) => (
-              <motion.li
-                key={p.id}
-                className="flex items-start gap-3"
-                initial={{ y: 10, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.45, delay: 0.12 + i * 0.07, ease: EASE_OUT }}
-              >
-                <span
-                  aria-hidden="true"
-                  className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full mt-0.5"
-                  style={{ background: 'rgba(212,175,96,0.15)' }}
+          {/* ── 2 x 2 card grid (short benefit titles) ───────────── */}
+          <ul className="mt-6 md:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-[620px]">
+            {pillars.map((p, i) => {
+              const { Icon } = p
+              return (
+                <motion.li
+                  key={p.id}
+                  className="group relative flex items-start gap-3 rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-4 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.45, delay: 0.12 + i * 0.07, ease: EASE_OUT }}
                 >
-                  <Check
-                    className="w-3.5 h-3.5"
-                    style={{ color: 'var(--color-accent, #D4AF60)' }}
-                    strokeWidth={2.5}
-                  />
-                </span>
-                <p
-                  className="text-[--color-near-black]/80 leading-[1.6]"
-                  style={{
-                    fontSize: '15px',
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 400,
-                  }}
-                >
-                  <span className="font-semibold text-[--color-near-black]">
-                    {p.title}.
-                  </span>{' '}
-                  {p.body}
-                </p>
-              </motion.li>
-            ))}
+                  <span
+                    aria-hidden="true"
+                    className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-[--radius-sm] mt-0.5 transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
+                    style={{ background: 'rgba(212,175,96,0.12)' }}
+                  >
+                    <Icon
+                      className="w-[18px] h-[18px]"
+                      style={{ color: 'var(--color-accent, #D4AF60)' }}
+                      strokeWidth={1.75}
+                    />
+                  </span>
+                  <div>
+                    <h3
+                      className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
+                      style={{
+                        fontSize: '16px',
+                        letterSpacing: '-0.01em',
+                      }}
+                    >
+                      {p.title}
+                    </h3>
+                    <p
+                      className="mt-1 text-[--color-near-black]/70 leading-[1.55]"
+                      style={{
+                        fontSize: '13px',
+                        fontFamily: "'Inter', system-ui, sans-serif",
+                        fontWeight: 400,
+                      }}
+                    >
+                      {p.body}
+                    </p>
+                  </div>
+                </motion.li>
+              )
+            })}
           </ul>
         </motion.div>
 
