@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/Button'
 interface PortfolioImage {
   src: string
   alt: string
+  /** CSS object-position for the <img> — use to nudge a specific photo's crop (e.g. "70% center"). Defaults to "center". */
+  objectPosition?: string
 }
 
 interface PortfolioCarouselProps {
@@ -372,6 +374,7 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
                     src={card.src}
                     alt={card.alt}
                     className="w-full h-full object-cover pointer-events-none"
+                    style={{ objectPosition: card.objectPosition ?? 'center' }}
                     draggable={false}
                   />
                 </div>
