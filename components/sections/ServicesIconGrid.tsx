@@ -86,7 +86,7 @@ export function ServicesIconGrid({
       </motion.div>
 
       {/* ── 3 x 2 service card grid ──────────────────────────────── */}
-      <ul className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 max-w-[1320px] mx-auto">
+      <ul className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 max-w-[1320px] mx-auto">
         {services.map((service, i) => (
           <motion.li
             key={service.title}
@@ -97,7 +97,7 @@ export function ServicesIconGrid({
             transition={{ duration: 0.55, delay: 0.05 + i * 0.06, ease: EASE_OUT }}
           >
             {/* Image */}
-            <div className="relative aspect-[4/3] overflow-hidden bg-black">
+            <div className="relative aspect-[16/9] overflow-hidden bg-black">
               <img
                 src={service.image}
                 alt={service.imageAlt}
@@ -122,11 +122,11 @@ export function ServicesIconGrid({
             </div>
 
             {/* Body */}
-            <div className="relative flex flex-col flex-1 p-5 md:p-6">
+            <div className="relative flex flex-col flex-1 p-4 md:p-5">
               <h3
                 className="font-display font-semibold leading-[1.1] text-[--color-near-black] transition-colors duration-300 group-hover:text-[#B8943F]"
                 style={{
-                  fontSize: 'clamp(20px, 1.7vw, 24px)',
+                  fontSize: 'clamp(18px, 1.4vw, 22px)',
                   letterSpacing: '-0.02em',
                 }}
               >
@@ -134,9 +134,9 @@ export function ServicesIconGrid({
               </h3>
 
               <p
-                className="mt-2.5 text-[--color-near-black]/70 leading-[1.65] flex-1"
+                className="mt-2 text-[--color-near-black]/70 leading-[1.6] flex-1"
                 style={{
-                  fontSize: '14px',
+                  fontSize: '13.5px',
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontWeight: 400,
                 }}
@@ -144,7 +144,7 @@ export function ServicesIconGrid({
                 {service.description}
               </p>
 
-              <div className="mt-5 md:mt-6">
+              <div className="mt-4">
                 <Button
                   variant="primary"
                   size="sm"
