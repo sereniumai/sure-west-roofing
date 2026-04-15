@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Play } from 'lucide-react'
 
 interface Pillar {
@@ -30,6 +30,7 @@ const THUMBNAIL = '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'
 
 export function WhySureWest() {
   const [playing, setPlaying] = useState(false)
+  const [open, setOpen] = useState(0)
 
   return (
     <section
@@ -91,51 +92,118 @@ export function WhySureWest() {
             Here is what actually sets Sure West apart.
           </p>
 
-          {/* ── Pillars ─────────────────────────────────────────────── */}
-          <ul className="mt-10 md:mt-12">
-            {pillars.map((p, i) => (
-              <motion.li
-                key={p.title}
-                className="relative border-t border-[--color-near-black]/10 pt-7 pb-7 first:border-t-0 first:pt-0"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-80px' }}
-                transition={{ duration: 0.6, delay: 0.15 + i * 0.08, ease: EASE_OUT }}
-              >
-                <div className="flex items-baseline gap-5">
-                  <span
-                    className="font-display font-semibold leading-none tabular-nums"
-                    style={{
-                      fontSize: '22px',
-                      color: 'var(--color-accent, #D4AF60)',
-                      letterSpacing: '-0.02em',
-                    }}
-                    aria-hidden="true"
-                  >
-                    0{i + 1}
-                  </span>
-                  <h3
-                    className="font-display font-semibold leading-[1.1] text-[--color-near-black]"
-                    style={{
-                      fontSize: 'clamp(22px, 2.1vw, 30px)',
-                      letterSpacing: '-0.028em',
-                    }}
-                  >
-                    {p.title}
-                  </h3>
-                </div>
-                <p
-                  className="mt-3 max-w-[560px] text-[--color-near-black]/70 leading-[1.7]"
-                  style={{
-                    fontSize: '15.5px',
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 400,
-                  }}
+          {/* ── Pillars accordion ───────────────────────────────────── */}
+          <ul className="mt-10 md:mt-12 border-b border-[--color-near-black]/10">
+            {pillars.map((p, i) => {
+              const isOpen = open === i
+              return (
+                <motion.li
+                  key={p.title}
+                  className="relative border-t border-[--color-near-black]/10"
+                  initial={{ y: 16, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: '-80px' }}
+                  transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease: EASE_OUT }}
                 >
-                  {p.body}
-                </p>
-              </motion.li>
-            ))}
+                  {/* Gold rail slides in when open */}
+                  <motion.span
+                    aria-hidden="true"
+                    className="absolute left-0 top-0 bottom-0 w-[2px] origin-top"
+                    style={{ background: 'var(--color-accent, #D4AF60)' }}
+                    initial={false}
+                    animate={{ scaleY: isOpen ? 1 : 0, opacity: isOpen ? 1 : 0 }}
+                    transition={{ duration: 0.45, ease: EASE_OUT }}
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? -1 : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`pillar-panel-${i}`}
+                    className="group w-full text-left flex items-baseline gap-5 py-6 md:py-7 pl-4 md:pl-5 pr-2"
+                  >
+                    <span
+                      className="font-display font-semibold leading-none tabular-nums flex-shrink-0"
+                      style={{
+                        fontSize: '22px',
+                        color: 'var(--color-accent, #D4AF60)',
+                        letterSpacing: '-0.02em',
+                      }}
+                      aria-hidden="true"
+                    >
+                      0{i + 1}
+                    </span>
+                    <motion.h3
+                      className="flex-1 font-display font-semibold leading-[1.1] transition-colors duration-300"
+                      style={{
+                        fontSize: 'clamp(22px, 2.1vw, 30px)',
+                        letterSpacing: '-0.028em',
+                        color: isOpen
+                          ? 'var(--color-near-black)'
+                          : 'rgba(26,22,18,0.55)',
+                      }}
+                      initial={false}
+                      animate={{ x: isOpen ? 4 : 0 }}
+                      transition={{ duration: 0.45, ease: EASE_OUT }}
+                    >
+                      {p.title}
+                    </motion.h3>
+
+                    {/* Caret */}
+                    <motion.span
+                      aria-hidden="true"
+                      className="flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
+                      style={{
+                        background: isOpen
+                          ? 'var(--color-accent, #D4AF60)'
+                          : 'rgba(26,22,18,0.06)',
+                      }}
+                      initial={false}
+                      animate={{ rotate: isOpen ? 45 : 0 }}
+                      transition={{ duration: 0.35, ease: EASE_OUT }}
+                    >
+                      <span
+                        className="block w-[11px] h-[1.5px]"
+                        style={{
+                          background: isOpen ? '#fff' : 'var(--color-near-black)',
+                        }}
+                      />
+                      <span
+                        className="absolute block w-[1.5px] h-[11px]"
+                        style={{
+                          background: isOpen ? '#fff' : 'var(--color-near-black)',
+                        }}
+                      />
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        id={`pillar-panel-${i}`}
+                        key="content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.4, ease: EASE_OUT }}
+                        className="overflow-hidden"
+                      >
+                        <p
+                          className="pl-12 md:pl-[52px] pr-2 pb-7 max-w-[580px] text-[--color-near-black]/70 leading-[1.7]"
+                          style={{
+                            fontSize: '15.5px',
+                            fontFamily: "'Inter', system-ui, sans-serif",
+                            fontWeight: 400,
+                          }}
+                        >
+                          {p.body}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.li>
+              )
+            })}
           </ul>
         </motion.div>
 
