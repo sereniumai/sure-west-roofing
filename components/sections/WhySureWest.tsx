@@ -20,25 +20,25 @@ const pillars: Pillar[] = [
   {
     id: 'red-seal',
     title: 'Red Seal Certified',
-    body: "Alberta's highest roofing credential. On every project.",
+    body: "Alberta's highest roofing credential. Earned through years of trade-tested work and held to the Interprovincial Standard on every project we deliver.",
     Icon: Award,
   },
   {
     id: 'owner-operated',
     title: 'Owner On Every Job',
-    body: 'No salespeople. No middlemen. You deal with us.',
+    body: 'No salespeople. No middlemen. You deal with the owner from the first estimate to the final walkthrough, and every decision in between.',
     Icon: Handshake,
   },
   {
     id: 'guarantee',
     title: '10-Year Guarantee',
-    body: 'Workmanship in writing before a nail is driven.',
+    body: 'Workmanship in writing before a nail is driven. If something is off, we come back and make it right - no fine print, no runaround.',
     Icon: ShieldCheck,
   },
   {
     id: 'local',
     title: 'Local To Cochrane',
-    body: 'Born and based here. We live where we work.',
+    body: "Born and based here. When your roof needs us, we are minutes away - not hours on a highway - and we are still here years after the job is done.",
     Icon: MapPin,
   },
 ]
@@ -69,10 +69,10 @@ export function WhySureWest() {
         }}
       />
 
-      <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        {/* ── Copy column (right on desktop) ────────────────────── */}
+      <div className="relative max-w-[1320px] mx-auto">
+        {/* ── Header: eyebrow + h2 + sub (full width, centred) ──── */}
         <motion.div
-          className="lg:order-2"
+          className="flex flex-col items-center text-center max-w-[920px] mx-auto"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -87,7 +87,7 @@ export function WhySureWest() {
 
           <h2
             id="why-sure-west-heading"
-            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 max-w-[640px]"
+            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7"
             style={{
               fontSize: 'clamp(30px, 3.8vw, 52px)',
               letterSpacing: '-0.035em',
@@ -96,22 +96,43 @@ export function WhySureWest() {
             Cochrane&apos;s Red Seal Certified<br />Roofing Contractor
           </h2>
 
-          {/* ── 2 x 2 card grid (short benefit titles) ───────────── */}
-          <ul className="mt-6 md:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-[620px]">
+          <p
+            className="mt-6 md:mt-7 max-w-[640px] text-[--color-near-black]/70 leading-[1.7]"
+            style={{
+              fontSize: '16px',
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontWeight: 400,
+            }}
+          >
+            Every roofing contractor in Cochrane says they are the best.
+            Here is what actually sets Sure West apart.
+          </p>
+        </motion.div>
+
+        {/* ── Two-column split: cards left, video right ─────────── */}
+        <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+          {/* LEFT: 2 x 2 cards, height matches the video */}
+          <motion.ul
+            className="grid h-full grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr"
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: EASE_OUT }}
+          >
             {pillars.map((p, i) => {
               const { Icon } = p
               return (
                 <motion.li
                   key={p.id}
-                  className="group relative flex items-start gap-3 rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-4 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
-                  initial={{ y: 10, opacity: 0 }}
+                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-5 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-60px' }}
-                  transition={{ duration: 0.45, delay: 0.12 + i * 0.07, ease: EASE_OUT }}
+                  transition={{ duration: 0.5, delay: 0.1 + i * 0.07, ease: EASE_OUT }}
                 >
                   <span
                     aria-hidden="true"
-                    className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-[--radius-sm] mt-0.5 transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
+                    className="inline-flex items-center justify-center w-9 h-9 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
                     style={{ background: 'rgba(212,175,96,0.12)' }}
                   >
                     <Icon
@@ -120,64 +141,64 @@ export function WhySureWest() {
                       strokeWidth={1.75}
                     />
                   </span>
-                  <div>
-                    <h3
-                      className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
-                      style={{
-                        fontSize: '16px',
-                        letterSpacing: '-0.01em',
-                      }}
-                    >
-                      {p.title}
-                    </h3>
-                    <p
-                      className="mt-1 text-[--color-near-black]/70 leading-[1.55]"
-                      style={{
-                        fontSize: '13px',
-                        fontFamily: "'Inter', system-ui, sans-serif",
-                        fontWeight: 400,
-                      }}
-                    >
-                      {p.body}
-                    </p>
-                  </div>
+
+                  <h3
+                    className="mt-4 font-display font-semibold leading-[1.15] text-[--color-near-black]"
+                    style={{
+                      fontSize: '18px',
+                      letterSpacing: '-0.015em',
+                    }}
+                  >
+                    {p.title}
+                  </h3>
+
+                  <p
+                    className="mt-2 text-[--color-near-black]/70 leading-[1.6]"
+                    style={{
+                      fontSize: '13.5px',
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontWeight: 400,
+                    }}
+                  >
+                    {p.body}
+                  </p>
                 </motion.li>
               )
             })}
-          </ul>
-        </motion.div>
+          </motion.ul>
 
-        {/* ── Video column (left on desktop) ─────────────────────── */}
-        <motion.div
-          className="lg:order-1 lg:self-center"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.8, delay: 0.1, ease: EASE_OUT }}
-        >
-          <div className="relative">
-            {/* Warm gold halo */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
-              style={{
-                background:
-                  'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
-                filter: 'blur(4px)',
-              }}
-            />
-
-            <div className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] bg-black shadow-[0_40px_90px_-30px_rgba(26,22,18,0.55),0_18px_40px_-18px_rgba(26,22,18,0.3)] ring-1 ring-black/5">
-              <iframe
-                src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
-                className="absolute inset-0 w-full h-full border-0"
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                title="Sure West Roofing - Cochrane, Alberta"
+          {/* RIGHT: video */}
+          <motion.div
+            className="lg:self-center"
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.8, delay: 0.1, ease: EASE_OUT }}
+          >
+            <div className="relative">
+              {/* Warm gold halo */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
+                style={{
+                  background:
+                    'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
+                  filter: 'blur(4px)',
+                }}
               />
+
+              <div className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] bg-black shadow-[0_40px_90px_-30px_rgba(26,22,18,0.55),0_18px_40px_-18px_rgba(26,22,18,0.3)] ring-1 ring-black/5">
+                <iframe
+                  src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
+                  className="absolute inset-0 w-full h-full border-0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  title="Sure West Roofing - Cochrane, Alberta"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
