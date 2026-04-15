@@ -15,24 +15,31 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// ── Static 3D arc tuning ─────────────────────────────────────────────
-// Concave cylinder: cards form a continuous photo wall wrapped around a
-// vertical-axis cylinder that curves AWAY from the viewer in the middle
-// and sweeps forward on the sides. Cards touch edge-to-edge (no gaps),
-// the strip bleeds past both sides of the viewport, and outer cards
-// rotate sharply — matches the Rooferio reference.
+// ── Static 3D cylinder tuning ────────────────────────────────────────
+// Cards lie on a vertical-axis cylinder whose axis sits BEHIND the
+// cards (away from the viewer). The viewer sees the convex front of
+// the cylinder: the centre card is closest to camera, side cards
+// curve backward, and each side card's inner edge tilts forward toward
+// the viewer — the Rooferio "panorama wrapped on a barrel" look.
 //
-// Touching condition: arc length per card ≈ card width.
+// Implementation borrows the GSAP-ring trick: each card uses
+//   transform-origin: 50% 50% -ARC_RADIUSpx  (pivot pushed behind card)
+//   transform: translate(-50%, -50%) rotateY(angle)
+// so a single rotateY sweeps the card along the cylinder. No sin/cos
+// math needed — the browser composes the rotation around the offset
+// origin.
+//
+// Touching condition (cards form a continuous wall, no gaps):
 //   ARC_RADIUS * sin(ARC_STEP_DEG_rad) ≈ CARD_WIDTH
-// At 8.5°, sin ≈ 0.148, so 1100 * 0.148 ≈ 163px per slot. Card width
-// is set just above this so cards meet seamlessly at the seams.
+// At 8.5°, 1100 * 0.148 ≈ 163px per slot; card width set just above
+// so seams meet cleanly.
 //
-// Edge bleed: outermost card (±9 from center for 19 images) sits at
-// ±76.5°, projecting to ±1100*sin(76.5°) ≈ ±1070px — well past a
-// 1400px viewport, so the cylinder runs off-screen on both sides.
+// Edge bleed: outermost card (±9 from centre for 19 images) sits at
+// ±76.5°, swung to x ≈ ±1070px — past a 1400px viewport, so the
+// cylinder runs off-screen on both sides.
 const ARC_RADIUS = 1100      // px — radius of the cylinder
 const ARC_STEP_DEG = 8.5     // degrees between adjacent cards (chosen so cards touch)
-const PERSPECTIVE_PX = 1100
+const PERSPECTIVE_PX = 1400
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   const n = images.length
@@ -123,9 +130,6 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
         >
           {images.map((card, i) => {
             const psiDeg = (i - center) * ARC_STEP_DEG
-            const psiRad = (psiDeg * Math.PI) / 180
-            const x = ARC_RADIUS * Math.sin(psiRad)
-            const z = ARC_RADIUS * (1 - Math.cos(psiRad))
             return (
               <div
                 key={i}
@@ -133,8 +137,8 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
                 style={{
                   width: 'clamp(140px, 14vw, 175px)',
                   height: 'clamp(240px, 24vw, 310px)',
-                  transform: `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, 0, ${z.toFixed(2)}px) rotateY(${psiDeg.toFixed(2)}deg)`,
-                  transformOrigin: '50% 50%',
+                  transform: `translate(-50%, -50%) rotateY(${psiDeg.toFixed(2)}deg)`,
+                  transformOrigin: `50% 50% -${ARC_RADIUS}px`,
                   transformStyle: 'preserve-3d',
                   backfaceVisibility: 'hidden',
                   overflow: 'hidden',
