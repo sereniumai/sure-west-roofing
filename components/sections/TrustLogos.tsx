@@ -48,12 +48,27 @@ export function TrustLogos() {
       }}
       aria-label="Certifications and industry accreditations"
     >
+      <motion.div
+        className="flex justify-center mb-10 md:mb-12"
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.6, ease: EASE_OUT }}
+      >
+        <span
+          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm]"
+          style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-near-black)' }}
+        >
+          Our Associations
+        </span>
+      </motion.div>
+
       <motion.ul
         className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14 lg:gap-x-12 max-w-[1320px] mx-auto"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.7, ease: EASE_OUT }}
+        transition={{ duration: 0.7, delay: 0.1, ease: EASE_OUT }}
       >
         {logos.map((logo) => (
           <li
