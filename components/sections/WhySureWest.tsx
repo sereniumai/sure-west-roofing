@@ -124,39 +124,40 @@ export function WhySureWest() {
               return (
                 <motion.li
                   key={p.id}
-                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-3.5 md:p-4 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-4 md:p-5 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
                   initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.5, delay: 0.1 + i * 0.07, ease: EASE_OUT }}
                 >
-                  {/* Icon in a gold-tinted tile */}
-                  <span
-                    aria-hidden="true"
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
-                    style={{ background: 'rgba(212,175,96,0.12)' }}
-                  >
-                    <Icon
-                      className="w-4 h-4"
-                      style={{ color: 'var(--color-accent, #D4AF60)' }}
-                      strokeWidth={1.75}
-                    />
-                  </span>
-
-                  <h3
-                    className="mt-2.5 font-display font-semibold leading-[1.1] text-[--color-near-black]"
-                    style={{
-                      fontSize: '16px',
-                      letterSpacing: '-0.02em',
-                    }}
-                  >
-                    {p.title}
-                  </h3>
+                  {/* Icon + Title inline */}
+                  <div className="flex items-center gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="inline-flex items-center justify-center w-9 h-9 flex-shrink-0 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
+                      style={{ background: 'rgba(212,175,96,0.12)' }}
+                    >
+                      <Icon
+                        className="w-[18px] h-[18px]"
+                        style={{ color: 'var(--color-accent, #D4AF60)' }}
+                        strokeWidth={1.75}
+                      />
+                    </span>
+                    <h3
+                      className="font-display font-semibold leading-[1.1] text-[--color-near-black]"
+                      style={{
+                        fontSize: '20px',
+                        letterSpacing: '-0.02em',
+                      }}
+                    >
+                      {p.title}
+                    </h3>
+                  </div>
 
                   <p
-                    className="mt-1.5 text-[--color-near-black]/70 leading-[1.55]"
+                    className="mt-3 text-[--color-near-black]/70 leading-[1.6]"
                     style={{
-                      fontSize: '12.5px',
+                      fontSize: '14px',
                       fontFamily: "'Inter', system-ui, sans-serif",
                       fontWeight: 400,
                     }}
