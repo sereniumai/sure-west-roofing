@@ -1,8 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useCallback, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 interface PortfolioImage {
@@ -17,270 +15,19 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// Cylinder tuning — concave arc, bowed AWAY from the viewer.
-// The centre cards recede into the distance; outer cards sit forward
-// (at z=0) and rotate their INNER edge back toward the arc's axis,
-// so the whole strip reads like a concave film-strip wrapped around
-// the viewer. Size falloff is handled automatically by perspective.
-const CYL_ROTATE_Y_DEG = 36    // max rotateY at the extremes
-const CYL_TRANSLATE_Z = 320    // how far the MIDDLE card is pushed back (px)
-const CYL_LIFT_Y = 8           // subtle upward tug on the sides (px)
-const PERSPECTIVE_PX = 1400
-const FOCAL_THRESHOLD = 0.12
-const DRAG_MULTIPLIER = 1.4
-const MOMENTUM_MIN = 4
-const MOMENTUM_SCALE = 18
-const LOOP_COPIES = 3 // triple the strip so we can silently reset into the middle copy
-
-interface CardData extends PortfolioImage {
-  realIndex: number // 0..realCount-1, stable across loop copies
-}
+// ── Static 3D arc tuning ─────────────────────────────────────────────
+// Concave cylinder: cards lie on an arc that curves AWAY from the viewer
+// in the middle and sweeps forward on the sides. Outer cards end up
+// closer to the camera (positive Z) so perspective makes them render
+// larger and their inner edges tilt toward us — matches the Rooferio
+// reference.
+const ARC_RADIUS = 800       // px — larger = wider spread + more depth
+const ARC_STEP_DEG = 5       // degrees between adjacent cards
+const PERSPECTIVE_PX = 900
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
-  const trackRef = useRef<HTMLDivElement>(null)
-  const wrapperRef = useRef<HTMLDivElement>(null)
-
-  const isDragging = useRef(false)
-  const startX = useRef(0)
-  const startScrollLeft = useRef(0)
-  const lastX = useRef(0)
-  const velocity = useRef(0)
-  const rafId = useRef<number | null>(null)
-  const scrollEndTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const [activeRealIndex, setActiveRealIndex] = useState(0)
-
-  // Build the real card list, then clone it LOOP_COPIES times so the
-  // strip can loop silently by jumping between equivalent positions.
-  const realCount = Math.max(images.length, 7)
-  const realCards: CardData[] = Array.from({ length: realCount }, (_, i) => ({
-    ...images[i % images.length],
-    realIndex: i,
-  }))
-  const loopedCards: CardData[] = Array.from(
-    { length: realCount * LOOP_COPIES },
-    (_, i) => realCards[i % realCount]
-  )
-
-  const updateArcTransforms = useCallback(() => {
-    const track = trackRef.current
-    const wrapper = wrapperRef.current
-    if (!track || !wrapper) return
-
-    const wrapperRect = wrapper.getBoundingClientRect()
-    const viewportCenter = wrapperRect.left + wrapperRect.width / 2
-    const halfWidth = wrapperRect.width / 2
-
-    const items = track.children
-    let bestT = Infinity
-    let bestRealIndex = 0
-
-    for (let i = 0; i < items.length; i++) {
-      const el = items[i] as HTMLElement
-      const rect = el.getBoundingClientRect()
-      const cardCenter = rect.left + rect.width / 2
-      const t = Math.max(
-        -1.25,
-        Math.min(1.25, (cardCenter - viewportCenter) / halfWidth)
-      )
-
-      if (Math.abs(t) < bestT) {
-        bestT = Math.abs(t)
-        bestRealIndex = i % realCount
-      }
-
-      // 3D concave cylinder: MIDDLE cards recede (negative Z), OUTER cards
-      // stay forward (z=0) and rotate their INNER edge back toward the axis.
-      // Perspective handles size falloff — no explicit scale needed.
-      const rotY = t * CYL_ROTATE_Y_DEG
-      const tz = -(1 - Math.abs(t)) * CYL_TRANSLATE_Z
-      const dy = -(t * t) * CYL_LIFT_Y
-
-      const focal = Math.max(0, 1 - Math.abs(t) / FOCAL_THRESHOLD)
-      const lift = focal * -4
-
-      // Centre cards sit in shadow / slightly desaturated so the outer
-      // "close" cards pop visually the way they do in the Rooferio ref.
-      const saturate = 0.85 + Math.abs(t) * 0.15
-      const brightness = 0.92 + Math.abs(t) * 0.08
-
-      el.style.transform = `translateY(${(dy + lift).toFixed(2)}px) translateZ(${tz.toFixed(2)}px) rotateY(${rotY.toFixed(2)}deg)`
-      el.style.filter = `saturate(${saturate.toFixed(3)}) brightness(${brightness.toFixed(3)})`
-      // Outer cards are closer → paint them on TOP of the recessed middle cards.
-      el.style.zIndex = String(Math.round(50 + Math.abs(t) * 50))
-    }
-
-    setActiveRealIndex(bestRealIndex)
-  }, [realCount])
-
-  const scheduleUpdate = useCallback(() => {
-    if (rafId.current) return
-    rafId.current = requestAnimationFrame(() => {
-      rafId.current = null
-      updateArcTransforms()
-    })
-  }, [updateArcTransforms])
-
-  // Silently jump the strip back into the middle copy if we've drifted
-  // into the outer copies. Runs on scroll-end (not mid-scroll) so it
-  // doesn't interfere with user interaction.
-  const checkLoopReset = useCallback(() => {
-    const track = trackRef.current
-    if (!track) return
-    if (isDragging.current) return
-
-    const setWidth = track.scrollWidth / LOOP_COPIES
-    const sl = track.scrollLeft
-
-    // Keep the visible range inside the middle copy [setWidth, 2*setWidth]
-    if (sl < setWidth * 0.5) {
-      track.style.scrollBehavior = 'auto'
-      track.scrollLeft = sl + setWidth
-      requestAnimationFrame(() => {
-        if (trackRef.current) trackRef.current.style.scrollBehavior = 'smooth'
-        scheduleUpdate()
-      })
-    } else if (sl > setWidth * (LOOP_COPIES - 0.5)) {
-      track.style.scrollBehavior = 'auto'
-      track.scrollLeft = sl - setWidth
-      requestAnimationFrame(() => {
-        if (trackRef.current) trackRef.current.style.scrollBehavior = 'smooth'
-        scheduleUpdate()
-      })
-    }
-  }, [scheduleUpdate])
-
-  // Scroll to a specific real index, choosing the nearest copy so we
-  // never have to traverse the whole strip.
-  const snapToReal = useCallback(
-    (realIdx: number, smooth = true) => {
-      const track = trackRef.current
-      const wrapper = wrapperRef.current
-      if (!track || !wrapper) return
-
-      const wrapperRect = wrapper.getBoundingClientRect()
-      const viewportCenter = wrapperRect.left + wrapperRect.width / 2
-
-      // Find the copy of realIdx whose card is closest to the current center
-      let bestEl: HTMLElement | null = null
-      let bestDist = Infinity
-      for (let i = 0; i < track.children.length; i++) {
-        if (i % realCount !== realIdx) continue
-        const el = track.children[i] as HTMLElement
-        const rect = el.getBoundingClientRect()
-        const c = rect.left + rect.width / 2
-        const d = Math.abs(c - viewportCenter)
-        if (d < bestDist) {
-          bestDist = d
-          bestEl = el
-        }
-      }
-      if (!bestEl) return
-
-      const targetRect = bestEl.getBoundingClientRect()
-      const targetCenter = targetRect.left + targetRect.width / 2
-      const delta = targetCenter - viewportCenter
-
-      track.style.scrollBehavior = smooth ? 'smooth' : 'auto'
-      track.scrollLeft += delta
-    },
-    [realCount]
-  )
-
-  const handleNav = useCallback(
-    (dir: 1 | -1) => {
-      const next = (activeRealIndex + dir + realCount) % realCount
-      snapToReal(next)
-    },
-    [activeRealIndex, realCount, snapToReal]
-  )
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    // Start in the middle of the looped strip so you can drag either
-    // direction without hitting an edge.
-    const centerScroll = () => {
-      const setWidth = track.scrollWidth / LOOP_COPIES
-      track.style.scrollBehavior = 'auto'
-      track.scrollLeft = setWidth + (track.clientWidth) * 0 // middle copy start
-      // Update to land on the first card of the middle copy
-      requestAnimationFrame(() => {
-        if (trackRef.current) trackRef.current.style.scrollBehavior = 'smooth'
-        updateArcTransforms()
-      })
-    }
-
-    centerScroll()
-
-    const onScroll = () => {
-      scheduleUpdate()
-      if (scrollEndTimer.current) clearTimeout(scrollEndTimer.current)
-      scrollEndTimer.current = setTimeout(() => {
-        checkLoopReset()
-      }, 140)
-    }
-
-    const onResize = () => {
-      centerScroll()
-      scheduleUpdate()
-    }
-
-    const onPointerDown = (e: PointerEvent) => {
-      isDragging.current = true
-      startX.current = e.pageX - track.offsetLeft
-      startScrollLeft.current = track.scrollLeft
-      lastX.current = e.pageX
-      velocity.current = 0
-      track.style.cursor = 'grabbing'
-      track.style.scrollBehavior = 'auto'
-      track.setPointerCapture?.(e.pointerId)
-    }
-
-    const onPointerMove = (e: PointerEvent) => {
-      if (!isDragging.current) return
-      e.preventDefault()
-      const x = e.pageX - track.offsetLeft
-      const walk = (x - startX.current) * DRAG_MULTIPLIER
-      velocity.current = e.pageX - lastX.current
-      lastX.current = e.pageX
-      track.scrollLeft = startScrollLeft.current - walk
-    }
-
-    const onPointerUp = (e: PointerEvent) => {
-      if (!isDragging.current) return
-      isDragging.current = false
-      track.style.cursor = 'grab'
-      track.style.scrollBehavior = 'smooth'
-      try {
-        track.releasePointerCapture?.(e.pointerId)
-      } catch {}
-      if (Math.abs(velocity.current) > MOMENTUM_MIN) {
-        track.scrollLeft -= velocity.current * MOMENTUM_SCALE
-      }
-    }
-
-    track.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onResize)
-    track.addEventListener('pointerdown', onPointerDown)
-    track.addEventListener('pointermove', onPointerMove)
-    track.addEventListener('pointerup', onPointerUp)
-    track.addEventListener('pointercancel', onPointerUp)
-    track.addEventListener('pointerleave', onPointerUp)
-
-    return () => {
-      track.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onResize)
-      track.removeEventListener('pointerdown', onPointerDown)
-      track.removeEventListener('pointermove', onPointerMove)
-      track.removeEventListener('pointerup', onPointerUp)
-      track.removeEventListener('pointercancel', onPointerUp)
-      track.removeEventListener('pointerleave', onPointerUp)
-      if (rafId.current) cancelAnimationFrame(rafId.current)
-      if (scrollEndTimer.current) clearTimeout(scrollEndTimer.current)
-    }
-  }, [checkLoopReset, scheduleUpdate, updateArcTransforms])
+  const n = images.length
+  const center = (n - 1) / 2
 
   return (
     <section
@@ -348,110 +95,55 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
         </div>
       </motion.div>
 
-      {/* Full-width looping arc carousel */}
-      <div ref={wrapperRef} className="relative w-full mt-14 md:mt-20 overflow-hidden">
+      {/* Static 3D concave arc of project photos. No scroll/drag yet —
+          get the layout correct first, then layer carousel on top. */}
+      <div
+        className="relative w-full mt-16 md:mt-24 overflow-hidden"
+        style={{
+          perspective: `${PERSPECTIVE_PX}px`,
+          perspectiveOrigin: '50% 50%',
+        }}
+      >
         <div
-          ref={trackRef}
-          className="relative flex items-end gap-5 md:gap-7 overflow-x-auto scrollbar-hide cursor-grab select-none touch-pan-y"
+          className="relative mx-auto"
           style={{
-            scrollBehavior: 'smooth',
-            paddingTop: '50px',
-            paddingBottom: '110px',
-            paddingLeft: '42vw',
-            paddingRight: '42vw',
-            WebkitOverflowScrolling: 'touch',
-            perspective: `${PERSPECTIVE_PX}px`,
-            perspectiveOrigin: '50% 50%',
+            width: '100%',
+            height: 'clamp(320px, 34vw, 460px)',
+            transformStyle: 'preserve-3d',
           }}
         >
-          {loopedCards.map((card, index) => {
-            const isActive = index % realCount === activeRealIndex
+          {images.map((card, i) => {
+            const psiDeg = (i - center) * ARC_STEP_DEG
+            const psiRad = (psiDeg * Math.PI) / 180
+            const x = ARC_RADIUS * Math.sin(psiRad)
+            const z = ARC_RADIUS * (1 - Math.cos(psiRad))
             return (
               <div
-                key={index}
-                className="group relative flex-shrink-0 rounded-[--radius-md]"
+                key={i}
+                className="absolute left-1/2 top-1/2 rounded-[--radius-md]"
                 style={{
-                  width: 'clamp(260px, 25vw, 340px)',
-                  height: 'clamp(360px, 38vw, 480px)',
+                  width: 'clamp(170px, 17vw, 230px)',
+                  height: 'clamp(260px, 26vw, 350px)',
+                  transform: `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, 0, ${z.toFixed(2)}px) rotateY(${psiDeg.toFixed(2)}deg)`,
                   transformOrigin: '50% 50%',
                   transformStyle: 'preserve-3d',
                   backfaceVisibility: 'hidden',
-                  willChange: 'transform, filter',
-                  boxShadow: isActive
-                    ? '0 40px 60px -30px rgba(20,20,20,0.45), 0 18px 28px -16px rgba(20,20,20,0.22), 0 0 0 1px rgba(212,175,96,0.6)'
-                    : '0 34px 48px -30px rgba(20,20,20,0.32), 0 12px 22px -14px rgba(20,20,20,0.16)',
-                  transition: 'box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
+                  overflow: 'hidden',
+                  boxShadow:
+                    '0 30px 50px -20px rgba(20,20,20,0.45), 0 12px 22px -14px rgba(20,20,20,0.22)',
                 }}
               >
-                <div className="absolute inset-0 overflow-hidden rounded-[--radius-md]">
-                  <img
-                    src={card.src}
-                    alt={card.alt}
-                    className="w-full h-full object-cover pointer-events-none"
-                    style={{ objectPosition: card.objectPosition ?? 'center' }}
-                    draggable={false}
-                  />
-                </div>
-
-                {!isActive && (
-                  <button
-                    type="button"
-                    onClick={() => snapToReal(card.realIndex)}
-                    aria-label={`View project ${card.realIndex + 1}`}
-                    className="absolute inset-0 rounded-[--radius-md] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF60]"
-                  />
-                )}
+                <img
+                  src={card.src}
+                  alt={card.alt}
+                  className="w-full h-full object-cover pointer-events-none select-none"
+                  style={{ objectPosition: card.objectPosition ?? 'center' }}
+                  draggable={false}
+                />
               </div>
             )
           })}
         </div>
-
-        {/* Navigation row */}
-        <div className="relative flex items-center justify-center gap-5 mt-4 md:mt-6">
-          <button
-            type="button"
-            onClick={() => handleNav(-1)}
-            aria-label="Previous project"
-            className="group/nav flex items-center justify-center w-11 h-11 rounded-full border border-[--color-near-black]/15 bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[--color-near-black] hover:border-transparent"
-          >
-            <ChevronLeft
-              className="w-5 h-5 text-[--color-near-black] transition-colors duration-300 group-hover/nav:text-white"
-              strokeWidth={2.2}
-            />
-          </button>
-
-          <div className="flex items-center gap-1.5 px-2">
-            {realCards.map((_, i) => {
-              const isOn = i === activeRealIndex
-              return (
-                <button
-                  key={i}
-                  type="button"
-                  onClick={() => snapToReal(i)}
-                  aria-label={`Jump to project ${i + 1}`}
-                  className="relative h-[3px] rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-                  style={{
-                    width: isOn ? 28 : 14,
-                    backgroundColor: isOn ? '#1A1612' : 'rgba(26,22,18,0.18)',
-                  }}
-                />
-              )
-            })}
-          </div>
-
-          <button
-            type="button"
-            onClick={() => handleNav(1)}
-            aria-label="Next project"
-            className="group/nav flex items-center justify-center w-11 h-11 rounded-full border border-[--color-near-black]/15 bg-white/60 backdrop-blur-sm transition-all duration-300 hover:bg-[--color-near-black] hover:border-transparent"
-          >
-            <ChevronRight
-              className="w-5 h-5 text-[--color-near-black] transition-colors duration-300 group-hover/nav:text-white"
-              strokeWidth={2.2}
-            />
-          </button>
-        </div>
-
       </div>
     </section>
   )
