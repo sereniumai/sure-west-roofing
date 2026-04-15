@@ -1,0 +1,298 @@
+'use client'
+
+import { useState } from 'react'
+import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Plus } from 'lucide-react'
+
+const EASE_OUT = [0.16, 1, 0.3, 1] as const
+
+interface FAQ {
+  question: string
+  /** Plain-text answer for JSON-LD. Use for schema only. */
+  answerText: string
+  /** Rich JSX answer rendered in the UI. */
+  answer: React.ReactNode
+}
+
+const FAQS: FAQ[] = [
+  {
+    question: 'Do you serve Calgary and Canmore as well as Cochrane?',
+    answerText:
+      'Yes. Sure West Roofing is based in Cochrane, Alberta and serves homeowners across the entire Calgary region - including Canmore, Airdrie, and Rocky View County. We are your local Red Seal certified roofing contractor wherever you are in southern Alberta.',
+    answer: (
+      <>
+        Yes. Sure West Roofing is based in Cochrane, Alberta and serves homeowners across the entire Calgary region - including Canmore, Airdrie, and Rocky View County. We are your local Red Seal certified roofing contractor wherever you are in southern Alberta.
+      </>
+    ),
+  },
+  {
+    question: 'What makes Sure West different from other roofing contractors in Cochrane?',
+    answerText:
+      'Three things. Red Seal Journeyman certification - the highest professional credential in the Alberta roofing trade. Owner-operated - you deal directly with the owner from estimate to completion. And our fixed-price promise - the quote you receive is the invoice you pay. No exceptions.',
+    answer: (
+      <>
+        Three things. Red Seal Journeyman certification - the highest professional credential in the Alberta roofing trade. Owner-operated - you deal directly with the owner from estimate to completion. And our fixed-price promise - the quote you receive is the invoice you pay. No exceptions.
+      </>
+    ),
+  },
+  {
+    question: 'How do I get a free roofing estimate in Cochrane or Calgary?',
+    answerText:
+      'Fill in the contact form on this page or click Get a Free Estimate. We come to your property, carry out a thorough roof assessment, and provide a clear itemised written quote - completely free with no obligation and no sales pressure.',
+    answer: (
+      <>
+        Fill in the contact form on this page or click Get a Free Estimate. We come to your property, carry out a thorough roof assessment, and provide a clear itemised written quote - completely free with no obligation and no sales pressure.
+      </>
+    ),
+  },
+  {
+    question: 'Does home insurance cover hail damage roof repair in Alberta?',
+    answerText:
+      'In the majority of cases - yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs. We work directly with your insurance adjuster and handle the documentation. Learn more on our hail damage repair Cochrane page.',
+    answer: (
+      <>
+        In the majority of cases - yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs. We work directly with your insurance adjuster and handle the documentation. Learn more on our{' '}
+        <Link href="/hail-damage-repair-cochrane" className="faq-link">
+          hail damage repair Cochrane
+        </Link>{' '}
+        page.
+      </>
+    ),
+  },
+  {
+    question: 'How much does a roof replacement cost in Cochrane, AB?',
+    answerText:
+      'Most residential roof replacements in Cochrane range from $8,000 to $18,000 depending on roof size, pitch, and material choice. We provide a fully itemised written quote after a free inspection with no obligation to proceed. See our roof replacement Cochrane page for details.',
+    answer: (
+      <>
+        Most residential roof replacements in Cochrane range from $8,000 to $18,000 depending on roof size, pitch, and material choice. We provide a fully itemised written quote after a free inspection with no obligation to proceed. See our{' '}
+        <Link href="/roof-replacement-cochrane" className="faq-link">
+          roof replacement Cochrane
+        </Link>{' '}
+        page for details.
+      </>
+    ),
+  },
+  {
+    question: 'How long does a roof replacement take in Cochrane?',
+    answerText:
+      'Most standard homes take 1 to 3 days. Larger or more complex roofs may take up to 5 days. We give you a clear timeline before we start and never leave a job unsecured overnight.',
+    answer: (
+      <>
+        Most standard homes take 1 to 3 days. Larger or more complex roofs may take up to 5 days. We give you a clear timeline before we start and never leave a job unsecured overnight.
+      </>
+    ),
+  },
+  {
+    question: 'Do you carry out roof inspections in Cochrane and Calgary?',
+    answerText:
+      'Yes. Our Red Seal certified team carries out full roof and attic inspections across Cochrane, Calgary and Canmore. An inspection gives you the full picture before small issues become expensive repairs. Book your roof inspections Cochrane assessment today.',
+    answer: (
+      <>
+        Yes. Our Red Seal certified team carries out full roof and attic inspections across Cochrane, Calgary and Canmore. An inspection gives you the full picture before small issues become expensive repairs. Book your{' '}
+        <Link href="/roof-inspection-cochrane" className="faq-link">
+          roof inspections Cochrane
+        </Link>{' '}
+        assessment today.
+      </>
+    ),
+  },
+  {
+    question: 'Do you repair roofs as well as replace them in Cochrane?',
+    answerText:
+      'Absolutely. Not every roof needs a full replacement. Our Red Seal Journeyman team carries out all types of roof repair in Cochrane and Calgary - from minor leaks and missing shingles to full section repairs and flashing work. See our roof repair Cochrane page for more.',
+    answer: (
+      <>
+        Absolutely. Not every roof needs a full replacement. Our Red Seal Journeyman team carries out all types of roof repair in Cochrane and Calgary - from minor leaks and missing shingles to full section repairs and flashing work. See our{' '}
+        <Link href="/roof-repair-cochrane" className="faq-link">
+          roof repair Cochrane
+        </Link>{' '}
+        page for more.
+      </>
+    ),
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answerText,
+    },
+  })),
+}
+
+export function HomeFAQ() {
+  const [open, setOpen] = useState<number | null>(0)
+
+  return (
+    <section
+      id="faq"
+      className="relative overflow-hidden"
+      style={{
+        background: '#F8F8F8',
+        paddingTop: 'var(--section-pad-top)',
+        paddingBottom: 'var(--section-pad-bot)',
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+      }}
+    >
+      {/* FAQ schema JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      {/* ── Header ───────────────────────────────────────────────── */}
+      <motion.div
+        className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: '-80px' }}
+        transition={{ duration: 0.7, ease: EASE_OUT }}
+      >
+        <span
+          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
+          style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+        >
+          FAQs
+        </span>
+        <h2
+          className="font-display font-semibold leading-[1.05] max-w-[960px] text-[--color-near-black]"
+          style={{
+            fontSize: 'clamp(30px, 3.8vw, 52px)',
+            letterSpacing: '-0.04em',
+          }}
+        >
+          Roofing Questions Answered -
+          <br className="hidden md:block" /> Cochrane, Calgary and Canmore
+        </h2>
+        <p
+          className="mt-7 max-w-[620px] text-[--color-near-black]/70 leading-[1.7]"
+          style={{
+            fontSize: '16px',
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontWeight: 400,
+          }}
+        >
+          Straight answers from your local Red Seal certified roofing contractor.
+        </p>
+      </motion.div>
+
+      {/* ── Accordion ────────────────────────────────────────────── */}
+      <motion.div
+        className="max-w-[880px] mx-auto"
+        initial={{ y: 20, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.55, delay: 0.1, ease: EASE_OUT }}
+      >
+        <ul
+          className="bg-white rounded-[--radius-md] overflow-hidden border border-[--color-near-black]/8"
+          style={{
+            boxShadow:
+              '0 1px 2px rgba(26,22,18,0.04), 0 10px 30px -18px rgba(26,22,18,0.12)',
+          }}
+        >
+          {FAQS.map((faq, i) => {
+            const isOpen = open === i
+            return (
+              <li
+                key={faq.question}
+                className="border-b border-[--color-near-black]/8 last:border-0"
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                  className="group flex items-start justify-between w-full text-left px-6 md:px-8 py-5 md:py-6 cursor-pointer"
+                >
+                  <span
+                    className={`font-display font-semibold leading-[1.35] pr-5 transition-colors duration-300 ${
+                      isOpen ? 'text-[--color-near-black]' : 'text-[--color-near-black] group-hover:text-[#B8943F]'
+                    }`}
+                    style={{
+                      fontSize: 'clamp(16px, 1.15vw, 18px)',
+                      letterSpacing: '-0.015em',
+                    }}
+                  >
+                    {faq.question}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
+                      isOpen
+                        ? 'bg-[--color-accent,#D4AF60] text-[--color-near-black] rotate-45'
+                        : 'bg-[--color-near-black]/5 text-[--color-near-black]/50 group-hover:bg-[rgba(212,175,96,0.18)] group-hover:text-[#B8943F]'
+                    }`}
+                  >
+                    <Plus className="w-[16px] h-[16px]" strokeWidth={2.25} />
+                  </span>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.32, ease: EASE_OUT }}
+                      className="overflow-hidden"
+                    >
+                      <div
+                        className="px-6 md:px-8 pb-6 md:pb-7 pr-12 md:pr-16 text-[--color-near-black]/70 leading-[1.7]"
+                        style={{
+                          fontSize: '15px',
+                          fontFamily: "'Inter', system-ui, sans-serif",
+                          fontWeight: 400,
+                        }}
+                      >
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </li>
+            )
+          })}
+        </ul>
+
+        <p
+          className="text-center mt-7 text-[--color-near-black]/60"
+          style={{
+            fontSize: '14.5px',
+            fontFamily: "'Inter', system-ui, sans-serif",
+          }}
+        >
+          Have a question not listed here?{' '}
+          <Link
+            href="/contact"
+            className="font-semibold text-[--color-near-black] hover:text-[#B8943F] transition-colors"
+            style={{ textDecoration: 'underline', textUnderlineOffset: '3px' }}
+          >
+            Contact Sure West
+          </Link>
+        </p>
+      </motion.div>
+
+      {/* Accordion link styling */}
+      <style jsx>{`
+        :global(.faq-link) {
+          color: #b8943f;
+          font-weight: 600;
+          text-decoration: underline;
+          text-underline-offset: 3px;
+          transition: color 0.2s ease;
+        }
+        :global(.faq-link:hover) {
+          color: var(--color-accent, #d4af60);
+        }
+      `}</style>
+    </section>
+  )
+}

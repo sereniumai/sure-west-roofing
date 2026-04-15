@@ -8,6 +8,7 @@ import { HowItWorks } from '@/components/sections/HowItWorks'
 import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
 import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
 import { Reviews } from '@/components/sections/Reviews'
+import { HomeFAQ } from '@/components/sections/HomeFAQ'
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane | Sure West Roofing',
@@ -194,6 +195,9 @@ export default function HomePage() {
 
       {/* 7. Reviews */}
       <Reviews />
+
+      {/* 8. FAQ */}
+      <HomeFAQ />
     </>
   )
 }
