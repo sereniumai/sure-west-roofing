@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 interface PortfolioImage {
   src: string
   alt: string
-  /** Optional caption shown on the gold pill on hover. */
+  /** Optional location label revealed on hover (e.g. "Bow Valley, Cochrane"). */
   caption?: string
   /** CSS object-position for the <img> — use to nudge a specific photo's crop. */
   objectPosition?: string
@@ -18,19 +18,17 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// Easing — matches Hero / other sections
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
-
-// Marquee speed: total seconds for one full loop of the (N-image) row.
 // Slow + cinematic — the strip should feel like it's drifting, not racing.
-const MARQUEE_DURATION_SEC = 70
+const MARQUEE_DURATION_SEC = 85
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   const N = images.length
   const [paused, setPaused] = useState(false)
+  const [hoveredKey, setHoveredKey] = useState<number | null>(null)
 
   // Duplicate the source list so the marquee can translate -50% and seam back
-  // onto an identical copy without any visible jump.
+  // onto an identical copy with no visible jump.
   const doubled = [...images, ...images]
 
   return (
@@ -42,7 +40,7 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
       }}
       aria-label="Portfolio gallery"
     >
-      {/* Paper-grain background — same recipe as Hero / other sections */}
+      {/* Paper-grain background — same recipe as Hero / sibling sections */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.55]"
@@ -95,20 +93,23 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           </p>
         </motion.div>
 
-        {/* ── Photo wall ────────────────────────────────────────────── */}
-        {/* Desktop / tablet: continuous marquee with hover-pause */}
+        {/* ── Photo wall — desktop / tablet marquee ─────────────────── */}
         <motion.div
-          className="hidden md:block relative mt-14 md:mt-20"
+          className="hidden md:block relative mt-16 md:mt-24"
           onPointerEnter={() => setPaused(true)}
-          onPointerLeave={() => setPaused(false)}
+          onPointerLeave={() => {
+            setPaused(false)
+            setHoveredKey(null)
+          }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.2, ease: EASE_OUT }}
         >
           <div
-            className="flex gap-5 md:gap-6 w-max sw-marquee-track"
+            className="flex items-center w-max sw-marquee-track"
             style={{
+              gap: 'clamp(20px, 2vw, 40px)',
               animationDuration: `${MARQUEE_DURATION_SEC}s`,
               animationPlayState: paused ? 'paused' : 'running',
             }}
@@ -117,18 +118,22 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
               <PhotoCard
                 key={i}
                 img={img}
-                index={i % N}
-                total={N}
+                /* Vary card height in a 4-step rhythm for an editorial,
+                   museum-wall feel. The gallery looks curated, not stamped. */
+                heightStep={i % 4}
+                hovered={hoveredKey === i}
+                anyHovered={hoveredKey !== null}
+                onPointerEnter={() => setHoveredKey(i)}
+                onPointerLeave={() => setHoveredKey(null)}
                 ariaHidden={i >= N /* second copy is decorative */}
               />
             ))}
           </div>
 
-          {/* Edge fades — the strip dissolves into the section bg at the edges
-              for a soft cinematic frame. */}
+          {/* Edge fades — strip dissolves into the section bg at the edges. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 w-[10vw] max-w-[220px] z-10"
+            className="pointer-events-none absolute inset-y-0 left-0 w-[12vw] max-w-[260px] z-10"
             style={{
               background:
                 'linear-gradient(to right, rgba(248,248,248,1) 0%, rgba(248,248,248,0.85) 55%, rgba(248,248,248,0) 100%)',
@@ -136,7 +141,7 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 w-[10vw] max-w-[220px] z-10"
+            className="pointer-events-none absolute inset-y-0 right-0 w-[12vw] max-w-[260px] z-10"
             style={{
               background:
                 'linear-gradient(to left, rgba(248,248,248,1) 0%, rgba(248,248,248,0.85) 55%, rgba(248,248,248,0) 100%)',
@@ -144,9 +149,9 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           />
         </motion.div>
 
-        {/* Mobile: snap-scroll strip (no auto-motion, no scroll-jack) */}
+        {/* ── Mobile: snap-scroll strip ─────────────────────────────── */}
         <motion.div
-          className="md:hidden mt-10"
+          className="md:hidden mt-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
@@ -159,13 +164,12 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
               paddingRight: 'var(--section-pad-x)',
             }}
           >
-            <div className="flex gap-3 pb-2">
+            <div className="flex gap-4 pb-2">
               {images.map((img, i) => (
                 <PhotoCard
                   key={i}
                   img={img}
-                  index={i}
-                  total={N}
+                  heightStep={i % 4}
                   mobile
                 />
               ))}
@@ -175,7 +179,7 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
 
         {/* ── CTA ───────────────────────────────────────────────────── */}
         <motion.div
-          className="flex justify-center mt-12 md:mt-16"
+          className="flex justify-center mt-16 md:mt-20"
           style={{
             paddingLeft: 'var(--section-pad-x)',
             paddingRight: 'var(--section-pad-x)',
@@ -218,70 +222,117 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   )
 }
 
+// ── Card heights cycle (in vw / px clamps) — gives an editorial wall feel.
+const HEIGHT_BY_STEP: Record<number, string> = {
+  0: 'clamp(360px, 36vw, 560px)',
+  1: 'clamp(420px, 42vw, 620px)',
+  2: 'clamp(380px, 38vw, 580px)',
+  3: 'clamp(440px, 44vw, 660px)',
+}
+
 // ── Single photo card ─────────────────────────────────────────────────
 interface PhotoCardProps {
   img: PortfolioImage
-  index: number
-  total: number
+  heightStep: number
+  hovered?: boolean
+  anyHovered?: boolean
+  onPointerEnter?: () => void
+  onPointerLeave?: () => void
   mobile?: boolean
   ariaHidden?: boolean
 }
 
-function PhotoCard({ img, index, total, mobile, ariaHidden }: PhotoCardProps) {
+function PhotoCard({
+  img,
+  heightStep,
+  hovered = false,
+  anyHovered = false,
+  onPointerEnter,
+  onPointerLeave,
+  mobile,
+  ariaHidden,
+}: PhotoCardProps) {
   const sizeStyle = mobile
     ? { width: 'min(78vw, 360px)', height: 'min(102vw, 470px)' }
-    : { width: 'clamp(260px, 27vw, 420px)', height: 'clamp(340px, 36vw, 540px)' }
+    : {
+        width: 'clamp(280px, 28vw, 440px)',
+        height: HEIGHT_BY_STEP[heightStep] ?? HEIGHT_BY_STEP[0],
+      }
+
+  // When ANY card in the row is hovered, dim the others so the focused
+  // photograph reads as the centre of attention.
+  const dimmed = anyHovered && !hovered
 
   return (
     <div
       aria-hidden={ariaHidden || undefined}
+      onPointerEnter={onPointerEnter}
+      onPointerLeave={onPointerLeave}
       className={[
         'group relative flex-none overflow-hidden rounded-[--radius-md]',
-        'transition-[transform,box-shadow] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]',
-        mobile ? 'snap-center' : 'hover:-translate-y-1.5',
+        'transition-[transform,opacity,filter] duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)]',
+        mobile ? 'snap-center' : '',
+        hovered ? '-translate-y-2' : '',
       ].join(' ')}
       style={{
         ...sizeStyle,
-        boxShadow:
-          '0 28px 48px -24px rgba(20,20,20,0.42), 0 12px 22px -14px rgba(20,20,20,0.20)',
+        opacity: dimmed ? 0.45 : 1,
+        filter: dimmed ? 'saturate(0.85)' : 'saturate(1)',
+        boxShadow: hovered
+          ? '0 50px 80px -30px rgba(20,20,20,0.55), 0 22px 36px -20px rgba(20,20,20,0.30)'
+          : '0 28px 48px -24px rgba(20,20,20,0.42), 0 12px 22px -14px rgba(20,20,20,0.20)',
       }}
     >
-      {/* Image — slow Ken-Burns-style zoom on hover */}
+      {/* Image — slow Ken-Burns zoom on hover */}
       <img
         src={img.src}
         alt={img.alt}
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.07]"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
         style={{ objectPosition: img.objectPosition ?? 'center' }}
         draggable={false}
         loading="lazy"
       />
 
-      {/* Bottom gradient for caption contrast — fades in on hover */}
+      {/* Bottom gradient — fades in for caption legibility */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[55%] opacity-0 transition-opacity duration-700 group-hover:opacity-100"
         style={{
           background:
-            'linear-gradient(to top, rgba(20,20,20,0.65) 0%, rgba(20,20,20,0) 100%)',
+            'linear-gradient(to top, rgba(20,20,20,0.72) 0%, rgba(20,20,20,0.20) 55%, rgba(20,20,20,0) 100%)',
         }}
       />
 
-      {/* Index chip — top-left, always visible */}
-      <span
-        className="absolute top-4 left-4 inline-flex items-center h-7 px-2.5 text-[11px] font-body font-bold uppercase tracking-[0.14em] rounded-[--radius-sm] bg-white/95 text-[--color-near-black] tabular-nums shadow-sm backdrop-blur-[2px]"
-      >
-        {String(index + 1).padStart(2, '0')}
-        <span className="text-[--color-near-black]/40 mx-1">/</span>
-        {String(total).padStart(2, '0')}
-      </span>
-
-      {/* Caption pill — bottom-left, slides in on hover */}
-      <span
-        className="absolute bottom-4 left-4 inline-flex items-center h-8 px-3 text-[12px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] translate-y-2 opacity-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0 group-hover:opacity-100"
-        style={{ background: 'var(--color-accent)', color: 'var(--color-near-black)' }}
-      >
-        {img.caption ?? `Project ${String(index + 1).padStart(2, '0')}`}
-      </span>
+      {/* Editorial reveal — gold hairline draws across, label tracks in,
+          then the project title/CTA rises into view. */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 px-6 pb-6">
+        {/* Gold hairline */}
+        <div
+          aria-hidden="true"
+          className="h-px w-0 bg-[var(--color-accent)] transition-[width] duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-12 mb-4"
+        />
+        {/* Tracked label */}
+        <div
+          className="text-white/85 text-[10.5px] font-body font-bold uppercase tracking-[0.22em] opacity-0 translate-y-2 transition-[opacity,transform] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[80ms] group-hover:opacity-100 group-hover:translate-y-0"
+        >
+          {img.caption ?? 'Sure West Roofing'}
+        </div>
+        {/* Display-font line */}
+        <div
+          className="mt-1 flex items-baseline gap-2 text-white opacity-0 translate-y-3 transition-[opacity,transform] duration-[700ms] ease-[cubic-bezier(0.16,1,0.3,1)] delay-[160ms] group-hover:opacity-100 group-hover:translate-y-0"
+          style={{ fontFamily: "'Oswald', sans-serif" }}
+        >
+          <span className="text-[20px] md:text-[22px] font-medium tracking-[-0.01em]">
+            View Project
+          </span>
+          <span
+            aria-hidden="true"
+            className="text-[18px] md:text-[20px] translate-x-0 transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-1.5"
+          >
+            →
+          </span>
+        </div>
+      </div>
     </div>
   )
 }
