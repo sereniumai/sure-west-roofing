@@ -55,15 +55,15 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Trust Badges */}
-      <TrustLogos />
-
-      {/* Parallax Video Strip (kept from previous build; not in the new plan) */}
+      {/* Parallax Video Strip (tucks up under the Hero) */}
       <ParallaxImageStrip
         src="/images/Cochrane Roofing Contractors.jpg"
         video="/images/Cochrane Roofing Contractor.mp4"
         alt="Cochrane roofing aerial view"
       />
+
+      {/* 2. Trust Badges */}
+      <TrustLogos />
 
       {/* 3. Services Card Grid */}
       <ServicesIconGrid
