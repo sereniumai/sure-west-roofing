@@ -53,7 +53,7 @@ export function WhySureWest() {
         }}
       />
 
-      <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[minmax(0,480px)_1fr] gap-10 lg:gap-20 items-center">
         {/* ── Copy column (right on desktop) ────────────────────── */}
         <motion.div
           className="lg:order-2"
@@ -71,7 +71,7 @@ export function WhySureWest() {
 
           <h2
             id="why-sure-west-heading"
-            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 max-w-[560px]"
+            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 max-w-[640px]"
             style={{
               fontSize: 'clamp(30px, 3.8vw, 52px)',
               letterSpacing: '-0.035em',
@@ -81,7 +81,7 @@ export function WhySureWest() {
           </h2>
 
           <p
-            className="mt-6 md:mt-7 max-w-[540px] text-[--color-near-black]/70 leading-[1.7]"
+            className="mt-6 md:mt-7 max-w-[620px] text-[--color-near-black]/70 leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -93,7 +93,7 @@ export function WhySureWest() {
           </p>
 
           {/* ── Bullet list ───────────────────────────────────────── */}
-          <ul className="mt-4 md:mt-5 space-y-4 md:space-y-5 max-w-[540px]">
+          <ul className="mt-4 md:mt-5 space-y-4 md:space-y-5 max-w-[620px]">
             {pillars.map((p, i) => (
               <motion.li
                 key={p.id}
