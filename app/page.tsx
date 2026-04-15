@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import { Hero } from '@/components/sections/Hero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { ServicesIconGrid } from '@/components/sections/ServicesIconGrid'
+import { WhySureWest } from '@/components/sections/WhySureWest'
 import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
 import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
 
@@ -158,7 +159,10 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 3. Portfolio Carousel */}
+      {/* 4. Why Sure West */}
+      <WhySureWest />
+
+      {/* 6. Our Work (Portfolio) */}
       <PortfolioCarousel
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roofing contractor project 1' },
