@@ -159,9 +159,6 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 4. Why Sure West */}
-      <WhySureWest />
-
       {/* 6. Our Work (Portfolio) */}
       <PortfolioCarousel
         images={[
@@ -186,6 +183,9 @@ export default function HomePage() {
           { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Cochrane roofing contractor project 19' },
         ]}
       />
+
+      {/* 4. Why Sure West */}
+      <WhySureWest />
     </>
   )
 }
