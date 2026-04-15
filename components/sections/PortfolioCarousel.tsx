@@ -17,10 +17,14 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// Arc tuning
-const ARC_ROTATE_DEG = 10
-const ARC_TRANSLATE_Y = 30
-const ARC_SCALE_MIN = 0.86
+// Cylinder tuning — cards sit on the inside of a gentle cylinder.
+// Outer cards rotate around Y (facing back toward the center axis) and
+// get pulled slightly up, so the strip reads as a concave curve in 3D.
+const CYL_ROTATE_Y_DEG = 34    // max rotateY at the extremes
+const CYL_TRANSLATE_Z = 80     // outer cards pushed back this far (px)
+const CYL_LIFT_Y = 22          // outer cards pulled up this far (px)
+const CYL_SCALE_MIN = 0.94     // mild extra depth dampening
+const PERSPECTIVE_PX = 1400
 const FOCAL_THRESHOLD = 0.12
 const DRAG_MULTIPLIER = 1.4
 const MOMENTUM_MIN = 4
@@ -84,18 +88,21 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
         bestRealIndex = i % realCount
       }
 
-      const rot = -t * ARC_ROTATE_DEG
-      const dy = t * t * ARC_TRANSLATE_Y
-      const baseScale = 1 - Math.abs(t) * (1 - ARC_SCALE_MIN)
+      // 3D cylinder: outer cards rotate toward center axis, push back in Z,
+      // and get pulled up a touch so the strip curves like a concave shell.
+      const rotY = -t * CYL_ROTATE_Y_DEG
+      const tz = -Math.abs(t) * CYL_TRANSLATE_Z
+      const dy = -(t * t) * CYL_LIFT_Y
+      const baseScale = 1 - Math.abs(t) * (1 - CYL_SCALE_MIN)
 
       const focal = Math.max(0, 1 - Math.abs(t) / FOCAL_THRESHOLD)
-      const scale = baseScale + focal * 0.06
-      const lift = focal * -14
+      const scale = baseScale + focal * 0.04
+      const lift = focal * -8
 
-      const saturate = 0.78 + (1 - Math.abs(t)) * 0.22
-      const brightness = 0.9 + (1 - Math.abs(t)) * 0.1
+      const saturate = 0.82 + (1 - Math.abs(t)) * 0.18
+      const brightness = 0.92 + (1 - Math.abs(t)) * 0.08
 
-      el.style.transform = `translateY(${(dy + lift).toFixed(2)}px) rotate(${rot.toFixed(2)}deg) scale(${scale.toFixed(3)})`
+      el.style.transform = `translateY(${(dy + lift).toFixed(2)}px) translateZ(${tz.toFixed(2)}px) rotateY(${rotY.toFixed(2)}deg) scale(${scale.toFixed(3)})`
       el.style.filter = `saturate(${saturate.toFixed(3)}) brightness(${brightness.toFixed(3)})`
       el.style.zIndex = String(Math.round(100 - Math.abs(t) * 50))
     }
@@ -350,6 +357,8 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
             paddingLeft: '42vw',
             paddingRight: '42vw',
             WebkitOverflowScrolling: 'touch',
+            perspective: `${PERSPECTIVE_PX}px`,
+            perspectiveOrigin: '50% 50%',
           }}
         >
           {loopedCards.map((card, index) => {
@@ -361,7 +370,9 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
                 style={{
                   width: 'clamp(260px, 25vw, 340px)',
                   height: 'clamp(360px, 38vw, 480px)',
-                  transformOrigin: '50% 95%',
+                  transformOrigin: '50% 50%',
+                  transformStyle: 'preserve-3d',
+                  backfaceVisibility: 'hidden',
                   willChange: 'transform, filter',
                   boxShadow: isActive
                     ? '0 40px 60px -30px rgba(20,20,20,0.45), 0 18px 28px -16px rgba(20,20,20,0.22), 0 0 0 1px rgba(212,175,96,0.6)'
