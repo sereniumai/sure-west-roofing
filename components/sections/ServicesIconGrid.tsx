@@ -50,10 +50,11 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
         viewport={{ once: true, margin: '-80px' }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
       >
-        <span className="inline-flex items-center gap-3 text-[11px] font-body font-bold uppercase tracking-[0.22em] text-[#B8943F] mb-6">
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
+        <span
+          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
+          style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-near-black)' }}
+        >
           {eyebrow}
-          <span className="inline-block w-8 h-px bg-[#D4AF60]/70" />
         </span>
         <h2
           className="font-display font-semibold leading-[1.05] max-w-[1000px] text-[--color-near-black]"
