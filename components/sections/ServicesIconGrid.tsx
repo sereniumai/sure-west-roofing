@@ -86,9 +86,9 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
       </motion.div>
 
       {/* Editorial accordion layout */}
-      <div className="relative grid grid-cols-1 md:grid-cols-[1fr_minmax(0,560px)] gap-6 md:gap-16 items-stretch max-w-[1320px] mx-auto">
+      <div className="relative grid grid-cols-1 md:grid-cols-[minmax(0,560px)_1fr] gap-6 md:gap-16 items-stretch max-w-[1320px] mx-auto">
         {/* ── Accordion column ─────────────────────────── */}
-        <div className="flex flex-col">
+        <div className="flex flex-col md:order-2">
           {services.map((service, i) => {
             const isActive = active === i
             return (
@@ -213,7 +213,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
         </div>
 
         {/* ── Editorial image panel (desktop), matches accordion height ───────────── */}
-        <div className="hidden md:block relative overflow-hidden bg-black group/img rounded-[--radius-lg]">
+        <div className="hidden md:block relative overflow-hidden bg-black group/img rounded-[--radius-lg] md:order-1">
           <img
             src={featured?.image}
             alt={featured?.imageAlt ?? ''}
