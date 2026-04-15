@@ -167,12 +167,14 @@ export function Reviews() {
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
       }}
     >
+      <div className="mx-auto" style={{ maxWidth: '1320px' }}>
       {/* Header */}
       <motion.div
         className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
-        style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -232,16 +234,16 @@ export function Reviews() {
       </motion.div>
 
       {/* Two auto-looping marquee rows moving in opposite directions */}
-      <div className="relative">
+      <div className="relative rounded-[--radius-md] overflow-hidden">
         {/* Edge fade masks */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 w-20 md:w-40 z-10"
+          className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 z-10"
           style={{ background: 'linear-gradient(to right, #ffffff, rgba(255,255,255,0))' }}
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-20 md:w-40 z-10"
+          className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 z-10"
           style={{ background: 'linear-gradient(to left, #ffffff, rgba(255,255,255,0))' }}
         />
 
@@ -265,6 +267,7 @@ export function Reviews() {
             ))}
           </div>
         </div>
+      </div>
       </div>
 
       {/* Inline marquee styles */}
