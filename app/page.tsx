@@ -4,6 +4,7 @@ import { Hero } from '@/components/sections/Hero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { ServicesIconGrid } from '@/components/sections/ServicesIconGrid'
 import { WhySureWest } from '@/components/sections/WhySureWest'
+import { HowItWorks } from '@/components/sections/HowItWorks'
 import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
 import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
 
@@ -183,6 +184,9 @@ export default function HomePage() {
           { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Cochrane roofing contractor project 19' },
         ]}
       />
+
+      {/* 5. Process */}
+      <HowItWorks />
 
       {/* 4. Why Sure West */}
       <WhySureWest />
