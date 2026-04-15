@@ -16,7 +16,7 @@ export function BottomCTA() {
   return (
     <section
       id="contact-cta"
-      className="relative bg-white overflow-hidden isolate"
+      className="relative bg-white overflow-hidden"
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
@@ -24,26 +24,6 @@ export function BottomCTA() {
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      {/* Ambient gold glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 90% at 50% 0%, rgba(212,175,96,0.14) 0%, rgba(212,175,96,0) 70%)',
-        }}
-      />
-      {/* Subtle dot grid texture */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.05]"
-        style={{
-          backgroundImage:
-            'radial-gradient(rgba(26,22,18,0.9) 1px, transparent 1px)',
-          backgroundSize: '28px 28px',
-        }}
-      />
-
       <div
         className="relative mx-auto flex flex-col items-center text-center"
         style={{ maxWidth: '1320px' }}
