@@ -46,6 +46,7 @@ export function Hero({
       className="md:min-h-screen bg-[#F8F8F8] flex flex-col justify-start md:justify-center relative pt-[120px] md:pt-[95px] pb-[120px] md:pb-[280px]"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
+     <div className="w-full max-w-[1320px] mx-auto">
       {/* Credential badges, 2 on mobile, 3 on desktop */}
       <motion.div
         className="flex flex-wrap justify-start md:justify-between items-center gap-2 md:gap-3 pt-0 md:pt-2"
@@ -133,6 +134,7 @@ export function Hero({
           {subtitle}
         </p>
       </motion.div>
+     </div>
     </section>
   )
 }

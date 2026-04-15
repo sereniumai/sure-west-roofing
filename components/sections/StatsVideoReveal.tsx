@@ -131,6 +131,7 @@ export function StatsVideoReveal({
           ref={stickyRef}
           className="sticky top-0 h-screen w-full overflow-hidden flex items-stretch"
         >
+         <div className="relative w-full h-full max-w-[1320px] mx-auto">
           {/* Left stats panel */}
           <div
             ref={statsLeftRef}
@@ -214,12 +215,13 @@ export function StatsVideoReveal({
               )}
             </div>
           </div>
+         </div>
         </div>
       </div>
 
       {/* About content below the sticky panel */}
       <div
-        className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start"
+        className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start max-w-[1320px] mx-auto"
         style={{ padding: '100px var(--section-pad-x)' }}
       >
         <div className="lg:w-[400px] flex-shrink-0">
