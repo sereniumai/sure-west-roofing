@@ -1,13 +1,21 @@
 'use client'
 
-import { animate, motion, useMotionValue, useTransform, useAnimationFrame } from 'framer-motion'
-import { useRef } from 'react'
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+  type MotionValue,
+} from 'framer-motion'
+import { useRef, useState } from 'react'
 import { Button } from '@/components/ui/Button'
 
 interface PortfolioImage {
   src: string
   alt: string
-  /** CSS object-position for the <img> — use to nudge a specific photo's crop (e.g. "70% center"). Defaults to "center". */
+  /** Optional caption shown on the active card (e.g. neighbourhood). */
+  caption?: string
+  /** CSS object-position for the <img> — use to nudge a specific photo's crop. */
   objectPosition?: string
 }
 
@@ -16,117 +24,70 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// ── 3D cylinder tuning ────────────────────────────────────────────────
-// Cards lie on a vertical-axis cylinder whose axis sits BEHIND the
-// cards (away from the viewer). The viewer sees the convex front of
-// the cylinder: the centre card is closest to camera, side cards
-// curve backward, and each side card's inner edge tilts forward toward
-// the viewer — the Rooferio "panorama wrapped on a barrel" look.
-//
-// Implementation borrows the GSAP-ring trick: each card uses
-//   transform-origin: 50% 50% -ARC_RADIUSpx  (pivot pushed behind card)
-//   transform: translate(-50%, -50%) rotateY(angle)
-// so a single rotateY sweeps the card along the cylinder. The whole
-// ring is then wrapped in a parent motion.div whose rotateY we drive
-// with a motion value to spin the entire cylinder.
-//
-// Spacing: cards are spread evenly around the full cylinder so that as
-// the ring spins, photos pass continuously through the front view.
-//   ARC_STEP_DEG = 360 / images.length
-// Radius is chosen so that ARC_RADIUS * sin(ARC_STEP_DEG) ≈ card width
-// — i.e. cards meet edge-to-edge around the entire ring. For 19 images
-// at 360/19 ≈ 18.95° per slot and a ~175px card, R ≈ 175/sin(18.95°)
-// ≈ 540px. We use 550 so cards touch with a hairline seam.
+// ── Layout knobs (desktop pinned-scroll mode) ────────────────────────
+const CARD_W_VW = 26          // each card width in vw
+const CARD_GAP_VW = 1.4       // gap between cards in vw
+const SIDE_PAD_VW = 12        // empty space at start/end so first/last card can centre
+const PARALLAX_SHIFT_PCT = 14 // % of the track distance the image counter-moves
 
-const ARC_RADIUS = 550       // px — radius of the cylinder
-const PERSPECTIVE_PX = 1300
-const AUTO_ROTATE_DPS = 6    // degrees/sec — slow turntable drift
-const DRAG_SENSITIVITY = 0.4 // degrees per pixel of pointer drag
+// Easing — matches the rest of the site
+const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
-  // Duplicate the image list so the cylinder is fully populated all the
-  // way around (no empty "back" arc). With ~19 source photos we tile
-  // around 360° — angular step works out to 360/n.
-  const ringImages = images
-  const n = ringImages.length
-  const stepDeg = 360 / n
+  const N = images.length
 
-  const rotationY = useMotionValue(0)
-  const transform = useTransform(rotationY, (r) => `rotateY(${r}deg)`)
+  // Track width and how far we need to translate to bring the last card to the
+  // centre of the viewport. All in vw so it's responsive without measuring.
+  const trackWidthVw = N * CARD_W_VW + (N - 1) * CARD_GAP_VW + SIDE_PAD_VW * 2
+  const translateRangeVw = trackWidthVw - 100 // viewport is 100vw
 
-  // Drag state (mutable refs — don't trigger re-renders)
-  const dragRef = useRef({
-    active: false,
-    lastX: 0,
-    lastT: 0,
-    velDegPerSec: 0,
-    inertia: null as ReturnType<typeof animate> | null,
+  // Section height controls how much vertical scroll the pin consumes.
+  // Pinned distance = sectionHeight - 100vh. We aim for ~1:1 vh-to-vw so the
+  // gallery glides at a comfortable cinematic pace.
+  const sectionHeightVh = Math.round(translateRangeVw + 130)
+
+  const sectionRef = useRef<HTMLElement | null>(null)
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start start', 'end end'],
   })
 
-  // Auto-rotate loop: advances rotation each frame unless the user is
-  // actively dragging or an inertia animation is running.
-  useAnimationFrame((_, deltaMs) => {
-    const d = dragRef.current
-    if (d.active || d.inertia) return
-    rotationY.set(rotationY.get() + (AUTO_ROTATE_DPS * deltaMs) / 1000)
+  // Small head/tail dead-zones so the header settles before the strip moves
+  // and the last card lingers at the end before the section unpins.
+  const TRAVEL_START = 0.06
+  const TRAVEL_END = 0.94
+
+  const trackX = useTransform(
+    scrollYProgress,
+    [TRAVEL_START, TRAVEL_END],
+    [`0vw`, `-${translateRangeVw.toFixed(2)}vw`],
+  )
+  // Counter-translate the images inside their cards to give a parallax depth.
+  const imageX = useTransform(
+    scrollYProgress,
+    [TRAVEL_START, TRAVEL_END],
+    [`0vw`, `${(translateRangeVw * (PARALLAX_SHIFT_PCT / 100)).toFixed(2)}vw`],
+  )
+  const progressScale = useTransform(scrollYProgress, [TRAVEL_START, TRAVEL_END], [0, 1])
+
+  // Active card index drives the counter and the per-card highlight.
+  const [activeIdx, setActiveIdx] = useState(0)
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    const t = Math.max(0, Math.min(1, (v - TRAVEL_START) / (TRAVEL_END - TRAVEL_START)))
+    // Map progress 0..1 → card index 0..N-1, biased so each card is "active"
+    // for an equal slice of the journey.
+    const idx = Math.min(N - 1, Math.floor(t * N + 0.0001))
+    setActiveIdx(idx)
   })
-
-  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
-    // Stop any in-flight inertia
-    dragRef.current.inertia?.stop()
-    dragRef.current.inertia = null
-    dragRef.current.active = true
-    dragRef.current.lastX = e.clientX
-    dragRef.current.lastT = performance.now()
-    dragRef.current.velDegPerSec = 0
-    e.currentTarget.setPointerCapture(e.pointerId)
-  }
-
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    const d = dragRef.current
-    if (!d.active) return
-    const now = performance.now()
-    const dx = e.clientX - d.lastX
-    const dt = Math.max(now - d.lastT, 1)
-    const dDeg = dx * DRAG_SENSITIVITY
-    rotationY.set(rotationY.get() + dDeg)
-    // Exponential smoothing of velocity (more stable for inertia handoff)
-    const instantVel = (dDeg / dt) * 1000
-    d.velDegPerSec = d.velDegPerSec * 0.6 + instantVel * 0.4
-    d.lastX = e.clientX
-    d.lastT = now
-  }
-
-  const endDrag = (e: React.PointerEvent<HTMLDivElement>) => {
-    const d = dragRef.current
-    if (!d.active) return
-    d.active = false
-    try {
-      e.currentTarget.releasePointerCapture(e.pointerId)
-    } catch {
-      /* pointer may already be released */
-    }
-    const v = d.velDegPerSec
-    if (Math.abs(v) > 8) {
-      d.inertia = animate(rotationY, rotationY.get() + v * 0.6, {
-        type: 'inertia',
-        velocity: v,
-        power: 0.6,
-        timeConstant: 380,
-        modifyTarget: (t) => t, // keep raw degrees, no snapping
-      })
-      d.inertia.then(() => {
-        dragRef.current.inertia = null
-      })
-    }
-  }
 
   return (
     <section
-      className="relative overflow-hidden bg-[#F8F8F8]"
-      style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
+      ref={sectionRef}
+      className="relative bg-[#F8F8F8]"
+      style={{ height: `${sectionHeightVh}vh` }}
+      aria-label="Portfolio gallery"
     >
-      {/* Subtle paper-grain texture */}
+      {/* Subtle gold/charcoal paper-grain — matches Hero & other sections */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.55]"
@@ -136,129 +97,229 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
         }}
       />
 
-      {/* Centered header */}
-      <motion.div
-        className="relative flex flex-col items-center text-center"
-        style={{
-          paddingLeft: 'var(--section-pad-x)',
-          paddingRight: 'var(--section-pad-x)',
-        }}
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] as const }}
-      >
-        <span
-          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
+      {/* ── Desktop / tablet: pinned horizontal scroll ──────────────── */}
+      <div className="hidden md:block sticky top-0 h-screen w-full overflow-hidden">
+        {/* Header */}
+        <motion.div
+          className="absolute inset-x-0 top-0 z-10 flex flex-col items-center text-center"
           style={{
-            background: 'rgba(0,0,0,0.04)',
-            color: 'var(--color-near-black)',
+            paddingLeft: 'var(--section-pad-x)',
+            paddingRight: 'var(--section-pad-x)',
+            paddingTop: 'clamp(64px, 10vh, 120px)',
+          }}
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: EASE_OUT }}
+        >
+          <span
+            className="inline-flex items-center h-9 px-4 text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-5"
+            style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-near-black)' }}
+          >
+            Our Work
+          </span>
+          <h2
+            className="font-display font-semibold leading-[1.05] text-[--color-near-black] max-w-[980px]"
+            style={{ fontSize: 'clamp(28px, 3.6vw, 54px)', letterSpacing: '-0.035em' }}
+          >
+            Roofing Projects Completed Across Cochrane, Calgary &amp; Canmore
+          </h2>
+        </motion.div>
+
+        {/* Horizontal photo track — vertically centred in the viewport */}
+        <div className="absolute inset-0 flex items-center">
+          <motion.div
+            className="flex items-center will-change-transform"
+            style={{
+              x: trackX,
+              gap: `${CARD_GAP_VW}vw`,
+              paddingLeft: `${SIDE_PAD_VW}vw`,
+              paddingRight: `${SIDE_PAD_VW}vw`,
+            }}
+          >
+            {images.map((img, i) => (
+              <PhotoCard
+                key={i}
+                img={img}
+                index={i}
+                total={N}
+                active={i === activeIdx}
+                imageX={imageX}
+              />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Footer: counter + progress bar + CTA */}
+        <div
+          className="absolute inset-x-0 bottom-0 z-10 flex items-center gap-6"
+          style={{
+            paddingLeft: 'var(--section-pad-x)',
+            paddingRight: 'var(--section-pad-x)',
+            paddingBottom: 'clamp(28px, 4.5vh, 56px)',
           }}
         >
-          Our Work
-        </span>
+          <span
+            className="font-display font-semibold tabular-nums text-[--color-near-black] text-[15px] tracking-[0.05em]"
+            aria-live="polite"
+          >
+            {String(activeIdx + 1).padStart(2, '0')}
+            <span className="text-[--color-near-black]/35"> / {String(N).padStart(2, '0')}</span>
+          </span>
 
-        <h2
-          className="font-display font-semibold leading-[1.05] text-[--color-near-black] max-w-[980px]"
-          style={{
-            fontSize: 'clamp(30px, 4.2vw, 60px)',
-            letterSpacing: '-0.035em',
-          }}
-        >
-          Roofing Projects Completed Across Cochrane, Calgary &amp; Canmore
-        </h2>
+          <div className="flex-1 h-[2px] bg-black/10 relative overflow-hidden rounded-full">
+            <motion.div
+              className="absolute inset-y-0 left-0 right-0 origin-left rounded-full"
+              style={{ scaleX: progressScale, background: 'var(--color-accent)' }}
+            />
+          </div>
 
-        <p
-          className="mt-6 md:mt-7 max-w-[640px] text-[--color-near-black]/70 leading-[1.7]"
-          style={{
-            fontSize: '16px',
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontWeight: 400,
-          }}
-        >
-          Every roof in our gallery was completed by our in-house Red Seal Journeyman team. No subcontractors. No compromises.
-        </p>
-
-        <div className="flex items-center mt-8 md:mt-10">
           <Button variant="primary" size="md" href="/gallery">
             View Gallery
           </Button>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Spinning 3D cylinder of project photos. Auto-rotates slowly;
-          drag horizontally to spin manually with inertia. */}
-      <div
-        className="relative w-full mt-16 md:mt-24 overflow-hidden select-none touch-pan-y"
-        style={{
-          perspective: `${PERSPECTIVE_PX}px`,
-          perspectiveOrigin: '50% 50%',
-          cursor: 'grab',
-        }}
-        onPointerDown={onPointerDown}
-        onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
-        onPointerCancel={endDrag}
-      >
+      {/* ── Mobile: snap-scroll fallback (no pin, no scroll-jack) ───── */}
+      <div className="md:hidden relative">
         <motion.div
-          className="relative mx-auto"
+          className="flex flex-col items-center text-center"
           style={{
-            width: '100%',
-            height: 'clamp(320px, 34vw, 460px)',
-            transformStyle: 'preserve-3d',
-            transform,
+            paddingLeft: 'var(--section-pad-x)',
+            paddingRight: 'var(--section-pad-x)',
+            paddingTop: 'var(--section-pad-top)',
+          }}
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: EASE_OUT }}
+        >
+          <span
+            className="inline-flex items-center h-8 px-3 text-[13px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-5"
+            style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-near-black)' }}
+          >
+            Our Work
+          </span>
+          <h2
+            className="font-display font-semibold leading-[1.05] text-[--color-near-black]"
+            style={{ fontSize: 'clamp(28px, 7.5vw, 40px)', letterSpacing: '-0.035em' }}
+          >
+            Roofing Projects Completed Across Cochrane, Calgary &amp; Canmore
+          </h2>
+        </motion.div>
+
+        <div
+          className="mt-10 overflow-x-auto scrollbar-hide snap-x snap-mandatory"
+          style={{
+            paddingLeft: 'var(--section-pad-x)',
+            paddingRight: 'var(--section-pad-x)',
           }}
         >
-          {ringImages.map((card, i) => {
-            const psiDeg = i * stepDeg
-            return (
+          <div className="flex gap-3 pb-2">
+            {images.map((img, i) => (
               <div
                 key={i}
-                className="absolute left-1/2 top-1/2 rounded-[--radius-md]"
+                className="relative flex-none w-[78vw] h-[58vw] rounded-[--radius-md] overflow-hidden snap-center"
                 style={{
-                  width: 'clamp(140px, 14vw, 175px)',
-                  height: 'clamp(240px, 24vw, 310px)',
-                  transform: `translate(-50%, -50%) rotateY(${psiDeg.toFixed(3)}deg)`,
-                  transformOrigin: `50% 50% -${ARC_RADIUS}px`,
-                  transformStyle: 'preserve-3d',
-                  backfaceVisibility: 'hidden',
-                  overflow: 'hidden',
                   boxShadow:
-                    '0 30px 50px -20px rgba(20,20,20,0.45), 0 12px 22px -14px rgba(20,20,20,0.22)',
+                    '0 24px 40px -22px rgba(20,20,20,0.35), 0 10px 18px -12px rgba(20,20,20,0.18)',
                 }}
               >
                 <img
-                  src={card.src}
-                  alt={card.alt}
-                  className="w-full h-full object-cover pointer-events-none select-none"
-                  style={{ objectPosition: card.objectPosition ?? 'center' }}
+                  src={img.src}
+                  alt={img.alt}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectPosition: img.objectPosition ?? 'center' }}
                   draggable={false}
                 />
+                <span
+                  className="absolute top-3 left-3 inline-flex items-center h-6 px-2 text-[10px] font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] bg-white/95 text-[--color-near-black] tabular-nums"
+                >
+                  {String(i + 1).padStart(2, '0')} / {String(N).padStart(2, '0')}
+                </span>
               </div>
-            )
-          })}
-        </motion.div>
+            ))}
+          </div>
+        </div>
 
-        {/* Side vignettes — fade the cylinder into the section background
-            at the viewport edges so the rotating photos don't visually
-            collide with the page edge. */}
         <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 w-[12vw] max-w-[180px]"
+          className="mt-8 flex justify-center"
           style={{
-            background:
-              'linear-gradient(to right, rgba(248,248,248,1) 0%, rgba(248,248,248,0) 100%)',
+            paddingLeft: 'var(--section-pad-x)',
+            paddingRight: 'var(--section-pad-x)',
+            paddingBottom: 'var(--section-pad-bot)',
           }}
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-[12vw] max-w-[180px]"
-          style={{
-            background:
-              'linear-gradient(to left, rgba(248,248,248,1) 0%, rgba(248,248,248,0) 100%)',
-          }}
-        />
+        >
+          <Button variant="primary" size="md" href="/gallery">
+            View Gallery
+          </Button>
+        </div>
       </div>
     </section>
+  )
+}
+
+// ── Single card on the pinned strip ─────────────────────────────────
+interface PhotoCardProps {
+  img: PortfolioImage
+  index: number
+  total: number
+  active: boolean
+  imageX: MotionValue<string>
+}
+
+function PhotoCard({ img, index, total, active, imageX }: PhotoCardProps) {
+  return (
+    <motion.div
+      className="relative flex-none rounded-[--radius-md] overflow-hidden"
+      style={{
+        width: `${CARD_W_VW}vw`,
+        height: 'clamp(380px, 62vh, 640px)',
+        boxShadow:
+          '0 38px 60px -28px rgba(20,20,20,0.45), 0 14px 26px -16px rgba(20,20,20,0.22)',
+      }}
+      animate={{
+        scale: active ? 1 : 0.92,
+        filter: active ? 'brightness(1)' : 'brightness(0.78)',
+      }}
+      transition={{ duration: 0.55, ease: EASE_OUT }}
+    >
+      {/* Image with horizontal parallax — over-sized so the counter-motion
+          never shows a gap at the card edges. */}
+      <motion.img
+        src={img.src}
+        alt={img.alt}
+        className="absolute top-0 h-full w-[130%] -left-[15%] object-cover pointer-events-none select-none"
+        style={{ x: imageX, objectPosition: img.objectPosition ?? 'center' }}
+        draggable={false}
+      />
+
+      {/* Subtle bottom-gradient so caption pills always have contrast */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
+        style={{
+          background:
+            'linear-gradient(to top, rgba(20,20,20,0.55) 0%, rgba(20,20,20,0) 100%)',
+        }}
+      />
+
+      {/* Top-left index chip — matches header chip styling */}
+      <span
+        className="absolute top-4 left-4 inline-flex items-center h-7 px-2.5 text-[11px] font-body font-bold uppercase tracking-[0.14em] rounded-[--radius-sm] bg-white/95 text-[--color-near-black] tabular-nums"
+      >
+        {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
+      </span>
+
+      {/* Bottom-left caption — only on the active card, fades in/out */}
+      <motion.span
+        className="absolute bottom-4 left-4 inline-flex items-center h-8 px-3 text-[12px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm]"
+        style={{ background: 'var(--color-accent)', color: 'var(--color-near-black)' }}
+        animate={{ opacity: active ? 1 : 0, y: active ? 0 : 8 }}
+        transition={{ duration: 0.45, ease: EASE_OUT }}
+      >
+        {img.caption ?? `Project ${String(index + 1).padStart(2, '0')}`}
+      </motion.span>
+    </motion.div>
   )
 }
