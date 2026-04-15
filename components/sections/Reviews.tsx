@@ -298,9 +298,10 @@ export function Reviews() {
           animation-direction: var(--direction, normal);
           will-change: transform;
           padding: 10px 10px; /* room for shadows */
+          transition: animation-duration 0.3s ease;
         }
         .marquee:hover .marquee__track {
-          animation-play-state: paused;
+          animation-duration: calc(var(--duration, 60s) * 3);
         }
         @keyframes marquee-scroll {
           from {
