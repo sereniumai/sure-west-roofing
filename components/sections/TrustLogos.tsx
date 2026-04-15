@@ -41,8 +41,8 @@ export function TrustLogos() {
     <section
       className="relative bg-white overflow-hidden"
       style={{
-        paddingTop: '80px',
-        paddingBottom: '80px',
+        paddingTop: '56px',
+        paddingBottom: '32px',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -87,7 +87,7 @@ export function TrustLogos() {
           {/* Top hairline */}
           <div className="h-px w-full bg-[--color-near-black]/10" />
 
-          <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10 md:gap-x-14 py-8 md:py-10">
+          <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14 pt-7 pb-6 md:pt-9 md:pb-7">
             {logos.map((logo) => (
               <li
                 key={logo.src}
