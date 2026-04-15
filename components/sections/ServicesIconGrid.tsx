@@ -71,11 +71,11 @@ function ServiceCard({
       onMouseLeave={onHoverEnd}
       className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/8 bg-white p-7 md:p-8 shadow-[0_1px_2px_rgba(26,22,18,0.04),0_6px_20px_-10px_rgba(26,22,18,0.08)] transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-[3px] hover:border-[#D4AF60]/40 hover:shadow-[0_2px_4px_rgba(26,22,18,0.04),0_24px_48px_-20px_rgba(184,148,63,0.22)]"
     >
-      {/* Icon tile — soft cream square with pale gold glyph */}
-      <div className="mb-6">
+      {/* Heading row — icon inline with title */}
+      <div className="flex items-center gap-3">
         <span
           aria-hidden="true"
-          className="inline-flex items-center justify-center w-9 h-9 rounded-[8px] transition-colors duration-500 ease-out group-hover:bg-[rgba(212,175,96,0.18)]"
+          className="inline-flex items-center justify-center w-9 h-9 rounded-[8px] flex-shrink-0 transition-colors duration-500 ease-out group-hover:bg-[rgba(212,175,96,0.18)]"
           style={{ background: 'rgba(212,175,96,0.12)' }}
         >
           <Icon
@@ -84,17 +84,16 @@ function ServiceCard({
             strokeWidth={1.75}
           />
         </span>
+        <h3
+          className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
+          style={{
+            fontSize: 'clamp(19px, 1.45vw, 22px)',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          {service.title}
+        </h3>
       </div>
-
-      <h3
-        className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
-        style={{
-          fontSize: 'clamp(19px, 1.45vw, 22px)',
-          letterSpacing: '-0.02em',
-        }}
-      >
-        {service.title}
-      </h3>
 
       <p
         className="mt-3 text-[--color-near-black]/65 leading-[1.65] flex-1"
