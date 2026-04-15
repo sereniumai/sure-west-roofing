@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
@@ -130,6 +131,10 @@ const faqSchema = {
 export function HomeFAQ() {
   const [open, setOpen] = useState<number | null>(0)
 
+  // Split into two roughly equal columns for desktop layout
+  const mid = Math.ceil(FAQS.length / 2)
+  const columns = [FAQS.slice(0, mid), FAQS.slice(mid)]
+
   return (
     <section
       id="faq"
@@ -148,122 +153,134 @@ export function HomeFAQ() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      {/* ── Header ───────────────────────────────────────────────── */}
-      <motion.div
-        className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.7, ease: EASE_OUT }}
-      >
-        <span
-          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
-          style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+      <div className="mx-auto" style={{ maxWidth: '1320px' }}>
+        {/* ── Header ─────────────────────────────────────────────── */}
+        <motion.div
+          className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[960px] mx-auto"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, ease: EASE_OUT }}
         >
-          FAQs
-        </span>
-        <h2
-          className="font-display font-semibold leading-[1.05] max-w-[960px] text-[--color-near-black]"
-          style={{
-            fontSize: 'clamp(30px, 3.8vw, 52px)',
-            letterSpacing: '-0.04em',
-          }}
-        >
-          Roofing Questions Answered -
-          <br className="hidden md:block" /> Cochrane, Calgary and Canmore
-        </h2>
-        <p
-          className="mt-7 max-w-[620px] text-[--color-near-black]/70 leading-[1.7]"
-          style={{
-            fontSize: '16px',
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontWeight: 400,
-          }}
-        >
-          Straight answers from your local Red Seal certified roofing contractor.
-        </p>
-      </motion.div>
+          <span
+            className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
+            style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+          >
+            FAQs
+          </span>
+          <h2
+            className="font-display font-semibold leading-[1.05] max-w-[960px] text-[--color-near-black]"
+            style={{
+              fontSize: 'clamp(30px, 3.8vw, 54px)',
+              letterSpacing: '-0.04em',
+            }}
+          >
+            Roofing Questions Answered -
+            <br className="hidden md:block" /> Cochrane, Calgary and Canmore
+          </h2>
+          <p
+            className="mt-6 max-w-[640px] text-[--color-near-black]/70 leading-[1.7]"
+            style={{
+              fontSize: '16px',
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontWeight: 400,
+            }}
+          >
+            Straight answers from your local Red Seal certified roofing contractor.
+          </p>
 
-      {/* ── Accordion ────────────────────────────────────────────── */}
-      <motion.div
-        className="max-w-[880px] mx-auto"
-        initial={{ y: 20, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-60px' }}
-        transition={{ duration: 0.55, delay: 0.1, ease: EASE_OUT }}
-      >
-        <ul
-          className="bg-white rounded-[--radius-md] overflow-hidden border border-[--color-near-black]/8"
-          style={{
-            boxShadow:
-              '0 1px 2px rgba(26,22,18,0.04), 0 10px 30px -18px rgba(26,22,18,0.12)',
-          }}
-        >
-          {FAQS.map((faq, i) => {
-            const isOpen = open === i
-            return (
-              <li
-                key={faq.question}
-                className="border-b border-[--color-near-black]/8 last:border-0"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  aria-expanded={isOpen}
-                  className="group flex items-start justify-between w-full text-left px-6 md:px-8 py-5 md:py-6 cursor-pointer"
-                >
-                  <span
-                    className={`font-display font-semibold leading-[1.35] pr-5 transition-colors duration-300 ${
-                      isOpen ? 'text-[--color-near-black]' : 'text-[--color-near-black] group-hover:text-[#B8943F]'
-                    }`}
-                    style={{
-                      fontSize: 'clamp(16px, 1.15vw, 18px)',
-                      letterSpacing: '-0.015em',
-                    }}
-                  >
-                    {faq.question}
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full transition-all duration-300 ${
-                      isOpen
-                        ? 'bg-[--color-accent,#D4AF60] text-[--color-near-black] rotate-45'
-                        : 'bg-[--color-near-black]/5 text-[--color-near-black]/50 group-hover:bg-[rgba(212,175,96,0.18)] group-hover:text-[#B8943F]'
-                    }`}
-                  >
-                    <Plus className="w-[16px] h-[16px]" strokeWidth={2.25} />
-                  </span>
-                </button>
+          {/* CTA directly under sub-copy */}
+          <motion.div
+            className="mt-8"
+            initial={{ y: 16, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.55, delay: 0.25, ease: EASE_OUT }}
+          >
+            <Button variant="primary" size="lg" href="/contact">
+              Get a Free Estimate
+            </Button>
+          </motion.div>
+        </motion.div>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.32, ease: EASE_OUT }}
-                      className="overflow-hidden"
+        {/* ── Two-column FAQ list (minimal line style) ───────────── */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 mt-4"
+          initial={{ y: 20, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.55, delay: 0.1, ease: EASE_OUT }}
+        >
+          {columns.map((col, colIdx) => (
+            <ul key={colIdx} className="flex flex-col">
+              {col.map((faq) => {
+                const i = FAQS.indexOf(faq)
+                const isOpen = open === i
+                return (
+                  <li
+                    key={faq.question}
+                    className="border-b border-[--color-near-black]/12"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                      className="group flex items-center justify-between w-full text-left py-5 md:py-6 cursor-pointer gap-4"
                     >
-                      <div
-                        className="px-6 md:px-8 pb-6 md:pb-7 pr-12 md:pr-16 text-[--color-near-black]/70 leading-[1.7]"
+                      <span
+                        className={`font-display font-semibold leading-[1.35] transition-colors duration-300 ${
+                          isOpen ? 'text-[--color-near-black]' : 'text-[--color-near-black] group-hover:text-[#B8943F]'
+                        }`}
                         style={{
-                          fontSize: '15px',
-                          fontFamily: "'Inter', system-ui, sans-serif",
-                          fontWeight: 400,
+                          fontSize: 'clamp(15.5px, 1.1vw, 17px)',
+                          letterSpacing: '-0.01em',
                         }}
                       >
-                        {faq.answer}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </li>
-            )
-          })}
-        </ul>
+                        {faq.question}
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 ${
+                          isOpen
+                            ? 'bg-[--color-accent,#D4AF60] border-[--color-accent,#D4AF60] text-[--color-near-black] rotate-45'
+                            : 'bg-transparent border-[--color-near-black]/20 text-[--color-near-black]/55 group-hover:border-[#D4AF60] group-hover:text-[#B8943F]'
+                        }`}
+                      >
+                        <Plus className="w-[15px] h-[15px]" strokeWidth={2.2} />
+                      </span>
+                    </button>
+
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.32, ease: EASE_OUT }}
+                          className="overflow-hidden"
+                        >
+                          <div
+                            className="pb-6 md:pb-7 pr-12 md:pr-14 text-[--color-near-black]/70 leading-[1.7]"
+                            style={{
+                              fontSize: '14.5px',
+                              fontFamily: "'Inter', system-ui, sans-serif",
+                              fontWeight: 400,
+                            }}
+                          >
+                            {faq.answer}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </li>
+                )
+              })}
+            </ul>
+          ))}
+        </motion.div>
 
         <p
-          className="text-center mt-7 text-[--color-near-black]/60"
+          className="text-center mt-10 text-[--color-near-black]/60"
           style={{
             fontSize: '14.5px',
             fontFamily: "'Inter', system-ui, sans-serif",
@@ -278,7 +295,7 @@ export function HomeFAQ() {
             Contact Sure West
           </Link>
         </p>
-      </motion.div>
+      </div>
 
       {/* Accordion link styling */}
       <style jsx>{`
