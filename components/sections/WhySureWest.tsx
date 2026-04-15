@@ -110,10 +110,10 @@ export function WhySureWest() {
         </motion.div>
 
         {/* ── Two-column: pillars left | video right ──────────────── */}
-        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-stretch">
           {/* LEFT: pillar cards (2 x 2 on sm+, stacked on mobile) */}
           <motion.ul
-            className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 auto-rows-fr"
+            className="grid h-full grid-cols-1 sm:grid-cols-2 gap-3 md:gap-3.5 auto-rows-fr"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -124,7 +124,7 @@ export function WhySureWest() {
               return (
                 <motion.li
                   key={p.id}
-                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-4 md:p-5 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-3.5 md:p-4 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
                   initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-60px' }}
@@ -133,20 +133,20 @@ export function WhySureWest() {
                   {/* Icon in a gold-tinted tile */}
                   <span
                     aria-hidden="true"
-                    className="inline-flex items-center justify-center w-9 h-9 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
                     style={{ background: 'rgba(212,175,96,0.12)' }}
                   >
                     <Icon
-                      className="w-[18px] h-[18px]"
+                      className="w-4 h-4"
                       style={{ color: 'var(--color-accent, #D4AF60)' }}
                       strokeWidth={1.75}
                     />
                   </span>
 
                   <h3
-                    className="mt-3.5 font-display font-semibold leading-[1.1] text-[--color-near-black]"
+                    className="mt-2.5 font-display font-semibold leading-[1.1] text-[--color-near-black]"
                     style={{
-                      fontSize: '18px',
+                      fontSize: '16px',
                       letterSpacing: '-0.02em',
                     }}
                   >
@@ -154,9 +154,9 @@ export function WhySureWest() {
                   </h3>
 
                   <p
-                    className="mt-2 text-[--color-near-black]/70 leading-[1.6]"
+                    className="mt-1.5 text-[--color-near-black]/70 leading-[1.55]"
                     style={{
-                      fontSize: '13.5px',
+                      fontSize: '12.5px',
                       fontFamily: "'Inter', system-ui, sans-serif",
                       fontWeight: 400,
                     }}
@@ -197,13 +197,6 @@ export function WhySureWest() {
                   title="Sure West Roofing - Cochrane, Alberta"
                 />
               </div>
-
-              <p
-                className="mt-5 text-center text-[12px] uppercase tracking-[0.22em] text-[--color-near-black]/55"
-                style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
-              >
-                Sure West Roofing - Cochrane, Alberta
-              </p>
             </div>
           </motion.div>
         </div>
