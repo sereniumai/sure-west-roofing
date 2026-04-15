@@ -102,7 +102,7 @@ export function WhySureWest() {
           </h2>
 
           <p
-            className="mt-6 md:mt-7 max-w-[640px] text-[--color-near-black]/70 leading-[1.7]"
+            className="mt-6 md:mt-7 max-w-[460px] text-[--color-near-black]/70 leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "'Inter', system-ui, sans-serif",
