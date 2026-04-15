@@ -96,18 +96,6 @@ export function WhySureWest() {
             Cochrane&apos;s Red Seal Certified<br />Roofing Contractor
           </h2>
 
-          <p
-            className="mt-6 md:mt-7 max-w-[620px] text-[--color-near-black]/70 leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontWeight: 400,
-            }}
-          >
-            Every roofing contractor in Cochrane says they are the best.
-            Here is what actually sets Sure West apart.
-          </p>
-
           {/* ── 2 x 2 card grid (short benefit titles) ───────────── */}
           <ul className="mt-6 md:mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-[620px]">
             {pillars.map((p, i) => {
