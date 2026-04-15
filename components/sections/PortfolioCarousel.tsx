@@ -75,7 +75,7 @@ export function PortfolioCarousel({
           <h2
             className="font-display font-semibold leading-[1.05] text-[--color-near-black] max-w-[980px]"
             style={{
-              fontSize: 'clamp(30px, 4.2vw, 60px)',
+              fontSize: 'clamp(30px, 3.8vw, 52px)',
               letterSpacing: '-0.035em',
             }}
           >

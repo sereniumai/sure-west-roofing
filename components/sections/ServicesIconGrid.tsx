@@ -60,7 +60,7 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
         <h2
           className="font-display font-semibold leading-[1.05] max-w-[1000px] text-[--color-near-black]"
           style={{
-            fontSize: 'clamp(34px, 4.4vw, 64px)',
+            fontSize: 'clamp(30px, 3.8vw, 52px)',
             letterSpacing: '-0.04em',
           }}
         >

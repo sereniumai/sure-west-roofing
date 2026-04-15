@@ -72,7 +72,7 @@ export function WhySureWest() {
             id="why-sure-west-heading"
             className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 max-w-[560px]"
             style={{
-              fontSize: 'clamp(30px, 3.4vw, 48px)',
+              fontSize: 'clamp(30px, 3.8vw, 52px)',
               letterSpacing: '-0.035em',
             }}
           >
