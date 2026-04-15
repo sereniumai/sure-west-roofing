@@ -16,9 +16,8 @@ export function BottomCTA() {
   return (
     <section
       id="contact-cta"
-      className="relative overflow-hidden isolate"
+      className="relative bg-white overflow-hidden isolate"
       style={{
-        background: '#1A1612',
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
         paddingLeft: 'var(--section-pad-x)',
@@ -31,16 +30,16 @@ export function BottomCTA() {
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            'radial-gradient(ellipse 70% 80% at 50% 0%, rgba(212,175,96,0.22) 0%, rgba(212,175,96,0) 70%)',
+            'radial-gradient(ellipse 70% 90% at 50% 0%, rgba(212,175,96,0.14) 0%, rgba(212,175,96,0) 70%)',
         }}
       />
-      {/* Subtle grid texture */}
+      {/* Subtle dot grid texture */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.06]"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.05]"
         style={{
           backgroundImage:
-            'radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px)',
+            'radial-gradient(rgba(26,22,18,0.9) 1px, transparent 1px)',
           backgroundSize: '28px 28px',
         }}
       />
@@ -51,7 +50,7 @@ export function BottomCTA() {
       >
         {/* Heading */}
         <motion.h2
-          className="font-display font-semibold text-white leading-[1.05] max-w-[900px]"
+          className="font-display font-semibold text-[--color-near-black] leading-[1.05] max-w-[900px]"
           style={{
             fontSize: 'clamp(32px, 4.4vw, 60px)',
             letterSpacing: '-0.04em',
@@ -81,8 +80,8 @@ export function BottomCTA() {
               key={item}
               className="inline-flex items-center gap-2.5 rounded-full pl-2 pr-5 py-2"
               style={{
-                background: 'rgba(255,255,255,0.05)',
-                border: '1px solid rgba(255,255,255,0.1)',
+                background: 'rgba(26,22,18,0.03)',
+                border: '1px solid rgba(26,22,18,0.1)',
               }}
             >
               <span
@@ -93,7 +92,7 @@ export function BottomCTA() {
                 <Check className="w-[14px] h-[14px] text-[#1A1612]" strokeWidth={2.75} />
               </span>
               <span
-                className="text-white/90"
+                className="text-[--color-near-black]/80"
                 style={{
                   fontSize: '14px',
                   fontFamily: "'Inter', system-ui, sans-serif",
@@ -118,7 +117,7 @@ export function BottomCTA() {
           <Button variant="primary" size="lg" href="/contact">
             Get a Free Estimate
           </Button>
-          <Button variant="ghost" size="lg" href="/services">
+          <Button variant="outline" size="lg" href="/services">
             Explore Our Services
           </Button>
         </motion.div>
