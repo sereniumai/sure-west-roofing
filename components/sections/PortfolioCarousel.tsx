@@ -16,19 +16,23 @@ interface PortfolioCarouselProps {
 }
 
 // ── Static 3D arc tuning ─────────────────────────────────────────────
-// Concave cylinder: cards lie on an arc that curves AWAY from the viewer
-// in the middle and sweeps forward on the sides. Outer cards end up
-// closer to the camera (positive Z) so perspective makes them render
-// larger and their inner edges tilt toward us — matches the Rooferio
-// reference.
+// Concave cylinder: cards form a continuous photo wall wrapped around a
+// vertical-axis cylinder that curves AWAY from the viewer in the middle
+// and sweeps forward on the sides. Cards touch edge-to-edge (no gaps),
+// the strip bleeds past both sides of the viewport, and outer cards
+// rotate sharply — matches the Rooferio reference.
 //
-// Spacing: ARC_STEP_DEG is the angular gap between consecutive cards.
-// Each card's projected width on screen is roughly card_width*cos(angle).
-// To get clean gaps between cards (Rooferio look), the arc-length step
-// (≈ ARC_RADIUS * sin(step)) must exceed the card's projected width.
-const ARC_RADIUS = 750       // px — larger = wider spread + more depth
-const ARC_STEP_DEG = 14      // degrees between adjacent cards (gaps appear at ≥ ~12°)
-const PERSPECTIVE_PX = 900
+// Touching condition: arc length per card ≈ card width.
+//   ARC_RADIUS * sin(ARC_STEP_DEG_rad) ≈ CARD_WIDTH
+// At 8.5°, sin ≈ 0.148, so 1100 * 0.148 ≈ 163px per slot. Card width
+// is set just above this so cards meet seamlessly at the seams.
+//
+// Edge bleed: outermost card (±9 from center for 19 images) sits at
+// ±76.5°, projecting to ±1100*sin(76.5°) ≈ ±1070px — well past a
+// 1400px viewport, so the cylinder runs off-screen on both sides.
+const ARC_RADIUS = 1100      // px — radius of the cylinder
+const ARC_STEP_DEG = 8.5     // degrees between adjacent cards (chosen so cards touch)
+const PERSPECTIVE_PX = 1100
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   const n = images.length
@@ -127,8 +131,8 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
                 key={i}
                 className="absolute left-1/2 top-1/2 rounded-[--radius-md]"
                 style={{
-                  width: 'clamp(120px, 12vw, 165px)',
-                  height: 'clamp(220px, 23vw, 305px)',
+                  width: 'clamp(140px, 14vw, 175px)',
+                  height: 'clamp(240px, 24vw, 310px)',
                   transform: `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, 0, ${z.toFixed(2)}px) rotateY(${psiDeg.toFixed(2)}deg)`,
                   transformOrigin: '50% 50%',
                   transformStyle: 'preserve-3d',
