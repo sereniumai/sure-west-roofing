@@ -7,6 +7,7 @@ import { WhySureWest } from '@/components/sections/WhySureWest'
 import { HowItWorks } from '@/components/sections/HowItWorks'
 import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
 import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
+import { Reviews } from '@/components/sections/Reviews'
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane | Sure West Roofing',
@@ -190,6 +191,9 @@ export default function HomePage() {
           { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Cochrane roofing contractor project 19' },
         ]}
       />
+
+      {/* 7. Reviews */}
+      <Reviews />
     </>
   )
 }
