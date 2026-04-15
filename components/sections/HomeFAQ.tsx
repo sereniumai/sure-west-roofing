@@ -129,7 +129,7 @@ const faqSchema = {
 }
 
 export function HomeFAQ() {
-  const [open, setOpen] = useState<number | null>(0)
+  const [open, setOpen] = useState<number | null>(null)
 
   // Split into two roughly equal columns for desktop layout
   const mid = Math.ceil(FAQS.length / 2)
