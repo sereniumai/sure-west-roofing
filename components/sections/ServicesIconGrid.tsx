@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Link from 'next/link'
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
 import {
   Hammer,
@@ -9,9 +10,9 @@ import {
   ClipboardCheck,
   ScanSearch,
   Sun,
+  ArrowUpRight,
   type LucideIcon,
 } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 
 interface ServiceReview {
   quote: string
@@ -64,75 +65,81 @@ function ServiceCard({
   const Icon = iconFor(service.title)
 
   return (
-    <motion.article
-      className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-5 md:p-6 shadow-[0_10px_30px_-16px_rgba(26,22,18,0.18)] transition-all duration-400 ease-out hover:-translate-y-1 hover:shadow-[0_30px_60px_-24px_rgba(26,22,18,0.28)] hover:border-[#D4AF60]/40"
+    <motion.div
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, delay, ease: EASE_OUT }}
+      className="h-full"
       onMouseEnter={() => onHoverStart(service)}
       onMouseLeave={onHoverEnd}
     >
-      {/* Gold top-rule accent animates in on hover */}
-      <span
-        aria-hidden="true"
-        className="absolute left-5 md:left-6 top-0 h-[2px] w-10 origin-left scale-x-75 transition-transform duration-500 group-hover:scale-x-100"
-        style={{ background: 'var(--color-accent, #D4AF60)' }}
-      />
-
-      {/* Gold index top-right */}
-      <span
-        aria-hidden="true"
-        className="absolute top-4 md:top-5 right-5 md:right-6 font-display font-semibold tabular-nums"
-        style={{
-          fontSize: '11px',
-          color: 'var(--color-accent, #D4AF60)',
-          letterSpacing: '0.12em',
-        }}
+      <Link
+        href={service.href}
+        className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/8 bg-white p-7 md:p-8 shadow-[0_1px_2px_rgba(26,22,18,0.04),0_6px_20px_-10px_rgba(26,22,18,0.08)] transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-[3px] hover:border-[#D4AF60]/50 hover:shadow-[0_2px_4px_rgba(26,22,18,0.04),0_24px_48px_-20px_rgba(184,148,63,0.28)]"
       >
-        {String(index + 1).padStart(2, '0')}
-      </span>
+        {/* Top meta row: number + thin rule */}
+        <div className="flex items-center justify-between mb-7">
+          <span
+            aria-hidden="true"
+            className="inline-flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-full bg-[#1A1612] transition-colors duration-500 ease-out group-hover:bg-[#D4AF60]"
+          >
+            <Icon
+              className="w-[22px] h-[22px] transition-colors duration-500 ease-out text-[#D4AF60] group-hover:text-[#1A1612]"
+              strokeWidth={1.6}
+            />
+          </span>
 
-      {/* Icon tile */}
-      <span
-        aria-hidden="true"
-        className="inline-flex items-center justify-center w-12 h-12 rounded-[--radius-sm] transition-all duration-400 ease-out group-hover:bg-[rgba(212,175,96,0.22)] group-hover:scale-105"
-        style={{ background: 'rgba(212,175,96,0.12)' }}
-      >
-        <Icon
-          className="w-6 h-6"
-          style={{ color: 'var(--color-accent, #D4AF60)' }}
-          strokeWidth={1.65}
-        />
-      </span>
+          <div className="flex items-center gap-2">
+            <span
+              aria-hidden="true"
+              className="h-px w-6 bg-[--color-near-black]/15 transition-all duration-500 ease-out group-hover:w-10 group-hover:bg-[#D4AF60]"
+            />
+            <span
+              aria-hidden="true"
+              className="font-display font-semibold tabular-nums text-[11px] text-[--color-near-black]/40"
+              style={{ letterSpacing: '0.14em' }}
+            >
+              {String(index + 1).padStart(2, '0')}
+              <span className="text-[--color-near-black]/20"> / 06</span>
+            </span>
+          </div>
+        </div>
 
-      <h3
-        className="mt-5 font-display font-semibold leading-[1.1] text-[--color-near-black]"
-        style={{
-          fontSize: 'clamp(20px, 1.55vw, 24px)',
-          letterSpacing: '-0.02em',
-        }}
-      >
-        {service.title}
-      </h3>
+        <h3
+          className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
+          style={{
+            fontSize: 'clamp(19px, 1.45vw, 22px)',
+            letterSpacing: '-0.02em',
+          }}
+        >
+          {service.title}
+        </h3>
 
-      <p
-        className="mt-2.5 text-[--color-near-black]/70 leading-[1.6] flex-1"
-        style={{
-          fontSize: '14px',
-          fontFamily: "'Inter', system-ui, sans-serif",
-          fontWeight: 400,
-        }}
-      >
-        {service.description}
-      </p>
+        <p
+          className="mt-3 text-[--color-near-black]/65 leading-[1.65] flex-1"
+          style={{
+            fontSize: '14px',
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontWeight: 400,
+          }}
+        >
+          {service.description}
+        </p>
 
-      <div className="mt-5">
-        <Button variant="primary" size="sm" href={service.href}>
-          Learn More
-        </Button>
-      </div>
-    </motion.article>
+        {/* Refined text-link CTA */}
+        <div className="mt-7 pt-5 border-t border-[--color-near-black]/8">
+          <span className="inline-flex items-center gap-2 font-display font-semibold text-[13px] text-[--color-near-black] transition-colors duration-300 group-hover:text-[#B8943F]"
+            style={{ letterSpacing: '0.02em' }}
+          >
+            Learn more
+            <span className="relative inline-flex items-center justify-center w-6 h-6 rounded-full bg-[--color-near-black]/5 transition-all duration-500 ease-out group-hover:bg-[#D4AF60] group-hover:scale-110">
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-500 ease-out group-hover:translate-x-[1px] group-hover:-translate-y-[1px]" strokeWidth={2.25} />
+            </span>
+          </span>
+        </div>
+      </Link>
+    </motion.div>
   )
 }
 
@@ -147,11 +154,8 @@ export function ServicesIconGrid({
 
   const x = useMotionValue(0)
   const y = useMotionValue(0)
-  const springX = useSpring(x, { stiffness: 220, damping: 22, mass: 0.5 })
-  const springY = useSpring(y, { stiffness: 220, damping: 22, mass: 0.5 })
-  // A softer, slower spring for the gold "shadow" clone behind the preview
-  const shadowX = useSpring(x, { stiffness: 140, damping: 24, mass: 0.7 })
-  const shadowY = useSpring(y, { stiffness: 140, damping: 24, mass: 0.7 })
+  const springX = useSpring(x, { stiffness: 260, damping: 28, mass: 0.45 })
+  const springY = useSpring(y, { stiffness: 260, damping: 28, mass: 0.45 })
 
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (!sectionRef.current) return
@@ -235,92 +239,56 @@ export function ServicesIconGrid({
         {/* ── Cursor-follow image preview ─────────────────────────── */}
         <AnimatePresence>
           {hover && (
-            <>
-              {/* Gold shadow clone — slower spring, gives the preview a soft tail */}
-              <motion.div
-                key="shadow"
-                className="pointer-events-none absolute top-0 left-0 hidden md:block z-10"
-                style={{ x: shadowX, y: shadowY }}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.6 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: EASE_OUT }}
-              >
-                <div className="-translate-x-1/2 translate-y-6 translate-x-2 translate-y-8">
-                  <div
-                    className="w-[320px] lg:w-[360px] aspect-[4/3] rounded-[--radius-md] blur-[2px]"
-                    style={{
-                      background:
-                        'radial-gradient(closest-side, rgba(212,175,96,0.45), rgba(212,175,96,0.1) 70%, transparent 85%)',
-                    }}
-                  />
-                </div>
-              </motion.div>
-
-              {/* Main preview */}
-              <motion.div
-                key="preview"
-                className="pointer-events-none absolute top-0 left-0 hidden md:block z-20"
-                style={{ x: springX, y: springY }}
-                initial={{ opacity: 0, scale: 0.92, rotate: -2 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.96, rotate: 1 }}
-                transition={{ duration: 0.28, ease: EASE_OUT }}
-              >
-                <div className="-translate-x-1/2 translate-y-6">
-                  <div className="relative w-[320px] lg:w-[360px] aspect-[4/3] overflow-hidden rounded-[--radius-md] ring-1 ring-black/10 shadow-[0_40px_80px_-24px_rgba(26,22,18,0.6),0_12px_24px_-12px_rgba(26,22,18,0.4)] bg-black">
+            <motion.div
+              key="preview"
+              className="pointer-events-none absolute top-0 left-0 hidden md:block z-20"
+              style={{ x: springX, y: springY }}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.98 }}
+              transition={{ duration: 0.22, ease: EASE_OUT }}
+            >
+              <div className="-translate-x-1/2 translate-y-8">
+                <figure className="relative w-[300px] lg:w-[340px] overflow-hidden rounded-[14px] bg-white p-2 shadow-[0_30px_60px_-20px_rgba(26,22,18,0.35),0_8px_16px_-8px_rgba(26,22,18,0.15)] ring-1 ring-black/5">
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] bg-[#1A1612]">
                     <motion.img
                       key={hover.image}
                       src={hover.image}
                       alt={hover.imageAlt}
                       className="absolute inset-0 w-full h-full object-cover"
-                      initial={{ scale: 1.08, opacity: 0.85 }}
+                      initial={{ scale: 1.06, opacity: 0.9 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.5, ease: EASE_OUT }}
+                      transition={{ duration: 0.6, ease: EASE_OUT }}
                       draggable={false}
                     />
-                    {/* Bottom gradient for caption legibility */}
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-0 bottom-0 h-24"
-                      style={{
-                        background:
-                          'linear-gradient(to bottom, transparent, rgba(0,0,0,0.7))',
-                      }}
-                    />
-                    {/* Caption */}
-                    <div className="absolute inset-x-0 bottom-0 p-4">
-                      <span
-                        aria-hidden="true"
-                        className="block font-display font-semibold uppercase tabular-nums mb-1"
-                        style={{
-                          fontSize: '10px',
-                          color: 'var(--color-accent, #D4AF60)',
-                          letterSpacing: '0.22em',
-                        }}
-                      >
-                        View Service
-                      </span>
-                      <span
-                        className="block font-display font-semibold text-white leading-[1.1]"
-                        style={{
-                          fontSize: '18px',
-                          letterSpacing: '-0.02em',
-                        }}
-                      >
-                        {hover.title}
-                      </span>
-                    </div>
-                    {/* Gold rim bottom */}
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-0 bottom-0 h-[3px]"
-                      style={{ background: 'var(--color-accent, #D4AF60)' }}
-                    />
                   </div>
-                </div>
-              </motion.div>
-            </>
+
+                  {/* Caption strip below image */}
+                  <figcaption className="flex items-center justify-between px-3 pt-3 pb-2">
+                    <span
+                      className="font-display font-semibold text-[--color-near-black] leading-none"
+                      style={{
+                        fontSize: '14px',
+                        letterSpacing: '-0.015em',
+                      }}
+                    >
+                      {hover.title}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="font-display font-semibold uppercase tabular-nums"
+                      style={{
+                        fontSize: '9.5px',
+                        color: '#B8943F',
+                        letterSpacing: '0.22em',
+                      }}
+                    >
+                      View →
+                    </span>
+                  </figcaption>
+                </figure>
+              </div>
+            </motion.div>
           )}
         </AnimatePresence>
       </div>

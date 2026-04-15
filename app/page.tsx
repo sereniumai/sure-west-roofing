@@ -76,7 +76,7 @@ export default function HomePage() {
             title: 'Roof Replacement',
             href: '/roof-replacement-cochrane',
             description:
-              "Complete tear-off and replacement using premium materials engineered for Alberta's extreme weather. Free inspection included.",
+              "Complete tear-off and replacement using premium materials built for Alberta weather. Free inspection included.",
             image: '/images/Cochrane Roof by Sure West Roofing.webp',
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
@@ -104,7 +104,7 @@ export default function HomePage() {
             title: 'Hail Damage Repair',
             href: '/hail-damage-repair-cochrane',
             description:
-              'Alberta storms hit hard. We respond fast, document everything, and work directly with your insurance adjuster.',
+              'Alberta storms hit hard. We respond fast, document the damage, and deal directly with your insurance adjuster.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Hail damage repair Cochrane AB',
             review: {
@@ -118,7 +118,7 @@ export default function HomePage() {
             title: 'Roof Maintenance',
             href: '/roof-maintenance-cochrane',
             description:
-              'Extend the life of your roof and avoid costly emergency repairs with expert ongoing maintenance from a certified team.',
+              "Extend your roof's life and avoid costly emergency repairs with expert ongoing maintenance from a certified team.",
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof maintenance Cochrane AB',
             review: {
@@ -132,7 +132,7 @@ export default function HomePage() {
             title: 'Roof Inspection',
             href: '/roof-inspection-cochrane',
             description:
-              'Red Seal certified roof and attic inspections that give you the full picture before problems become expensive disasters.',
+              'Red Seal certified roof and attic inspections that give you the full picture before small issues get expensive.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof inspection Cochrane AB',
             review: {
