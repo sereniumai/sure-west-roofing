@@ -129,21 +129,21 @@ export function WhySureWest() {
               return (
                 <motion.li
                   key={p.id}
-                  className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-5 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-4 md:p-5 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
                   initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.5, delay: 0.1 + i * 0.07, ease: EASE_OUT }}
                 >
                   {/* Icon + title inline */}
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2.5">
                     <span
                       aria-hidden="true"
-                      className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
+                      className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-[6px] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
                       style={{ background: 'rgba(212,175,96,0.12)' }}
                     >
                       <Icon
-                        className="w-[18px] h-[18px]"
+                        className="w-[14px] h-[14px]"
                         style={{ color: 'var(--color-accent, #D4AF60)' }}
                         strokeWidth={1.75}
                       />
@@ -151,7 +151,7 @@ export function WhySureWest() {
                     <h3
                       className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
                       style={{
-                        fontSize: '18px',
+                        fontSize: '17px',
                         letterSpacing: '-0.015em',
                       }}
                     >
@@ -160,9 +160,9 @@ export function WhySureWest() {
                   </div>
 
                   <p
-                    className="mt-3 text-[--color-near-black]/70 leading-[1.6]"
+                    className="mt-2.5 text-[--color-near-black]/70 leading-[1.55]"
                     style={{
-                      fontSize: '13.5px',
+                      fontSize: '13px',
                       fontFamily: "'Inter', system-ui, sans-serif",
                       fontWeight: 400,
                     }}
@@ -176,7 +176,6 @@ export function WhySureWest() {
 
           {/* RIGHT: video */}
           <motion.div
-            className="lg:self-center"
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -226,19 +225,6 @@ export function WhySureWest() {
                           'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.35) 100%)',
                       }}
                     />
-
-                    {/* Small uppercase eyebrow bottom-left (matches site tracking style) */}
-                    <span
-                      aria-hidden="true"
-                      className="absolute left-5 bottom-5 md:left-6 md:bottom-6 text-white/85 uppercase tracking-[0.2em]"
-                      style={{
-                        fontSize: '11px',
-                        fontFamily: "'Inter', system-ui, sans-serif",
-                        fontWeight: 600,
-                      }}
-                    >
-                      Watch · Founders Video
-                    </span>
 
                     {/* Gold play button */}
                     <span
