@@ -74,39 +74,20 @@ export function TrustLogos() {
           >
             Our Associations
           </span>
-
-          <p
-            className="mt-5 md:mt-6 max-w-[620px] text-[--color-near-black]/70 leading-[1.65]"
-            style={{
-              fontSize: '15px',
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontWeight: 400,
-            }}
-          >
-            Credentialed, accredited and accountable to every major
-            roofing standard in Canada.
-          </p>
         </motion.div>
 
         {/* ── Logo row, framed by editorial hairlines ──────────────── */}
         <motion.div
-          className="relative mt-10 md:mt-14"
+          className="relative mt-5 md:mt-7"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.75, delay: 0.1, ease: EASE_OUT }}
         >
-          {/* Top hairline with a gold accent tick at centre */}
-          <div className="relative">
-            <div className="h-px w-full bg-[--color-near-black]/10" />
-            <span
-              aria-hidden="true"
-              className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-0 block w-6 h-[2px]"
-              style={{ background: 'var(--color-accent, #D4AF60)' }}
-            />
-          </div>
+          {/* Top hairline */}
+          <div className="h-px w-full bg-[--color-near-black]/10" />
 
-          <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10 md:gap-x-14 py-10 md:py-14">
+          <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10 md:gap-x-14 py-8 md:py-10">
             {logos.map((logo) => (
               <li
                 key={logo.src}
