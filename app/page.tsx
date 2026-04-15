@@ -160,11 +160,11 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 5. Process */}
-      <HowItWorks />
-
       {/* 4. Why Sure West */}
       <WhySureWest />
+
+      {/* 5. Process */}
+      <HowItWorks />
 
       {/* 6. Our Work (Portfolio) */}
       <PortfolioCarousel
