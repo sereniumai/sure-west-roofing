@@ -21,8 +21,13 @@ interface PortfolioCarouselProps {
 // closer to the camera (positive Z) so perspective makes them render
 // larger and their inner edges tilt toward us — matches the Rooferio
 // reference.
-const ARC_RADIUS = 800       // px — larger = wider spread + more depth
-const ARC_STEP_DEG = 5       // degrees between adjacent cards
+//
+// Spacing: ARC_STEP_DEG is the angular gap between consecutive cards.
+// Each card's projected width on screen is roughly card_width*cos(angle).
+// To get clean gaps between cards (Rooferio look), the arc-length step
+// (≈ ARC_RADIUS * sin(step)) must exceed the card's projected width.
+const ARC_RADIUS = 750       // px — larger = wider spread + more depth
+const ARC_STEP_DEG = 14      // degrees between adjacent cards (gaps appear at ≥ ~12°)
 const PERSPECTIVE_PX = 900
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
@@ -122,8 +127,8 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
                 key={i}
                 className="absolute left-1/2 top-1/2 rounded-[--radius-md]"
                 style={{
-                  width: 'clamp(170px, 17vw, 230px)',
-                  height: 'clamp(260px, 26vw, 350px)',
+                  width: 'clamp(120px, 12vw, 165px)',
+                  height: 'clamp(220px, 23vw, 305px)',
                   transform: `translate(-50%, -50%) translate3d(${x.toFixed(2)}px, 0, ${z.toFixed(2)}px) rotateY(${psiDeg.toFixed(2)}deg)`,
                   transformOrigin: '50% 50%',
                   transformStyle: 'preserve-3d',
