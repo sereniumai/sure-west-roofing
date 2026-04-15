@@ -103,29 +103,13 @@ export function PortfolioCarousel({
 
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
         <motion.div
-          className="relative mt-4 md:mt-6 flex items-center justify-center max-w-[1320px] mx-auto"
+          className="relative mt-6 md:mt-8 flex items-center justify-center max-w-[1320px] mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.15, ease: EASE_OUT }}
         >
-          {/* Soft warm spotlight behind the fan — gives the cards a place
-              to sit instead of floating in whitespace. */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-0 flex items-center justify-center"
-          >
-            <div
-              className="w-[min(980px,90%)] h-[320px] md:h-[380px] rounded-full"
-              style={{
-                background:
-                  'radial-gradient(closest-side, rgba(212,175,96,0.18), rgba(212,175,96,0.06) 55%, transparent 75%)',
-                filter: 'blur(2px)',
-              }}
-            />
-          </div>
-
-          <div className="relative scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 transition-transform">
+          <div className="scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
         </motion.div>
