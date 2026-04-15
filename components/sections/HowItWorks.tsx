@@ -41,9 +41,8 @@ export function HowItWorks() {
     <section
       id="how-it-works"
       ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative bg-white overflow-hidden"
       style={{
-        background: '#FFFBF5',
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
         paddingLeft: 'var(--section-pad-x)',
@@ -116,9 +115,8 @@ export function HowItWorks() {
               {/* Step number badge */}
               <span
                 aria-hidden="true"
-                className="relative z-10 inline-flex items-center justify-center w-[84px] h-[84px] rounded-full mb-7"
+                className="relative z-10 inline-flex items-center justify-center w-[84px] h-[84px] rounded-full bg-white mb-7"
                 style={{
-                  background: '#FFFBF5',
                   boxShadow:
                     '0 0 0 1px rgba(212,175,96,0.35), 0 10px 24px -12px rgba(184,148,63,0.3)',
                 }}
