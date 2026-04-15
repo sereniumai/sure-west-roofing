@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useCallback, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -15,22 +15,6 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// Rotating metadata so repeated photos still read as distinct projects.
-const PROJECT_META: Array<{
-  type: string
-  location: string
-  year: string
-  scope: string
-}> = [
-  { type: 'Complete Replacement', location: 'Cochrane, AB', year: "'24", scope: '2,400 sq ft · Architectural Shingle' },
-  { type: 'Hail Damage Restoration', location: 'Calgary, AB', year: "'24", scope: 'Insurance · Full Tear-off' },
-  { type: 'Roof Inspection', location: 'Canmore, AB', year: "'24", scope: 'Pre-sale · Red Seal Certified' },
-  { type: 'Skylight Installation', location: 'Cochrane, AB', year: "'24", scope: 'VELUX · Flashing + Reseal' },
-  { type: 'Emergency Repair', location: 'Cochrane, AB', year: "'23", scope: 'Storm Response · 6 hr turnaround' },
-  { type: 'Cedar to Asphalt', location: 'Calgary, AB', year: "'23", scope: '3,100 sq ft · Malarkey Legacy' },
-  { type: 'Roof Maintenance', location: 'Cochrane, AB', year: "'24", scope: 'Annual Service · 10-point check' },
-]
-
 // Arc tuning
 const ARC_ROTATE_DEG = 10
 const ARC_TRANSLATE_Y = 30
@@ -42,8 +26,6 @@ const MOMENTUM_SCALE = 18
 const LOOP_COPIES = 3 // triple the strip so we can silently reset into the middle copy
 
 interface CardData extends PortfolioImage {
-  meta: (typeof PROJECT_META)[number]
-  projectNumber: string
   realIndex: number // 0..realCount-1, stable across loop copies
 }
 
@@ -66,8 +48,6 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   const realCount = Math.max(images.length, 7)
   const realCards: CardData[] = Array.from({ length: realCount }, (_, i) => ({
     ...images[i % images.length],
-    meta: PROJECT_META[i % PROJECT_META.length],
-    projectNumber: String(i + 1).padStart(2, '0'),
     realIndex: i,
   }))
   const loopedCards: CardData[] = Array.from(
@@ -290,8 +270,6 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
     }
   }, [checkLoopReset, scheduleUpdate, updateArcTransforms])
 
-  const activeCard = realCards[activeRealIndex]
-
   return (
     <section
       className="relative overflow-hidden bg-[#F6F5F1]"
@@ -396,48 +374,13 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
                     className="w-full h-full object-cover pointer-events-none"
                     draggable={false}
                   />
-
-                  <div
-                    className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none"
-                    style={{
-                      background:
-                        'linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.05) 40%, rgba(0,0,0,0.7) 100%)',
-                    }}
-                  />
-
-                  <div className="absolute top-3 left-3 md:top-4 md:left-4">
-                    <span
-                      className="font-display text-[11px] font-bold uppercase tracking-[0.28em] text-white/85"
-                      style={{ textShadow: '0 1px 8px rgba(0,0,0,0.45)' }}
-                    >
-                      №{card.projectNumber}
-                    </span>
-                  </div>
-
-                  <div className="absolute inset-x-0 bottom-0 p-4 md:p-5 text-white">
-                    <p
-                      className="text-[10.5px] font-body font-bold uppercase tracking-[0.22em] text-[#E9C98A] mb-1.5"
-                      style={{ textShadow: '0 1px 6px rgba(0,0,0,0.4)' }}
-                    >
-                      {card.meta.location} · {card.meta.year}
-                    </p>
-                    <p
-                      className="font-display font-semibold leading-[1.1] text-[17px] md:text-[19px]"
-                      style={{
-                        letterSpacing: '-0.02em',
-                        textShadow: '0 2px 12px rgba(0,0,0,0.45)',
-                      }}
-                    >
-                      {card.meta.type}
-                    </p>
-                  </div>
                 </div>
 
                 {!isActive && (
                   <button
                     type="button"
                     onClick={() => snapToReal(card.realIndex)}
-                    aria-label={`View project ${card.projectNumber}: ${card.meta.type}`}
+                    aria-label={`View project ${card.realIndex + 1}`}
                     className="absolute inset-0 rounded-[--radius-md] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF60]"
                   />
                 )}
@@ -492,20 +435,6 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           </button>
         </div>
 
-        <div className="relative mt-6 md:mt-8 px-5 flex justify-center min-h-[28px]">
-          <AnimatePresence mode="wait">
-            <motion.p
-              key={activeRealIndex}
-              initial={{ y: 8, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -8, opacity: 0 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] as const }}
-              className="text-[12px] md:text-[13px] font-body font-medium tracking-wide text-[--color-near-black]/60"
-            >
-              {activeCard?.meta.scope}
-            </motion.p>
-          </AnimatePresence>
-        </div>
       </div>
     </section>
   )
