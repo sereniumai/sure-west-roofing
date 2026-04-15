@@ -92,7 +92,7 @@ export function WhySureWest() {
           </p>
 
           {/* ── Bullet list ───────────────────────────────────────── */}
-          <ul className="mt-8 md:mt-10 space-y-4 md:space-y-5 max-w-[540px]">
+          <ul className="mt-4 md:mt-5 space-y-4 md:space-y-5 max-w-[540px]">
             {pillars.map((p, i) => (
               <motion.li
                 key={p.id}
