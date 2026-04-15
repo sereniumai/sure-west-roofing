@@ -110,10 +110,10 @@ export function WhySureWest() {
         </motion.div>
 
         {/* ── Two-column: pillars left | video right ──────────────── */}
-        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,500px)] gap-10 lg:gap-16 items-start">
+        <div className="mt-14 md:mt-20 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           {/* LEFT: pillar cards (2 x 2 on sm+, stacked on mobile) */}
           <motion.ul
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 auto-rows-fr"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 auto-rows-fr"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -124,7 +124,7 @@ export function WhySureWest() {
               return (
                 <motion.li
                   key={p.id}
-                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-6 md:p-7 shadow-[0_8px_20px_-12px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_50px_-20px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  className="group relative flex flex-col rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-4 md:p-5 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
                   initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-60px' }}
@@ -133,20 +133,20 @@ export function WhySureWest() {
                   {/* Icon in a gold-tinted tile */}
                   <span
                     aria-hidden="true"
-                    className="inline-flex items-center justify-center w-11 h-11 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
+                    className="inline-flex items-center justify-center w-9 h-9 rounded-[--radius-sm] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
                     style={{ background: 'rgba(212,175,96,0.12)' }}
                   >
                     <Icon
-                      className="w-5 h-5"
+                      className="w-[18px] h-[18px]"
                       style={{ color: 'var(--color-accent, #D4AF60)' }}
                       strokeWidth={1.75}
                     />
                   </span>
 
                   <h3
-                    className="mt-5 font-display font-semibold leading-[1.1] text-[--color-near-black]"
+                    className="mt-3.5 font-display font-semibold leading-[1.1] text-[--color-near-black]"
                     style={{
-                      fontSize: '22px',
+                      fontSize: '18px',
                       letterSpacing: '-0.02em',
                     }}
                   >
@@ -154,9 +154,9 @@ export function WhySureWest() {
                   </h3>
 
                   <p
-                    className="mt-2.5 text-[--color-near-black]/70 leading-[1.65]"
+                    className="mt-2 text-[--color-near-black]/70 leading-[1.6]"
                     style={{
-                      fontSize: '14.5px',
+                      fontSize: '13.5px',
                       fontFamily: "'Inter', system-ui, sans-serif",
                       fontWeight: 400,
                     }}
