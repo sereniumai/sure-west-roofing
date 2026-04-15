@@ -25,11 +25,6 @@ const pillars: Pillar[] = [
     title: 'Proven Processes',
     body: 'Written quotes, clear timelines, and a 10-year workmanship guarantee in writing before a nail is driven.',
   },
-  {
-    id: 'local-roots',
-    title: 'Local Roots',
-    body: 'Born and based in Cochrane. We live where we work, so every roof we build is personal.',
-  },
 ]
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
