@@ -1,11 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Award,
   Handshake,
   ShieldCheck,
   MapPin,
+  Play,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -45,8 +47,11 @@ const pillars: Pillar[] = [
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 const VIMEO_ID = '917317949'
+const THUMBNAIL = '/images/Sure West Roofing - Founders Video.png'
 
 export function WhySureWest() {
+  const [playing, setPlaying] = useState(false)
+
   return (
     <section
       id="why-sure-west"
@@ -190,13 +195,81 @@ export function WhySureWest() {
               />
 
               <div className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] bg-black shadow-[0_40px_90px_-30px_rgba(26,22,18,0.55),0_18px_40px_-18px_rgba(26,22,18,0.3)] ring-1 ring-black/5">
-                <iframe
-                  src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
-                  className="absolute inset-0 w-full h-full border-0"
-                  allow="autoplay; fullscreen; picture-in-picture"
-                  allowFullScreen
-                  title="Sure West Roofing - Cochrane, Alberta"
-                />
+                {playing ? (
+                  <iframe
+                    src={`https://player.vimeo.com/video/${VIMEO_ID}?autoplay=1&title=0&byline=0&portrait=0`}
+                    className="absolute inset-0 w-full h-full border-0"
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    allowFullScreen
+                    title="Sure West Roofing - Cochrane, Alberta"
+                  />
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setPlaying(true)}
+                    aria-label="Play Sure West Roofing founders video"
+                    className="group absolute inset-0 w-full h-full cursor-pointer"
+                  >
+                    <img
+                      src={THUMBNAIL}
+                      alt="Sure West Roofing founders, Cochrane Alberta"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      draggable={false}
+                    />
+
+                    {/* Cinematic darken + warm vignette */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 transition-colors duration-500 group-hover:bg-black/10"
+                      style={{
+                        background:
+                          'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.35) 100%)',
+                      }}
+                    />
+
+                    {/* Small uppercase eyebrow bottom-left (matches site tracking style) */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-5 bottom-5 md:left-6 md:bottom-6 text-white/85 uppercase tracking-[0.2em]"
+                      style={{
+                        fontSize: '11px',
+                        fontFamily: "'Inter', system-ui, sans-serif",
+                        fontWeight: 600,
+                      }}
+                    >
+                      Watch · Founders Video
+                    </span>
+
+                    {/* Gold play button */}
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      {/* Soft halo ring that pulses slightly on hover */}
+                      <span
+                        className="absolute w-[108px] h-[108px] rounded-full transition-all duration-500 group-hover:w-[128px] group-hover:h-[128px]"
+                        style={{
+                          background:
+                            'radial-gradient(closest-side, rgba(212,175,96,0.45), rgba(212,175,96,0.12) 60%, transparent 75%)',
+                        }}
+                      />
+                      {/* Button */}
+                      <span
+                        className="relative flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 shadow-[0_18px_40px_-12px_rgba(212,175,96,0.75),0_8px_20px_-8px_rgba(0,0,0,0.3)]"
+                        style={{
+                          width: '80px',
+                          height: '80px',
+                          background: 'var(--color-accent, #D4AF60)',
+                        }}
+                      >
+                        <Play
+                          className="w-7 h-7 text-white fill-white ml-1"
+                          strokeWidth={0}
+                        />
+                      </span>
+                    </span>
+                  </button>
+                )}
               </div>
             </div>
           </motion.div>
