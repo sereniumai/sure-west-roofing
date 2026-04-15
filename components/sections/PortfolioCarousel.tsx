@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
+import { CircularGallery, type GalleryItem } from '@/components/ui/circular-gallery-2'
 
 interface PortfolioImage {
   src: string
   alt: string
-  /** CSS object-position for the <img> — use to nudge a specific photo's crop. */
+  /** CSS object-position — unused by the WebGL gallery, kept for back-compat. */
   objectPosition?: string
 }
 
@@ -16,17 +17,15 @@ interface PortfolioCarouselProps {
 }
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
-// Slow + cinematic — the strip should feel like it's drifting, not racing.
-const MARQUEE_DURATION_SEC = 130
-
-// Uniform card size — modest portrait crop, same for every card.
-const CARD_WIDTH = 'clamp(220px, 18vw, 280px)'
-const CARD_HEIGHT = 'clamp(280px, 22vw, 340px)'
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
-  // Duplicate the source list so the marquee can translate -50% and seam back
-  // onto an identical copy with no visible jump.
-  const doubled = [...images, ...images]
+  // Map the site's image catalogue into the WebGL gallery's item shape.
+  // Text is left blank — the design has no per-card captions; the shader
+  // discards transparent labels so nothing renders under the cards.
+  const galleryItems: GalleryItem[] = images.map((img) => ({
+    image: img.src,
+    text: '',
+  }))
 
   return (
     <section
@@ -96,136 +95,22 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           </div>
         </motion.div>
 
-        {/* ── Photo wall — desktop / tablet marquee ─────────────────── */}
+        {/* ── WebGL circular gallery ────────────────────────────────── */}
         <motion.div
-          className="hidden md:block relative mt-14 md:mt-20"
+          className="relative mt-14 md:mt-20 h-[520px] md:h-[620px] w-full"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.2, ease: EASE_OUT }}
         >
-          <div
-            className="flex items-center w-max sw-marquee-track"
-            style={{
-              gap: 'clamp(16px, 1.6vw, 28px)',
-              animationDuration: `${MARQUEE_DURATION_SEC}s`,
-            }}
-          >
-            {doubled.map((img, i) => (
-              <PhotoCard
-                key={i}
-                img={img}
-                ariaHidden={i >= images.length /* second copy is decorative */}
-              />
-            ))}
-          </div>
-
-          {/* Edge fades — barely-there feather, just to soften the hard
-              clip at the section's overflow boundary. */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 w-[2vw] max-w-[36px] z-10"
-            style={{
-              background:
-                'linear-gradient(to right, rgba(248,248,248,0.7) 0%, rgba(248,248,248,0) 100%)',
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 w-[2vw] max-w-[36px] z-10"
-            style={{
-              background:
-                'linear-gradient(to left, rgba(248,248,248,0.7) 0%, rgba(248,248,248,0) 100%)',
-            }}
+          <CircularGallery
+            items={galleryItems}
+            bend={3}
+            borderRadius={0.05}
+            scrollEase={0.02}
           />
         </motion.div>
-
-        {/* ── Mobile: snap-scroll strip ─────────────────────────────── */}
-        <motion.div
-          className="md:hidden mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.7, delay: 0.15, ease: EASE_OUT }}
-        >
-          <div
-            className="overflow-x-auto scrollbar-hide snap-x snap-mandatory"
-            style={{
-              paddingLeft: 'var(--section-pad-x)',
-              paddingRight: 'var(--section-pad-x)',
-            }}
-          >
-            <div className="flex gap-3 pb-2">
-              {images.map((img, i) => (
-                <PhotoCard key={i} img={img} mobile />
-              ))}
-            </div>
-          </div>
-        </motion.div>
-
       </div>
-
-      {/* Marquee keyframe — translate exactly half the doubled track so the
-          loop seams onto its identical second copy invisibly. */}
-      <style jsx>{`
-        .sw-marquee-track {
-          animation-name: sw-marquee;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          will-change: transform;
-        }
-        @keyframes sw-marquee {
-          from {
-            transform: translate3d(0, 0, 0);
-          }
-          to {
-            transform: translate3d(-50%, 0, 0);
-          }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .sw-marquee-track {
-            animation: none !important;
-          }
-        }
-      `}</style>
     </section>
-  )
-}
-
-// ── Single photo card ─────────────────────────────────────────────────
-interface PhotoCardProps {
-  img: PortfolioImage
-  mobile?: boolean
-  ariaHidden?: boolean
-}
-
-function PhotoCard({ img, mobile, ariaHidden }: PhotoCardProps) {
-  const sizeStyle = mobile
-    ? { width: 'min(70vw, 320px)', height: 'min(92vw, 420px)' }
-    : { width: CARD_WIDTH, height: CARD_HEIGHT }
-
-  return (
-    <div
-      aria-hidden={ariaHidden || undefined}
-      className={['relative flex-none', mobile ? 'snap-center' : ''].join(' ')}
-      style={sizeStyle}
-    >
-      <div
-        className="absolute inset-0 overflow-hidden rounded-[--radius-md]"
-        style={{
-          boxShadow:
-            '0 22px 38px -22px rgba(20,20,20,0.40), 0 10px 18px -12px rgba(20,20,20,0.18)',
-        }}
-      >
-        <img
-          src={img.src}
-          alt={img.alt}
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: img.objectPosition ?? 'center' }}
-          draggable={false}
-          loading="lazy"
-        />
-      </div>
-    </div>
   )
 }
