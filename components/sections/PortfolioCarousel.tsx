@@ -17,13 +17,14 @@ interface PortfolioCarouselProps {
   images: PortfolioImage[]
 }
 
-// Cylinder tuning — cards sit on the inside of a gentle cylinder.
-// Outer cards rotate around Y (facing back toward the center axis) and
-// get pulled slightly up, so the strip reads as a concave curve in 3D.
-const CYL_ROTATE_Y_DEG = 34    // max rotateY at the extremes
-const CYL_TRANSLATE_Z = 80     // outer cards pushed back this far (px)
-const CYL_LIFT_Y = 22          // outer cards pulled up this far (px)
-const CYL_SCALE_MIN = 0.94     // mild extra depth dampening
+// Cylinder tuning — concave arc, bowed AWAY from the viewer.
+// The centre cards recede into the distance; outer cards sit forward
+// (at z=0) and rotate their INNER edge back toward the arc's axis,
+// so the whole strip reads like a concave film-strip wrapped around
+// the viewer. Size falloff is handled automatically by perspective.
+const CYL_ROTATE_Y_DEG = 36    // max rotateY at the extremes
+const CYL_TRANSLATE_Z = 320    // how far the MIDDLE card is pushed back (px)
+const CYL_LIFT_Y = 8           // subtle upward tug on the sides (px)
 const PERSPECTIVE_PX = 1400
 const FOCAL_THRESHOLD = 0.12
 const DRAG_MULTIPLIER = 1.4
@@ -88,23 +89,25 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
         bestRealIndex = i % realCount
       }
 
-      // 3D cylinder: outer cards rotate toward center axis, push back in Z,
-      // and get pulled up a touch so the strip curves like a concave shell.
-      const rotY = -t * CYL_ROTATE_Y_DEG
-      const tz = -Math.abs(t) * CYL_TRANSLATE_Z
+      // 3D concave cylinder: MIDDLE cards recede (negative Z), OUTER cards
+      // stay forward (z=0) and rotate their INNER edge back toward the axis.
+      // Perspective handles size falloff — no explicit scale needed.
+      const rotY = t * CYL_ROTATE_Y_DEG
+      const tz = -(1 - Math.abs(t)) * CYL_TRANSLATE_Z
       const dy = -(t * t) * CYL_LIFT_Y
-      const baseScale = 1 - Math.abs(t) * (1 - CYL_SCALE_MIN)
 
       const focal = Math.max(0, 1 - Math.abs(t) / FOCAL_THRESHOLD)
-      const scale = baseScale + focal * 0.04
-      const lift = focal * -8
+      const lift = focal * -4
 
-      const saturate = 0.82 + (1 - Math.abs(t)) * 0.18
-      const brightness = 0.92 + (1 - Math.abs(t)) * 0.08
+      // Centre cards sit in shadow / slightly desaturated so the outer
+      // "close" cards pop visually the way they do in the Rooferio ref.
+      const saturate = 0.85 + Math.abs(t) * 0.15
+      const brightness = 0.92 + Math.abs(t) * 0.08
 
-      el.style.transform = `translateY(${(dy + lift).toFixed(2)}px) translateZ(${tz.toFixed(2)}px) rotateY(${rotY.toFixed(2)}deg) scale(${scale.toFixed(3)})`
+      el.style.transform = `translateY(${(dy + lift).toFixed(2)}px) translateZ(${tz.toFixed(2)}px) rotateY(${rotY.toFixed(2)}deg)`
       el.style.filter = `saturate(${saturate.toFixed(3)}) brightness(${brightness.toFixed(3)})`
-      el.style.zIndex = String(Math.round(100 - Math.abs(t) * 50))
+      // Outer cards are closer → paint them on TOP of the recessed middle cards.
+      el.style.zIndex = String(Math.round(50 + Math.abs(t) * 50))
     }
 
     setActiveRealIndex(bestRealIndex)
