@@ -108,8 +108,7 @@ export function ParallaxImageStrip({
   return (
     <section
       ref={ref}
-      className="relative overflow-visible z-[2]"
-      style={{ height: '0px' }}
+      className="relative overflow-visible z-[2] h-[150px] md:h-[450px]"
     >
       {/* Outer positioner — full-bleed absolute; inner caps at the Hero's
           1320px container so the strip lines up with the headline above. */}
