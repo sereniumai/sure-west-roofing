@@ -76,7 +76,7 @@ export default function HomePage() {
             title: 'Roof Replacement',
             href: '/roof-replacement-cochrane',
             description:
-              "Complete tear-off and replacement using premium materials built for Alberta weather. Free inspection included.",
+              "Complete tear-off and replacement using premium materials built for Alberta weather.",
             image: '/images/Cochrane Roof by Sure West Roofing.webp',
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
@@ -90,7 +90,7 @@ export default function HomePage() {
             title: 'Roof Repair',
             href: '/roof-repair-cochrane',
             description:
-              'Fast, affordable, Journeyman-approved repairs that get you back to normal without the stress or the disruption.',
+              'Fast, affordable, Journeyman-approved repairs that get you back to normal without the stress.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof repair Cochrane AB',
             review: {
@@ -104,7 +104,7 @@ export default function HomePage() {
             title: 'Hail Damage Repair',
             href: '/hail-damage-repair-cochrane',
             description:
-              'Alberta storms hit hard. We respond fast, document the damage, and deal directly with your insurance adjuster.',
+              'Alberta storms hit hard. We respond fast and deal directly with your insurance adjuster.',
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Hail damage repair Cochrane AB',
             review: {
@@ -118,7 +118,7 @@ export default function HomePage() {
             title: 'Roof Maintenance',
             href: '/roof-maintenance-cochrane',
             description:
-              "Extend your roof's life and avoid costly emergency repairs with expert ongoing maintenance from a certified team.",
+              "Extend your roof's life and prevent costly repairs with expert ongoing maintenance.",
             image: '/images/Cochrane Roof Replacement.jpg',
             imageAlt: 'Roof maintenance Cochrane AB',
             review: {
@@ -132,7 +132,7 @@ export default function HomePage() {
             title: 'Roof Inspection',
             href: '/roof-inspection-cochrane',
             description:
-              'Red Seal certified roof and attic inspections that give you the full picture before small issues get expensive.',
+              'Red Seal certified roof and attic inspections that catch small issues before they get expensive.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Roof inspection Cochrane AB',
             review: {
@@ -146,7 +146,7 @@ export default function HomePage() {
             title: 'Skylight Installation',
             href: '/skylight-installation-cochrane',
             description:
-              'Brighten your home with natural light. Properly installed by a Journeyman certified team. Completely hassle-free.',
+              'Brighten your home with natural light. Properly installed by a Journeyman certified team.',
             image: '/images/Cochrane Roof Repair.jpg',
             imageAlt: 'Skylight installation Cochrane AB',
             review: {
