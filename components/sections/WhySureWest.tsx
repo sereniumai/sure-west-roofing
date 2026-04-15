@@ -133,6 +133,7 @@ export function WhySureWest() {
 
         {/* ── RIGHT: video ────────────────────────────────────────── */}
         <motion.div
+          className="lg:self-center"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
