@@ -19,23 +19,9 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 // Slow + cinematic — the strip should feel like it's drifting, not racing.
 const MARQUEE_DURATION_SEC = 130
 
-// ── Editorial rhythm ─────────────────────────────────────────────────
-// Instead of uniform tiles, cards rotate through a deterministic
-// pattern of three shapes (tall portrait / wide landscape / standard).
-// Combined with a subtle vertical baseline offset, the strip reads
-// like a curated gallery wall — coffee-table-book pacing, not a bar.
-type Shape = 'tall' | 'wide' | 'std'
-
-const RHYTHM: Shape[] = ['std', 'tall', 'wide', 'std', 'tall', 'std', 'wide', 'tall']
-// Vertical baseline offsets in px — small, just enough to break the
-// dead-flat alignment without making it feel disorganised.
-const Y_OFFSETS = [0, 14, -10, 6, -4, 12, -8, 2]
-
-const SHAPE_STYLES: Record<Shape, { width: string; height: string }> = {
-  tall: { width: 'clamp(220px, 21vw, 320px)', height: 'clamp(360px, 34vw, 500px)' },
-  wide: { width: 'clamp(360px, 34vw, 520px)', height: 'clamp(260px, 24vw, 360px)' },
-  std:  { width: 'clamp(280px, 26vw, 400px)', height: 'clamp(320px, 28vw, 420px)' },
-}
+// Uniform card size — modest portrait crop, same for every card.
+const CARD_WIDTH = 'clamp(220px, 18vw, 280px)'
+const CARD_HEIGHT = 'clamp(280px, 22vw, 340px)'
 
 export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
   // Duplicate the source list so the marquee can translate -50% and seam back
@@ -118,29 +104,20 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.2, ease: EASE_OUT }}
         >
-          {/* Generous track height so vertical offsets never clip */}
           <div
             className="flex items-center w-max sw-marquee-track"
             style={{
-              gap: 'clamp(20px, 2vw, 36px)',
+              gap: 'clamp(16px, 1.6vw, 28px)',
               animationDuration: `${MARQUEE_DURATION_SEC}s`,
-              paddingTop: '24px',
-              paddingBottom: '24px',
             }}
           >
-            {doubled.map((img, i) => {
-              const shape = RHYTHM[i % RHYTHM.length]
-              const yOffset = Y_OFFSETS[i % Y_OFFSETS.length]
-              return (
-                <PhotoCard
-                  key={i}
-                  img={img}
-                  shape={shape}
-                  yOffset={yOffset}
-                  ariaHidden={i >= images.length /* second copy is decorative */}
-                />
-              )
-            })}
+            {doubled.map((img, i) => (
+              <PhotoCard
+                key={i}
+                img={img}
+                ariaHidden={i >= images.length /* second copy is decorative */}
+              />
+            ))}
           </div>
 
           {/* Edge fades — barely-there feather, just to soften the hard
@@ -218,25 +195,20 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
 // ── Single photo card ─────────────────────────────────────────────────
 interface PhotoCardProps {
   img: PortfolioImage
-  shape?: Shape
-  yOffset?: number
   mobile?: boolean
   ariaHidden?: boolean
 }
 
-function PhotoCard({ img, shape = 'std', yOffset = 0, mobile, ariaHidden }: PhotoCardProps) {
+function PhotoCard({ img, mobile, ariaHidden }: PhotoCardProps) {
   const sizeStyle = mobile
     ? { width: 'min(70vw, 320px)', height: 'min(92vw, 420px)' }
-    : SHAPE_STYLES[shape]
+    : { width: CARD_WIDTH, height: CARD_HEIGHT }
 
   return (
     <div
       aria-hidden={ariaHidden || undefined}
       className={['relative flex-none', mobile ? 'snap-center' : ''].join(' ')}
-      style={{
-        ...sizeStyle,
-        transform: mobile ? undefined : `translateY(${yOffset}px)`,
-      }}
+      style={sizeStyle}
     >
       <div
         className="absolute inset-0 overflow-hidden rounded-[--radius-md]"
