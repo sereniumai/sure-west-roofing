@@ -52,10 +52,9 @@ export function WhySureWest() {
         }}
       />
 
-      <div className="relative max-w-[1320px] mx-auto">
-        {/* ── Header: eyebrow + h2 + sub ──────────────────────────── */}
+      <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_minmax(0,600px)] gap-12 lg:gap-20 items-start">
+        {/* ── LEFT: copy + pillars ─────────────────────────────────── */}
         <motion.div
-          className="flex flex-col items-center text-center max-w-[920px] mx-auto"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -70,17 +69,17 @@ export function WhySureWest() {
 
           <h2
             id="why-sure-west-heading"
-            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 whitespace-normal lg:whitespace-nowrap"
+            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7 max-w-[560px]"
             style={{
-              fontSize: 'clamp(30px, 4.2vw, 60px)',
-              letterSpacing: '-0.04em',
+              fontSize: 'clamp(30px, 3.4vw, 48px)',
+              letterSpacing: '-0.035em',
             }}
           >
-            Cochrane&apos;s Red Seal Certified Roofing Contractor
+            Cochrane&apos;s Red Seal Certified<br />Roofing Contractor
           </h2>
 
           <p
-            className="mt-6 md:mt-7 max-w-[620px] text-[--color-near-black]/70 leading-[1.7]"
+            className="mt-6 md:mt-7 max-w-[520px] text-[--color-near-black]/70 leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -90,59 +89,17 @@ export function WhySureWest() {
             Every roofing contractor in Cochrane says they are the best.
             Here is what actually sets Sure West apart.
           </p>
-        </motion.div>
 
-        {/* ── Cinematic video ──────────────────────────────────────── */}
-        <motion.div
-          className="relative mt-12 md:mt-16 max-w-[1100px] mx-auto"
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.9, delay: 0.15, ease: EASE_OUT }}
-        >
-          {/* Warm gold glow behind video for anchor */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -inset-x-10 -inset-y-8 -z-10"
-            style={{
-              background:
-                'radial-gradient(600px 220px at 50% 50%, rgba(212,175,96,0.15), transparent 70%)',
-              filter: 'blur(4px)',
-            }}
-          />
-
-          <div className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] bg-black shadow-[0_40px_100px_-30px_rgba(26,22,18,0.55),0_20px_50px_-20px_rgba(26,22,18,0.35)] ring-1 ring-black/5">
-            <iframe
-              src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
-              className="absolute inset-0 w-full h-full border-0"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              title="Sure West Roofing - Cochrane, Alberta"
-            />
-          </div>
-
-          <p
-            className="mt-5 text-center text-[12px] uppercase tracking-[0.22em] text-[--color-near-black]/55"
-            style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
-          >
-            Sure West Roofing - Cochrane, Alberta
-          </p>
-        </motion.div>
-
-        {/* ── Pillars as a 3-column editorial row ──────────────────── */}
-        <div className="mt-16 md:mt-24 max-w-[1100px] mx-auto">
-          {/* Hairline bracket to visually tie the row */}
-          <div className="h-px w-full bg-[--color-near-black]/10 mb-12 md:mb-14" />
-
-          <ul className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 lg:gap-16">
+          {/* ── Pillars as a clean static list ──────────────────────── */}
+          <ul className="mt-8 md:mt-10 max-w-[540px] border-y border-[--color-near-black]/10 divide-y divide-[--color-near-black]/10">
             {pillars.map((p, i) => (
               <motion.li
                 key={p.id}
-                className="relative md:pl-8 md:border-l md:border-[--color-near-black]/10 md:first:border-l-0 md:first:pl-0"
-                initial={{ y: 20, opacity: 0 }}
+                className="py-5"
+                initial={{ y: 14, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true, margin: '-60px' }}
-                transition={{ duration: 0.6, delay: 0.15 + i * 0.1, ease: EASE_OUT }}
+                transition={{ duration: 0.5, delay: 0.15 + i * 0.07, ease: EASE_OUT }}
               >
                 <div className="flex items-baseline gap-3">
                   <span
@@ -157,14 +114,14 @@ export function WhySureWest() {
                     0{i + 1}
                   </span>
                   <h3
-                    className="text-[17px] md:text-[18px] font-semibold tracking-[-0.01em] text-[--color-near-black]"
+                    className="text-[16px] font-semibold tracking-[-0.005em] text-[--color-near-black]"
                     style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                   >
                     {p.title}
                   </h3>
                 </div>
                 <p
-                  className="mt-3 text-[14.5px] leading-[1.75] text-[--color-near-black]/70"
+                  className="mt-2 text-[14.5px] leading-[1.7] text-[--color-near-black]/70"
                   style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
                 >
                   {p.body}
@@ -172,7 +129,46 @@ export function WhySureWest() {
               </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
+
+        {/* ── RIGHT: video (sticky so it tracks alongside the pillars) */}
+        <motion.div
+          className="lg:sticky lg:top-[calc(var(--nav-height)+40px)]"
+          initial={{ y: 30, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.8, delay: 0.1, ease: EASE_OUT }}
+        >
+          <div className="relative">
+            {/* Warm gold halo behind video for anchor */}
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
+              style={{
+                background:
+                  'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
+                filter: 'blur(4px)',
+              }}
+            />
+
+            <div className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] bg-black shadow-[0_40px_90px_-30px_rgba(26,22,18,0.55),0_18px_40px_-18px_rgba(26,22,18,0.3)] ring-1 ring-black/5">
+              <iframe
+                src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0`}
+                className="absolute inset-0 w-full h-full border-0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Sure West Roofing - Cochrane, Alberta"
+              />
+            </div>
+
+            <p
+              className="mt-5 text-center text-[12px] uppercase tracking-[0.22em] text-[--color-near-black]/55"
+              style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+            >
+              Sure West Roofing - Cochrane, Alberta
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   )
