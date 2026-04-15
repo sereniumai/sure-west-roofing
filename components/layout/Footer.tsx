@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import { Mail, MapPin } from 'lucide-react'
 
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement-cochrane' },
@@ -10,14 +11,7 @@ const services = [
   { label: 'Skylight Installation', href: '/skylight-installation-cochrane' },
 ]
 
-const companyLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
-  { label: 'Contact', href: '/contact' },
-]
-
-const serviceAreas = [
+const locations = [
   { label: 'Cochrane', href: '/' },
   { label: 'Calgary', href: '/roofing-contractor-calgary' },
   { label: 'Canmore', href: '/roofing-contractor-canmore' },
@@ -34,7 +28,7 @@ export function Footer() {
         priority={false}
         sizes="100vw"
         className="object-cover object-center pointer-events-none select-none"
-        style={{ filter: 'grayscale(100%) contrast(0.95)', opacity: 0.22 }}
+        style={{ filter: 'grayscale(100%) contrast(0.95)', opacity: 0.18 }}
         aria-hidden="true"
       />
       {/* Soft white gradient overlay for legibility */}
@@ -43,89 +37,200 @@ export function Footer() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(180deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.78) 55%, rgba(255,255,255,0.92) 100%)',
+            'linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.82) 55%, rgba(255,255,255,0.94) 100%)',
         }}
       />
-      {/* Content wrapper on top */}
-      <div className="relative z-10">
-      {/* Contact info bar */}
-      <div className="border-b border-[--color-near-black]/10">
-        <div className="py-8" style={{ padding: '32px var(--section-pad-x)' }}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div>
-              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
-                Phone
-              </h4>
-              <p className="font-body text-[--color-near-black]/75 text-sm">Call for a free estimate</p>
+
+      {/* Content */}
+      <div
+        className="relative z-10"
+        style={{
+          paddingLeft: 'var(--section-pad-x)',
+          paddingRight: 'var(--section-pad-x)',
+        }}
+      >
+        <div
+          className="mx-auto"
+          style={{ maxWidth: '1320px' }}
+        >
+          {/* Main 4-column grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 py-16 md:py-20">
+            {/* Column 1 — Brand */}
+            <div className="md:col-span-4">
+              <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
+                <img
+                  src="/images/Sure West Dark.png"
+                  alt="Sure West Roofing"
+                  className="h-12 md:h-14 w-auto"
+                />
+              </Link>
+              <p
+                className="mt-6 text-[--color-near-black]/65 leading-[1.6] max-w-[320px]"
+                style={{
+                  fontSize: '14px',
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontStyle: 'italic',
+                }}
+              >
+                &ldquo;In every shingle laid, we&rsquo;re not just building roofs; we&rsquo;re elevating trust.&rdquo;
+              </p>
             </div>
-            <div>
-              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
-                Email
+
+            {/* Column 2 — Services */}
+            <div className="md:col-span-3">
+              <h4
+                className="font-display font-semibold text-[--color-near-black] mb-5"
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Services
               </h4>
-              <p className="font-body text-[--color-near-black]/75 text-sm">info@surewestroofing.ca</p>
+              <ul className="flex flex-col gap-3">
+                {services.map((s) => (
+                  <li key={s.href}>
+                    <Link
+                      href={s.href}
+                      className="group inline-flex items-center gap-1.5 text-[--color-near-black]/70 hover:text-[#B8943F] transition-colors duration-200"
+                      style={{
+                        fontSize: '14px',
+                        fontFamily: "'Inter', system-ui, sans-serif",
+                      }}
+                    >
+                      <span>{s.label}</span>
+                      <span
+                        aria-hidden="true"
+                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#B8943F]"
+                      >
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
-                Address
+
+            {/* Column 3 — Locations */}
+            <div className="md:col-span-2">
+              <h4
+                className="font-display font-semibold text-[--color-near-black] mb-5"
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Locations
               </h4>
-              <p className="font-body text-[--color-near-black]/75 text-sm">Cochrane, AB, Canada</p>
+              <ul className="flex flex-col gap-3">
+                {locations.map((l) => (
+                  <li key={l.label}>
+                    <Link
+                      href={l.href}
+                      className="group inline-flex items-center gap-1.5 text-[--color-near-black]/70 hover:text-[#B8943F] transition-colors duration-200"
+                      style={{
+                        fontSize: '14px',
+                        fontFamily: "'Inter', system-ui, sans-serif",
+                      }}
+                    >
+                      <span>{l.label}</span>
+                      <span
+                        aria-hidden="true"
+                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#B8943F]"
+                      >
+                        →
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <h4 className="font-body text-[#B8943F] text-xs font-semibold uppercase tracking-wider mb-2">
-                Opening Hours
+
+            {/* Column 4 — Contact */}
+            <div className="md:col-span-3">
+              <h4
+                className="font-display font-semibold text-[--color-near-black] mb-5"
+                style={{
+                  fontSize: '12px',
+                  letterSpacing: '0.16em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Contact
               </h4>
-              <p className="font-body text-[--color-near-black]/75 text-sm">Mon to Sat: 8:00am - 6:00pm</p>
-              <p className="font-body text-[--color-near-black]/45 text-sm">Sun: Closed</p>
+              <ul className="flex flex-col gap-4">
+                <li>
+                  <a
+                    href="mailto:info@surewestroofing.ca"
+                    className="group flex items-start gap-3 text-[--color-near-black]/75 hover:text-[#B8943F] transition-colors duration-200"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full mt-[1px] transition-colors duration-200"
+                      style={{ background: 'rgba(212,175,96,0.14)' }}
+                    >
+                      <Mail className="w-[13px] h-[13px] text-[#B8943F]" strokeWidth={1.9} />
+                    </span>
+                    <span
+                      style={{
+                        fontSize: '14px',
+                        fontFamily: "'Inter', system-ui, sans-serif",
+                      }}
+                    >
+                      info@surewestroofing.ca
+                    </span>
+                  </a>
+                </li>
+                <li className="flex items-start gap-3 text-[--color-near-black]/75">
+                  <span
+                    aria-hidden="true"
+                    className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full mt-[1px]"
+                    style={{ background: 'rgba(212,175,96,0.14)' }}
+                  >
+                    <MapPin className="w-[13px] h-[13px] text-[#B8943F]" strokeWidth={1.9} />
+                  </span>
+                  <address
+                    className="not-italic leading-[1.55]"
+                    style={{
+                      fontSize: '14px',
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                    }}
+                  >
+                    Unit 9 - 225 Railway St E
+                    <br />
+                    Cochrane AB T4C 2C3
+                  </address>
+                </li>
+              </ul>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Large brand name + tagline */}
-      <div className="py-16 lg:py-24" style={{ padding: '64px var(--section-pad-x)' }}>
-        <div className="flex flex-col lg:flex-row items-start lg:items-end justify-between gap-8">
-          {/* Big brand name */}
-          <h2 className="font-display font-semibold text-6xl md:text-8xl lg:text-[120px] xl:text-[160px] text-[--color-near-black] leading-[0.85] tracking-tighter">
-            Sure West
-          </h2>
-
-          {/* Tagline */}
-          <div className="lg:max-w-xs lg:text-right">
-            <p className="font-body text-[--color-near-black]/55 text-sm leading-relaxed">
-              Roofs built to last.
-              <br />
-              Service built on trust.
-              <br />
-              Proudly serving Cochrane, Calgary, and
-              Canmore with real people, real tools,
-              and real results.
+          {/* Bottom bar */}
+          <div
+            className="border-t border-[--color-near-black]/10 flex flex-col sm:flex-row justify-between items-center gap-3 py-6"
+          >
+            <p
+              className="text-[--color-near-black]/55"
+              style={{
+                fontSize: '12.5px',
+                fontFamily: "'Inter', system-ui, sans-serif",
+              }}
+            >
+              &copy; 2026 Sure West Roofing. All Rights Reserved.
+            </p>
+            <p
+              className="text-[--color-near-black]/55"
+              style={{
+                fontSize: '12.5px',
+                fontFamily: "'Inter', system-ui, sans-serif",
+              }}
+            >
+              Cochrane, Alberta. Red Seal Certified.
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Bottom bar */}
-      <div className="border-t border-[--color-near-black]/10">
-        <div className="py-6 flex flex-col sm:flex-row justify-between items-center gap-4" style={{ padding: '24px var(--section-pad-x)' }}>
-          <div className="flex items-center gap-6">
-            <Link
-              href="/about"
-              className="font-body text-xs text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/about"
-              className="font-body text-xs text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors"
-            >
-              Terms
-            </Link>
-          </div>
-          <p className="font-body text-xs text-[--color-near-black]/40">
-            &copy; 2026 Sure West Roofing. All Rights Reserved. Red Seal Certified.
-          </p>
-        </div>
-      </div>
       </div>
     </footer>
   )
