@@ -74,10 +74,10 @@ export function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         scrolled
-          ? 'bg-[rgba(248,248,248,0.9)] backdrop-blur-[12px] border-b'
-          : 'bg-transparent border-b border-transparent'
+          ? 'bg-[rgba(248,248,248,0.9)] backdrop-blur-[12px]'
+          : 'bg-transparent'
       }`}
-      style={{ height: 'var(--nav-height)', borderColor: scrolled ? 'var(--color-border)' : 'transparent' }}
+      style={{ height: 'var(--nav-height)' }}
     >
       <div className="w-full flex items-center justify-between h-full" style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Logo */}

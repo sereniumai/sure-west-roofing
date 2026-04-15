@@ -94,7 +94,7 @@ export function PortfolioCarousel({
             Journeyman team. No subcontractors. No compromises.
           </p>
 
-          <div className="mt-8 md:mt-10">
+          <div className="mt-7 md:mt-9">
             <Button variant="primary" size="md" href="/gallery">
               View Full Gallery
             </Button>
@@ -103,7 +103,7 @@ export function PortfolioCarousel({
 
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
         <motion.div
-          className="relative mt-6 md:mt-8 flex items-center justify-center max-w-[1320px] mx-auto"
+          className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}

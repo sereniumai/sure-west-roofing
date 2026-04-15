@@ -35,8 +35,9 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
 
   return (
     <section
-      className="bg-white relative pt-[calc((100vw-40px)*0.5625-20px)] md:pt-[550px] overflow-hidden"
+      className="bg-white relative overflow-hidden"
       style={{
+        paddingTop: 'var(--section-pad-top)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
         paddingBottom: 'calc(var(--section-pad-bot) + 40px)',
