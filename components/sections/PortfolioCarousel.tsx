@@ -1,63 +1,40 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
-import ImageReveal from '@/components/ui/image-reveal'
+import ImageRevealWide from '@/components/ui/image-reveal-wide'
 
 interface PortfolioImage {
   src: string
   alt: string
-  /** Legacy field — unused by ImageReveal but kept for back-compat with page.tsx */
+  /** Legacy field — unused here but kept for back-compat with page.tsx */
   objectPosition?: string
 }
 
 interface PortfolioCarouselProps {
   heading?: string
   images: PortfolioImage[]
+  /**
+   * Number of cards to fan out. Defaults to the smallest odd number
+   * that covers the provided images, capped at 9.
+   */
+  fanCount?: number
 }
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
-const AUTO_ADVANCE_MS = 4200
 
-/** Partition the flat image list into triplets, wrapping the tail so each scene has 3. */
-function buildScenes(images: PortfolioImage[]): PortfolioImage[][] {
-  if (images.length === 0) return []
-  const count = Math.ceil(images.length / 3)
-  const scenes: PortfolioImage[][] = []
-  for (let i = 0; i < count; i++) {
-    scenes.push([
-      images[(i * 3) % images.length],
-      images[(i * 3 + 1) % images.length],
-      images[(i * 3 + 2) % images.length],
-    ])
-  }
-  return scenes
-}
-
-export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
-  const scenes = useMemo(() => buildScenes(images), [images])
-  const [index, setIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
-  const sceneCount = scenes.length
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  // Auto-advance
-  useEffect(() => {
-    if (paused || sceneCount <= 1) return
-    timerRef.current = setInterval(() => {
-      setIndex((i) => (i + 1) % sceneCount)
-    }, AUTO_ADVANCE_MS)
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current)
-    }
-  }, [paused, sceneCount])
-
-  const current = scenes[index]
+export function PortfolioCarousel({
+  images,
+  fanCount,
+}: PortfolioCarouselProps) {
+  // Default to 7 cards, or fewer if we don't have that many images (clamp to odd).
+  const defaultCount = Math.min(7, images.length % 2 === 0 ? images.length - 1 : images.length)
+  const count = fanCount ?? (defaultCount > 0 ? defaultCount : 1)
+  const fanImages = images.slice(0, count).map((img) => img.src)
 
   return (
     <section
-      className="relative bg-[#F8F8F8] overflow-hidden"
+      className="relative bg-[#F8F8F8] overflow-x-clip"
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
@@ -117,92 +94,24 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           </p>
         </motion.div>
 
-        {/* ── Image reveal stage ────────────────────────────────────── */}
+        {/* ── Wide fan reveal ──────────────────────────────────────────
+             Full-bleed; outer cards are allowed to overflow the viewport
+             edges — the section clips with overflow-x-clip. */}
         <motion.div
-          className="relative mt-10 md:mt-14 flex items-center justify-center w-full"
+          className="relative mt-12 md:mt-16 flex items-center justify-center w-screen left-1/2 -translate-x-1/2"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.15, ease: EASE_OUT }}
         >
-          {/* Fan spreads ~±200px horizontally — reserve room so it never clips. */}
-          <div
-            className="relative"
-            style={{ minHeight: 420 }}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-            onFocus={() => setPaused(true)}
-            onBlur={() => setPaused(false)}
-          >
-            <div className="scale-90 sm:scale-100 md:scale-[1.25] lg:scale-[1.45] transition-transform">
-              <AnimatePresence mode="wait">
-                {current && (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.35, ease: EASE_OUT }}
-                  >
-                    <ImageReveal
-                      leftImage={current[0].src}
-                      middleImage={current[1].src}
-                      rightImage={current[2].src}
-                    />
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+          <div className="scale-[0.55] sm:scale-75 md:scale-90 lg:scale-100 xl:scale-110 transition-transform">
+            <ImageRevealWide images={fanImages} />
           </div>
         </motion.div>
 
-        {/* ── Pagination + progress ─────────────────────────────────── */}
-        {sceneCount > 1 && (
-          <div
-            className="relative mt-6 md:mt-10 flex flex-col items-center gap-3"
-            style={{
-              paddingLeft: 'var(--section-pad-x)',
-              paddingRight: 'var(--section-pad-x)',
-            }}
-          >
-            <div className="flex items-center gap-2" role="tablist" aria-label="Portfolio scenes">
-              {scenes.map((_, i) => {
-                const active = i === index
-                return (
-                  <button
-                    key={i}
-                    type="button"
-                    role="tab"
-                    aria-selected={active}
-                    aria-label={`Show project set ${i + 1} of ${sceneCount}`}
-                    onClick={() => setIndex(i)}
-                    className="group relative h-[6px] rounded-full transition-all duration-500"
-                    style={{
-                      width: active ? 28 : 10,
-                      background: active
-                        ? 'var(--color-accent, #D4AF60)'
-                        : 'rgba(26,22,18,0.18)',
-                    }}
-                  />
-                )
-              })}
-            </div>
-
-            <p
-              className="text-[12px] uppercase tracking-[0.18em] text-[--color-near-black]/50"
-              style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
-            >
-              Set {String(index + 1).padStart(2, '0')}{' '}
-              <span className="opacity-50">/ {String(sceneCount).padStart(2, '0')}</span>
-              <span className="mx-3 opacity-40">·</span>
-              <span className="opacity-70">Hover to hold · tap dots to explore</span>
-            </p>
-          </div>
-        )}
-
         {/* ── CTA ───────────────────────────────────────────────────── */}
         <motion.div
-          className="mt-10 md:mt-14 flex justify-center"
+          className="mt-12 md:mt-16 flex justify-center"
           style={{
             paddingLeft: 'var(--section-pad-x)',
             paddingRight: 'var(--section-pad-x)',
