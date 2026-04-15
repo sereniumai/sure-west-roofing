@@ -4,76 +4,73 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 const logos = [
-  { src: '/images/Emerald Pro Contractor.webp', alt: 'Emerald Pro Contractor' },
   {
-    src: '/images/Certified Residential Contractor.webp',
-    alt: 'Certified Residential Contractor',
+    src: '/images/logos/AARA Roofing Association.webp',
+    alt: 'AARA Roofing Association member - Sure West Roofing Cochrane',
   },
   {
-    src: '/images/AARA Roofing Association.webp',
-    alt: 'Alberta Allied Roofing Association',
+    src: '/images/logos/BBB Accredited Business.webp',
+    alt: 'BBB Accredited Business - Sure West Roofing Cochrane Alberta',
   },
   {
-    src: '/images/Roofing Contractor Shingle Master.webp',
-    alt: 'CertainTeed ShingleMaster Roofing Contractor',
+    src: '/images/logos/Canada Roofing Standards.webp',
+    alt: 'Canada Roofing Standards certified - Sure West Roofing',
   },
   {
-    src: '/images/Canada Roofing Standards.webp',
-    alt: 'Canada Roofing Standards',
+    src: '/images/logos/Certified Residential Contractor.webp',
+    alt: 'Certified Residential Contractor - Sure West Roofing Cochrane',
   },
-  { src: '/images/BBB Accredited Business.webp', alt: 'BBB Accredited Business' },
+  {
+    src: '/images/logos/Emerald Pro Contractor.webp',
+    alt: 'Emerald Pro Contractor - Sure West Roofing Cochrane Alberta',
+  },
+  {
+    src: '/images/logos/Interprovincial Roofing Standard.webp',
+    alt: 'Interprovincial Roofing Standard - Sure West Roofing Red Seal certified',
+  },
+  {
+    src: '/images/logos/Roofing Contractor Shingle Master.webp',
+    alt: 'ShingleMaster certified roofing contractor - Sure West Roofing Cochrane',
+  },
 ]
 
-// Double the array for seamless infinite scroll
-const marqueeLogos = [...logos, ...logos]
+const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 export function TrustLogos() {
   return (
-    <section className="bg-[#F8F8F8] py-10 lg:py-14 border-b overflow-hidden" style={{ borderColor: 'var(--color-border)' }}>
-      <motion.p
-        className="text-center text-xs font-body font-semibold text-[#999] uppercase tracking-widest mb-8 px-6"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+    <section
+      className="bg-[#F8F8F8] border-b"
+      style={{
+        borderColor: 'var(--color-border)',
+        paddingTop: '56px',
+        paddingBottom: '56px',
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+      }}
+      aria-label="Certifications and industry accreditations"
+    >
+      <motion.ul
+        className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:gap-x-14 lg:gap-x-12 max-w-[1320px] mx-auto"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 0.7, ease: EASE_OUT }}
       >
-        Trusted certifications &amp; associations
-      </motion.p>
-
-      {/* Infinite marquee */}
-      <div className="relative">
-        {/* Fade edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#F8F8F8] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#F8F8F8] to-transparent z-10 pointer-events-none" />
-
-        <motion.div
-          className="flex items-center gap-16 w-max"
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: 'loop',
-              duration: 25,
-              ease: 'linear',
-            },
-          }}
-        >
-          {marqueeLogos.map((logo, i) => (
-            <div
-              key={`${logo.alt}-${i}`}
-              className="relative h-12 lg:h-14 w-auto flex-shrink-0 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 hover:scale-110 transition-all duration-500"
-            >
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                height={56}
-                width={120}
-                className="h-full w-auto object-contain"
-              />
-            </div>
-          ))}
-        </motion.div>
-      </div>
+        {logos.map((logo) => (
+          <li
+            key={logo.src}
+            className="flex items-center justify-center h-12 md:h-14 lg:h-16"
+          >
+            <Image
+              src={logo.src}
+              alt={logo.alt}
+              width={220}
+              height={64}
+              className="h-full w-auto object-contain grayscale opacity-55 transition-all duration-500 hover:grayscale-0 hover:opacity-100"
+            />
+          </li>
+        ))}
+      </motion.ul>
     </section>
   )
 }

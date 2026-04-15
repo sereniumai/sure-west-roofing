@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { Hero } from '@/components/sections/Hero'
+import { TrustLogos } from '@/components/sections/TrustLogos'
 import { ServicesIconGrid } from '@/components/sections/ServicesIconGrid'
 import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
 import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
@@ -54,7 +55,10 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Parallax Video Strip */}
+      {/* 2. Trust Badges */}
+      <TrustLogos />
+
+      {/* Parallax Video Strip (kept from previous build; not in the new plan) */}
       <ParallaxImageStrip
         src="/images/Cochrane Roofing Contractors.jpg"
         video="/images/Cochrane Roofing Contractor.mp4"
