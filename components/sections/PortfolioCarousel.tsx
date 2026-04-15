@@ -18,7 +18,7 @@ interface PortfolioCarouselProps {
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 // Slow + cinematic — the strip should feel like it's drifting, not racing.
-const MARQUEE_DURATION_SEC = 85
+const MARQUEE_DURATION_SEC = 130
 // Centre vs. edge scaling. The card whose centre lines up with the viewport
 // centre renders at 1.0; cards at the viewport edge render at MIN_SCALE.
 const MIN_SCALE = 0.66
@@ -126,6 +126,12 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
             Every roof in our gallery was completed by our in-house Red Seal
             Journeyman team. No subcontractors. No compromises.
           </p>
+
+          <div className="mt-8 md:mt-10">
+            <Button variant="primary" size="md" href="/gallery">
+              View Gallery
+            </Button>
+          </div>
         </motion.div>
 
         {/* ── Photo wall — desktop / tablet marquee ─────────────────── */}
@@ -155,22 +161,22 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
             ))}
           </div>
 
-          {/* Edge fades — short, soft. Just enough to feather the strip
-              into the section bg without bleaching out the side photos. */}
+          {/* Edge fades — barely-there feather, just to soften the hard
+              clip at the section's overflow boundary. */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 left-0 w-[5vw] max-w-[90px] z-10"
+            className="pointer-events-none absolute inset-y-0 left-0 w-[2vw] max-w-[36px] z-10"
             style={{
               background:
-                'linear-gradient(to right, rgba(248,248,248,0.95) 0%, rgba(248,248,248,0) 100%)',
+                'linear-gradient(to right, rgba(248,248,248,0.7) 0%, rgba(248,248,248,0) 100%)',
             }}
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-y-0 right-0 w-[5vw] max-w-[90px] z-10"
+            className="pointer-events-none absolute inset-y-0 right-0 w-[2vw] max-w-[36px] z-10"
             style={{
               background:
-                'linear-gradient(to left, rgba(248,248,248,0.95) 0%, rgba(248,248,248,0) 100%)',
+                'linear-gradient(to left, rgba(248,248,248,0.7) 0%, rgba(248,248,248,0) 100%)',
             }}
           />
         </motion.div>
@@ -198,22 +204,6 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
           </div>
         </motion.div>
 
-        {/* ── CTA ───────────────────────────────────────────────────── */}
-        <motion.div
-          className="flex justify-center mt-14 md:mt-20"
-          style={{
-            paddingLeft: 'var(--section-pad-x)',
-            paddingRight: 'var(--section-pad-x)',
-          }}
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.6, delay: 0.3, ease: EASE_OUT }}
-        >
-          <Button variant="primary" size="md" href="/gallery">
-            View Gallery
-          </Button>
-        </motion.div>
       </div>
 
       {/* Marquee keyframe — translate exactly half the doubled track so the
