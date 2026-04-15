@@ -127,14 +127,14 @@ export function ServicesIconGrid({ eyebrow = 'Our Services', heading, body, serv
                 >
                   {/* Title */}
                   <motion.h3
-                    className={`flex-1 font-display font-semibold leading-[0.95] transition-colors duration-300 ${
+                    className={`flex-1 font-display font-semibold leading-[1.05] transition-colors duration-300 ${
                       isActive
                         ? 'text-[--color-near-black]'
                         : 'text-[--color-near-black]/45 group-hover/row:text-[--color-near-black]/85'
                     }`}
                     style={{
-                      fontSize: 'clamp(24px, 2.8vw, 38px)',
-                      letterSpacing: '-0.028em',
+                      fontSize: 'clamp(20px, 2vw, 28px)',
+                      letterSpacing: '-0.02em',
                     }}
                     initial={false}
                     animate={{ x: isActive ? 4 : 0 }}
