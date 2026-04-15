@@ -54,8 +54,9 @@ export function WhySureWest() {
       />
 
       <div className="relative max-w-[1320px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-        {/* ── LEFT: eyebrow, h2, sub, bullet points ─────────────── */}
+        {/* ── Copy column (right on desktop) ────────────────────── */}
         <motion.div
+          className="lg:order-2"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -131,9 +132,9 @@ export function WhySureWest() {
           </ul>
         </motion.div>
 
-        {/* ── RIGHT: video ────────────────────────────────────────── */}
+        {/* ── Video column (left on desktop) ─────────────────────── */}
         <motion.div
-          className="lg:self-center"
+          className="lg:order-1 lg:self-center"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
