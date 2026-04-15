@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState } from 'react'
-import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
+import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import {
   Hammer,
   Wrench,
@@ -130,6 +130,15 @@ export function ServicesIconGrid({
   const springX = useSpring(x, { stiffness: 260, damping: 28, mass: 0.45 })
   const springY = useSpring(y, { stiffness: 260, damping: 28, mass: 0.45 })
 
+  // Approximate polaroid card height used to decide whether the preview
+  // should flip above the cursor to avoid overflowing into the next section.
+  const PREVIEW_H = 380
+  const previewOffsetY = useTransform(springY, (val) => {
+    const gridH = sectionRef.current?.clientHeight ?? 0
+    // If the cursor is closer to the bottom than a full preview can fit, flip above.
+    return gridH && val > gridH - PREVIEW_H - 40 ? -(PREVIEW_H + 16) : 32
+  })
+
   function handleMouseMove(e: React.MouseEvent<HTMLDivElement>) {
     if (!sectionRef.current) return
     const rect = sectionRef.current.getBoundingClientRect()
@@ -208,58 +217,76 @@ export function ServicesIconGrid({
           ))}
         </ul>
 
-        {/* ── Cursor-follow image preview ─────────────────────────── */}
+        {/* ── Cursor-follow polaroid preview ──────────────────────── */}
         <AnimatePresence>
           {hover && (
             <motion.div
               key="preview"
               className="pointer-events-none absolute top-0 left-0 hidden md:block z-20"
               style={{ x: springX, y: springY }}
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.98 }}
-              transition={{ duration: 0.22, ease: EASE_OUT }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.18, ease: EASE_OUT }}
             >
-              <div className="-translate-x-1/2 translate-y-8">
-                <figure className="relative w-[300px] lg:w-[340px] overflow-hidden rounded-[14px] bg-white p-2 shadow-[0_30px_60px_-20px_rgba(26,22,18,0.35),0_8px_16px_-8px_rgba(26,22,18,0.15)] ring-1 ring-black/5">
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[10px] bg-[#1A1612]">
-                    <motion.img
-                      key={hover.image}
-                      src={hover.image}
-                      alt={hover.imageAlt}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      initial={{ scale: 1.06, opacity: 0.9 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      transition={{ duration: 0.6, ease: EASE_OUT }}
-                      draggable={false}
-                    />
-                  </div>
+              {/* Flip above cursor when near the bottom to avoid overflow */}
+              <motion.div style={{ y: previewOffsetY }}>
+                <motion.div
+                  className="-translate-x-1/2"
+                  initial={{ scale: 0.9, rotate: 0, y: 10 }}
+                  animate={{ scale: 1, rotate: -3, y: 0 }}
+                  exit={{ scale: 0.95, rotate: -1, y: 6 }}
+                  transition={{ duration: 0.32, ease: EASE_OUT }}
+                >
+                  {/* Polaroid frame: thick white paper, thicker bottom, warm shadow */}
+                  <figure
+                    className="relative w-[260px] lg:w-[280px] bg-[#FDFBF6]"
+                    style={{
+                      padding: '12px 12px 46px 12px',
+                      borderRadius: '3px',
+                      boxShadow:
+                        '0 30px 50px -18px rgba(26,22,18,0.45), 0 10px 18px -8px rgba(26,22,18,0.18), inset 0 0 0 1px rgba(0,0,0,0.04)',
+                    }}
+                  >
+                    {/* Subtle inner photo edge */}
+                    <div className="relative aspect-[4/5] overflow-hidden bg-[#1A1612]">
+                      <motion.img
+                        key={hover.image}
+                        src={hover.image}
+                        alt={hover.imageAlt}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        initial={{ scale: 1.08, opacity: 0.85 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ duration: 0.6, ease: EASE_OUT }}
+                        draggable={false}
+                      />
+                      {/* Subtle film vignette to feel photographic */}
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0"
+                        style={{
+                          background:
+                            'radial-gradient(120% 90% at 50% 30%, transparent 55%, rgba(0,0,0,0.28) 100%)',
+                        }}
+                      />
+                    </div>
 
-                  {/* Caption strip below image */}
-                  <figcaption className="flex items-center justify-between px-3 pt-3 pb-2">
-                    <span
-                      className="font-display font-semibold text-[--color-near-black] leading-none"
+                    {/* Handwritten-style caption */}
+                    <figcaption
+                      className="absolute left-0 right-0 text-center text-[--color-near-black]/80"
                       style={{
-                        fontSize: '14px',
-                        letterSpacing: '-0.015em',
+                        bottom: '14px',
+                        fontFamily: "'Caveat', 'Brush Script MT', cursive",
+                        fontSize: '20px',
+                        lineHeight: 1,
+                        letterSpacing: '0.01em',
                       }}
                     >
                       {hover.title}
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="font-display font-semibold uppercase tabular-nums"
-                      style={{
-                        fontSize: '9.5px',
-                        color: '#B8943F',
-                        letterSpacing: '0.22em',
-                      }}
-                    >
-                      View →
-                    </span>
-                  </figcaption>
-                </figure>
-              </div>
+                    </figcaption>
+                  </figure>
+                </motion.div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
