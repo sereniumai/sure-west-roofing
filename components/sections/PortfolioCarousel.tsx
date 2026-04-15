@@ -272,7 +272,7 @@ export function PortfolioCarousel({ images }: PortfolioCarouselProps) {
 
   return (
     <section
-      className="relative overflow-hidden bg-[#F6F5F1]"
+      className="relative overflow-hidden bg-[#F8F8F8]"
       style={{ padding: 'var(--section-pad-top) 0 var(--section-pad-bot)' }}
     >
       {/* Subtle paper-grain texture */}
