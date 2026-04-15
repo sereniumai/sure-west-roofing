@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Accordian, type AccordianItem } from '@/components/ui/accordian'
 
 interface Pillar {
   id: string
@@ -31,25 +30,6 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 const VIMEO_ID = '917317949'
 
 export function WhySureWest() {
-  const accordianItems: AccordianItem[] = pillars.map((p, i) => ({
-    id: p.id,
-    title: p.title,
-    content: p.body,
-    leading: (
-      <span
-        className="font-display font-semibold leading-none tabular-nums mr-1"
-        style={{
-          fontSize: '13px',
-          color: 'var(--color-accent, #D4AF60)',
-          letterSpacing: '0.04em',
-        }}
-        aria-hidden="true"
-      >
-        0{i + 1}
-      </span>
-    ),
-  }))
-
   return (
     <section
       id="why-sure-west"
@@ -120,16 +100,45 @@ export function WhySureWest() {
               Here is what actually sets Sure West apart.
             </p>
 
-            {/* ── Pillars accordion (compact) ──────────────────────── */}
-            <motion.div
-              className="mt-8 md:mt-10 max-w-[560px]"
-              initial={{ y: 16, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, delay: 0.15, ease: EASE_OUT }}
-            >
-              <Accordian items={accordianItems} defaultOpen="character" />
-            </motion.div>
+            {/* ── Pillars (static list) ─────────────────────────────── */}
+            <ul className="mt-8 md:mt-10 max-w-[560px] border-y border-[--color-near-black]/10 divide-y divide-[--color-near-black]/10">
+              {pillars.map((p, i) => (
+                <motion.li
+                  key={p.id}
+                  className="py-5"
+                  initial={{ y: 14, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  viewport={{ once: true, margin: '-60px' }}
+                  transition={{ duration: 0.5, delay: 0.12 + i * 0.07, ease: EASE_OUT }}
+                >
+                  <div className="flex items-baseline gap-3">
+                    <span
+                      className="font-display font-semibold leading-none tabular-nums"
+                      style={{
+                        fontSize: '13px',
+                        color: 'var(--color-accent, #D4AF60)',
+                        letterSpacing: '0.04em',
+                      }}
+                      aria-hidden="true"
+                    >
+                      0{i + 1}
+                    </span>
+                    <h3
+                      className="text-[16px] font-semibold tracking-[-0.005em] text-[--color-near-black]"
+                      style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                    >
+                      {p.title}
+                    </h3>
+                  </div>
+                  <p
+                    className="mt-2 text-[14.5px] leading-[1.7] text-[--color-near-black]/70"
+                    style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                  >
+                    {p.body}
+                  </p>
+                </motion.li>
+              ))}
+            </ul>
           </motion.div>
 
           {/* RIGHT: video */}
