@@ -9,6 +9,7 @@ import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
 import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
 import { Reviews } from '@/components/sections/Reviews'
 import { HomeFAQ } from '@/components/sections/HomeFAQ'
+import { BottomCTA } from '@/components/sections/BottomCTA'
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane | Sure West Roofing',
@@ -198,6 +199,9 @@ export default function HomePage() {
 
       {/* 8. FAQ */}
       <HomeFAQ />
+
+      {/* 9. Bottom CTA */}
+      <BottomCTA />
     </>
   )
 }
