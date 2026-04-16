@@ -1,9 +1,9 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Check } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { StackedCardsInteraction } from '@/components/ui/stacked-cards-interaction'
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
@@ -11,24 +11,6 @@ const BULLETS = [
   'Free on-site estimate',
   'Written quote within 24 hours',
   'Red Seal Journeyman on every job',
-]
-
-const CTA_CARDS = [
-  {
-    image: '/images/Roof Replacement Cochrane.avif',
-    title: '',
-    description: '',
-  },
-  {
-    image: '/images/Roof Repair Cochrane.avif',
-    title: '',
-    description: '',
-  },
-  {
-    image: '/images/Roof Inspection Cochrane.avif',
-    title: '',
-    description: '',
-  },
 ]
 
 export function BottomCTA() {
@@ -43,7 +25,6 @@ export function BottomCTA() {
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      {/* Contained card with gold glow */}
       <div className="relative mx-auto" style={{ maxWidth: '1320px' }}>
         {/* Outer gold glow */}
         <div
@@ -58,7 +39,7 @@ export function BottomCTA() {
 
         {/* Main card */}
         <motion.div
-          className="relative rounded-[20px] md:rounded-[24px] overflow-hidden"
+          className="relative rounded-[20px] md:rounded-[24px] overflow-hidden grid grid-cols-1 lg:grid-cols-2"
           style={{
             background: '#F4F3F0',
             boxShadow:
@@ -69,12 +50,12 @@ export function BottomCTA() {
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.75, ease: EASE_OUT }}
         >
-          <div className="flex flex-col items-center text-center px-8 md:px-12 lg:px-16 pt-14 md:pt-16 lg:pt-20">
-            {/* Heading */}
+          {/* Left — content */}
+          <div className="flex flex-col items-start justify-center px-8 md:px-12 lg:px-14 py-12 md:py-16 lg:py-20">
             <h2
-              className="font-display font-semibold text-[--color-near-black] leading-[1.02] max-w-[680px]"
+              className="font-display font-semibold text-[--color-near-black] leading-[1.02]"
               style={{
-                fontSize: 'clamp(30px, 3.8vw, 52px)',
+                fontSize: 'clamp(28px, 3.2vw, 44px)',
                 letterSpacing: '-0.04em',
               }}
             >
@@ -85,7 +66,7 @@ export function BottomCTA() {
             </h2>
 
             <p
-              className="mt-5 text-[--color-near-black]/60 leading-[1.65] max-w-[480px]"
+              className="mt-4 text-[--color-near-black]/60 leading-[1.65] max-w-[420px]"
               style={{
                 fontSize: '15px',
                 fontFamily: "'Inter', system-ui, sans-serif",
@@ -95,16 +76,9 @@ export function BottomCTA() {
               Book your free estimate and see why Cochrane homeowners trust Sure West with their roofs.
             </p>
 
-            {/* Bullets — horizontal row */}
-            <motion.div
-              className="mt-8 flex flex-col sm:flex-row items-center gap-x-7 gap-y-3"
-              initial={{ y: 16, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.55, delay: 0.15, ease: EASE_OUT }}
-            >
+            <ul className="mt-6 flex flex-col gap-2.5">
               {BULLETS.map((item) => (
-                <div key={item} className="flex items-center gap-2">
+                <li key={item} className="flex items-center gap-2.5">
                   <span
                     aria-hidden="true"
                     className="inline-flex items-center justify-center w-5 h-5 rounded-full flex-shrink-0"
@@ -115,48 +89,35 @@ export function BottomCTA() {
                   <span
                     className="text-[--color-near-black]/75"
                     style={{
-                      fontSize: '13.5px',
+                      fontSize: '14px',
                       fontFamily: "'Inter', system-ui, sans-serif",
                       fontWeight: 500,
                     }}
                   >
                     {item}
                   </span>
-                </div>
+                </li>
               ))}
-            </motion.div>
+            </ul>
 
-            {/* CTA */}
-            <motion.div
-              className="mt-9"
-              initial={{ y: 16, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.55, delay: 0.3, ease: EASE_OUT }}
-            >
+            <div className="mt-8">
               <Button variant="primary" size="lg" href="/contact">
                 Get a Free Estimate
               </Button>
-            </motion.div>
+            </div>
           </div>
 
-          {/* Stacked cards — centered below content */}
-          <motion.div
-            className="flex items-center justify-center pt-10 pb-6 md:pt-12 md:pb-8"
-            style={{ minHeight: '260px' }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
-            transition={{ duration: 0.8, delay: 0.25, ease: EASE_OUT }}
-          >
-            <StackedCardsInteraction
-              cards={CTA_CARDS}
-              spreadDistance={48}
-              rotationAngle={7}
-              restSpread={0.5}
-              animationDelay={0.06}
+          {/* Right — image */}
+          <div className="relative hidden lg:block min-h-[400px]">
+            <Image
+              src="/images/Roof Replacement Cochrane.avif"
+              alt="Roofing contractor working in Cochrane"
+              fill
+              sizes="50vw"
+              className="object-cover"
+              style={{ objectPosition: 'center 30%' }}
             />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
