@@ -207,6 +207,48 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Giant marquee text */}
+          <div className="relative overflow-hidden py-10 md:py-14 mt-4">
+            <div className="footer-marquee">
+              <div className="footer-marquee__track">
+                {[...Array(4)].map((_, i) => (
+                  <span
+                    key={i}
+                    className="font-display font-semibold uppercase whitespace-nowrap select-none"
+                    style={{
+                      fontSize: 'clamp(60px, 10vw, 140px)',
+                      letterSpacing: '-0.04em',
+                      lineHeight: 0.9,
+                      color: 'transparent',
+                      WebkitTextStroke: '1.5px rgba(26,22,18,0.12)',
+                    }}
+                    aria-hidden={i > 0}
+                  >
+                    Move The Mountain&nbsp;&nbsp;&bull;&nbsp;&nbsp;Move The Mountain&nbsp;&nbsp;&bull;&nbsp;&nbsp;
+                  </span>
+                ))}
+              </div>
+            </div>
+            <style jsx>{`
+              .footer-marquee {
+                display: flex;
+                overflow: hidden;
+              }
+              .footer-marquee__track {
+                display: flex;
+                width: max-content;
+                animation: footer-scroll 30s linear infinite;
+              }
+              @keyframes footer-scroll {
+                from { transform: translateX(0); }
+                to { transform: translateX(-50%); }
+              }
+              @media (prefers-reduced-motion: reduce) {
+                .footer-marquee__track { animation: none; }
+              }
+            `}</style>
+          </div>
+
           {/* Bottom bar */}
           <div
             className="border-t border-[--color-near-black]/10 flex flex-col sm:flex-row justify-between items-center gap-3 py-6"
