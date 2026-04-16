@@ -9,32 +9,32 @@ const serviceLinks = [
   {
     label: 'Roof Replacement',
     description: 'Complete tear-off and replacement',
-    href: '/roof-replacement-cochrane',
+    href: '/services/roof-replacement/cochrane',
   },
   {
     label: 'Roof Repair',
     description: 'Fast, lasting leak and shingle repair',
-    href: '/roof-repair-cochrane',
+    href: '/services/roof-repair/cochrane',
   },
   {
     label: 'Hail Damage Repair',
     description: 'Insurance claims and restoration',
-    href: '/hail-damage-repair-cochrane',
+    href: '/services/hail-damage-repair/cochrane',
   },
   {
     label: 'Roof Maintenance',
     description: 'Annual care to extend roof life',
-    href: '/roof-maintenance-cochrane',
+    href: '/services/roof-maintenance/cochrane',
   },
   {
     label: 'Roof Inspection',
     description: 'Detailed condition reports',
-    href: '/roof-inspection-cochrane',
+    href: '/services/roof-inspection/cochrane',
   },
   {
     label: 'Skylight Installation',
     description: 'Code-compliant skylight installs',
-    href: '/skylight-installation-cochrane',
+    href: '/services/skylight-installation/cochrane',
   },
 ]
 

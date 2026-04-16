@@ -54,7 +54,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         In the majority of cases - yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs. We work directly with your insurance adjuster and handle the documentation. Learn more on our{' '}
-        <Link href="/hail-damage-repair-cochrane" className="faq-link">
+        <Link href="/services/hail-damage-repair/cochrane" className="faq-link">
           hail damage repair Cochrane
         </Link>{' '}
         page.
@@ -68,7 +68,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         Most residential roof replacements in Cochrane range from $8,000 to $18,000 depending on roof size, pitch, and material choice. We provide a fully itemised written quote after a free inspection with no obligation to proceed. See our{' '}
-        <Link href="/roof-replacement-cochrane" className="faq-link">
+        <Link href="/services/roof-replacement/cochrane" className="faq-link">
           roof replacement Cochrane
         </Link>{' '}
         page for details.
@@ -92,7 +92,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         Yes. Our Red Seal certified team carries out full roof and attic inspections across Cochrane, Calgary and Canmore. An inspection gives you the full picture before small issues become expensive repairs. Book your{' '}
-        <Link href="/roof-inspection-cochrane" className="faq-link">
+        <Link href="/services/roof-inspection/cochrane" className="faq-link">
           roof inspections Cochrane
         </Link>{' '}
         assessment today.
@@ -106,7 +106,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         Absolutely. Not every roof needs a full replacement. Our Red Seal Journeyman team carries out all types of roof repair in Cochrane and Calgary - from minor leaks and missing shingles to full section repairs and flashing work. See our{' '}
-        <Link href="/roof-repair-cochrane" className="faq-link">
+        <Link href="/services/roof-repair/cochrane" className="faq-link">
           roof repair Cochrane
         </Link>{' '}
         page for more.

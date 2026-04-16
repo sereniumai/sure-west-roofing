@@ -3,12 +3,12 @@ import Image from 'next/image'
 import { Mail, MapPin } from 'lucide-react'
 
 const services = [
-  { label: 'Roof Replacement', href: '/roof-replacement-cochrane' },
-  { label: 'Roof Repair', href: '/roof-repair-cochrane' },
-  { label: 'Hail Damage Repair', href: '/hail-damage-repair-cochrane' },
-  { label: 'Roof Maintenance', href: '/roof-maintenance-cochrane' },
-  { label: 'Roof Inspection', href: '/roof-inspection-cochrane' },
-  { label: 'Skylight Installation', href: '/skylight-installation-cochrane' },
+  { label: 'Roof Replacement', href: '/services/roof-replacement/cochrane' },
+  { label: 'Roof Repair', href: '/services/roof-repair/cochrane' },
+  { label: 'Hail Damage Repair', href: '/services/hail-damage-repair/cochrane' },
+  { label: 'Roof Maintenance', href: '/services/roof-maintenance/cochrane' },
+  { label: 'Roof Inspection', href: '/services/roof-inspection/cochrane' },
+  { label: 'Skylight Installation', href: '/services/skylight-installation/cochrane' },
 ]
 
 const locations = [
