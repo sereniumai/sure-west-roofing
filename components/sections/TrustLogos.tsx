@@ -99,7 +99,7 @@ export function TrustLogos() {
                   className="mt-2 text-brand-slate uppercase tracking-[0.1em]"
                   style={{
                     fontSize: '12px',
-                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontFamily: "var(--font-inter), system-ui, sans-serif",
                     fontWeight: 500,
                   }}
                 >
@@ -114,7 +114,7 @@ export function TrustLogos() {
         <div className="flex flex-col items-center" style={{ marginTop: '64px' }}>
           <motion.span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-8 text-brand-gold"
-            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
+            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={VIEWPORT}

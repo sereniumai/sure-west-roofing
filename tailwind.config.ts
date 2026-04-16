@@ -14,8 +14,8 @@ const config: Config = {
         'accent-dark': '#B8943F',
       },
       fontFamily: {
-        display: ['Oswald', 'sans-serif'],
-        body: ['Oswald', 'sans-serif'],
+        display: ['var(--font-oswald)', 'sans-serif'],
+        body: ['var(--font-oswald)', 'sans-serif'],
       },
     },
   },

@@ -34,9 +34,11 @@ export function Footer() {
             {/* Column 1 — Brand */}
             <div className="sm:col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
-                <img
+                <Image
                   src="/images/Sure West Dark Logo.webp"
                   alt="Sure West Roofing"
+                  width={200}
+                  height={72}
                   className="h-14 md:h-18 w-auto"
                 />
               </Link>
@@ -44,7 +46,7 @@ export function Footer() {
                 className="mt-6 text-brand-slate leading-[1.6] max-w-[320px]"
                 style={{
                   fontSize: '18px',
-                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontStyle: 'italic',
                 }}
               >
@@ -58,7 +60,7 @@ export function Footer() {
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
-                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontWeight: 500,
                 }}
               >
@@ -72,7 +74,7 @@ export function Footer() {
                       className="text-brand-navy hover:text-brand-gold transition-colors duration-200"
                       style={{
                         fontSize: '14px',
-                        fontFamily: "'Inter', system-ui, sans-serif",
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
                       }}
                     >
                       {s.label}
@@ -88,7 +90,7 @@ export function Footer() {
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
-                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontWeight: 500,
                 }}
               >
@@ -102,7 +104,7 @@ export function Footer() {
                       className="text-brand-navy hover:text-brand-gold transition-colors duration-200"
                       style={{
                         fontSize: '14px',
-                        fontFamily: "'Inter', system-ui, sans-serif",
+                        fontFamily: "var(--font-inter), system-ui, sans-serif",
                       }}
                     >
                       {l.label}
@@ -118,7 +120,7 @@ export function Footer() {
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
-                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontWeight: 500,
                 }}
               >
@@ -132,7 +134,7 @@ export function Footer() {
                     className="inline-flex items-center gap-3 text-brand-navy hover:text-brand-gold transition-colors duration-200"
                     style={{
                       fontSize: '14px',
-                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontWeight: 500,
                     }}
                   >
@@ -147,7 +149,7 @@ export function Footer() {
                     className="inline-flex items-center gap-3 text-brand-navy hover:text-brand-gold transition-colors duration-200"
                     style={{
                       fontSize: '14px',
-                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontWeight: 500,
                     }}
                   >
@@ -162,7 +164,7 @@ export function Footer() {
                     className="inline-flex items-center gap-3 text-brand-navy hover:text-brand-gold transition-colors duration-200"
                     style={{
                       fontSize: '14px',
-                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontWeight: 500,
                     }}
                   >
@@ -177,7 +179,7 @@ export function Footer() {
                     className="not-italic text-brand-slate leading-[1.55]"
                     style={{
                       fontSize: '14px',
-                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
                     }}
                   >
                     Unit 9 - 225 Railway St E
@@ -193,13 +195,13 @@ export function Footer() {
           <div className="border-t border-brand-border py-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
             <p
               className="text-brand-slate text-center sm:text-left"
-              style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
+              style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
             >
               &copy; 2026 Sure West Roofing. All Rights Reserved.
             </p>
             <p
               className="text-brand-slate"
-              style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
+              style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
             >
               Cochrane, Alberta. Red Seal Certified.
             </p>
@@ -207,7 +209,7 @@ export function Footer() {
               <Link
                 href="/privacy"
                 className="text-brand-navy hover:text-brand-gold transition-colors"
-                style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
+                style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
               >
                 Privacy Policy
               </Link>
@@ -215,7 +217,7 @@ export function Footer() {
               <Link
                 href="/terms"
                 className="text-brand-navy hover:text-brand-gold transition-colors"
-                style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
+                style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
               >
                 Terms
               </Link>

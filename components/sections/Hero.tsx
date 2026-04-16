@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -103,7 +104,19 @@ export function Hero({
     >
       {/* ── Video / image background ─────────────────────────────── */}
       <div className="absolute inset-0 z-0">
-        {backgroundVideo ? (
+        {/* Static image for mobile (no video download) + desktop video */}
+        {backgroundImage && (
+          <Image
+            src={backgroundImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className={`object-cover ${backgroundVideo ? 'md:hidden' : ''}`}
+            style={{ objectPosition: 'center 30%' }}
+          />
+        )}
+        {backgroundVideo && (
           <>
             <video
               ref={videoARef}
@@ -111,8 +124,8 @@ export function Hero({
               autoPlay
               muted
               playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
+              preload="metadata"
+              className="absolute inset-0 w-full h-full object-cover hidden md:block"
               style={{ objectPosition: 'center 30%', opacity: 1, transition: 'opacity 60ms linear' }}
             />
             <video
@@ -120,20 +133,13 @@ export function Hero({
               src={backgroundVideo}
               muted
               playsInline
-              preload="auto"
+              preload="metadata"
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover hidden md:block"
               style={{ objectPosition: 'center 30%', opacity: 0, transition: 'opacity 60ms linear' }}
             />
           </>
-        ) : backgroundImage ? (
-          <img
-            src={backgroundImage}
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ objectPosition: 'center 30%' }}
-          />
-        ) : null}
+        )}
 
         <div
           className="absolute inset-0"
@@ -168,7 +174,7 @@ export function Hero({
         {/* Subtitle */}
         <motion.p
           className="mt-6 leading-relaxed max-w-[640px] text-left text-[16px] md:text-[18px] text-white/90"
-          style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 400 }}
+          style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 400 }}
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.35, ease: EASE_OUT }}

@@ -125,7 +125,7 @@ function ReviewCard({ review }: { review: Review }) {
         className="mt-5 text-brand-navy leading-[1.6]"
         style={{
           fontSize: '14px',
-          fontFamily: "'Inter', system-ui, sans-serif",
+          fontFamily: "var(--font-inter), system-ui, sans-serif",
           fontWeight: 400,
         }}
       >
@@ -135,7 +135,7 @@ function ReviewCard({ review }: { review: Review }) {
       <div className="mt-6 pt-5 border-t border-brand-border">
         <div
           className="text-brand-navy"
-          style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600 }}
+          style={{ fontSize: '14px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600 }}
         >
           {review.author}
         </div>
@@ -143,7 +143,7 @@ function ReviewCard({ review }: { review: Review }) {
           className="mt-0.5 text-brand-slate"
           style={{
             fontSize: '12px',
-            fontFamily: "'Inter', system-ui, sans-serif",
+            fontFamily: "var(--font-inter), system-ui, sans-serif",
           }}
         >
           {review.location}
@@ -178,7 +178,7 @@ export function Reviews() {
       >
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
+          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
         >
           Client Reviews
         </span>
@@ -211,7 +211,7 @@ export function Reviews() {
             className="text-brand-slate"
             style={{
               fontSize: '14px',
-              fontFamily: "'Inter', system-ui, sans-serif",
+              fontFamily: "var(--font-inter), system-ui, sans-serif",
             }}
           >
             80+ Google reviews
@@ -222,7 +222,7 @@ export function Reviews() {
           className="mt-5 max-w-[620px] text-brand-slate leading-[1.7]"
           style={{
             fontSize: '16px',
-            fontFamily: "'Inter', system-ui, sans-serif",
+            fontFamily: "var(--font-inter), system-ui, sans-serif",
             fontWeight: 400,
           }}
         >

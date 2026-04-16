@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import {
@@ -83,7 +84,7 @@ export function WhySureWest() {
         >
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
-            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
+            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
           >
             Why Sure West
           </span>
@@ -104,7 +105,7 @@ export function WhySureWest() {
             className="mt-6 md:mt-7 max-w-[460px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
-              fontFamily: "'Inter', system-ui, sans-serif",
+              fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontWeight: 400,
             }}
           >
@@ -162,7 +163,7 @@ export function WhySureWest() {
                     className="mt-2.5 text-brand-slate leading-[1.55]"
                     style={{
                       fontSize: '13px',
-                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontWeight: 400,
                     }}
                   >
@@ -208,10 +209,12 @@ export function WhySureWest() {
                     aria-label="Play Sure West Roofing founders video"
                     className="group absolute inset-0 w-full h-full cursor-pointer"
                   >
-                    <img
+                    <Image
                       src={THUMBNAIL}
                       alt="Sure West Roofing founders, Cochrane Alberta"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                       draggable={false}
                     />
 

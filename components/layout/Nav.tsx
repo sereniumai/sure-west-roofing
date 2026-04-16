@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   Menu,
   X,
@@ -101,10 +102,13 @@ export function Nav() {
       <div className="w-full flex items-center justify-between h-full" style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
-          <img
+          <Image
             src={mobileOpen || isLight ? '/images/Sure West Dark Logo.webp' : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
             alt="Sure West Roofing"
+            width={200}
+            height={56}
             className="h-12 lg:h-[56px] w-auto"
+            priority
           />
         </Link>
 
@@ -157,7 +161,7 @@ export function Nav() {
                             </p>
                             <p
                               className="text-brand-slate mt-1 truncate"
-                              style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif" }}
+                              style={{ fontSize: '14px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
                             >
                               {service.description}
                             </p>
@@ -171,7 +175,7 @@ export function Nav() {
                     <div className="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
                       <p
                         className="text-brand-navy uppercase tracking-[0.1em]"
-                        style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+                        style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
                       >
                         Not sure what you need?
                       </p>
@@ -179,7 +183,7 @@ export function Nav() {
                         href="/free-roof-estimate-cochrane"
                         onClick={() => setServicesOpen(false)}
                         className="inline-flex items-center gap-1.5 text-brand-gold uppercase tracking-[0.1em] hover:underline hover:underline-offset-2 transition-all duration-200"
-                        style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+                        style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
                       >
                         Contact us
                         <ArrowRight className="w-3.5 h-3.5" />
@@ -205,7 +209,7 @@ export function Nav() {
           <a
             href="tel:+14039907210"
             className={`inline-flex items-center gap-2 transition-colors duration-200 hover:text-brand-gold ${textColor}`}
-            style={{ fontSize: '15px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+            style={{ fontSize: '15px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
           >
             <Phone className="w-4 h-4" strokeWidth={1.5} />
             <span>(403) 990-7210</span>
@@ -227,7 +231,7 @@ export function Nav() {
             <Phone className="w-5 h-5" strokeWidth={1.5} />
             <span
               className="hidden md:inline"
-              style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+              style={{ fontSize: '14px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
             >
               (403) 990-7210
             </span>

@@ -67,7 +67,7 @@ export function BottomCTA() {
               className="mt-4 text-brand-slate leading-[1.65] max-w-[420px]"
               style={{
                 fontSize: '15px',
-                fontFamily: "'Inter', system-ui, sans-serif",
+                fontFamily: "var(--font-inter), system-ui, sans-serif",
                 fontWeight: 400,
               }}
             >
@@ -82,7 +82,7 @@ export function BottomCTA() {
                     className="text-brand-navy"
                     style={{
                       fontSize: '15px',
-                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontFamily: "var(--font-inter), system-ui, sans-serif",
                       fontWeight: 400,
                     }}
                   >
@@ -98,7 +98,7 @@ export function BottomCTA() {
               </Button>
               <p
                 className="mt-4"
-                style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif" }}
+                style={{ fontSize: '14px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
               >
                 <span className="text-brand-slate">Or call us directly: </span>
                 <a

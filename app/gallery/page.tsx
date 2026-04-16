@@ -49,7 +49,7 @@ export default function GalleryPage() {
           </h1>
           <p
             className="mt-6 max-w-[560px] text-[15px] md:text-[17px] leading-relaxed text-[--color-near-black]/70"
-            style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+            style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
           >
             A look at recent replacements, repairs and hail-damage restorations across Cochrane,
             Calgary and Canmore.

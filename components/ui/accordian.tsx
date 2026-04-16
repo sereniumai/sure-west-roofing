@@ -67,7 +67,7 @@ export function Accordian({ items, defaultOpen = null, className }: AccordianPro
                     ? 'text-[--color-near-black]'
                     : 'text-[--color-near-black]/75 group-hover:text-[--color-near-black]',
                 )}
-                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
               >
                 {title}
               </span>
@@ -104,7 +104,7 @@ export function Accordian({ items, defaultOpen = null, className }: AccordianPro
             >
               <div
                 className="px-4 md:px-5 pb-5 pt-0 text-[14.5px] leading-[1.7] text-[--color-near-black]/70"
-                style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
+                style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
               >
                 {content}
               </div>

@@ -24,7 +24,7 @@ export function BrandStrip() {
         {/* Pre-title pill */}
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-12 text-brand-gold"
-          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
+          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
         >
           Our Philosophy
         </span>
@@ -57,7 +57,7 @@ export function BrandStrip() {
             className="text-brand-navy leading-[1.5] relative z-10 px-4 md:px-8"
             style={{
               fontSize: 'clamp(16px, 1.5vw, 20px)',
-              fontFamily: "'Inter', system-ui, sans-serif",
+              fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontStyle: 'italic',
               fontWeight: 400,
             }}

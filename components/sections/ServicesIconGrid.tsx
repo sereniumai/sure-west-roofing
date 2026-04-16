@@ -107,7 +107,7 @@ function ServiceCard({
             className="mt-2 text-brand-slate leading-[1.5] flex-1"
             style={{
               fontSize: '14px',
-              fontFamily: "'Inter', system-ui, sans-serif",
+              fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontWeight: 400,
             }}
           >
@@ -143,7 +143,7 @@ export function ServicesIconGrid({
       >
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
+          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
         >
           {eyebrow}
         </span>
@@ -167,7 +167,7 @@ export function ServicesIconGrid({
             className="mt-7 max-w-[680px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
-              fontFamily: "'Inter', system-ui, sans-serif",
+              fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontWeight: 400,
             }}
           >

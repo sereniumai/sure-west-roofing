@@ -1,8 +1,23 @@
 import type { Metadata } from 'next'
+import { Oswald, Inter } from 'next/font/google'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
 import { MotionProvider } from '@/components/MotionProvider'
 import './globals.css'
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-oswald',
+})
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
@@ -16,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${oswald.variable} ${inter.variable}`}>
       <head>
         <script
           type="application/ld+json"
