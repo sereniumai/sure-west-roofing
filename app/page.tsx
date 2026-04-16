@@ -6,7 +6,6 @@ import { ServicesIconGrid } from '@/components/sections/ServicesIconGrid'
 import { WhySureWest } from '@/components/sections/WhySureWest'
 import { HowItWorks } from '@/components/sections/HowItWorks'
 import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
-import { ParallaxImageStrip } from '@/components/sections/ParallaxImageStrip'
 import { Reviews } from '@/components/sections/Reviews'
 import { HomeFAQ } from '@/components/sections/HomeFAQ'
 import { BottomCTA } from '@/components/sections/BottomCTA'
@@ -58,13 +57,6 @@ export default function HomePage() {
         secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
         socialProofCount="150+"
         socialProofLabel="satisfied Cochrane homeowners"
-      />
-
-      {/* Parallax Video Strip (tucks up under the Hero) */}
-      <ParallaxImageStrip
-        src="/images/Cochrane Roofing Contractors.jpg"
-        video="/images/Cochrane Roofing Contractor.mp4"
-        alt="Cochrane roofing aerial view"
       />
 
       {/* 2. Trust Badges */}
