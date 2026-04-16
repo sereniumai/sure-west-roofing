@@ -19,7 +19,7 @@ const STEPS = [
     number: '02',
     title: 'Approve Your Quote',
     description:
-      'Your quote is fixed. The price you approve is the price you pay. We schedule around you.',
+      'Your quote is fixed. The price you approve is the price you pay. Our Red Seal certified crew then schedules your job around you.',
     image: '/images/Roof Replacement Cochrane.avif',
   },
   {
