@@ -214,7 +214,7 @@ export function Footer() {
             <p
               className="font-display font-semibold select-none leading-[0.85] tracking-tighter"
               style={{
-                fontSize: 'clamp(48px, 14vw, 210px)',
+                fontSize: 'clamp(48px, 12vw, 200px)',
                 color: 'transparent',
                 WebkitTextStroke: '2px rgba(26,22,18,0.85)',
               }}
