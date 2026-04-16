@@ -28,7 +28,7 @@ const FAQS: FAQ[] = [
     ),
   },
   {
-    question: 'What makes Sure West different from other roofing contractors in Cochrane?',
+    question: 'What makes Sure West different from other roofing contractors?',
     answerText:
       'Three things. Red Seal Journeyman certification - the highest professional credential in the Alberta roofing trade. Owner-operated - you deal directly with the owner from estimate to completion. And our fixed-price promise - the quote you receive is the invoice you pay. No exceptions.',
     answer: (
@@ -129,7 +129,7 @@ const faqSchema = {
 }
 
 export function HomeFAQ() {
-  const [open, setOpen] = useState<number | null>(4)
+  const [open, setOpen] = useState<number | null>(null)
 
   // Split into two roughly equal columns for desktop layout
   const mid = Math.ceil(FAQS.length / 2)
