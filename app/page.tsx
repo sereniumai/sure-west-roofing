@@ -161,7 +161,10 @@ export default function HomePage() {
       {/* 5. Process */}
       <HowItWorks />
 
-      {/* 6. Our Work (Portfolio) */}
+      {/* 6. Reviews */}
+      <Reviews />
+
+      {/* 7. Our Work (Portfolio) */}
       <PortfolioCarousel
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roofing contractor project 1' },
@@ -185,9 +188,6 @@ export default function HomePage() {
           { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Cochrane roofing contractor project 19' },
         ]}
       />
-
-      {/* 7. Reviews */}
-      <Reviews />
 
       {/* 8. FAQ */}
       <HomeFAQ />
