@@ -166,7 +166,7 @@ export function Hero({
 
         {/* Subtitle */}
         <motion.p
-          className="mt-6 leading-relaxed max-w-[520px] text-left text-[16px] md:text-[18px] text-white/90"
+          className="mt-6 leading-relaxed max-w-[640px] text-left text-[16px] md:text-[18px] text-white/90"
           style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 400 }}
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

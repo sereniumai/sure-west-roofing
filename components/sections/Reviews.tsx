@@ -123,9 +123,9 @@ function ReviewCard({ review }: { review: Review }) {
       <Stars count={review.stars} />
 
       <p
-        className="mt-5 text-[--color-near-black]/80 leading-[1.65]"
+        className="mt-5 text-brand-navy leading-[1.6]"
         style={{
-          fontSize: '14.5px',
+          fontSize: '14px',
           fontFamily: "'Inter', system-ui, sans-serif",
           fontWeight: 400,
         }}
@@ -135,17 +135,16 @@ function ReviewCard({ review }: { review: Review }) {
 
       <div className="mt-6 pt-5 border-t border-brand-border">
         <div
-          className="font-display font-semibold text-[--color-near-black]"
-          style={{ fontSize: '15px', letterSpacing: '-0.01em' }}
+          className="text-brand-navy"
+          style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600 }}
         >
           {review.author}
         </div>
         <div
           className="mt-0.5 text-brand-slate"
           style={{
-            fontSize: '12.5px',
+            fontSize: '12px',
             fontFamily: "'Inter', system-ui, sans-serif",
-            letterSpacing: '0.02em',
           }}
         >
           {review.location}
@@ -268,6 +267,20 @@ export function Reviews() {
           </div>
         </div>
       </div>
+
+      {/* Google reviews link */}
+      <p className="text-center mt-10">
+        <a
+          href="https://www.google.com/maps/place/Sure+West+Roofing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-brand-gold hover:underline hover:underline-offset-2 transition-colors"
+          style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+        >
+          {/* TODO: replace href with actual Sure West Google Business Profile URL */}
+          Read all 88 reviews on Google &rarr;
+        </a>
+      </p>
       </div>
 
       {/* Inline marquee styles */}

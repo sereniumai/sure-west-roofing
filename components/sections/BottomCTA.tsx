@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Check } from 'lucide-react'
+import { CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
@@ -11,6 +11,7 @@ const BULLETS = [
   'Free on-site estimate',
   'Written quote within 24 hours',
   'Red Seal Journeyman on every job',
+  'Response within minutes, even after hours',
 ]
 
 export function BottomCTA() {
@@ -79,19 +80,13 @@ export function BottomCTA() {
             <ul className="mt-6 flex flex-col gap-2.5">
               {BULLETS.map((item) => (
                 <li key={item} className="flex items-center gap-2.5">
+                  <CheckCircle className="w-[18px] h-[18px] text-brand-gold flex-shrink-0" strokeWidth={2} />
                   <span
-                    aria-hidden="true"
-                    className="inline-flex items-center justify-center w-5 h-5 rounded-full flex-shrink-0"
-                    style={{ background: 'var(--color-accent, #D4AF60)' }}
-                  >
-                    <Check className="w-3 h-3 text-brand-navy" strokeWidth={3} />
-                  </span>
-                  <span
-                    className="text-[--color-near-black]/75"
+                    className="text-brand-navy"
                     style={{
-                      fontSize: '14px',
+                      fontSize: '15px',
                       fontFamily: "'Inter', system-ui, sans-serif",
-                      fontWeight: 500,
+                      fontWeight: 400,
                     }}
                   >
                     {item}
@@ -104,6 +99,18 @@ export function BottomCTA() {
               <Button variant="primary" size="lg" href="/contact">
                 Get a Free Estimate
               </Button>
+              <p
+                className="mt-4"
+                style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif" }}
+              >
+                <span className="text-brand-slate">Or call us directly: </span>
+                <a
+                  href="tel:+14039907210"
+                  className="text-brand-gold font-semibold hover:underline hover:underline-offset-2 transition-colors"
+                >
+                  (403) 990-7210
+                </a>
+              </p>
             </div>
           </div>
 

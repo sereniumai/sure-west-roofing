@@ -109,7 +109,7 @@ export function PortfolioCarousel({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.9, delay: 0.15, ease: EASE_OUT }}
         >
-          <div className="scale-[0.6] sm:scale-75 md:scale-90 lg:scale-100 transition-transform">
+          <div className="scale-[0.75] sm:scale-[0.9] md:scale-100 lg:scale-110 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
         </motion.div>

@@ -129,7 +129,7 @@ const faqSchema = {
 }
 
 export function HomeFAQ() {
-  const [open, setOpen] = useState<number | null>(null)
+  const [open, setOpen] = useState<number | null>(4)
 
   // Split into two roughly equal columns for desktop layout
   const mid = Math.ceil(FAQS.length / 2)
@@ -228,25 +228,25 @@ export function HomeFAQ() {
                       className="group flex items-center justify-between w-full text-left py-5 md:py-6 cursor-pointer gap-4"
                     >
                       <span
-                        className={`font-display font-semibold leading-[1.35] transition-colors duration-300 ${
-                          isOpen ? 'text-[--color-near-black]' : 'text-[--color-near-black] group-hover:text-[#B8943F]'
+                        className={`font-semibold leading-[1.35] transition-colors duration-200 ${
+                          isOpen ? 'text-brand-navy' : 'text-brand-navy group-hover:text-brand-gold'
                         }`}
                         style={{
-                          fontSize: 'clamp(15.5px, 1.1vw, 17px)',
-                          letterSpacing: '-0.01em',
+                          fontSize: '18px',
+                          fontFamily: "'Inter', system-ui, sans-serif",
                         }}
                       >
                         {faq.question}
                       </span>
                       <span
                         aria-hidden="true"
-                        className={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 ${
+                        className={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-200 ${
                           isOpen
-                            ? 'bg-[--color-accent,#D4AF60] border-[--color-accent,#D4AF60] text-[--color-near-black] rotate-45'
-                            : 'bg-transparent border-[--color-near-black]/20 text-[--color-near-black]/55 group-hover:border-[#D4AF60] group-hover:text-[#B8943F]'
+                            ? 'bg-brand-gold border-brand-gold text-brand-navy rotate-45'
+                            : 'bg-transparent border-brand-border text-brand-navy group-hover:border-brand-gold'
                         }`}
                       >
-                        <Plus className="w-[15px] h-[15px]" strokeWidth={2.2} />
+                        <Plus className="w-5 h-5" strokeWidth={2.2} />
                       </span>
                     </button>
 
@@ -260,9 +260,9 @@ export function HomeFAQ() {
                           className="overflow-hidden"
                         >
                           <div
-                            className="pb-5 md:pb-7 pr-6 md:pr-14 text-[--color-near-black]/70 leading-[1.7]"
+                            className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6]"
                             style={{
-                              fontSize: '14.5px',
+                              fontSize: '15px',
                               fontFamily: "'Inter', system-ui, sans-serif",
                               fontWeight: 400,
                             }}
