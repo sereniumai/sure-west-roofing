@@ -133,7 +133,7 @@ export function HowItWorks() {
           <br className="hidden md:block" /> Roof in Three Steps
         </h2>
         <p
-          className="mt-5 max-w-[560px] text-brand-slate leading-[1.65]"
+          className="mt-5 max-w-[480px] text-brand-slate leading-[1.65]"
           style={{
             fontSize: '16px',
             fontFamily: "'Inter', system-ui, sans-serif",
