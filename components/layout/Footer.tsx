@@ -37,7 +37,7 @@ export function Footer() {
                 <img
                   src="/images/Sure West Dark Logo.webp"
                   alt="Sure West Roofing"
-                  className="h-12 md:h-14 w-auto"
+                  className="h-14 md:h-18 w-auto"
                 />
               </Link>
               <p
