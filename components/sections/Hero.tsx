@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { EASE_OUT } from '@/lib/animations'
 
 interface HeroProps {
   h1: string
@@ -155,7 +156,7 @@ export function Hero({
           }}
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.2, ease: EASE_OUT }}
         >
           {h1.split('\n').map((line, i) => (
             <span key={i}>
@@ -171,7 +172,7 @@ export function Hero({
           style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 400 }}
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, delay: 0.35, ease: EASE_OUT }}
         >
           {subtitle}
         </motion.p>
@@ -181,7 +182,7 @@ export function Hero({
           className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto mt-6"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, delay: 0.45, ease: EASE_OUT }}
         >
           <Button
             variant="secondary"
@@ -209,7 +210,7 @@ export function Hero({
         className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.6, delay: 1.2, ease: EASE_OUT }}
       >
         <span className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">
           Scroll

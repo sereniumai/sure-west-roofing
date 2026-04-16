@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import ImageRevealWide from '@/components/ui/image-reveal-wide'
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 interface PortfolioImage {
   src: string
@@ -21,7 +22,6 @@ interface PortfolioCarouselProps {
   fanCount?: number
 }
 
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 export function PortfolioCarousel({
   images,
@@ -58,7 +58,7 @@ export function PortfolioCarousel({
           }}
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           <span
@@ -103,7 +103,7 @@ export function PortfolioCarousel({
           className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.9, delay: 0.15, ease: EASE_OUT }}
         >
           <div className="scale-[0.75] sm:scale-[0.9] md:scale-100 lg:scale-110 transition-transform">

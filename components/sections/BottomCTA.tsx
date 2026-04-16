@@ -4,8 +4,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 const BULLETS = [
   'Free on-site estimate',
@@ -46,7 +45,7 @@ export function BottomCTA() {
           }}
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.75, ease: EASE_OUT }}
         >
           {/* Left — content */}

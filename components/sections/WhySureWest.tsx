@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import {
   Award,
   Users,
@@ -45,7 +46,6 @@ const pillars: Pillar[] = [
   },
 ]
 
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
 const VIMEO_ID = '917317949'
 const THUMBNAIL = '/images/Sure West Roofing - Founders Video.png'
 
@@ -78,7 +78,7 @@ export function WhySureWest() {
           className="flex flex-col items-center text-center max-w-[920px] mx-auto"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           <span
@@ -120,7 +120,7 @@ export function WhySureWest() {
             className="grid h-full grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={VIEWPORT}
             transition={{ duration: 0.7, ease: EASE_OUT }}
           >
             {pillars.map((p, i) => {
@@ -131,7 +131,7 @@ export function WhySureWest() {
                   className="group relative flex flex-col h-full rounded-[12px] border border-brand-border bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(44,71,102,0.12)] hover:border-brand-gold/40"
                   initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, margin: '-60px' }}
+                  viewport={VIEWPORT}
                   transition={{ duration: 0.5, delay: 0.1 + i * 0.07, ease: EASE_OUT }}
                 >
                   {/* Icon + title inline */}
@@ -177,7 +177,7 @@ export function WhySureWest() {
           <motion.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-80px' }}
+            viewport={VIEWPORT}
             transition={{ duration: 0.8, delay: 0.1, ease: EASE_OUT }}
           >
             <div className="relative">

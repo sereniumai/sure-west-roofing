@@ -5,8 +5,7 @@ import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 interface FAQ {
   question: string
@@ -157,7 +156,7 @@ export function HomeFAQ() {
           className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[960px] mx-auto"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           <span
@@ -192,7 +191,7 @@ export function HomeFAQ() {
             className="mt-8"
             initial={{ y: 16, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={VIEWPORT}
             transition={{ duration: 0.55, delay: 0.25, ease: EASE_OUT }}
           >
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -206,7 +205,7 @@ export function HomeFAQ() {
           className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 mt-4"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.55, delay: 0.1, ease: EASE_OUT }}
         >
           {columns.map((col, colIdx) => (

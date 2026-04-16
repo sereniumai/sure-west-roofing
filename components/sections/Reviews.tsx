@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Star, Quote, ChevronRight } from 'lucide-react'
-
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 interface Review {
   stars: number
@@ -174,7 +173,7 @@ export function Reviews() {
         className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={VIEWPORT}
         transition={{ duration: 0.7, ease: EASE_OUT }}
       >
         <span

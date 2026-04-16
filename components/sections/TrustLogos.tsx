@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import { Home, Zap, Star, ShieldCheck, type LucideIcon } from 'lucide-react'
 
 function CountUp({
@@ -50,7 +51,6 @@ const logos = [
   { src: '/images/logos/Roofing Contractor Shingle Master.webp', alt: 'ShingleMaster certified' },
 ]
 
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
 interface Stat {
   end: number
@@ -83,7 +83,7 @@ export function TrustLogos() {
           className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           {STATS.map((stat) => {
@@ -117,7 +117,7 @@ export function TrustLogos() {
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={VIEWPORT}
             transition={{ duration: 0.5, ease: EASE_OUT }}
           >
             Certified &amp; Accredited
@@ -127,7 +127,7 @@ export function TrustLogos() {
             className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-60px' }}
+            viewport={VIEWPORT}
             transition={{ duration: 0.65, delay: 0.08, ease: EASE_OUT }}
           >
             {logos.map((logo) => (

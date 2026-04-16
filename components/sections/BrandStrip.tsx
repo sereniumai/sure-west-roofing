@@ -1,8 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 export function BrandStrip() {
   return (
@@ -18,7 +17,7 @@ export function BrandStrip() {
         style={{ zIndex: 1 }}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-60px' }}
+        viewport={VIEWPORT}
         transition={{ duration: 0.7, ease: EASE_OUT }}
       >
         {/* Pre-title pill */}

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
+import { MotionProvider } from '@/components/MotionProvider'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -104,9 +105,11 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <Nav />
-        <main>{children}</main>
-        <Footer />
+        <MotionProvider>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   )

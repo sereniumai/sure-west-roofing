@@ -5,8 +5,7 @@ import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
 import { Calendar, FileCheck, CheckCircle, type LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-
-const EASE_OUT = [0.16, 1, 0.3, 1] as const
+import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 interface Step {
   number: string
@@ -113,7 +112,7 @@ export function HowItWorks() {
         className="relative flex flex-col items-center text-center mb-12 md:mb-14 max-w-[920px] mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true, margin: '-80px' }}
+        viewport={VIEWPORT}
         transition={{ duration: 0.7, ease: EASE_OUT }}
       >
         <span
@@ -148,7 +147,7 @@ export function HowItWorks() {
           className="mt-7"
           initial={{ y: 16, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={VIEWPORT}
           transition={{ duration: 0.55, delay: 0.25, ease: EASE_OUT }}
         >
           <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
