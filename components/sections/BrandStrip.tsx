@@ -33,7 +33,7 @@ export function BrandStrip() {
 
         {/* Display heading */}
         <h2
-          className="font-display font-medium uppercase text-brand-navy tracking-[-0.01em] mb-10 whitespace-nowrap"
+          className="font-display font-medium text-brand-navy tracking-[-0.01em] mb-10 whitespace-nowrap"
           style={{
             fontSize: 'clamp(48px, 9vw, 128px)',
             lineHeight: 1,
