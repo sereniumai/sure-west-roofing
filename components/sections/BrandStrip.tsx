@@ -31,22 +31,20 @@ export function BrandStrip() {
           Our Philosophy
         </span>
 
-        {/* Outline display type */}
-        <p
-          className="font-display font-medium uppercase tracking-[0.05em] mb-10 whitespace-nowrap"
+        {/* Display heading */}
+        <h2
+          className="font-display font-medium uppercase text-brand-navy tracking-[-0.01em] mb-10 whitespace-nowrap"
           style={{
-            fontSize: 'clamp(32px, 6.5vw, 88px)',
-            color: 'transparent',
-            WebkitTextStroke: 'clamp(2px, 0.3vw, 4px) #2C4766',
+            fontSize: 'clamp(48px, 9vw, 128px)',
             lineHeight: 1,
           }}
         >
           Move the Mountain
-        </p>
+        </h2>
 
         {/* Tagline */}
         <p
-          className="text-brand-navy max-w-[720px] mx-auto leading-[1.5] mb-8"
+          className="text-brand-navy max-w-[720px] mx-auto leading-[1.5]"
           style={{
             fontSize: 'clamp(16px, 1.5vw, 20px)',
             fontFamily: "'Inter', system-ui, sans-serif",
@@ -56,12 +54,6 @@ export function BrandStrip() {
         >
           In every shingle laid, we&rsquo;re not just building roofs, we&rsquo;re elevating trust.
         </p>
-
-        {/* Gold signature line */}
-        <div
-          className="mx-auto"
-          style={{ width: '48px', height: '2px', background: '#D4AF60' }}
-        />
       </motion.div>
     </section>
   )
