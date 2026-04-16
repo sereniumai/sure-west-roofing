@@ -16,21 +16,21 @@ const Card = ({
   return (
     <div
       className={cn(
-        "w-[350px] cursor-pointer h-[400px] overflow-hidden bg-white rounded-2xl shadow-[0_12px_40px_-10px_rgba(26,22,18,0.35),0_4px_12px_-4px_rgba(26,22,18,0.12)] border border-gray-200/60",
+        "w-[320px] cursor-pointer h-[380px] overflow-hidden bg-white rounded-[16px] shadow-[0_16px_48px_-14px_rgba(26,22,18,0.35),0_4px_10px_-4px_rgba(26,22,18,0.1)] border border-black/5",
         className
       )}
     >
       {image && (
-        <div className="relative h-72 rounded-xl shadow-lg overflow-hidden w-[calc(100%-1rem)] mx-2 mt-2">
+        <div className="relative h-[270px] overflow-hidden w-[calc(100%-12px)] mx-1.5 mt-1.5 rounded-[12px]">
           <img
             src={image}
             alt="card"
-            className="object-cover mt-0 w-full h-full"
+            className="object-cover w-full h-full"
           />
         </div>
       )}
       {children && (
-        <div className="px-4 p-2 flex flex-col gap-y-2">{children}</div>
+        <div className="px-4 pt-3 pb-2 flex flex-col gap-y-1">{children}</div>
       )}
     </div>
   );
@@ -53,7 +53,6 @@ const StackedCardsInteraction = ({
   spreadDistance?: number;
   rotationAngle?: number;
   animationDelay?: number;
-  /** How much of the full spread to show at rest (0-1). Default 0.45. */
   restSpread?: number;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
@@ -62,7 +61,7 @@ const StackedCardsInteraction = ({
 
   return (
     <div className="relative w-full h-full flex items-center justify-center">
-      <div className="relative w-[350px] h-[400px]">
+      <div className="relative w-[320px] h-[380px]">
         {limitedCards.map((card, index) => {
           const isFirst = index === 0;
 
@@ -112,8 +111,18 @@ const StackedCardsInteraction = ({
                 className={isFirst ? "z-10 cursor-pointer" : "z-0"}
                 image={card.image}
               >
-                <h2 className="font-display font-semibold text-[--color-near-black] text-[15px] tracking-tight">{card.title}</h2>
-                <p className="text-[--color-near-black]/65 text-[13px]" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>{card.description}</p>
+                <h2
+                  className="font-display font-semibold text-[--color-near-black] tracking-tight"
+                  style={{ fontSize: '15px' }}
+                >
+                  {card.title}
+                </h2>
+                <p
+                  className="text-[--color-near-black]/55"
+                  style={{ fontSize: '12.5px', fontFamily: "'Inter', system-ui, sans-serif" }}
+                >
+                  {card.description}
+                </p>
               </Card>
             </motion.div>
           );
