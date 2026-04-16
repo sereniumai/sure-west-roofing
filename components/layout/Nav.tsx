@@ -102,7 +102,7 @@ export function Nav() {
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
           <img
-            src={isLight ? '/images/Sure West Dark Logo.webp' : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
+            src={mobileOpen || isLight ? '/images/Sure West Dark Logo.webp' : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
             alt="Sure West Roofing"
             className="h-12 lg:h-[56px] w-auto"
           />
@@ -267,16 +267,20 @@ export function Nav() {
                     mobileServicesOpen ? 'max-h-[500px]' : 'max-h-0'
                   }`}
                 >
-                  {serviceLinks.map((service) => (
-                    <Link
-                      key={service.href}
-                      href={service.href}
-                      className="block py-3 pl-4 text-base text-brand-slate hover:text-brand-gold transition-colors"
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      {service.label}
-                    </Link>
-                  ))}
+                  {serviceLinks.map((service) => {
+                    const { Icon } = service
+                    return (
+                      <Link
+                        key={service.href}
+                        href={service.href}
+                        className="flex items-center gap-3 py-3 pl-4 text-base text-brand-slate hover:text-brand-gold transition-colors"
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <Icon className="w-5 h-5 text-brand-gold flex-shrink-0" strokeWidth={1.5} />
+                        {service.label}
+                      </Link>
+                    )
+                  })}
                 </div>
               </div>
             ) : (
