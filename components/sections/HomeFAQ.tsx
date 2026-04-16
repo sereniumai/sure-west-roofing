@@ -176,8 +176,7 @@ export function HomeFAQ() {
               letterSpacing: '-0.005em',
             }}
           >
-            Roofing Questions Answered -
-            <br className="hidden md:block" /> Cochrane, Calgary and Canmore
+            Roofing Questions Answered
           </h2>
           <p
             className="mt-6 max-w-[640px] text-brand-slate leading-[1.7]"

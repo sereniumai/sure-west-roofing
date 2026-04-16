@@ -89,10 +89,8 @@ export function TrustLogos() {
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           {STATS.map((stat) => {
-            const { Icon } = stat
             return (
               <div key={stat.label} className="flex flex-col items-center text-center">
-                <Icon className="w-6 h-6 text-brand-slate mb-3" strokeWidth={1.5} />
                 <span
                   className="font-display font-semibold leading-none text-brand-gold"
                   style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
