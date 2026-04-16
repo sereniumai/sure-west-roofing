@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { Hero } from '@/components/sections/Hero'
+import { BrandStrip } from '@/components/sections/BrandStrip'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { ServicesIconGrid } from '@/components/sections/ServicesIconGrid'
 import { WhySureWest } from '@/components/sections/WhySureWest'
@@ -50,7 +51,7 @@ export default function HomePage() {
       {/* 1. Hero */}
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
-        subtitle="Cochrane's trusted roofing contractor. Red Seal Journeyman certified. Roof replacement, repair, hail damage and inspections across Cochrane, Calgary and Canmore. Free estimates always."
+        subtitle="Red Seal Journeyman certified. Most replacements completed in one day. We respond within minutes — even after hours."
         backgroundVideo="/images/Cochrane Roofing Contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/contact' }}
@@ -59,7 +60,10 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Trust Badges */}
+      {/* 2. Move the Mountain Brand Strip */}
+      <BrandStrip />
+
+      {/* 3. Stats + Certifications */}
       <TrustLogos />
 
       {/* 3. Services Card Grid */}
