@@ -1,7 +1,45 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
+
+function CountUp({
+  end,
+  suffix = '',
+  decimals = 0,
+  duration = 2,
+}: {
+  end: number
+  suffix?: string
+  decimals?: number
+  duration?: number
+}) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-60px' })
+  const [value, setValue] = useState(0)
+
+  useEffect(() => {
+    if (!inView) return
+    let start = 0
+    const startTime = performance.now()
+    const step = (now: number) => {
+      const elapsed = Math.min((now - startTime) / (duration * 1000), 1)
+      const ease = 1 - Math.pow(1 - elapsed, 3) // ease-out cubic
+      const current = start + (end - start) * ease
+      setValue(current)
+      if (elapsed < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  }, [inView, end, duration])
+
+  return (
+    <span ref={ref}>
+      {decimals > 0 ? value.toFixed(decimals) : Math.round(value)}
+      {suffix}
+    </span>
+  )
+}
 
 const logos = [
   {
@@ -62,35 +100,63 @@ export function TrustLogos() {
       <div className="relative max-w-[1320px] mx-auto">
         {/* ── Stats row ──────────────────────────────────────────────── */}
         <motion.div
-          className="grid grid-cols-3 gap-6 md:gap-10 mb-10 md:mb-14"
+          className="grid grid-cols-2 md:grid-cols-4 mb-12 md:mb-16 border border-[--color-near-black]/8 rounded-[--radius-md] overflow-hidden"
+          style={{
+            boxShadow: '0 1px 3px rgba(26,22,18,0.04), 0 8px 24px -14px rgba(26,22,18,0.08)',
+          }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           {[
-            { number: '250+', label: 'Roofs Completed' },
-            { number: '20+', label: 'Years Experience' },
-            { number: '5.0', label: 'Google Rating' },
-          ].map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center text-center">
+            { end: 250, suffix: '+', decimals: 0, label: 'Roofs Completed' },
+            { end: 20, suffix: '+', decimals: 0, label: 'Years Experience' },
+            { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating' },
+            { end: 10, suffix: ' Yr', decimals: 0, label: 'Workmanship Guarantee' },
+          ].map((stat, i) => (
+            <div
+              key={stat.label}
+              className="relative flex flex-col items-center text-center py-8 md:py-10 bg-white"
+            >
+              {/* Vertical divider (not on first item per row) */}
+              {i > 0 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-[20%] bottom-[20%] w-px bg-[--color-near-black]/8 hidden md:block"
+                />
+              )}
+              {/* Mobile: second column divider */}
+              {i % 2 === 1 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-[20%] bottom-[20%] w-px bg-[--color-near-black]/8 md:hidden"
+                />
+              )}
+              {/* Horizontal divider for mobile bottom row */}
+              {i >= 2 && (
+                <span
+                  aria-hidden="true"
+                  className="absolute top-0 left-[10%] right-[10%] h-px bg-[--color-near-black]/8 md:hidden"
+                />
+              )}
               <span
-                className="font-display font-semibold text-[--color-near-black] leading-none"
+                className="font-display font-semibold leading-none"
                 style={{
-                  fontSize: 'clamp(36px, 4.5vw, 64px)',
+                  fontSize: 'clamp(32px, 3.8vw, 52px)',
                   letterSpacing: '-0.04em',
                   color: 'var(--color-accent, #D4AF60)',
                 }}
               >
-                {stat.number}
+                <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2.2} />
               </span>
               <span
-                className="mt-2 text-[--color-near-black]/65"
+                className="mt-2.5 text-[--color-near-black]/60"
                 style={{
-                  fontSize: '13px',
+                  fontSize: '12px',
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontWeight: 600,
-                  letterSpacing: '0.06em',
+                  letterSpacing: '0.08em',
                   textTransform: 'uppercase',
                 }}
               >
