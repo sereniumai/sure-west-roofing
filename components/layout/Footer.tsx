@@ -41,9 +41,9 @@ export function Footer() {
                 />
               </Link>
               <p
-                className="mt-6 text-brand-slate leading-[1.6] max-w-[240px]"
+                className="mt-6 text-brand-slate leading-[1.6] max-w-[320px]"
                 style={{
-                  fontSize: '14px',
+                  fontSize: '18px',
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontStyle: 'italic',
                 }}
