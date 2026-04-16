@@ -60,7 +60,47 @@ export function TrustLogos() {
       />
 
       <div className="relative max-w-[1320px] mx-auto">
-        {/* ── Header: eyebrow + one-line support ─────────────────────── */}
+        {/* ── Stats row ──────────────────────────────────────────────── */}
+        <motion.div
+          className="grid grid-cols-3 gap-6 md:gap-10 mb-10 md:mb-14"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7, ease: EASE_OUT }}
+        >
+          {[
+            { number: '250+', label: 'Roofs Completed' },
+            { number: '20+', label: 'Years Experience' },
+            { number: '5.0', label: 'Google Rating' },
+          ].map((stat) => (
+            <div key={stat.label} className="flex flex-col items-center text-center">
+              <span
+                className="font-display font-semibold text-[--color-near-black] leading-none"
+                style={{
+                  fontSize: 'clamp(36px, 4.5vw, 64px)',
+                  letterSpacing: '-0.04em',
+                  color: 'var(--color-accent, #D4AF60)',
+                }}
+              >
+                {stat.number}
+              </span>
+              <span
+                className="mt-2 text-[--color-near-black]/65"
+                style={{
+                  fontSize: '13px',
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontWeight: 600,
+                  letterSpacing: '0.06em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* ── Header: eyebrow ────────────────────────────────────────── */}
         <motion.div
           className="flex flex-col items-center text-center"
           initial={{ opacity: 0, y: 14 }}

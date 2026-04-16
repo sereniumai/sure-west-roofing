@@ -188,7 +188,7 @@ export function Nav() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center">
-          <Button href="/contact" variant={scrolled || isLightPage ? 'secondary' : 'ghost'} size="sm">
+          <Button href="/contact" variant="secondary" size="sm">
             Get a Free Estimate
           </Button>
         </div>
