@@ -41,7 +41,7 @@ const serviceLinks = [
 
 const navLinks = [
   { label: 'About', href: '/about' },
-  { label: 'Services', dropdown: true },
+  { label: 'Services', href: '/services', dropdown: true },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ]
@@ -105,9 +105,8 @@ export function Nav() {
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
-                <button
-                  type="button"
-                  onClick={() => setServicesOpen((open) => !open)}
+                <Link
+                  href={link.href ?? '/services'}
                   className={`flex items-center gap-1.5 text-[16px] font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
                 >
                   {link.label}
@@ -117,7 +116,7 @@ export function Nav() {
                       servicesOpen ? 'rotate-180' : ''
                     }`}
                   />
-                </button>
+                </Link>
 
                 {/* Dropdown */}
                 <div
