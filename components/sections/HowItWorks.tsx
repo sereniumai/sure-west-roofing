@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import { ClipboardList, FileCheck2, ShieldCheck, type LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -17,31 +17,152 @@ interface Step {
 const STEPS: Step[] = [
   {
     number: '01',
-    title: 'Step 1 - Book Your Free Estimate',
+    title: 'Book Your Free Estimate',
     description:
       'We come to your property in Cochrane, Calgary or Canmore, assess the roof thoroughly, and provide a clear itemised written quote.',
     Icon: ClipboardList,
   },
   {
     number: '02',
-    title: 'Step 2 - Approve Your Quote',
+    title: 'Approve Your Quote',
     description:
       'Your quote is fixed. The price you approve is the price you pay. We schedule around you.',
     Icon: FileCheck2,
   },
   {
     number: '03',
-    title: 'Step 3 - Your Roof Done Right',
+    title: 'Your Roof Done Right',
     description:
       'Work completed to Red Seal standard. Your property left clean. Your 10-year workmanship guarantee in writing before we leave.',
     Icon: ShieldCheck,
   },
 ]
 
+function StepCard({ step, index }: { step: Step; index: number }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-80px' })
+  const Icon = step.Icon
+
+  return (
+    <motion.div
+      ref={ref}
+      className="group relative flex flex-col overflow-hidden rounded-[16px] md:rounded-[20px]"
+      style={{ background: '#1A1612' }}
+      initial={{ y: 60, opacity: 0, scale: 0.95 }}
+      animate={inView ? { y: 0, opacity: 1, scale: 1 } : { y: 60, opacity: 0, scale: 0.95 }}
+      transition={{
+        duration: 0.8,
+        delay: 0.15 + index * 0.15,
+        ease: EASE_OUT,
+      }}
+    >
+      {/* Ambient gold glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-12 -right-12 w-[200px] h-[200px]"
+        style={{
+          background:
+            'radial-gradient(circle at center, rgba(212,175,96,0.18) 0%, rgba(212,175,96,0) 65%)',
+        }}
+      />
+
+      {/* Giant watermark number */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-4 -right-2 font-display font-semibold leading-none select-none"
+        style={{
+          fontSize: 'clamp(120px, 14vw, 180px)',
+          letterSpacing: '-0.06em',
+          color: 'transparent',
+          WebkitTextStroke: '1.5px rgba(212,175,96,0.18)',
+        }}
+      >
+        {step.number}
+      </span>
+
+      <div className="relative z-10 flex flex-col flex-1 p-7 md:p-9 lg:p-10">
+        {/* Icon */}
+        <motion.span
+          className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6"
+          style={{
+            background: 'var(--color-accent, #D4AF60)',
+            boxShadow: '0 8px 20px -8px rgba(184,148,63,0.6)',
+          }}
+          initial={{ scale: 0, rotate: -20 }}
+          animate={inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -20 }}
+          transition={{
+            type: 'spring',
+            stiffness: 300,
+            damping: 20,
+            delay: 0.4 + index * 0.15,
+          }}
+        >
+          <Icon className="w-[22px] h-[22px] text-[#1A1612]" strokeWidth={1.9} />
+        </motion.span>
+
+        {/* Step label */}
+        <span
+          className="font-body font-semibold uppercase tracking-[0.14em] text-[#D4AF60] mb-3"
+          style={{ fontSize: '11px' }}
+        >
+          Step {step.number}
+        </span>
+
+        <h3
+          className="font-display font-semibold text-white leading-[1.15]"
+          style={{
+            fontSize: 'clamp(22px, 1.8vw, 28px)',
+            letterSpacing: '-0.025em',
+          }}
+        >
+          {step.title}
+        </h3>
+
+        {/* Gold accent bar */}
+        <motion.span
+          aria-hidden="true"
+          className="block h-[2px] rounded-full mt-4 mb-4 origin-left"
+          style={{ background: 'var(--color-accent, #D4AF60)', width: '32px' }}
+          initial={{ scaleX: 0 }}
+          animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 + index * 0.15, ease: EASE_OUT }}
+        />
+
+        <p
+          className="text-white/65 leading-[1.65] flex-1"
+          style={{
+            fontSize: '14.5px',
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontWeight: 400,
+          }}
+        >
+          {step.description}
+        </p>
+      </div>
+
+      {/* Bottom gold glow edge */}
+      <span
+        aria-hidden="true"
+        className="absolute bottom-0 left-[15%] right-[15%] h-px"
+        style={{
+          background:
+            'linear-gradient(to right, transparent, rgba(212,175,96,0.4), transparent)',
+        }}
+      />
+    </motion.div>
+  )
+}
+
 export function HowItWorks() {
   const sectionRef = useRef<HTMLDivElement>(null)
-  const stepsRef = useRef<HTMLDivElement>(null)
-  const stepsInView = useInView(stepsRef, { once: true, margin: '-80px' })
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start 80%', 'end 60%'],
+  })
+
+  // Progress bar fills as you scroll through the section
+  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
 
   return (
     <section
@@ -55,20 +176,6 @@ export function HowItWorks() {
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      {/* Ambient gold glow backdrop */}
-      <motion.div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 h-[520px] opacity-50"
-        style={{
-          background:
-            'radial-gradient(ellipse 60% 100% at 50% 0%, rgba(212,175,96,0.12) 0%, rgba(212,175,96,0) 70%)',
-        }}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 0.55 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 1.2, ease: EASE_OUT }}
-      />
-
       {/* ── Header ───────────────────────────────────────────────── */}
       <motion.div
         className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[920px] mx-auto"
@@ -104,7 +211,6 @@ export function HowItWorks() {
           No surprises. No pressure. Just a clear simple process from your first call to the final inspection.
         </p>
 
-        {/* CTA directly under the sub-copy */}
         <motion.div
           className="mt-8"
           initial={{ y: 16, opacity: 0 }}
@@ -118,134 +224,24 @@ export function HowItWorks() {
         </motion.div>
       </motion.div>
 
-      {/* ── Steps ────────────────────────────────────────────────── */}
-      <div ref={stepsRef} className="relative max-w-[1200px] mx-auto pt-8 md:pt-10">
-        {/* Connecting line across the three step numbers (desktop only) */}
-        <div
-          aria-hidden="true"
-          className="hidden md:block absolute left-[16.6%] right-[16.6%] h-px overflow-hidden"
-          style={{ top: 'calc(2rem + 42px)' }}
-        >
-          <span className="absolute inset-0 bg-[--color-near-black]/10" />
-          <motion.span
-            className="absolute inset-0 origin-left"
+      {/* ── Scroll progress bar ──────────────────────────────────── */}
+      <div className="max-w-[1200px] mx-auto mb-8 md:mb-10">
+        <div className="h-[2px] rounded-full bg-[--color-near-black]/8 overflow-hidden">
+          <motion.div
+            className="h-full rounded-full"
             style={{
-              background:
-                'linear-gradient(to right, rgba(212,175,96,0) 0%, rgba(212,175,96,1) 12%, rgba(212,175,96,1) 88%, rgba(212,175,96,0) 100%)',
+              width: progressWidth,
+              background: 'var(--color-accent, #D4AF60)',
             }}
-            initial={{ scaleX: 0 }}
-            animate={stepsInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 1.4, delay: 0.35, ease: EASE_OUT }}
           />
         </div>
+      </div>
 
-        <ol className="relative grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
-          {STEPS.map((step, i) => {
-            const Icon = step.Icon
-            return (
-              <motion.li
-                key={step.number}
-                className="group relative flex flex-col items-center text-center"
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.6, delay: 0.3 + i * 0.18, ease: EASE_OUT }}
-              >
-                {/* Icon + step badge stack */}
-                <div className="relative mb-8">
-                  {/* Ghost outer ring */}
-                  <motion.span
-                    aria-hidden="true"
-                    className="absolute inset-0 rounded-full"
-                    style={{
-                      background:
-                        'radial-gradient(closest-side, rgba(212,175,96,0.22), rgba(212,175,96,0) 70%)',
-                    }}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={stepsInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                    transition={{ duration: 0.8, delay: 0.5 + i * 0.18, ease: EASE_OUT }}
-                  />
-
-                  {/* Main gold badge */}
-                  <motion.span
-                    className="relative z-10 flex items-center justify-center w-[88px] h-[88px] rounded-full bg-white"
-                    style={{
-                      boxShadow:
-                        '0 0 0 1px rgba(212,175,96,0.4), 0 14px 28px -14px rgba(184,148,63,0.45)',
-                    }}
-                    initial={{ scale: 0.6, opacity: 0 }}
-                    animate={stepsInView ? { scale: 1, opacity: 1 } : { scale: 0.6, opacity: 0 }}
-                    transition={{
-                      type: 'spring',
-                      stiffness: 280,
-                      damping: 22,
-                      delay: 0.4 + i * 0.18,
-                    }}
-                  >
-                    <span
-                      className="relative flex items-center justify-center w-[66px] h-[66px] rounded-full transition-transform duration-500 ease-out group-hover:scale-[1.06]"
-                      style={{
-                        background: 'var(--color-accent, #D4AF60)',
-                        boxShadow:
-                          'inset 0 0 0 1px rgba(255,255,255,0.3), inset 0 -6px 12px rgba(0,0,0,0.08)',
-                      }}
-                    >
-                      <Icon
-                        className="w-[26px] h-[26px] text-[--color-near-black]"
-                        strokeWidth={1.9}
-                      />
-                    </span>
-
-                    {/* Tiny numeric chip, top-right */}
-                    <span
-                      aria-hidden="true"
-                      className="absolute -top-1 -right-1 z-20 inline-flex items-center justify-center w-7 h-7 rounded-full bg-[--color-near-black] text-[--color-accent,#D4AF60] font-display font-semibold tabular-nums"
-                      style={{
-                        fontSize: '10.5px',
-                        letterSpacing: '0.08em',
-                        boxShadow:
-                          '0 4px 10px -4px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(212,175,96,0.35)',
-                      }}
-                    >
-                      {step.number}
-                    </span>
-                  </motion.span>
-                </div>
-
-                <h3
-                  className="font-display font-semibold text-[--color-near-black] leading-[1.2]"
-                  style={{
-                    fontSize: 'clamp(18px, 1.35vw, 21px)',
-                    letterSpacing: '-0.02em',
-                  }}
-                >
-                  {step.title}
-                </h3>
-
-                {/* Gold accent rule under title */}
-                <motion.span
-                  aria-hidden="true"
-                  className="block h-[2px] rounded-full mt-3 origin-center"
-                  style={{ background: 'var(--color-accent, #D4AF60)', width: '28px' }}
-                  initial={{ scaleX: 0, opacity: 0 }}
-                  animate={stepsInView ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
-                  transition={{ duration: 0.5, delay: 0.7 + i * 0.18, ease: EASE_OUT }}
-                />
-
-                <p
-                  className="mt-4 max-w-[340px] text-[--color-near-black]/65 leading-[1.65]"
-                  style={{
-                    fontSize: '14.5px',
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 400,
-                  }}
-                >
-                  {step.description}
-                </p>
-              </motion.li>
-            )
-          })}
-        </ol>
+      {/* ── Step cards ───────────────────────────────────────────── */}
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        {STEPS.map((step, i) => (
+          <StepCard key={step.number} step={step} index={i} />
+        ))}
       </div>
     </section>
   )
