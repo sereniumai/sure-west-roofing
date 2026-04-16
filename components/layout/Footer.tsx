@@ -208,17 +208,6 @@ export function Footer() {
           </div>
         </div>
       </div>
-
-      {/* Footer background image */}
-      <div className="relative w-full h-[200px] md:h-[300px] bg-brand-cream">
-        <Image
-          src="/images/Cochrane Roofers Footer.avif"
-          alt="Cochrane roofing contractors at work"
-          fill
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </div>
     </footer>
   )
 }
