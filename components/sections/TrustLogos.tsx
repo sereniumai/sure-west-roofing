@@ -70,10 +70,8 @@ const STATS: Stat[] = [
 export function TrustLogos() {
   return (
     <section
-      className="bg-white"
+      className="bg-white py-12 md:py-16"
       style={{
-        paddingTop: '64px',
-        paddingBottom: '64px',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}

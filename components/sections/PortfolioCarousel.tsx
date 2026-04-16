@@ -35,11 +35,7 @@ export function PortfolioCarousel({
 
   return (
     <section
-      className="relative bg-white overflow-x-clip"
-      style={{
-        paddingTop: 'var(--section-pad-top)',
-        paddingBottom: 'var(--section-pad-bot)',
-      }}
+      className="relative bg-white overflow-x-clip py-20 md:py-24"
       aria-label="Portfolio gallery"
     >
       {/* Paper-grain background — same recipe as sibling sections */}

@@ -55,10 +55,8 @@ export function WhySureWest() {
   return (
     <section
       id="why-sure-west"
-      className="relative bg-white overflow-hidden"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{
-        paddingTop: 'var(--section-pad-top)',
-        paddingBottom: 'var(--section-pad-bot)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}

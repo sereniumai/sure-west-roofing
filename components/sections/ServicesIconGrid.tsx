@@ -127,12 +127,10 @@ export function ServicesIconGrid({
 }: ServicesIconGridProps) {
   return (
     <section
-      className="bg-brand-cream relative overflow-hidden"
+      className="bg-brand-cream relative overflow-hidden py-20 md:py-24"
       style={{
-        paddingTop: 'var(--section-pad-top)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
-        paddingBottom: 'calc(var(--section-pad-bot) + 40px)',
       }}
     >
       {/* ── Header ───────────────────────────────────────────────── */}

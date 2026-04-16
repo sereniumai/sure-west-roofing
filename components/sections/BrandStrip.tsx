@@ -7,10 +7,8 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 export function BrandStrip() {
   return (
     <section
-      className="bg-white relative overflow-hidden"
+      className="bg-white relative overflow-hidden py-20 md:py-24"
       style={{
-        paddingTop: 'clamp(100px, 12vw, 160px)',
-        paddingBottom: 'clamp(100px, 12vw, 160px)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -35,7 +33,7 @@ export function BrandStrip() {
         <h2
           className="font-display font-medium text-brand-navy tracking-[-0.01em] mb-10 whitespace-nowrap"
           style={{
-            fontSize: 'clamp(48px, 9vw, 128px)',
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
             lineHeight: 1,
           }}
         >

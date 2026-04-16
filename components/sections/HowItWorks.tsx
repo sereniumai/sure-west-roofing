@@ -102,10 +102,8 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative bg-brand-cream overflow-hidden"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{
-        paddingTop: 'var(--section-pad-top)',
-        paddingBottom: 'var(--section-pad-bot)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}

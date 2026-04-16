@@ -18,10 +18,8 @@ export function BottomCTA() {
   return (
     <section
       id="contact-cta"
-      className="relative bg-white overflow-hidden"
+      className="relative bg-white overflow-hidden py-12 md:py-16"
       style={{
-        paddingTop: 'calc(var(--section-pad-top) + 16px)',
-        paddingBottom: 'calc(var(--section-pad-bot) + 48px)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}

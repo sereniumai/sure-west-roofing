@@ -138,11 +138,9 @@ export function HomeFAQ() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden"
+      className="relative overflow-hidden py-20 md:py-24"
       style={{
         background: '#F7F5F0',
-        paddingTop: 'var(--section-pad-top)',
-        paddingBottom: 'var(--section-pad-bot)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
