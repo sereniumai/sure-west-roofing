@@ -80,7 +80,7 @@ function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
       <h3
         className="font-display font-semibold text-[--color-near-black] leading-[1.15]"
         style={{
-          fontSize: 'clamp(20px, 1.6vw, 24px)',
+          fontSize: 'clamp(22px, 2vw, 30px)',
           letterSpacing: '-0.025em',
         }}
       >
