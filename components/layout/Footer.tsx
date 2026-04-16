@@ -210,7 +210,7 @@ export function Footer() {
           </div>
 
           {/* Giant static text */}
-          <div className="pt-6 md:pt-8 pb-4 md:pb-6">
+          <div className="pt-6 md:pt-8 pb-4 md:pb-6 text-center">
             <p
               className="font-display font-semibold select-none leading-[0.85] tracking-tighter"
               style={{
