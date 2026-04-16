@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import {
@@ -9,9 +10,9 @@ import {
   ClipboardCheck,
   ScanSearch,
   Sun,
+  ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
 
 interface ServiceReview {
   quote: string
@@ -58,73 +59,77 @@ function ServiceCard({
   const Icon = iconFor(service.title)
 
   return (
-    <motion.article
+    <motion.div
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, delay, ease: EASE_OUT }}
-      className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/8 bg-white overflow-hidden shadow-[0_1px_2px_rgba(26,22,18,0.04),0_6px_20px_-10px_rgba(26,22,18,0.08)] transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-[3px] hover:border-[#D4AF60]/40 hover:shadow-[0_2px_4px_rgba(26,22,18,0.04),0_24px_48px_-20px_rgba(184,148,63,0.22)]"
+      className="h-full"
     >
-      {/* Image at top */}
-      <div className="relative h-[180px] md:h-[200px] overflow-hidden">
-        <Image
-          src={service.image}
-          alt={service.imageAlt}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"
-        />
-      </div>
-
-      {/* Content */}
-      <div className="flex flex-col flex-1 p-6 md:p-7">
-        {/* Heading row — icon inline with title */}
-        <div className="flex items-center gap-3">
-          <span
+      <Link
+        href={service.href}
+        className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/8 bg-white overflow-hidden shadow-[0_1px_2px_rgba(26,22,18,0.04),0_6px_20px_-10px_rgba(26,22,18,0.08)] transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-[3px] hover:border-[#D4AF60]/40 hover:shadow-[0_2px_4px_rgba(26,22,18,0.04),0_24px_48px_-20px_rgba(184,148,63,0.22)]"
+      >
+        {/* Image at top */}
+        <div className="relative h-[180px] md:h-[200px] overflow-hidden">
+          <Image
+            src={service.image}
+            alt={service.imageAlt}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+          <div
             aria-hidden="true"
-            className="inline-flex items-center justify-center w-9 h-9 rounded-[8px] flex-shrink-0 transition-colors duration-500 ease-out group-hover:bg-[rgba(212,175,96,0.18)]"
-            style={{ background: 'rgba(212,175,96,0.12)' }}
-          >
-            <Icon
-              className="w-[15px] h-[15px]"
-              style={{ color: 'var(--color-accent, #D4AF60)' }}
-              strokeWidth={1.75}
-            />
-          </span>
-          <h3
-            className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
+            className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col flex-1 p-6 md:p-7">
+          {/* Heading row — icon + title + arrow */}
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="inline-flex items-center justify-center w-9 h-9 rounded-[8px] flex-shrink-0 transition-colors duration-500 ease-out group-hover:bg-[rgba(212,175,96,0.18)]"
+              style={{ background: 'rgba(212,175,96,0.12)' }}
+            >
+              <Icon
+                className="w-[15px] h-[15px]"
+                style={{ color: 'var(--color-accent, #D4AF60)' }}
+                strokeWidth={1.75}
+              />
+            </span>
+            <h3
+              className="font-display font-semibold leading-[1.15] text-[--color-near-black] flex-1"
+              style={{
+                fontSize: 'clamp(19px, 1.45vw, 22px)',
+                letterSpacing: '-0.02em',
+              }}
+            >
+              {service.title}
+            </h3>
+            <span
+              aria-hidden="true"
+              className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[--color-near-black]/5 transition-all duration-400 ease-out group-hover:bg-[#D4AF60] group-hover:scale-110 flex-shrink-0"
+            >
+              <ArrowRight className="w-4 h-4 text-[--color-near-black]/40 transition-colors duration-400 group-hover:text-[#1A1612]" strokeWidth={2} />
+            </span>
+          </div>
+
+          <p
+            className="mt-3 text-[--color-near-black]/65 leading-[1.65] flex-1"
             style={{
-              fontSize: 'clamp(19px, 1.45vw, 22px)',
-              letterSpacing: '-0.02em',
+              fontSize: '14px',
+              fontFamily: "'Inter', system-ui, sans-serif",
+              fontWeight: 400,
             }}
           >
-            {service.title}
-          </h3>
+            {service.description}
+          </p>
         </div>
-
-        <p
-          className="mt-3 text-[--color-near-black]/65 leading-[1.65] flex-1"
-          style={{
-            fontSize: '14px',
-            fontFamily: "'Inter', system-ui, sans-serif",
-            fontWeight: 400,
-          }}
-        >
-          {service.description}
-        </p>
-
-        {/* Primary gold CTA — uses service keyword */}
-        <div className="mt-6">
-          <Button variant="primary" size="sm" href={service.href}>
-            {service.title}
-          </Button>
-        </div>
-      </div>
-    </motion.article>
+      </Link>
+    </motion.div>
   )
 }
 
