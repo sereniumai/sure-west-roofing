@@ -23,6 +23,40 @@ const nextConfig = {
       ],
     }]
   },
+  async redirects() {
+    return [
+      {
+        source: '/roof-replacement-cochrane',
+        destination: '/services/roof-replacement/cochrane',
+        permanent: true,
+      },
+      {
+        source: '/roof-repair-cochrane',
+        destination: '/services/roof-repair/cochrane',
+        permanent: true,
+      },
+      {
+        source: '/hail-damage-repair-cochrane',
+        destination: '/services/hail-damage-repair/cochrane',
+        permanent: true,
+      },
+      {
+        source: '/roof-maintenance-cochrane',
+        destination: '/services/roof-maintenance/cochrane',
+        permanent: true,
+      },
+      {
+        source: '/roof-inspection-cochrane',
+        destination: '/services/roof-inspection/cochrane',
+        permanent: true,
+      },
+      {
+        source: '/skylight-installation-cochrane',
+        destination: '/services/skylight-installation/cochrane',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig
