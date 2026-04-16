@@ -214,9 +214,9 @@ export function Footer() {
             <p
               className="font-display font-semibold select-none leading-[0.85] tracking-tighter"
               style={{
-                fontSize: 'clamp(48px, 11vw, 180px)',
+                fontSize: 'clamp(36px, 11vw, 180px)',
                 color: 'transparent',
-                WebkitTextStroke: '2px rgba(26,22,18,0.85)',
+                WebkitTextStroke: '1.5px rgba(26,22,18,0.85)',
               }}
             >
               Move the Mountain
@@ -225,32 +225,32 @@ export function Footer() {
 
           {/* Bottom bar */}
           <div
-            className="border-t border-[--color-near-black]/10 flex flex-col sm:flex-row justify-between items-center gap-3 py-6"
+            className="border-t border-[--color-near-black]/10 flex flex-col items-center gap-3 py-6 sm:flex-row sm:justify-between"
           >
             <p
-              className="text-[--color-near-black]/55"
+              className="text-[--color-near-black]/55 text-center sm:text-left"
               style={{
-                fontSize: '12.5px',
+                fontSize: '11.5px',
                 fontFamily: "'Inter', system-ui, sans-serif",
               }}
             >
               &copy; 2026 Sure West Roofing. All Rights Reserved.
             </p>
-            <div className="flex items-center gap-5">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
               <p
                 className="text-[--color-near-black]/55"
                 style={{
-                  fontSize: '12.5px',
+                  fontSize: '11.5px',
                   fontFamily: "'Inter', system-ui, sans-serif",
                 }}
               >
                 Cochrane, Alberta. Red Seal Certified.
               </p>
-              <span className="h-3 w-px bg-[--color-near-black]/20" aria-hidden="true" />
-              <Link href="/privacy" className="text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors" style={{ fontSize: '12.5px', fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span className="h-3 w-px bg-[--color-near-black]/20 hidden sm:block" aria-hidden="true" />
+              <Link href="/privacy" className="text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors" style={{ fontSize: '11.5px', fontFamily: "'Inter', system-ui, sans-serif" }}>
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors" style={{ fontSize: '12.5px', fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <Link href="/terms" className="text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors" style={{ fontSize: '11.5px', fontFamily: "'Inter', system-ui, sans-serif" }}>
                 Terms
               </Link>
             </div>

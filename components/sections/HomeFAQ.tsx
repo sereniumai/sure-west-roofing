@@ -260,7 +260,7 @@ export function HomeFAQ() {
                           className="overflow-hidden"
                         >
                           <div
-                            className="pb-6 md:pb-7 pr-12 md:pr-14 text-[--color-near-black]/70 leading-[1.7]"
+                            className="pb-5 md:pb-7 pr-6 md:pr-14 text-[--color-near-black]/70 leading-[1.7]"
                             style={{
                               fontSize: '14.5px',
                               fontFamily: "'Inter', system-ui, sans-serif",

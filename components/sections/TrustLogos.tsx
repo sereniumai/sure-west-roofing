@@ -94,7 +94,7 @@ export function TrustLogos() {
       <div className="relative max-w-[1320px] mx-auto">
         {/* ── Stats ──────────────────────────────────────────────── */}
         <motion.div
-          className="flex items-center justify-between"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:flex md:items-center md:justify-between"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
@@ -112,7 +112,7 @@ export function TrustLogos() {
                 <span
                   className="font-display font-semibold leading-none"
                   style={{
-                    fontSize: 'clamp(28px, 3.2vw, 46px)',
+                    fontSize: 'clamp(26px, 3.2vw, 46px)',
                     letterSpacing: '-0.04em',
                     color: 'var(--color-accent, #D4AF60)',
                   }}
@@ -122,7 +122,7 @@ export function TrustLogos() {
                 <span
                   className="mt-1.5 text-[--color-near-black]/55"
                   style={{
-                    fontSize: '11px',
+                    fontSize: '10px',
                     fontFamily: "'Inter', system-ui, sans-serif",
                     fontWeight: 600,
                     letterSpacing: '0.1em',

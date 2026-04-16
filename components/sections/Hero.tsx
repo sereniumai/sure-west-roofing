@@ -144,7 +144,7 @@ export function Hero({
       </div>
 
       {/* ── Content ──────────────────────────────────────────────── */}
-      <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[120px] md:pt-[140px] pb-[100px] md:pb-[160px]">
+      <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[80px] sm:pb-[100px] md:pb-[160px]">
         {/* Giant headline */}
         <motion.h1
           className="font-display font-semibold leading-[0.95] md:leading-none text-white"
@@ -166,7 +166,7 @@ export function Hero({
 
         {/* Subtitle directly under heading */}
         <motion.p
-          className="mt-6 md:mt-8 leading-relaxed font-medium max-w-[560px] text-left text-[15px] md:text-[18px] text-white/85"
+          className="mt-5 md:mt-8 leading-relaxed font-medium max-w-[480px] text-left text-[14px] sm:text-[15px] md:text-[18px] text-white/85"
           style={{ fontFamily: "'Inter', system-ui, sans-serif" }}
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

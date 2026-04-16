@@ -51,7 +51,7 @@ export function BottomCTA() {
           transition={{ duration: 0.75, ease: EASE_OUT }}
         >
           {/* Left — content */}
-          <div className="flex flex-col items-start justify-center px-8 md:px-12 lg:px-14 py-12 md:py-16 lg:py-20">
+          <div className="flex flex-col items-start justify-center px-6 sm:px-8 md:px-12 lg:px-14 py-10 sm:py-12 md:py-16 lg:py-20">
             <h2
               className="font-display font-semibold text-[--color-near-black] leading-[1.02]"
               style={{
@@ -108,12 +108,12 @@ export function BottomCTA() {
           </div>
 
           {/* Right — image */}
-          <div className="relative hidden lg:block min-h-[400px]">
+          <div className="relative h-[200px] sm:h-[240px] lg:h-auto lg:min-h-[400px]">
             <Image
               src="/images/Roof Replacement Cochrane.avif"
               alt="Roofing contractor working in Cochrane"
               fill
-              sizes="50vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
               style={{ objectPosition: 'center 30%' }}
             />

@@ -106,7 +106,7 @@ function Stars({ count }: { count: number }) {
 function ReviewCard({ review }: { review: Review }) {
   return (
     <article
-      className="flex-shrink-0 w-[360px] md:w-[400px] bg-white rounded-[--radius-md] border border-[--color-near-black]/8 p-7 md:p-8 relative"
+      className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[380px] bg-white rounded-[--radius-md] border border-[--color-near-black]/8 p-5 sm:p-6 md:p-8 relative"
       style={{
         boxShadow:
           '0 1px 2px rgba(26,22,18,0.04), 0 8px 24px -12px rgba(26,22,18,0.1)',
