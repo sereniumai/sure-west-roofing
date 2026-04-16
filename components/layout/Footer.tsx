@@ -212,10 +212,14 @@ export function Footer() {
           {/* Giant static text */}
           <div className="pt-6 md:pt-8 pb-4 md:pb-6">
             <p
-              className="font-display font-semibold uppercase select-none text-[--color-near-black] leading-[0.85] tracking-tighter"
-              style={{ fontSize: 'clamp(48px, 14vw, 210px)' }}
+              className="font-display font-semibold select-none leading-[0.85] tracking-tighter"
+              style={{
+                fontSize: 'clamp(48px, 14vw, 210px)',
+                color: 'transparent',
+                WebkitTextStroke: '2px rgba(26,22,18,0.85)',
+              }}
             >
-              Move The Mountain
+              Move the Mountain
             </p>
           </div>
 
