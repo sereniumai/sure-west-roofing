@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Quote } from 'lucide-react'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 export function BrandStrip() {
@@ -39,23 +40,21 @@ export function BrandStrip() {
           Move the Mountain
         </h2>
 
-        {/* Tagline with decorative gold quotes */}
+        {/* Tagline with soft decorative gold quote icons */}
         <div className="relative max-w-[520px] mx-auto">
-          <span
+          <Quote
             aria-hidden="true"
-            className="absolute text-brand-gold select-none leading-none"
+            className="absolute text-brand-gold opacity-30"
             style={{
-              fontSize: 'clamp(96px, 9vw, 140px)',
-              top: '-0.15em',
-              left: '-0.35em',
-              fontFamily: "'Georgia', 'Times New Roman', serif",
-              fontWeight: 700,
+              width: 'clamp(40px, 4vw, 56px)',
+              height: 'clamp(40px, 4vw, 56px)',
+              top: '-0.5em',
+              left: '-0.2em',
             }}
-          >
-            &ldquo;
-          </span>
+            strokeWidth={1.5}
+          />
           <p
-            className="text-brand-navy leading-[1.5] relative z-10 px-2 md:px-4"
+            className="text-brand-navy leading-[1.5] relative z-10 px-4 md:px-8"
             style={{
               fontSize: 'clamp(16px, 1.5vw, 20px)',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -65,19 +64,17 @@ export function BrandStrip() {
           >
             In every shingle laid, we&rsquo;re not just building roofs, we&rsquo;re elevating trust.
           </p>
-          <span
+          <Quote
             aria-hidden="true"
-            className="absolute text-brand-gold select-none leading-none"
+            className="absolute text-brand-gold opacity-30 rotate-180"
             style={{
-              fontSize: 'clamp(96px, 9vw, 140px)',
-              bottom: '-0.55em',
-              right: '-0.35em',
-              fontFamily: "'Georgia', 'Times New Roman', serif",
-              fontWeight: 700,
+              width: 'clamp(40px, 4vw, 56px)',
+              height: 'clamp(40px, 4vw, 56px)',
+              bottom: '-0.5em',
+              right: '-0.2em',
             }}
-          >
-            &rdquo;
-          </span>
+            strokeWidth={1.5}
+          />
         </div>
       </motion.div>
     </section>
