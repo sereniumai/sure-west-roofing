@@ -18,42 +18,56 @@ export function BottomCTA() {
       id="contact-cta"
       className="relative bg-white overflow-hidden"
       style={{
-        paddingTop: 'var(--section-pad-top)',
-        paddingBottom: 'var(--section-pad-bot)',
+        paddingTop: 'calc(var(--section-pad-top) + 24px)',
+        paddingBottom: 'calc(var(--section-pad-bot) + 56px)',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
     >
       <div
         className="relative mx-auto flex flex-col items-center text-center"
-        style={{ maxWidth: '1320px' }}
+        style={{ maxWidth: '1100px' }}
       >
+        {/* Tiny gold eyebrow rule */}
+        <motion.span
+          aria-hidden="true"
+          className="block h-[2px] rounded-full mb-7"
+          style={{ background: 'var(--color-accent, #D4AF60)', width: '48px' }}
+          initial={{ scaleX: 0, opacity: 0 }}
+          whileInView={{ scaleX: 1, opacity: 1 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.6, ease: EASE_OUT }}
+        />
+
         {/* Heading */}
         <motion.h2
-          className="font-display font-semibold text-[--color-near-black] leading-[1.05] max-w-[900px]"
+          className="font-display font-semibold text-[--color-near-black] leading-[1.02] max-w-[980px]"
           style={{
-            fontSize: 'clamp(32px, 4.4vw, 60px)',
-            letterSpacing: '-0.04em',
+            fontSize: 'clamp(36px, 5.2vw, 72px)',
+            letterSpacing: '-0.045em',
           }}
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7, ease: EASE_OUT }}
+          transition={{ duration: 0.75, delay: 0.1, ease: EASE_OUT }}
         >
           Ready for a Roofing Contractor
           <br className="hidden md:block" />{' '}
-          <span style={{ color: 'var(--color-accent, #D4AF60)' }}>
+          <span
+            className="relative inline-block"
+            style={{ color: 'var(--color-accent, #D4AF60)' }}
+          >
             You Can Actually Trust?
           </span>
         </motion.h2>
 
         {/* Bullet chips */}
         <motion.ul
-          className="mt-10 md:mt-12 flex flex-col md:flex-row flex-wrap items-center justify-center gap-3 md:gap-4"
+          className="mt-12 md:mt-14 flex flex-col md:flex-row flex-wrap items-center justify-center gap-3 md:gap-4"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.55, delay: 0.15, ease: EASE_OUT }}
+          transition={{ duration: 0.55, delay: 0.25, ease: EASE_OUT }}
         >
           {BULLETS.map((item) => (
             <li
@@ -72,7 +86,7 @@ export function BottomCTA() {
                 <Check className="w-[14px] h-[14px] text-[#1A1612]" strokeWidth={2.75} />
               </span>
               <span
-                className="text-[--color-near-black]/80"
+                className="text-[--color-near-black]/85"
                 style={{
                   fontSize: '14px',
                   fontFamily: "'Inter', system-ui, sans-serif",
@@ -86,19 +100,25 @@ export function BottomCTA() {
           ))}
         </motion.ul>
 
-        {/* CTA buttons */}
+        {/* Single primary CTA with a soft gold halo */}
         <motion.div
-          className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center gap-4"
+          className="relative mt-12 md:mt-14"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.55, delay: 0.3, ease: EASE_OUT }}
+          transition={{ duration: 0.55, delay: 0.4, ease: EASE_OUT }}
         >
+          {/* Ambient halo behind the button for a premium glow */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[180px] rounded-full blur-2xl"
+            style={{
+              background:
+                'radial-gradient(closest-side, rgba(212,175,96,0.28), rgba(212,175,96,0) 75%)',
+            }}
+          />
           <Button variant="primary" size="lg" href="/contact">
             Get a Free Estimate
-          </Button>
-          <Button variant="outline" size="lg" href="/services">
-            Explore Our Services
           </Button>
         </motion.div>
       </div>
