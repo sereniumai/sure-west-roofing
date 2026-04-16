@@ -70,13 +70,6 @@ function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
       </div>
 
       {/* Content */}
-      <span
-        className="font-body font-semibold uppercase tracking-[0.14em] mb-2"
-        style={{ fontSize: '11px', color: 'var(--color-accent, #D4AF60)' }}
-      >
-        Step {step.number}
-      </span>
-
       <h3
         className="font-display font-semibold text-[--color-near-black] leading-[1.15]"
         style={{
