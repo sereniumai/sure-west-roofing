@@ -54,9 +54,9 @@ export function BlogPreview({
           >
             <Link
               href={`/blog/${featured.slug}`}
-              className="group block bg-white rounded-2xl overflow-hidden border border-[#EBEBEB] bg-[#F8F8F8] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 h-full"
+              className="group block bg-white rounded-2xl overflow-hidden border border-[#E8E8E8] bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 h-full"
             >
-              <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
+              <div className="aspect-[4/3] relative overflow-hidden bg-gradient-to-br from-[#2C4766] to-[#5A7A9A]">
                 <Image
                   src={featured.image}
                   alt={featured.title}
@@ -67,7 +67,7 @@ export function BlogPreview({
               </div>
               <div className="p-7">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="bg-[#D6AE60]/10 text-[#D6AE60] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full">
+                  <span className="bg-[#D4AF60]/10 text-[#D4AF60] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full">
                     {featured.category}
                   </span>
                   <span className="font-body text-xs text-body-text">{featured.date}</span>
@@ -78,7 +78,7 @@ export function BlogPreview({
                 <p className="font-body text-sm text-body-text leading-relaxed mb-5">
                   {featured.excerpt}
                 </p>
-                <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-dark group-hover:text-[#D6AE60] transition-colors duration-300">
+                <span className="inline-flex items-center gap-2 font-body font-semibold text-sm text-dark group-hover:text-[#D4AF60] transition-colors duration-300">
                   Read article
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
                 </span>
@@ -98,9 +98,9 @@ export function BlogPreview({
               >
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="group flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden border border-[#EBEBEB] bg-[#F8F8F8] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-500"
+                  className="group flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden border border-[#E8E8E8] bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-500"
                 >
-                  <div className="sm:w-48 lg:w-56 flex-shrink-0 aspect-[16/10] sm:aspect-auto relative overflow-hidden bg-gradient-to-br from-[#1B3558] to-[#2a4a7a]">
+                  <div className="sm:w-48 lg:w-56 flex-shrink-0 aspect-[16/10] sm:aspect-auto relative overflow-hidden bg-gradient-to-br from-[#2C4766] to-[#5A7A9A]">
                     <Image
                       src={post.image}
                       alt={post.title}
@@ -111,7 +111,7 @@ export function BlogPreview({
                   </div>
                   <div className="p-5 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-2">
-                      <span className="bg-[#D6AE60]/10 text-[#D6AE60] text-xs font-semibold uppercase tracking-wide px-2.5 py-0.5 rounded-full">
+                      <span className="bg-[#D4AF60]/10 text-[#D4AF60] text-xs font-semibold uppercase tracking-wide px-2.5 py-0.5 rounded-full">
                         {post.category}
                       </span>
                       <span className="font-body text-xs text-body-text">{post.date}</span>
@@ -119,7 +119,7 @@ export function BlogPreview({
                     <h3 className="font-display font-bold text-base text-dark tracking-tight leading-snug mb-2">
                       {post.title}
                     </h3>
-                    <span className="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-dark group-hover:text-[#D6AE60] transition-colors duration-300">
+                    <span className="inline-flex items-center gap-1.5 font-body font-semibold text-sm text-dark group-hover:text-[#D4AF60] transition-colors duration-300">
                       Read article
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>

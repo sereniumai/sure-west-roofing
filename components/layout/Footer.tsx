@@ -21,7 +21,7 @@ const locations = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-white overflow-hidden isolate">
+    <footer className="relative bg-brand-cream overflow-hidden isolate">
       {/* Background image, desaturated to gray */}
       <Image
         src="/images/Cochrane Roofers Footer.avif"
@@ -39,7 +39,7 @@ export function Footer() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'linear-gradient(180deg, rgba(255,255,255,0.88) 0%, rgba(255,255,255,0.82) 55%, rgba(255,255,255,0.94) 100%)',
+            'linear-gradient(180deg, rgba(247,245,240,0.88) 0%, rgba(247,245,240,0.82) 55%, rgba(247,245,240,0.94) 100%)',
         }}
       />
 
@@ -216,7 +216,7 @@ export function Footer() {
               style={{
                 fontSize: 'clamp(36px, 11vw, 180px)',
                 color: 'transparent',
-                WebkitTextStroke: '1.5px rgba(26,22,18,0.85)',
+                WebkitTextStroke: '1.5px rgba(44,71,102,0.85)',
               }}
             >
               Move the Mountain

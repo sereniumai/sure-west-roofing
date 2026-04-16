@@ -19,10 +19,10 @@ export function CTABanner({
   secondaryCTA,
 }: CTABannerProps) {
   return (
-    <section className="bg-[#F8F8F8] py-16 lg:py-24">
+    <section className="bg-brand-cream py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <motion.div
-          className="relative bg-gradient-to-br from-[#D6AE60] via-[#C9A355] to-[#B8943F] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 overflow-hidden"
+          className="relative bg-gradient-to-br from-[#D4AF60] via-[#D4AF60] to-[#B8943F] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 overflow-hidden"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}

@@ -90,7 +90,7 @@ function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
       />
 
       <p
-        className="text-[--color-near-black]/60 leading-[1.6]"
+        className="text-brand-slate leading-[1.6]"
         style={{
           fontSize: '14px',
           fontFamily: "'Inter', system-ui, sans-serif",
@@ -107,7 +107,7 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="relative bg-white overflow-hidden"
+      className="relative bg-brand-cream overflow-hidden"
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
@@ -140,7 +140,7 @@ export function HowItWorks() {
           <br className="hidden md:block" /> Roof in Three Steps
         </h2>
         <p
-          className="mt-5 max-w-[600px] text-[--color-near-black]/65 leading-[1.65]"
+          className="mt-5 max-w-[600px] text-brand-slate leading-[1.65]"
           style={{
             fontSize: '16px',
             fontFamily: "'Inter', system-ui, sans-serif",

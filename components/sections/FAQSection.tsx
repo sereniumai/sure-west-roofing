@@ -48,10 +48,10 @@ export function FAQSection({
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             FAQs
           </span>
-          <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-black mt-4">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-brand-navy mt-4">
             {heading}
           </h2>
-          <p className="font-body text-[#666] leading-relaxed mt-4">
+          <p className="font-body text-[#5A7A9A] leading-relaxed mt-4">
             {body}
           </p>
         </motion.div>
@@ -64,11 +64,11 @@ export function FAQSection({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="bg-white border border-[#E5E5E5] overflow-hidden rounded-[--radius-md]">
+          <div className="bg-white border border-[#E8E8E8] overflow-hidden rounded-[--radius-md]">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="border-b border-[#E5E5E5] last:border-0"
+                className="border-b border-[#E8E8E8] last:border-0"
               >
                 <button
                   onClick={() =>
@@ -77,14 +77,14 @@ export function FAQSection({
                   className="flex justify-between items-center py-5 px-6 w-full text-left cursor-pointer group"
                   aria-expanded={index === openIndex}
                 >
-                  <span className="font-display font-semibold text-[17px] text-[#1A1A1A] tracking-tight group-hover:text-[#D4AF60] transition-colors duration-200 pr-6">
+                  <span className="font-display font-semibold text-[17px] text-[#2C4766] tracking-tight group-hover:text-[#D4AF60] transition-colors duration-200 pr-6">
                     {faq.question}
                   </span>
                   <div
                     className={`w-8 h-8 flex items-center justify-center flex-shrink-0 transition-all duration-300 rounded-full ${
                       index === openIndex
                         ? 'bg-[#D4AF60] text-white rotate-45'
-                        : 'bg-[#F5F5F5] text-[#1A1A1A]/40 group-hover:bg-[#D4AF60]/10 group-hover:text-[#D4AF60]'
+                        : 'bg-[#F7F5F0] text-[#2C4766]/40 group-hover:bg-[#D4AF60]/10 group-hover:text-[#D4AF60]'
                     }`}
                   >
                     <Plus className="w-4 h-4" />
@@ -101,7 +101,7 @@ export function FAQSection({
                       className="overflow-hidden"
                     >
                       <p
-                        className="font-body text-sm text-[#666] leading-relaxed px-6 pb-6 pr-16 [&_a]:text-[#D4AF60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
+                        className="font-body text-sm text-[#5A7A9A] leading-relaxed px-6 pb-6 pr-16 [&_a]:text-[#D4AF60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
                         dangerouslySetInnerHTML={{ __html: faq.answer }}
                       />
                     </motion.div>
@@ -111,7 +111,7 @@ export function FAQSection({
             ))}
           </div>
 
-          <p className="font-body text-[#666] text-sm mt-6 text-center">
+          <p className="font-body text-[#5A7A9A] text-sm mt-6 text-center">
             Have a question not listed here?{' '}
             <Link
               href="/contact"

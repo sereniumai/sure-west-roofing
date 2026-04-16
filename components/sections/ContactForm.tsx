@@ -81,10 +81,10 @@ function validateForm(data: FormData): FormErrors {
 }
 
 const inputBase =
-  'w-full px-4 py-3.5 border bg-white font-body text-sm text-[#1A1A1A] placeholder:text-[#999] focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 rounded-[--radius-sm]'
-const inputNormal = `${inputBase} border-[#E5E5E5] focus:ring-[#D4AF60]/50 focus:border-[#D4AF60]`
+  'w-full px-4 py-3.5 border bg-white font-body text-sm text-[#2C4766] placeholder:text-[#5A7A9A] focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 rounded-[--radius-sm]'
+const inputNormal = `${inputBase} border-[#E8E8E8] focus:ring-[#D4AF60]/50 focus:border-[#D4AF60]`
 const inputError = `${inputBase} border-red-400 focus:ring-red-400/50 focus:border-red-400`
-const labelClass = 'block font-body text-sm font-medium text-[#1A1A1A] mb-1.5'
+const labelClass = 'block font-body text-sm font-medium text-[#2C4766] mb-1.5'
 
 export function ContactForm() {
   const [formData, setFormData] = useState<FormData>({
@@ -217,7 +217,7 @@ export function ContactForm() {
   if (status === 'success') {
     return (
       <motion.div
-        className="bg-white rounded-[--radius-md] border border-[#E5E5E5] p-8 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+        className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-8 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -239,7 +239,7 @@ export function ContactForm() {
 
   return (
     <motion.div
-      className="bg-white rounded-[--radius-md] border border-[#E5E5E5] p-6 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
+      className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-6 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
       initial={{ y: 30, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, margin: '-80px' }}
@@ -398,7 +398,7 @@ export function ContactForm() {
                   setErrors((prev) => ({ ...prev, consent: undefined }))
                 }
               }}
-              className="mt-0.5 h-4 w-4 rounded border-[#E5E5E5] accent-[#D4AF60] flex-shrink-0 cursor-pointer"
+              className="mt-0.5 h-4 w-4 rounded border-[#E8E8E8] accent-[#D4AF60] flex-shrink-0 cursor-pointer"
             />
             <span className="font-body text-xs text-body-text leading-relaxed">
               I consent to receive automated SMS messages and email

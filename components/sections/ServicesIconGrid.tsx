@@ -68,7 +68,7 @@ function ServiceCard({
     >
       <Link
         href={service.href}
-        className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/8 bg-white overflow-hidden shadow-[0_1px_2px_rgba(26,22,18,0.04),0_6px_20px_-10px_rgba(26,22,18,0.08)] transition-[transform,box-shadow,border-color] duration-500 ease-out hover:-translate-y-[3px] hover:border-[#D4AF60]/40 hover:shadow-[0_2px_4px_rgba(26,22,18,0.04),0_24px_48px_-20px_rgba(184,148,63,0.22)]"
+        className="group relative flex flex-col h-full rounded-[12px] bg-white overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-[3px] hover:shadow-[0_2px_4px_rgba(44,71,102,0.04),0_24px_48px_-20px_rgba(212,175,96,0.22)]"
       >
         {/* Image at top */}
         <div className="relative h-[180px] md:h-[200px] overflow-hidden">
@@ -113,12 +113,12 @@ function ServiceCard({
               aria-hidden="true"
               className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[--color-near-black]/5 transition-all duration-400 ease-out group-hover:bg-[#D4AF60] group-hover:scale-110 flex-shrink-0"
             >
-              <ArrowRight className="w-4 h-4 text-[--color-near-black]/40 transition-colors duration-400 group-hover:text-[#1A1612]" strokeWidth={2} />
+              <ArrowRight className="w-4 h-4 text-brand-navy/40 transition-colors duration-400 group-hover:text-brand-navy" strokeWidth={2} />
             </span>
           </div>
 
           <p
-            className="mt-3 text-[--color-near-black]/65 leading-[1.65] flex-1"
+            className="mt-3 text-brand-slate leading-[1.65] flex-1"
             style={{
               fontSize: '14px',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -141,7 +141,7 @@ export function ServicesIconGrid({
 }: ServicesIconGridProps) {
   return (
     <section
-      className="bg-white relative overflow-hidden"
+      className="bg-brand-cream relative overflow-hidden"
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingLeft: 'var(--section-pad-x)',
@@ -179,7 +179,7 @@ export function ServicesIconGrid({
         </h2>
         {body && (
           <p
-            className="mt-7 max-w-[680px] text-[--color-near-black]/70 leading-[1.7]"
+            className="mt-7 max-w-[680px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "'Inter', system-ui, sans-serif",

@@ -19,18 +19,18 @@ export function FAQItem({
   index,
 }: FAQItemProps) {
   return (
-    <div className="border-b border-[#E5E2D9] last:border-0">
+    <div className="border-b border-[#E8E8E8] last:border-0">
       <button
         onClick={onToggle}
         className="flex justify-between items-center py-5 w-full text-left cursor-pointer group"
         aria-expanded={isOpen}
         aria-controls={`faq-answer-${index}`}
       >
-        <span className="font-display font-semibold text-base text-dark tracking-tight group-hover:text-[#D6AE60] transition-colors duration-200 pr-4">
+        <span className="font-display font-semibold text-base text-dark tracking-tight group-hover:text-[#D4AF60] transition-colors duration-200 pr-4">
           {question}
         </span>
         <Plus
-          className={`w-5 h-5 text-[#1B3558] flex-shrink-0 transition-transform duration-300 ${
+          className={`w-5 h-5 text-[#2C4766] flex-shrink-0 transition-transform duration-300 ${
             isOpen ? 'rotate-45' : ''
           }`}
         />

@@ -34,7 +34,7 @@ export function BlogCard({
       </div>
 
       <div className="p-5">
-        <span className="bg-[#D6AE60]/10 text-[#D6AE60] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
+        <span className="bg-[#D4AF60]/10 text-[#D4AF60] text-xs font-semibold uppercase tracking-wide px-3 py-1 rounded-full inline-block mb-3">
           {category}
         </span>
 

@@ -140,7 +140,7 @@ export function HomeFAQ() {
       id="faq"
       className="relative overflow-hidden"
       style={{
-        background: '#F8F8F8',
+        background: '#FFFFFF',
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
         paddingLeft: 'var(--section-pad-x)',
@@ -179,7 +179,7 @@ export function HomeFAQ() {
             <br className="hidden md:block" /> Cochrane, Calgary and Canmore
           </h2>
           <p
-            className="mt-6 max-w-[640px] text-[--color-near-black]/70 leading-[1.7]"
+            className="mt-6 max-w-[640px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -280,7 +280,7 @@ export function HomeFAQ() {
         </motion.div>
 
         <p
-          className="text-center mt-10 text-[--color-near-black]/60"
+          className="text-center mt-10 text-brand-slate"
           style={{
             fontSize: '14.5px',
             fontFamily: "'Inter', system-ui, sans-serif",

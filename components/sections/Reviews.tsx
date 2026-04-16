@@ -106,10 +106,10 @@ function Stars({ count }: { count: number }) {
 function ReviewCard({ review }: { review: Review }) {
   return (
     <article
-      className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[380px] bg-white rounded-[--radius-md] border border-[--color-near-black]/8 p-5 sm:p-6 md:p-8 relative"
+      className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[380px] bg-white rounded-[12px] border border-brand-border p-5 sm:p-6 md:p-8 relative"
       style={{
         boxShadow:
-          '0 1px 2px rgba(26,22,18,0.04), 0 8px 24px -12px rgba(26,22,18,0.1)',
+          '0 1px 3px rgba(0,0,0,0.06)',
       }}
     >
       {/* Soft gold quote mark, top-right */}
@@ -133,7 +133,7 @@ function ReviewCard({ review }: { review: Review }) {
         {review.quote}
       </p>
 
-      <div className="mt-6 pt-5 border-t border-[--color-near-black]/8">
+      <div className="mt-6 pt-5 border-t border-brand-border">
         <div
           className="font-display font-semibold text-[--color-near-black]"
           style={{ fontSize: '15px', letterSpacing: '-0.01em' }}
@@ -141,7 +141,7 @@ function ReviewCard({ review }: { review: Review }) {
           {review.author}
         </div>
         <div
-          className="mt-0.5 text-[--color-near-black]/55"
+          className="mt-0.5 text-brand-slate"
           style={{
             fontSize: '12.5px',
             fontFamily: "'Inter', system-ui, sans-serif",
@@ -211,7 +211,7 @@ export function Reviews() {
             className="inline-block w-1 h-1 rounded-full bg-[--color-near-black]/30"
           />
           <span
-            className="text-[--color-near-black]/65"
+            className="text-brand-slate"
             style={{
               fontSize: '14px',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -222,7 +222,7 @@ export function Reviews() {
         </div>
 
         <p
-          className="mt-5 max-w-[620px] text-[--color-near-black]/70 leading-[1.7]"
+          className="mt-5 max-w-[620px] text-brand-slate leading-[1.7]"
           style={{
             fontSize: '16px',
             fontFamily: "'Inter', system-ui, sans-serif",

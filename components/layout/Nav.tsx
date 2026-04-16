@@ -69,15 +69,15 @@ export function Nav() {
     }
   }, [mobileOpen])
 
-  const textColor = scrolled || isLightPage ? 'text-[#1A1A1A]' : 'text-white'
-  const hoverColor = 'hover:text-[#D4AF60]'
+  const textColor = scrolled || isLightPage ? 'text-brand-navy' : 'text-white'
+  const hoverColor = 'hover:text-brand-gold'
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out border-b ${
         scrolled
-          ? 'bg-[rgba(248,248,248,0.9)] backdrop-blur-[12px]'
-          : 'bg-transparent'
+          ? 'bg-[rgba(255,255,255,0.95)] backdrop-blur-[12px] border-brand-border'
+          : 'bg-transparent border-transparent'
       }`}
       style={{ height: 'var(--nav-height)' }}
     >
@@ -159,7 +159,7 @@ export function Nav() {
                     <Link
                       href="/contact"
                       onClick={() => setServicesOpen(false)}
-                      className="flex items-center justify-between px-6 py-4 bg-white group hover:bg-[#FBF8F1] transition-colors"
+                      className="flex items-center justify-between px-6 py-4 bg-white group hover:bg-brand-cream transition-colors"
                       style={{ borderTop: '1px solid var(--color-border)' }}
                     >
                       <p className="text-[11px] text-[--color-near-black]/70 uppercase tracking-[0.18em] font-bold">
@@ -195,7 +195,7 @@ export function Nav() {
         {/* Mobile hamburger */}
         <button
           className={`lg:hidden relative z-10 p-2 ${
-            scrolled || isLightPage ? 'text-[#1A1A1A]' : 'text-white'
+            mobileOpen || scrolled || isLightPage ? 'text-brand-navy' : 'text-white'
           }`}
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -206,7 +206,7 @@ export function Nav() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 bg-[#1A1A1A] transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 top-0 bg-white transition-all duration-300 ${
           mobileOpen
             ? 'opacity-100 visible'
             : 'opacity-0 invisible pointer-events-none'
@@ -217,7 +217,7 @@ export function Nav() {
             link.dropdown ? (
               <div key={link.label}>
                 <button
-                  className="flex items-center justify-between w-full py-4 text-lg text-white font-semibold uppercase tracking-wider border-b border-white/10"
+                  className="flex items-center justify-between w-full py-4 text-lg text-brand-navy font-semibold uppercase tracking-wider border-b border-brand-border"
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 >
                   {link.label}
@@ -237,7 +237,7 @@ export function Nav() {
                     <Link
                       key={service.href}
                       href={service.href}
-                      className="block py-3 pl-4 text-base text-white/60 hover:text-[#D4AF60] transition-colors"
+                      className="block py-3 pl-4 text-base text-brand-slate hover:text-brand-gold transition-colors"
                       onClick={() => setMobileOpen(false)}
                     >
                       {service.label}
@@ -249,7 +249,7 @@ export function Nav() {
               <Link
                 key={link.label}
                 href={link.href ?? '#'}
-                className="py-4 text-lg text-white font-semibold uppercase tracking-wider border-b border-white/10"
+                className="py-4 text-lg text-brand-navy font-semibold uppercase tracking-wider border-b border-brand-border"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}

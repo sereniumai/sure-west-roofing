@@ -42,7 +42,7 @@ export function CredibilitySection({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D4AF60] mb-3 block">
             {label}
           </span>
           <h2 className="font-display font-semibold text-3xl lg:text-[48px] text-dark tracking-tight leading-tight">
@@ -58,9 +58,9 @@ export function CredibilitySection({
         {/* 3 step cards with animated connecting line */}
         <div className="relative">
           {/* Animated connecting line, desktop only */}
-          <div className="hidden lg:block absolute top-16 left-[16%] right-[16%] h-px bg-[#D6AE60]/10">
+          <div className="hidden lg:block absolute top-16 left-[16%] right-[16%] h-px bg-[#D4AF60]/10">
             <motion.div
-              className="h-full bg-[#D6AE60]/30"
+              className="h-full bg-[#D4AF60]/30"
               initial={{ width: '0%' }}
               animate={isInView ? { width: '100%' } : { width: '0%' }}
               transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -79,7 +79,7 @@ export function CredibilitySection({
               >
                 {/* Step number, animated scale */}
                 <motion.div
-                  className="w-14 h-14 rounded-2xl bg-[#D6AE60]/10 flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:bg-[#D6AE60]/20 transition-colors duration-300"
+                  className="w-14 h-14 rounded-2xl bg-[#D4AF60]/10 flex items-center justify-center mx-auto mb-6 relative z-10 group-hover:bg-[#D4AF60]/20 transition-colors duration-300"
                   initial={{ scale: 0, rotate: -10 }}
                   whileInView={{ scale: 1, rotate: 0 }}
                   viewport={{ once: true }}
@@ -90,7 +90,7 @@ export function CredibilitySection({
                     delay: i * 0.2 + 0.1,
                   }}
                 >
-                  <span className="font-display font-semibold text-2xl text-[#D6AE60]">
+                  <span className="font-display font-semibold text-2xl text-[#D4AF60]">
                     {step.number}
                   </span>
                 </motion.div>
@@ -110,7 +110,7 @@ export function CredibilitySection({
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 0.4, delay: i * 0.3 + 0.6 }}
                   >
-                    <ArrowRight className="w-5 h-5 text-[#D6AE60]/40" />
+                    <ArrowRight className="w-5 h-5 text-[#D4AF60]/40" />
                   </motion.div>
                 )}
               </motion.div>

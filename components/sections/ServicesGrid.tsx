@@ -57,7 +57,7 @@ export function ServicesGrid({
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D6AE60] mb-3 block">
+          <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D4AF60] mb-3 block">
             {label}
           </span>
           <h2 className="font-display font-semibold text-4xl lg:text-[56px] text-dark tracking-tight leading-tight">
@@ -65,7 +65,7 @@ export function ServicesGrid({
             {headingAccent && (
               <>
                 <br className="hidden lg:block" />{' '}
-                <span className="text-[#D6AE60]">{headingAccent}</span>
+                <span className="text-[#D4AF60]">{headingAccent}</span>
               </>
             )}
           </h2>
@@ -77,7 +77,7 @@ export function ServicesGrid({
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
           {/* Tabs, clean underline style */}
-          <div className="relative flex items-center gap-8 mb-10 border-b border-[#EBEBEB]">
+          <div className="relative flex items-center gap-8 mb-10 border-b border-[#E8E8E8]">
             {services.map((service, i) => (
               <button
                 key={service.href}
@@ -92,7 +92,7 @@ export function ServicesGrid({
                 {active === i && (
                   <motion.div
                     layoutId="activeServiceUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#D6AE60] rounded-t-full"
+                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#D4AF60] rounded-t-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 35 }}
                   />
                 )}
@@ -133,7 +133,7 @@ export function ServicesGrid({
             <div className="absolute bottom-8 right-8 w-[440px] z-10">
               <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-white/60">
                 {/* Gold accent bar */}
-                <div className="absolute top-0 left-8 right-8 h-[3px] bg-gradient-to-r from-[#D6AE60] to-[#C49B4A] rounded-b-full" />
+                <div className="absolute top-0 left-8 right-8 h-[3px] bg-gradient-to-r from-[#D4AF60] to-[#B8943F] rounded-b-full" />
 
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -145,10 +145,10 @@ export function ServicesGrid({
                   >
                     {/* Counter */}
                     <div className="flex items-center gap-3 mb-4">
-                      <span className="font-display font-bold text-xs text-[#D6AE60] tracking-widest">
+                      <span className="font-display font-bold text-xs text-[#D4AF60] tracking-widest">
                         {String(active + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
                       </span>
-                      <div className="flex-1 h-px bg-[#EBEBEB]" />
+                      <div className="flex-1 h-px bg-[#E8E8E8]" />
                     </div>
 
                     <h3 className="font-display font-semibold text-2xl text-dark tracking-tight leading-tight mb-3">
@@ -163,8 +163,8 @@ export function ServicesGrid({
                       <ul className="space-y-2.5 mb-6">
                         {current.features.map((feature) => (
                           <li key={feature} className="flex items-center gap-2.5">
-                            <div className="w-5 h-5 rounded-full bg-[#D6AE60]/10 flex items-center justify-center flex-shrink-0">
-                              <Check className="w-3 h-3 text-[#D6AE60]" />
+                            <div className="w-5 h-5 rounded-full bg-[#D4AF60]/10 flex items-center justify-center flex-shrink-0">
+                              <Check className="w-3 h-3 text-[#D4AF60]" />
                             </div>
                             <span className="font-body text-sm text-body-text">{feature}</span>
                           </li>
@@ -210,7 +210,7 @@ export function ServicesGrid({
                   <h3 className="font-display font-bold text-white text-lg tracking-tight">
                     {service.title}
                   </h3>
-                  <span className="inline-flex items-center gap-1.5 font-body font-semibold text-xs text-[#D6AE60] mt-2">
+                  <span className="inline-flex items-center gap-1.5 font-body font-semibold text-xs text-[#D4AF60] mt-2">
                     {service.title}
                     <ArrowRight className="w-3.5 h-3.5" />
                   </span>

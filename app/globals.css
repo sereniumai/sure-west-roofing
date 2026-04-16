@@ -4,20 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design Tokens (from Rooferio guide) ───────── */
+/* ── Design Tokens ───────────────────────────── */
 
 :root {
-  /* Colors */
-  --color-black:       #000000;
-  --color-near-black:  #1A1612;
-  --color-cream:       #FFFCFC;
-  --color-gray:        #F5F5F5;
-  --color-accent:      #D4AF60;
-  --color-accent-dark: #B8943F;
-  --color-warm-white:  #FFFBF5;
-  --color-glass:       rgba(255,255,255,0.1);
-  --color-blue-hover:  #99EEFF;
-  --color-border:      rgba(20,20,20,0.2);
+  /* Brand Colors */
+  --brand-gold:       #D4AF60;
+  --brand-gold-dark:  #B8943F;
+  --brand-navy:       #2C4766;
+  --brand-slate:      #5A7A9A;
+  --brand-cream:      #F7F5F0;
+  --brand-border:     #E8E8E8;
+
+  /* Legacy aliases — point to brand tokens so existing refs auto-update */
+  --color-accent:      var(--brand-gold);
+  --color-accent-dark: var(--brand-gold-dark);
+  --color-near-black:  var(--brand-navy);
+  --color-border:      var(--brand-border);
+  --color-cream:       var(--brand-cream);
 
   /* Typography */
   --font:              'Oswald', sans-serif;
@@ -65,8 +68,8 @@ body {
   font-family: var(--font);
   font-size: var(--text-body);
   font-weight: 700;
-  color: var(--color-near-black);
-  background-color: var(--color-cream);
+  color: var(--brand-navy);
+  background-color: #FFFFFF;
   overflow-x: hidden;
 }
 
@@ -83,7 +86,7 @@ a { text-decoration: none; color: inherit; }
 /* ── Selection ───────────────────────────────── */
 
 ::selection {
-  background-color: var(--color-accent);
+  background-color: var(--brand-gold);
   color: #ffffff;
 }
 
@@ -94,21 +97,21 @@ a { text-decoration: none; color: inherit; }
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-black);
+  background: var(--brand-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-accent);
+  background: var(--brand-gold);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-dark);
+  background: var(--brand-gold-dark);
 }
 
 /* Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-accent) var(--color-black);
+  scrollbar-color: var(--brand-gold) var(--brand-cream);
 }
 
 /* Hide scrollbar for carousels */
@@ -122,7 +125,7 @@ a { text-decoration: none; color: inherit; }
 /* ── Focus visible ───────────────────────────── */
 
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--brand-gold);
   outline-offset: 2px;
 }
 
@@ -149,14 +152,14 @@ a { text-decoration: none; color: inherit; }
   width: auto;
   height: auto;
   padding: 12px 24px;
-  background: var(--color-black);
+  background: var(--brand-navy);
   color: white;
   font-family: var(--font);
   font-size: 14px;
   font-weight: 600;
   border-radius: 0;
   z-index: 9999;
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--brand-gold);
   outline-offset: 2px;
 }
 
@@ -164,7 +167,7 @@ a { text-decoration: none; color: inherit; }
 
 .pac-container {
   z-index: 9999 !important;
-  border: 1px solid #E5E5E5;
+  border: 1px solid var(--brand-border);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   margin-top: 4px;
   font-family: var(--font);
@@ -183,7 +186,7 @@ a { text-decoration: none; color: inherit; }
 
 .pac-item:hover,
 .pac-item-selected {
-  background-color: #FBF8F1;
+  background-color: var(--brand-cream);
 }
 
 .pac-icon {
@@ -191,7 +194,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .pac-item-query {
-  color: var(--color-near-black);
+  color: var(--brand-navy);
   font-weight: 500;
 }
 
@@ -276,7 +279,7 @@ a { text-decoration: none; color: inherit; }
   content: '';
   width: 13px;
   height: 13px;
-  background-color: var(--color-accent);
+  background-color: var(--brand-gold);
   display: inline-block;
   flex-shrink: 0;
 }

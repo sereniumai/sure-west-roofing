@@ -35,7 +35,7 @@ export function PortfolioCarousel({
 
   return (
     <section
-      className="relative bg-[#F8F8F8] overflow-x-clip"
+      className="relative bg-brand-cream overflow-x-clip"
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
@@ -83,7 +83,7 @@ export function PortfolioCarousel({
           </h2>
 
           <p
-            className="mt-6 md:mt-7 max-w-[640px] text-[--color-near-black]/70 leading-[1.7]"
+            className="mt-6 md:mt-7 max-w-[640px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "'Inter', system-ui, sans-serif",

@@ -55,7 +55,7 @@ export function WhySureWest() {
   return (
     <section
       id="why-sure-west"
-      className="relative bg-[#F8F8F8] overflow-hidden"
+      className="relative bg-white overflow-hidden"
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
@@ -102,7 +102,7 @@ export function WhySureWest() {
           </h2>
 
           <p
-            className="mt-6 md:mt-7 max-w-[460px] text-[--color-near-black]/70 leading-[1.7]"
+            className="mt-6 md:mt-7 max-w-[460px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -129,7 +129,7 @@ export function WhySureWest() {
               return (
                 <motion.li
                   key={p.id}
-                  className="group relative flex flex-col h-full rounded-[--radius-md] border border-[--color-near-black]/10 bg-white p-4 md:p-5 shadow-[0_6px_16px_-10px_rgba(26,22,18,0.12)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_36px_-18px_rgba(26,22,18,0.2)] hover:border-[#D4AF60]/40"
+                  className="group relative flex flex-col h-full rounded-[12px] border border-brand-border bg-white p-4 md:p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(44,71,102,0.12)] hover:border-brand-gold/40"
                   initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-60px' }}
@@ -160,7 +160,7 @@ export function WhySureWest() {
                   </div>
 
                   <p
-                    className="mt-2.5 text-[--color-near-black]/70 leading-[1.55]"
+                    className="mt-2.5 text-brand-slate leading-[1.55]"
                     style={{
                       fontSize: '13px',
                       fontFamily: "'Inter', system-ui, sans-serif",

@@ -17,7 +17,7 @@ export function BottomCTA() {
   return (
     <section
       id="contact-cta"
-      className="relative bg-white overflow-hidden"
+      className="relative bg-brand-cream overflow-hidden"
       style={{
         paddingTop: 'calc(var(--section-pad-top) + 16px)',
         paddingBottom: 'calc(var(--section-pad-bot) + 48px)',
@@ -41,7 +41,7 @@ export function BottomCTA() {
         <motion.div
           className="relative rounded-[20px] md:rounded-[24px] overflow-hidden grid grid-cols-1 lg:grid-cols-2"
           style={{
-            background: '#F4F3F0',
+            background: '#FFFFFF',
             boxShadow:
               '0 0 0 1px rgba(212,175,96,0.12), 0 2px 8px rgba(26,22,18,0.04), 0 20px 60px -20px rgba(26,22,18,0.12)',
           }}
@@ -66,7 +66,7 @@ export function BottomCTA() {
             </h2>
 
             <p
-              className="mt-4 text-[--color-near-black]/60 leading-[1.65] max-w-[420px]"
+              className="mt-4 text-brand-slate leading-[1.65] max-w-[420px]"
               style={{
                 fontSize: '15px',
                 fontFamily: "'Inter', system-ui, sans-serif",
@@ -84,7 +84,7 @@ export function BottomCTA() {
                     className="inline-flex items-center justify-center w-5 h-5 rounded-full flex-shrink-0"
                     style={{ background: 'var(--color-accent, #D4AF60)' }}
                   >
-                    <Check className="w-3 h-3 text-[#1A1612]" strokeWidth={3} />
+                    <Check className="w-3 h-3 text-brand-navy" strokeWidth={3} />
                   </span>
                   <span
                     className="text-[--color-near-black]/75"

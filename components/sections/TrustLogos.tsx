@@ -120,7 +120,7 @@ export function TrustLogos() {
                   <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2.2} />
                 </span>
                 <span
-                  className="mt-1.5 text-[--color-near-black]/55"
+                  className="mt-1.5 text-brand-slate"
                   style={{
                     fontSize: '10px',
                     fontFamily: "'Inter', system-ui, sans-serif",
