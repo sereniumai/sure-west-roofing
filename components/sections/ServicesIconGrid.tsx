@@ -68,7 +68,7 @@ function ServiceCard({
     >
       <Link
         href={service.href}
-        className="group relative flex flex-col h-full rounded-[12px] bg-white overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-[transform,box-shadow] duration-500 ease-out hover:-translate-y-[3px] hover:shadow-[0_2px_4px_rgba(44,71,102,0.04),0_24px_48px_-20px_rgba(212,175,96,0.22)]"
+        className="group relative flex flex-col h-full rounded-[12px] bg-white overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(44,71,102,0.1)]"
       >
         {/* Image at top */}
         <div className="relative h-[180px] md:h-[200px] overflow-hidden">
@@ -95,7 +95,7 @@ function ServiceCard({
               style={{ background: 'rgba(212,175,96,0.12)' }}
             >
               <Icon
-                className="w-[15px] h-[15px]"
+                className="w-[18px] h-[18px]"
                 style={{ color: 'var(--color-accent, #D4AF60)' }}
                 strokeWidth={1.75}
               />
@@ -111,9 +111,9 @@ function ServiceCard({
             </h3>
             <span
               aria-hidden="true"
-              className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-[--color-near-black]/5 transition-all duration-400 ease-out group-hover:bg-[#D4AF60] group-hover:scale-110 flex-shrink-0"
+              className="inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ease-out flex-shrink-0"
             >
-              <ArrowRight className="w-4 h-4 text-brand-navy/40 transition-colors duration-400 group-hover:text-brand-navy" strokeWidth={2} />
+              <ArrowRight className="w-[18px] h-[18px] text-brand-gold transition-colors duration-200" strokeWidth={2} />
             </span>
           </div>
 

@@ -6,7 +6,7 @@ import {
   Award,
   Handshake,
   ShieldCheck,
-  MapPin,
+  ClipboardCheck,
   Play,
   type LucideIcon,
 } from 'lucide-react'
@@ -38,10 +38,10 @@ const pillars: Pillar[] = [
     Icon: ShieldCheck,
   },
   {
-    id: 'local',
-    title: 'Local To Cochrane',
-    body: "Born and based here. When your roof needs us, we are minutes away - not hours on a highway - and we are still here years after the job is done.",
-    Icon: MapPin,
+    id: 'insurance',
+    title: 'Insurance Claim Experts',
+    body: "We deal with your adjuster directly so you don't have to. No paperwork headaches, no guesswork.",
+    Icon: ClipboardCheck,
   },
 ]
 
@@ -129,7 +129,7 @@ export function WhySureWest() {
               return (
                 <motion.li
                   key={p.id}
-                  className="group relative flex flex-col h-full rounded-[12px] border border-brand-border bg-white p-4 md:p-5 shadow-[0_1px_3px_rgba(0,0,0,0.06)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(44,71,102,0.12)] hover:border-brand-gold/40"
+                  className="group relative flex flex-col h-full rounded-[12px] border border-brand-border bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(44,71,102,0.12)] hover:border-brand-gold/40"
                   initial={{ y: 14, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   viewport={{ once: true, margin: '-60px' }}
@@ -143,7 +143,7 @@ export function WhySureWest() {
                       style={{ background: 'rgba(212,175,96,0.12)' }}
                     >
                       <Icon
-                        className="w-[14px] h-[14px]"
+                        className="w-5 h-5"
                         style={{ color: 'var(--color-accent, #D4AF60)' }}
                         strokeWidth={1.75}
                       />
@@ -151,7 +151,7 @@ export function WhySureWest() {
                     <h3
                       className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
                       style={{
-                        fontSize: '17px',
+                        fontSize: '18px',
                         letterSpacing: '-0.015em',
                       }}
                     >

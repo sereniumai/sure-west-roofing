@@ -38,13 +38,13 @@ function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
   return (
     <motion.div
       ref={ref}
-      className="group relative flex flex-col"
+      className="group relative flex flex-col bg-white rounded-[12px] shadow-[0_2px_8px_rgba(44,71,102,0.06)] overflow-hidden"
       initial={{ y: 40, opacity: 0 }}
       animate={inView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
       transition={{ duration: 0.7, delay: 0.1 + index * 0.15, ease: EASE_OUT }}
     >
       {/* Image */}
-      <div className="relative aspect-[16/10] rounded-[14px] overflow-hidden mb-6">
+      <div className="relative aspect-[16/10] overflow-hidden">
         <Image
           src={step.image}
           alt={step.title}
@@ -52,13 +52,12 @@ function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
-        {/* Gold number overlay */}
         <div className="absolute inset-0 flex items-end pointer-events-none">
           <span
             aria-hidden="true"
             className="pointer-events-none font-display font-semibold leading-none select-none ml-4 mb-3"
             style={{
-              fontSize: '64px',
+              fontSize: '36px',
               letterSpacing: '-0.05em',
               color: 'rgba(255,255,255,0.9)',
               textShadow: '0 2px 20px rgba(0,0,0,0.4)',
@@ -70,35 +69,34 @@ function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
       </div>
 
       {/* Content */}
-      <h3
-        className="font-display font-semibold text-[--color-near-black] leading-[1.15]"
-        style={{
-          fontSize: 'clamp(22px, 2vw, 30px)',
-          letterSpacing: '-0.025em',
-        }}
-      >
-        {step.title}
-      </h3>
+      <div className="p-5 md:p-6">
+        <h3
+          className="font-display font-semibold text-[--color-near-black] leading-[1.15]"
+          style={{ fontSize: '22px', letterSpacing: '-0.025em' }}
+        >
+          {step.title}
+        </h3>
 
-      <motion.span
-        aria-hidden="true"
-        className="block h-[2px] rounded-full mt-3 mb-3 origin-left"
-        style={{ background: 'var(--color-accent, #D4AF60)', width: '32px' }}
-        initial={{ scaleX: 0 }}
-        animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 + index * 0.15, ease: EASE_OUT }}
-      />
+        <motion.span
+          aria-hidden="true"
+          className="block h-[2px] rounded-full mt-2 mb-3 origin-left"
+          style={{ background: 'var(--color-accent, #D4AF60)', width: '40px' }}
+          initial={{ scaleX: 0 }}
+          animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 + index * 0.15, ease: EASE_OUT }}
+        />
 
-      <p
-        className="text-brand-slate leading-[1.6]"
-        style={{
-          fontSize: '14px',
-          fontFamily: "'Inter', system-ui, sans-serif",
-          fontWeight: 400,
-        }}
-      >
-        {step.description}
-      </p>
+        <p
+          className="text-brand-slate leading-[1.6]"
+          style={{
+            fontSize: '14px',
+            fontFamily: "'Inter', system-ui, sans-serif",
+            fontWeight: 400,
+          }}
+        >
+          {step.description}
+        </p>
+      </div>
     </motion.div>
   )
 }
@@ -163,11 +161,18 @@ export function HowItWorks() {
         </motion.div>
       </motion.div>
 
-      {/* ── 3-column step cards ──────────────────────────────────── */}
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-7">
-        {STEPS.map((step, i) => (
-          <StepCard key={step.number} step={step} index={i} />
-        ))}
+      {/* ── 3-column step cards with connector ────────────────── */}
+      <div className="max-w-[1200px] mx-auto relative">
+        <div
+          aria-hidden="true"
+          className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/50"
+          style={{ top: '120px', left: '16.67%', right: '16.67%' }}
+        />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-7 relative z-[1]">
+          {STEPS.map((step, i) => (
+            <StepCard key={step.number} step={step} index={i} />
+          ))}
+        </div>
       </div>
     </section>
   )

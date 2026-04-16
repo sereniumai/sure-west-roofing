@@ -51,7 +51,7 @@ export default function HomePage() {
       {/* 1. Hero */}
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
-        subtitle="Red Seal Journeyman certified with over 250 roofs completed across Cochrane, Calgary and Canmore. Most replacements finished in a single day."
+        subtitle="Red Seal Journeyman certified with over 250 roofs completed across Cochrane, Calgary and Canmore. Most replacements finished in a single day. We pick up the phone fast, even after hours."
         backgroundVideo="/images/Cochrane Roofing Contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/contact' }}
@@ -90,7 +90,7 @@ export default function HomePage() {
             title: 'Roof Repair',
             href: '/services/roof-repair/cochrane',
             description:
-              'Fast, affordable, Journeyman-approved repairs that get you back to normal without the stress.',
+              'Fast, Journeyman-approved repairs that get you back to normal without the stress.',
             image: '/images/Roof Repair Cochrane.avif',
             imageAlt: 'Roof repair Cochrane AB',
             review: {
@@ -104,7 +104,7 @@ export default function HomePage() {
             title: 'Hail Damage Repair',
             href: '/services/hail-damage-repair/cochrane',
             description:
-              'Alberta storms hit hard. We respond fast and deal directly with your insurance adjuster.',
+              'Alberta storms hit hard. We handle your insurance claim end-to-end and deal directly with your adjuster.',
             image: '/images/Roof Repair Cochrane.avif',
             imageAlt: 'Hail damage repair Cochrane AB',
             review: {
