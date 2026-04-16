@@ -7,30 +7,23 @@ import { useState } from "react";
 const Card = ({
   className,
   image,
-  children,
 }: {
   className?: string;
   image?: string;
-  children?: React.ReactNode;
 }) => {
   return (
     <div
       className={cn(
-        "w-[320px] cursor-pointer h-[380px] overflow-hidden bg-white rounded-[16px] shadow-[0_16px_48px_-14px_rgba(26,22,18,0.35),0_4px_10px_-4px_rgba(26,22,18,0.1)] border border-black/5",
+        "w-[280px] cursor-pointer h-[210px] overflow-hidden rounded-[14px] shadow-[0_16px_48px_-14px_rgba(26,22,18,0.35),0_4px_10px_-4px_rgba(26,22,18,0.1)]",
         className
       )}
     >
       {image && (
-        <div className="relative h-[270px] overflow-hidden w-[calc(100%-12px)] mx-1.5 mt-1.5 rounded-[12px]">
-          <img
-            src={image}
-            alt="card"
-            className="object-cover w-full h-full"
-          />
-        </div>
-      )}
-      {children && (
-        <div className="px-4 pt-3 pb-2 flex flex-col gap-y-1">{children}</div>
+        <img
+          src={image}
+          alt=""
+          className="object-cover w-full h-full"
+        />
       )}
     </div>
   );
@@ -61,7 +54,7 @@ const StackedCardsInteraction = ({
 
   return (
     <div className="relative w-full h-full flex items-center justify-center">
-      <div className="relative w-[320px] h-[380px]">
+      <div className="relative w-[280px] h-[210px]">
         {limitedCards.map((card, index) => {
           const isFirst = index === 0;
 
@@ -110,20 +103,7 @@ const StackedCardsInteraction = ({
               <Card
                 className={isFirst ? "z-10 cursor-pointer" : "z-0"}
                 image={card.image}
-              >
-                <h2
-                  className="font-display font-semibold text-[--color-near-black] tracking-tight"
-                  style={{ fontSize: '15px' }}
-                >
-                  {card.title}
-                </h2>
-                <p
-                  className="text-[--color-near-black]/55"
-                  style={{ fontSize: '12.5px', fontFamily: "'Inter', system-ui, sans-serif" }}
-                >
-                  {card.description}
-                </p>
-              </Card>
+              />
             </motion.div>
           );
         })}
