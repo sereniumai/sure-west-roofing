@@ -149,7 +149,7 @@ export function Nav() {
                             onClick={() => setServicesOpen(false)}
                           >
                             <Icon
-                              className="w-6 h-6 text-brand-navy group-hover:text-brand-gold transition-colors duration-200 mb-4"
+                              className="w-6 h-6 text-brand-gold mb-4"
                               strokeWidth={1.5}
                             />
                             <p className="font-display font-semibold text-brand-navy text-[20px] leading-tight tracking-tight">
