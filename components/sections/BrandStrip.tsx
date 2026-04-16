@@ -41,20 +41,20 @@ export function BrandStrip() {
         </h2>
 
         {/* Tagline with decorative gold quotes */}
-        <div className="relative max-w-[720px] mx-auto">
+        <div className="relative max-w-[460px] mx-auto">
           <span
             aria-hidden="true"
             className="absolute font-display text-brand-gold select-none leading-none"
             style={{
-              fontSize: 'clamp(56px, 6vw, 88px)',
-              top: '-0.25em',
-              left: '-0.15em',
+              fontSize: 'clamp(44px, 4vw, 64px)',
+              top: '-0.35em',
+              left: '-0.1em',
             }}
           >
             &ldquo;
           </span>
           <p
-            className="text-brand-navy leading-[1.5] px-6 md:px-10"
+            className="text-brand-navy leading-[1.5] px-4 md:px-6"
             style={{
               fontSize: 'clamp(16px, 1.5vw, 20px)',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -68,9 +68,9 @@ export function BrandStrip() {
             aria-hidden="true"
             className="absolute font-display text-brand-gold select-none leading-none"
             style={{
-              fontSize: 'clamp(56px, 6vw, 88px)',
-              bottom: '-0.55em',
-              right: '-0.15em',
+              fontSize: 'clamp(44px, 4vw, 64px)',
+              bottom: '-0.7em',
+              right: '-0.1em',
             }}
           >
             &rdquo;
