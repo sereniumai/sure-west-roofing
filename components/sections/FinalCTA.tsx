@@ -66,7 +66,7 @@ export function FinalCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Button variant="secondary" size="lg" href="/contact">
+          <Button variant="secondary" size="lg" href="/free-roof-estimate-cochrane">
             Get a Free Estimate
           </Button>
           <Button variant="ghost" size="lg" href="/services">

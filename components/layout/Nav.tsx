@@ -61,7 +61,7 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services', dropdown: true },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/free-roof-estimate-cochrane' },
 ]
 
 export function Nav() {
@@ -176,7 +176,7 @@ export function Nav() {
                         Not sure what you need?
                       </p>
                       <Link
-                        href="/contact"
+                        href="/free-roof-estimate-cochrane"
                         onClick={() => setServicesOpen(false)}
                         className="inline-flex items-center gap-1.5 text-brand-gold uppercase tracking-[0.1em] hover:underline hover:underline-offset-2 transition-all duration-200"
                         style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
@@ -210,7 +210,7 @@ export function Nav() {
             <Phone className="w-4 h-4" strokeWidth={1.5} />
             <span>(403) 990-7210</span>
           </a>
-          <Button href="/contact" variant="secondary" size="sm">
+          <Button href="/free-roof-estimate-cochrane" variant="secondary" size="sm">
             Get a Free Estimate
           </Button>
         </div>
@@ -302,7 +302,7 @@ export function Nav() {
 
           <div className="mt-6 flex flex-col gap-4">
             <Button
-              href="/contact"
+              href="/free-roof-estimate-cochrane"
               variant="secondary"
               className="text-center w-full"
               onClick={() => setMobileOpen(false)}

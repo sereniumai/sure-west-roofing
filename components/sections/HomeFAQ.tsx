@@ -197,7 +197,7 @@ export function HomeFAQ() {
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.55, delay: 0.25, ease: EASE_OUT }}
           >
-            <Button variant="primary" size="lg" href="/contact">
+            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
               Get a Free Estimate
             </Button>
           </motion.div>
@@ -288,7 +288,7 @@ export function HomeFAQ() {
         >
           Have a question not listed here?{' '}
           <Link
-            href="/contact"
+            href="/free-roof-estimate-cochrane"
             className="font-semibold text-[--color-near-black] hover:text-[#B8943F] transition-colors"
             style={{ textDecoration: 'underline', textUnderlineOffset: '3px' }}
           >

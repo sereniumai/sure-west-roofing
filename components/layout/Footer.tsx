@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, Mail, MapPin } from 'lucide-react'
+import { Phone, MapPin, MessageSquare, ClipboardList } from 'lucide-react'
 
 const services = [
   { label: 'Roof Replacement', href: '/services/roof-replacement/cochrane' },
@@ -140,10 +140,10 @@ export function Footer() {
                     (403) 990-7210
                   </a>
                 </li>
-                {/* Email */}
+                {/* Contact */}
                 <li>
-                  <a
-                    href="mailto:info@surewestroofing.ca"
+                  <Link
+                    href="/free-roof-estimate-cochrane"
                     className="inline-flex items-center gap-3 text-brand-navy hover:text-brand-gold transition-colors duration-200"
                     style={{
                       fontSize: '14px',
@@ -151,9 +151,24 @@ export function Footer() {
                       fontWeight: 500,
                     }}
                   >
-                    <Mail className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
-                    info@surewestroofing.ca
-                  </a>
+                    <MessageSquare className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
+                    Contact
+                  </Link>
+                </li>
+                {/* Free Estimate */}
+                <li>
+                  <Link
+                    href="/free-roof-estimate-cochrane"
+                    className="inline-flex items-center gap-3 text-brand-navy hover:text-brand-gold transition-colors duration-200"
+                    style={{
+                      fontSize: '14px',
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontWeight: 500,
+                    }}
+                  >
+                    <ClipboardList className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
+                    Free Estimate
+                  </Link>
                 </li>
                 {/* Address */}
                 <li className="flex items-start gap-3">

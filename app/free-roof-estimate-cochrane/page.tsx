@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'Get Your Free Roofing Estimate | Sure West Roofing',
     description:
       "Request a free, no-obligation roofing estimate from Cochrane's trusted roofing contractor. Written quote within 24 hours.",
-    url: 'https://surewestroofing.ca/contact',
+    url: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
     type: 'website',
     locale: 'en_CA',
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       'Request a free, no-obligation roofing estimate in Cochrane, AB. Written quote within 24 hours.',
   },
   alternates: {
-    canonical: 'https://surewestroofing.ca/contact',
+    canonical: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
   },
   robots: {
     index: true,
@@ -46,7 +46,7 @@ const structuredData = [
     name: 'Contact Sure West Roofing',
     description:
       'Request a free roofing estimate in Cochrane, AB. No-obligation roof inspections and written quotes within 24 hours.',
-    url: 'https://surewestroofing.ca/contact',
+    url: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
     mainEntity: {
       '@type': 'RoofingContractor',
       name: 'Sure West Roofing',
@@ -98,7 +98,7 @@ const structuredData = [
         '@type': 'ListItem',
         position: 2,
         name: 'Contact',
-        item: 'https://surewestroofing.ca/contact',
+        item: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
       },
     ],
   },

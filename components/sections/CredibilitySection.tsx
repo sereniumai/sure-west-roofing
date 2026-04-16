@@ -126,7 +126,7 @@ export function CredibilitySection({
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
         >
-          <Button variant="primary" href="/contact">
+          <Button variant="primary" href="/free-roof-estimate-cochrane">
             Book A Free Inspection
           </Button>
         </motion.div>

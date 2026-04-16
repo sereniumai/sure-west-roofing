@@ -65,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
-      url: 'https://surewestroofing.ca/contact',
+      url: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,

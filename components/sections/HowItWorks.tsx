@@ -162,7 +162,7 @@ export function HowItWorks() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.55, delay: 0.25, ease: EASE_OUT }}
         >
-          <Button variant="primary" size="lg" href="/contact">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
             Get a Free Estimate
           </Button>
         </motion.div>

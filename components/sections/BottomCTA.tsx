@@ -96,7 +96,7 @@ export function BottomCTA() {
             </ul>
 
             <div className="mt-8">
-              <Button variant="primary" size="lg" href="/contact">
+              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
                 Get a Free Estimate
               </Button>
               <p

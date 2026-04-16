@@ -93,7 +93,7 @@ export function ReasonsSection({
               ))}
             </div>
 
-            <Button variant="primary" href="/contact" className="mt-6 w-fit">
+            <Button variant="primary" href="/free-roof-estimate-cochrane" className="mt-6 w-fit">
               Get A Free Estimate
             </Button>
           </div>

@@ -114,7 +114,7 @@ export function FAQSection({
           <p className="font-body text-[#5A7A9A] text-sm mt-6 text-center">
             Have a question not listed here?{' '}
             <Link
-              href="/contact"
+              href="/free-roof-estimate-cochrane"
               className="text-[#D4AF60] font-semibold hover:text-[#B8943F] transition-colors"
             >
               Contact us
