@@ -213,7 +213,7 @@ export function Footer() {
           <div className="pt-6 md:pt-8 pb-4 md:pb-6">
             <p
               className="font-display font-semibold uppercase select-none text-[--color-near-black] leading-[0.85] tracking-tighter"
-              style={{ fontSize: 'clamp(48px, 9vw, 130px)' }}
+              style={{ fontSize: 'clamp(48px, 14vw, 210px)' }}
             >
               Move The Mountain
             </p>
