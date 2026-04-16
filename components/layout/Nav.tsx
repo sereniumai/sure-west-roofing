@@ -3,39 +3,57 @@
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
+import {
+  Menu,
+  X,
+  ChevronDown,
+  ArrowRight,
+  Phone,
+  Home,
+  Wrench,
+  CloudHail,
+  Shield,
+  Search,
+  Sun,
+} from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const serviceLinks = [
   {
     label: 'Roof Replacement',
-    description: 'Complete tear-off and replacement',
+    description: 'Premium materials built for Alberta weather',
     href: '/services/roof-replacement/cochrane',
+    Icon: Home,
   },
   {
     label: 'Roof Repair',
-    description: 'Fast, lasting leak and shingle repair',
+    description: 'Back to normal, fast',
     href: '/services/roof-repair/cochrane',
+    Icon: Wrench,
   },
   {
     label: 'Hail Damage Repair',
-    description: 'Insurance claims and restoration',
+    description: 'We handle your insurance claim',
     href: '/services/hail-damage-repair/cochrane',
+    Icon: CloudHail,
   },
   {
     label: 'Roof Maintenance',
-    description: 'Annual care to extend roof life',
+    description: "Extend your roof's lifespan",
     href: '/services/roof-maintenance/cochrane',
+    Icon: Shield,
   },
   {
     label: 'Roof Inspection',
-    description: 'Detailed condition reports',
+    description: 'Catch problems before they get expensive',
     href: '/services/roof-inspection/cochrane',
+    Icon: Search,
   },
   {
     label: 'Skylight Installation',
-    description: 'Code-compliant skylight installs',
+    description: 'Brighten your home with natural light',
     href: '/services/skylight-installation/cochrane',
+    Icon: Sun,
   },
 ]
 
@@ -48,7 +66,6 @@ const navLinks = [
 
 export function Nav() {
   const pathname = usePathname()
-  // Homepage has a dark video hero; all other pages are light
   const isLightPage = pathname !== '/'
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -69,8 +86,8 @@ export function Nav() {
     }
   }, [mobileOpen])
 
-  const textColor = scrolled || isLightPage ? 'text-brand-navy' : 'text-white'
-  const hoverColor = 'hover:text-brand-gold'
+  const isLight = scrolled || isLightPage
+  const textColor = isLight ? 'text-brand-navy' : 'text-white'
 
   return (
     <nav
@@ -85,11 +102,7 @@ export function Nav() {
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
           <img
-            src={
-              scrolled || isLightPage
-                ? '/images/Sure West Dark.png'
-                : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'
-            }
+            src={isLight ? '/images/Sure West Dark.png' : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
             alt="Sure West Roofing"
             className="h-12 lg:h-[56px] w-auto"
           />
@@ -107,14 +120,12 @@ export function Nav() {
               >
                 <Link
                   href={link.href ?? '/services'}
-                  className={`flex items-center gap-1.5 text-[16px] font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
+                  className={`flex items-center gap-1.5 text-[16px] font-bold uppercase tracking-wider transition-colors duration-200 hover:text-brand-gold ${textColor}`}
                 >
                   {link.label}
                   <ChevronDown
                     size={14}
-                    className={`transition-transform duration-200 ${
-                      servicesOpen ? 'rotate-180' : ''
-                    }`}
+                    className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`}
                   />
                 </Link>
 
@@ -126,50 +137,54 @@ export function Nav() {
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div
-                    className="bg-[--color-cream] shadow-2xl w-[560px] overflow-hidden"
-                    style={{ border: '1px solid var(--color-border)' }}
-                  >
-                    <div className="grid grid-cols-2">
-                      {serviceLinks.map((service) => (
-                        <Link
-                          key={service.href}
-                          href={service.href}
-                          className="group flex items-center justify-between gap-4 px-6 py-5 transition-colors border-b [&:nth-last-child(-n+2)]:border-b-0 [&:nth-child(odd)]:border-r hover:bg-white"
-                          style={{
-                            borderColor: 'var(--color-border)',
-                          }}
-                          onClick={() => setServicesOpen(false)}
-                        >
-                          <div className="flex-1 min-w-0">
-                            <p
-                              className="font-display font-semibold tracking-tight text-[--color-near-black] group-hover:text-[#B8943F] transition-colors"
-                              style={{ fontSize: '16px', letterSpacing: '-0.02em' }}
-                            >
+                  <div className="bg-white rounded-[12px] shadow-[0_10px_30px_rgba(44,71,102,0.12)] w-[720px] p-6">
+                    <div className="grid grid-cols-2 gap-2">
+                      {serviceLinks.map((service) => {
+                        const { Icon } = service
+                        return (
+                          <Link
+                            key={service.href}
+                            href={service.href}
+                            className="group relative p-4 rounded-[8px] transition-all duration-200 hover:bg-brand-cream"
+                            onClick={() => setServicesOpen(false)}
+                          >
+                            <Icon
+                              className="w-6 h-6 text-brand-navy group-hover:text-brand-gold transition-colors duration-200 mb-4"
+                              strokeWidth={1.5}
+                            />
+                            <p className="font-display font-semibold text-brand-navy text-[20px] leading-tight tracking-tight">
                               {service.label}
                             </p>
-                            <p className="text-[11px] text-[--color-near-black]/60 mt-1 font-medium truncate">
+                            <p
+                              className="text-brand-slate mt-1 truncate"
+                              style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif" }}
+                            >
                               {service.description}
                             </p>
-                          </div>
-                          <ArrowRight className="w-4 h-4 text-[#D4AF60] -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0" />
-                        </Link>
-                      ))}
+                            <ArrowRight className="w-4 h-4 text-brand-gold absolute right-4 top-1/2 -translate-y-1/2 translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                          </Link>
+                        )
+                      })}
                     </div>
-                    <Link
-                      href="/contact"
-                      onClick={() => setServicesOpen(false)}
-                      className="flex items-center justify-between px-6 py-4 bg-white group hover:bg-brand-cream transition-colors"
-                      style={{ borderTop: '1px solid var(--color-border)' }}
-                    >
-                      <p className="text-[11px] text-[--color-near-black]/70 uppercase tracking-[0.18em] font-bold">
+
+                    {/* Bottom row */}
+                    <div className="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
+                      <p
+                        className="text-brand-navy uppercase tracking-[0.1em]"
+                        style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+                      >
                         Not sure what you need?
                       </p>
-                      <span className="inline-flex items-center gap-2 text-[12px] font-bold text-[#B8943F] uppercase tracking-[0.14em] group-hover:gap-3 transition-all">
+                      <Link
+                        href="/contact"
+                        onClick={() => setServicesOpen(false)}
+                        className="inline-flex items-center gap-1.5 text-brand-gold uppercase tracking-[0.1em] hover:underline hover:underline-offset-2 transition-all duration-200"
+                        style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+                      >
                         Contact us
                         <ArrowRight className="w-3.5 h-3.5" />
-                      </span>
-                    </Link>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -177,7 +192,7 @@ export function Nav() {
               <Link
                 key={link.label}
                 href={link.href ?? '#'}
-                className={`text-[16px] font-bold uppercase tracking-wider transition-opacity hover:opacity-50 ${textColor}`}
+                className={`text-[16px] font-bold uppercase tracking-wider transition-colors duration-200 hover:text-brand-gold ${textColor}`}
               >
                 {link.label}
               </Link>
@@ -185,31 +200,52 @@ export function Nav() {
           )}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden lg:flex items-center">
+        {/* Desktop CTA — phone + button */}
+        <div className="hidden lg:flex items-center gap-5">
+          <a
+            href="tel:+14039907210"
+            className={`inline-flex items-center gap-2 transition-colors duration-200 hover:text-brand-gold ${textColor}`}
+            style={{ fontSize: '15px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+          >
+            <Phone className="w-4 h-4" strokeWidth={1.75} />
+            <span>(403) 990-7210</span>
+          </a>
           <Button href="/contact" variant="secondary" size="sm">
             Get a Free Estimate
           </Button>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className={`lg:hidden relative z-10 p-2 ${
-            mobileOpen || scrolled || isLightPage ? 'text-brand-navy' : 'text-white'
-          }`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile right side — phone icon + hamburger */}
+        <div className="lg:hidden flex items-center gap-1 relative z-10">
+          <a
+            href="tel:+14039907210"
+            className={`inline-flex items-center gap-2 p-2 transition-colors duration-200 hover:text-brand-gold ${
+              mobileOpen || isLight ? 'text-brand-navy' : 'text-white'
+            }`}
+            aria-label="Call Sure West Roofing"
+          >
+            <Phone className="w-5 h-5" strokeWidth={1.75} />
+            <span
+              className="hidden md:inline"
+              style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
+            >
+              (403) 990-7210
+            </span>
+          </a>
+          <button
+            className={`p-2 ${mobileOpen || isLight ? 'text-brand-navy' : 'text-white'}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
       <div
         className={`lg:hidden fixed inset-0 top-0 bg-white transition-all duration-300 ${
-          mobileOpen
-            ? 'opacity-100 visible'
-            : 'opacity-0 invisible pointer-events-none'
+          mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
       >
         <div className="pt-24 px-6 pb-8 flex flex-col gap-2 h-full overflow-y-auto">
@@ -223,9 +259,7 @@ export function Nav() {
                   {link.label}
                   <ChevronDown
                     size={18}
-                    className={`transition-transform duration-200 ${
-                      mobileServicesOpen ? 'rotate-180' : ''
-                    }`}
+                    className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
                 <div
@@ -257,7 +291,16 @@ export function Nav() {
             )
           )}
 
-          <div className="mt-8 flex flex-col gap-4">
+          {/* Mobile phone link */}
+          <a
+            href="tel:+14039907210"
+            className="py-4 text-lg text-brand-navy font-semibold tracking-wider border-b border-brand-border inline-flex items-center gap-2.5"
+          >
+            <Phone className="w-5 h-5" strokeWidth={1.75} />
+            (403) 990-7210
+          </a>
+
+          <div className="mt-6 flex flex-col gap-4">
             <Button
               href="/contact"
               variant="secondary"

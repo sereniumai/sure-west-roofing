@@ -1,8 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import Image from 'next/image'
-import { Mail, MapPin } from 'lucide-react'
+import { Phone, Mail, MapPin } from 'lucide-react'
 
 const services = [
   { label: 'Roof Replacement', href: '/services/roof-replacement/cochrane' },
@@ -21,44 +20,18 @@ const locations = [
 
 export function Footer() {
   return (
-    <footer className="relative bg-brand-cream overflow-hidden isolate">
-      {/* Background image, desaturated to gray */}
-      <Image
-        src="/images/Cochrane Roofers Footer.avif"
-        alt=""
-        fill
-        priority={false}
-        sizes="100vw"
-        className="object-cover object-center pointer-events-none select-none"
-        style={{ filter: 'grayscale(100%) contrast(0.95)', opacity: 0.18 }}
-        aria-hidden="true"
-      />
-      {/* Soft white gradient overlay for legibility */}
+    <footer className="bg-brand-cream">
       <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(247,245,240,0.88) 0%, rgba(247,245,240,0.82) 55%, rgba(247,245,240,0.94) 100%)',
-        }}
-      />
-
-      {/* Content */}
-      <div
-        className="relative z-10"
         style={{
           paddingLeft: 'var(--section-pad-x)',
           paddingRight: 'var(--section-pad-x)',
         }}
       >
-        <div
-          className="mx-auto"
-          style={{ maxWidth: '1320px' }}
-        >
-          {/* Main 4-column grid */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 pt-16 md:pt-20 pb-6 md:pb-8">
+        <div className="mx-auto" style={{ maxWidth: '1320px' }}>
+          {/* ── 4-column grid ───────────────────────────────────────── */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
             {/* Column 1 — Brand */}
-            <div className="md:col-span-4">
+            <div className="sm:col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
                 <img
                   src="/images/Sure West Dark.png"
@@ -67,25 +40,25 @@ export function Footer() {
                 />
               </Link>
               <p
-                className="mt-6 text-[--color-near-black]/65 leading-[1.6] max-w-[320px]"
+                className="mt-6 text-brand-slate leading-[1.6] max-w-[240px]"
                 style={{
                   fontSize: '14px',
                   fontFamily: "'Inter', system-ui, sans-serif",
                   fontStyle: 'italic',
                 }}
               >
-                &ldquo;In every shingle laid, we&rsquo;re not just building roofs; we&rsquo;re elevating trust.&rdquo;
+                In every shingle laid, we&rsquo;re not just building roofs &mdash; we&rsquo;re elevating trust.
               </p>
             </div>
 
             {/* Column 2 — Services */}
-            <div className="md:col-span-3">
+            <div className="lg:col-span-3">
               <h4
-                className="font-display font-semibold text-[--color-near-black] mb-5"
+                className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
-                  letterSpacing: '0.16em',
-                  textTransform: 'uppercase',
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontWeight: 500,
                 }}
               >
                 Services
@@ -95,19 +68,13 @@ export function Footer() {
                   <li key={s.href}>
                     <Link
                       href={s.href}
-                      className="group inline-flex items-center gap-1.5 text-[--color-near-black]/70 hover:text-[#B8943F] transition-colors duration-200"
+                      className="text-brand-navy hover:text-brand-gold transition-colors duration-200"
                       style={{
                         fontSize: '14px',
                         fontFamily: "'Inter', system-ui, sans-serif",
                       }}
                     >
-                      <span>{s.label}</span>
-                      <span
-                        aria-hidden="true"
-                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#B8943F]"
-                      >
-                        →
-                      </span>
+                      {s.label}
                     </Link>
                   </li>
                 ))}
@@ -115,13 +82,13 @@ export function Footer() {
             </div>
 
             {/* Column 3 — Locations */}
-            <div className="md:col-span-2">
+            <div className="lg:col-span-2">
               <h4
-                className="font-display font-semibold text-[--color-near-black] mb-5"
+                className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
-                  letterSpacing: '0.16em',
-                  textTransform: 'uppercase',
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontWeight: 500,
                 }}
               >
                 Locations
@@ -131,19 +98,13 @@ export function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="group inline-flex items-center gap-1.5 text-[--color-near-black]/70 hover:text-[#B8943F] transition-colors duration-200"
+                      className="text-brand-navy hover:text-brand-gold transition-colors duration-200"
                       style={{
                         fontSize: '14px',
                         fontFamily: "'Inter', system-ui, sans-serif",
                       }}
                     >
-                      <span>{l.label}</span>
-                      <span
-                        aria-hidden="true"
-                        className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 text-[#B8943F]"
-                      >
-                        →
-                      </span>
+                      {l.label}
                     </Link>
                   </li>
                 ))}
@@ -151,50 +112,53 @@ export function Footer() {
             </div>
 
             {/* Column 4 — Contact */}
-            <div className="md:col-span-3">
+            <div className="lg:col-span-3">
               <h4
-                className="font-display font-semibold text-[--color-near-black] mb-5"
+                className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
-                  letterSpacing: '0.16em',
-                  textTransform: 'uppercase',
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontWeight: 500,
                 }}
               >
                 Contact
               </h4>
               <ul className="flex flex-col gap-4">
+                {/* Phone */}
+                <li>
+                  <a
+                    href="tel:+14039907210"
+                    className="inline-flex items-center gap-3 text-brand-navy hover:text-brand-gold transition-colors duration-200"
+                    style={{
+                      fontSize: '14px',
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontWeight: 500,
+                    }}
+                  >
+                    <Phone className="w-4 h-4 flex-shrink-0" strokeWidth={1.75} />
+                    (403) 990-7210
+                  </a>
+                </li>
+                {/* Email */}
                 <li>
                   <a
                     href="mailto:info@surewestroofing.ca"
-                    className="group flex items-start gap-3 text-[--color-near-black]/75 hover:text-[#B8943F] transition-colors duration-200"
+                    className="inline-flex items-center gap-3 text-brand-navy hover:text-brand-gold transition-colors duration-200"
+                    style={{
+                      fontSize: '14px',
+                      fontFamily: "'Inter', system-ui, sans-serif",
+                      fontWeight: 500,
+                    }}
                   >
-                    <span
-                      aria-hidden="true"
-                      className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full mt-[1px] transition-colors duration-200"
-                      style={{ background: 'rgba(212,175,96,0.14)' }}
-                    >
-                      <Mail className="w-[13px] h-[13px] text-[#B8943F]" strokeWidth={1.9} />
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '14px',
-                        fontFamily: "'Inter', system-ui, sans-serif",
-                      }}
-                    >
-                      info@surewestroofing.ca
-                    </span>
+                    <Mail className="w-4 h-4 flex-shrink-0" strokeWidth={1.75} />
+                    info@surewestroofing.ca
                   </a>
                 </li>
-                <li className="flex items-start gap-3 text-[--color-near-black]/75">
-                  <span
-                    aria-hidden="true"
-                    className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full mt-[1px]"
-                    style={{ background: 'rgba(212,175,96,0.14)' }}
-                  >
-                    <MapPin className="w-[13px] h-[13px] text-[#B8943F]" strokeWidth={1.9} />
-                  </span>
+                {/* Address */}
+                <li className="flex items-start gap-3">
+                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5 text-brand-slate" strokeWidth={1.75} />
                   <address
-                    className="not-italic leading-[1.55]"
+                    className="not-italic text-brand-slate leading-[1.55]"
                     style={{
                       fontSize: '14px',
                       fontFamily: "'Inter', system-ui, sans-serif",
@@ -209,48 +173,49 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Giant static text */}
-          <div className="pt-6 md:pt-8 pb-4 md:pb-6 text-center">
+          {/* ── Move the Mountain ────────────────────────────────────── */}
+          <div className="pt-20 pb-10 text-center">
             <p
-              className="font-display font-semibold select-none leading-[0.85] tracking-tighter"
+              className="font-display font-semibold select-none uppercase tracking-[0.05em]"
               style={{
-                fontSize: 'clamp(36px, 11vw, 180px)',
+                fontSize: 'clamp(56px, 10vw, 120px)',
                 color: 'transparent',
-                WebkitTextStroke: '1.5px rgba(44,71,102,0.85)',
+                WebkitTextStroke: '2px #2C4766',
+                lineHeight: 0.9,
               }}
             >
               Move the Mountain
             </p>
           </div>
 
-          {/* Bottom bar */}
-          <div
-            className="border-t border-[--color-near-black]/10 flex flex-col items-center gap-3 py-6 sm:flex-row sm:justify-between"
-          >
+          {/* ── Bottom copyright bar ─────────────────────────────────── */}
+          <div className="border-t border-brand-border py-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
             <p
-              className="text-[--color-near-black]/55 text-center sm:text-left"
-              style={{
-                fontSize: '11.5px',
-                fontFamily: "'Inter', system-ui, sans-serif",
-              }}
+              className="text-brand-slate text-center sm:text-left"
+              style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
             >
               &copy; 2026 Sure West Roofing. All Rights Reserved.
             </p>
-            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
-              <p
-                className="text-[--color-near-black]/55"
-                style={{
-                  fontSize: '11.5px',
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                }}
+            <p
+              className="text-brand-slate"
+              style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
+            >
+              Cochrane, Alberta. Red Seal Certified.
+            </p>
+            <div className="flex items-center gap-3">
+              <Link
+                href="/privacy"
+                className="text-brand-navy hover:text-brand-gold transition-colors"
+                style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
               >
-                Cochrane, Alberta. Red Seal Certified.
-              </p>
-              <span className="h-3 w-px bg-[--color-near-black]/20 hidden sm:block" aria-hidden="true" />
-              <Link href="/privacy" className="text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors" style={{ fontSize: '11.5px', fontFamily: "'Inter', system-ui, sans-serif" }}>
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-[--color-near-black]/45 hover:text-[--color-near-black]/75 transition-colors" style={{ fontSize: '11.5px', fontFamily: "'Inter', system-ui, sans-serif" }}>
+              <span className="text-brand-slate" aria-hidden="true">|</span>
+              <Link
+                href="/terms"
+                className="text-brand-navy hover:text-brand-gold transition-colors"
+                style={{ fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif" }}
+              >
                 Terms
               </Link>
             </div>
