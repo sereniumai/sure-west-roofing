@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { Phone, Mail, MapPin } from 'lucide-react'
 
 const services = [
@@ -20,7 +21,7 @@ const locations = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-cream">
+    <footer className="bg-white">
       <div
         style={{
           paddingLeft: 'var(--section-pad-x)',
@@ -173,21 +174,6 @@ export function Footer() {
             </div>
           </div>
 
-          {/* ── Move the Mountain ────────────────────────────────────── */}
-          <div className="pt-20 pb-10 text-center">
-            <p
-              className="font-display font-semibold select-none uppercase tracking-[0.05em]"
-              style={{
-                fontSize: 'clamp(56px, 10vw, 120px)',
-                color: 'transparent',
-                WebkitTextStroke: '2px #2C4766',
-                lineHeight: 0.9,
-              }}
-            >
-              Move the Mountain
-            </p>
-          </div>
-
           {/* ── Bottom copyright bar ─────────────────────────────────── */}
           <div className="border-t border-brand-border py-6 flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
             <p
@@ -221,6 +207,17 @@ export function Footer() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Footer background image */}
+      <div className="relative w-full h-[200px] md:h-[300px] bg-brand-cream">
+        <Image
+          src="/images/Cochrane Roofers Footer.avif"
+          alt="Cochrane roofing contractors at work"
+          fill
+          sizes="100vw"
+          className="object-cover object-center"
+        />
       </div>
     </footer>
   )
