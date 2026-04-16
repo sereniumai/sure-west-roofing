@@ -112,11 +112,8 @@ export function TrustLogos() {
           })}
         </motion.div>
 
-        {/* ── Divider ────────────────────────────────────────────── */}
-        <div className="mx-auto border-t border-brand-border" style={{ width: '80%', marginTop: '48px' }} />
-
         {/* ── Certifications ─────────────────────────────────────── */}
-        <div className="flex flex-col items-center" style={{ marginTop: '32px' }}>
+        <div className="flex flex-col items-center" style={{ marginTop: '64px' }}>
           <motion.span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-8 text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
