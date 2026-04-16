@@ -1,173 +1,150 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion, useInView, useScroll, useTransform } from 'framer-motion'
-import { ClipboardList, FileCheck2, ShieldCheck, type LucideIcon } from 'lucide-react'
+import Image from 'next/image'
+import { motion, useInView } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
-interface Step {
-  number: string
-  title: string
-  description: string
-  Icon: LucideIcon
-}
-
-const STEPS: Step[] = [
+const STEPS = [
   {
     number: '01',
     title: 'Book Your Free Estimate',
     description:
       'We come to your property in Cochrane, Calgary or Canmore, assess the roof thoroughly, and provide a clear itemised written quote.',
-    Icon: ClipboardList,
+    image: '/images/Roof Inspection Cochrane.avif',
   },
   {
     number: '02',
     title: 'Approve Your Quote',
     description:
       'Your quote is fixed. The price you approve is the price you pay. We schedule around you.',
-    Icon: FileCheck2,
+    image: '/images/Roof Replacement Cochrane.avif',
   },
   {
     number: '03',
     title: 'Your Roof Done Right',
     description:
       'Work completed to Red Seal standard. Your property left clean. Your 10-year workmanship guarantee in writing before we leave.',
-    Icon: ShieldCheck,
+    image: '/images/Roof Repair Cochrane.avif',
   },
 ]
 
-function StepCard({ step, index }: { step: Step; index: number }) {
+function StepRow({ step, index, reversed }: { step: typeof STEPS[0]; index: number; reversed: boolean }) {
   const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-80px' })
-  const Icon = step.Icon
+  const inView = useInView(ref, { once: true, margin: '-100px' })
 
   return (
     <motion.div
       ref={ref}
-      className="group relative flex flex-col overflow-hidden rounded-[16px] md:rounded-[20px]"
-      style={{ background: '#1A1612' }}
-      initial={{ y: 60, opacity: 0, scale: 0.95 }}
-      animate={inView ? { y: 0, opacity: 1, scale: 1 } : { y: 60, opacity: 0, scale: 0.95 }}
-      transition={{
-        duration: 0.8,
-        delay: 0.15 + index * 0.15,
-        ease: EASE_OUT,
-      }}
+      className={`grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-16 ${
+        index > 0 ? 'mt-16 md:mt-24' : ''
+      }`}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.5, ease: EASE_OUT }}
     >
-      {/* Ambient gold glow */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-12 -right-12 w-[200px] h-[200px]"
-        style={{
-          background:
-            'radial-gradient(circle at center, rgba(212,175,96,0.18) 0%, rgba(212,175,96,0) 65%)',
-        }}
-      />
-
-      {/* Giant watermark number */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-4 -right-2 font-display font-semibold leading-none select-none"
-        style={{
-          fontSize: 'clamp(120px, 14vw, 180px)',
-          letterSpacing: '-0.06em',
-          color: 'transparent',
-          WebkitTextStroke: '1.5px rgba(212,175,96,0.18)',
-        }}
+      {/* Image side */}
+      <motion.div
+        className={`relative ${reversed ? 'lg:order-2' : 'lg:order-1'}`}
+        initial={{ x: reversed ? 60 : -60, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : { x: reversed ? 60 : -60, opacity: 0 }}
+        transition={{ duration: 0.9, delay: 0.1, ease: EASE_OUT }}
       >
-        {step.number}
-      </span>
+        <div className="relative aspect-[4/3] rounded-[16px] overflow-hidden">
+          <Image
+            src={step.image}
+            alt={step.title}
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+          {/* Subtle vignette */}
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                'radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.15) 100%)',
+            }}
+          />
+        </div>
 
-      <div className="relative z-10 flex flex-col flex-1 p-7 md:p-9 lg:p-10">
-        {/* Icon */}
+        {/* Giant number watermark behind the image */}
         <motion.span
-          className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-6"
+          aria-hidden="true"
+          className={`pointer-events-none absolute -bottom-8 md:-bottom-12 font-display font-semibold leading-none select-none ${
+            reversed ? '-left-4 md:-left-8' : '-right-4 md:-right-8'
+          }`}
           style={{
-            background: 'var(--color-accent, #D4AF60)',
-            boxShadow: '0 8px 20px -8px rgba(184,148,63,0.6)',
+            fontSize: 'clamp(100px, 14vw, 180px)',
+            letterSpacing: '-0.06em',
+            color: 'transparent',
+            WebkitTextStroke: '1.5px rgba(212,175,96,0.25)',
           }}
-          initial={{ scale: 0, rotate: -20 }}
-          animate={inView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -20 }}
-          transition={{
-            type: 'spring',
-            stiffness: 300,
-            damping: 20,
-            delay: 0.4 + index * 0.15,
-          }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: EASE_OUT }}
         >
-          <Icon className="w-[22px] h-[22px] text-[#1A1612]" strokeWidth={1.9} />
+          {step.number}
         </motion.span>
+      </motion.div>
 
+      {/* Content side */}
+      <motion.div
+        className={`flex flex-col ${reversed ? 'lg:order-1 lg:items-end lg:text-right' : 'lg:order-2'}`}
+        initial={{ x: reversed ? -40 : 40, opacity: 0 }}
+        animate={inView ? { x: 0, opacity: 1 } : { x: reversed ? -40 : 40, opacity: 0 }}
+        transition={{ duration: 0.8, delay: 0.2, ease: EASE_OUT }}
+      >
         {/* Step label */}
         <span
-          className="font-body font-semibold uppercase tracking-[0.14em] text-[#D4AF60] mb-3"
-          style={{ fontSize: '11px' }}
+          className="font-body font-semibold uppercase tracking-[0.16em] mb-3"
+          style={{ fontSize: '12px', color: 'var(--color-accent, #D4AF60)' }}
         >
           Step {step.number}
         </span>
 
         <h3
-          className="font-display font-semibold text-white leading-[1.15]"
+          className="font-display font-semibold text-[--color-near-black] leading-[1.1]"
           style={{
-            fontSize: 'clamp(22px, 1.8vw, 28px)',
-            letterSpacing: '-0.025em',
+            fontSize: 'clamp(26px, 2.4vw, 38px)',
+            letterSpacing: '-0.03em',
           }}
         >
           {step.title}
         </h3>
 
-        {/* Gold accent bar */}
+        {/* Gold rule */}
         <motion.span
           aria-hidden="true"
-          className="block h-[2px] rounded-full mt-4 mb-4 origin-left"
-          style={{ background: 'var(--color-accent, #D4AF60)', width: '32px' }}
+          className={`block h-[2px] rounded-full mt-5 mb-5 ${reversed ? 'origin-right' : 'origin-left'}`}
+          style={{ background: 'var(--color-accent, #D4AF60)', width: '40px' }}
           initial={{ scaleX: 0 }}
           animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 + index * 0.15, ease: EASE_OUT }}
+          transition={{ duration: 0.6, delay: 0.4, ease: EASE_OUT }}
         />
 
         <p
-          className="text-white/65 leading-[1.65] flex-1"
+          className={`text-[--color-near-black]/65 leading-[1.7] ${reversed ? 'max-w-[420px] ml-auto' : 'max-w-[420px]'}`}
           style={{
-            fontSize: '14.5px',
+            fontSize: '15.5px',
             fontFamily: "'Inter', system-ui, sans-serif",
             fontWeight: 400,
           }}
         >
           {step.description}
         </p>
-      </div>
-
-      {/* Bottom gold glow edge */}
-      <span
-        aria-hidden="true"
-        className="absolute bottom-0 left-[15%] right-[15%] h-px"
-        style={{
-          background:
-            'linear-gradient(to right, transparent, rgba(212,175,96,0.4), transparent)',
-        }}
-      />
+      </motion.div>
     </motion.div>
   )
 }
 
 export function HowItWorks() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start 80%', 'end 60%'],
-  })
-
-  // Progress bar fills as you scroll through the section
-  const progressWidth = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
-
   return (
     <section
       id="how-it-works"
-      ref={sectionRef}
       className="relative bg-white overflow-hidden"
       style={{
         paddingTop: 'var(--section-pad-top)',
@@ -178,7 +155,7 @@ export function HowItWorks() {
     >
       {/* ── Header ───────────────────────────────────────────────── */}
       <motion.div
-        className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[920px] mx-auto"
+        className="relative flex flex-col items-center text-center mb-14 md:mb-20 max-w-[920px] mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: true, margin: '-80px' }}
@@ -224,23 +201,10 @@ export function HowItWorks() {
         </motion.div>
       </motion.div>
 
-      {/* ── Scroll progress bar ──────────────────────────────────── */}
-      <div className="max-w-[1200px] mx-auto mb-8 md:mb-10">
-        <div className="h-[2px] rounded-full bg-[--color-near-black]/8 overflow-hidden">
-          <motion.div
-            className="h-full rounded-full"
-            style={{
-              width: progressWidth,
-              background: 'var(--color-accent, #D4AF60)',
-            }}
-          />
-        </div>
-      </div>
-
-      {/* ── Step cards ───────────────────────────────────────────── */}
-      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+      {/* ── Steps — alternating image/text rows ──────────────────── */}
+      <div className="max-w-[1200px] mx-auto">
         {STEPS.map((step, i) => (
-          <StepCard key={step.number} step={step} index={i} />
+          <StepRow key={step.number} step={step} index={i} reversed={i % 2 === 1} />
         ))}
       </div>
     </section>
