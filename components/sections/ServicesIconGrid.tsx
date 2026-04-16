@@ -97,7 +97,7 @@ function ServiceCard({
               <Icon
                 className="w-[18px] h-[18px]"
                 style={{ color: 'var(--color-accent, #D4AF60)' }}
-                strokeWidth={1.75}
+                strokeWidth={1.5}
               />
             </span>
             <h3
@@ -113,7 +113,7 @@ function ServiceCard({
               aria-hidden="true"
               className="inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ease-out flex-shrink-0"
             >
-              <ArrowRight className="w-[18px] h-[18px] text-brand-gold transition-colors duration-200" strokeWidth={2} />
+              <ArrowRight className="w-[18px] h-[18px] text-brand-gold transition-colors duration-200" strokeWidth={1.5} />
             </span>
           </div>
 

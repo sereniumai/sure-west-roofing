@@ -80,7 +80,7 @@ export function BottomCTA() {
             <ul className="mt-6 flex flex-col gap-2.5">
               {BULLETS.map((item) => (
                 <li key={item} className="flex items-center gap-2.5">
-                  <CheckCircle className="w-[18px] h-[18px] text-brand-gold flex-shrink-0" strokeWidth={2} />
+                  <CheckCircle className="w-5 h-5 text-brand-gold flex-shrink-0" strokeWidth={1.5} />
                   <span
                     className="text-brand-navy"
                     style={{

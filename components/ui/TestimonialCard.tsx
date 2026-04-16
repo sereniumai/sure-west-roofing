@@ -1,3 +1,5 @@
+import { Star } from 'lucide-react'
+
 interface TestimonialCardProps {
   name: string
   location: string
@@ -18,13 +20,16 @@ export function TestimonialCard({
       {/* Stars */}
       <div className="flex gap-0.5 mb-4" aria-label={`${rating} out of 5 stars`}>
         {Array.from({ length: 5 }).map((_, i) => (
-          <span
+          <Star
             key={i}
-            className={`text-base ${i < rating ? 'text-[#D4AF60]' : 'text-[#E8E8E8]'}`}
+            className="w-4 h-4"
+            style={{
+              color: i < rating ? '#D4AF60' : '#5A7A9A',
+              fill: i < rating ? '#D4AF60' : 'transparent',
+            }}
+            strokeWidth={1.5}
             aria-hidden="true"
-          >
-            ★
-          </span>
+          />
         ))}
       </div>
 

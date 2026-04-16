@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
+import { Home, Zap, Star, ShieldCheck, type LucideIcon } from 'lucide-react'
 
 function CountUp({
   end,
@@ -51,11 +52,19 @@ const logos = [
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
-const STATS = [
-  { end: 250, suffix: '+', decimals: 0, label: 'Roofs Completed' },
-  { end: 1, suffix: ' Day', decimals: 0, label: 'Average Install Time' },
-  { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating (80+ Reviews)' },
-  { end: 10, suffix: ' Yr', decimals: 0, label: 'Workmanship Guarantee' },
+interface Stat {
+  end: number
+  suffix: string
+  decimals: number
+  label: string
+  Icon: LucideIcon
+}
+
+const STATS: Stat[] = [
+  { end: 250, suffix: '+', decimals: 0, label: 'Roofs Completed', Icon: Home },
+  { end: 1, suffix: ' Day', decimals: 0, label: 'Average Install Time', Icon: Zap },
+  { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating (80+ Reviews)', Icon: Star },
+  { end: 10, suffix: ' Yr', decimals: 0, label: 'Workmanship Guarantee', Icon: ShieldCheck },
 ]
 
 export function TrustLogos() {
@@ -79,26 +88,30 @@ export function TrustLogos() {
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
-          {STATS.map((stat) => (
-            <div key={stat.label} className="flex flex-col items-center text-center">
-              <span
-                className="font-display font-semibold leading-none text-brand-gold"
-                style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
-              >
-                <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2.2} />
-              </span>
-              <span
-                className="mt-2 text-brand-slate uppercase tracking-[0.1em]"
-                style={{
-                  fontSize: '12px',
-                  fontFamily: "'Inter', system-ui, sans-serif",
-                  fontWeight: 500,
-                }}
-              >
-                {stat.label}
-              </span>
-            </div>
-          ))}
+          {STATS.map((stat) => {
+            const { Icon } = stat
+            return (
+              <div key={stat.label} className="flex flex-col items-center text-center">
+                <Icon className="w-6 h-6 text-brand-slate mb-3" strokeWidth={1.5} />
+                <span
+                  className="font-display font-semibold leading-none text-brand-gold"
+                  style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
+                >
+                  <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2.2} />
+                </span>
+                <span
+                  className="mt-2 text-brand-slate uppercase tracking-[0.1em]"
+                  style={{
+                    fontSize: '12px',
+                    fontFamily: "'Inter', system-ui, sans-serif",
+                    fontWeight: 500,
+                  }}
+                >
+                  {stat.label}
+                </span>
+              </div>
+            )
+          })}
         </motion.div>
 
         {/* ── Divider ────────────────────────────────────────────── */}

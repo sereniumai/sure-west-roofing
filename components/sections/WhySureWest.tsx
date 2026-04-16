@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import {
   Award,
-  Handshake,
+  Users,
   ShieldCheck,
-  ClipboardCheck,
+  FileCheck,
   Play,
   type LucideIcon,
 } from 'lucide-react'
@@ -29,7 +29,7 @@ const pillars: Pillar[] = [
     id: 'owner-operated',
     title: 'Owner On Every Job',
     body: 'No salespeople. No middlemen. You deal with the owner from the first estimate to the final walkthrough, and every decision in between.',
-    Icon: Handshake,
+    Icon: Users,
   },
   {
     id: 'guarantee',
@@ -41,7 +41,7 @@ const pillars: Pillar[] = [
     id: 'insurance',
     title: 'Insurance Claim Experts',
     body: "We deal with your adjuster directly so you don't have to. No paperwork headaches, no guesswork.",
-    Icon: ClipboardCheck,
+    Icon: FileCheck,
   },
 ]
 
@@ -145,7 +145,7 @@ export function WhySureWest() {
                       <Icon
                         className="w-5 h-5"
                         style={{ color: 'var(--color-accent, #D4AF60)' }}
-                        strokeWidth={1.75}
+                        strokeWidth={1.5}
                       />
                     </span>
                     <h3
@@ -250,7 +250,7 @@ export function WhySureWest() {
                       >
                         <Play
                           className="w-7 h-7 text-white fill-white ml-1"
-                          strokeWidth={0}
+                          strokeWidth={1.5}
                         />
                       </span>
                     </span>

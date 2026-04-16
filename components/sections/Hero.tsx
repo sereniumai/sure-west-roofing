@@ -217,7 +217,7 @@ export function Hero({
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown className="w-5 h-5 text-white/45" strokeWidth={1.75} />
+          <ChevronDown className="w-5 h-5 text-white/45" strokeWidth={1.5} />
         </motion.div>
       </motion.div>
     </section>

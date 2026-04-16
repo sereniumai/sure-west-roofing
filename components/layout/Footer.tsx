@@ -136,7 +136,7 @@ export function Footer() {
                       fontWeight: 500,
                     }}
                   >
-                    <Phone className="w-4 h-4 flex-shrink-0" strokeWidth={1.75} />
+                    <Phone className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
                     (403) 990-7210
                   </a>
                 </li>
@@ -151,13 +151,13 @@ export function Footer() {
                       fontWeight: 500,
                     }}
                   >
-                    <Mail className="w-4 h-4 flex-shrink-0" strokeWidth={1.75} />
+                    <Mail className="w-4 h-4 flex-shrink-0" strokeWidth={1.5} />
                     info@surewestroofing.ca
                   </a>
                 </li>
                 {/* Address */}
                 <li className="flex items-start gap-3">
-                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5 text-brand-slate" strokeWidth={1.75} />
+                  <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5 text-brand-slate" strokeWidth={1.5} />
                   <address
                     className="not-italic text-brand-slate leading-[1.55]"
                     style={{

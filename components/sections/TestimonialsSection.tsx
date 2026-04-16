@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion } from 'framer-motion'
+import { Star } from 'lucide-react'
 import type { Testimonial } from '@/lib/types'
 
 interface TestimonialsSectionProps {
@@ -72,16 +73,16 @@ export function TestimonialsSection({
               {/* Stars */}
               <div className="flex gap-1 mb-6">
                 {Array.from({ length: 5 }).map((_, j) => (
-                  <span
+                  <Star
                     key={j}
-                    className={`text-lg ${
-                      j < testimonial.rating
-                        ? 'text-[#D4AF60]'
-                        : 'text-white/10'
-                    }`}
-                  >
-                    ★
-                  </span>
+                    className="w-4 h-4"
+                    style={{
+                      color: j < testimonial.rating ? '#D4AF60' : 'rgba(255,255,255,0.1)',
+                      fill: j < testimonial.rating ? '#D4AF60' : 'transparent',
+                    }}
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  />
                 ))}
               </div>
 

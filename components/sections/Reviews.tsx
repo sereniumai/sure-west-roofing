@@ -93,7 +93,7 @@ function Stars({ count }: { count: number }) {
           key={i}
           className="w-[15px] h-[15px]"
           style={{
-            color: i < count ? 'var(--color-accent, #D4AF60)' : 'rgba(0,0,0,0.12)',
+            color: i < count ? 'var(--color-accent, #D4AF60)' : '#5A7A9A',
             fill: i < count ? 'var(--color-accent, #D4AF60)' : 'transparent',
           }}
           strokeWidth={1.5}

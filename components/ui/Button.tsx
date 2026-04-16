@@ -51,9 +51,9 @@ export function Button({
       <span>{children}</span>
       {showArrow && (
         <span className="btn-arrow" aria-hidden="true">
-          <ChevronRight className="btn-chev" strokeWidth={3} />
-          <ChevronRight className="btn-chev" strokeWidth={3} />
-          <ChevronRight className="btn-chev" strokeWidth={3} />
+          <ChevronRight className="btn-chev" strokeWidth={1.5} />
+          <ChevronRight className="btn-chev" strokeWidth={1.5} />
+          <ChevronRight className="btn-chev" strokeWidth={1.5} />
         </span>
       )}
     </>

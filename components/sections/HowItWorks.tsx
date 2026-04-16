@@ -3,17 +3,27 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
+import { Calendar, FileCheck, CheckCircle, type LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
-const STEPS = [
+interface Step {
+  number: string
+  title: string
+  description: string
+  image: string
+  Icon: LucideIcon
+}
+
+const STEPS: Step[] = [
   {
     number: '01',
     title: 'Book Your Free Estimate',
     description:
       'We come to your property in Cochrane, Calgary or Canmore, assess the roof thoroughly, and provide a clear itemised written quote.',
     image: '/images/Roof Inspection Cochrane.avif',
+    Icon: Calendar,
   },
   {
     number: '02',
@@ -21,6 +31,7 @@ const STEPS = [
     description:
       'Your quote is fixed. The price you approve is the price you pay. Our Red Seal certified crew then schedules your job around you.',
     image: '/images/Roof Replacement Cochrane.avif',
+    Icon: FileCheck,
   },
   {
     number: '03',
@@ -28,12 +39,14 @@ const STEPS = [
     description:
       'Work completed to Red Seal standard. Your property left clean. Your 10-year workmanship guarantee in writing before we leave.',
     image: '/images/Roof Repair Cochrane.avif',
+    Icon: CheckCircle,
   },
 ]
 
-function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
+function StepCard({ step, index }: { step: Step; index: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
+  const { Icon } = step
 
   return (
     <motion.div
@@ -52,19 +65,12 @@ function StepCard({ step, index }: { step: typeof STEPS[0]; index: number }) {
           sizes="(max-width: 768px) 100vw, 33vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
-        <div className="absolute inset-0 flex items-end pointer-events-none">
-          <span
-            aria-hidden="true"
-            className="pointer-events-none font-display font-semibold leading-none select-none ml-4 mb-3"
-            style={{
-              fontSize: '36px',
-              letterSpacing: '-0.05em',
-              color: 'rgba(255,255,255,0.9)',
-              textShadow: '0 2px 20px rgba(0,0,0,0.4)',
-            }}
-          >
-            {step.number}
-          </span>
+        {/* Step badge: gold circle, navy icon */}
+        <div
+          aria-hidden="true"
+          className="absolute bottom-4 left-4 flex items-center justify-center w-12 h-12 rounded-full bg-brand-gold border-2 border-white shadow-lg"
+        >
+          <Icon className="w-5 h-5 text-brand-navy" strokeWidth={1.5} />
         </div>
       </div>
 

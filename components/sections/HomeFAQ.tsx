@@ -246,7 +246,7 @@ export function HomeFAQ() {
                             : 'bg-transparent border-brand-border text-brand-navy group-hover:border-brand-gold'
                         }`}
                       >
-                        <Plus className="w-5 h-5" strokeWidth={2.2} />
+                        <Plus className="w-5 h-5" strokeWidth={1.5} />
                       </span>
                     </button>
 

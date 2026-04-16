@@ -207,7 +207,7 @@ export function Nav() {
             className={`inline-flex items-center gap-2 transition-colors duration-200 hover:text-brand-gold ${textColor}`}
             style={{ fontSize: '15px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
           >
-            <Phone className="w-4 h-4" strokeWidth={1.75} />
+            <Phone className="w-4 h-4" strokeWidth={1.5} />
             <span>(403) 990-7210</span>
           </a>
           <Button href="/contact" variant="secondary" size="sm">
@@ -224,7 +224,7 @@ export function Nav() {
             }`}
             aria-label="Call Sure West Roofing"
           >
-            <Phone className="w-5 h-5" strokeWidth={1.75} />
+            <Phone className="w-5 h-5" strokeWidth={1.5} />
             <span
               className="hidden md:inline"
               style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
@@ -296,7 +296,7 @@ export function Nav() {
             href="tel:+14039907210"
             className="py-4 text-lg text-brand-navy font-semibold tracking-wider border-b border-brand-border inline-flex items-center gap-2.5"
           >
-            <Phone className="w-5 h-5" strokeWidth={1.75} />
+            <Phone className="w-5 h-5" strokeWidth={1.5} />
             (403) 990-7210
           </a>
 
