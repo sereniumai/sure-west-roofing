@@ -79,10 +79,10 @@ export function TrustLogos() {
       }}
       aria-label="Stats and certifications"
     >
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[960px] mx-auto">
         {/* ── Stats ──────────────────────────────────────────────── */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
@@ -120,8 +120,8 @@ export function TrustLogos() {
         {/* ── Certifications ─────────────────────────────────────── */}
         <div className="flex flex-col items-center" style={{ marginTop: '32px' }}>
           <motion.span
-            className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-8"
-            style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-8 text-brand-gold"
+            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-60px' }}

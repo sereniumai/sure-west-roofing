@@ -147,10 +147,11 @@ export function Hero({
       <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[80px] sm:pb-[100px] md:pb-[160px]">
         {/* Giant headline */}
         <motion.h1
-          className="font-display font-semibold leading-[0.95] md:leading-none text-white"
+          className="font-display font-medium text-white"
           style={{
-            fontSize: 'var(--text-hero)',
-            letterSpacing: '-0.044em',
+            fontSize: 'clamp(40px, 6vw, 64px)',
+            lineHeight: 1.1,
+            letterSpacing: '-0.01em',
           }}
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

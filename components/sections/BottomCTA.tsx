@@ -18,7 +18,7 @@ export function BottomCTA() {
   return (
     <section
       id="contact-cta"
-      className="relative bg-brand-cream overflow-hidden"
+      className="relative bg-white overflow-hidden"
       style={{
         paddingTop: 'calc(var(--section-pad-top) + 16px)',
         paddingBottom: 'calc(var(--section-pad-bot) + 48px)',
@@ -54,7 +54,7 @@ export function BottomCTA() {
           {/* Left — content */}
           <div className="flex flex-col items-start justify-center px-6 sm:px-8 md:px-12 lg:px-14 py-10 sm:py-12 md:py-16 lg:py-20">
             <h2
-              className="font-display font-semibold text-[--color-near-black] leading-[1.02]"
+              className="font-display font-semibold text-[--color-near-black] leading-[1.2]"
               style={{
                 fontSize: 'clamp(28px, 3.2vw, 44px)',
                 letterSpacing: '-0.04em',

@@ -7,7 +7,7 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 export function BrandStrip() {
   return (
     <section
-      className="bg-brand-cream"
+      className="bg-white"
       style={{
         paddingTop: '64px',
         paddingBottom: '64px',
@@ -27,7 +27,7 @@ export function BrandStrip() {
           style={{
             fontSize: 'clamp(48px, 8vw, 96px)',
             color: 'transparent',
-            WebkitTextStroke: '3px #2C4766',
+            WebkitTextStroke: '4px #2C4766',
             lineHeight: 0.95,
           }}
         >

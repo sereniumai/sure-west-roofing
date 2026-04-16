@@ -68,16 +68,16 @@ function ServiceCard({
     >
       <Link
         href={service.href}
-        className="group relative flex flex-col h-full rounded-[12px] bg-white overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-1 hover:shadow-[0_8px_20px_rgba(44,71,102,0.1)]"
+        className="group relative flex flex-col h-full rounded-[12px] bg-white overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-300 ease-out hover:-translate-y-[6px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)]"
       >
-        {/* Image at top */}
-        <div className="relative h-[180px] md:h-[200px] overflow-hidden">
+        {/* Image at top - fixed 200px */}
+        <div className="relative h-[200px] overflow-hidden">
           <Image
             src={service.image}
             alt={service.imageAlt}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
           />
           <div
             aria-hidden="true"
@@ -86,39 +86,26 @@ function ServiceCard({
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-1 p-6 md:p-7">
-          {/* Heading row — icon + title + arrow */}
+        <div className="flex flex-col flex-1 p-5">
+          {/* Heading row — icon + title */}
           <div className="flex items-center gap-3">
-            <span
-              aria-hidden="true"
-              className="inline-flex items-center justify-center w-9 h-9 rounded-[8px] flex-shrink-0 transition-colors duration-500 ease-out group-hover:bg-[rgba(212,175,96,0.18)]"
-              style={{ background: 'rgba(212,175,96,0.12)' }}
-            >
-              <Icon
-                className="w-[18px] h-[18px]"
-                style={{ color: 'var(--color-accent, #D4AF60)' }}
-                strokeWidth={1.5}
-              />
-            </span>
+            <Icon
+              className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold"
+              strokeWidth={1.5}
+            />
             <h3
-              className="font-display font-semibold leading-[1.15] text-[--color-near-black] flex-1"
+              className="font-display font-semibold leading-[1.25] flex-1 text-brand-navy transition-colors duration-300 group-hover:text-brand-gold"
               style={{
-                fontSize: 'clamp(19px, 1.45vw, 22px)',
+                fontSize: '22px',
                 letterSpacing: '-0.02em',
               }}
             >
               {service.title}
             </h3>
-            <span
-              aria-hidden="true"
-              className="inline-flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ease-out flex-shrink-0"
-            >
-              <ArrowRight className="w-[18px] h-[18px] text-brand-gold transition-colors duration-200" strokeWidth={1.5} />
-            </span>
           </div>
 
           <p
-            className="mt-3 text-brand-slate leading-[1.65] flex-1"
+            className="mt-2 text-brand-slate leading-[1.5] flex-1"
             style={{
               fontSize: '14px',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -127,7 +114,21 @@ function ServiceCard({
           >
             {service.description}
           </p>
+
+          {/* Arrow bottom-right */}
+          <div className="mt-4 flex justify-end">
+            <ArrowRight
+              className="w-[18px] h-[18px] text-brand-gold transition-transform duration-300 group-hover:translate-x-1"
+              strokeWidth={1.5}
+            />
+          </div>
         </div>
+
+        {/* Gold underline that slides in on hover */}
+        <span
+          aria-hidden="true"
+          className="absolute bottom-0 left-0 h-[2px] w-full bg-brand-gold scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"
+        />
       </Link>
     </motion.div>
   )
@@ -158,16 +159,17 @@ export function ServicesIconGrid({
         transition={{ duration: 0.7, ease: EASE_OUT }}
       >
         <span
-          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
-          style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+          className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
         >
           {eyebrow}
         </span>
         <h2
-          className="font-display font-semibold leading-[1.05] max-w-[1000px] text-[--color-near-black]"
+          className="font-display font-medium max-w-[1000px] text-brand-navy"
           style={{
-            fontSize: 'clamp(30px, 3.8vw, 52px)',
-            letterSpacing: '-0.04em',
+            fontSize: 'clamp(32px, 4.5vw, 48px)',
+            lineHeight: 1.15,
+            letterSpacing: '-0.005em',
           }}
         >
           {heading.split('\n').map((line, i) => (

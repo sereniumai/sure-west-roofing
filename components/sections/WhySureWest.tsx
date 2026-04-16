@@ -22,25 +22,25 @@ const pillars: Pillar[] = [
   {
     id: 'red-seal',
     title: 'Red Seal Certified',
-    body: "Alberta's highest roofing credential. Earned through years of trade-tested work and held to the Interprovincial Standard on every project we deliver.",
+    body: "Alberta's highest roofing credential. Earned through years of trade-tested work on every project.",
     Icon: Award,
   },
   {
     id: 'owner-operated',
     title: 'Owner On Every Job',
-    body: 'No salespeople. No middlemen. You deal with the owner from the first estimate to the final walkthrough, and every decision in between.',
+    body: 'No salespeople. No middlemen. Deal with the owner from first estimate to final walkthrough.',
     Icon: Users,
   },
   {
     id: 'guarantee',
     title: '10-Year Guarantee',
-    body: 'Workmanship in writing before a nail is driven. If something is off, we come back and make it right - no fine print, no runaround.',
+    body: "Workmanship in writing before a nail is driven. If something's off, we come back and make it right.",
     Icon: ShieldCheck,
   },
   {
     id: 'insurance',
     title: 'Insurance Claim Experts',
-    body: "We deal with your adjuster directly so you don't have to. No paperwork headaches, no guesswork.",
+    body: "We deal with your adjuster directly so you don't have to. No paperwork headaches.",
     Icon: FileCheck,
   },
 ]
@@ -84,18 +84,19 @@ export function WhySureWest() {
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           <span
-            className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm]"
-            style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
+            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
           >
             Why Sure West
           </span>
 
           <h2
             id="why-sure-west-heading"
-            className="font-display font-semibold leading-[1.05] text-[--color-near-black] mt-6 md:mt-7"
+            className="font-display font-medium text-brand-navy mt-6 md:mt-7"
             style={{
-              fontSize: 'clamp(30px, 3.8vw, 52px)',
-              letterSpacing: '-0.035em',
+              fontSize: 'clamp(32px, 4.5vw, 48px)',
+              lineHeight: 1.15,
+              letterSpacing: '-0.005em',
             }}
           >
             Cochrane&apos;s Red Seal Certified<br />Roofing Contractor

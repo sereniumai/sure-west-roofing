@@ -60,10 +60,7 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Move the Mountain Brand Strip */}
-      <BrandStrip />
-
-      {/* 3. Stats + Certifications */}
+      {/* 2. Stats + Certifications */}
       <TrustLogos />
 
       {/* 3. Services Card Grid */}
@@ -165,7 +162,10 @@ export default function HomePage() {
       {/* 5. Process */}
       <HowItWorks />
 
-      {/* 6. Reviews */}
+      {/* 6. Move the Mountain Brand Strip */}
+      <BrandStrip />
+
+      {/* 7. Reviews */}
       <Reviews />
 
       {/* 7. Our Work (Portfolio) */}

@@ -128,16 +128,17 @@ export function HowItWorks() {
         transition={{ duration: 0.7, ease: EASE_OUT }}
       >
         <span
-          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
-          style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+          className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
         >
           How It Works
         </span>
         <h2
-          className="font-display font-semibold leading-[1.05] max-w-[900px] text-[--color-near-black]"
+          className="font-display font-medium max-w-[900px] text-brand-navy"
           style={{
-            fontSize: 'clamp(30px, 3.8vw, 52px)',
-            letterSpacing: '-0.04em',
+            fontSize: 'clamp(32px, 4.5vw, 48px)',
+            lineHeight: 1.15,
+            letterSpacing: '-0.005em',
           }}
         >
           From Free Estimate to Finished

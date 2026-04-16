@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Star, Quote } from 'lucide-react'
+import { Star, Quote, ChevronRight } from 'lucide-react'
 
 const EASE_OUT = [0.16, 1, 0.3, 1] as const
 
@@ -162,7 +162,7 @@ export function Reviews() {
   return (
     <section
       id="reviews"
-      className="relative bg-white overflow-hidden"
+      className="relative bg-brand-cream overflow-hidden"
       style={{
         paddingTop: 'var(--section-pad-top)',
         paddingBottom: 'var(--section-pad-bot)',
@@ -180,16 +180,17 @@ export function Reviews() {
         transition={{ duration: 0.7, ease: EASE_OUT }}
       >
         <span
-          className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-6"
-          style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
+          className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+          style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
         >
           Client Reviews
         </span>
         <h2
-          className="font-display font-semibold leading-[1.05] max-w-[960px] text-[--color-near-black]"
+          className="font-display font-medium max-w-[960px] text-brand-navy"
           style={{
-            fontSize: 'clamp(30px, 3.8vw, 52px)',
-            letterSpacing: '-0.04em',
+            fontSize: 'clamp(32px, 4.5vw, 48px)',
+            lineHeight: 1.15,
+            letterSpacing: '-0.005em',
           }}
         >
           What Cochrane and Calgary Homeowners
@@ -234,17 +235,27 @@ export function Reviews() {
 
       {/* Two auto-looping marquee rows moving in opposite directions */}
       <div className="relative rounded-[--radius-md] overflow-hidden">
-        {/* Edge fade masks */}
+        {/* Edge fade masks - cream tinted to match section bg */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 z-10"
-          style={{ background: 'linear-gradient(to right, #ffffff, rgba(255,255,255,0))' }}
+          style={{ background: 'linear-gradient(to right, #F7F5F0, rgba(247,245,240,0))' }}
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 z-10"
-          style={{ background: 'linear-gradient(to left, #ffffff, rgba(255,255,255,0))' }}
+          className="pointer-events-none absolute inset-y-0 right-0 w-[100px] z-[2]"
+          style={{
+            background:
+              'linear-gradient(to right, rgba(247,245,240,0) 0%, rgba(247,245,240,1) 80%, rgba(247,245,240,1) 100%)',
+          }}
         />
+        {/* Pulsing chevron scroll indicator */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 z-[3] reviews-pulse"
+        >
+          <ChevronRight className="w-6 h-6 text-brand-gold" strokeWidth={1.5} />
+        </div>
 
         {/* Row A — scroll left */}
         <div className="marquee group" style={{ ['--duration' as string]: '64s' }}>
@@ -310,6 +321,16 @@ export function Reviews() {
           .marquee__track {
             animation: none;
           }
+          :global(.reviews-pulse) {
+            animation: none !important;
+          }
+        }
+        :global(.reviews-pulse) {
+          animation: reviews-pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes reviews-pulse {
+          0%, 100% { transform: translateY(-50%) translateX(0); }
+          50% { transform: translateY(-50%) translateX(-4px); }
         }
       `}</style>
     </section>
