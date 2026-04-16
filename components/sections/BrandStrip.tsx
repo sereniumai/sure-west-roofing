@@ -7,7 +7,7 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 export function BrandStrip() {
   return (
     <section
-      className="bg-brand-cream relative overflow-hidden"
+      className="bg-white relative overflow-hidden"
       style={{
         paddingTop: 'clamp(100px, 12vw, 160px)',
         paddingBottom: 'clamp(100px, 12vw, 160px)',
@@ -15,18 +15,6 @@ export function BrandStrip() {
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      {/* Mountain silhouette background */}
-      <svg
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-auto"
-        viewBox="0 0 1200 400"
-        fill="none"
-        style={{ opacity: 0.06, zIndex: 0 }}
-      >
-        <path d="M0 400 L200 120 L350 260 L500 60 L650 220 L800 100 L950 240 L1100 80 L1200 400 Z" fill="#2C4766" />
-        <path d="M0 400 L150 200 L300 300 L480 140 L600 280 L750 160 L900 280 L1050 180 L1200 400 Z" fill="#2C4766" opacity="0.5" />
-      </svg>
-
       <motion.div
         className="max-w-[1200px] mx-auto text-center relative"
         style={{ zIndex: 1 }}
@@ -45,11 +33,11 @@ export function BrandStrip() {
 
         {/* Outline display type */}
         <p
-          className="font-display font-medium uppercase tracking-[0.05em] mb-10"
+          className="font-display font-medium uppercase tracking-[0.05em] mb-10 whitespace-nowrap"
           style={{
-            fontSize: 'clamp(72px, 10vw, 140px)',
+            fontSize: 'clamp(32px, 6.5vw, 88px)',
             color: 'transparent',
-            WebkitTextStroke: 'clamp(3px, 0.4vw, 4px) #2C4766',
+            WebkitTextStroke: 'clamp(2px, 0.3vw, 4px) #2C4766',
             lineHeight: 1,
           }}
         >
