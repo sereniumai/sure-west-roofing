@@ -54,22 +54,11 @@ export function BottomCTA() {
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8 lg:gap-12 p-8 md:p-12 lg:p-16">
           {/* Left - content */}
           <div className="flex flex-col items-start text-left">
-            {/* Gold eyebrow rule */}
-            <motion.span
-              aria-hidden="true"
-              className="block h-[2px] rounded-full mb-7"
-              style={{ background: 'var(--color-accent, #D4AF60)', width: '48px' }}
-              initial={{ scaleX: 0, opacity: 0 }}
-              whileInView={{ scaleX: 1, opacity: 1 }}
-              viewport={{ once: true, margin: '-80px' }}
-              transition={{ duration: 0.6, ease: EASE_OUT }}
-            />
-
-            <motion.h2
-              className="font-display font-semibold text-[--color-near-black] leading-[1.02]"
+              <motion.h2
+              className="font-display font-semibold text-[--color-near-black] leading-[1.02] max-w-[480px]"
               style={{
-                fontSize: 'clamp(32px, 4vw, 56px)',
-                letterSpacing: '-0.045em',
+                fontSize: 'clamp(30px, 3.5vw, 48px)',
+                letterSpacing: '-0.04em',
               }}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -81,6 +70,21 @@ export function BottomCTA() {
                 You Can Actually Trust?
               </span>
             </motion.h2>
+
+            <motion.p
+              className="mt-5 text-[--color-near-black]/65 leading-[1.65] max-w-[420px]"
+              style={{
+                fontSize: '15px',
+                fontFamily: "'Inter', system-ui, sans-serif",
+                fontWeight: 400,
+              }}
+              initial={{ y: 20, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, delay: 0.18, ease: EASE_OUT }}
+            >
+              Book your free estimate and see why Cochrane homeowners trust Sure West with their roofs.
+            </motion.p>
 
             {/* Bullet chips */}
             <motion.ul
@@ -145,9 +149,9 @@ export function BottomCTA() {
           >
             <StackedCardsInteraction
               cards={CTA_CARDS}
-              spreadDistance={42}
-              rotationAngle={7}
-              restSpread={0.5}
+              spreadDistance={52}
+              rotationAngle={8}
+              restSpread={0.55}
               animationDelay={0.06}
             />
           </motion.div>

@@ -16,7 +16,7 @@ const Card = ({
   return (
     <div
       className={cn(
-        "w-[350px] cursor-pointer h-[400px] overflow-hidden bg-white rounded-2xl shadow-[0_8px_30px_-12px_rgba(26,22,18,0.25)] border border-gray-200/60",
+        "w-[350px] cursor-pointer h-[400px] overflow-hidden bg-white rounded-2xl shadow-[0_12px_40px_-10px_rgba(26,22,18,0.35),0_4px_12px_-4px_rgba(26,22,18,0.12)] border border-gray-200/60",
         className
       )}
     >
