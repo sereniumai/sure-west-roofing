@@ -102,7 +102,7 @@ export function Nav() {
         {/* Logo */}
         <Link href="/" className="relative z-10 flex-shrink-0 py-2">
           <img
-            src={isLight ? '/images/Sure West Dark.png' : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
+            src={isLight ? '/images/Sure West Dark Logo.webp' : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
             alt="Sure West Roofing"
             className="h-12 lg:h-[56px] w-auto"
           />

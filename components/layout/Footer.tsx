@@ -34,7 +34,7 @@ export function Footer() {
             <div className="sm:col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
                 <img
-                  src="/images/Sure West Dark.png"
+                  src="/images/Sure West Dark Logo.webp"
                   alt="Sure West Roofing"
                   className="h-12 md:h-14 w-auto"
                 />
