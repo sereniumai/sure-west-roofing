@@ -16,7 +16,7 @@ const Card = ({
   return (
     <div
       className={cn(
-        "w-[350px] cursor-pointer h-[400px] overflow-hidden bg-white rounded-2xl shadow-[0_0_10px_rgba(0,0,0,0.02)] border border-gray-200/80",
+        "w-[350px] cursor-pointer h-[400px] overflow-hidden bg-white rounded-2xl shadow-[0_8px_30px_-12px_rgba(26,22,18,0.25)] border border-gray-200/60",
         className
       )}
     >
@@ -47,15 +47,17 @@ const StackedCardsInteraction = ({
   spreadDistance = 40,
   rotationAngle = 5,
   animationDelay = 0.1,
+  restSpread = 0.45,
 }: {
   cards: CardData[];
   spreadDistance?: number;
   rotationAngle?: number;
   animationDelay?: number;
+  /** How much of the full spread to show at rest (0-1). Default 0.45. */
+  restSpread?: number;
 }) => {
   const [isHovering, setIsHovering] = useState(false);
 
-  // Limit to maximum of 3 cards
   const limitedCards = cards.slice(0, 3);
 
   return (
@@ -64,16 +66,22 @@ const StackedCardsInteraction = ({
         {limitedCards.map((card, index) => {
           const isFirst = index === 0;
 
-          let xOffset = 0;
-          let rotation = 0;
+          let xHover = 0;
+          let rotHover = 0;
+          let xRest = 0;
+          let rotRest = 0;
 
           if (limitedCards.length > 1) {
             if (index === 1) {
-              xOffset = -spreadDistance;
-              rotation = -rotationAngle;
+              xHover = -spreadDistance;
+              rotHover = -rotationAngle;
+              xRest = -spreadDistance * restSpread;
+              rotRest = -rotationAngle * restSpread;
             } else if (index === 2) {
-              xOffset = spreadDistance;
-              rotation = rotationAngle;
+              xHover = spreadDistance;
+              rotHover = rotationAngle;
+              xRest = spreadDistance * restSpread;
+              rotRest = rotationAngle * restSpread;
             }
           }
 
@@ -81,17 +89,19 @@ const StackedCardsInteraction = ({
             <motion.div
               key={index}
               className={cn("absolute", isFirst ? "z-10" : "z-0")}
-              initial={{ x: 0, rotate: 0 }}
+              initial={{ x: xRest, rotate: rotRest }}
               animate={{
-                x: isHovering ? xOffset : 0,
-                rotate: isHovering ? rotation : 0,
+                x: isHovering ? xHover : xRest,
+                rotate: isHovering ? rotHover : rotRest,
                 zIndex: isFirst ? 10 : 0,
               }}
               transition={{
-                duration: 0.3,
+                duration: 0.35,
                 ease: "easeInOut",
                 delay: index * animationDelay,
                 type: "spring",
+                stiffness: 260,
+                damping: 22,
               }}
               {...(isFirst && {
                 onHoverStart: () => setIsHovering(true),
@@ -102,8 +112,8 @@ const StackedCardsInteraction = ({
                 className={isFirst ? "z-10 cursor-pointer" : "z-0"}
                 image={card.image}
               >
-                <h2>{card.title}</h2>
-                <p>{card.description}</p>
+                <h2 className="font-display font-semibold text-[--color-near-black] text-[15px] tracking-tight">{card.title}</h2>
+                <p className="text-[--color-near-black]/65 text-[13px]" style={{ fontFamily: "'Inter', system-ui, sans-serif" }}>{card.description}</p>
               </Card>
             </motion.div>
           );

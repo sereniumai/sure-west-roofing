@@ -19,14 +19,14 @@ const STEPS: Step[] = [
     number: '01',
     title: 'Step 1 - Book Your Free Estimate',
     description:
-      'We come to your property in Cochrane, Calgary or Canmore, assess the roof thoroughly, and provide a clear itemised written quote. No charge. No obligation. No sales pressure.',
+      'We come to your property in Cochrane, Calgary or Canmore, assess the roof thoroughly, and provide a clear itemised written quote.',
     Icon: ClipboardList,
   },
   {
     number: '02',
     title: 'Step 2 - Approve Your Quote',
     description:
-      'Your quote is fixed. The price you approve is the price you pay. Our Red Seal Journeyman certified crew then schedules your job around you.',
+      'Your quote is fixed. The price you approve is the price you pay. We schedule around you.',
     Icon: FileCheck2,
   },
   {
