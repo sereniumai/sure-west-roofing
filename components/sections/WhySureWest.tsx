@@ -28,19 +28,19 @@ const pillars: Pillar[] = [
   {
     id: 'owner-operated',
     title: 'Owner On Every Job',
-    body: 'No salespeople. No middlemen. Deal with the owner from first estimate to final walkthrough.',
+    body: "No salespeople. No middlemen. Deal with the owner from the first estimate to the final walkthrough.",
     Icon: Users,
   },
   {
     id: 'guarantee',
     title: '10-Year Guarantee',
-    body: "Workmanship in writing before a nail is driven. If something's off, we come back and make it right.",
+    body: "Workmanship in writing before a nail is driven. If something's off, we come back to make it right.",
     Icon: ShieldCheck,
   },
   {
     id: 'insurance',
     title: 'Insurance Claim Experts',
-    body: "We deal with your adjuster directly so you don't have to. No paperwork headaches.",
+    body: "We deal with your adjuster directly so you don't have to. No paperwork headaches, no guesswork.",
     Icon: FileCheck,
   },
 ]
