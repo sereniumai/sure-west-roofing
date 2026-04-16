@@ -77,20 +77,11 @@ function StepCard({ step, index }: { step: Step; index: number }) {
       {/* Content */}
       <div className="p-5 md:p-6">
         <h3
-          className="font-display font-semibold text-[--color-near-black] leading-[1.15]"
-          style={{ fontSize: '22px', letterSpacing: '-0.025em' }}
+          className="font-display font-medium text-brand-navy leading-[1.15] mb-3"
+          style={{ fontSize: '28px', letterSpacing: '-0.01em' }}
         >
           {step.title}
         </h3>
-
-        <motion.span
-          aria-hidden="true"
-          className="block h-[2px] rounded-full mt-2 mb-3 origin-left"
-          style={{ background: 'var(--color-accent, #D4AF60)', width: '40px' }}
-          initial={{ scaleX: 0 }}
-          animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 + index * 0.15, ease: EASE_OUT }}
-        />
 
         <p
           className="text-brand-slate leading-[1.6]"

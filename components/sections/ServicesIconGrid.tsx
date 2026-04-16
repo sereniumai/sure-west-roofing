@@ -10,7 +10,6 @@ import {
   ClipboardCheck,
   ScanSearch,
   Sun,
-  ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -114,21 +113,7 @@ function ServiceCard({
           >
             {service.description}
           </p>
-
-          {/* Arrow bottom-right */}
-          <div className="mt-4 flex justify-end">
-            <ArrowRight
-              className="w-[18px] h-[18px] text-brand-gold transition-transform duration-300 group-hover:translate-x-1"
-              strokeWidth={1.5}
-            />
-          </div>
         </div>
-
-        {/* Gold underline that slides in on hover */}
-        <span
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 h-[2px] w-full bg-brand-gold scale-x-0 origin-left transition-transform duration-300 ease-out group-hover:scale-x-100"
-        />
       </Link>
     </motion.div>
   )
