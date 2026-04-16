@@ -161,16 +161,16 @@ export function Hero({
 
       {/* ── Content ──────────────────────────────────────────────── */}
       <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[80px] sm:pb-[100px] md:pb-[160px]">
-        {/* Giant headline */}
+        {/* Giant headline — NO opacity animation (blocks LCP) */}
         <motion.h1
           className="font-display font-semibold leading-[0.95] md:leading-none text-white"
           style={{
             fontSize: 'var(--text-hero)',
             letterSpacing: '-0.044em',
           }}
-          initial={{ y: 40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: EASE_OUT }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: EASE_OUT }}
         >
           {h1.split('\n').map((line, i) => (
             <span key={i}>
@@ -180,13 +180,13 @@ export function Hero({
           ))}
         </motion.h1>
 
-        {/* Subtitle */}
+        {/* Subtitle — visible on first paint for good LCP */}
         <motion.p
           className="mt-6 leading-relaxed max-w-[640px] text-left text-[16px] md:text-[18px] text-white/90"
           style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 400 }}
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.35, ease: EASE_OUT }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: EASE_OUT }}
         >
           {subtitle}
         </motion.p>
@@ -194,9 +194,9 @@ export function Hero({
         {/* CTAs */}
         <motion.div
           className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto mt-6"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: EASE_OUT }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: EASE_OUT }}
         >
           <Button
             variant="secondary"
