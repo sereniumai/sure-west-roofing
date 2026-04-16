@@ -63,7 +63,7 @@ interface Stat {
 const STATS: Stat[] = [
   { end: 250, suffix: '+', decimals: 0, label: 'Roofs Completed', Icon: Home },
   { end: 1, suffix: ' Day', decimals: 0, label: 'Average Install Time', Icon: Zap },
-  { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating (80+ Reviews)', Icon: Star },
+  { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating', Icon: Star },
   { end: 10, suffix: ' Yr', decimals: 0, label: 'Workmanship Guarantee', Icon: ShieldCheck },
 ]
 
