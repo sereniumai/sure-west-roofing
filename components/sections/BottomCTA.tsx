@@ -117,8 +117,8 @@ export function BottomCTA() {
           {/* Right — image */}
           <div className="relative h-[200px] sm:h-[240px] lg:h-auto lg:min-h-[400px]">
             <Image
-              src="/images/Roof Replacement Cochrane.avif"
-              alt="Roofing contractor working in Cochrane"
+              src="/images/Sure West Roofing in Cochrane.webp"
+              alt="Sure West Roofing in Cochrane"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
