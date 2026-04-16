@@ -54,81 +54,68 @@ const EASE_OUT = [0.16, 1, 0.3, 1] as const
 const STATS = [
   { end: 250, suffix: '+', decimals: 0, label: 'Roofs Completed' },
   { end: 1, suffix: ' Day', decimals: 0, label: 'Average Install Time' },
-  { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating (88 Reviews)' },
+  { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating (80+ Reviews)' },
   { end: 10, suffix: ' Yr', decimals: 0, label: 'Workmanship Guarantee' },
 ]
 
 export function TrustLogos() {
   return (
-    <>
-      {/* ── Stats Band ──────────────────────────────────────────── */}
-      <section
-        className="bg-white"
-        style={{
-          paddingTop: '64px',
-          paddingBottom: '64px',
-          paddingLeft: 'var(--section-pad-x)',
-          paddingRight: 'var(--section-pad-x)',
-        }}
-      >
+    <section
+      className="bg-white"
+      style={{
+        paddingTop: '64px',
+        paddingBottom: '64px',
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+      }}
+      aria-label="Stats and certifications"
+    >
+      <div className="max-w-[1200px] mx-auto">
+        {/* ── Stats ──────────────────────────────────────────────── */}
         <motion.div
-          className="max-w-[1320px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-8"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
           transition={{ duration: 0.7, ease: EASE_OUT }}
         >
-          {STATS.map((stat) => {
-            return (
-              <div key={stat.label} className="flex flex-col items-center text-center">
-                <span
-                  className="font-display font-semibold leading-none text-brand-gold"
-                  style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
-                >
-                  <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2.2} />
-                </span>
-                <span
-                  className="mt-2 text-brand-slate uppercase tracking-[0.1em]"
-                  style={{
-                    fontSize: '12px',
-                    fontFamily: "'Inter', system-ui, sans-serif",
-                    fontWeight: 500,
-                  }}
-                >
-                  {stat.label}
-                </span>
-              </div>
-            )
-          })}
+          {STATS.map((stat) => (
+            <div key={stat.label} className="flex flex-col items-center text-center">
+              <span
+                className="font-display font-semibold leading-none text-brand-gold"
+                style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
+              >
+                <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2.2} />
+              </span>
+              <span
+                className="mt-2 text-brand-slate uppercase tracking-[0.1em]"
+                style={{
+                  fontSize: '12px',
+                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontWeight: 500,
+                }}
+              >
+                {stat.label}
+              </span>
+            </div>
+          ))}
         </motion.div>
-      </section>
 
-      {/* ── Certifications Band ─────────────────────────────────── */}
-      <section
-        className="bg-white border-t border-brand-border"
-        style={{
-          paddingTop: '48px',
-          paddingBottom: '48px',
-          paddingLeft: 'var(--section-pad-x)',
-          paddingRight: 'var(--section-pad-x)',
-        }}
-        aria-label="Certifications and industry accreditations"
-      >
-        <div className="max-w-[1320px] mx-auto">
-          <motion.p
-            className="text-center text-brand-slate uppercase tracking-[0.1em] mb-8"
-            style={{
-              fontSize: '12px',
-              fontFamily: "'Inter', system-ui, sans-serif",
-              fontWeight: 500,
-            }}
+        {/* ── Divider ────────────────────────────────────────────── */}
+        <div className="mx-auto border-t border-brand-border" style={{ width: '80%', marginTop: '48px' }} />
+
+        {/* ── Certifications ─────────────────────────────────────── */}
+        <div className="flex flex-col items-center" style={{ marginTop: '32px' }}>
+          <motion.span
+            className="inline-flex items-center h-8 md:h-9 px-3 md:px-4 text-[13px] md:text-[14px] font-body font-bold uppercase tracking-[0.12em] rounded-[--radius-sm] mb-8"
+            style={{ background: 'rgba(0,0,0,0.04)', color: 'var(--color-accent, #D4AF60)' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.5, ease: EASE_OUT }}
           >
             Certified &amp; Accredited
-          </motion.p>
+          </motion.span>
 
           <motion.ul
             className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
@@ -150,7 +137,7 @@ export function TrustLogos() {
             ))}
           </motion.ul>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

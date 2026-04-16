@@ -216,7 +216,7 @@ export function Reviews() {
               fontFamily: "'Inter', system-ui, sans-serif",
             }}
           >
-            88 Google reviews
+            80+ Google reviews
           </span>
         </div>
 
@@ -267,20 +267,6 @@ export function Reviews() {
           </div>
         </div>
       </div>
-
-      {/* Google reviews link */}
-      <p className="text-center mt-10">
-        <a
-          href="https://www.google.com/maps/place/Sure+West+Roofing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-brand-gold hover:underline hover:underline-offset-2 transition-colors"
-          style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
-        >
-          {/* TODO: replace href with actual Sure West Google Business Profile URL */}
-          Read all 88 reviews on Google &rarr;
-        </a>
-      </p>
       </div>
 
       {/* Inline marquee styles */}

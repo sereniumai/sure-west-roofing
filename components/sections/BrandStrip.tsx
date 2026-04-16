@@ -9,8 +9,8 @@ export function BrandStrip() {
     <section
       className="bg-brand-cream"
       style={{
-        paddingTop: '80px',
-        paddingBottom: '80px',
+        paddingTop: '64px',
+        paddingBottom: '64px',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -27,14 +27,14 @@ export function BrandStrip() {
           style={{
             fontSize: 'clamp(48px, 8vw, 96px)',
             color: 'transparent',
-            WebkitTextStroke: '2px #2C4766',
+            WebkitTextStroke: '3px #2C4766',
             lineHeight: 0.95,
           }}
         >
           Move the Mountain
         </p>
         <p
-          className="text-brand-slate max-w-[600px] mx-auto leading-[1.5]"
+          className="text-brand-slate max-w-[680px] mx-auto leading-[1.5]"
           style={{
             fontSize: '18px',
             fontFamily: "'Inter', system-ui, sans-serif",
