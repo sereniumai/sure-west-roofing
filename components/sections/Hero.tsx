@@ -191,8 +191,7 @@ export function Hero({
           ))}
         </motion.div>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-white/15 my-5 md:my-3.5" />
+        <div className="my-5 md:my-3.5" />
 
         {/* Giant headline */}
         <motion.h1
@@ -213,8 +212,7 @@ export function Hero({
           ))}
         </motion.h1>
 
-        {/* Divider */}
-        <div className="w-full h-px bg-white/15 my-5 md:my-3.5" />
+        <div className="my-5 md:my-3.5" />
 
         {/* Bottom row: CTAs + tagline */}
         <motion.div

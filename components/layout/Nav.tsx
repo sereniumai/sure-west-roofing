@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -46,8 +47,9 @@ const navLinks = [
 ]
 
 export function Nav() {
-  // Every page now uses a light hero, so treat the top nav as light everywhere.
-  const isLightPage = true
+  const pathname = usePathname()
+  // Homepage has a dark video hero; all other pages are light
+  const isLightPage = pathname !== '/'
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
@@ -186,7 +188,7 @@ export function Nav() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex items-center">
-          <Button href="/contact" variant="secondary" size="sm">
+          <Button href="/contact" variant={scrolled || isLightPage ? 'secondary' : 'ghost'} size="sm">
             Get a Free Estimate
           </Button>
         </div>
