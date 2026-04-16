@@ -41,7 +41,7 @@ export function BrandStrip() {
             fontStyle: 'italic',
           }}
         >
-          In every shingle laid, we&rsquo;re not just building roofs &mdash; we&rsquo;re elevating trust.
+          In every shingle laid, we&rsquo;re not just building roofs,we&rsquo;re elevating trust.
         </p>
       </motion.div>
     </section>

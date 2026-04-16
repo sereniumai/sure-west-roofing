@@ -175,37 +175,12 @@ export function Hero({
           {subtitle}
         </motion.p>
 
-        {/* Stacked avatars + trust text */}
-        <motion.div
-          className="flex items-center gap-4 mt-6"
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        >
-          {/* Placeholder avatars — swap with real customer photos */}
-          <div className="flex -space-x-3">
-            {['#8B7355', '#6B8E7B', '#7B8EA6', '#A68B7B', '#8E7BA6'].map((bg, i) => (
-              <div
-                key={i}
-                className="w-10 h-10 rounded-full border-2 border-white"
-                style={{ background: bg }}
-              />
-            ))}
-          </div>
-          <span
-            className="text-white/95"
-            style={{ fontSize: '14px', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500 }}
-          >
-            Trusted by 250+ Cochrane homeowners
-          </span>
-        </motion.div>
-
         {/* CTAs */}
         <motion.div
           className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto mt-6"
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.7, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
         >
           <Button
             variant="secondary"
