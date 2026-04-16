@@ -41,20 +41,22 @@ export function BrandStrip() {
         </h2>
 
         {/* Tagline with decorative gold quotes */}
-        <div className="relative max-w-[460px] mx-auto">
+        <div className="relative max-w-[520px] mx-auto">
           <span
             aria-hidden="true"
-            className="absolute font-display text-brand-gold select-none leading-none"
+            className="absolute text-brand-gold select-none leading-none"
             style={{
-              fontSize: 'clamp(44px, 4vw, 64px)',
-              top: '-0.35em',
-              left: '-0.1em',
+              fontSize: 'clamp(96px, 9vw, 140px)',
+              top: '-0.15em',
+              left: '-0.35em',
+              fontFamily: "'Georgia', 'Times New Roman', serif",
+              fontWeight: 700,
             }}
           >
             &ldquo;
           </span>
           <p
-            className="text-brand-navy leading-[1.5] px-4 md:px-6"
+            className="text-brand-navy leading-[1.5] relative z-10 px-2 md:px-4"
             style={{
               fontSize: 'clamp(16px, 1.5vw, 20px)',
               fontFamily: "'Inter', system-ui, sans-serif",
@@ -66,11 +68,13 @@ export function BrandStrip() {
           </p>
           <span
             aria-hidden="true"
-            className="absolute font-display text-brand-gold select-none leading-none"
+            className="absolute text-brand-gold select-none leading-none"
             style={{
-              fontSize: 'clamp(44px, 4vw, 64px)',
-              bottom: '-0.7em',
-              right: '-0.1em',
+              fontSize: 'clamp(96px, 9vw, 140px)',
+              bottom: '-0.55em',
+              right: '-0.35em',
+              fontFamily: "'Georgia', 'Times New Roman', serif",
+              fontWeight: 700,
             }}
           >
             &rdquo;
