@@ -314,6 +314,12 @@ export function Reviews() {
             transform: translateX(calc(-50% - 10px));
           }
         }
+        @media (max-width: 768px) {
+          /* Slow down on mobile so reviews are readable */
+          .marquee__track {
+            animation-duration: 120s !important;
+          }
+        }
         @media (prefers-reduced-motion: reduce) {
           .marquee__track {
             animation: none;

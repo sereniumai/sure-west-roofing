@@ -44,7 +44,7 @@ export function BrandStrip() {
         <div className="relative max-w-[520px] mx-auto">
           <Quote
             aria-hidden="true"
-            className="absolute text-brand-gold opacity-30"
+            className="hidden md:block absolute text-brand-gold opacity-30"
             style={{
               width: 'clamp(40px, 4vw, 56px)',
               height: 'clamp(40px, 4vw, 56px)',
@@ -66,7 +66,7 @@ export function BrandStrip() {
           </p>
           <Quote
             aria-hidden="true"
-            className="absolute text-brand-gold opacity-30 rotate-180"
+            className="hidden md:block absolute text-brand-gold opacity-30 rotate-180"
             style={{
               width: 'clamp(40px, 4vw, 56px)',
               height: 'clamp(40px, 4vw, 56px)',

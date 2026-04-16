@@ -141,8 +141,17 @@ export function Hero({
           </>
         )}
 
+        {/* Mobile overlay: vertical, more even & darker for legibility */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 md:hidden"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(44,71,102,0.55) 0%, rgba(44,71,102,0.7) 50%, rgba(44,71,102,0.85) 100%)',
+          }}
+        />
+        {/* Desktop overlay: horizontal, fading to right */}
+        <div
+          className="absolute inset-0 hidden md:block"
           style={{
             background:
               'linear-gradient(to right, rgba(44,71,102,0.85) 0%, rgba(44,71,102,0.5) 60%, rgba(44,71,102,0.2) 100%)',

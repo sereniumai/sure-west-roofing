@@ -30,9 +30,9 @@ export function Footer() {
       >
         <div className="mx-auto" style={{ maxWidth: '1320px' }}>
           {/* ── 4-column grid ───────────────────────────────────────── */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
+          <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
             {/* Column 1 — Brand */}
-            <div className="sm:col-span-2 lg:col-span-4">
+            <div className="col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
                 <Image
                   src="/images/Sure West Dark Logo.webp"
@@ -55,7 +55,7 @@ export function Footer() {
             </div>
 
             {/* Column 2 — Services */}
-            <div className="lg:col-span-3">
+            <div className="col-span-1 lg:col-span-3">
               <h4
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
@@ -85,7 +85,7 @@ export function Footer() {
             </div>
 
             {/* Column 3 — Locations */}
-            <div className="lg:col-span-2">
+            <div className="col-span-1 lg:col-span-2">
               <h4
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
@@ -115,7 +115,7 @@ export function Footer() {
             </div>
 
             {/* Column 4 — Contact */}
-            <div className="lg:col-span-3">
+            <div className="col-span-2 lg:col-span-3">
               <h4
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{

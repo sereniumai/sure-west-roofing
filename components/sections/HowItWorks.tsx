@@ -50,19 +50,19 @@ function StepCard({ step, index }: { step: Step; index: number }) {
   return (
     <motion.div
       ref={ref}
-      className="group relative flex flex-col bg-white rounded-[12px] shadow-[0_2px_8px_rgba(44,71,102,0.06)] overflow-hidden"
+      className="group relative flex flex-col bg-white rounded-[12px] shadow-[0_2px_8px_rgba(44,71,102,0.06)] overflow-hidden w-full max-w-full"
       initial={{ y: 40, opacity: 0 }}
       animate={inView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
       transition={{ duration: 0.7, delay: 0.1 + index * 0.15, ease: EASE_OUT }}
     >
       {/* Image */}
-      <div className="relative aspect-[16/10] overflow-hidden">
+      <div className="relative aspect-[16/10] w-full overflow-hidden">
         <Image
           src={step.image}
           alt={step.title}
           fill
           sizes="(max-width: 768px) 100vw, 33vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          className="object-cover transition-transform duration-700 ease-out md:group-hover:scale-105"
         />
         {/* Step badge: gold circle, navy icon */}
         <div
@@ -157,7 +157,7 @@ export function HowItWorks() {
       </motion.div>
 
       {/* ── 3-column step cards with connector ────────────────── */}
-      <div className="max-w-[1200px] mx-auto relative">
+      <div className="max-w-[1200px] mx-auto relative w-full overflow-hidden">
         <div
           aria-hidden="true"
           className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/50"
