@@ -8,15 +8,19 @@ import './globals.css'
 const oswald = Oswald({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['500', '600', '700'],
   variable: '--font-oswald',
+  preload: true,
+  adjustFontFallback: true,
 })
 
 const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['400', '500', '600', '700'],
+  weight: ['400', '500', '600'],
   variable: '--font-inter',
+  preload: false,
+  adjustFontFallback: true,
 })
 
 export const metadata: Metadata = {

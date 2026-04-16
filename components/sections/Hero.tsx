@@ -104,15 +104,17 @@ export function Hero({
     >
       {/* ── Video / image background ─────────────────────────────── */}
       <div className="absolute inset-0 z-0">
-        {/* Static image for mobile (no video download) + desktop video */}
+        {/* Static image: LCP on mobile, poster fallback on desktop while video loads */}
         {backgroundImage && (
           <Image
             src={backgroundImage}
             alt=""
             fill
             priority
-            sizes="100vw"
-            className={`object-cover ${backgroundVideo ? 'md:hidden' : ''}`}
+            fetchPriority="high"
+            sizes="(max-width: 768px) 100vw, 100vw"
+            quality={75}
+            className="object-cover"
             style={{ objectPosition: 'center 30%' }}
           />
         )}
@@ -121,6 +123,7 @@ export function Hero({
             <video
               ref={videoARef}
               src={backgroundVideo}
+              poster={backgroundImage}
               autoPlay
               muted
               playsInline
@@ -133,7 +136,7 @@ export function Hero({
               src={backgroundVideo}
               muted
               playsInline
-              preload="metadata"
+              preload="none"
               aria-hidden="true"
               className="absolute inset-0 w-full h-full object-cover hidden md:block"
               style={{ objectPosition: 'center 30%', opacity: 0, transition: 'opacity 60ms linear' }}
@@ -161,16 +164,13 @@ export function Hero({
 
       {/* ── Content ──────────────────────────────────────────────── */}
       <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[80px] sm:pb-[100px] md:pb-[160px]">
-        {/* Giant headline — NO opacity animation (blocks LCP) */}
-        <motion.h1
+        {/* Giant headline — rendered statically, this is the LCP element */}
+        <h1
           className="font-display font-semibold leading-[0.95] md:leading-none text-white"
           style={{
             fontSize: 'var(--text-hero)',
             letterSpacing: '-0.044em',
           }}
-          initial={{ y: 16 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1, ease: EASE_OUT }}
         >
           {h1.split('\n').map((line, i) => (
             <span key={i}>
@@ -178,7 +178,7 @@ export function Hero({
               {line}
             </span>
           ))}
-        </motion.h1>
+        </h1>
 
         {/* Subtitle — visible on first paint for good LCP */}
         <motion.p
