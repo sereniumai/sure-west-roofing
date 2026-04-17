@@ -48,7 +48,7 @@ const pillars: Pillar[] = [
 ]
 
 const VIMEO_ID = '917317949'
-const THUMBNAIL = '/images/Sure West Roofing - Founders Video.png'
+const THUMBNAIL = '/images/Sure West Roofing - Founders Video.webp'
 
 export function WhySureWest() {
   const [playing, setPlaying] = useState(false)
