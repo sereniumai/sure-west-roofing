@@ -2,10 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { EASE_OUT } from '@/lib/animations'
 
 interface HeroProps {
   h1: string
@@ -119,8 +117,8 @@ export function Hero({
             fill
             priority
             fetchPriority="high"
-            sizes="100vw"
-            quality={70}
+            sizes="(max-width: 768px) 100vw, 1px"
+            quality={55}
             className={`object-cover ${backgroundVideo ? 'md:hidden' : ''}`}
             style={{ objectPosition: 'center 30%' }}
           />
@@ -219,22 +217,14 @@ export function Hero({
       </div>
 
       {/* ── Scroll down indicator — decorative, below the fold ──── */}
-      <motion.div
-        className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.2, ease: EASE_OUT }}
+      <div
+        className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 hero-scroll-hint"
       >
         <span className="font-body text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">
           Scroll
         </span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <ChevronDown className="w-5 h-5 text-white/45" strokeWidth={1.5} />
-        </motion.div>
-      </motion.div>
+        <ChevronDown className="w-5 h-5 text-white/45 hero-scroll-bounce" strokeWidth={1.5} />
+      </div>
     </section>
   )
 }

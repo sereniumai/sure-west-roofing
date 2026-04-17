@@ -68,7 +68,7 @@ body {
   font-weight: 700;
   color: var(--brand-navy);
   background-color: #FFFFFF;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ── Headings ────────────────────────────────── */
@@ -107,7 +107,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* Firefox */
-* {
+html {
   scrollbar-width: thin;
   scrollbar-color: var(--brand-gold) var(--brand-cream);
 }
@@ -270,6 +270,26 @@ a { text-decoration: none; color: inherit; }
 
 .section-label::after {
   content: none;
+}
+
+/* ── Hero scroll hint — pure CSS, no JS hydration ─ */
+
+.hero-scroll-hint {
+  animation: hero-scroll-fade 0.6s ease-out 1.2s both;
+}
+
+.hero-scroll-bounce {
+  animation: hero-scroll-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes hero-scroll-fade {
+  from { opacity: 0; transform: translate(-50%, -10px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@keyframes hero-scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
 }
 
 /* ── Reduced motion ──────────────────────────── */

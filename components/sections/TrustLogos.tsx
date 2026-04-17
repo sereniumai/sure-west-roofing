@@ -135,8 +135,11 @@ export function TrustLogos() {
                 <Image
                   src={logo.src}
                   alt={logo.alt}
-                  width={200}
+                  width={140}
                   height={60}
+                  sizes="140px"
+                  quality={80}
+                  loading="lazy"
                   className="h-full w-auto object-contain"
                 />
               </li>

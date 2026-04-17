@@ -5,6 +5,7 @@ const nextConfig = {
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
   experimental: {
+    optimizeCss: true,
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   images: {

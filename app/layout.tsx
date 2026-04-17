@@ -8,7 +8,7 @@ import './globals.css'
 const oswald = Oswald({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['500', '600', '700'],
+  weight: ['600'],
   variable: '--font-oswald',
   preload: true,
   adjustFontFallback: true,
@@ -36,7 +36,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${oswald.variable} ${inter.variable}`}>
-      <head>
+      <body>
+        <MotionProvider>
+          <Nav />
+          <main>{children}</main>
+          <Footer />
+        </MotionProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -122,13 +127,6 @@ export default function RootLayout({
             ])
           }}
         />
-      </head>
-      <body>
-        <MotionProvider>
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-        </MotionProvider>
       </body>
     </html>
   )
