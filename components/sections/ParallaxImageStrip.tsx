@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { m, useScroll, useTransform } from 'framer-motion'
 
 interface ParallaxImageStripProps {
   src: string
@@ -18,20 +17,7 @@ export function ParallaxImageStrip({
   const videoARef = useRef<HTMLVideoElement>(null)
   const videoBRef = useRef<HTMLVideoElement>(null)
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  })
-
-  // Gentle parallax, motion content is taller than the container, shifts ±120px
-  const y = useTransform(scrollYProgress, [0, 1], ['120px', '-120px'])
-
   // Seamless cinematic loop using a dual-video crossfade.
-  // Both videos share the same source. While video A plays, it fades
-  // into video B (rewound to 0) during the final OVERLAP seconds,
-  // then B becomes the active track and the process reverses. This
-  // completely hides the HTMLMediaElement loop seam and gives a
-  // premium, uninterrupted motion feel.
   useEffect(() => {
     if (!video) return
 
@@ -65,7 +51,6 @@ export function ParallaxImageStrip({
 
       if (handoffArmed && remaining <= OVERLAP) {
         handoffArmed = false
-        // Kick off the inactive track from the start
         inactive.currentTime = 0
         const playPromise = inactive.play()
         if (playPromise) playPromise.catch(() => {})
@@ -84,7 +69,6 @@ export function ParallaxImageStrip({
     const onEnded = (e: Event) => {
       const v = e.currentTarget as HTMLVideoElement
       if (v !== active) return
-      // Snap the faded-out track back to the start for its next turn
       active.style.opacity = '0'
       inactive.style.opacity = '1'
       active.currentTime = 0
@@ -120,66 +104,65 @@ export function ParallaxImageStrip({
         }}
       >
         <div className="relative mx-auto w-full max-w-[1320px] h-auto md:h-[650px] aspect-video md:aspect-auto overflow-hidden rounded-[--radius-lg]">
-        <m.div
-          className="w-full h-full relative"
-          style={{
-            height: 'calc(100% + 240px)',
-            marginTop: '-120px',
-            y,
-          }}
-        >
-          {video ? (
-            <>
-              <video
-                ref={videoARef}
-                src={video}
-                autoPlay
-                muted
-                playsInline
-                preload="auto"
-                aria-label={alt}
-                className="absolute inset-0 w-full h-full object-cover bg-black"
-                style={{
-                  objectPosition: 'center 30%',
-                  opacity: 1,
-                  transition: 'opacity 60ms linear',
-                  willChange: 'opacity',
-                }}
+          <div
+            className="w-full h-full relative"
+            style={{
+              height: 'calc(100% + 240px)',
+              marginTop: '-120px',
+            }}
+          >
+            {video ? (
+              <>
+                <video
+                  ref={videoARef}
+                  src={video}
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="auto"
+                  aria-label={alt}
+                  className="absolute inset-0 w-full h-full object-cover bg-black"
+                  style={{
+                    objectPosition: 'center 30%',
+                    opacity: 1,
+                    transition: 'opacity 60ms linear',
+                    willChange: 'opacity',
+                  }}
+                />
+                <video
+                  ref={videoBRef}
+                  src={video}
+                  muted
+                  playsInline
+                  preload="auto"
+                  aria-hidden="true"
+                  className="absolute inset-0 w-full h-full object-cover bg-black"
+                  style={{
+                    objectPosition: 'center 30%',
+                    opacity: 0,
+                    transition: 'opacity 60ms linear',
+                    willChange: 'opacity',
+                  }}
+                />
+                {/* Subtle top and bottom vignette for cinematic framing */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 82%, rgba(0,0,0,0.25) 100%)',
+                  }}
+                />
+              </>
+            ) : (
+              <img
+                src={src}
+                alt={alt}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: 'center 30%' }}
+                draggable={false}
               />
-              <video
-                ref={videoBRef}
-                src={video}
-                muted
-                playsInline
-                preload="auto"
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover bg-black"
-                style={{
-                  objectPosition: 'center 30%',
-                  opacity: 0,
-                  transition: 'opacity 60ms linear',
-                  willChange: 'opacity',
-                }}
-              />
-              {/* Subtle top and bottom vignette for cinematic framing */}
-              <div
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    'linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 18%, rgba(0,0,0,0) 82%, rgba(0,0,0,0.25) 100%)',
-                }}
-              />
-            </>
-          ) : (
-            <img
-              src={src}
-              alt={alt}
-              className="w-full h-full object-cover"
-              style={{ objectPosition: 'center 30%' }}
-              draggable={false}
-            />
-          )}
-        </m.div>
+            )}
+          </div>
         </div>
       </div>
     </section>

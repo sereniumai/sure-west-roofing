@@ -2,8 +2,6 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { m } from 'framer-motion'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import {
   Award,
   Users,
@@ -75,13 +73,7 @@ export function WhySureWest() {
 
       <div className="relative max-w-[1320px] mx-auto">
         {/* ── Header: eyebrow + h2 + sub (full width, centred) ──── */}
-        <m.div
-          className="flex flex-col items-center text-center max-w-[920px] mx-auto"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.7, ease: EASE_OUT }}
-        >
+        <div className="flex flex-col items-center text-center max-w-[920px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
@@ -112,28 +104,18 @@ export function WhySureWest() {
             Every roofing contractor in Cochrane says they are the best.
             Here is what actually sets Sure West apart.
           </p>
-        </m.div>
+        </div>
 
         {/* ── Two-column split: cards left, video right ─────────── */}
         <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* LEFT: 2 x 2 cards, height matches the video */}
-          <m.ul
-            className="grid h-full grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr"
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={VIEWPORT}
-            transition={{ duration: 0.7, ease: EASE_OUT }}
-          >
-            {pillars.map((p, i) => {
+          <ul className="grid h-full grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr">
+            {pillars.map((p) => {
               const { Icon } = p
               return (
-                <m.li
+                <li
                   key={p.id}
                   className="group relative flex flex-col h-full rounded-[12px] border border-brand-border bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(44,71,102,0.12)] hover:border-brand-gold/40"
-                  initial={{ y: 14, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={VIEWPORT}
-                  transition={{ duration: 0.5, delay: 0.1 + i * 0.07, ease: EASE_OUT }}
                 >
                   {/* Icon + title inline */}
                   <div className="flex items-center gap-2.5">
@@ -169,18 +151,13 @@ export function WhySureWest() {
                   >
                     {p.body}
                   </p>
-                </m.li>
+                </li>
               )
             })}
-          </m.ul>
+          </ul>
 
           {/* RIGHT: video */}
-          <m.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={VIEWPORT}
-            transition={{ duration: 0.8, delay: 0.1, ease: EASE_OUT }}
-          >
+          <div>
             <div className="relative">
               {/* Warm gold halo */}
               <div
@@ -260,7 +237,7 @@ export function WhySureWest() {
                 )}
               </div>
             </div>
-          </m.div>
+          </div>
         </div>
       </div>
     </section>

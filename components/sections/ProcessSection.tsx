@@ -1,8 +1,5 @@
 'use client'
 
-import { m, useInView } from 'framer-motion'
-import { useRef } from 'react'
-
 interface Step {
   number: number
   title: string
@@ -16,24 +13,14 @@ interface ProcessSectionProps {
 }
 
 export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
-  const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
-
   return (
     <section
-      ref={sectionRef}
       className="bg-white overflow-hidden"
       style={{ padding: 'var(--section-pad-top) var(--section-pad-x) var(--section-pad-bot)' }}
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
-        <m.div
-          className="text-center max-w-3xl mx-auto mb-14"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Our Process
           </span>
@@ -45,47 +32,27 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
               {body}
             </p>
           )}
-        </m.div>
+        </div>
 
         {/* Steps */}
         <div className="relative">
           {/* Connecting line, desktop */}
           <div className="hidden lg:block absolute top-20 left-[16%] right-[16%] h-px bg-[#E8E8E8]">
-            <m.div
-              className="h-full bg-[#D4AF60]"
-              initial={{ width: '0%' }}
-              animate={isInView ? { width: '100%' } : { width: '0%' }}
-              transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            />
+            <div className="h-full bg-[#D4AF60] w-full" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8">
             {steps.map((step, i) => (
-              <m.div
+              <div
                 key={step.number}
                 className="relative text-center"
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-30px' }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
               >
                 {/* Step number circle */}
-                <m.div
-                  className="w-16 h-16 bg-brand-navy flex items-center justify-center mx-auto mb-6 relative z-10 rounded-full"
-                  initial={{ scale: 0 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 20,
-                    delay: i * 0.2 + 0.1,
-                  }}
-                >
+                <div className="w-16 h-16 bg-brand-navy flex items-center justify-center mx-auto mb-6 relative z-10 rounded-full">
                   <span className="font-display font-semibold text-2xl text-[#D4AF60]">
                     {step.number}
                   </span>
-                </m.div>
+                </div>
 
                 <h3 className="font-display font-semibold text-brand-navy text-xl tracking-tight mb-3">
                   {step.title}
@@ -93,7 +60,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
                 <p className="font-body text-sm text-[#5A7A9A] leading-relaxed max-w-xs mx-auto">
                   {step.description}
                 </p>
-              </m.div>
+              </div>
             ))}
           </div>
         </div>

@@ -1,10 +1,8 @@
 'use client'
 
 import Image from 'next/image'
-import { m } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 const BULLETS = [
   'Free on-site estimate',
@@ -36,17 +34,13 @@ export function BottomCTA() {
         />
 
         {/* Main card */}
-        <m.div
+        <div
           className="relative rounded-[20px] md:rounded-[24px] overflow-hidden grid grid-cols-1 lg:grid-cols-2"
           style={{
             background: '#FFFFFF',
             boxShadow:
               '0 0 0 1px rgba(212,175,96,0.12), 0 2px 8px rgba(26,22,18,0.04), 0 20px 60px -20px rgba(26,22,18,0.12)',
           }}
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.75, ease: EASE_OUT }}
         >
           {/* Left — content */}
           <div className="flex flex-col items-start justify-center px-6 sm:px-8 md:px-12 lg:px-14 py-10 sm:py-12 md:py-16 lg:py-20">
@@ -122,7 +116,7 @@ export function BottomCTA() {
               style={{ objectPosition: 'center 30%' }}
             />
           </div>
-        </m.div>
+        </div>
       </div>
     </section>
   )

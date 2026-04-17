@@ -46,7 +46,7 @@ export default function GalleryPage() {
               letterSpacing: '-0.04em',
             }}
           >
-            Recent Roofing Projects
+            Roofing Projects Cochrane, Calgary & Canmore
           </h1>
           <p
             className="mt-6 max-w-[560px] text-[15px] md:text-[17px] leading-relaxed text-[--color-near-black]/70"

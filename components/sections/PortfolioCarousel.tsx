@@ -1,9 +1,7 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import ImageRevealWide from '@/components/ui/image-reveal-wide'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 interface PortfolioImage {
   src: string
@@ -50,16 +48,12 @@ export function PortfolioCarousel({
 
       <div className="relative">
         {/* ── Header (constrained to 1320px like other sections) ─────── */}
-        <m.div
+        <div
           className="flex flex-col items-center text-center max-w-[1320px] mx-auto"
           style={{
             paddingLeft: 'var(--section-pad-x)',
             paddingRight: 'var(--section-pad-x)',
           }}
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.7, ease: EASE_OUT }}
         >
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -96,20 +90,14 @@ export function PortfolioCarousel({
               View Full Gallery
             </Button>
           </div>
-        </m.div>
+        </div>
 
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
-        <m.div
-          className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.9, delay: 0.15, ease: EASE_OUT }}
-        >
+        <div className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto">
           <div className="scale-[0.75] sm:scale-[0.9] md:scale-100 lg:scale-110 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
-        </m.div>
+        </div>
       </div>
     </section>
   )

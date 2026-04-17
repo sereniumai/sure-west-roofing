@@ -2,8 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { m, useInView } from 'framer-motion'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import { Home, Zap, Star, ShieldCheck, type LucideIcon } from 'lucide-react'
 
 function CountUp({
@@ -18,20 +16,30 @@ function CountUp({
   duration?: number
 }) {
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-60px' })
-  const [value, setValue] = useState(0)
+  const [value, setValue] = useState(end)
 
   useEffect(() => {
-    if (!inView) return
-    const startTime = performance.now()
-    const step = (now: number) => {
-      const elapsed = Math.min((now - startTime) / (duration * 1000), 1)
-      const ease = 1 - Math.pow(1 - elapsed, 3)
-      setValue(end * ease)
-      if (elapsed < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
-  }, [inView, end, duration])
+    const el = ref.current
+    if (!el) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        observer.disconnect()
+        const startTime = performance.now()
+        const step = (now: number) => {
+          const elapsed = Math.min((now - startTime) / (duration * 1000), 1)
+          const ease = 1 - Math.pow(1 - elapsed, 3)
+          setValue(end * ease)
+          if (elapsed < 1) requestAnimationFrame(step)
+        }
+        requestAnimationFrame(step)
+      },
+      { rootMargin: '-60px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [end, duration])
 
   return (
     <span ref={ref}>
@@ -79,13 +87,7 @@ export function TrustLogos() {
     >
       <div className="max-w-[960px] mx-auto">
         {/* ── Stats ──────────────────────────────────────────────── */}
-        <m.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.7, ease: EASE_OUT }}
-        >
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6">
           {STATS.map((stat) => {
             return (
               <div key={stat.label} className="flex flex-col items-center text-center">
@@ -108,28 +110,18 @@ export function TrustLogos() {
               </div>
             )
           })}
-        </m.div>
+        </div>
 
         {/* ── Certifications ─────────────────────────────────────── */}
         <div className="flex flex-col items-center" style={{ marginTop: '64px' }}>
-          <m.span
+          <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-8 text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={VIEWPORT}
-            transition={{ duration: 0.5, ease: EASE_OUT }}
           >
             Certified &amp; Accredited
-          </m.span>
+          </span>
 
-          <m.ul
-            className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={VIEWPORT}
-            transition={{ duration: 0.65, delay: 0.08, ease: EASE_OUT }}
-          >
+          <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
             {logos.map((logo) => (
               <li key={logo.src} className="flex items-center justify-center h-[60px]">
                 <Image
@@ -144,7 +136,7 @@ export function TrustLogos() {
                 />
               </li>
             ))}
-          </m.ul>
+          </ul>
         </div>
       </div>
     </section>

@@ -1,8 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { Star, Quote, ChevronRight } from 'lucide-react'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 interface Review {
   stars: number
@@ -169,13 +167,7 @@ export function Reviews() {
     >
       <div className="mx-auto" style={{ maxWidth: '1320px' }}>
       {/* Header */}
-      <m.div
-        className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={VIEWPORT}
-        transition={{ duration: 0.7, ease: EASE_OUT }}
-      >
+      <div className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto">
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
           style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
@@ -228,7 +220,7 @@ export function Reviews() {
         >
           Here is what homeowners across Cochrane, Calgary and Canmore say.
         </p>
-      </m.div>
+      </div>
 
       {/* Two auto-looping marquee rows moving in opposite directions */}
       <div className="relative rounded-[--radius-md] overflow-hidden">

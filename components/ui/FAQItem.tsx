@@ -1,6 +1,5 @@
 'use client'
 
-import { AnimatePresence, m } from 'framer-motion'
 import { Plus } from 'lucide-react'
 
 interface FAQItemProps {
@@ -36,22 +35,16 @@ export function FAQItem({
         />
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <m.div
-            id={`faq-answer-${index}`}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="overflow-hidden"
-          >
-            <p className="font-body text-sm text-body-text leading-relaxed pb-5 pr-8">
-              {answer}
-            </p>
-          </m.div>
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div
+          id={`faq-answer-${index}`}
+          className="overflow-hidden"
+        >
+          <p className="font-body text-sm text-body-text leading-relaxed pb-5 pr-8">
+            {answer}
+          </p>
+        </div>
+      )}
     </div>
   )
 }

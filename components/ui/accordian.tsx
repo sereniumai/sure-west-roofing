@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
-import { m } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -22,7 +21,7 @@ interface AccordianProps {
 
 /**
  * Compact single-open accordion. Small title, plus-to-minus indicator,
- * thin hairline rules between items, framer-motion height transitions.
+ * thin hairline rules between items.
  * Designed to sit inline inside a section (no card wrapper).
  */
 export function Accordian({ items, defaultOpen = null, className }: AccordianProps) {
@@ -41,14 +40,13 @@ export function Accordian({ items, defaultOpen = null, className }: AccordianPro
         return (
           <div key={id} className="relative">
             {/* Gold rail when open */}
-            <m.span
-              aria-hidden="true"
-              className="absolute left-0 top-0 bottom-0 w-[2px] origin-top pointer-events-none"
-              style={{ background: 'var(--color-accent, #D4AF60)' }}
-              initial={false}
-              animate={{ scaleY: isOpen ? 1 : 0, opacity: isOpen ? 1 : 0 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            />
+            {isOpen && (
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-0 bottom-0 w-[2px] pointer-events-none"
+                style={{ background: 'var(--color-accent, #D4AF60)' }}
+              />
+            )}
 
             <button
               type="button"
@@ -94,21 +92,20 @@ export function Accordian({ items, defaultOpen = null, className }: AccordianPro
               </span>
             </button>
 
-            <m.div
-              id={`accordian-panel-${id}`}
-              role="region"
-              initial={false}
-              animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
-              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-              style={{ overflow: 'hidden' }}
-            >
+            {isOpen && (
               <div
-                className="px-4 md:px-5 pb-5 pt-0 text-[14.5px] leading-[1.7] text-[--color-near-black]/70"
-                style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+                id={`accordian-panel-${id}`}
+                role="region"
+                style={{ overflow: 'hidden' }}
               >
-                {content}
+                <div
+                  className="px-4 md:px-5 pb-5 pt-0 text-[14.5px] leading-[1.7] text-[--color-near-black]/70"
+                  style={{ fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+                >
+                  {content}
+                </div>
               </div>
-            </m.div>
+            )}
           </div>
         )
       })}

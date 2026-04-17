@@ -1,6 +1,5 @@
 'use client'
 
-import { m, Variants } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
@@ -21,9 +20,6 @@ interface ImageRevealWideProps {
   stepRot?: number
 }
 
-const spring = { type: 'spring' as const, stiffness: 120, damping: 12 }
-const hoverSpring = { type: 'spring' as const, stiffness: 200, damping: 15 }
-
 const CARD =
   'absolute w-56 h-56 md:w-64 md:h-64 overflow-hidden rounded-xl shadow-[0_20px_50px_-20px_rgba(26,22,18,0.45)] bg-white'
 
@@ -40,21 +36,8 @@ export default function ImageRevealWide({
 
   const mid = (images.length - 1) / 2
 
-  const containerVariants: Variants = {
-    initial: { opacity: 0 },
-    animate: {
-      opacity: 1,
-      transition: { delay: 0.15, staggerChildren: 0.08 },
-    },
-  }
-
   return (
-    <m.div
-      className="relative flex items-center justify-center w-full h-80 md:h-96"
-      variants={containerVariants}
-      initial="initial"
-      animate="animate"
-    >
+    <div className="relative flex items-center justify-center w-full h-80 md:h-96">
       {images.map((src, i) => {
         const offset = i - mid
         const x = offset * stepX
@@ -63,25 +46,14 @@ export default function ImageRevealWide({
         // Centre card sits on top; cards further out recede.
         const z = 100 - Math.abs(offset)
 
-        const cardVariants: Variants = {
-          initial: { rotate: 0, x: 0, y: 0 },
-          animate: { rotate: rot, x, y, transition: spring },
-          hover: {
-            rotate: rot * 0.4,
-            x,
-            y: y - 14,
-            transition: hoverSpring,
-          },
-        }
-
         return (
-          <m.div
+          <div
             key={i}
             className={`${CARD} ${offset <= 0 ? 'origin-bottom-right' : 'origin-bottom-left'}`}
-            variants={cardVariants}
-            whileHover="hover"
-            animate="animate"
-            style={{ zIndex: z }}
+            style={{
+              zIndex: z,
+              transform: `translateX(${x}px) translateY(${y}px) rotate(${rot}deg)`,
+            }}
           >
             <div className={IMG_WRAP}>
               <Image
@@ -94,9 +66,9 @@ export default function ImageRevealWide({
                 className={IMG}
               />
             </div>
-          </m.div>
+          </div>
         )
       })}
-    </m.div>
+    </div>
   )
 }

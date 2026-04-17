@@ -5,12 +5,12 @@ import Image from 'next/image'
 import { Phone, MapPin, MessageSquare, ClipboardList } from 'lucide-react'
 
 const services = [
-  { label: 'Roof Replacement', href: '/services/roof-replacement/cochrane' },
-  { label: 'Roof Repair', href: '/services/roof-repair/cochrane' },
-  { label: 'Hail Damage Repair', href: '/services/hail-damage-repair/cochrane' },
-  { label: 'Roof Maintenance', href: '/services/roof-maintenance/cochrane' },
-  { label: 'Roof Inspection', href: '/services/roof-inspection/cochrane' },
-  { label: 'Skylight Installation', href: '/services/skylight-installation/cochrane' },
+  { label: 'Roof Replacement', href: '/roof-replacement' },
+  { label: 'Roof Repair', href: '/roof-repair' },
+  { label: 'Hail Damage Repair', href: '/hail-damage-repair' },
+  { label: 'Roof Maintenance', href: '/roof-maintenance' },
+  { label: 'Roof Inspection', href: '/roof-inspection' },
+  { label: 'Skylight Installation', href: '/skylight-installation' },
 ]
 
 const locations = [

@@ -23,37 +23,37 @@ const serviceLinks = [
   {
     label: 'Roof Replacement',
     description: 'Premium materials built for Alberta weather',
-    href: '/services/roof-replacement/cochrane',
+    href: '/roof-replacement',
     Icon: Home,
   },
   {
     label: 'Roof Repair',
     description: 'Back to normal, fast',
-    href: '/services/roof-repair/cochrane',
+    href: '/roof-repair',
     Icon: Wrench,
   },
   {
     label: 'Hail Damage Repair',
     description: 'We handle your insurance claim',
-    href: '/services/hail-damage-repair/cochrane',
+    href: '/hail-damage-repair',
     Icon: CloudHail,
   },
   {
     label: 'Roof Maintenance',
     description: "Extend your roof's lifespan",
-    href: '/services/roof-maintenance/cochrane',
+    href: '/roof-maintenance',
     Icon: Shield,
   },
   {
     label: 'Roof Inspection',
     description: 'Catch problems before they get expensive',
-    href: '/services/roof-inspection/cochrane',
+    href: '/roof-inspection',
     Icon: Search,
   },
   {
     label: 'Skylight Installation',
     description: 'Brighten your home with natural light',
-    href: '/services/skylight-installation/cochrane',
+    href: '/skylight-installation',
     Icon: Sun,
   },
 ]

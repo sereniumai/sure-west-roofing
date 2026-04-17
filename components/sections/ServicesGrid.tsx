@@ -3,7 +3,6 @@
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { m, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -50,13 +49,7 @@ export function ServicesGrid({
     <section className="bg-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
-        <m.div
-          className="mb-12"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="mb-12">
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D4AF60] mb-3 block">
             {label}
           </span>
@@ -72,7 +65,7 @@ export function ServicesGrid({
           <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-3xl">
             {body}
           </p>
-        </m.div>
+        </div>
 
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
@@ -90,11 +83,7 @@ export function ServicesGrid({
               >
                 {service.title}
                 {active === i && (
-                  <m.div
-                    layoutId="activeServiceUnderline"
-                    className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#D4AF60] rounded-t-full"
-                    transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                  />
+                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#D4AF60] rounded-t-full" />
                 )}
               </button>
             ))}
@@ -104,27 +93,18 @@ export function ServicesGrid({
           <div className="relative">
             {/* Image container */}
             <div className="relative w-full h-[600px] rounded-2xl overflow-hidden">
-              <AnimatePresence mode="wait">
-                <m.div
-                  key={active}
-                  initial={{ opacity: 0, scale: 1.03 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute inset-0"
-                >
-                  {current?.image && (
-                    <Image
-                      src={current.image}
-                      alt={current.imageAlt || current.title}
-                      fill
-                      className="object-cover"
-                      sizes="90vw"
-                      priority
-                    />
-                  )}
-                </m.div>
-              </AnimatePresence>
+              <div className="absolute inset-0">
+                {current?.image && (
+                  <Image
+                    src={current.image}
+                    alt={current.imageAlt || current.title}
+                    fill
+                    className="object-cover"
+                    sizes="90vw"
+                    priority
+                  />
+                )}
+              </div>
               {/* Subtle vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
             </div>
@@ -135,48 +115,40 @@ export function ServicesGrid({
                 {/* Gold accent bar */}
                 <div className="absolute top-0 left-8 right-8 h-[3px] bg-gradient-to-r from-[#D4AF60] to-[#B8943F] rounded-b-full" />
 
-                <AnimatePresence mode="wait">
-                  <m.div
-                    key={active}
-                    initial={{ opacity: 0, y: 15 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    {/* Counter */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <span className="font-display font-bold text-xs text-[#D4AF60] tracking-widest">
-                        {String(active + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
-                      </span>
-                      <div className="flex-1 h-px bg-[#E8E8E8]" />
-                    </div>
+                <div>
+                  {/* Counter */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="font-display font-bold text-xs text-[#D4AF60] tracking-widest">
+                      {String(active + 1).padStart(2, '0')} / {String(services.length).padStart(2, '0')}
+                    </span>
+                    <div className="flex-1 h-px bg-[#E8E8E8]" />
+                  </div>
 
-                    <h3 className="font-display font-semibold text-2xl text-dark tracking-tight leading-tight mb-3">
-                      {current.title}
-                    </h3>
-                    <p className="font-body text-body-text text-[15px] leading-relaxed mb-5">
-                      {current.description}
-                    </p>
+                  <h3 className="font-display font-semibold text-2xl text-dark tracking-tight leading-tight mb-3">
+                    {current.title}
+                  </h3>
+                  <p className="font-body text-body-text text-[15px] leading-relaxed mb-5">
+                    {current.description}
+                  </p>
 
-                    {/* Features */}
-                    {current.features && current.features.length > 0 && (
-                      <ul className="space-y-2.5 mb-6">
-                        {current.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2.5">
-                            <div className="w-5 h-5 rounded-full bg-[#D4AF60]/10 flex items-center justify-center flex-shrink-0">
-                              <Check className="w-3 h-3 text-[#D4AF60]" />
-                            </div>
-                            <span className="font-body text-sm text-body-text">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                  {/* Features */}
+                  {current.features && current.features.length > 0 && (
+                    <ul className="space-y-2.5 mb-6">
+                      {current.features.map((feature) => (
+                        <li key={feature} className="flex items-center gap-2.5">
+                          <div className="w-5 h-5 rounded-full bg-[#D4AF60]/10 flex items-center justify-center flex-shrink-0">
+                            <Check className="w-3 h-3 text-[#D4AF60]" />
+                          </div>
+                          <span className="font-body text-sm text-body-text">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-                    <Button variant="primary" href={current.href}>
-                      {current.title} <ArrowRight className="w-4 h-4 ml-2 inline" />
-                    </Button>
-                  </m.div>
-                </AnimatePresence>
+                  <Button variant="primary" href={current.href}>
+                    {current.title} <ArrowRight className="w-4 h-4 ml-2 inline" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -184,14 +156,8 @@ export function ServicesGrid({
 
         {/* Mobile: Stacked cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:hidden">
-          {services.map((service, i) => (
-            <m.div
-              key={service.href}
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-            >
+          {services.map((service) => (
+            <div key={service.href}>
               <Link
                 href={service.href}
                 className="group relative block rounded-xl overflow-hidden min-h-[200px]"
@@ -216,7 +182,7 @@ export function ServicesGrid({
                   </span>
                 </div>
               </Link>
-            </m.div>
+            </div>
           ))}
         </div>
       </div>

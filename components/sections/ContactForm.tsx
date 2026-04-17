@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { m } from 'framer-motion'
 import { Send, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react'
 
 const services = [
@@ -216,12 +215,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <m.div
-        className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-8 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-      >
+      <div className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-8 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
         <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 className="w-8 h-8 text-green-500" />
         </div>
@@ -233,18 +227,12 @@ export function ContactForm() {
           phone. One of our certified roofers will be in touch within
           24&nbsp;hours to schedule your free consultation.
         </p>
-      </m.div>
+      </div>
     )
   }
 
   return (
-    <m.div
-      className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-6 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]"
-      initial={{ y: 30, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={{ once: true, margin: '-80px' }}
-      transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-    >
+    <div className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-6 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
       <h2 className="font-display font-bold text-xl lg:text-2xl text-dark tracking-tight mb-6">
         Request Your Free Estimate
       </h2>
@@ -416,15 +404,10 @@ export function ContactForm() {
 
         {/* Server error */}
         {status === 'error' && serverError && (
-          <m.div
-            className="flex items-start gap-2.5 bg-red-50 text-red-700 rounded-[--radius-sm] px-4 py-3"
-            initial={{ opacity: 0, y: -5 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
+          <div className="flex items-start gap-2.5 bg-red-50 text-red-700 rounded-[--radius-sm] px-4 py-3">
             <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5" />
             <p className="font-body text-sm">{serverError}</p>
-          </m.div>
+          </div>
         )}
 
         {/* Submit */}
@@ -478,6 +461,6 @@ export function ContactForm() {
           . You can unsubscribe at any time by replying STOP.
         </p>
       </form>
-    </m.div>
+    </div>
   )
 }

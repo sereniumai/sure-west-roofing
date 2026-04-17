@@ -4,9 +4,10 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   reactStrictMode: true,
+  transpilePackages: ['@21st-extension/toolbar'],
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: ['lucide-react'],
   },
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -53,36 +54,20 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      {
-        source: '/roof-replacement-cochrane',
-        destination: '/services/roof-replacement/cochrane',
-        permanent: true,
-      },
-      {
-        source: '/roof-repair-cochrane',
-        destination: '/services/roof-repair/cochrane',
-        permanent: true,
-      },
-      {
-        source: '/hail-damage-repair-cochrane',
-        destination: '/services/hail-damage-repair/cochrane',
-        permanent: true,
-      },
-      {
-        source: '/roof-maintenance-cochrane',
-        destination: '/services/roof-maintenance/cochrane',
-        permanent: true,
-      },
-      {
-        source: '/roof-inspection-cochrane',
-        destination: '/services/roof-inspection/cochrane',
-        permanent: true,
-      },
-      {
-        source: '/skylight-installation-cochrane',
-        destination: '/services/skylight-installation/cochrane',
-        permanent: true,
-      },
+      // Slug-style legacy URLs → canonical service pages (single hop)
+      { source: '/roof-replacement-cochrane',      destination: '/roof-replacement',   permanent: true },
+      { source: '/roof-repair-cochrane',           destination: '/roof-repair',        permanent: true },
+      { source: '/hail-damage-repair-cochrane',    destination: '/hail-damage-repair', permanent: true },
+      { source: '/roof-maintenance-cochrane',      destination: '/roof-maintenance',   permanent: true },
+      { source: '/roof-inspection-cochrane',       destination: '/roof-inspection',    permanent: true },
+      { source: '/skylight-installation-cochrane', destination: '/skylight-installation', permanent: true },
+      // Old nested URL structure → canonical service pages
+      { source: '/services/roof-replacement/cochrane',      destination: '/roof-replacement',   permanent: true },
+      { source: '/services/roof-repair/cochrane',           destination: '/roof-repair',        permanent: true },
+      { source: '/services/hail-damage-repair/cochrane',    destination: '/hail-damage-repair', permanent: true },
+      { source: '/services/roof-maintenance/cochrane',      destination: '/roof-maintenance',   permanent: true },
+      { source: '/services/roof-inspection/cochrane',       destination: '/roof-inspection',    permanent: true },
+      { source: '/services/skylight-installation/cochrane', destination: '/skylight-installation', permanent: true },
     ]
   },
 }

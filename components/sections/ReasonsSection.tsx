@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { m } from 'framer-motion'
 import { Check, Play } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -40,13 +39,7 @@ export function ReasonsSection({
     <section className="bg-[#F7F5F0] py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header, full width, same as ServicesGrid */}
-        <m.div
-          className="mb-10"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="mb-10">
           <span className="font-body text-xs font-semibold tracking-widest uppercase text-[#D4AF60] mb-3 block">
             {label}
           </span>
@@ -62,7 +55,7 @@ export function ReasonsSection({
           <p className="font-body text-body-text leading-relaxed mt-4 text-lg">
             {body}
           </p>
-        </m.div>
+        </div>
 
         {/* Grid, 5/7 split, content left, video right */}
         <div className="grid grid-cols-12 gap-5 items-start">
@@ -70,13 +63,9 @@ export function ReasonsSection({
           <div className="col-span-12 lg:col-span-5 bg-[#F7F5F0] rounded-2xl p-6 lg:p-8 flex flex-col justify-center border border-[#E8E8E8]">
             <div className="flex flex-col gap-4">
               {points.map((point, i) => (
-                <m.div
+                <div
                   key={i}
                   className="flex items-start gap-3"
-                  initial={{ y: 15, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  viewport={{ once: true, margin: '-30px' }}
-                  transition={{ duration: 0.5, delay: i * 0.1, ease: 'easeOut' }}
                 >
                   <div className="w-5 h-5 rounded-full bg-[#D4AF60]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <Check className="w-3 h-3 text-[#D4AF60]" />
@@ -89,7 +78,7 @@ export function ReasonsSection({
                       {point.description}
                     </p>
                   </div>
-                </m.div>
+                </div>
               ))}
             </div>
 

@@ -3,6 +3,8 @@ import { Oswald, Inter } from 'next/font/google'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
 import { MotionProvider } from '@/components/MotionProvider'
+import dynamic from 'next/dynamic'
+const DevToolbar = dynamic(() => import('@/components/DevToolbar').then(m => m.DevToolbar), { ssr: false })
 import './globals.css'
 
 const oswald = Oswald({
@@ -35,12 +37,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${oswald.variable} ${inter.variable}`}>
+    <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
         <MotionProvider>
           <Nav />
           <main>{children}</main>
           <Footer />
+          <DevToolbar />
         </MotionProvider>
         <script
           type="application/ld+json"

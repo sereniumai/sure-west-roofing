@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import type { BlogPost } from '@/lib/types'
@@ -28,30 +27,19 @@ export function BlogPreview({
     <section className="bg-white py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <m.div
-          className="mb-14"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="mb-14">
           <h2 className="font-display font-semibold text-3xl lg:text-[44px] text-dark tracking-tight leading-tight">
             {heading}
           </h2>
           <p className="font-body text-body-text leading-relaxed mt-4 max-w-2xl">
             {body}
           </p>
-        </m.div>
+        </div>
 
         {/* Magazine layout: featured large + 2 stacked */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
           {/* Featured post, large */}
-          <m.div
-            initial={{ y: 30, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          >
+          <div>
             <Link
               href={`/blog/${featured.slug}`}
               className="group block bg-white rounded-2xl overflow-hidden border border-[#E8E8E8] bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-500 h-full"
@@ -84,18 +72,12 @@ export function BlogPreview({
                 </span>
               </div>
             </Link>
-          </m.div>
+          </div>
 
           {/* Smaller posts, stacked */}
           <div className="flex flex-col gap-7">
-            {rest.map((post, i) => (
-              <m.div
-                key={post.slug}
-                initial={{ y: 30, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.5, delay: (i + 1) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-              >
+            {rest.map((post) => (
+              <div key={post.slug}>
                 <Link
                   href={`/blog/${post.slug}`}
                   className="group flex flex-col sm:flex-row bg-white rounded-2xl overflow-hidden border border-[#E8E8E8] bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:-translate-y-0.5 transition-all duration-500"
@@ -125,23 +107,17 @@ export function BlogPreview({
                     </span>
                   </div>
                 </Link>
-              </m.div>
+              </div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <m.div
-          className="text-center mt-14"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <div className="text-center mt-14">
           <Button variant="outline" href={cta.href}>
             {cta.label}
           </Button>
-        </m.div>
+        </div>
       </div>
     </section>
   )

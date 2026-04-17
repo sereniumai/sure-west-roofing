@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef } from 'react'
-import { m } from 'framer-motion'
 import { Star } from 'lucide-react'
 import type { Testimonial } from '@/lib/types'
 
@@ -30,13 +29,7 @@ export function TestimonialsSection({
     >
       <div style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Header */}
-        <m.div
-          className="text-center max-w-3xl mx-auto mb-14"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Client Reviews
           </span>
@@ -46,29 +39,16 @@ export function TestimonialsSection({
           <p className="font-body text-white/50 font-normal leading-relaxed mt-4">
             {body}
           </p>
-        </m.div>
+        </div>
       </div>
 
-      {/* Draggable horizontal carousel */}
-      <div ref={constraintRef} className="w-full overflow-hidden" style={{ padding: '0 var(--section-pad-x)' }}>
-        <m.div
-          className="flex gap-6 cursor-grab active:cursor-grabbing"
-          drag="x"
-          dragConstraints={constraintRef}
-          dragElastic={0.1}
-        >
+      {/* Horizontal scrollable carousel */}
+      <div ref={constraintRef} className="w-full overflow-x-auto" style={{ padding: '0 var(--section-pad-x)' }}>
+        <div className="flex gap-6">
           {testimonials.map((testimonial, i) => (
-            <m.div
+            <div
               key={testimonial.name}
               className="bg-[#111111] p-8 border border-white/5 flex flex-col min-w-[320px] md:min-w-[380px] lg:min-w-[420px] flex-shrink-0 select-none rounded-[--radius-md]"
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: '-50px' }}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.1,
-                ease: [0.16, 1, 0.3, 1],
-              }}
             >
               {/* Stars */}
               <div className="flex gap-1 mb-6">
@@ -107,26 +87,21 @@ export function TestimonialsSection({
                   </p>
                 </div>
               </div>
-            </m.div>
+            </div>
           ))}
-        </m.div>
+        </div>
       </div>
 
-      {/* Drag hint + Google Reviews link */}
+      {/* Scroll hint + Google Reviews link */}
       <div className="w-full mt-8 flex flex-col sm:flex-row items-center justify-between gap-4" style={{ padding: '0 var(--section-pad-x)' }}>
         <div className="bg-white/5 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white/40 flex items-center gap-2">
           <span>&lsaquo;</span>
-          <span>Drag to see more</span>
+          <span>Scroll to see more</span>
           <span>&rsaquo;</span>
         </div>
 
         {googleReviewsUrl && (
-          <m.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
+          <div>
             <a
               href={googleReviewsUrl}
               target="_blank"
@@ -149,7 +124,7 @@ export function TestimonialsSection({
                 <line x1="10" y1="14" x2="21" y2="3" />
               </svg>
             </a>
-          </m.div>
+          </div>
         )}
       </div>
     </section>

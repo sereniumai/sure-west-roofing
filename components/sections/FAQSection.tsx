@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { m, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { generateFAQSchema } from '@/lib/faq-schema'
 import type { FAQItem as FAQItemType } from '@/lib/types'
@@ -38,13 +37,7 @@ export function FAQSection({
 
       <div className="max-w-6xl mx-auto" style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Header */}
-        <m.div
-          className="text-center max-w-3xl mx-auto mb-14"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             FAQs
           </span>
@@ -54,16 +47,10 @@ export function FAQSection({
           <p className="font-body text-[#5A7A9A] leading-relaxed mt-4">
             {body}
           </p>
-        </m.div>
+        </div>
 
         {/* FAQ accordion */}
-        <m.div
-          className="max-w-3xl mx-auto"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="max-w-3xl mx-auto">
           <div className="bg-white border border-[#E8E8E8] overflow-hidden rounded-[--radius-md]">
             {faqs.map((faq, index) => (
               <div
@@ -91,22 +78,14 @@ export function FAQSection({
                   </div>
                 </button>
 
-                <AnimatePresence initial={false}>
-                  {index === openIndex && (
-                    <m.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="overflow-hidden"
-                    >
-                      <p
-                        className="font-body text-sm text-[#5A7A9A] leading-relaxed px-6 pb-6 pr-16 [&_a]:text-[#D4AF60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
-                        dangerouslySetInnerHTML={{ __html: faq.answer }}
-                      />
-                    </m.div>
-                  )}
-                </AnimatePresence>
+                {index === openIndex && (
+                  <div className="overflow-hidden">
+                    <p
+                      className="font-body text-sm text-[#5A7A9A] leading-relaxed px-6 pb-6 pr-16 [&_a]:text-[#D4AF60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
+                      dangerouslySetInnerHTML={{ __html: faq.answer }}
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -120,7 +99,7 @@ export function FAQSection({
               Contact us
             </Link>
           </p>
-        </m.div>
+        </div>
       </div>
     </section>
   )

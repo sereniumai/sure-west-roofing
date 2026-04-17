@@ -11,52 +11,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: 'https://surewestroofing.ca/about',
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
       url: 'https://surewestroofing.ca/services',
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: 'https://surewestroofing.ca/services/roof-replacement/cochrane',
+      url: 'https://surewestroofing.ca/about',
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://surewestroofing.ca/services/roof-repair/cochrane',
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://surewestroofing.ca/services/hail-damage-repair/cochrane',
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://surewestroofing.ca/services/roof-maintenance/cochrane',
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://surewestroofing.ca/services/roof-inspection/cochrane',
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://surewestroofing.ca/services/skylight-installation/cochrane',
-      lastModified,
-      changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.8,
     },
     {
       url: 'https://surewestroofing.ca/gallery',
@@ -71,10 +35,40 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: 'https://surewestroofing.ca/roofing-cost-calculator',
+      url: 'https://surewestroofing.ca/roof-replacement',
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.9,
+    },
+    {
+      url: 'https://surewestroofing.ca/roof-repair',
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://surewestroofing.ca/hail-damage-repair',
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://surewestroofing.ca/roof-maintenance',
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://surewestroofing.ca/roof-inspection',
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
+      url: 'https://surewestroofing.ca/skylight-installation',
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
     },
     {
       url: 'https://surewestroofing.ca/roofing-contractor-calgary',
@@ -87,6 +81,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    {
+      url: 'https://surewestroofing.ca/roofing-cost-calculator',
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: 'https://surewestroofing.ca/privacy-policy',
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: 'https://surewestroofing.ca/terms-conditions',
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ]
 }

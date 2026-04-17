@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { m } from "framer-motion";
 import { useState } from "react";
 
 const Card = ({
@@ -39,7 +38,6 @@ const StackedCardsInteraction = ({
   cards,
   spreadDistance = 40,
   rotationAngle = 5,
-  animationDelay = 0.1,
   restSpread = 0.45,
 }: {
   cards: CardData[];
@@ -77,34 +75,26 @@ const StackedCardsInteraction = ({
             }
           }
 
+          const currentX = isHovering ? xHover : xRest;
+          const currentRot = isHovering ? rotHover : rotRest;
+
           return (
-            <m.div
+            <div
               key={index}
-              className={cn("absolute", isFirst ? "z-10" : "z-0")}
-              initial={{ x: xRest, rotate: rotRest }}
-              animate={{
-                x: isHovering ? xHover : xRest,
-                rotate: isHovering ? rotHover : rotRest,
-                zIndex: isFirst ? 10 : 0,
-              }}
-              transition={{
-                duration: 0.35,
-                ease: "easeInOut",
-                delay: index * animationDelay,
-                type: "spring",
-                stiffness: 260,
-                damping: 22,
+              className={cn("absolute transition-all duration-300 ease-in-out", isFirst ? "z-10" : "z-0")}
+              style={{
+                transform: `translateX(${currentX}px) rotate(${currentRot}deg)`,
               }}
               {...(isFirst && {
-                onHoverStart: () => setIsHovering(true),
-                onHoverEnd: () => setIsHovering(false),
+                onMouseEnter: () => setIsHovering(true),
+                onMouseLeave: () => setIsHovering(false),
               })}
             >
               <Card
                 className={isFirst ? "z-10 cursor-pointer" : "z-0"}
                 image={card.image}
               />
-            </m.div>
+            </div>
           );
         })}
       </div>

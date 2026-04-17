@@ -2,8 +2,6 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { m } from 'framer-motion'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import {
   Hammer,
   Wrench,
@@ -11,8 +9,10 @@ import {
   ClipboardCheck,
   ScanSearch,
   Sun,
+  ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 interface ServiceReview {
   quote: string
@@ -33,6 +33,7 @@ interface ServicesIconGridProps {
   eyebrow?: string
   heading: string
   body?: string
+  cta?: { label: string; href: string }
   services: ServiceCardItem[]
 }
 
@@ -48,74 +49,68 @@ function iconFor(title: string): LucideIcon {
   return Hammer
 }
 
-function ServiceCard({
-  service,
-  delay,
-}: {
-  service: ServiceCardItem
-  delay: number
-}) {
+function ServiceCard({ service }: { service: ServiceCardItem }) {
   const Icon = iconFor(service.title)
 
   return (
-    <m.div
-      initial={{ y: 20, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      viewport={VIEWPORT}
-      transition={{ duration: 0.55, delay, ease: EASE_OUT }}
-      className="h-full"
-    >
-      <Link
-        href={service.href}
-        className="group relative flex flex-col h-full rounded-[12px] bg-white overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-300 ease-out hover:-translate-y-[6px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)]"
-      >
-        {/* Image at top - fixed 200px */}
-        <div className="relative h-[200px] overflow-hidden">
-          <Image
-            src={service.image}
-            alt={service.imageAlt}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.08]"
-          />
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"
-          />
+    <div className="group flex flex-col h-full rounded-[12px] bg-white border border-brand-border overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[6px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
+      {/* Image */}
+      <div className="relative h-[200px] overflow-hidden flex-shrink-0">
+        <Image
+          src={service.image}
+          alt={service.imageAlt}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+          loading="lazy"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="flex flex-col flex-1 p-5 md:p-6">
+        {/* Heading row */}
+        <div className="flex items-center gap-3 mb-3">
+          <Icon className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold" strokeWidth={1.5} />
+          <h3
+            className="font-display font-semibold text-brand-navy leading-[1.25] flex-1"
+            style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
+          >
+            {service.title}
+          </h3>
         </div>
 
-        {/* Content */}
-        <div className="flex flex-col flex-1 p-5">
-          {/* Heading row — icon + title */}
-          <div className="flex items-center gap-3">
-            <Icon
-              className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold"
-              strokeWidth={1.5}
-            />
-            <h3
-              className="font-display font-semibold leading-[1.25] flex-1 text-brand-navy transition-colors duration-300 group-hover:text-brand-gold"
-              style={{
-                fontSize: '22px',
-                letterSpacing: '-0.02em',
-              }}
-            >
-              {service.title}
-            </h3>
-          </div>
+        <p
+          className="text-brand-slate leading-[1.6] flex-1"
+          style={{
+            fontSize: '14px',
+            fontFamily: "var(--font-inter), system-ui, sans-serif",
+            fontWeight: 400,
+          }}
+        >
+          {service.description}
+        </p>
 
-          <p
-            className="mt-2 text-brand-slate leading-[1.5] flex-1"
+        {/* CTA link */}
+        <div className="mt-4 pt-4 border-t border-brand-border">
+          <Link
+            href={service.href}
+            className="inline-flex items-center gap-1.5 font-semibold text-brand-gold hover:text-[#B8943F] transition-colors duration-200"
             style={{
-              fontSize: '14px',
+              fontSize: '13px',
               fontFamily: "var(--font-inter), system-ui, sans-serif",
-              fontWeight: 400,
+              textDecoration: 'none',
             }}
           >
-            {service.description}
-          </p>
+            {service.title}
+            <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
+          </Link>
         </div>
-      </Link>
-    </m.div>
+      </div>
+    </div>
   )
 }
 
@@ -123,6 +118,7 @@ export function ServicesIconGrid({
   eyebrow = 'Our Services',
   heading,
   body,
+  cta,
   services,
 }: ServicesIconGridProps) {
   return (
@@ -134,13 +130,7 @@ export function ServicesIconGrid({
       }}
     >
       {/* ── Header ───────────────────────────────────────────────── */}
-      <m.div
-        className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={VIEWPORT}
-        transition={{ duration: 0.7, ease: EASE_OUT }}
-      >
+      <div className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto">
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
           style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
@@ -174,17 +164,21 @@ export function ServicesIconGrid({
             {body}
           </p>
         )}
-      </m.div>
+        {cta && (
+          <div className="mt-7">
+            <Button variant="primary" size="lg" href={cta.href}>
+              {cta.label}
+            </Button>
+          </div>
+        )}
+      </div>
 
       {/* ── 3 x 2 service card grid ──────────────────────────────── */}
       <div className="max-w-[1320px] mx-auto">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-fr">
-          {services.map((service, i) => (
+          {services.map((service) => (
             <li key={service.title} className="h-full">
-              <ServiceCard
-                service={service}
-                delay={0.05 + i * 0.06}
-              />
+              <ServiceCard service={service} />
             </li>
           ))}
         </ul>

@@ -2,10 +2,8 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { m, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 interface FAQ {
   question: string
@@ -53,7 +51,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         In the majority of cases - yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs. We work directly with your insurance adjuster and handle the documentation. Learn more on our{' '}
-        <Link href="/services/hail-damage-repair/cochrane" className="faq-link">
+        <Link href="/hail-damage-repair" className="faq-link">
           hail damage repair Cochrane
         </Link>{' '}
         page.
@@ -67,7 +65,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         Most residential roof replacements in Cochrane range from $8,000 to $18,000 depending on roof size, pitch, and material choice. We provide a fully itemised written quote after a free inspection with no obligation to proceed. See our{' '}
-        <Link href="/services/roof-replacement/cochrane" className="faq-link">
+        <Link href="/roof-replacement" className="faq-link">
           roof replacement Cochrane
         </Link>{' '}
         page for details.
@@ -91,7 +89,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         Yes. Our Red Seal certified team carries out full roof and attic inspections across Cochrane, Calgary and Canmore. An inspection gives you the full picture before small issues become expensive repairs. Book your{' '}
-        <Link href="/services/roof-inspection/cochrane" className="faq-link">
+        <Link href="/roof-inspection" className="faq-link">
           roof inspections Cochrane
         </Link>{' '}
         assessment today.
@@ -105,7 +103,7 @@ const FAQS: FAQ[] = [
     answer: (
       <>
         Absolutely. Not every roof needs a full replacement. Our Red Seal Journeyman team carries out all types of roof repair in Cochrane and Calgary - from minor leaks and missing shingles to full section repairs and flashing work. See our{' '}
-        <Link href="/services/roof-repair/cochrane" className="faq-link">
+        <Link href="/roof-repair" className="faq-link">
           roof repair Cochrane
         </Link>{' '}
         page for more.
@@ -139,7 +137,7 @@ export function HomeFAQ() {
       id="faq"
       className="relative overflow-hidden py-20 md:py-24"
       style={{
-        background: '#F7F5F0',
+        background: '#FFFFFF',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -152,13 +150,7 @@ export function HomeFAQ() {
 
       <div className="mx-auto" style={{ maxWidth: '1320px' }}>
         {/* ── Header ─────────────────────────────────────────────── */}
-        <m.div
-          className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[960px] mx-auto"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.7, ease: EASE_OUT }}
-        >
+        <div className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[960px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
@@ -187,27 +179,15 @@ export function HomeFAQ() {
           </p>
 
           {/* CTA directly under sub-copy */}
-          <m.div
-            className="mt-8"
-            initial={{ y: 16, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={VIEWPORT}
-            transition={{ duration: 0.55, delay: 0.25, ease: EASE_OUT }}
-          >
+          <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
               Get a Free Estimate
             </Button>
-          </m.div>
-        </m.div>
+          </div>
+        </div>
 
         {/* ── Two-column FAQ list (minimal line style) ───────────── */}
-        <m.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 mt-4"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={VIEWPORT}
-          transition={{ duration: 0.55, delay: 0.1, ease: EASE_OUT }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 mt-4">
           {columns.map((col, colIdx) => (
             <ul key={colIdx} className="flex flex-col">
               {col.map((faq) => {
@@ -247,34 +227,26 @@ export function HomeFAQ() {
                       </span>
                     </button>
 
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <m.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.32, ease: EASE_OUT }}
-                          className="overflow-hidden"
+                    {isOpen && (
+                      <div className="overflow-hidden">
+                        <div
+                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6]"
+                          style={{
+                            fontSize: '15px',
+                            fontFamily: "var(--font-inter), system-ui, sans-serif",
+                            fontWeight: 400,
+                          }}
                         >
-                          <div
-                            className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6]"
-                            style={{
-                              fontSize: '15px',
-                              fontFamily: "var(--font-inter), system-ui, sans-serif",
-                              fontWeight: 400,
-                            }}
-                          >
-                            {faq.answer}
-                          </div>
-                        </m.div>
-                      )}
-                    </AnimatePresence>
+                          {faq.answer}
+                        </div>
+                      </div>
+                    )}
                   </li>
                 )
               })}
             </ul>
           ))}
-        </m.div>
+        </div>
 
         <p
           className="text-center mt-10 text-brand-slate"

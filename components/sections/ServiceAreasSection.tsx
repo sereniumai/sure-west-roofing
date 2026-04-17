@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -29,13 +28,7 @@ export function ServiceAreasSection() {
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
-        <m.div
-          className="text-center mb-12"
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div className="text-center mb-12">
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
             Service Areas
           </span>
@@ -47,22 +40,14 @@ export function ServiceAreasSection() {
             Based in Cochrane, Alberta. We serve homeowners across the Bow Valley
             corridor and the Calgary region.
           </p>
-        </m.div>
+        </div>
 
         {/* Location cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {areas.map((area, i) => (
-            <m.div
+          {areas.map((area) => (
+            <div
               key={area.name}
               className="group bg-[#F7F5F0] p-8 border border-[#E8E8E8] text-center hover:-translate-y-2 hover:border-[#D4AF60]/20 transition-all duration-500 rounded-[--radius-md]"
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true, margin: '-30px' }}
-              transition={{
-                duration: 0.6,
-                delay: i * 0.15,
-                ease: [0.16, 1, 0.3, 1],
-              }}
             >
               <div className="w-12 h-12 bg-brand-navy group-hover:bg-[#D4AF60] flex items-center justify-center mx-auto mb-5 transition-colors duration-500 rounded-[--radius-sm]">
                 <MapPin className="w-5 h-5 text-white" />
@@ -76,7 +61,7 @@ export function ServiceAreasSection() {
               <Button variant="primary" size="sm" href={area.href}>
                 {area.linkText}
               </Button>
-            </m.div>
+            </div>
           ))}
         </div>
       </div>

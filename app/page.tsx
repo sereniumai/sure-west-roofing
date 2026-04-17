@@ -85,12 +85,13 @@ export default function HomePage() {
         eyebrow="What We Do"
         heading={'Every Roofing Service.\nOne Standard.'}
         body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job."
+        cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
-            href: '/services/roof-replacement/cochrane',
+            href: '/roof-replacement',
             description:
-              "Complete tear-off and replacement using premium materials built for Alberta weather.",
+              'Red Seal Journeyman certified tear-off and re-roof using IKO materials and a 10-year workmanship warranty. Most Cochrane jobs completed in a single day.',
             image: '/images/Roof Replacement Cochrane.avif',
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
@@ -102,9 +103,9 @@ export default function HomePage() {
           },
           {
             title: 'Roof Repair',
-            href: '/services/roof-repair/cochrane',
+            href: '/roof-repair',
             description:
-              'Fast, Journeyman-approved repairs that get you back to normal without the stress.',
+              'Cracked shingles, active leaks, failed flashing, or ice dam damage: our Cochrane roof repair crew diagnoses the cause and fixes it right the first time.',
             image: '/images/Roof Repair Cochrane.avif',
             imageAlt: 'Roof repair Cochrane AB',
             review: {
@@ -116,9 +117,9 @@ export default function HomePage() {
           },
           {
             title: 'Hail Damage Repair',
-            href: '/services/hail-damage-repair/cochrane',
+            href: '/hail-damage-repair',
             description:
-              'Alberta storms hit hard. We handle your insurance claim end-to-end and deal directly with your adjuster.',
+              'We assess the damage, document everything, and manage your insurance adjuster from first call to final sign-off. No out-of-pocket cost to get started.',
             image: '/images/Roof Repair Cochrane.avif',
             imageAlt: 'Hail damage repair Cochrane AB',
             review: {
@@ -130,9 +131,9 @@ export default function HomePage() {
           },
           {
             title: 'Roof Maintenance',
-            href: '/services/roof-maintenance/cochrane',
+            href: '/roof-maintenance',
             description:
-              "Extend your roof's life and prevent costly repairs with expert ongoing maintenance.",
+              'Scheduled visits, flashing top-ups, debris clearing, and minor repairs before they become major ones. The smartest way to extend the life of your Cochrane roof.',
             image: '/images/Roof Replacement Cochrane.avif',
             imageAlt: 'Roof maintenance Cochrane AB',
             review: {
@@ -144,9 +145,9 @@ export default function HomePage() {
           },
           {
             title: 'Roof Inspection',
-            href: '/services/roof-inspection/cochrane',
+            href: '/roof-inspection',
             description:
-              'Red Seal certified roof and attic inspections that catch small issues before they get expensive.',
+              'Buying, selling, or overdue for a check: our Cochrane roof inspection covers every surface and the attic below, with a written report and photos.',
             image: '/images/Roof Inspection Cochrane.avif',
             imageAlt: 'Roof inspection Cochrane AB',
             review: {
@@ -158,9 +159,9 @@ export default function HomePage() {
           },
           {
             title: 'Skylight Installation',
-            href: '/services/skylight-installation/cochrane',
+            href: '/skylight-installation',
             description:
-              'Brighten your home with natural light. Properly installed by a Journeyman certified team.',
+              'Natural light without the leaks. Our Cochrane skylight installation covers new units, full replacements, and resealing, all waterproofed and flashed to manufacturer spec.',
             image: '/images/Roof Installation Cochrane.avif',
             imageAlt: 'Skylight installation Cochrane AB',
             review: {

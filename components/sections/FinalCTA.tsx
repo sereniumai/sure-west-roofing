@@ -1,6 +1,5 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
 export function FinalCTA() {
@@ -43,12 +42,7 @@ export function FinalCTA() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <m.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        >
+        <div>
           <h2 className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-[80px] tracking-[-0.04em] leading-[1.05] text-white">
             You Click, We Climb.{' '}
             <span className="text-[#D4AF60]">Deal?</span>
@@ -57,22 +51,16 @@ export function FinalCTA() {
             Book your free roof inspection today. No pressure, no obligation,
             just an honest assessment from a certified Cochrane roofing contractor.
           </p>
-        </m.div>
+        </div>
 
-        <m.div
-          className="flex flex-wrap justify-center gap-4 mt-10"
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+        <div className="flex flex-wrap justify-center gap-4 mt-10">
           <Button variant="secondary" size="lg" href="/free-roof-estimate-cochrane">
             Get a Free Estimate
           </Button>
           <Button variant="ghost" size="lg" href="/services">
             Explore Our Services
           </Button>
-        </m.div>
+        </div>
       </div>
     </section>
   )

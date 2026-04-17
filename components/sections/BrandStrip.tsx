@@ -1,8 +1,6 @@
 'use client'
 
-import { m } from 'framer-motion'
 import { Quote } from 'lucide-react'
-import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
 export function BrandStrip() {
   return (
@@ -13,13 +11,9 @@ export function BrandStrip() {
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      <m.div
+      <div
         className="max-w-[1200px] mx-auto text-center relative"
         style={{ zIndex: 1 }}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={VIEWPORT}
-        transition={{ duration: 0.7, ease: EASE_OUT }}
       >
         {/* Pre-title pill */}
         <span
@@ -76,7 +70,7 @@ export function BrandStrip() {
             strokeWidth={1.5}
           />
         </div>
-      </m.div>
+      </div>
     </section>
   )
 }
