@@ -86,7 +86,7 @@ const REVIEWS: Review[] = [
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex items-center gap-[3px]" aria-label={`${count} out of 5 stars`}>
+    <div className="flex items-center gap-[3px]" role="img" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}

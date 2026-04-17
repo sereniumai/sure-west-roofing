@@ -7,7 +7,7 @@ const config: Config = {
       colors: {
         'brand-gold': '#D4AF60',
         'brand-navy': '#2C4766',
-        'brand-slate': '#5A7A9A',
+        'brand-slate': '#4D6A87',
         'brand-cream': '#F7F5F0',
         'brand-border': '#E8E8E8',
         accent: '#D4AF60',

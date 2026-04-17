@@ -56,7 +56,7 @@ export function Footer() {
 
             {/* Column 2 — Services */}
             <div className="col-span-1 lg:col-span-3">
-              <h4
+              <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
@@ -65,7 +65,7 @@ export function Footer() {
                 }}
               >
                 Services
-              </h4>
+              </h3>
               <ul className="flex flex-col gap-3">
                 {services.map((s) => (
                   <li key={s.href}>
@@ -86,7 +86,7 @@ export function Footer() {
 
             {/* Column 3 — Locations */}
             <div className="col-span-1 lg:col-span-2">
-              <h4
+              <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
@@ -95,7 +95,7 @@ export function Footer() {
                 }}
               >
                 Locations
-              </h4>
+              </h3>
               <ul className="flex flex-col gap-3">
                 {locations.map((l) => (
                   <li key={l.label}>
@@ -116,7 +116,7 @@ export function Footer() {
 
             {/* Column 4 — Contact */}
             <div className="col-span-2 lg:col-span-3">
-              <h4
+              <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
@@ -125,7 +125,7 @@ export function Footer() {
                 }}
               >
                 Contact
-              </h4>
+              </h3>
               <ul className="flex flex-col gap-4">
                 {/* Phone */}
                 <li>
