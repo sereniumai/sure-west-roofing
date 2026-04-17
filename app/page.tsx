@@ -67,7 +67,7 @@ export default function HomePage() {
     <>
       {/* 1. Hero */}
       <Hero
-        h1={"test"}
+        h1={"Cochrane's Trusted\nRoofing Contractor"}
         subtitle="Red Seal Journeyman certified with over 250 roofs completed across Cochrane, Calgary and Canmore. Most replacements finished in a single day. We reply fast, even after hours."
         backgroundVideo="/images/Cochrane Roofing Contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
