@@ -269,65 +269,6 @@ export function Reviews() {
       </div>
       </div>
 
-      {/* Inline marquee styles */}
-      <style jsx>{`
-        .marquee {
-          display: flex;
-          overflow: hidden;
-          mask-image: linear-gradient(
-            to right,
-            transparent 0,
-            black 6%,
-            black 94%,
-            transparent 100%
-          );
-          -webkit-mask-image: linear-gradient(
-            to right,
-            transparent 0,
-            black 6%,
-            black 94%,
-            transparent 100%
-          );
-        }
-        .marquee__track {
-          display: flex;
-          gap: 20px;
-          width: max-content;
-          animation: marquee-scroll var(--duration, 60s) linear infinite;
-          animation-direction: var(--direction, normal);
-          will-change: transform;
-          padding: 10px 10px; /* room for shadows */
-        }
-        @keyframes marquee-scroll {
-          from {
-            transform: translateX(0);
-          }
-          to {
-            transform: translateX(calc(-50% - 10px));
-          }
-        }
-        @media (max-width: 768px) {
-          /* Slow down on mobile so reviews are readable */
-          .marquee__track {
-            animation-duration: 120s !important;
-          }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .marquee__track {
-            animation: none;
-          }
-          :global(.reviews-pulse) {
-            animation: none !important;
-          }
-        }
-        :global(.reviews-pulse) {
-          animation: reviews-pulse 1.5s ease-in-out infinite;
-        }
-        @keyframes reviews-pulse {
-          0%, 100% { transform: translateY(-50%) translateX(0); }
-          50% { transform: translateY(-50%) translateX(-4px); }
-        }
-      `}</style>
     </section>
   )
 }

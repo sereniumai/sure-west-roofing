@@ -308,6 +308,53 @@ html {
   }
 }
 
+/* ── FAQ link style ──────────────────────────── */
+.faq-link {
+  color: #b8943f;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.faq-link:hover {
+  color: var(--color-accent, #d4af60);
+}
+
+/* ── Reviews marquee ─────────────────────────── */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+}
+.marquee__track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marquee-scroll var(--duration, 60s) linear infinite;
+  animation-direction: var(--direction, normal);
+  will-change: transform;
+  padding: 10px 10px;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 10px)); }
+}
+@media (max-width: 768px) {
+  .marquee__track { animation-duration: 120s !important; }
+}
+@keyframes reviews-pulse {
+  0%, 100% { transform: translateY(-50%) translateX(0); }
+  50%       { transform: translateY(-50%) translateX(-4px); }
+}
+.reviews-pulse {
+  animation: reviews-pulse 1.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track  { animation: none; }
+  .reviews-pulse   { animation: none !important; }
+}
+
 /* ── Responsive section padding ─────────────── */
 
 @media (max-width: 768px) {

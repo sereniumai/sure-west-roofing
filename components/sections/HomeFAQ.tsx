@@ -266,19 +266,6 @@ export function HomeFAQ() {
         </p>
       </div>
 
-      {/* Accordion link styling */}
-      <style jsx>{`
-        :global(.faq-link) {
-          color: #b8943f;
-          font-weight: 600;
-          text-decoration: underline;
-          text-underline-offset: 3px;
-          transition: color 0.2s ease;
-        }
-        :global(.faq-link:hover) {
-          color: var(--color-accent, #d4af60);
-        }
-      `}</style>
     </section>
   )
 }
