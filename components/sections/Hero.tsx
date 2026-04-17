@@ -106,12 +106,12 @@ export function Hero({
 
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-brand-navy"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       {/* ── Video / image background ─────────────────────────────── */}
       <div className="absolute inset-0 z-0">
-        {/* Static image: LCP on mobile, poster fallback on desktop while video loads */}
+        {/* Mobile-only static image (no video on mobile) */}
         {backgroundImage && (
           <Image
             src={backgroundImage}
@@ -119,9 +119,9 @@ export function Hero({
             fill
             priority
             fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, 100vw"
+            sizes="100vw"
             quality={70}
-            className="object-cover"
+            className={`object-cover ${backgroundVideo ? 'md:hidden' : ''}`}
             style={{ objectPosition: 'center 30%' }}
           />
         )}
@@ -130,7 +130,6 @@ export function Hero({
             <video
               ref={videoARef}
               src={backgroundVideo}
-              poster={backgroundImage}
               autoPlay
               muted
               loop={false}
