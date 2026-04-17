@@ -74,9 +74,23 @@ export function Nav() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 80)
+    let ticking = false
+    let lastScrolled = window.scrollY > 80
+    setScrolled(lastScrolled)
+
+    const handleScroll = () => {
+      if (ticking) return
+      ticking = true
+      window.requestAnimationFrame(() => {
+        const next = window.scrollY > 80
+        if (next !== lastScrolled) {
+          lastScrolled = next
+          setScrolled(next)
+        }
+        ticking = false
+      })
+    }
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

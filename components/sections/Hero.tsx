@@ -39,9 +39,19 @@ export function Hero({
     let active: HTMLVideoElement = a
     let inactive: HTMLVideoElement = b
     let handoffArmed = true
+    let lastOpacityA = 1
+    let lastOpacityB = 0
 
-    a.style.opacity = '1'
-    b.style.opacity = '0'
+    const setOpacity = (el: HTMLVideoElement, value: number) => {
+      const last = el === a ? lastOpacityA : lastOpacityB
+      if (Math.abs(last - value) < 0.02) return
+      el.style.opacity = String(value)
+      if (el === a) lastOpacityA = value
+      else lastOpacityB = value
+    }
+
+    setOpacity(a, 1)
+    setOpacity(b, 0)
     b.currentTime = 0
     b.pause()
 
@@ -66,19 +76,16 @@ export function Hero({
 
       if (remaining <= OVERLAP) {
         const progress = Math.max(0, Math.min(1, (OVERLAP - remaining) / OVERLAP))
-        active.style.opacity = String(1 - progress)
-        inactive.style.opacity = String(progress)
-      } else {
-        active.style.opacity = '1'
-        inactive.style.opacity = '0'
+        setOpacity(active, 1 - progress)
+        setOpacity(inactive, progress)
       }
     }
 
     const onEnded = (e: Event) => {
       const v = e.currentTarget as HTMLVideoElement
       if (v !== active) return
-      active.style.opacity = '0'
-      inactive.style.opacity = '1'
+      setOpacity(active, 0)
+      setOpacity(inactive, 1)
       active.currentTime = 0
       active.pause()
       swapRoles()
@@ -113,7 +120,7 @@ export function Hero({
             priority
             fetchPriority="high"
             sizes="(max-width: 768px) 100vw, 100vw"
-            quality={75}
+            quality={70}
             className="object-cover"
             style={{ objectPosition: 'center 30%' }}
           />
@@ -126,8 +133,9 @@ export function Hero({
               poster={backgroundImage}
               autoPlay
               muted
+              loop={false}
               playsInline
-              preload="metadata"
+              preload="auto"
               className="absolute inset-0 w-full h-full object-cover hidden md:block"
               style={{ objectPosition: 'center 30%', opacity: 1, transition: 'opacity 60ms linear' }}
             />
@@ -180,24 +188,16 @@ export function Hero({
           ))}
         </h1>
 
-        {/* Subtitle — visible on first paint for good LCP */}
-        <motion.p
+        {/* Subtitle — static render, no hydration-delayed transform */}
+        <p
           className="mt-6 leading-relaxed max-w-[640px] text-left text-[16px] md:text-[18px] text-white/90"
           style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 400 }}
-          initial={{ y: 16 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: EASE_OUT }}
         >
           {subtitle}
-        </motion.p>
+        </p>
 
-        {/* CTAs */}
-        <motion.div
-          className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto mt-6"
-          initial={{ y: 16 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: EASE_OUT }}
-        >
+        {/* CTAs — static render */}
+        <div className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto mt-6">
           <Button
             variant="secondary"
             size="lg"
@@ -216,10 +216,10 @@ export function Hero({
               {secondaryCTA.label}
             </Button>
           )}
-        </motion.div>
+        </div>
       </div>
 
-      {/* ── Scroll down indicator ────────────────────────────────── */}
+      {/* ── Scroll down indicator — decorative, below the fold ──── */}
       <motion.div
         className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
         initial={{ opacity: 0, y: -10 }}

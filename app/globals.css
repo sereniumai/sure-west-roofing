@@ -226,23 +226,14 @@ a { text-decoration: none; color: inherit; }
   opacity: 1;
 }
 
-/* Rightmost stays put, just pulses after the others emerge */
-.group:hover .btn-arrow .btn-chev:nth-child(3) {
-  animation: btn-chev-pulse 1.4s ease-in-out 0.55s infinite;
-}
-
-/* 2nd emerges left from under the rightmost, then pulses */
+/* 2nd emerges left from under the rightmost */
 .group:hover .btn-arrow .btn-chev:nth-child(2) {
-  animation:
-    btn-chev-emerge-2 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards,
-    btn-chev-pulse 1.4s ease-in-out 0.7s infinite;
+  animation: btn-chev-emerge-2 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
 }
 
-/* 3rd emerges even further left, then pulses */
+/* 3rd emerges even further left */
 .group:hover .btn-arrow .btn-chev:nth-child(1) {
-  animation:
-    btn-chev-emerge-1 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards,
-    btn-chev-pulse 1.4s ease-in-out 0.85s infinite;
+  animation: btn-chev-emerge-1 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
 }
 
 @keyframes btn-chev-emerge-2 {
@@ -253,11 +244,6 @@ a { text-decoration: none; color: inherit; }
 @keyframes btn-chev-emerge-1 {
   0%   { opacity: 0; transform: translate(0, -50%); }
   100% { opacity: 1; transform: translate(-0.7em, -50%); }
-}
-
-@keyframes btn-chev-pulse {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.4; }
 }
 
 /* ── Section label dots ─────────────────────── */

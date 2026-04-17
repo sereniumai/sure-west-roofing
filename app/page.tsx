@@ -1,15 +1,32 @@
 import type { Metadata } from 'next'
+import dynamic from 'next/dynamic'
 
 import { Hero } from '@/components/sections/Hero'
-import { BrandStrip } from '@/components/sections/BrandStrip'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { ServicesIconGrid } from '@/components/sections/ServicesIconGrid'
-import { WhySureWest } from '@/components/sections/WhySureWest'
-import { HowItWorks } from '@/components/sections/HowItWorks'
-import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
-import { Reviews } from '@/components/sections/Reviews'
-import { HomeFAQ } from '@/components/sections/HomeFAQ'
-import { BottomCTA } from '@/components/sections/BottomCTA'
+
+// Below-the-fold: code-split so these JS chunks don't block initial page JS.
+const WhySureWest = dynamic(() =>
+  import('@/components/sections/WhySureWest').then((m) => m.WhySureWest),
+)
+const HowItWorks = dynamic(() =>
+  import('@/components/sections/HowItWorks').then((m) => m.HowItWorks),
+)
+const BrandStrip = dynamic(() =>
+  import('@/components/sections/BrandStrip').then((m) => m.BrandStrip),
+)
+const Reviews = dynamic(() =>
+  import('@/components/sections/Reviews').then((m) => m.Reviews),
+)
+const PortfolioCarousel = dynamic(() =>
+  import('@/components/sections/PortfolioCarousel').then((m) => m.PortfolioCarousel),
+)
+const HomeFAQ = dynamic(() =>
+  import('@/components/sections/HomeFAQ').then((m) => m.HomeFAQ),
+)
+const BottomCTA = dynamic(() =>
+  import('@/components/sections/BottomCTA').then((m) => m.BottomCTA),
+)
 
 export const metadata: Metadata = {
   title: 'Roofing Contractor Cochrane | Sure West Roofing',
