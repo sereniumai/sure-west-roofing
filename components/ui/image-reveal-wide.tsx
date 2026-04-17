@@ -88,8 +88,8 @@ export default function ImageRevealWide({
                 src={src}
                 alt=""
                 fill
-                sizes="256px"
-                quality={70}
+                sizes="(max-width: 768px) 224px, (max-width: 1024px) 256px, 300px"
+                quality={85}
                 loading="lazy"
                 className={IMG}
               />
