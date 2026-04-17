@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Quote } from 'lucide-react'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
@@ -13,7 +13,7 @@ export function BrandStrip() {
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      <motion.div
+      <m.div
         className="max-w-[1200px] mx-auto text-center relative"
         style={{ zIndex: 1 }}
         initial={{ opacity: 0, y: 20 }}
@@ -76,7 +76,7 @@ export function BrandStrip() {
             strokeWidth={1.5}
           />
         </div>
-      </motion.div>
+      </m.div>
     </section>
   )
 }

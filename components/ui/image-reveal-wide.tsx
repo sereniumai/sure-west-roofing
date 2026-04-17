@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, Variants } from 'framer-motion'
+import { m, Variants } from 'framer-motion'
 import Image from 'next/image'
 import React from 'react'
 
@@ -49,7 +49,7 @@ export default function ImageRevealWide({
   }
 
   return (
-    <motion.div
+    <m.div
       className="relative flex items-center justify-center w-full h-80 md:h-96"
       variants={containerVariants}
       initial="initial"
@@ -75,7 +75,7 @@ export default function ImageRevealWide({
         }
 
         return (
-          <motion.div
+          <m.div
             key={i}
             className={`${CARD} ${offset <= 0 ? 'origin-bottom-right' : 'origin-bottom-left'}`}
             variants={cardVariants}
@@ -94,9 +94,9 @@ export default function ImageRevealWide({
                 className={IMG}
               />
             </div>
-          </motion.div>
+          </m.div>
         )
       })}
-    </motion.div>
+    </m.div>
   )
 }

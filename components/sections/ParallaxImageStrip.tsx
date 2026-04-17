@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { m, useScroll, useTransform } from 'framer-motion'
 
 interface ParallaxImageStripProps {
   src: string
@@ -120,7 +120,7 @@ export function ParallaxImageStrip({
         }}
       >
         <div className="relative mx-auto w-full max-w-[1320px] h-auto md:h-[650px] aspect-video md:aspect-auto overflow-hidden rounded-[--radius-lg]">
-        <motion.div
+        <m.div
           className="w-full h-full relative"
           style={{
             height: 'calc(100% + 240px)',
@@ -179,7 +179,7 @@ export function ParallaxImageStrip({
               draggable={false}
             />
           )}
-        </motion.div>
+        </m.div>
         </div>
       </div>
     </section>

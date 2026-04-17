@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Phone, Mail, MapPin } from 'lucide-react'
 
 export function ContactCTASection() {
@@ -10,7 +10,7 @@ export function ContactCTASection() {
         className="max-w-[1320px] mx-auto"
         style={{ padding: '0 var(--section-pad-x)' }}
       >
-        <motion.div
+        <m.div
           className="flex flex-col md:flex-row items-center justify-between gap-4"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -40,7 +40,7 @@ export function ContactCTASection() {
           <span className="font-display font-bold text-white text-sm uppercase tracking-wider">
             Mon - Sat: 8:00am - 6:00pm
           </span>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

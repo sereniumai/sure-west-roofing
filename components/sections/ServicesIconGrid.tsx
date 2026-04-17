@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import {
   Hammer,
@@ -58,7 +58,7 @@ function ServiceCard({
   const Icon = iconFor(service.title)
 
   return (
-    <motion.div
+    <m.div
       initial={{ y: 20, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={VIEWPORT}
@@ -115,7 +115,7 @@ function ServiceCard({
           </p>
         </div>
       </Link>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -134,7 +134,7 @@ export function ServicesIconGrid({
       }}
     >
       {/* ── Header ───────────────────────────────────────────────── */}
-      <motion.div
+      <m.div
         className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -174,7 +174,7 @@ export function ServicesIconGrid({
             {body}
           </p>
         )}
-      </motion.div>
+      </m.div>
 
       {/* ── 3 x 2 service card grid ──────────────────────────────── */}
       <div className="max-w-[1320px] mx-auto">

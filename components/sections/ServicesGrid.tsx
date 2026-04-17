@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Check } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -50,7 +50,7 @@ export function ServicesGrid({
     <section className="bg-white py-16 lg:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         {/* Header */}
-        <motion.div
+        <m.div
           className="mb-12"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -72,7 +72,7 @@ export function ServicesGrid({
           <p className="font-body text-body-text leading-relaxed mt-4 text-lg max-w-3xl">
             {body}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Desktop interactive showcase */}
         <div className="hidden lg:block">
@@ -90,7 +90,7 @@ export function ServicesGrid({
               >
                 {service.title}
                 {active === i && (
-                  <motion.div
+                  <m.div
                     layoutId="activeServiceUnderline"
                     className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#D4AF60] rounded-t-full"
                     transition={{ type: 'spring', stiffness: 400, damping: 35 }}
@@ -105,7 +105,7 @@ export function ServicesGrid({
             {/* Image container */}
             <div className="relative w-full h-[600px] rounded-2xl overflow-hidden">
               <AnimatePresence mode="wait">
-                <motion.div
+                <m.div
                   key={active}
                   initial={{ opacity: 0, scale: 1.03 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -123,7 +123,7 @@ export function ServicesGrid({
                       priority
                     />
                   )}
-                </motion.div>
+                </m.div>
               </AnimatePresence>
               {/* Subtle vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
@@ -136,7 +136,7 @@ export function ServicesGrid({
                 <div className="absolute top-0 left-8 right-8 h-[3px] bg-gradient-to-r from-[#D4AF60] to-[#B8943F] rounded-b-full" />
 
                 <AnimatePresence mode="wait">
-                  <motion.div
+                  <m.div
                     key={active}
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -175,7 +175,7 @@ export function ServicesGrid({
                     <Button variant="primary" href={current.href}>
                       {current.title} <ArrowRight className="w-4 h-4 ml-2 inline" />
                     </Button>
-                  </motion.div>
+                  </m.div>
                 </AnimatePresence>
               </div>
             </div>
@@ -185,7 +185,7 @@ export function ServicesGrid({
         {/* Mobile: Stacked cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:hidden">
           {services.map((service, i) => (
-            <motion.div
+            <m.div
               key={service.href}
               initial={{ y: 30, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -216,7 +216,7 @@ export function ServicesGrid({
                   </span>
                 </div>
               </Link>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

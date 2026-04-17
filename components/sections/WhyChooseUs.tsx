@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useCallback } from 'react'
-import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { m, useMotionValue, useSpring } from 'framer-motion'
 import {
   ShieldCheck,
   MapPin,
@@ -59,7 +59,7 @@ function TiltCard({ feature, index }: { feature: Feature; index: number }) {
   }, [rotateX, rotateY])
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className="group cursor-default"
       style={{ perspective: '800px' }}
@@ -70,7 +70,7 @@ function TiltCard({ feature, index }: { feature: Feature; index: number }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <motion.div
+      <m.div
         className="bg-[#F7F5F0] p-8 hover:bg-brand-navy transition-colors duration-500 h-full rounded-[--radius-md]"
         style={{
           rotateX: springX,
@@ -87,8 +87,8 @@ function TiltCard({ feature, index }: { feature: Feature; index: number }) {
         <p className="font-body text-[#5A7A9A] group-hover:text-white/60 text-sm font-normal leading-relaxed transition-colors duration-500">
           {feature.description}
         </p>
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   )
 }
 
@@ -100,7 +100,7 @@ export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Heading */}
-        <motion.div
+        <m.div
           className="text-center mb-12 lg:mb-16"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -113,7 +113,7 @@ export function WhyChooseUs({ heading, features }: WhyChooseUsProps) {
           <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-brand-navy mt-4 max-w-3xl mx-auto">
             {heading}
           </h2>
-        </motion.div>
+        </m.div>
 
         {/* Feature grid, 2x3 layout with 3D tilt */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

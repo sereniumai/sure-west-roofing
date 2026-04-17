@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { m, useInView } from 'framer-motion'
 import Image from 'next/image'
 
 interface StatItem {
@@ -50,7 +50,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [isInView, value])
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -59,7 +59,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
       <span className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl text-[#D4AF60] tracking-tight tabular-nums">
         {count}{suffix}
       </span>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -70,7 +70,7 @@ export function ImpactSection() {
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 place-items-center">
           {stats.map((stat, i) => (
-            <motion.div
+            <m.div
               key={stat.label}
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -86,7 +86,7 @@ export function ImpactSection() {
               <p className="font-body text-body-text text-sm mt-2 uppercase tracking-wider">
                 {stat.label}
               </p>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

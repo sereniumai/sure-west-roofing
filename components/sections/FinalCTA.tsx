@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 
 export function FinalCTA() {
@@ -43,7 +43,7 @@ export function FinalCTA() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <motion.div
+        <m.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true, margin: '-80px' }}
@@ -57,9 +57,9 @@ export function FinalCTA() {
             Book your free roof inspection today. No pressure, no obligation,
             just an honest assessment from a certified Cochrane roofing contractor.
           </p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="flex flex-wrap justify-center gap-4 mt-10"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -72,7 +72,7 @@ export function FinalCTA() {
           <Button variant="ghost" size="lg" href="/services">
             Explore Our Services
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

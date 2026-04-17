@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import type { BlogPost } from '@/lib/types'
@@ -28,7 +28,7 @@ export function BlogPreview({
     <section className="bg-white py-20 lg:py-28">
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <motion.div
+        <m.div
           className="mb-14"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -41,12 +41,12 @@ export function BlogPreview({
           <p className="font-body text-body-text leading-relaxed mt-4 max-w-2xl">
             {body}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Magazine layout: featured large + 2 stacked */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-7">
           {/* Featured post, large */}
-          <motion.div
+          <m.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-50px' }}
@@ -84,12 +84,12 @@ export function BlogPreview({
                 </span>
               </div>
             </Link>
-          </motion.div>
+          </m.div>
 
           {/* Smaller posts, stacked */}
           <div className="flex flex-col gap-7">
             {rest.map((post, i) => (
-              <motion.div
+              <m.div
                 key={post.slug}
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
@@ -125,13 +125,13 @@ export function BlogPreview({
                     </span>
                   </div>
                 </Link>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>
 
         {/* CTA */}
-        <motion.div
+        <m.div
           className="text-center mt-14"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -141,7 +141,7 @@ export function BlogPreview({
           <Button variant="outline" href={cta.href}>
             {cta.label}
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import { Phone } from 'lucide-react'
 
@@ -21,7 +21,7 @@ export function CTABanner({
   return (
     <section className="bg-brand-cream py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <motion.div
+        <m.div
           className="relative bg-gradient-to-br from-[#D4AF60] via-[#D4AF60] to-[#B8943F] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 overflow-hidden"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -62,7 +62,7 @@ export function CTABanner({
               )}
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { generateFAQSchema } from '@/lib/faq-schema'
 import type { FAQItem as FAQItemType } from '@/lib/types'
@@ -38,7 +38,7 @@ export function FAQSection({
 
       <div className="max-w-6xl mx-auto" style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Header */}
-        <motion.div
+        <m.div
           className="text-center max-w-3xl mx-auto mb-14"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -54,10 +54,10 @@ export function FAQSection({
           <p className="font-body text-[#5A7A9A] leading-relaxed mt-4">
             {body}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* FAQ accordion */}
-        <motion.div
+        <m.div
           className="max-w-3xl mx-auto"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -93,7 +93,7 @@ export function FAQSection({
 
                 <AnimatePresence initial={false}>
                   {index === openIndex && (
-                    <motion.div
+                    <m.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -104,7 +104,7 @@ export function FAQSection({
                         className="font-body text-sm text-[#5A7A9A] leading-relaxed px-6 pb-6 pr-16 [&_a]:text-[#D4AF60] [&_a]:font-semibold [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-[#B8943F] [&_a]:transition-colors"
                         dangerouslySetInnerHTML={{ __html: faq.answer }}
                       />
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </div>
@@ -120,7 +120,7 @@ export function FAQSection({
               Contact us
             </Link>
           </p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

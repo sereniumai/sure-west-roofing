@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Button } from '@/components/ui/Button'
 import ImageRevealWide from '@/components/ui/image-reveal-wide'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
@@ -50,7 +50,7 @@ export function PortfolioCarousel({
 
       <div className="relative">
         {/* ── Header (constrained to 1320px like other sections) ─────── */}
-        <motion.div
+        <m.div
           className="flex flex-col items-center text-center max-w-[1320px] mx-auto"
           style={{
             paddingLeft: 'var(--section-pad-x)',
@@ -96,10 +96,10 @@ export function PortfolioCarousel({
               View Full Gallery
             </Button>
           </div>
-        </motion.div>
+        </m.div>
 
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
-        <motion.div
+        <m.div
           className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -109,7 +109,7 @@ export function PortfolioCarousel({
           <div className="scale-[0.75] sm:scale-[0.9] md:scale-100 lg:scale-110 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

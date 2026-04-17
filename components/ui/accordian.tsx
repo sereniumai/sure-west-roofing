@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, type ReactNode } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Plus, Minus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -41,7 +41,7 @@ export function Accordian({ items, defaultOpen = null, className }: AccordianPro
         return (
           <div key={id} className="relative">
             {/* Gold rail when open */}
-            <motion.span
+            <m.span
               aria-hidden="true"
               className="absolute left-0 top-0 bottom-0 w-[2px] origin-top pointer-events-none"
               style={{ background: 'var(--color-accent, #D4AF60)' }}
@@ -94,7 +94,7 @@ export function Accordian({ items, defaultOpen = null, className }: AccordianPro
               </span>
             </button>
 
-            <motion.div
+            <m.div
               id={`accordian-panel-${id}`}
               role="region"
               initial={false}
@@ -108,7 +108,7 @@ export function Accordian({ items, defaultOpen = null, className }: AccordianPro
               >
                 {content}
               </div>
-            </motion.div>
+            </m.div>
           </div>
         )
       })}

@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import { motion, useInView } from 'framer-motion'
+import { m, useInView } from 'framer-motion'
 import { Calendar, FileCheck, CheckCircle, type LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
@@ -48,7 +48,7 @@ function StepCard({ step, index }: { step: Step; index: number }) {
   const { Icon } = step
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className="group relative flex flex-col bg-white rounded-[12px] shadow-[0_2px_8px_rgba(44,71,102,0.06)] overflow-hidden w-full max-w-full"
       initial={{ y: 40, opacity: 0 }}
@@ -93,7 +93,7 @@ function StepCard({ step, index }: { step: Step; index: number }) {
           {step.description}
         </p>
       </div>
-    </motion.div>
+    </m.div>
   )
 }
 
@@ -108,7 +108,7 @@ export function HowItWorks() {
       }}
     >
       {/* ── Header ───────────────────────────────────────────────── */}
-      <motion.div
+      <m.div
         className="relative flex flex-col items-center text-center mb-12 md:mb-14 max-w-[920px] mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -143,7 +143,7 @@ export function HowItWorks() {
           No surprises. No pressure. Just a clear simple process from your first call to the final inspection.
         </p>
 
-        <motion.div
+        <m.div
           className="mt-7"
           initial={{ y: 16, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -153,8 +153,8 @@ export function HowItWorks() {
           <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
             Get a Free Estimate
           </Button>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
       {/* ── 3-column step cards with connector ────────────────── */}
       <div className="max-w-[1200px] mx-auto relative w-full overflow-hidden">

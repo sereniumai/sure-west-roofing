@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { m, AnimatePresence } from 'framer-motion'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
@@ -152,7 +152,7 @@ export function HomeFAQ() {
 
       <div className="mx-auto" style={{ maxWidth: '1320px' }}>
         {/* ── Header ─────────────────────────────────────────────── */}
-        <motion.div
+        <m.div
           className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[960px] mx-auto"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -187,7 +187,7 @@ export function HomeFAQ() {
           </p>
 
           {/* CTA directly under sub-copy */}
-          <motion.div
+          <m.div
             className="mt-8"
             initial={{ y: 16, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -197,11 +197,11 @@ export function HomeFAQ() {
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
               Get a Free Estimate
             </Button>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* ── Two-column FAQ list (minimal line style) ───────────── */}
-        <motion.div
+        <m.div
           className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 mt-4"
           initial={{ y: 20, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -249,7 +249,7 @@ export function HomeFAQ() {
 
                     <AnimatePresence initial={false}>
                       {isOpen && (
-                        <motion.div
+                        <m.div
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
@@ -266,7 +266,7 @@ export function HomeFAQ() {
                           >
                             {faq.answer}
                           </div>
-                        </motion.div>
+                        </m.div>
                       )}
                     </AnimatePresence>
                   </li>
@@ -274,7 +274,7 @@ export function HomeFAQ() {
               })}
             </ul>
           ))}
-        </motion.div>
+        </m.div>
 
         <p
           className="text-center mt-10 text-brand-slate"

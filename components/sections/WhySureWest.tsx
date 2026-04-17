@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import {
   Award,
@@ -75,7 +75,7 @@ export function WhySureWest() {
 
       <div className="relative max-w-[1320px] mx-auto">
         {/* ── Header: eyebrow + h2 + sub (full width, centred) ──── */}
-        <motion.div
+        <m.div
           className="flex flex-col items-center text-center max-w-[920px] mx-auto"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -112,12 +112,12 @@ export function WhySureWest() {
             Every roofing contractor in Cochrane says they are the best.
             Here is what actually sets Sure West apart.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* ── Two-column split: cards left, video right ─────────── */}
         <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* LEFT: 2 x 2 cards, height matches the video */}
-          <motion.ul
+          <m.ul
             className="grid h-full grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr"
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
@@ -127,7 +127,7 @@ export function WhySureWest() {
             {pillars.map((p, i) => {
               const { Icon } = p
               return (
-                <motion.li
+                <m.li
                   key={p.id}
                   className="group relative flex flex-col h-full rounded-[12px] border border-brand-border bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(44,71,102,0.12)] hover:border-brand-gold/40"
                   initial={{ y: 14, opacity: 0 }}
@@ -169,13 +169,13 @@ export function WhySureWest() {
                   >
                     {p.body}
                   </p>
-                </motion.li>
+                </m.li>
               )
             })}
-          </motion.ul>
+          </m.ul>
 
           {/* RIGHT: video */}
-          <motion.div
+          <m.div
             initial={{ y: 30, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={VIEWPORT}
@@ -260,7 +260,7 @@ export function WhySureWest() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

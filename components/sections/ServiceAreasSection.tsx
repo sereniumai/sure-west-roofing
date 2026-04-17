@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -29,7 +29,7 @@ export function ServiceAreasSection() {
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
-        <motion.div
+        <m.div
           className="text-center mb-12"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -47,12 +47,12 @@ export function ServiceAreasSection() {
             Based in Cochrane, Alberta. We serve homeowners across the Bow Valley
             corridor and the Calgary region.
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Location cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {areas.map((area, i) => (
-            <motion.div
+            <m.div
               key={area.name}
               className="group bg-[#F7F5F0] p-8 border border-[#E8E8E8] text-center hover:-translate-y-2 hover:border-[#D4AF60]/20 transition-all duration-500 rounded-[--radius-md]"
               initial={{ y: 40, opacity: 0 }}
@@ -76,7 +76,7 @@ export function ServiceAreasSection() {
               <Button variant="primary" size="sm" href={area.href}>
                 {area.linkText}
               </Button>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

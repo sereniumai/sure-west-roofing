@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
-import { motion, useInView } from 'framer-motion'
+import { m, useInView } from 'framer-motion'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 import { Home, Zap, Star, ShieldCheck, type LucideIcon } from 'lucide-react'
 
@@ -79,7 +79,7 @@ export function TrustLogos() {
     >
       <div className="max-w-[960px] mx-auto">
         {/* ── Stats ──────────────────────────────────────────────── */}
-        <motion.div
+        <m.div
           className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -108,11 +108,11 @@ export function TrustLogos() {
               </div>
             )
           })}
-        </motion.div>
+        </m.div>
 
         {/* ── Certifications ─────────────────────────────────────── */}
         <div className="flex flex-col items-center" style={{ marginTop: '64px' }}>
-          <motion.span
+          <m.span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-8 text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
             initial={{ opacity: 0 }}
@@ -121,9 +121,9 @@ export function TrustLogos() {
             transition={{ duration: 0.5, ease: EASE_OUT }}
           >
             Certified &amp; Accredited
-          </motion.span>
+          </m.span>
 
-          <motion.ul
+          <m.ul
             className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -144,7 +144,7 @@ export function TrustLogos() {
                 />
               </li>
             ))}
-          </motion.ul>
+          </m.ul>
         </div>
       </div>
     </section>

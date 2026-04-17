@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Star } from 'lucide-react'
 import type { Testimonial } from '@/lib/types'
 
@@ -30,7 +30,7 @@ export function TestimonialsSection({
     >
       <div style={{ padding: '0 var(--section-pad-x)' }}>
         {/* Header */}
-        <motion.div
+        <m.div
           className="text-center max-w-3xl mx-auto mb-14"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -46,19 +46,19 @@ export function TestimonialsSection({
           <p className="font-body text-white/50 font-normal leading-relaxed mt-4">
             {body}
           </p>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Draggable horizontal carousel */}
       <div ref={constraintRef} className="w-full overflow-hidden" style={{ padding: '0 var(--section-pad-x)' }}>
-        <motion.div
+        <m.div
           className="flex gap-6 cursor-grab active:cursor-grabbing"
           drag="x"
           dragConstraints={constraintRef}
           dragElastic={0.1}
         >
           {testimonials.map((testimonial, i) => (
-            <motion.div
+            <m.div
               key={testimonial.name}
               className="bg-[#111111] p-8 border border-white/5 flex flex-col min-w-[320px] md:min-w-[380px] lg:min-w-[420px] flex-shrink-0 select-none rounded-[--radius-md]"
               initial={{ y: 40, opacity: 0 }}
@@ -107,9 +107,9 @@ export function TestimonialsSection({
                   </p>
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Drag hint + Google Reviews link */}
@@ -121,7 +121,7 @@ export function TestimonialsSection({
         </div>
 
         {googleReviewsUrl && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -149,7 +149,7 @@ export function TestimonialsSection({
                 <line x1="10" y1="14" x2="21" y2="3" />
               </svg>
             </a>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>

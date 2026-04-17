@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { CheckCircle } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
@@ -36,7 +36,7 @@ export function BottomCTA() {
         />
 
         {/* Main card */}
-        <motion.div
+        <m.div
           className="relative rounded-[20px] md:rounded-[24px] overflow-hidden grid grid-cols-1 lg:grid-cols-2"
           style={{
             background: '#FFFFFF',
@@ -122,7 +122,7 @@ export function BottomCTA() {
               style={{ objectPosition: 'center 30%' }}
             />
           </div>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   )

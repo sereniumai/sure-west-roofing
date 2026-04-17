@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
 interface HistorySectionProps {
   heading: string
@@ -14,7 +14,7 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left, Large heading */}
-          <motion.div
+          <m.div
             initial={{ x: -40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -26,10 +26,10 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
             <h2 className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-brand-navy mt-4">
               {heading}
             </h2>
-          </motion.div>
+          </m.div>
 
           {/* Right, Body text */}
-          <motion.div
+          <m.div
             initial={{ x: 40, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true, margin: '-80px' }}
@@ -43,7 +43,7 @@ export function HistorySection({ heading, body, since }: HistorySectionProps) {
                 Proudly serving since {since}
               </span>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

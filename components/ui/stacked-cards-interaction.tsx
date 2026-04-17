@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useState } from "react";
 
 const Card = ({
@@ -78,7 +78,7 @@ const StackedCardsInteraction = ({
           }
 
           return (
-            <motion.div
+            <m.div
               key={index}
               className={cn("absolute", isFirst ? "z-10" : "z-0")}
               initial={{ x: xRest, rotate: rotRest }}
@@ -104,7 +104,7 @@ const StackedCardsInteraction = ({
                 className={isFirst ? "z-10 cursor-pointer" : "z-0"}
                 image={card.image}
               />
-            </motion.div>
+            </m.div>
           );
         })}
       </div>

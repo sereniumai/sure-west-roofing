@@ -1,6 +1,6 @@
 'use client'
 
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, m } from 'framer-motion'
 import { Plus } from 'lucide-react'
 
 interface FAQItemProps {
@@ -38,7 +38,7 @@ export function FAQItem({
 
       <AnimatePresence initial={false}>
         {isOpen && (
-          <motion.div
+          <m.div
             id={`faq-answer-${index}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -49,7 +49,7 @@ export function FAQItem({
             <p className="font-body text-sm text-body-text leading-relaxed pb-5 pr-8">
               {answer}
             </p>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </div>

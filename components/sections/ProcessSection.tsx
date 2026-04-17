@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useInView } from 'framer-motion'
+import { m, useInView } from 'framer-motion'
 import { useRef } from 'react'
 
 interface Step {
@@ -27,7 +27,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
-        <motion.div
+        <m.div
           className="text-center max-w-3xl mx-auto mb-14"
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -45,13 +45,13 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
               {body}
             </p>
           )}
-        </motion.div>
+        </m.div>
 
         {/* Steps */}
         <div className="relative">
           {/* Connecting line, desktop */}
           <div className="hidden lg:block absolute top-20 left-[16%] right-[16%] h-px bg-[#E8E8E8]">
-            <motion.div
+            <m.div
               className="h-full bg-[#D4AF60]"
               initial={{ width: '0%' }}
               animate={isInView ? { width: '100%' } : { width: '0%' }}
@@ -61,7 +61,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8">
             {steps.map((step, i) => (
-              <motion.div
+              <m.div
                 key={step.number}
                 className="relative text-center"
                 initial={{ y: 30, opacity: 0 }}
@@ -70,7 +70,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
                 transition={{ duration: 0.5, delay: i * 0.2 }}
               >
                 {/* Step number circle */}
-                <motion.div
+                <m.div
                   className="w-16 h-16 bg-brand-navy flex items-center justify-center mx-auto mb-6 relative z-10 rounded-full"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
@@ -85,7 +85,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
                   <span className="font-display font-semibold text-2xl text-[#D4AF60]">
                     {step.number}
                   </span>
-                </motion.div>
+                </m.div>
 
                 <h3 className="font-display font-semibold text-brand-navy text-xl tracking-tight mb-3">
                   {step.title}
@@ -93,7 +93,7 @@ export function ProcessSection({ heading, body, steps }: ProcessSectionProps) {
                 <p className="font-body text-sm text-[#5A7A9A] leading-relaxed max-w-xs mx-auto">
                   {step.description}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { m } from 'framer-motion'
 import { Star, Quote, ChevronRight } from 'lucide-react'
 import { EASE_OUT, VIEWPORT } from '@/lib/animations'
 
@@ -169,7 +169,7 @@ export function Reviews() {
     >
       <div className="mx-auto" style={{ maxWidth: '1320px' }}>
       {/* Header */}
-      <motion.div
+      <m.div
         className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto"
         initial={{ y: 30, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
@@ -228,7 +228,7 @@ export function Reviews() {
         >
           Here is what homeowners across Cochrane, Calgary and Canmore say.
         </p>
-      </motion.div>
+      </m.div>
 
       {/* Two auto-looping marquee rows moving in opposite directions */}
       <div className="relative rounded-[--radius-md] overflow-hidden">
