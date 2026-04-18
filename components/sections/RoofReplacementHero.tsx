@@ -57,9 +57,7 @@ export function RoofReplacementHero() {
               className="font-display font-semibold text-brand-navy"
               style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.03em' }}
             >
-              Roof Replacement in
-              <br />
-              Cochrane, Alberta
+              Roof Replacement in Cochrane
             </h1>
 
             <p
@@ -70,9 +68,10 @@ export function RoofReplacementHero() {
                 fontWeight: 400,
               }}
             >
-              Red Seal certified roof replacement with IKO shingles, a 10-year workmanship
-              warranty, and honest written quotes. Serving homeowners across Cochrane, Calgary, and
-              Canmore.
+              Red Seal certified roof replacement for Cochrane, Calgary, and Canmore homes.
+              Manufacturer-backed warranties, no subcontractors, and a fixed written quote before
+              we start. Message us any time, we text back within minutes, even evenings and
+              weekends.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
