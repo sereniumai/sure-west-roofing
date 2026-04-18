@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
@@ -16,6 +16,11 @@ interface HeroProps {
   backgroundImage?: string
 }
 
+interface NetworkInformation {
+  saveData?: boolean
+  effectiveType?: string
+}
+
 export function Hero({
   h1,
   subtitle,
@@ -27,8 +32,44 @@ export function Hero({
   const videoARef = useRef<HTMLVideoElement>(null)
   const videoBRef = useRef<HTMLVideoElement>(null)
 
+  // Deferred video state.
+  // - videoEnabled: true after we have decided this device should load the video.
+  //   We defer this decision until the browser is idle so the video never
+  //   competes with the LCP (which stays the poster image on every viewport).
+  // - videoVisible: true once the video element has actually started painting,
+  //   at which point we cross-fade away the poster image.
+  const [videoEnabled, setVideoEnabled] = useState(false)
+  const [videoVisible, setVideoVisible] = useState(false)
+
+  // Phase 1: decide whether to load video at all, then defer until idle.
   useEffect(() => {
     if (!backgroundVideo) return
+    if (typeof window === 'undefined') return
+
+    // Respect explicit user preferences and constrained networks.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+    const conn = (navigator as unknown as { connection?: NetworkInformation }).connection
+    if (conn?.saveData) return
+    if (conn?.effectiveType && ['slow-2g', '2g'].includes(conn.effectiveType)) return
+
+    // Defer until the browser is idle. Falls back to a 1.5s timeout when
+    // requestIdleCallback is unavailable (Safari).
+    type IdleAPI = (cb: () => void, opts?: { timeout: number }) => number
+    const ric = (window as unknown as { requestIdleCallback?: IdleAPI }).requestIdleCallback
+    const cic = (window as unknown as { cancelIdleCallback?: (id: number) => void })
+      .cancelIdleCallback
+
+    if (ric) {
+      const id = ric(() => setVideoEnabled(true), { timeout: 2500 })
+      return () => cic?.(id)
+    }
+    const id = window.setTimeout(() => setVideoEnabled(true), 1500)
+    return () => window.clearTimeout(id)
+  }, [backgroundVideo])
+
+  // Phase 2: once enabled, hook up the cross-fade loop and start playback.
+  useEffect(() => {
+    if (!videoEnabled || !backgroundVideo) return
     const a = videoARef.current
     const b = videoBRef.current
     if (!a || !b) return
@@ -89,27 +130,44 @@ export function Hero({
       swapRoles()
     }
 
+    // Cross-fade away the poster image once the video has its first frame.
+    const onFirstPaint = () => setVideoVisible(true)
+
     a.addEventListener('timeupdate', onTimeUpdate)
     b.addEventListener('timeupdate', onTimeUpdate)
     a.addEventListener('ended', onEnded)
     b.addEventListener('ended', onEnded)
+    a.addEventListener('playing', onFirstPaint, { once: true })
+
+    // Manual load + play. We left preload="none" on the elements so nothing
+    // was fetched at mount; this is the actual fetch trigger.
+    a.load()
+    const playPromise = a.play()
+    if (playPromise) {
+      playPromise.catch(() => {
+        // If autoplay is blocked, stay on poster image quietly.
+      })
+    }
 
     return () => {
       a.removeEventListener('timeupdate', onTimeUpdate)
       b.removeEventListener('timeupdate', onTimeUpdate)
       a.removeEventListener('ended', onEnded)
       b.removeEventListener('ended', onEnded)
+      a.removeEventListener('playing', onFirstPaint)
     }
-  }, [backgroundVideo])
+  }, [videoEnabled, backgroundVideo])
 
   return (
     <section
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-brand-navy"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
-      {/* ── Video / image background ─────────────────────────────── */}
+      {/* ── Background stack ─────────────────────────────────────────
+          Layer 1: poster image — LCP element, present on every viewport.
+          Layer 2: dual videos for seamless cross-fade looping (optional).
+          Layer 3: gradient overlays for legibility (mobile vs desktop). */}
       <div className="absolute inset-0 z-0">
-        {/* Mobile-only static image (no video on mobile) */}
         {backgroundImage && (
           <Image
             src={backgroundImage}
@@ -117,34 +175,46 @@ export function Hero({
             fill
             priority
             fetchPriority="high"
-            sizes="(max-width: 768px) 100vw, 1px"
-            quality={55}
-            className={`object-cover ${backgroundVideo ? 'md:hidden' : ''}`}
-            style={{ objectPosition: 'center 30%' }}
+            sizes="100vw"
+            quality={60}
+            className="object-cover transition-opacity duration-700 ease-out"
+            style={{
+              objectPosition: 'center 30%',
+              opacity: videoVisible ? 0 : 1,
+            }}
           />
         )}
+
         {backgroundVideo && (
           <>
             <video
               ref={videoARef}
-              src={backgroundVideo}
-              autoPlay
+              src={videoEnabled ? backgroundVideo : undefined}
               muted
               loop={false}
               playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover hidden md:block"
-              style={{ objectPosition: 'center 30%', opacity: 1, transition: 'opacity 60ms linear' }}
+              preload="none"
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                objectPosition: 'center 30%',
+                opacity: videoVisible ? 1 : 0,
+                transition: 'opacity 700ms cubic-bezier(0.16, 1, 0.3, 1)',
+              }}
             />
             <video
               ref={videoBRef}
-              src={backgroundVideo}
+              src={videoEnabled ? backgroundVideo : undefined}
               muted
               playsInline
               preload="none"
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-cover hidden md:block"
-              style={{ objectPosition: 'center 30%', opacity: 0, transition: 'opacity 60ms linear' }}
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{
+                objectPosition: 'center 30%',
+                opacity: 0,
+                transition: 'opacity 60ms linear',
+              }}
             />
           </>
         )}
