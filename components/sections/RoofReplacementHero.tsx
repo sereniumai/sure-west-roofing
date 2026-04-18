@@ -50,7 +50,7 @@ export function RoofReplacementHero() {
                 lineHeight: 1,
               }}
             >
-              Cochrane&apos;s Most Trusted Roof Replacement Contractor
+              Cochrane&apos;s Trusted Roof Replacement Contractor
             </span>
 
             <h1
