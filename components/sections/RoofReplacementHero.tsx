@@ -68,10 +68,8 @@ export function RoofReplacementHero() {
                 fontWeight: 400,
               }}
             >
-              Red Seal certified roof replacement for Cochrane, Calgary, and Canmore homes.
-              Manufacturer-backed warranties, no subcontractors, and a fixed written quote before
-              we start. Message us any time, we text back within minutes, even evenings and
-              weekends.
+              Red Seal certified roofers for Cochrane, Calgary, and Canmore. Fixed written
+              quotes, real warranties, no subcontractors. Text us any time, we get back fast.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">

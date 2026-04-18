@@ -450,14 +450,8 @@ function SignsYouNeed() {
               fontWeight: 400,
             }}
           >
-            Cochrane&apos;s freeze-thaw cycles and Chinook winds are brutal on roofs. Not every
-            problem means a full replacement, though. If your Cochrane roof is under 15 years old
-            and the damage is localized,{' '}
-            <Link href="/roof-repair" className="text-[#C49A2C] hover:underline">
-              roof repair
-            </Link>{' '}
-            is usually the smarter and more affordable call. Here is when replacement is the right
-            move.
+            If your Cochrane roof is under 15 years old, a repair is usually smarter than a full
+            replacement. Here is when it isn&apos;t.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -896,138 +890,6 @@ function WhySureWest() {
   )
 }
 
-// ─── Section: Warranty and Guarantees ────────────────────────────────────────
-
-function WarrantyGuarantees() {
-  return (
-    <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            Warranty
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            What&apos;s Covered After the Install
-          </h2>
-          <p
-            className="mt-5 max-w-[580px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Every Cochrane roof we replace ships with two layers of written protection: our
-            workmanship and IKO&apos;s materials. Both terms land in your contract before the job
-            starts. Combined with routine{' '}
-            <Link href="/roof-maintenance" className="text-[#C49A2C] hover:underline">
-              roof maintenance
-            </Link>
-            , a Sure West replacement is built to outlast its warranty.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-center max-w-[1120px] mx-auto">
-          {/* Left: paperwork image */}
-          <div
-            className="relative overflow-hidden rounded-[18px]"
-            style={{
-              aspectRatio: '4 / 5',
-              boxShadow:
-                '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
-            }}
-          >
-            <Image
-              src="/images/Cochrane Roofing Contractor Gallery 21.webp"
-              alt="Sure West Roofing written warranty documents handed to a Cochrane homeowner"
-              fill
-              sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
-              loading="lazy"
-            />
-          </div>
-
-          {/* Right: warranty cards */}
-          <div className="flex flex-col gap-5">
-            <div className="bg-white rounded-[12px] border border-brand-border p-7 md:p-8">
-              <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
-                style={{ background: 'rgba(212,175,96,0.12)' }}
-              >
-                <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
-              </div>
-              <h3
-                className="font-display font-semibold text-brand-navy mb-3 leading-[1.2]"
-                style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
-              >
-                10-Year Workmanship Warranty
-              </h3>
-              <p
-                className="text-brand-slate leading-[1.7]"
-                style={{
-                  fontSize: '15px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                Our workmanship warranty covers installation defects and workmanship issues for 10
-                years from the date your roof is completed. It is standard on every replacement we
-                carry out, not an optional add-on.
-              </p>
-            </div>
-
-            <div className="bg-white rounded-[12px] border border-brand-border p-7 md:p-8">
-              <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
-                style={{ background: 'rgba(212,175,96,0.12)' }}
-              >
-                <Award className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
-              </div>
-              <h3
-                className="font-display font-semibold text-brand-navy mb-3 leading-[1.2]"
-                style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
-              >
-                Manufacturer Material Warranty
-              </h3>
-              <p
-                className="text-brand-slate leading-[1.7]"
-                style={{
-                  fontSize: '15px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                IKO shingles carry a lifetime limited material warranty on most tiers, with wind and
-                algae resistance coverage depending on the product chosen. Specific coverage terms are
-                confirmed in writing before any materials are ordered.
-              </p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-  )
-}
 
 // ─── Section: Service Area ────────────────────────────────────────────────────
 
@@ -1224,8 +1086,7 @@ export default function RoofReplacementPage() {
       <ReplacementProcess />
       <ShingleOptions />
       <WhySureWest />
-      <WarrantyGuarantees />
-      <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#FFFFFF" />
+      <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#F7F5F0" />
       <Reviews />
       <ServiceAreaCondensed />
       <RoofReplacementFAQ />
