@@ -8,17 +8,17 @@ const ITEMS = [
   {
     heading: 'Full tear-off and decking inspection',
     body:
-      'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on, so your new roof has a solid base from day one.',
+      'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on.',
   },
   {
     heading: 'New underlayment, ice-and-water shield, and IKO shingles',
     body:
-      'Synthetic underlayment and ice-and-water shield protect the deck at all critical points. IKO shingles then go on in your chosen tier (Cambridge, Dynasty, or Class 4 Nordic), backed by IKO\u2019s manufacturer warranty.',
+      'Synthetic underlayment and ice-and-water shield protect the deck at every critical point. IKO shingles go on in your chosen tier (Cambridge, Dynasty, or Class 4 Nordic).',
   },
   {
     heading: 'Full site cleanup, walkthrough, and written warranty',
     body:
-      'We tarp gardens, walkways, and landscaping before tear-off, then run a magnetic nail sweep daily and at completion. The job closes with a walkthrough and your written 10-year workmanship warranty.',
+      'We tarp landscaping before tear-off, then run a magnetic nail sweep daily and at completion. Job closes with a walkthrough and your written 10-year workmanship warranty.',
   },
 ]
 
@@ -69,18 +69,20 @@ export function WhatIncludedAccordion() {
 
             {isOpen && (
               <div className="overflow-hidden">
-                <div
-                  className="pt-1 pb-4 px-3 md:px-4 text-brand-slate leading-[1.65]"
-                  style={{
-                    fontSize: '14px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 400,
-                  }}
-                >
-                  {item.body}
+                <div className="pt-1 pb-4 px-3 md:px-4">
+                  <p
+                    className="text-brand-slate leading-[1.65]"
+                    style={{
+                      fontSize: '14px',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                      fontWeight: 400,
+                    }}
+                  >
+                    {item.body}
+                  </p>
                   <Link
                     href="/free-roof-estimate-cochrane"
-                    className="mt-3 inline-flex items-center gap-1.5 text-brand-gold font-semibold hover:text-[#B8943F] transition-colors duration-200"
+                    className="mt-4 inline-flex w-fit items-center gap-1.5 text-brand-gold font-semibold hover:text-[#B8943F] transition-colors duration-200"
                     style={{
                       fontSize: '13px',
                       fontFamily: 'var(--font-inter), system-ui, sans-serif',
