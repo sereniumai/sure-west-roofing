@@ -121,66 +121,66 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: 'How much does a roof replacement cost in Cochrane?',
+      name: 'How much does a new roof cost in Cochrane, Alberta?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most residential roof replacements in Cochrane range from $8,000 to $18,000, depending on roof size in square feet, pitch, shingle tier, and deck condition found during tear-off. We provide a detailed written quote at no charge after an on-site inspection. GST (5%) applies in Alberta, no PST. The price you approve is the price you pay.',
+        text: 'A typical asphalt shingle roof replacement in Cochrane costs between $8,000 and $18,000, with most 2,000 sq ft homes landing between $11,000 and $14,000. The final price depends on roof size, pitch, shingle tier (IKO Cambridge, Dynasty, or Nordic), whether decking needs replacement, and the complexity of flashing and valleys. Sure West gives every Cochrane homeowner a fixed written quote after an in-home inspection, so the number you see is the number you pay.',
       },
     },
     {
       '@type': 'Question',
-      name: 'How long does a roof replacement take?',
+      name: 'How long does a roof replacement take in Cochrane?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most standard single-family homes in Cochrane take one day. Larger homes, steeper pitches, or roofs with multiple dormers and penetrations take two. We confirm your timeline in writing before the job starts and never leave a roof unsecured overnight.',
+        text: 'Most Cochrane single-family roof replacements are completed in 1 to 2 days once our crew is on site. Steep pitches, multi-layer tear-offs, and weather delays can extend the job to 3 days. We give you a firm start date and completion timeline in writing before work begins, and our Cochrane install crews are in-house, not subcontracted, so scheduling stays predictable.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Do you tear off the old roof or install over it?',
+      name: 'What are the signs my roof needs replacing, not just repairing?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We always do a full tear-off. Installing over old shingles can void the IKO material warranty, trap moisture, and hide deck damage that needs addressing. Every Sure West replacement starts with a complete removal so the deck can be inspected before new materials go on.',
+        text: "Clear signs you need a full roof replacement in Cochrane include shingles older than 20 years, curling or buckling across large sections, widespread granule loss, sagging decking, repeated leaks in multiple spots, and significant hail damage confirmed by an adjuster. If damage is localized and your roof is under 15 years old, roof repair is usually the smarter call. We will tell you honestly which one you need, including when you don't need us at all.",
       },
     },
     {
       '@type': 'Question',
-      name: 'What time of year is best for a roof replacement in Alberta?',
+      name: 'What warranty do I get on a roof replacement from Sure West?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Late spring through early fall provides the most reliable conditions in Alberta. That said, we carry out roof replacements year-round in Cochrane where weather allows. Shingles have minimum temperature requirements for sealing, so we schedule around the forecast and will advise if timing affects your options.',
+        text: "Every Sure West roof replacement in Cochrane comes with two warranties: a manufacturer warranty from IKO covering the shingles themselves (up to lifetime limited, depending on tier), and a workmanship warranty from Sure West covering the installation. Because Sure West is a Red Seal certified contractor installing IKO products to spec, your shingles qualify for the top-tier manufacturer coverage that many non-certified installers can't offer.",
       },
     },
     {
       '@type': 'Question',
-      name: 'Do you handle the insurance claim if hail caused the damage?',
+      name: 'Do I need to replace my roof after hail damage in Cochrane?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. If hail or wind caused the damage, we work directly with your insurance adjuster and prepare the full documentation your insurer requires. Alberta home insurance typically covers sudden storm damage. We have handled many Cochrane hail damage claims and can guide you through the process at no extra charge.',
+        text: "Not always. Light hail can cause cosmetic damage that doesn't affect the roof's life, while severe hail can compromise the entire roof system and require a full replacement. The right first step is a professional hail damage inspection, which also documents the damage for your insurance claim. Most Cochrane hail claims in the May to August season result in insurer-approved replacements.",
       },
     },
     {
       '@type': 'Question',
-      name: 'What happens if my roof deck is damaged?',
+      name: 'When is the best time of year to replace a roof in Cochrane?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'If we find deck damage during tear-off, we assess the extent, photograph it, and give you a transparent cost to repair before additional work proceeds. Deck repairs are billed by the square foot at a rate disclosed in your original quote. You approve before we continue.',
+        text: 'The best time to replace a roof in Cochrane is late April through October, when temperatures stay consistently above 5°C and shingles seal properly. Spring and early summer are peak booking season, with slots often filling 4 to 6 weeks out, especially after hail events. September and October are ideal for pre-winter installs before snow arrives. We do not install in deep cold because asphalt shingles will not seal correctly below 5°C.',
       },
     },
     {
       '@type': 'Question',
-      name: 'Will my yard and landscaping be protected during the install?',
+      name: 'Can I finance a roof replacement in Alberta?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Yes. We lay protective boards over gardens, AC units, and landscaping before tear-off begins. A magnetic nail sweep covers the full property perimeter after the job is complete. We leave the site as clean as we found it, or cleaner.',
+        text: 'Yes, Sure West offers financing options for Cochrane roof replacements, including payment plans that spread the cost over 12 to 60 months. Financing is a common path for insurance-deductible coverage and for homeowners who want to upgrade to a premium shingle tier without paying upfront. We will walk you through the options during your free in-home estimate.',
       },
     },
     {
       '@type': 'Question',
-      name: 'What warranty comes with a Sure West roof replacement?',
+      name: 'Do I need to be home during my roof replacement?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Every Sure West roof replacement includes a 10-year workmanship warranty covering installation defects. The IKO shingles carry a separate manufacturer material warranty: lifetime limited on most tiers, with wind and algae coverage depending on the product chosen. Both warranties are written into your contract before we start.',
+        text: 'No, you do not need to be home during your Cochrane roof replacement. Our crews work from the exterior only and do not need access to your home. We recommend moving vehicles out of the driveway, removing fragile items from walls (vibration can shake them loose), and keeping pets indoors. We send daily progress updates by text so you always know where the job stands.',
       },
     },
   ],
