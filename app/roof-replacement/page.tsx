@@ -450,8 +450,9 @@ function SignsYouNeed() {
               fontWeight: 400,
             }}
           >
-            Not every problem means a full replacement. If your Cochrane roof is under 15 years
-            old and the damage is localized,{' '}
+            Cochrane&apos;s freeze-thaw cycles and Chinook winds are brutal on roofs. Not every
+            problem means a full replacement, though. If your Cochrane roof is under 15 years old
+            and the damage is localized,{' '}
             <Link href="/roof-repair" className="text-[#C49A2C] hover:underline">
               roof repair
             </Link>{' '}
@@ -524,7 +525,7 @@ const PROCESS_STEPS = [
     number: '01',
     Icon: Calendar,
     heading: ['Free On-Site', 'Estimate'],
-    body: 'A Red Seal owner (Craig or Mike) inspects your roof, measures it, and walks you through the options. No pressure, no upsell.',
+    body: 'A Red Seal owner (Craig or Mike) inspects your roof at your Cochrane home, measures it, and walks you through the options. No pressure, no upsell.',
   },
   {
     number: '02',
@@ -542,7 +543,7 @@ const PROCESS_STEPS = [
     number: '04',
     Icon: Hammer,
     heading: ['One-Day Install', 'on Most Homes'],
-    body: 'Full tear-off, deck repair, and new install in a single day on most Cochrane homes. Larger or complex roofs take two days.',
+    body: 'Our in-house Cochrane crews handle full tear-off, deck repair, and new install in a single day on most homes. Larger or complex roofs take two days.',
   },
   {
     number: '05',
@@ -848,8 +849,9 @@ function WhySureWest() {
               fontWeight: 400,
             }}
           >
-            Red Seal certified owners on every job, materials built for Alberta weather, and
-            warranties you can read before we start.
+            We&apos;ve built our reputation across Cochrane, Calgary, and Canmore on Red Seal
+            certified ownership, materials built for Alberta weather, and warranties you can read
+            before we start.
           </p>
           <div className="mt-7">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -934,8 +936,9 @@ function WarrantyGuarantees() {
               fontWeight: 400,
             }}
           >
-            Two layers of written protection, every time: our workmanship and IKO&apos;s materials.
-            Both terms land in your contract before the job starts. Combined with routine{' '}
+            Every Cochrane roof we replace ships with two layers of written protection: our
+            workmanship and IKO&apos;s materials. Both terms land in your contract before the job
+            starts. Combined with routine{' '}
             <Link href="/roof-maintenance" className="text-[#C49A2C] hover:underline">
               roof maintenance
             </Link>
