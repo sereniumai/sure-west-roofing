@@ -31,31 +31,16 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Roof Replacement in Cochrane, AB | Sure West Roofing',
+  title: 'Roof Replacement Cochrane | Red Seal Certified | Sure West Roofing',
   description:
-    'Red Seal certified roof replacement in Cochrane, Calgary, and Canmore. IKO shingles, 10-year workmanship warranty, honest written quotes. Get a free estimate.',
-  keywords: [
-    'roof replacement Cochrane',
-    'roof replacement Cochrane AB',
-    'new roof installation Cochrane',
-    'asphalt shingle replacement Cochrane',
-    'IKO shingles Cochrane',
-    'roof replacement cost Cochrane',
-    'roofing contractor Cochrane',
-    'Red Seal roofing Cochrane',
-    'roof replacement Calgary',
-    'roof replacement Canmore',
-    'residential roofing Cochrane',
-    'impact resistant shingles Alberta',
-    'architectural shingles Alberta',
-    'IKO Nordic Cochrane',
-    'IKO Dynasty Cochrane',
-    'Sure West Roofing roof replacement',
-  ],
+    'Red Seal certified roof replacement in Cochrane, AB. Fixed written quotes, manufacturer-backed warranties, in-house crews. Serving Cochrane, Calgary, and Canmore. Text us any time for a free estimate.',
+  alternates: {
+    canonical: 'https://surewestroofing.ca/roof-replacement',
+  },
   openGraph: {
-    title: 'Roof Replacement in Cochrane, AB | Sure West Roofing',
+    title: 'Roof Replacement Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified roof replacement in Cochrane, Calgary, and Canmore. IKO shingles, 10-year workmanship warranty, honest written quotes.',
+      'Red Seal certified roof replacement in Cochrane, AB. Fixed quotes, real warranties, in-house crews.',
     url: 'https://surewestroofing.ca/roof-replacement',
     type: 'website',
     locale: 'en_CA',
@@ -70,13 +55,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Roof Replacement in Cochrane, AB | Sure West Roofing',
+    title: 'Roof Replacement Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified roof replacement in Cochrane, Calgary, and Canmore. IKO shingles, 10-year workmanship warranty, honest written quotes.',
+      'Red Seal certified roof replacement in Cochrane, AB. Fixed quotes, real warranties, in-house crews.',
     images: ['https://surewestroofing.ca/images/Roof Replacement Cochrane.avif'],
-  },
-  alternates: {
-    canonical: 'https://surewestroofing.ca/roof-replacement',
   },
 }
 
