@@ -11,19 +11,20 @@ const ITEMS = [
       'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on.',
   },
   {
-    heading: 'New underlayment, ice-and-water shield, and IKO shingles',
+    heading: 'Underlayment, ice-and-water shield, and IKO shingles',
     body:
       'Synthetic underlayment and ice-and-water shield protect the deck at every critical point. IKO shingles go on in your chosen tier (Cambridge, Dynasty, or Class 4 Nordic).',
   },
   {
-    heading: 'Full site cleanup, walkthrough, and written warranty',
+    heading: 'Full site cleanup, walkthrough, and warranty',
     body:
       'We tarp landscaping before tear-off, then run a magnetic nail sweep daily and at completion. Job closes with a walkthrough and your written 10-year workmanship warranty.',
   },
 ]
 
 export function WhatIncludedAccordion() {
-  const [open, setOpen] = useState<number | null>(0)
+  // One item is always open — clicking the open item is a no-op.
+  const [open, setOpen] = useState<number>(0)
 
   return (
     <ul
@@ -38,7 +39,7 @@ export function WhatIncludedAccordion() {
           <li key={item.heading}>
             <button
               type="button"
-              onClick={() => setOpen(isOpen ? null : i)}
+              onClick={() => setOpen(i)}
               aria-expanded={isOpen}
               className="group flex items-start justify-between w-full text-left py-3 px-3 md:px-4 rounded-[10px] cursor-pointer gap-4 hover:bg-white/50 transition-colors duration-200"
             >
