@@ -86,14 +86,8 @@ export function ServicesGallery({ images, sectionBg }: Props) {
               Every roof in our gallery was completed by our in-house Red Seal Journeyman crew. No subcontractors, no compromises.
             </p>
 
-            <div className="mt-8">
-              <Button variant="primary" size="lg" href="/gallery">
-                View Full Gallery
-              </Button>
-            </div>
-
             {/* Counter + arrows */}
-            <div className="mt-10 flex items-center gap-5">
+            <div className="mt-8 flex items-center gap-5">
               <button
                 onClick={prev}
                 aria-label="Previous photo"
@@ -137,6 +131,12 @@ export function ServicesGallery({ images, sectionBg }: Props) {
                   <Image src={img.src} alt="" fill className="object-cover" sizes="70px" />
                 </button>
               ))}
+            </div>
+
+            <div className="mt-8">
+              <Button variant="primary" size="lg" href="/gallery">
+                View Full Gallery
+              </Button>
             </div>
           </div>
 

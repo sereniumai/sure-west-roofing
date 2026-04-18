@@ -742,7 +742,7 @@ const DIFFERENTIATORS = [
   {
     Icon: CloudLightning,
     heading: 'Built for Alberta Weather',
-    body: 'Cochrane winters, Chinook swings, hailstorms, and high wind uplift demand specific materials and methods. Every install is tuned for the local freeze-thaw cycles and climate extremes.',
+    body: 'Cochrane winters, Chinooks, hailstorms, and high winds demand specific materials. Every install is tuned for local freeze-thaw conditions.',
   },
   {
     Icon: FileText,
