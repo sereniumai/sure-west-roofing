@@ -292,6 +292,50 @@ html {
   50%      { transform: translateY(6px); }
 }
 
+/* ── Lightbox gallery ────────────────────────── */
+
+@keyframes lightbox-backdrop-in {
+  from { opacity: 0; backdrop-filter: blur(0); }
+  to   { opacity: 1; backdrop-filter: blur(12px); }
+}
+
+@keyframes lightbox-stage-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes lightbox-image-in-right {
+  from { opacity: 0; transform: translateX(40px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes lightbox-image-in-left {
+  from { opacity: 0; transform: translateX(-40px) scale(0.97); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+.lightbox-backdrop {
+  animation: lightbox-backdrop-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lightbox-stage {
+  animation: lightbox-stage-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lightbox-image-right {
+  animation: lightbox-image-in-right 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.lightbox-image-left {
+  animation: lightbox-image-in-left 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ── Portfolio fan scroll reveal ─────────────── */
+
+@keyframes fan-reveal {
+  from { opacity: 0; transform: translate3d(0, 20px, 0) scale(0.92) rotate(0deg); }
+}
+
 /* ── Reduced motion ──────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

@@ -18,6 +18,7 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
 import { BottomCTA } from '@/components/sections/BottomCTA'
+import { GalleryGrid } from '@/components/sections/GalleryGrid'
 import type { FaqItem } from '@/lib/faqs/types'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -252,31 +253,9 @@ function GalleryHero() {
   )
 }
 
-// ─── Section: Masonry gallery grid ───────────────────────────────────────────
-
-function GalleryGrid() {
-  return (
-    <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16 lg:py-24">
-        {/* Strict 3-per-row grid on tablet+, 1-col on mobile. Uniform 4:3 aspect so cells line up. */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-6">
-          {galleryImages.map((image, index) => (
-            <div key={image.src} className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={image.src}
-                alt={image.alt}
-                loading={index < 6 ? 'eager' : 'lazy'}
-                className="w-full h-full object-cover hover:opacity-95 hover:scale-[1.02] transition-all duration-300"
-                draggable={false}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+// Gallery grid is rendered by the client component at
+// components/sections/GalleryGrid.tsx. It handles scroll-in animation and
+// click-to-open lightbox with prev/next navigation.
 
 // ─── Section: Gallery FAQ (reuse FAQSection) ────────────────────────────────
 
@@ -364,7 +343,7 @@ export default function GalleryPage() {
       />
 
       <GalleryHero />
-      <GalleryGrid />
+      <GalleryGrid images={galleryImages} />
       <GalleryFAQ />
       <BottomCTA
         heading={

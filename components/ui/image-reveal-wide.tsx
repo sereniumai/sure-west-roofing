@@ -20,12 +20,6 @@ interface ImageRevealWideProps {
   stepRot?: number
 }
 
-const CARD =
-  'absolute w-56 h-56 md:w-64 md:h-64 overflow-hidden rounded-xl shadow-[0_20px_50px_-20px_rgba(26,22,18,0.45)] bg-white'
-
-const IMG_WRAP = 'relative w-full h-full p-2'
-const IMG = 'object-cover rounded-xl'
-
 export default function ImageRevealWide({
   images,
   stepX = 180,
@@ -43,19 +37,26 @@ export default function ImageRevealWide({
         const x = offset * stepX
         const y = Math.abs(offset) * stepY
         const rot = offset * stepRot
-        // Centre card sits on top; cards further out recede.
         const z = 100 - Math.abs(offset)
+        // Outer: holds the static fan position + rotation.
+        const outerTransform = `translateX(${x}px) translateY(${y}px) rotate(${rot}deg)`
 
         return (
           <div
             key={i}
-            className={`${CARD} ${offset <= 0 ? 'origin-bottom-right' : 'origin-bottom-left'}`}
-            style={{
-              zIndex: z,
-              transform: `translateX(${x}px) translateY(${y}px) rotate(${rot}deg)`,
-            }}
+            className="absolute w-56 h-56 md:w-64 md:h-64"
+            style={{ zIndex: z, transform: outerTransform }}
           >
-            <div className={IMG_WRAP}>
+            {/* Inner: polaroid-style white-bordered card. Same frame treatment
+                as the gallery hero collage. Outer/inner split keeps hover
+                transforms from fighting the fan rotation. */}
+            <div
+              className="group relative w-full h-full overflow-hidden rounded-2xl bg-white border-[6px] border-white transition-all duration-500 ease-out hover:-translate-y-1.5 hover:scale-[1.03]"
+              style={{
+                boxShadow:
+                  '0 6px 16px rgba(27,53,88,0.10), 0 30px 60px -20px rgba(27,53,88,0.32)',
+              }}
+            >
               <Image
                 src={src}
                 alt=""
@@ -63,7 +64,7 @@ export default function ImageRevealWide({
                 sizes="(max-width: 768px) 224px, (max-width: 1024px) 256px, 300px"
                 quality={85}
                 loading="lazy"
-                className={IMG}
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               />
             </div>
           </div>
