@@ -326,7 +326,7 @@ function WhatIncluded() {
 
           {/* Right: photo locked to a fixed aspect so it never reflows when the accordion expands */}
           <div
-            className="relative overflow-hidden rounded-[18px] aspect-[4/3] min-h-[360px]"
+            className="relative overflow-hidden rounded-[18px] aspect-[5/4] min-h-[420px]"
             style={{
               boxShadow:
                 '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
