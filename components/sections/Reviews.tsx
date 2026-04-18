@@ -244,14 +244,14 @@ export function Reviews({ sectionBg = '#F7F5F0', cardBg = '#FFFFFF' }: ReviewsPr
         {/* Edge fade masks tinted to match section bg */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 z-10"
+          className="pointer-events-none absolute inset-y-0 left-0 w-6 sm:w-12 md:w-24 z-10"
           style={{
             background: `linear-gradient(to right, rgba(${fadeRgb}, 1), rgba(${fadeRgb}, 0))`,
           }}
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 w-[100px] z-[2]"
+          className="pointer-events-none absolute inset-y-0 right-0 w-[60px] sm:w-[80px] md:w-[100px] z-[2]"
           style={{
             background: `linear-gradient(to right, rgba(${fadeRgb}, 0) 0%, rgba(${fadeRgb}, 1) 80%, rgba(${fadeRgb}, 1) 100%)`,
           }}

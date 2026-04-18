@@ -8,13 +8,12 @@ import {
   HardHat,
   HeartPulse,
   MapPin,
-  ArrowRight,
-  Phone,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reviews } from '@/components/sections/Reviews'
-import { FAQSection } from '@/components/sections/FAQSection'
-import type { FAQItem } from '@/lib/types'
+import { BottomCTA } from '@/components/sections/BottomCTA'
+import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
+import type { FaqItem } from '@/lib/faqs/types'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -34,8 +33,7 @@ export const metadata: Metadata = {
     locale: 'en_CA',
     images: [
       {
-        // TODO: shoot a Sure West team group photo and place at /public/images/about/team-hero.jpg
-        url: '/images/about/team-hero.jpg',
+        url: '/images/Sure West Roofing in Cochrane.webp',
         width: 1200,
         height: 630,
         alt: 'Sure West Roofing Red Seal certified team in Cochrane, Alberta',
@@ -43,10 +41,6 @@ export const metadata: Metadata = {
     ],
   },
 }
-
-// ─── JSON-LD: AboutPage ──────────────────────────────────────────────────────
-// LocalBusiness/RoofingContractor schema is already injected site-wide via
-// app/layout.tsx, so we only add the AboutPage schema here.
 
 const aboutPageSchema = {
   '@context': 'https://schema.org',
@@ -60,7 +54,6 @@ const aboutPageSchema = {
     name: 'Sure West Roofing',
     url: 'https://surewestroofing.ca',
     telephone: '+14039907210',
-    email: 'info@surewestroofing.ca',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Unit 9, 225 Railway St E',
@@ -84,89 +77,127 @@ const aboutPageSchema = {
   },
 }
 
-// ─── Section: Asymmetric Hero ────────────────────────────────────────────────
+// ─── Section: Hero ───────────────────────────────────────────────────────────
 
 function AboutHero() {
   return (
-    <section className="bg-[#F7F5F0]">
-      <div className="max-w-7xl mx-auto px-6 pt-28 pb-20 lg:pt-36 lg:pb-28">
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-10">
+    <section
+      className="relative bg-brand-cream pt-28 md:pt-36 pb-16 md:pb-24"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1320px] mx-auto">
+        <nav aria-label="Breadcrumb" className="mb-8">
           <ol
-            className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#4A5568]"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+            className="flex items-center gap-2"
+            style={{
+              fontSize: '13px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              color: 'var(--brand-slate, #4D6A87)',
+            }}
           >
             <li>
-              <Link href="/" className="hover:text-[#C49A2C] transition-colors duration-200">
+              <Link href="/" className="hover:text-brand-gold transition-colors duration-200">
                 Home
               </Link>
             </li>
-            <li aria-hidden="true" className="opacity-40 select-none">/</li>
-            <li className="text-[#1B3558] font-medium" aria-current="page">
+            <li aria-hidden="true" className="text-brand-border select-none">/</li>
+            <li className="text-brand-navy font-medium" aria-current="page">
               About
             </li>
           </ol>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-          {/* Left content (col-span-2) */}
-          <div className="lg:col-span-2 flex flex-col justify-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="lg:order-1 order-2">
             <span
-              className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+              className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
             >
               About Sure West
             </span>
 
             <h1
-              className="font-display font-bold text-[#1B3558] leading-[1.05] mt-4"
-              style={{ fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.02em' }}
+              className="font-display font-semibold text-brand-navy"
+              style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.03em' }}
             >
-              The Red Seal Roofer Cochrane Homeowners Trust
+              The Red Seal Roofer
+              <br />
+              Cochrane Homeowners Trust
             </h1>
 
             <p
-              className="text-lg text-[#4A5568] leading-relaxed mt-6 max-w-md"
-              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+              className="mt-5 text-brand-slate leading-[1.65] max-w-[480px]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
             >
               Sure West is an owner-operated, Red Seal certified roofing company serving
-              Cochrane, Calgary, and Canmore. Meet the team behind every Sure West roof.
+              Cochrane, Calgary, and Canmore. Built on strong individual character, genuine
+              trade competency, and proven processes every crew follows on every roof.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              {/* /contact route does not exist; using /free-roof-estimate-cochrane (the actual estimate form). */}
+            <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
                 Get a Free Estimate
               </Button>
-              <Button variant="outline" size="lg" href="#team">
-                Meet the Team
+              <Button variant="outline" size="lg" href="#credentials">
+                See Our Credentials
               </Button>
+            </div>
+
+            <div
+              className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
+              style={{
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 500,
+                color: '#4A5568',
+                letterSpacing: '0.07em',
+                textTransform: 'uppercase',
+              }}
+            >
+              <span>Red Seal Certified</span>
+              <span aria-hidden="true" style={{ color: '#C49A2C' }}>·</span>
+              <span>Owner-Operated</span>
+              <span aria-hidden="true" style={{ color: '#C49A2C' }}>·</span>
+              <span>IKO ShieldPRO</span>
             </div>
           </div>
 
-          {/* Right image (col-span-3) */}
-          <div className="lg:col-span-3 relative">
+          <div className="relative lg:order-2 order-1">
             <div
               aria-hidden="true"
-              className="absolute -bottom-4 -right-4 w-full h-full rounded-2xl bg-[#1B3558] opacity-[0.08] -z-10"
+              className="absolute inset-0 rounded-[22px]"
+              style={{
+                border: '1px solid rgba(212,175,96,0.4)',
+                transform: 'translate(10px, 12px)',
+                zIndex: -1,
+              }}
             />
-
-            <div className="relative overflow-hidden rounded-2xl bg-white">
-              <div className="relative aspect-[4/3]">
+            <div
+              className="relative overflow-hidden rounded-[18px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+              }}
+            >
+              <div className="relative h-[280px] sm:h-[360px] lg:h-[440px]">
                 <Image
-                  // TODO: place hero team group photo at /public/images/about/team-group-hero.jpg
-                  src="/images/about/team-group-hero.jpg"
-                  alt="Red Seal certified Sure West Roofing team in Cochrane, Alberta"
+                  src="/images/Sure West Roofing in Cochrane.webp"
+                  alt="Sure West Roofing, Red Seal certified roofing contractor in Cochrane Alberta"
                   fill
-                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
                   priority
                 />
-              </div>
-
-              <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 bg-[#C49A2C] text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-md">
-                <ShieldCheck className="w-3.5 h-3.5" strokeWidth={2.5} />
-                Red Seal Certified
               </div>
             </div>
           </div>
@@ -176,52 +207,93 @@ function AboutHero() {
   )
 }
 
-// ─── Section: Our Story (Chunk 3) ────────────────────────────────────────────
-// Asymmetric 12-col split. Oversized pull-quote left, portrait offset down right.
+// ─── Section: Our Story ──────────────────────────────────────────────────────
 
 function OurStory() {
   return (
-    <section className="bg-[#EFEBE0]">
-      <div className="max-w-6xl mx-auto px-6 py-24 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left column (col-span-7) */}
-          <div className="lg:col-span-7">
+    <section
+      className="bg-white py-20 md:py-28"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1320px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="relative">
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 rounded-[22px]"
+              style={{
+                border: '1px solid rgba(212,175,96,0.4)',
+                transform: 'translate(-10px, 12px)',
+                zIndex: -1,
+              }}
+            />
+            <div
+              className="relative overflow-hidden rounded-[18px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+              }}
+            >
+              <div className="relative h-[280px] sm:h-[360px] lg:h-[460px]">
+                <Image
+                  src="/images/Sure West Roofing - Founders Video.webp"
+                  alt="Craig, Red Seal Journeyman roofer and Sure West Roofing owner, on a Cochrane roof"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
             <span
-              className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+              className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
             >
               Our Story
             </span>
 
             <h2
-              className="font-display font-bold text-[#1B3558] mt-4"
-              style={{ fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
+              className="font-display font-semibold text-brand-navy"
+              style={{
+                fontSize: 'clamp(30px, 4vw, 46px)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.02em',
+              }}
             >
-              Character, Competency, Proven Processes
+              Character, Competency,
+              <br className="hidden sm:block" /> Proven Processes
             </h2>
 
-            {/* Pull-quote with thick gold left bar */}
             <blockquote
-              className="font-display font-medium text-[#1B3558] italic leading-snug mt-8 max-w-xl border-l-4 border-[#C49A2C] pl-6"
-              style={{ fontSize: 'clamp(20px, 2.4vw, 30px)' }}
+              className="font-display italic text-brand-navy leading-snug mt-6 border-l-[3px] border-brand-gold pl-5"
+              style={{ fontSize: 'clamp(18px, 2vw, 22px)', fontWeight: 500 }}
             >
               &ldquo;The roofing industry rewards speed first. We were tired of watching
               homeowners pay the price.&rdquo;
             </blockquote>
 
             <div
-              className="space-y-4 max-w-xl mt-8 text-base text-[#4A5568] leading-relaxed"
-              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+              className="space-y-4 mt-6 text-brand-slate leading-[1.7]"
+              style={{
+                fontSize: '15.5px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
             >
               <p>
-                You deserve a predictable, reliable roofing experience that impresses the
-                neighbours and leaves your lifestyle uninterrupted. That&apos;s hard to find in
-                a largely unskilled industry built to reward speed first.
-              </p>
-              <p>
-                Sure West exists to change that. We&apos;re a Red Seal roofing contractor in
-                Cochrane, Alberta, built on strong individual character, genuine trade
-                competency, and proven processes every crew member follows on every roof.
+                Sure West was founded to raise the standard of roofing in Alberta. We are a
+                Red Seal roofing contractor in Cochrane, built on strong individual character,
+                genuine trade competency, and proven processes every crew member follows on
+                every roof.
               </p>
               <p>
                 Owner-operated. No subcontractors. No corner-cutting. Just Red Seal Journeyman
@@ -229,228 +301,19 @@ function OurStory() {
               </p>
             </div>
 
-            <div className="mt-10">
+            <div className="mt-8">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
                 Get a Free Estimate
               </Button>
             </div>
           </div>
-
-          {/* Right column (col-span-5): portrait offset down */}
-          <div className="lg:col-span-5 relative mt-12 lg:mt-32">
-            <div
-              className="relative overflow-hidden rounded-2xl bg-white"
-              style={{
-                boxShadow: '0 2px 4px rgba(27,53,88,0.06), 0 20px 48px -12px rgba(27,53,88,0.18)',
-              }}
-            >
-              <div className="relative aspect-[3/4]">
-                <Image
-                  // TODO: place owner portrait at /public/images/about/craig-on-roof.jpg
-                  src="/images/about/craig-on-roof.jpg"
-                  alt="Craig, Red Seal Journeyman roofer and Sure West owner, on a Cochrane roof"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 40vw"
-                  className="object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-
-            {/* Floating caption card: bottom-left of image, partially overlapping */}
-            <div className="absolute bottom-6 -left-4 sm:-ml-6 bg-white border border-[#E5E2D9] rounded-xl shadow-sm p-5 max-w-[220px]">
-              <span
-                className="inline-block text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-                style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-              >
-                Owner
-              </span>
-              <p
-                className="font-display font-semibold text-[#1B3558] text-lg mt-1"
-                style={{ letterSpacing: '-0.01em' }}
-              >
-                Craig
-              </p>
-              <p
-                className="text-xs text-[#4A5568] mt-1"
-                style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-              >
-                Red Seal Journeyman
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
   )
 }
 
-// ─── Section: Meet the Team (Chunk 4) ────────────────────────────────────────
-// Mobile: horizontal scroll. Desktop: 4-up grid. Red Seal badge on certified members.
-// TODO: All team photos need to be shot in matching style (outdoor, Sure West apparel,
-// matching lighting). Confirm full team roster with Craig before launch.
-
-interface TeamMember {
-  name: string
-  role: string
-  bio: string
-  photo: string
-  redSeal: boolean
-  credentials: ('red-seal' | 'fall-protection' | 'first-aid')[]
-}
-
-const TEAM: TeamMember[] = [
-  {
-    name: 'Craig',
-    role: 'Owner & Red Seal Journeyman',
-    bio: 'Founded Sure West to raise the standard of roofing in Alberta. Lives in Cochrane and personally inspects every roof the team installs.',
-    photo: '/images/about/team-craig.jpg',
-    redSeal: true,
-    credentials: ['red-seal', 'fall-protection', 'first-aid'],
-  },
-  {
-    name: 'Mark',
-    role: 'Lead Installer',
-    bio: '[placeholder, request bio from Craig]',
-    photo: '/images/about/team-mark.jpg',
-    redSeal: true,
-    credentials: ['red-seal', 'fall-protection', 'first-aid'],
-  },
-  {
-    name: 'Kyle',
-    role: 'Installer',
-    bio: '[placeholder, request bio from Craig]',
-    photo: '/images/about/team-kyle.jpg',
-    redSeal: false,
-    credentials: ['fall-protection', 'first-aid'],
-  },
-  {
-    name: 'Jaron',
-    role: 'Installer',
-    bio: '[placeholder, request bio from Craig]',
-    photo: '/images/about/team-jaron.jpg',
-    redSeal: false,
-    credentials: ['fall-protection', 'first-aid'],
-  },
-]
-
-const CRED_ICONS = {
-  'red-seal': ShieldCheck,
-  'fall-protection': HardHat,
-  'first-aid': HeartPulse,
-} as const
-
-function TeamCard({ member }: { member: TeamMember }) {
-  return (
-    <article className="bg-white rounded-2xl border border-[#E5E2D9] overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
-      <div className="relative aspect-[4/5]">
-        <Image
-          src={member.photo}
-          alt={`${member.name}, ${member.role} at Sure West Roofing in Cochrane, Alberta`}
-          fill
-          sizes="(max-width: 768px) 80vw, 25vw"
-          className="object-cover object-top"
-          loading="lazy"
-        />
-
-        {/* Red Seal badge: top-right of photo, certified journeymen only */}
-        {member.redSeal && (
-          <div className="absolute top-4 right-4 inline-flex items-center gap-1 bg-[#C49A2C] text-white text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full shadow-md">
-            <ShieldCheck className="w-3 h-3" strokeWidth={2.5} />
-            Red Seal
-          </div>
-        )}
-      </div>
-
-      <div className="p-6">
-        <h3
-          className="font-display font-bold text-xl text-[#1B3558]"
-          style={{ letterSpacing: '-0.01em' }}
-        >
-          {member.name}
-        </h3>
-        <p
-          className="text-[11px] uppercase tracking-widest text-[#C49A2C] mt-1 font-semibold"
-          style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-        >
-          {member.role}
-        </p>
-
-        <div className="border-t border-[#E5E2D9] mt-4 pt-4">
-          <p
-            className="text-sm text-[#4A5568] leading-relaxed"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-          >
-            {member.bio}
-          </p>
-
-          <div className="flex gap-3 mt-4">
-            {member.credentials.map((cred) => {
-              const Icon = CRED_ICONS[cred]
-              return (
-                <Icon
-                  key={cred}
-                  className="w-4 h-4 text-[#1B3558]"
-                  strokeWidth={1.75}
-                  aria-label={cred.replace('-', ' ')}
-                />
-              )
-            })}
-          </div>
-        </div>
-      </div>
-    </article>
-  )
-}
-
-function MeetTheTeam() {
-  return (
-    <section id="team" className="bg-[#F7F5F0]">
-      <div className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span
-            className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-          >
-            The Team
-          </span>
-          <h2
-            className="font-display font-bold text-[#1B3558] mt-4"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
-          >
-            Meet the Sure West Crew
-          </h2>
-          <p
-            className="text-base text-[#4A5568] leading-relaxed mt-4"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-          >
-            Every Sure West roof is installed by our in-house Red Seal crew. No subcontractors,
-            ever.
-          </p>
-        </div>
-
-        {/* Mobile: horizontal scroll. Tablet: 2-up. Desktop: 4-up. */}
-        <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-6 px-6">
-          {TEAM.map((member) => (
-            <div key={member.name} className="flex-shrink-0 w-[80vw] max-w-[280px] snap-start">
-              <TeamCard member={member} />
-            </div>
-          ))}
-        </div>
-
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {TEAM.map((member) => (
-            <TeamCard key={member.name} member={member} />
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ─── Section: By the Numbers (Chunk 5) ───────────────────────────────────────
-// Flat horizontal stat strip. Gold dividers between stats on desktop. NO cards.
-// TODO: confirm all numbers with client before launch.
+// ─── Section: Stats Strip ────────────────────────────────────────────────────
 
 const STATS = [
   { number: '500+', label: 'Cochrane Roofs Completed' },
@@ -459,28 +322,35 @@ const STATS = [
   { number: '100%', label: 'Red Seal Installed' },
 ]
 
-function ByTheNumbers() {
+function StatsStrip() {
   return (
-    <section className="bg-[#EFEBE0]">
-      <div className="max-w-6xl mx-auto px-6 py-20">
+    <section
+      className="bg-brand-cream py-12 md:py-16"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-0">
           {STATS.map((stat, i) => (
             <div
               key={stat.label}
-              className={`text-center px-6 ${
+              className={`text-center px-4 ${
                 i < STATS.length - 1 ? 'lg:border-r lg:border-[#C49A2C]/30' : ''
               }`}
             >
               <div
-                className="font-display font-bold text-[#1B3558] leading-none"
-                style={{ fontSize: 'clamp(48px, 6vw, 64px)', letterSpacing: '-0.02em' }}
+                className="font-display font-semibold text-brand-navy leading-none"
+                style={{ fontSize: 'clamp(36px, 5vw, 56px)', letterSpacing: '-0.02em' }}
               >
                 {stat.number}
               </div>
-              <div className="w-12 h-[3px] bg-[#C49A2C] mx-auto mt-3" aria-hidden="true" />
+              <div className="w-10 h-[3px] bg-brand-gold mx-auto mt-3" aria-hidden="true" />
               <p
-                className="text-sm uppercase tracking-widest text-[#4A5568] mt-4"
-                style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+                className="uppercase tracking-[0.1em] text-brand-slate mt-3"
+                style={{
+                  fontSize: '11.5px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 500,
+                }}
               >
                 {stat.label}
               </p>
@@ -492,8 +362,7 @@ function ByTheNumbers() {
   )
 }
 
-// ─── Section: Credentials Zig-Zag (Chunk 6) ──────────────────────────────────
-// Alternating left/right layout. Large icon block paired with title + body.
+// ─── Section: Credentials Grid ───────────────────────────────────────────────
 
 const CRED_ICON_MAP = {
   ShieldCheck,
@@ -509,99 +378,111 @@ const CREDENTIALS: { icon: keyof typeof CRED_ICON_MAP; title: string; body: stri
     icon: 'ShieldCheck',
     title: 'Red Seal Journeyman Certified',
     body:
-      "The highest interprovincial trade credential in Canada. Every Sure West lead installer holds Red Seal certification, which means they've passed the national trade exam, completed a formal apprenticeship, and meet the same standard enforced across every Canadian province.",
+      'The highest interprovincial trade credential in Canada. Every Sure West lead installer holds Red Seal certification, enforced nationally.',
   },
   {
     icon: 'Award',
     title: 'IKO ShieldPRO Installer',
     body:
-      "Qualifies your roof for IKO's top-tier manufacturer warranty, including extended coverage on materials and workmanship. Most non-certified installers can't offer this level of protection on the shingles they install.",
+      "Qualifies your roof for IKO's top-tier manufacturer warranty, including extended coverage on materials and workmanship.",
   },
   {
     icon: 'FileCheck',
     title: '$2 Million Liability Insurance',
     body:
-      "Comprehensive liability coverage on every job, every property, every time. As a homeowner, you have the right to ask any contractor for proof of coverage. We're happy to provide it before any work begins.",
+      "Comprehensive liability coverage on every job, every property, every time. Proof of coverage provided before any work begins.",
   },
   {
     icon: 'HardHat',
     title: 'WCB Alberta Covered',
     body:
-      "Every Sure West crew member is covered by Workers' Compensation Board Alberta. That means any injury sustained on your property is handled through WCB, not your homeowner's insurance.",
+      "Every crew member is covered by Workers' Compensation Board Alberta. Any on-site injury is handled through WCB, not your homeowner's insurance.",
   },
   {
     icon: 'HeartPulse',
-    title: 'Fall Protection & First Aid Certified',
+    title: 'Fall Protection & First Aid',
     body:
-      'Current Fall Protection and Standard First Aid certifications on every installer. Roofing is one of the highest-risk trades in Canada. We take crew safety as seriously as roof quality.',
+      'Current Fall Protection and Standard First Aid certifications on every installer. We take crew safety as seriously as roof quality.',
   },
   {
     icon: 'MapPin',
-    title: 'Licensed in Cochrane, Calgary & Canmore',
+    title: 'Licensed in All Three Cities',
     body:
-      "Active municipal business licenses in every community we serve. Alberta's roofing regulations are tightening, and every contractor you consider should be able to show current licensing for your municipality.",
+      "Active municipal business licenses in Cochrane, Calgary, and Canmore. We can show current licensing for your municipality on request.",
   },
 ]
 
 function Credentials() {
   return (
-    <section className="bg-[#F7F5F0]">
-      <div className="max-w-5xl mx-auto px-6 py-24">
-        <div className="text-center max-w-2xl mx-auto mb-20">
+    <section
+      id="credentials"
+      className="bg-white py-20 md:py-28"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1320px] mx-auto">
+        <div className="text-center max-w-[680px] mx-auto mb-12 md:mb-16">
           <span
-            className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+            style={{
+              background: '#F0EEE8',
+              fontSize: '12px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 600,
+              lineHeight: 1,
+            }}
           >
             Credentials
           </span>
           <h2
-            className="font-display font-bold text-[#1B3558] mt-4"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
+            className="font-display font-semibold text-brand-navy"
+            style={{
+              fontSize: 'clamp(30px, 4vw, 46px)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+            }}
           >
             What Makes Sure West a Red Seal Roofer in Cochrane
           </h2>
           <p
-            className="text-base text-[#4A5568] leading-relaxed mt-4"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+            className="mt-5 text-brand-slate leading-[1.65]"
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 400,
+            }}
           >
-            These are the credentials, certifications, and protections behind every roof we
-            install in Cochrane, Calgary, and Canmore.
+            The credentials, certifications, and protections behind every roof we install in
+            Cochrane, Calgary, and Canmore.
           </p>
         </div>
 
-        <div className="space-y-16">
-          {CREDENTIALS.map((cred, i) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {CREDENTIALS.map((cred) => {
             const Icon = CRED_ICON_MAP[cred.icon]
-            const isEven = i % 2 === 1
             return (
               <div
                 key={cred.title}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+                className="bg-brand-cream rounded-[14px] border border-[#E5E2D9] p-6 md:p-7 hover:border-brand-gold/40 transition-colors duration-300"
               >
-                <div
-                  className={`lg:col-span-4 flex justify-center ${
-                    isEven ? 'lg:order-2' : 'lg:order-1'
-                  }`}
+                <div className="w-12 h-12 rounded-[10px] bg-white flex items-center justify-center shadow-sm">
+                  <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
+                </div>
+                <h3
+                  className="font-display font-semibold text-brand-navy mt-5"
+                  style={{ fontSize: '19px', letterSpacing: '-0.01em', lineHeight: 1.25 }}
                 >
-                  <div className="w-32 h-32 rounded-2xl bg-white border border-[#E5E2D9] flex items-center justify-center shadow-sm">
-                    <Icon className="w-16 h-16 text-[#C49A2C]" strokeWidth={1.5} />
-                  </div>
-                </div>
-
-                <div className={`lg:col-span-8 ${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <h3
-                    className="font-display font-bold text-[#1B3558]"
-                    style={{ fontSize: 'clamp(22px, 2.5vw, 28px)', letterSpacing: '-0.01em', lineHeight: 1.2 }}
-                  >
-                    {cred.title}
-                  </h3>
-                  <p
-                    className="text-base text-[#4A5568] leading-relaxed mt-4"
-                    style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                  >
-                    {cred.body}
-                  </p>
-                </div>
+                  {cred.title}
+                </h3>
+                <p
+                  className="text-brand-slate leading-[1.6] mt-3"
+                  style={{
+                    fontSize: '14.5px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 400,
+                  }}
+                >
+                  {cred.body}
+                </p>
               </div>
             )
           })}
@@ -611,8 +492,7 @@ function Credentials() {
   )
 }
 
-// ─── Section: How We Work Differently (Chunk 7) ──────────────────────────────
-// Stacked horizontal cards with massive numerals. NOT a 4-up grid.
+// ─── Section: How We Work ────────────────────────────────────────────────────
 
 const DIFFERENTIATORS = [
   {
@@ -643,60 +523,75 @@ const DIFFERENTIATORS = [
 
 function HowWeWork() {
   return (
-    <section className="bg-[#EFEBE0]">
-      <div className="max-w-5xl mx-auto px-6 py-24">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+    <section
+      className="bg-brand-cream py-20 md:py-28"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1100px] mx-auto">
+        <div className="text-center max-w-[680px] mx-auto mb-12 md:mb-16">
           <span
-            className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+            style={{
+              background: '#F0EEE8',
+              fontSize: '12px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 600,
+              lineHeight: 1,
+            }}
           >
             How We Work
           </span>
           <h2
-            className="font-display font-bold text-[#1B3558] mt-4"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
+            className="font-display font-semibold text-brand-navy"
+            style={{
+              fontSize: 'clamp(30px, 4vw, 46px)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+            }}
           >
             Four Things That Make Sure West Different
           </h2>
           <p
-            className="text-base text-[#4A5568] leading-relaxed mt-4"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
+            className="mt-5 text-brand-slate leading-[1.65]"
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 400,
+            }}
           >
             What you get from a Red Seal roofing contractor that you don&apos;t get from the
             average Cochrane crew.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {DIFFERENTIATORS.map((d) => (
             <div
               key={d.number}
-              className="bg-white rounded-2xl border border-[#E5E2D9] p-8 lg:p-10 shadow-sm"
+              className="bg-white rounded-2xl border border-[#E5E2D9] p-6 md:p-8 shadow-sm"
             >
-              <div className="grid grid-cols-12 gap-6 items-center">
-                <div className="col-span-2">
-                  <span
-                    className="font-display font-bold text-[#C49A2C] leading-none block"
-                    style={{ fontSize: 'clamp(48px, 6vw, 72px)', letterSpacing: '-0.02em' }}
-                  >
-                    {d.number}
-                  </span>
-                </div>
-                <div className="col-span-10">
-                  <h3
-                    className="font-display font-bold text-[#1B3558]"
-                    style={{ fontSize: 'clamp(20px, 2.2vw, 26px)', letterSpacing: '-0.01em', lineHeight: 1.2 }}
-                  >
-                    {d.title}
-                  </h3>
-                  <p
-                    className="text-base text-[#4A5568] leading-relaxed mt-3"
-                    style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                  >
-                    {d.body}
-                  </p>
-                </div>
-              </div>
+              <span
+                className="font-display font-bold text-brand-gold leading-none block"
+                style={{ fontSize: 'clamp(36px, 4vw, 48px)', letterSpacing: '-0.02em' }}
+              >
+                {d.number}
+              </span>
+              <h3
+                className="font-display font-semibold text-brand-navy mt-4"
+                style={{ fontSize: '20px', letterSpacing: '-0.01em', lineHeight: 1.25 }}
+              >
+                {d.title}
+              </h3>
+              <p
+                className="text-brand-slate leading-[1.65] mt-3"
+                style={{
+                  fontSize: '14.5px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 400,
+                }}
+              >
+                {d.body}
+              </p>
             </div>
           ))}
         </div>
@@ -705,121 +600,120 @@ function HowWeWork() {
   )
 }
 
-// ─── Section: Service Area Map (Chunk 8) ─────────────────────────────────────
+// ─── Section: Service Areas ──────────────────────────────────────────────────
 
 const LOCATIONS = [
-  { name: 'Cochrane', href: '/', primary: true },
-  { name: 'Calgary', href: '/roofing-contractor-calgary', primary: false },
-  { name: 'Canmore', href: '/roofing-contractor-canmore', primary: false },
+  { name: 'Cochrane', href: '/', tag: 'Headquarters' },
+  { name: 'Calgary', href: '/roofing-contractor-calgary', tag: 'Greater Calgary Region' },
+  { name: 'Canmore', href: '/roofing-contractor-canmore', tag: 'Bow Valley' },
 ]
 
-function ServiceAreaMap() {
+function ServiceAreas() {
   return (
-    <section className="bg-[#F7F5F0]">
-      <div className="max-w-6xl mx-auto px-6 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left: text + location list */}
-          <div>
-            <span
-              className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-            >
-              Service Area
-            </span>
-            <h2
-              className="font-display font-bold text-[#1B3558] mt-4"
-              style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
-            >
-              Serving Cochrane, Calgary, and Canmore
-            </h2>
-            <p
-              className="text-base text-[#4A5568] leading-relaxed mt-6 max-w-lg"
-              style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-            >
-              Sure West is headquartered in Cochrane, Alberta and serves homeowners across the
-              Bow Valley and the greater Calgary region. As a Red Seal roofing contractor
-              licensed in all three municipalities, we bring the same standard of work to every
-              roof, whether you&apos;re five minutes away or an hour down the highway.
-            </p>
+    <section
+      className="bg-white py-20 md:py-28"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1100px] mx-auto">
+        <div className="text-center max-w-[680px] mx-auto mb-12 md:mb-16">
+          <span
+            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+            style={{
+              background: '#F0EEE8',
+              fontSize: '12px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 600,
+              lineHeight: 1,
+            }}
+          >
+            Service Area
+          </span>
+          <h2
+            className="font-display font-semibold text-brand-navy"
+            style={{
+              fontSize: 'clamp(30px, 4vw, 46px)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.02em',
+            }}
+          >
+            Serving Cochrane, Calgary, and Canmore
+          </h2>
+          <p
+            className="mt-5 text-brand-slate leading-[1.65]"
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 400,
+            }}
+          >
+            Headquartered in Cochrane, Alberta. Licensed in all three municipalities and
+            covering the Bow Valley and the greater Calgary region.
+          </p>
+        </div>
 
-            <ul className="mt-8 space-y-4">
-              {LOCATIONS.map((loc) => (
-                <li key={loc.name} className="flex items-center gap-4">
-                  <MapPin className="w-6 h-6 text-[#C49A2C] flex-shrink-0" strokeWidth={1.75} />
-                  <span
-                    className="font-display font-semibold text-[#1B3558] text-xl flex-1"
-                    style={{ letterSpacing: '-0.01em' }}
-                  >
-                    {loc.name}
-                    {loc.primary && (
-                      <span
-                        className="ml-3 text-[10px] uppercase tracking-widest text-[#C49A2C] font-semibold align-middle"
-                        style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                      >
-                        Primary
-                      </span>
-                    )}
-                  </span>
-                  <Link
-                    href={loc.href}
-                    className="inline-flex items-center gap-1.5 text-sm text-[#C49A2C] font-semibold hover:text-[#B8943F] transition-colors"
-                    style={{
-                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                      textDecoration: 'underline',
-                      textUnderlineOffset: '3px',
-                    }}
-                  >
-                    Visit page
-                    <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Right: stylised map */}
-          <div className="relative">
-            <div
-              className="relative overflow-hidden rounded-2xl bg-white border border-[#E5E2D9] aspect-[4/3]"
-              style={{
-                boxShadow: '0 2px 4px rgba(27,53,88,0.06), 0 20px 48px -12px rgba(27,53,88,0.18)',
-              }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {LOCATIONS.map((loc) => (
+            <Link
+              key={loc.name}
+              href={loc.href}
+              className="group bg-brand-cream rounded-[14px] border border-[#E5E2D9] p-6 md:p-7 hover:border-brand-gold/40 hover:-translate-y-[4px] transition-all duration-300"
             >
-              {/* TODO: design and place a stylised southern Alberta SVG map at
-                  /public/images/about/service-area-map.svg with gold dots on Cochrane,
-                  Calgary, and Canmore connected by a gold line. Until then, fall back
-                  to a simple inline SVG schematic so the layout reads correctly. */}
-              <Image
-                src="/images/about/service-area-map.svg"
-                alt="Sure West Roofing service area map covering Cochrane, Calgary, and Canmore Alberta"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover"
-                loading="lazy"
-                onError={undefined}
-              />
-            </div>
-          </div>
+              <div className="w-12 h-12 rounded-[10px] bg-white flex items-center justify-center shadow-sm">
+                <MapPin className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
+              </div>
+              <p
+                className="uppercase tracking-[0.1em] text-brand-gold mt-5"
+                style={{
+                  fontSize: '11px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 600,
+                }}
+              >
+                {loc.tag}
+              </p>
+              <h3
+                className="font-display font-semibold text-brand-navy mt-2"
+                style={{ fontSize: '24px', letterSpacing: '-0.01em', lineHeight: 1.2 }}
+              >
+                {loc.name}
+              </h3>
+              <span
+                className="inline-flex items-center gap-1 mt-4 text-brand-navy group-hover:text-brand-gold transition-colors"
+                style={{
+                  fontSize: '13px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                }}
+              >
+                Visit page
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </span>
+            </Link>
+          ))}
         </div>
       </div>
     </section>
   )
 }
 
-// ─── Section: Testimonials (Chunk 9) ─────────────────────────────────────────
-// Reuse the homepage Reviews component for voice consistency. The brief asked for
-// per-section props (label/h2/testimonials) but the existing Reviews component
-// renders its own marquee with its own 10-item dataset; not modifying the shared
-// component here. White section, cream cards (matches the treatment used on the
-// service pages so the voice is consistent across the site).
+// ─── Section: Testimonials ───────────────────────────────────────────────────
 
 function AboutTestimonials() {
   return <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
 }
 
-// ─── Section: About FAQ (Chunk 10) ───────────────────────────────────────────
+// ─── Section: FAQ ────────────────────────────────────────────────────────────
 
-const ABOUT_FAQS: FAQItem[] = [
+const ABOUT_FAQS: FaqItem[] = [
   {
     question: 'How long has Sure West Roofing been in business?',
     answer:
@@ -864,69 +758,16 @@ const ABOUT_FAQS: FAQItem[] = [
 
 function AboutFAQ() {
   return (
-    <FAQSection
-      label="Common Questions"
-      heading="About Sure West Roofing"
-      body="Everything homeowners ask about our company, credentials, and approach."
+    <ServiceFAQ
       faqs={ABOUT_FAQS}
-      schemaEnabled
+      heading="About Sure West Roofing"
+      subhead="Everything homeowners ask about our company, credentials, and approach."
+      sectionBg="#EFEBE0"
     />
   )
 }
 
-// ─── Section: Final CTA (Chunk 11) ───────────────────────────────────────────
-// Cream background with gold accent. NO navy band.
-
-function FinalCTA() {
-  return (
-    <section className="bg-[#EFEBE0]">
-      <div className="max-w-5xl mx-auto px-6 py-24 lg:py-32 text-center">
-        <span
-          className="inline-flex items-center text-xs uppercase tracking-widest font-semibold text-[#C49A2C]"
-          style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-        >
-          Next Step
-        </span>
-        <h2
-          className="font-display font-bold text-[#1B3558] mt-4 max-w-3xl mx-auto"
-          style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
-        >
-          Ready to Work With a Cochrane Roofing Team You Can Actually Trust?
-        </h2>
-        <p
-          className="text-lg text-[#4A5568] leading-relaxed mt-6 max-w-2xl mx-auto"
-          style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-        >
-          Free in-home estimate. Fixed written quote within 48 hours. Quick replies, even after
-          hours.
-        </p>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
-          </Button>
-          <Button variant="outline" size="lg" href="tel:4039907210">
-            <Phone className="w-4 h-4 mr-2 inline-block" strokeWidth={2} />
-            (403) 990-7210
-          </Button>
-        </div>
-
-        {/* Gold accent line + tagline */}
-        <div className="mt-12">
-          <div className="w-24 h-[3px] bg-[#C49A2C] mx-auto" aria-hidden="true" />
-          <p
-            className="text-xs uppercase tracking-widest text-[#1B3558] mt-6"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-          >
-            Red Seal certified. Cochrane owned. Built for Alberta weather.
-          </p>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ─── Page ─────────────────────────────────────────────────────────────────────
+// ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function AboutPage() {
   return (
@@ -938,14 +779,16 @@ export default function AboutPage() {
 
       <AboutHero />
       <OurStory />
-      <MeetTheTeam />
-      <ByTheNumbers />
+      <StatsStrip />
       <Credentials />
       <HowWeWork />
-      <ServiceAreaMap />
+      <ServiceAreas />
       <AboutTestimonials />
       <AboutFAQ />
-      <FinalCTA />
+      <BottomCTA
+        heading="Ready to Work With a Cochrane Roofing Team You Can Actually Trust?"
+        subtext="Free in-home estimate. Fixed written quote within 48 hours. Quick replies, even after hours."
+      />
     </>
   )
 }

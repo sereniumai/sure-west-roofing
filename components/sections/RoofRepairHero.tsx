@@ -56,7 +56,7 @@ export function RoofRepairHero() {
                   '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
               }}
             >
-              <div className="relative" style={{ height: '440px' }}>
+              <div className="relative h-[280px] sm:h-[360px] lg:h-[440px]">
                 <Image
                   src="/images/Roof Repair Cochrane.avif"
                   alt="Sure West Roofing Red Seal Journeyman completing a roof repair in Cochrane Alberta"

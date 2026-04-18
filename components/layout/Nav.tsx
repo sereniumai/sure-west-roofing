@@ -242,7 +242,7 @@ export function Nav() {
         <div className="lg:hidden flex items-center gap-1 relative z-10">
           <a
             href="tel:+14039907210"
-            className={`inline-flex items-center gap-2 p-2 transition-colors duration-200 hover:text-brand-gold ${
+            className={`inline-flex items-center gap-2 p-3 transition-colors duration-200 hover:text-brand-gold ${
               mobileOpen || isLight ? 'text-brand-navy' : 'text-white'
             }`}
             aria-label="Call Sure West Roofing"
@@ -256,7 +256,7 @@ export function Nav() {
             </span>
           </a>
           <button
-            className={`p-2 ${mobileOpen || isLight ? 'text-brand-navy' : 'text-white'}`}
+            className={`p-3 ${mobileOpen || isLight ? 'text-brand-navy' : 'text-white'}`}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >

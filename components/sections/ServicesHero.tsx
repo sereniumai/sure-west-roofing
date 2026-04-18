@@ -144,9 +144,8 @@ export function ServicesHero({
 
             {/* Floating review card */}
             <div
-              className="absolute -bottom-5 -left-4 md:-left-6 z-10 bg-white rounded-[12px] p-4 md:p-5"
+              className="absolute -bottom-3 left-2 sm:-bottom-5 sm:-left-4 md:-left-6 z-10 bg-white rounded-[12px] p-3 sm:p-4 md:p-5 max-w-[200px] sm:max-w-[264px]"
               style={{
-                maxWidth: '264px',
                 boxShadow:
                   '0 0 0 1px rgba(44,71,102,0.08), 0 8px 32px rgba(44,71,102,0.12)',
               }}

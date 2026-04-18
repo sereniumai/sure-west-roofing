@@ -386,7 +386,7 @@ export function ContactForm() {
                   setErrors((prev) => ({ ...prev, consent: undefined }))
                 }
               }}
-              className="mt-0.5 h-4 w-4 rounded border-[#E8E8E8] accent-[#D4AF60] flex-shrink-0 cursor-pointer"
+              className="mt-0.5 h-5 w-5 rounded border-[#E8E8E8] accent-[#D4AF60] flex-shrink-0 cursor-pointer"
             />
             <span className="font-body text-xs text-body-text leading-relaxed">
               I consent to receive automated SMS messages and email

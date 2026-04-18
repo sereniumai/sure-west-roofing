@@ -71,7 +71,7 @@ export function BottomCTA({
           </Button>
         </div>
 
-        <div className="mt-12 flex flex-wrap items-start justify-center gap-x-12 md:gap-x-16 gap-y-6">
+        <div className="mt-12 flex flex-wrap items-start justify-center gap-x-6 sm:gap-x-10 md:gap-x-16 gap-y-6">
           {stats.map(({ value, label }) => (
             <div key={label} className="flex flex-col items-center text-center">
               <span

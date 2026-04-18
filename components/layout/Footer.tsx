@@ -30,7 +30,7 @@ export function Footer() {
       >
         <div className="mx-auto" style={{ maxWidth: '1320px' }}>
           {/* ── 4-column grid ───────────────────────────────────────── */}
-          <div className="grid grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
             {/* Column 1 — Brand */}
             <div className="col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block" aria-label="Sure West Roofing home">

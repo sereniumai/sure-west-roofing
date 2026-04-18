@@ -85,7 +85,7 @@ function NotFoundHero() {
           </div>
 
           {/* Right: image */}
-          <div className="order-1 lg:order-2 relative mt-8 lg:mt-0">
+          <div className="order-1 lg:order-2 relative mt-8 lg:mt-20">
             <div className="relative w-full aspect-[5/4] max-w-[640px] mx-auto">
               {HERO_COLLAGE.map((img) => (
                 <div key={img.src} className={img.outerClassName}>
