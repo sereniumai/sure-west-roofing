@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  Check,
   Clock,
   AlertTriangle,
   Droplets,
@@ -22,6 +21,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { RoofReplacementHero } from '@/components/sections/RoofReplacementHero'
+import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RoofReplacementFAQ } from '@/components/sections/RoofReplacementFAQ'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
@@ -271,13 +271,6 @@ function InlineCTA({ headline }: { headline: string }) {
 
 // ─── Section: What's Included ─────────────────────────────────────────────────
 
-const INCLUDED_ITEMS = [
-  'Full tear-off of old shingles, underlayment, and damaged decking',
-  'Synthetic underlayment with ice-and-water shield',
-  'New IKO architectural or impact-resistant shingles',
-  'Full site cleanup with magnetic nail sweep',
-]
-
 function WhatIncluded() {
   return (
     <section
@@ -322,28 +315,7 @@ function WhatIncluded() {
               Cochrane, Calgary, and Canmore.
             </p>
 
-            <ul className="mt-8 flex flex-col gap-3 max-w-[520px]">
-              {INCLUDED_ITEMS.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span
-                    className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full mt-0.5"
-                    style={{ background: 'rgba(212,175,96,0.18)' }}
-                  >
-                    <Check className="w-3 h-3 text-brand-gold" strokeWidth={2.5} />
-                  </span>
-                  <span
-                    className="text-brand-navy leading-[1.55]"
-                    style={{
-                      fontSize: '15px',
-                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                      fontWeight: 400,
-                    }}
-                  >
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <WhatIncludedAccordion />
 
             <div className="mt-9">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
