@@ -100,11 +100,12 @@ function Stars({ count }: { count: number }) {
   )
 }
 
-function ReviewCard({ review }: { review: Review }) {
+function ReviewCard({ review, cardBg }: { review: Review; cardBg: string }) {
   return (
     <article
-      className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[380px] bg-white rounded-[12px] border border-brand-border p-5 sm:p-6 md:p-8 relative"
+      className="flex-shrink-0 w-[300px] sm:w-[340px] md:w-[380px] rounded-[12px] border border-brand-border p-5 sm:p-6 md:p-8 relative"
       style={{
+        background: cardBg,
         boxShadow:
           '0 1px 3px rgba(0,0,0,0.06)',
       }}
@@ -151,16 +152,32 @@ function ReviewCard({ review }: { review: Review }) {
   )
 }
 
-export function Reviews() {
+interface ReviewsProps {
+  sectionBg?: string
+  cardBg?: string
+}
+
+function hexToRgb(hex: string): string {
+  const h = hex.replace('#', '')
+  const full = h.length === 3 ? h.split('').map((c) => c + c).join('') : h
+  const r = parseInt(full.slice(0, 2), 16)
+  const g = parseInt(full.slice(2, 4), 16)
+  const b = parseInt(full.slice(4, 6), 16)
+  return `${r}, ${g}, ${b}`
+}
+
+export function Reviews({ sectionBg = '#F7F5F0', cardBg = '#FFFFFF' }: ReviewsProps = {}) {
   // Duplicate the list so the marquee can scroll seamlessly
   const rowA = REVIEWS
   const rowB = [...REVIEWS].reverse()
+  const fadeRgb = hexToRgb(sectionBg)
 
   return (
     <section
       id="reviews"
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative overflow-hidden py-20 md:py-24"
       style={{
+        background: sectionBg,
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -224,18 +241,19 @@ export function Reviews() {
 
       {/* Two auto-looping marquee rows moving in opposite directions */}
       <div className="relative rounded-[--radius-md] overflow-hidden">
-        {/* Edge fade masks - cream tinted to match section bg */}
+        {/* Edge fade masks tinted to match section bg */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 left-0 w-12 md:w-24 z-10"
-          style={{ background: 'linear-gradient(to right, #F7F5F0, rgba(247,245,240,0))' }}
+          style={{
+            background: `linear-gradient(to right, rgba(${fadeRgb}, 1), rgba(${fadeRgb}, 0))`,
+          }}
         />
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-y-0 right-0 w-[100px] z-[2]"
           style={{
-            background:
-              'linear-gradient(to right, rgba(247,245,240,0) 0%, rgba(247,245,240,1) 80%, rgba(247,245,240,1) 100%)',
+            background: `linear-gradient(to right, rgba(${fadeRgb}, 0) 0%, rgba(${fadeRgb}, 1) 80%, rgba(${fadeRgb}, 1) 100%)`,
           }}
         />
         {/* Pulsing chevron scroll indicator */}
@@ -250,7 +268,7 @@ export function Reviews() {
         <div className="marquee group" style={{ ['--duration' as string]: '64s' }}>
           <div className="marquee__track">
             {[...rowA, ...rowA].map((review, i) => (
-              <ReviewCard key={`a-${i}`} review={review} />
+              <ReviewCard key={`a-${i}`} review={review} cardBg={cardBg} />
             ))}
           </div>
         </div>
@@ -262,7 +280,7 @@ export function Reviews() {
         >
           <div className="marquee__track">
             {[...rowB, ...rowB].map((review, i) => (
-              <ReviewCard key={`b-${i}`} review={review} />
+              <ReviewCard key={`b-${i}`} review={review} cardBg={cardBg} />
             ))}
           </div>
         </div>

@@ -1071,7 +1071,7 @@ export default function RoofReplacementPage() {
       <ShingleOptions />
       <WhySureWest />
       <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#F7F5F0" />
-      <Reviews />
+      <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
       <ServiceAreaCondensed />
       <RoofReplacementFAQ />
       <RelatedServices />
