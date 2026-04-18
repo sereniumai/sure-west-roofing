@@ -4,7 +4,12 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Plus } from 'lucide-react'
 
-const ITEMS = [
+interface AccordionItem {
+  heading: string
+  body: string
+}
+
+const DEFAULT_ITEMS: AccordionItem[] = [
   {
     heading: 'Full tear-off and decking inspection',
     body:
@@ -22,7 +27,17 @@ const ITEMS = [
   },
 ]
 
-export function WhatIncludedAccordion() {
+interface WhatIncludedAccordionProps {
+  items?: AccordionItem[]
+  ctaHref?: string
+  ctaLabel?: string
+}
+
+export function WhatIncludedAccordion({
+  items = DEFAULT_ITEMS,
+  ctaHref = '/free-roof-estimate-cochrane',
+  ctaLabel = 'Get Free Estimate',
+}: WhatIncludedAccordionProps = {}) {
   // One item is always open — clicking the open item is a no-op.
   const [open, setOpen] = useState<number>(0)
 
@@ -33,7 +48,7 @@ export function WhatIncludedAccordion() {
         boxShadow: '0 2px 8px rgba(44,71,102,0.06), 0 12px 28px -16px rgba(44,71,102,0.10)',
       }}
     >
-      {ITEMS.map((item, i) => {
+      {items.map((item, i) => {
         const isOpen = open === i
         return (
           <li key={item.heading}>
@@ -82,7 +97,7 @@ export function WhatIncludedAccordion() {
                     {item.body}
                   </p>
                   <Link
-                    href="/free-roof-estimate-cochrane"
+                    href={ctaHref}
                     className="mt-4 inline-flex w-fit items-center gap-1.5 text-brand-gold font-semibold hover:text-[#B8943F] transition-colors duration-200"
                     style={{
                       fontSize: '13px',
@@ -91,7 +106,7 @@ export function WhatIncludedAccordion() {
                       textUnderlineOffset: '3px',
                     }}
                   >
-                    Get Free Estimate
+                    {ctaLabel}
                     <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
                   </Link>
                 </div>
