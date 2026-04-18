@@ -278,7 +278,7 @@ function WhatIncluded() {
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
           {/* Right (desktop): heading, copy, accordion, CTA. Mobile keeps content first. */}
           <div className="flex flex-col lg:order-2">
             <span
@@ -324,9 +324,9 @@ function WhatIncluded() {
             </div>
           </div>
 
-          {/* Left (desktop): photo locked to a fixed aspect so it never reflows when the accordion expands */}
+          {/* Left (desktop): photo stretches to match content column height */}
           <div
-            className="relative overflow-hidden rounded-[18px] aspect-square min-h-[560px] lg:order-1"
+            className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px] lg:order-1"
             style={{
               boxShadow:
                 '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',

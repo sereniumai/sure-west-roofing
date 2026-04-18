@@ -25,16 +25,21 @@ export function WhatIncludedAccordion() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <ul className="mt-8 flex flex-col max-w-[520px] border-t border-[--color-near-black]/12">
+    <ul
+      className="mt-8 flex flex-col max-w-[480px] bg-brand-cream rounded-[16px] p-3 md:p-4"
+      style={{
+        boxShadow: '0 2px 8px rgba(44,71,102,0.06), 0 12px 28px -16px rgba(44,71,102,0.10)',
+      }}
+    >
       {ITEMS.map((item, i) => {
         const isOpen = open === i
         return (
-          <li key={item.heading} className="border-b border-[--color-near-black]/12">
+          <li key={item.heading}>
             <button
               type="button"
               onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
-              className="group flex items-start justify-between w-full text-left py-4 md:py-5 cursor-pointer gap-4"
+              className="group flex items-start justify-between w-full text-left py-3 px-3 md:px-4 rounded-[10px] cursor-pointer gap-4 hover:bg-white/50 transition-colors duration-200"
             >
               <span
                 className={`font-semibold leading-[1.4] transition-colors duration-200 ${
@@ -64,7 +69,7 @@ export function WhatIncludedAccordion() {
             {isOpen && (
               <div className="overflow-hidden">
                 <div
-                  className="pb-5 pr-2 text-brand-slate leading-[1.65]"
+                  className="pt-1 pb-4 px-3 md:px-4 text-brand-slate leading-[1.65]"
                   style={{
                     fontSize: '14px',
                     fontFamily: 'var(--font-inter), system-ui, sans-serif',
