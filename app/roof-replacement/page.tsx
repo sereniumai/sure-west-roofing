@@ -301,7 +301,9 @@ function WhatIncluded() {
                 letterSpacing: '-0.005em',
               }}
             >
-              What&apos;s Included in a Sure West Roof Replacement
+              What&apos;s Included in a Sure
+              <br />
+              West Roof Replacement
             </h2>
             <p
               className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
