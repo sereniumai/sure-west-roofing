@@ -1,15 +1,13 @@
 'use client'
 
-import { useState } from 'react'
-import Image from 'next/image'
 import {
   Award,
   Users,
   ShieldCheck,
   FileCheck,
-  Play,
   type LucideIcon,
 } from 'lucide-react'
+import { FoundersVideo } from '@/components/ui/FoundersVideo'
 
 interface Pillar {
   id: string
@@ -45,12 +43,23 @@ const pillars: Pillar[] = [
   },
 ]
 
-const VIMEO_ID = '917317949'
-const THUMBNAIL = '/images/Sure West Roofing - Founders Video.webp'
+interface WhySureWestProps {
+  eyebrow?: string
+  heading?: React.ReactNode
+  body?: string
+}
 
-export function WhySureWest() {
-  const [playing, setPlaying] = useState(false)
-
+export function WhySureWest({
+  eyebrow = 'Why Sure West',
+  heading = (
+    <>
+      Cochrane&apos;s Red Seal Certified
+      <br />
+      Roofing Contractor
+    </>
+  ),
+  body = 'Every roofing contractor in Cochrane says they are the best. Here is what actually sets Sure West apart.',
+}: WhySureWestProps = {}) {
   return (
     <section
       id="why-sure-west"
@@ -78,7 +87,7 @@ export function WhySureWest() {
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
           >
-            Why Sure West
+            {eyebrow}
           </span>
 
           <h2
@@ -90,7 +99,7 @@ export function WhySureWest() {
               letterSpacing: '-0.005em',
             }}
           >
-            Cochrane&apos;s Red Seal Certified<br />Roofing Contractor
+            {heading}
           </h2>
 
           <p
@@ -101,8 +110,7 @@ export function WhySureWest() {
               fontWeight: 400,
             }}
           >
-            Every roofing contractor in Cochrane says they are the best.
-            Here is what actually sets Sure West apart.
+            {body}
           </p>
         </div>
 
@@ -159,7 +167,6 @@ export function WhySureWest() {
           {/* RIGHT: video */}
           <div>
             <div className="relative">
-              {/* Warm gold halo */}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
@@ -169,73 +176,7 @@ export function WhySureWest() {
                   filter: 'blur(4px)',
                 }}
               />
-
-              <div className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] bg-black shadow-[0_40px_90px_-30px_rgba(26,22,18,0.55),0_18px_40px_-18px_rgba(26,22,18,0.3)] ring-1 ring-black/5">
-                {playing ? (
-                  <iframe
-                    src={`https://player.vimeo.com/video/${VIMEO_ID}?autoplay=1&title=0&byline=0&portrait=0`}
-                    className="absolute inset-0 w-full h-full border-0"
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    allowFullScreen
-                    title="Sure West Roofing - Cochrane, Alberta"
-                  />
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => setPlaying(true)}
-                    aria-label="Play Sure West Roofing founders video"
-                    className="group absolute inset-0 w-full h-full cursor-pointer"
-                  >
-                    <Image
-                      src={THUMBNAIL}
-                      alt="Sure West Roofing founders, Cochrane Alberta"
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                      draggable={false}
-                    />
-
-                    {/* Cinematic darken + warm vignette */}
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0 transition-colors duration-500 group-hover:bg-black/10"
-                      style={{
-                        background:
-                          'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.35) 100%)',
-                      }}
-                    />
-
-                    {/* Gold play button */}
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      {/* Soft halo ring that pulses slightly on hover */}
-                      <span
-                        className="absolute w-[108px] h-[108px] rounded-full transition-all duration-500 group-hover:w-[128px] group-hover:h-[128px]"
-                        style={{
-                          background:
-                            'radial-gradient(closest-side, rgba(212,175,96,0.45), rgba(212,175,96,0.12) 60%, transparent 75%)',
-                        }}
-                      />
-                      {/* Button */}
-                      <span
-                        className="relative flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110 shadow-[0_18px_40px_-12px_rgba(212,175,96,0.75),0_8px_20px_-8px_rgba(0,0,0,0.3)]"
-                        style={{
-                          width: '80px',
-                          height: '80px',
-                          background: 'var(--color-accent, #D4AF60)',
-                        }}
-                      >
-                        <Play
-                          className="w-7 h-7 text-white fill-white ml-1"
-                          strokeWidth={1.5}
-                        />
-                      </span>
-                    </span>
-                  </button>
-                )}
-              </div>
+              <FoundersVideo />
             </div>
           </div>
         </div>

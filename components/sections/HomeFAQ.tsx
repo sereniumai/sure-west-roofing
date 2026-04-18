@@ -5,12 +5,19 @@ import Link from 'next/link'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
-interface FAQ {
+export interface FAQ {
   question: string
   /** Plain-text answer for JSON-LD. Use for schema only. */
   answerText: string
   /** Rich JSX answer rendered in the UI. */
   answer: React.ReactNode
+}
+
+interface HomeFAQProps {
+  eyebrow?: string
+  heading?: React.ReactNode
+  body?: string
+  faqs?: FAQ[]
 }
 
 const FAQS: FAQ[] = [
@@ -112,25 +119,34 @@ const FAQS: FAQ[] = [
   },
 ]
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQS.map((faq) => ({
-    '@type': 'Question',
-    name: faq.question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: faq.answerText,
-    },
-  })),
+function buildFaqSchema(faqs: FAQ[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answerText,
+      },
+    })),
+  }
 }
 
-export function HomeFAQ() {
+export function HomeFAQ({
+  eyebrow = 'FAQs',
+  heading = 'Roofing Questions Answered',
+  body = 'Straight answers from your local Red Seal certified roofing contractor.',
+  faqs,
+}: HomeFAQProps = {}) {
   const [open, setOpen] = useState<number | null>(null)
+  const faqList = faqs ?? FAQS
+  const faqSchema = buildFaqSchema(faqList)
 
   // Split into two roughly equal columns for desktop layout
-  const mid = Math.ceil(FAQS.length / 2)
-  const columns = [FAQS.slice(0, mid), FAQS.slice(mid)]
+  const mid = Math.ceil(faqList.length / 2)
+  const columns = [faqList.slice(0, mid), faqList.slice(mid)]
 
   return (
     <section
@@ -155,7 +171,7 @@ export function HomeFAQ() {
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
           >
-            FAQs
+            {eyebrow}
           </span>
           <h2
             className="font-display font-medium max-w-[960px] text-brand-navy"
@@ -165,7 +181,7 @@ export function HomeFAQ() {
               letterSpacing: '-0.005em',
             }}
           >
-            Roofing Questions Answered
+            {heading}
           </h2>
           <p
             className="mt-6 max-w-[640px] text-brand-slate leading-[1.7]"
@@ -175,7 +191,7 @@ export function HomeFAQ() {
               fontWeight: 400,
             }}
           >
-            Straight answers from your local Red Seal certified roofing contractor.
+            {body}
           </p>
 
           {/* CTA directly under sub-copy */}
@@ -191,7 +207,7 @@ export function HomeFAQ() {
           {columns.map((col, colIdx) => (
             <ul key={colIdx} className="flex flex-col">
               {col.map((faq) => {
-                const i = FAQS.indexOf(faq)
+                const i = faqList.indexOf(faq)
                 const isOpen = open === i
                 return (
                   <li

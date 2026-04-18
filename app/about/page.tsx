@@ -13,6 +13,10 @@ import { Button } from '@/components/ui/Button'
 import { Reviews } from '@/components/sections/Reviews'
 import { BottomCTA } from '@/components/sections/BottomCTA'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
+import { TrustLogos } from '@/components/sections/TrustLogos'
+import { TeamCarousel } from '@/components/sections/TeamCarousel'
+import { PortfolioCarousel } from '@/components/sections/PortfolioCarousel'
+import { FoundersVideo } from '@/components/ui/FoundersVideo'
 import type { FaqItem } from '@/lib/faqs/types'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -220,31 +224,17 @@ function OurStory() {
           <div className="relative">
             <div
               aria-hidden="true"
-              className="absolute inset-0 rounded-[22px]"
+              className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
               style={{
-                border: '1px solid rgba(212,175,96,0.4)',
-                transform: 'translate(-10px, 12px)',
-                zIndex: -1,
+                background:
+                  'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
+                filter: 'blur(4px)',
               }}
             />
-            <div
-              className="relative overflow-hidden rounded-[18px]"
-              style={{
-                boxShadow:
-                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
-              }}
-            >
-              <div className="relative h-[280px] sm:h-[360px] lg:h-[460px]">
-                <Image
-                  src="/images/Sure West Roofing - Founders Video.webp"
-                  alt="Craig, Red Seal Journeyman roofer and Sure West Roofing owner, on a Cochrane roof"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            <FoundersVideo
+              alt="Sure West Roofing founders video thumbnail, Cochrane Alberta"
+              className="relative aspect-video w-full overflow-hidden rounded-[--radius-lg] bg-black"
+            />
           </div>
 
           <div>
@@ -313,54 +303,8 @@ function OurStory() {
   )
 }
 
-// ─── Section: Stats Strip ────────────────────────────────────────────────────
-
-const STATS = [
-  { number: '500+', label: 'Cochrane Roofs Completed' },
-  { number: '23+', label: 'Years Combined Experience' },
-  { number: '4.9', label: 'Google Review Average' },
-  { number: '100%', label: 'Red Seal Installed' },
-]
-
-function StatsStrip() {
-  return (
-    <section
-      className="bg-brand-cream py-12 md:py-16"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 lg:gap-0">
-          {STATS.map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`text-center px-4 ${
-                i < STATS.length - 1 ? 'lg:border-r lg:border-[#C49A2C]/30' : ''
-              }`}
-            >
-              <div
-                className="font-display font-semibold text-brand-navy leading-none"
-                style={{ fontSize: 'clamp(36px, 5vw, 56px)', letterSpacing: '-0.02em' }}
-              >
-                {stat.number}
-              </div>
-              <div className="w-10 h-[3px] bg-brand-gold mx-auto mt-3" aria-hidden="true" />
-              <p
-                className="uppercase tracking-[0.1em] text-brand-slate mt-3"
-                style={{
-                  fontSize: '11.5px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 500,
-                }}
-              >
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
+// Stats strip + certifications row: reuse shared TrustLogos for consistency with
+// the rest of the site.
 
 // ─── Section: Credentials Grid ───────────────────────────────────────────────
 
@@ -600,22 +544,44 @@ function HowWeWork() {
   )
 }
 
-// ─── Section: Service Areas ──────────────────────────────────────────────────
+// ─── Section: Service Areas (matches services hub pattern) ───────────────────
 
-const LOCATIONS = [
-  { name: 'Cochrane', href: '/', tag: 'Headquarters' },
-  { name: 'Calgary', href: '/roofing-contractor-calgary', tag: 'Greater Calgary Region' },
-  { name: 'Canmore', href: '/roofing-contractor-canmore', tag: 'Bow Valley' },
+const AREAS = [
+  {
+    name: 'Cochrane',
+    description:
+      'Sure West Roofing is based in Cochrane, Alberta, and this is our primary service area. From Sunset Ridge to Heritage Hills, we know the local weather patterns and building styles that matter for every roofing decision here.',
+    href: '/free-roof-estimate-cochrane',
+    linkText: 'Get a free estimate in Cochrane',
+  },
+  {
+    name: 'Calgary',
+    description:
+      'We bring the same Red Seal certified standard to Calgary as we deliver in Cochrane. Whether you are in the northwest suburbs or across the city, our crew travels to complete roofing services in Calgary including replacement, repair, hail damage, and inspections.',
+    href: '/roofing-contractor-calgary',
+    linkText: 'Calgary roofing services',
+  },
+  {
+    name: 'Canmore',
+    description:
+      "Canmore's mountain climate is demanding on roofs. Steep pitches, heavy snow loads, and Chinook wind uplift require specific material choices and installation methods. Our team has the local knowledge to build roofs that last here.",
+    href: '/roofing-contractor-canmore',
+    linkText: 'Canmore roofing services',
+  },
 ]
 
 function ServiceAreas() {
   return (
     <section
-      className="bg-white py-20 md:py-28"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+      className="relative overflow-hidden py-20 md:py-24"
+      style={{
+        background: '#F7F5F0',
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+      }}
     >
-      <div className="max-w-[1100px] mx-auto">
-        <div className="text-center max-w-[680px] mx-auto mb-12 md:mb-16">
+      <div className="max-w-[1320px] mx-auto">
+        <div className="text-center mb-12 md:mb-16">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -626,78 +592,81 @@ function ServiceAreas() {
               lineHeight: 1,
             }}
           >
-            Service Area
+            Service Areas
           </span>
           <h2
             className="font-display font-semibold text-brand-navy"
             style={{
-              fontSize: 'clamp(30px, 4vw, 46px)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.02em',
+              fontSize: 'clamp(32px, 4.5vw, 48px)',
+              lineHeight: 1.15,
+              letterSpacing: '-0.005em',
             }}
           >
-            Serving Cochrane, Calgary, and Canmore
+            Roofing Services Across Cochrane,
+            <br className="hidden lg:block" /> Calgary and Canmore
           </h2>
           <p
-            className="mt-5 text-brand-slate leading-[1.65]"
+            className="mt-5 max-w-[580px] mx-auto text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 400,
             }}
           >
-            Headquartered in Cochrane, Alberta. Licensed in all three municipalities and
-            covering the Bow Valley and the greater Calgary region.
+            Based in Cochrane, Alberta. We serve homeowners across the Bow Valley corridor
+            and the Calgary region.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {LOCATIONS.map((loc) => (
-            <Link
-              key={loc.name}
-              href={loc.href}
-              className="group bg-brand-cream rounded-[14px] border border-[#E5E2D9] p-6 md:p-7 hover:border-brand-gold/40 hover:-translate-y-[4px] transition-all duration-300"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          {AREAS.map((area) => (
+            <div
+              key={area.name}
+              className="bg-white rounded-[12px] border border-brand-border p-6 md:p-8 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out"
             >
-              <div className="w-12 h-12 rounded-[10px] bg-white flex items-center justify-center shadow-sm">
-                <MapPin className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
+              <div
+                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
+                style={{ background: 'rgba(212,175,96,0.10)' }}
+              >
+                <MapPin className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
               </div>
+              <h3
+                className="font-display font-semibold text-brand-navy mb-3"
+                style={{ fontSize: '22px', letterSpacing: '-0.01em', lineHeight: 1.25 }}
+              >
+                {area.name}
+              </h3>
               <p
-                className="uppercase tracking-[0.1em] text-brand-gold mt-5"
+                className="text-brand-slate leading-[1.65] mb-5"
                 style={{
-                  fontSize: '11px',
+                  fontSize: '14px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 600,
+                  fontWeight: 400,
                 }}
               >
-                {loc.tag}
+                {area.description}
               </p>
-              <h3
-                className="font-display font-semibold text-brand-navy mt-2"
-                style={{ fontSize: '24px', letterSpacing: '-0.01em', lineHeight: 1.2 }}
-              >
-                {loc.name}
-              </h3>
-              <span
-                className="inline-flex items-center gap-1 mt-4 text-brand-navy group-hover:text-brand-gold transition-colors"
+              <Link
+                href={area.href}
+                className="inline-flex items-center gap-1.5 font-semibold text-brand-gold hover:text-[#B8943F] transition-colors duration-200"
                 style={{
                   fontSize: '13px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 600,
-                  letterSpacing: '0.02em',
+                  textDecoration: 'none',
                 }}
               >
-                Visit page
+                {area.linkText}
                 <svg
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  className="w-3.5 h-3.5"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </span>
-            </Link>
+              </Link>
+            </div>
           ))}
         </div>
       </div>
@@ -778,10 +747,34 @@ export default function AboutPage() {
       />
 
       <AboutHero />
+      <TrustLogos />
       <OurStory />
-      <StatsStrip />
+      <TeamCarousel />
       <Credentials />
       <HowWeWork />
+      <PortfolioCarousel
+        images={[
+          { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roofing contractor project 1' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 2.webp', alt: 'Cochrane roofing contractor project 2' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Cochrane roofing contractor project 3' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 4.webp', alt: 'Cochrane roofing contractor project 4' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 5.webp', alt: 'Cochrane roofing contractor project 5' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 6.webp', alt: 'Cochrane roofing contractor project 6' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 7.webp', alt: 'Cochrane roofing contractor project 7' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 8.webp', alt: 'Cochrane roofing contractor project 8' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 9.webp', alt: 'Cochrane roofing contractor project 9' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Cochrane roofing contractor project 10', objectPosition: '70% center' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Cochrane roofing contractor project 11' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Cochrane roofing contractor project 12' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 14.webp', alt: 'Cochrane roofing contractor project 13' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Cochrane roofing contractor project 14', objectPosition: '70% center' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Cochrane roofing contractor project 15' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Cochrane roofing contractor project 16' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 20.webp', alt: 'Cochrane roofing contractor project 17' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 21.webp', alt: 'Cochrane roofing contractor project 18' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Cochrane roofing contractor project 19' },
+        ]}
+      />
       <ServiceAreas />
       <AboutTestimonials />
       <AboutFAQ />

@@ -85,7 +85,22 @@ function StepCard({ step }: { step: Step }) {
   )
 }
 
-export function HowItWorks() {
+interface HowItWorksProps {
+  eyebrow?: string
+  heading?: React.ReactNode
+  body?: string
+}
+
+export function HowItWorks({
+  eyebrow = 'How It Works',
+  heading = (
+    <>
+      From Free Estimate to Finished
+      <br className="hidden md:block" /> Roof in Three Steps
+    </>
+  ),
+  body = 'No surprises. No pressure. Just a clear simple process from your first call to the final inspection.',
+}: HowItWorksProps = {}) {
   return (
     <section
       id="how-it-works"
@@ -107,7 +122,7 @@ export function HowItWorks() {
             lineHeight: 1,
           }}
         >
-          How It Works
+          {eyebrow}
         </span>
         <h2
           className="font-display font-medium max-w-[900px] text-brand-navy"
@@ -117,8 +132,7 @@ export function HowItWorks() {
             letterSpacing: '-0.005em',
           }}
         >
-          From Free Estimate to Finished
-          <br className="hidden md:block" /> Roof in Three Steps
+          {heading}
         </h2>
         <p
           className="mt-5 max-w-[480px] text-brand-slate leading-[1.65]"
@@ -128,7 +142,7 @@ export function HowItWorks() {
             fontWeight: 400,
           }}
         >
-          No surprises. No pressure. Just a clear simple process from your first call to the final inspection.
+          {body}
         </p>
 
         <div className="mt-7">

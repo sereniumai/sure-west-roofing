@@ -67,7 +67,15 @@ const navLinks = [
 
 export function Nav() {
   const pathname = usePathname()
-  const isLightPage = pathname !== '/'
+  // Pages that render the same dark video Hero as the homepage. The nav
+  // should stay in its dark-hero styling (white logo + white menu text) on
+  // these routes until the user scrolls past the hero.
+  const DARK_HERO_ROUTES = new Set([
+    '/',
+    '/roofing-contractor-calgary',
+    '/roofing-contractor-canmore',
+  ])
+  const isLightPage = !DARK_HERO_ROUTES.has(pathname)
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)

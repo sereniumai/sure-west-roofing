@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Terms of Service | Sure West Roofing',
   description:
     'Terms governing your use of the Sure West Roofing website and engagement of our roofing services in Cochrane, Calgary, and Canmore.',
+  alternates: {
+    canonical: 'https://surewestroofing.ca/terms',
+  },
   robots: {
     index: true,
     follow: true,

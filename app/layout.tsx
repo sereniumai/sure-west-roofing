@@ -3,6 +3,8 @@ import { Oswald, Inter } from 'next/font/google'
 import { Nav } from '@/components/layout/Nav'
 import { Footer } from '@/components/layout/Footer'
 import { MotionProvider } from '@/components/MotionProvider'
+import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema'
+import Analytics from '@/components/seo/Analytics'
 import dynamic from 'next/dynamic'
 const DevToolbar = dynamic(() => import('@/components/DevToolbar').then(m => m.DevToolbar), { ssr: false })
 import './globals.css'
@@ -26,9 +28,74 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
+  metadataBase: new URL('https://surewestroofing.ca'),
+  title: {
+    default: 'Sure West Roofing | Red Seal Roofer in Cochrane, Calgary & Canmore',
+    template: '%s | Sure West Roofing',
+  },
   description:
-    'Sure West Roofing. Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage and inspections serving Calgary and Canmore. Free estimates.',
+    'Red Seal certified roofing contractor in Cochrane, Alberta. Roof replacement, repair, hail damage restoration. Serving Cochrane, Calgary, and Canmore.',
+  keywords: [
+    'roofing contractor Cochrane',
+    'Red Seal roofer Cochrane',
+    'roof replacement Cochrane',
+    'roofing Calgary',
+    'roofing Canmore',
+    'hail damage repair Alberta',
+  ],
+  authors: [{ name: 'Sure West Roofing Ltd.' }],
+  creator: 'Sure West Roofing Ltd.',
+  publisher: 'Sure West Roofing Ltd.',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_CA',
+    url: 'https://surewestroofing.ca',
+    siteName: 'Sure West Roofing',
+    title: 'Sure West Roofing | Red Seal Roofer in Cochrane, Calgary & Canmore',
+    description:
+      'Red Seal certified roofing contractor serving Cochrane, Calgary, and Canmore. Free estimates, fixed written quotes, no subcontractors.',
+    images: [
+      {
+        url: '/images/og-default.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Sure West Roofing, Red Seal certified roofing contractor in Cochrane, Alberta',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sure West Roofing | Red Seal Roofer in Cochrane',
+    description: 'Red Seal certified roofing serving Cochrane, Calgary, and Canmore.',
+    images: ['/images/og-default.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  // Favicon + apple touch icon are served via Next.js file convention:
+  //   app/icon.png      → browser favicon
+  //   app/apple-icon.png → iOS home screen icon
+  manifest: '/site.webmanifest',
+  // TODO: paste the Google Search Console verification code from the client before launch.
+  verification: {
+    google: 'INSERT_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE',
+  },
+  alternates: {
+    canonical: 'https://surewestroofing.ca',
+  },
 }
 
 export default function RootLayout({
@@ -39,95 +106,72 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
+        <LocalBusinessSchema />
+        <Analytics />
         <MotionProvider>
           <Nav />
           <main>{children}</main>
           <Footer />
           <DevToolbar />
         </MotionProvider>
+        {/* Site-wide FAQPage JSON-LD — surfaces in rich results across the site. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              {
-                "@context": "https://schema.org",
-                "@type": "RoofingContractor",
-                "name": "Sure West Roofing",
-                "url": "https://surewestroofing.ca",
-                "email": "info@surewestroofing.ca",
-                "description": "Certified roofing contractor in Cochrane, Alberta serving Calgary and Canmore. Specialising in roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections and skylight installation.",
-                "address": {
-                  "@type": "PostalAddress",
-                  "addressLocality": "Cochrane",
-                  "addressRegion": "AB",
-                  "addressCountry": "CA"
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                {
+                  '@type': 'Question',
+                  name: 'How much does a roof replacement cost in Cochrane?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Roof replacement costs in Cochrane typically range from $8,000 to $25,000 depending on the size of your roof, the materials chosen, and the complexity of the job. We provide free on-site estimates with a clear written quote before any work begins.',
+                  },
                 },
-                "geo": {
-                  "@type": "GeoCoordinates",
-                  "latitude": 51.1897,
-                  "longitude": -114.4672
+                {
+                  '@type': 'Question',
+                  name: 'How do I know if my roof needs replacing or just repairing?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'If your roof is under 15 years old and the damage is isolated, a repair is usually the right call. If it is over 20 years old, has widespread damage, or is showing signs of failure in multiple areas, replacement is likely more cost effective. Our team offers free roof inspections in Cochrane to help you make the right decision.',
+                  },
                 },
-                "areaServed": [
-                  { "@type": "City", "name": "Cochrane" },
-                  { "@type": "City", "name": "Calgary" },
-                  { "@type": "City", "name": "Canmore" }
-                ],
-                "openingHoursSpecification": {
-                  "@type": "OpeningHoursSpecification",
-                  "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
-                  "opens": "08:00",
-                  "closes": "18:00"
+                {
+                  '@type': 'Question',
+                  name: 'Do you handle Alberta insurance claims for hail damage?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. We have extensive experience working with Alberta insurance companies on hail damage claims. We document all damage with photographs and a detailed inspection report, and we can work directly alongside your insurance adjuster to make the process as smooth as possible.',
+                  },
                 },
-                "hasOfferCatalog": {
-                  "@type": "OfferCatalog",
-                  "name": "Roofing Services",
-                  "itemListElement": [
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roof Replacement Cochrane" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roof Repair Cochrane" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hail Damage Roof Repair Cochrane" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roof Maintenance Cochrane" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Roof Inspection Cochrane" } },
-                    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Skylight Installation Cochrane" } }
-                  ]
-                }
-              },
-              {
-                "@context": "https://schema.org",
-                "@type": "FAQPage",
-                "mainEntity": [
-                  {
-                    "@type": "Question",
-                    "name": "How much does a roof replacement cost in Cochrane?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Roof replacement costs in Cochrane typically range from $8,000 to $25,000 depending on the size of your roof, the materials chosen, and the complexity of the job. We provide free on-site estimates with a clear written quote before any work begins." }
+                {
+                  '@type': 'Question',
+                  name: 'How long does a roof replacement take in Cochrane?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Most residential roof replacements in Cochrane are completed within one to two days depending on the size and complexity of your roof. We provide a clear timeline before work begins and keep you updated throughout the project.',
                   },
-                  {
-                    "@type": "Question",
-                    "name": "How do I know if my roof needs replacing or just repairing?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "If your roof is under 15 years old and the damage is isolated, a repair is usually the right call. If it is over 20 years old, has widespread damage, or is showing signs of failure in multiple areas, replacement is likely more cost effective. Our team offers free roof inspections in Cochrane to help you make the right decision." }
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Are you licensed and insured to work in Alberta?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. Sure West Roofing is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every job.',
                   },
-                  {
-                    "@type": "Question",
-                    "name": "Do you handle Alberta insurance claims for hail damage?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Yes. We have extensive experience working with Alberta insurance companies on hail damage claims. We document all damage with photographs and a detailed inspection report, and we can work directly alongside your insurance adjuster to make the process as smooth as possible." }
+                },
+                {
+                  '@type': 'Question',
+                  name: 'Do you serve Calgary and Canmore as well as Cochrane?',
+                  acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. While Cochrane is our home base we also serve Calgary and Canmore. We have dedicated pages for roofing services in Calgary and roofing services in Canmore if you would like to learn more about our work in those areas.',
                   },
-                  {
-                    "@type": "Question",
-                    "name": "How long does a roof replacement take in Cochrane?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Most residential roof replacements in Cochrane are completed within one to two days depending on the size and complexity of your roof. We provide a clear timeline before work begins and keep you updated throughout the project." }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Are you licensed and insured to work in Alberta?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Yes. Sure West Roofing is fully licensed and insured to operate in Alberta. We carry full liability insurance and WCB coverage on every job." }
-                  },
-                  {
-                    "@type": "Question",
-                    "name": "Do you serve Calgary and Canmore as well as Cochrane?",
-                    "acceptedAnswer": { "@type": "Answer", "text": "Yes. While Cochrane is our home base we also serve Calgary and Canmore. We have dedicated pages for roofing services in Calgary and roofing services in Canmore if you would like to learn more about our work in those areas." }
-                  }
-                ]
-              }
-            ])
+                },
+              ],
+            }),
           }}
         />
       </body>

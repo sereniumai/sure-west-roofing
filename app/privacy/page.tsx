@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Privacy Policy | Sure West Roofing',
   description:
     'How Sure West Roofing collects, uses, and protects your personal information under PIPEDA, Alberta PIPA, and CASL.',
+  alternates: {
+    canonical: 'https://surewestroofing.ca/privacy',
+  },
   robots: {
     index: true,
     follow: true,
