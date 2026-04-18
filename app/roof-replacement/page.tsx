@@ -901,7 +901,7 @@ const LOCATIONS = [
 function ServiceAreaCondensed() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden pt-10 md:pt-12 pb-20 md:pb-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
