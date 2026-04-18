@@ -7,17 +7,17 @@ const ITEMS = [
   {
     heading: 'Full tear-off and decking inspection',
     body:
-      'We strip the roof down to the deck. Every square foot is then inspected for soft spots, rot, or water damage, and any compromised sheathing is replaced before new materials go on. Installing over old shingles voids most manufacturer warranties and traps moisture against the deck, so we never offer it on a Cochrane roof replacement.',
+      'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on.',
   },
   {
     heading: 'New underlayment, ice-and-water shield, and IKO shingles',
     body:
-      'A synthetic underlayment covers the full deck as a tear-resistant secondary water barrier, with self-adhered ice-and-water shield at all eaves, valleys, and around penetrations. We then install IKO shingles in your chosen tier (Cambridge, Dynasty, or Class 4 Nordic), backed by IKO\u2019s manufacturer warranty and the top-tier coverage only Red Seal certified installers can offer.',
+      'Synthetic underlayment and ice-and-water shield protect the deck at all critical points. IKO shingles then go on in your chosen tier (Cambridge, Dynasty, or Class 4 Nordic), backed by IKO\u2019s manufacturer warranty.',
   },
   {
     heading: 'Full site cleanup, walkthrough, and written warranty',
     body:
-      'We tarp gardens, walkways, AC units, and landscaping before tear-off begins, then run a magnetic nail sweep across the property at the end of every day and again at completion. The job closes with a homeowner walkthrough and your written 10-year workmanship warranty in hand.',
+      'We tarp gardens, walkways, and landscaping before tear-off, then run a magnetic nail sweep daily and at completion. The job closes with a walkthrough and your written 10-year workmanship warranty.',
   },
 ]
 
