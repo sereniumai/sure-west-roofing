@@ -197,8 +197,8 @@ function WhatIncluded() {
     >
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
-          {/* Content (right on desktop) */}
-          <div className="flex flex-col lg:order-2">
+          {/* Content (left on desktop). Hero has image on the LEFT, so WhatIncluded image goes on the RIGHT (opposite-side rule). */}
+          <div className="flex flex-col">
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -238,9 +238,9 @@ function WhatIncluded() {
             <WhatIncludedAccordion items={REPAIR_INCLUDED_ITEMS} />
           </div>
 
-          {/* Photo (left on desktop) — alternates with the Roof Replacement page */}
+          {/* Photo (right on desktop) */}
           <div
-            className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px] lg:order-1"
+            className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px]"
             style={{
               boxShadow:
                 '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
