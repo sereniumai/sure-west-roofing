@@ -69,7 +69,8 @@ export function RoofReplacementHero() {
               }}
             >
               Red Seal certified roofers for Cochrane, Calgary, and Canmore. Fixed written
-              quotes, real warranties, no subcontractors. Text us any time, we get back fast.
+              quotes, real warranties, no subcontractors. We pride ourselves on getting back to
+              you quickly.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">

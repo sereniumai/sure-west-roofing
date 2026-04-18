@@ -33,7 +33,7 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 export const metadata: Metadata = {
   title: 'Roof Replacement Cochrane | Red Seal Certified | Sure West Roofing',
   description:
-    'Red Seal certified roof replacement in Cochrane, AB. Fixed written quotes, manufacturer-backed warranties, in-house crews. Serving Cochrane, Calgary, and Canmore. Text us any time for a free estimate.',
+    'Red Seal certified roof replacement in Cochrane, AB. Fixed written quotes, manufacturer-backed warranties, in-house crews. Serving Cochrane, Calgary, and Canmore. Free estimates with fast follow-up.',
   alternates: {
     canonical: 'https://surewestroofing.ca/roof-replacement',
   },
@@ -386,27 +386,27 @@ const SIGNS = [
   {
     Icon: AlertTriangle,
     heading: 'Widespread shingle damage',
-    body: 'Curling, cracking, or missing shingles across multiple slopes signal end-of-life, not a spot repair.',
+    body: 'Curling, cracking, or missing shingles across multiple slopes signal end-of-life, not a spot repair. Replacement protects the decking before water finds its way in.',
   },
   {
     Icon: Droplets,
     heading: 'Granules in the gutters',
-    body: 'Heavy granule loss means the shingles have lost their UV protection and are breaking down.',
+    body: 'Heavy granule loss means the shingles have lost their UV protection and are breaking down. Once the asphalt is exposed, deterioration accelerates quickly.',
   },
   {
     Icon: Eye,
     heading: 'Daylight in the attic',
-    body: 'Visible daylight or water stains on the underside of the decking means the weather barrier has failed.',
+    body: 'Visible daylight or water stains on the underside of the decking means the weather barrier has failed. Moisture is already entering and rot will follow.',
   },
   {
     Icon: Home,
     heading: 'Sagging rooflines',
-    body: 'Any visible sag points to structural or decking failure that a repair cannot fix.',
+    body: 'Any visible sag points to structural or decking failure that a repair cannot fix. The frame underneath needs proper assessment before any new roof goes on.',
   },
   {
     Icon: RotateCcw,
     heading: 'Repeat leaks after repairs',
-    body: 'If you have patched the same area more than once, the underlying roof system is done.',
+    body: 'If you have patched the same area more than once, the underlying roof system is done. Continued repairs only delay the inevitable full replacement.',
   },
 ]
 
@@ -491,22 +491,6 @@ function SignsYouNeed() {
             </div>
           ))}
         </div>
-
-        <p
-          className="mt-10 max-w-[720px] mx-auto text-center text-brand-slate leading-[1.7]"
-          style={{
-            fontSize: '15px',
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
-            fontWeight: 400,
-          }}
-        >
-          If your roof took recent hail damage, the replacement is often covered by insurance.
-          Start with our{' '}
-          <Link href="/hail-damage-repair" className="text-[#C49A2C] hover:underline">
-            hail damage repair process
-          </Link>{' '}
-          to understand how we work with your adjuster.
-        </p>
       </div>
     </section>
   )
@@ -519,7 +503,7 @@ const PROCESS_STEPS = [
     number: '01',
     Icon: Calendar,
     heading: ['Free On-Site', 'Estimate'],
-    body: 'A Red Seal owner (Craig or Mike) inspects your roof at your Cochrane home, measures it, and walks you through the options. No pressure, no upsell.',
+    body: 'A Red Seal Journeyman inspects your roof at your Cochrane home, measures it, and walks you through the options. No pressure, no upsell.',
   },
   {
     number: '02',
@@ -587,7 +571,8 @@ function ReplacementProcess() {
               fontWeight: 400,
             }}
           >
-            Five steps, clearly explained. No hidden steps, no surprises.
+            Five clear steps from first estimate to final cleanup. Every stage is mapped out in
+            writing before we start. No hidden steps, no surprises.
           </p>
           <div className="mt-7">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -784,17 +769,17 @@ const DIFFERENTIATORS = [
   {
     Icon: Award,
     heading: 'Red Seal Certified Trades',
-    body: 'Craig and Mike, the owners of Sure West Roofing, both hold Red Seal Journeyman certification, the recognised national trade standard. A credentialed tradesperson is on your roof, not a subcontractor.',
+    body: 'Sure West is owned and operated by Red Seal Journeyman roofers, the recognised national trade standard. A credentialed tradesperson is on every roof, never a subcontractor.',
   },
   {
     Icon: CloudLightning,
     heading: 'Built for Alberta Weather',
-    body: 'Cochrane winters, chinook swings, hailstorms, and high wind uplift require specific materials and methods. We select installation approaches suited to local freeze-thaw cycles and climate conditions.',
+    body: 'Cochrane winters, Chinook swings, hailstorms, and high wind uplift demand specific materials and methods. Every install is tuned for the local freeze-thaw cycles and climate extremes.',
   },
   {
     Icon: FileText,
     heading: 'Honest Quotes, No Pressure',
-    body: 'Every estimate is free, on-site, and provided in writing with itemised costs. No high-pressure tactics. If your roof does not need replacing, we will tell you that.',
+    body: 'Every estimate is free, on-site, and provided in writing with itemised costs. If your roof does not need replacing, we will tell you that straight.',
   },
   {
     Icon: ShieldCheck,
@@ -844,8 +829,7 @@ function WhySureWest() {
             }}
           >
             We&apos;ve built our reputation across Cochrane, Calgary, and Canmore on Red Seal
-            certified ownership, materials built for Alberta weather, and warranties you can read
-            before we start.
+            ownership, materials made for Alberta weather, and warranties you can read.
           </p>
           <div className="mt-7">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
