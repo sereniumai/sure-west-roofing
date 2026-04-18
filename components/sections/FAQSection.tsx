@@ -7,7 +7,7 @@ import { generateFAQSchema } from '@/lib/faq-schema'
 import type { FAQItem as FAQItemType } from '@/lib/types'
 
 interface FAQSectionProps {
-  label: string
+  label?: string
   heading: string
   body: string
   faqs: FAQItemType[]
@@ -15,6 +15,7 @@ interface FAQSectionProps {
 }
 
 export function FAQSection({
+  label = 'FAQs',
   heading,
   body,
   faqs,
@@ -39,7 +40,7 @@ export function FAQSection({
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
           <span className="section-label text-[#D4AF60] mb-4 inline-flex justify-center">
-            FAQs
+            {label}
           </span>
           <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-5xl xl:text-[70px] tracking-[-0.04em] leading-[1.05] text-brand-navy mt-4">
             {heading}

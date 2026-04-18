@@ -11,6 +11,7 @@ interface ServiceFAQProps {
   heading: string
   subhead: string
   ctaHref?: string
+  sectionBg?: string
 }
 
 export function ServiceFAQ({
@@ -18,6 +19,7 @@ export function ServiceFAQ({
   heading,
   subhead,
   ctaHref = '/free-roof-estimate-cochrane',
+  sectionBg = '#F7F5F0',
 }: ServiceFAQProps) {
   const [open, setOpen] = useState<number | null>(null)
 
@@ -29,7 +31,7 @@ export function ServiceFAQ({
       id="faq"
       className="relative overflow-hidden py-20 md:py-24"
       style={{
-        background: '#F7F5F0',
+        background: sectionBg,
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}

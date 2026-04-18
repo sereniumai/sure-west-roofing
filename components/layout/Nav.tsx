@@ -101,6 +101,11 @@ export function Nav() {
     }
   }, [mobileOpen])
 
+  useEffect(() => {
+    setMobileOpen(false)
+    setMobileServicesOpen(false)
+  }, [pathname])
+
   const isLight = scrolled || isLightPage
   const textColor = isLight ? 'text-brand-navy' : 'text-white'
 
@@ -262,11 +267,13 @@ export function Nav() {
 
       {/* Mobile menu */}
       <div
-        className={`lg:hidden fixed inset-0 top-0 bg-white transition-all duration-300 ${
+        aria-hidden={!mobileOpen}
+        className={`lg:hidden fixed left-0 right-0 top-0 bg-white transition-[opacity,visibility] duration-300 ${
           mobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
+        style={{ height: '100dvh' }}
       >
-        <div className="pt-24 px-6 pb-8 flex flex-col gap-2 h-full overflow-y-auto">
+        <div className="pt-24 px-6 pb-10 flex flex-col gap-2 h-full overflow-y-auto overscroll-contain">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div key={link.label}>
@@ -282,7 +289,7 @@ export function Nav() {
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    mobileServicesOpen ? 'max-h-[500px]' : 'max-h-0'
+                    mobileServicesOpen ? 'max-h-[640px]' : 'max-h-0'
                   }`}
                 >
                   {serviceLinks.map((service) => {

@@ -61,7 +61,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link href={href} className={styles}>
+      <Link href={href} className={styles} onClick={onClick}>
         {content}
       </Link>
     )
