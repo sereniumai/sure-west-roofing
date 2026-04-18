@@ -112,18 +112,6 @@ export function ServicesHero({
               }}
             />
 
-            {/* Decorative offset card — sits behind the image */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 rounded-[20px]"
-              style={{
-                border: '1.5px solid rgba(212,175,96,0.35)',
-                borderRadius: '20px',
-                transform: 'translate(10px, 12px)',
-                zIndex: 0,
-              }}
-            />
-
             {/* Main image */}
             <div
               className="relative overflow-hidden rounded-[20px]"

@@ -355,6 +355,32 @@ html {
   .reviews-pulse   { animation: none !important; }
 }
 
+/* ── Roof Replacement hero animations ─────────── */
+
+.rr-divider-line {
+  animation: rr-divider-expand 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+  transform-origin: left;
+}
+
+.rr-after {
+  animation: rr-fade-in 0.5s ease-out 0.9s both;
+}
+
+@keyframes rr-divider-expand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes rr-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rr-divider-line,
+  .rr-after { animation: none; }
+}
+
 /* ── Responsive section padding ─────────────── */
 
 @media (max-width: 768px) {
