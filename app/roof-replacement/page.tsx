@@ -450,7 +450,13 @@ function SignsYouNeed() {
               fontWeight: 400,
             }}
           >
-            Not every roof issue means full replacement. Here is when it does.
+            Not every problem means a full replacement. If your Cochrane roof is under 15 years
+            old and the damage is localized,{' '}
+            <Link href="/roof-repair" className="text-[#C49A2C] hover:underline">
+              roof repair
+            </Link>{' '}
+            is usually the smarter and more affordable call. Here is when replacement is the right
+            move.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -490,6 +496,22 @@ function SignsYouNeed() {
             </div>
           ))}
         </div>
+
+        <p
+          className="mt-10 max-w-[720px] mx-auto text-center text-brand-slate leading-[1.7]"
+          style={{
+            fontSize: '15px',
+            fontFamily: 'var(--font-inter), system-ui, sans-serif',
+            fontWeight: 400,
+          }}
+        >
+          If your roof took recent hail damage, the replacement is often covered by insurance.
+          Start with our{' '}
+          <Link href="/hail-damage-repair" className="text-[#C49A2C] hover:underline">
+            hail damage repair process
+          </Link>{' '}
+          to understand how we work with your adjuster.
+        </p>
       </div>
     </section>
   )
@@ -913,7 +935,11 @@ function WarrantyGuarantees() {
             }}
           >
             Two layers of written protection, every time: our workmanship and IKO&apos;s materials.
-            Both terms land in your contract before the job starts.
+            Both terms land in your contract before the job starts. Combined with routine{' '}
+            <Link href="/roof-maintenance" className="text-[#C49A2C] hover:underline">
+              roof maintenance
+            </Link>
+            , a Sure West replacement is built to outlast its warranty.
           </p>
         </div>
 
