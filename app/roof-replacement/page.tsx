@@ -279,8 +279,8 @@ function WhatIncluded() {
     >
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
-          {/* Left: heading, copy, accordion, CTA */}
-          <div className="flex flex-col">
+          {/* Right (desktop): heading, copy, accordion, CTA. Mobile keeps content first. */}
+          <div className="flex flex-col lg:order-2">
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -324,9 +324,9 @@ function WhatIncluded() {
             </div>
           </div>
 
-          {/* Right: photo locked to a fixed aspect so it never reflows when the accordion expands */}
+          {/* Left (desktop): photo locked to a fixed aspect so it never reflows when the accordion expands */}
           <div
-            className="relative overflow-hidden rounded-[18px] aspect-[5/4] min-h-[420px]"
+            className="relative overflow-hidden rounded-[18px] aspect-square min-h-[560px] lg:order-1"
             style={{
               boxShadow:
                 '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
@@ -536,7 +536,7 @@ function ReplacementProcess() {
             Replacement Works
           </h2>
           <p
-            className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
+            className="mt-5 max-w-[680px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
