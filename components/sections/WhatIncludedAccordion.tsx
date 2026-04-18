@@ -1,13 +1,14 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Plus } from 'lucide-react'
 
 const ITEMS = [
   {
     heading: 'Full tear-off and decking inspection',
     body:
-      'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on.',
+      'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on, so your new roof has a solid base from day one.',
   },
   {
     heading: 'New underlayment, ice-and-water shield, and IKO shingles',
@@ -77,6 +78,19 @@ export function WhatIncludedAccordion() {
                   }}
                 >
                   {item.body}
+                  <Link
+                    href="/free-roof-estimate-cochrane"
+                    className="mt-3 inline-flex items-center gap-1.5 text-brand-gold font-semibold hover:text-[#B8943F] transition-colors duration-200"
+                    style={{
+                      fontSize: '13px',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                      textDecoration: 'underline',
+                      textUnderlineOffset: '3px',
+                    }}
+                  >
+                    Get Free Estimate
+                    <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
+                  </Link>
                 </div>
               </div>
             )}

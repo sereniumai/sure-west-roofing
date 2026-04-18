@@ -316,12 +316,6 @@ function WhatIncluded() {
             </p>
 
             <WhatIncludedAccordion />
-
-            <div className="mt-9">
-              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-                Get a Free Estimate
-              </Button>
-            </div>
           </div>
 
           {/* Left (desktop): photo stretches to match content column height */}
