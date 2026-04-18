@@ -471,7 +471,7 @@ const PROCESS_STEPS = [
     number: '01',
     Icon: Calendar,
     heading: ['Free On-Site', 'Estimate'],
-    body: 'A Red Seal Journeyman inspects your roof at your Cochrane home, measures it, and walks you through the options. No pressure, no upsell.',
+    body: 'A Red Seal Journeyman inspects your Cochrane roof, measures it, and walks you through the options. No pressure, no upsell.',
   },
   {
     number: '02',
@@ -489,7 +489,7 @@ const PROCESS_STEPS = [
     number: '04',
     Icon: Hammer,
     heading: ['One-Day Install', 'on Most Homes'],
-    body: 'Our in-house Cochrane crews handle full tear-off, deck repair, and new install in a single day on most homes. Larger or complex roofs take two days.',
+    body: 'Our Cochrane crews handle tear-off, deck repair, and install in a single day on most homes. Larger roofs take two days.',
   },
   {
     number: '05',
@@ -532,7 +532,7 @@ function ReplacementProcess() {
             Replacement Works
           </h2>
           <p
-            className="mt-5 max-w-[680px] text-brand-slate leading-[1.7]"
+            className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',

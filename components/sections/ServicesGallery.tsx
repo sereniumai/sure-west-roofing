@@ -120,8 +120,8 @@ export function ServicesGallery({ images, sectionBg }: Props) {
               </button>
             </div>
 
-            {/* Thumbnail strip */}
-            <div className="mt-4 flex gap-2 flex-wrap">
+            {/* Thumbnail strip — 5 per row */}
+            <div className="mt-4 flex gap-2 flex-wrap max-w-[386px]">
               {IMAGES.map((img, i) => (
                 <button
                   key={i}
@@ -182,7 +182,7 @@ export function ServicesGallery({ images, sectionBg }: Props) {
                 </div>
               ))}
 
-              {/* Caption + counter pill on image */}
+              {/* Counter pill on image */}
               <div
                 className="absolute bottom-4 right-4 z-10 px-3 py-1.5 rounded-full flex items-center gap-2"
                 style={{
@@ -191,21 +191,6 @@ export function ServicesGallery({ images, sectionBg }: Props) {
                   WebkitBackdropFilter: 'blur(8px)',
                 }}
               >
-                {IMAGES[current]?.caption && (
-                  <>
-                    <span
-                      className="text-white"
-                      style={{
-                        fontSize: '12px',
-                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                        fontWeight: 500,
-                      }}
-                    >
-                      {IMAGES[current].caption}
-                    </span>
-                    <span aria-hidden="true" className="text-white/40">·</span>
-                  </>
-                )}
                 <span
                   className="text-white font-semibold tabular-nums"
                   style={{
