@@ -83,13 +83,13 @@ const FAQS: FAQ[] = [
   {
     question: 'Are you licensed and insured?',
     answerText:
-      'Yes. Sure West Roofing is a licensed roofing contractor in Alberta, fully covered by WCB and general liability insurance. Craig and Mike, the owners, hold Red Seal Journeyman certification, the highest professional trade credential in Canada. Proof of coverage is available on request before any work begins.',
+      'Yes. Sure West Roofing is a licensed roofing contractor in Alberta, fully covered by WCB and general liability insurance. We are owned and operated by Red Seal Journeyman roofers, the highest professional trade credential in Canada. Proof of coverage is available on request before any work begins.',
     answer: (
       <>
         Yes. Sure West Roofing is a licensed roofing contractor in Alberta, fully covered by WCB
-        and general liability insurance. Craig and Mike, the owners, hold Red Seal Journeyman
-        certification, the highest professional trade credential in Canada. Proof of coverage is
-        available on request before any work begins.
+        and general liability insurance. We are owned and operated by Red Seal Journeyman roofers,
+        the highest professional trade credential in Canada. Proof of coverage is available on
+        request before any work begins.
       </>
     ),
   },

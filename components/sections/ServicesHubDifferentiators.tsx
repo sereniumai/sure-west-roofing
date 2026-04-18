@@ -4,7 +4,7 @@ const DIFFERENTIATORS = [
   {
     Icon: Award,
     heading: 'Red Seal Certified Trades',
-    body: 'Craig and Mike, the owners of Sure West Roofing, both hold Red Seal Journeyman certification — the highest trade credential in Canada. A credentialed tradesperson is on your roof, not a subcontractor.',
+    body: 'Sure West is owned and operated by Red Seal Journeyman roofers, the highest trade credential in Canada. A credentialed tradesperson is on every roof, never a subcontractor.',
   },
   {
     Icon: CloudLightning,
