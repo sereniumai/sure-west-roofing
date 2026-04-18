@@ -1,121 +1,99 @@
-'use client'
-
-import Image from 'next/image'
-import { CheckCircle } from 'lucide-react'
+import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/Button'
 
-const BULLETS = [
-  'Free on-site estimate',
-  'Written quote within 24 hours',
-  'Red Seal Journeyman on every job',
-  'Response within minutes, even after hours',
+interface Stat {
+  value: string
+  label: string
+}
+
+interface CTA {
+  label: string
+  href: string
+}
+
+interface BottomCTAProps {
+  heading: ReactNode
+  subtext: string
+  primaryCTA?: CTA
+  secondaryCTA?: CTA
+  stats?: Stat[]
+}
+
+const DEFAULT_STATS: Stat[] = [
+  { value: '250+', label: 'Roofs Completed' },
+  { value: '5.0 ★', label: 'Google Rating' },
+  { value: '10 yr', label: 'Workmanship Warranty' },
 ]
 
-export function BottomCTA() {
+export function BottomCTA({
+  heading,
+  subtext,
+  primaryCTA = { label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' },
+  secondaryCTA = { label: 'Call 403-990-7210', href: 'tel:+14039907210' },
+  stats = DEFAULT_STATS,
+}: BottomCTAProps) {
   return (
     <section
       id="contact-cta"
-      className="relative bg-white overflow-hidden py-12 md:py-16"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-28"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      <div className="relative mx-auto" style={{ maxWidth: '1320px' }}>
-        {/* Outer gold glow */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -inset-3 md:-inset-4 rounded-[28px] md:rounded-[36px]"
+      <div className="relative z-10 max-w-[800px] mx-auto text-center">
+        <h2
+          className="font-display font-semibold text-brand-navy"
           style={{
-            background:
-              'radial-gradient(ellipse 100% 100% at 50% 50%, rgba(212,175,96,0.18) 0%, rgba(212,175,96,0.06) 40%, rgba(212,175,96,0) 70%)',
-            filter: 'blur(16px)',
-          }}
-        />
-
-        {/* Main card */}
-        <div
-          className="relative rounded-[20px] md:rounded-[24px] overflow-hidden grid grid-cols-1 lg:grid-cols-2"
-          style={{
-            background: '#FFFFFF',
-            boxShadow:
-              '0 0 0 1px rgba(212,175,96,0.12), 0 2px 8px rgba(26,22,18,0.04), 0 20px 60px -20px rgba(26,22,18,0.12)',
+            fontSize: 'clamp(32px, 4.5vw, 52px)',
+            lineHeight: 1.1,
+            letterSpacing: '-0.025em',
           }}
         >
-          {/* Left — content */}
-          <div className="flex flex-col items-start justify-center px-6 sm:px-8 md:px-12 lg:px-14 py-10 sm:py-12 md:py-16 lg:py-20">
-            <h2
-              className="font-display font-semibold text-[--color-near-black] leading-[1.2]"
-              style={{
-                fontSize: 'clamp(28px, 3.2vw, 44px)',
-                letterSpacing: '-0.04em',
-              }}
-            >
-              Ready for a Roofing Contractor{' '}
-              <span style={{ color: 'var(--color-accent, #D4AF60)' }}>
-                You Can Actually Trust?
-              </span>
-            </h2>
+          {heading}
+        </h2>
+        <p
+          className="mt-6 mx-auto max-w-[520px] text-brand-slate leading-[1.7]"
+          style={{
+            fontSize: '17px',
+            fontFamily: 'var(--font-inter), system-ui, sans-serif',
+            fontWeight: 400,
+          }}
+        >
+          {subtext}
+        </p>
+        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3">
+          <Button variant="primary" size="lg" href={primaryCTA.href}>
+            {primaryCTA.label}
+          </Button>
+          <Button variant="outline" size="lg" href={secondaryCTA.href}>
+            {secondaryCTA.label}
+          </Button>
+        </div>
 
-            <p
-              className="mt-4 text-brand-slate leading-[1.65] max-w-[420px]"
-              style={{
-                fontSize: '15px',
-                fontFamily: "var(--font-inter), system-ui, sans-serif",
-                fontWeight: 400,
-              }}
-            >
-              Book your free estimate and see why Cochrane homeowners trust Sure West with their roofs.
-            </p>
-
-            <ul className="mt-6 flex flex-col gap-2.5">
-              {BULLETS.map((item) => (
-                <li key={item} className="flex items-center gap-2.5">
-                  <CheckCircle className="w-5 h-5 text-brand-gold flex-shrink-0" strokeWidth={1.5} />
-                  <span
-                    className="text-brand-navy"
-                    style={{
-                      fontSize: '15px',
-                      fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontWeight: 400,
-                    }}
-                  >
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-8">
-              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-                Get a Free Estimate
-              </Button>
-              <p
-                className="mt-4"
-                style={{ fontSize: '14px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+        <div className="mt-12 flex flex-wrap items-start justify-center gap-x-12 md:gap-x-16 gap-y-6">
+          {stats.map(({ value, label }) => (
+            <div key={label} className="flex flex-col items-center text-center">
+              <span
+                className="font-display font-semibold text-brand-gold"
+                style={{ fontSize: '26px', letterSpacing: '-0.02em', lineHeight: 1 }}
               >
-                <span className="text-brand-slate">Or call us directly: </span>
-                <a
-                  href="tel:+14039907210"
-                  className="text-brand-gold font-semibold hover:underline hover:underline-offset-2 transition-colors"
-                >
-                  (403) 990-7210
-                </a>
-              </p>
+                {value}
+              </span>
+              <span
+                className="mt-2 text-brand-slate"
+                style={{
+                  fontSize: '12px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 500,
+                  letterSpacing: '0.04em',
+                  textTransform: 'uppercase',
+                }}
+              >
+                {label}
+              </span>
             </div>
-          </div>
-
-          {/* Right — image */}
-          <div className="relative h-[200px] sm:h-[240px] lg:h-auto lg:min-h-[400px]">
-            <Image
-              src="/images/Sure West Roofing in Cochrane.webp"
-              alt="Sure West Roofing in Cochrane"
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
-              style={{ objectPosition: 'center 30%' }}
-            />
-          </div>
+          ))}
         </div>
       </div>
     </section>

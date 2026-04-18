@@ -5,7 +5,9 @@ import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
-const DEFAULT_IMAGES = [
+interface GalleryImage { src: string; alt: string; caption?: string }
+
+const DEFAULT_IMAGES: GalleryImage[] = [
   { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Completed roof replacement in Cochrane Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'Roofing project Cochrane Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Sure West Roofing completed project Cochrane' },
@@ -17,11 +19,12 @@ const DEFAULT_IMAGES = [
 function pad(n: number) {
   return String(n).padStart(2, '0')
 }
+interface Props {
+  images?: GalleryImage[]
+  sectionBg?: string
+}
 
-interface GalleryImage { src: string; alt: string }
-interface Props { images?: GalleryImage[] }
-
-export function ServicesGallery({ images }: Props) {
+export function ServicesGallery({ images, sectionBg }: Props) {
   const IMAGES = images ?? DEFAULT_IMAGES
   const [current, setCurrent] = useState(0)
 
@@ -36,8 +39,9 @@ export function ServicesGallery({ images }: Props) {
 
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative overflow-hidden py-20 md:py-24"
       style={{
+        background: sectionBg ?? '#FFFFFF',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -189,15 +193,30 @@ export function ServicesGallery({ images }: Props) {
                 </div>
               ))}
 
-              {/* Bottom-right counter pill on image */}
+              {/* Caption + counter pill on image */}
               <div
-                className="absolute bottom-4 right-4 z-10 px-3 py-1.5 rounded-full"
+                className="absolute bottom-4 right-4 z-10 px-3 py-1.5 rounded-full flex items-center gap-2"
                 style={{
                   background: 'rgba(0,0,0,0.45)',
                   backdropFilter: 'blur(8px)',
                   WebkitBackdropFilter: 'blur(8px)',
                 }}
               >
+                {IMAGES[current]?.caption && (
+                  <>
+                    <span
+                      className="text-white"
+                      style={{
+                        fontSize: '12px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 500,
+                      }}
+                    >
+                      {IMAGES[current].caption}
+                    </span>
+                    <span aria-hidden="true" className="text-white/40">·</span>
+                  </>
+                )}
                 <span
                   className="text-white font-semibold tabular-nums"
                   style={{

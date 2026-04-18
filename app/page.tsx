@@ -216,7 +216,15 @@ export default function HomePage() {
       <HomeFAQ />
 
       {/* 9. Bottom CTA */}
-      <BottomCTA />
+      <BottomCTA
+        heading={
+          <>
+            Ready for a Cochrane Roofing Contractor
+            <br className="hidden md:block" /> You Can Actually Trust?
+          </>
+        }
+        subtext="Red Seal certified roofing across Cochrane, Calgary, and Canmore. Free written estimate, 10-year workmanship warranty, and no sales pressure."
+      />
     </>
   )
 }

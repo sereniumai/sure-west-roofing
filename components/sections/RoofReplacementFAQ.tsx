@@ -59,7 +59,7 @@ export function RoofReplacementFAQ() {
       id="faq"
       className="relative overflow-hidden py-20 md:py-24"
       style={{
-        background: '#FFFFFF',
+        background: '#F7F5F0',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}

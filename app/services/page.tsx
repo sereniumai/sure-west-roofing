@@ -349,7 +349,15 @@ export default function ServicesPage() {
       <ServicesFAQ />
 
       {/* 11. Final CTA */}
-      <BottomCTA />
+      <BottomCTA
+        heading={
+          <>
+            Need Roofing Services in Cochrane,
+            <br className="hidden md:block" /> Calgary, or Canmore?
+          </>
+        }
+        subtext="Roof replacement, repair, hail damage, inspections, and more. Red Seal certified crews with a written warranty on every job."
+      />
     </>
   )
 }

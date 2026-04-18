@@ -15,13 +15,18 @@ import {
   FileText,
   MapPin,
   ArrowRight,
-  Star,
+  Calendar,
+  Package,
+  Hammer,
+  CheckCircle2,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { RoofReplacementHero } from '@/components/sections/RoofReplacementHero'
 import { RoofReplacementFAQ } from '@/components/sections/RoofReplacementFAQ'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
+import { Reviews } from '@/components/sections/Reviews'
+import { BottomCTA } from '@/components/sections/BottomCTA'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -220,7 +225,7 @@ function CertsBanner() {
     >
       <div className="max-w-[1320px] mx-auto flex flex-col items-center">
         <span
-          className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-8 text-brand-gold"
+          className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
           style={{
             background: '#F0EEE8',
             fontSize: '12px',
@@ -252,14 +257,42 @@ function CertsBanner() {
   )
 }
 
+// ─── Section: Inline CTA (text + single gold button, centred) ────────────────
+
+function InlineCTA({ headline }: { headline: string }) {
+  return (
+    <section
+      className="bg-brand-cream py-14 md:py-16"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[720px] mx-auto text-center">
+        <h3
+          className="font-display text-brand-navy"
+          style={{
+            fontSize: 'clamp(22px, 2.6vw, 30px)',
+            fontWeight: 500,
+            letterSpacing: '-0.01em',
+            lineHeight: 1.25,
+          }}
+        >
+          {headline}
+        </h3>
+        <div className="mt-6">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+            Get a Free Estimate
+          </Button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── Section: What's Included ─────────────────────────────────────────────────
 
 const INCLUDED_ITEMS = [
   'Full tear-off of old shingles, underlayment, and damaged decking',
-  'Deck inspection and repair (charged transparently if needed)',
-  'Synthetic underlayment and ice-and-water shield at eaves and valleys',
+  'Synthetic underlayment with ice-and-water shield',
   'New IKO architectural or impact-resistant shingles',
-  'New pipe boots, flashing, drip edge, and ridge vents',
   'Full site cleanup with magnetic nail sweep',
 ]
 
@@ -270,68 +303,91 @@ function WhatIncluded() {
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            What&apos;s Included
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            What&apos;s Included in a Sure West Roof Replacement
-          </h2>
-          <p
-            className="mt-5 max-w-[640px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Every roof replacement Cochrane homeowners book with Sure West includes the complete
-            scope below, carried out by Red Seal Journeyman trades. We serve Cochrane as our home
-            market, with crews also covering Calgary and Canmore.
-          </p>
-        </div>
-
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-[900px] mx-auto">
-          {INCLUDED_ITEMS.map((item) => (
-            <li
-              key={item}
-              className="flex items-start gap-3 p-4 md:p-5 rounded-[10px] bg-brand-cream border border-brand-border"
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
+          {/* Left: heading, copy, bullets, CTA */}
+          <div className="flex flex-col">
+            <span
+              className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
             >
-              <span
-                className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full mt-0.5"
-                style={{ background: 'rgba(212,175,96,0.18)' }}
-              >
-                <Check className="w-3 h-3 text-brand-gold" strokeWidth={2.5} />
-              </span>
-              <span
-                className="text-brand-navy leading-[1.55]"
-                style={{
-                  fontSize: '14px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                {item}
-              </span>
-            </li>
-          ))}
-        </ul>
+              What&apos;s Included
+            </span>
+            <h2
+              className="font-display font-medium text-brand-navy"
+              style={{
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              What&apos;s Included in a Sure West Roof Replacement
+            </h2>
+            <p
+              className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              Every Sure West replacement is carried out by our Red Seal Journeyman crew. Serving
+              Cochrane, Calgary, and Canmore.
+            </p>
+
+            <ul className="mt-8 flex flex-col gap-3 max-w-[520px]">
+              {INCLUDED_ITEMS.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <span
+                    className="flex-shrink-0 flex items-center justify-center w-5 h-5 rounded-full mt-0.5"
+                    style={{ background: 'rgba(212,175,96,0.18)' }}
+                  >
+                    <Check className="w-3 h-3 text-brand-gold" strokeWidth={2.5} />
+                  </span>
+                  <span
+                    className="text-brand-navy leading-[1.55]"
+                    style={{
+                      fontSize: '15px',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                      fontWeight: 400,
+                    }}
+                  >
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-9">
+              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+                Get a Free Estimate
+              </Button>
+            </div>
+          </div>
+
+          {/* Right: photo matches left column height on desktop */}
+          <div
+            className="relative overflow-hidden rounded-[18px] aspect-[4/3] lg:aspect-auto lg:h-full min-h-[360px]"
+            style={{
+              boxShadow:
+                '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
+            }}
+          >
+            <Image
+              src="/images/Cochrane Roofing Contractor Gallery 14.webp"
+              alt="Sure West Roofing Red Seal crew installing new shingles on a Cochrane home"
+              fill
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )
@@ -400,7 +456,9 @@ function SignsYouNeed() {
               letterSpacing: '-0.005em',
             }}
           >
-            Signs Your Roof Needs Replacing, Not Just Repairing
+            Signs Your Roof Needs
+            <br />
+            Replacing, Not Just Repairing
           </h2>
           <p
             className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
@@ -412,6 +470,11 @@ function SignsYouNeed() {
           >
             Not every roof issue means full replacement. Here is when it does.
           </p>
+          <div className="mt-8">
+            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+              Get a Free Estimate
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
@@ -455,28 +518,33 @@ function SignsYouNeed() {
 const PROCESS_STEPS = [
   {
     number: '01',
-    heading: 'Free On-Site Estimate',
+    Icon: Calendar,
+    heading: ['Free On-Site', 'Estimate'],
     body: 'A Red Seal owner (Craig or Mike) inspects your roof, measures it, and walks you through the options. No pressure, no upsell.',
   },
   {
     number: '02',
-    heading: 'Written Quote, No Surprises',
-    body: 'You get a detailed written quote with shingle choice, scope, timeline, and price. Everything that could affect cost is spelled out up front.',
+    Icon: FileText,
+    heading: ['Written Quote,', 'No Surprises'],
+    body: 'A detailed written quote with shingle choice, scope, timeline, and price. Everything that affects cost is spelled out up front.',
   },
   {
     number: '03',
-    heading: 'Material Delivery and Scheduling',
-    body: 'Once approved, we order materials and lock in an install date that works for you and the weather.',
+    Icon: Package,
+    heading: ['Material Delivery', 'and Scheduling'],
+    body: 'Once approved, we order materials and lock in an install date that fits your schedule and the forecast. Nothing left vague.',
   },
   {
     number: '04',
-    heading: 'One-Day Install on Most Homes',
-    body: 'Full tear-off, repair, and new install happens in a single day on most Cochrane homes. Larger or complex roofs take two.',
+    Icon: Hammer,
+    heading: ['One-Day Install', 'on Most Homes'],
+    body: 'Full tear-off, deck repair, and new install in a single day on most Cochrane homes. Larger or complex roofs take two days.',
   },
   {
     number: '05',
-    heading: 'Cleanup and Final Walkthrough',
-    body: 'Magnetic nail sweep, site cleanup, and a walkthrough with you before we leave. Your written warranty in hand.',
+    Icon: CheckCircle2,
+    heading: ['Cleanup and', 'Final Walkthrough'],
+    body: 'Magnetic nail sweep, full site cleanup, and a final walkthrough with you before we leave. Your written warranty in hand.',
   },
 ]
 
@@ -508,7 +576,9 @@ function ReplacementProcess() {
               letterSpacing: '-0.005em',
             }}
           >
-            How a Sure West Roof Replacement Works
+            How a Sure West Roof
+            <br />
+            Replacement Works
           </h2>
           <p
             className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
@@ -520,49 +590,55 @@ function ReplacementProcess() {
           >
             Five steps, clearly explained. No hidden steps, no surprises.
           </p>
+          <div className="mt-7">
+            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+              Get a Free Estimate
+            </Button>
+          </div>
         </div>
 
-        {/* 5-step grid */}
         <div className="relative">
-          {/* Dashed connector — desktop only */}
-          <div
-            aria-hidden="true"
-            className="hidden xl:block absolute border-t-2 border-dashed border-brand-gold/35"
-            style={{ top: '28px', left: '10%', right: '10%' }}
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 relative z-[1]">
-            {PROCESS_STEPS.map((step) => (
-              <div key={step.number} className="flex flex-col items-center text-center">
-                {/* Number circle */}
-                <div
-                  className="flex items-center justify-center w-[56px] h-[56px] rounded-full mb-5 flex-shrink-0"
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-6">
+            {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
+              <div
+                key={number}
+                className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center"
+              >
+                <span
+                  className="uppercase tracking-[0.18em] text-brand-gold font-semibold"
                   style={{
-                    background: 'rgba(212,175,96,0.10)',
-                    border: '2px solid rgba(212,175,96,0.40)',
+                    fontSize: '11px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
                   }}
                 >
-                  <span
-                    className="font-display font-semibold text-brand-gold"
-                    style={{ fontSize: '17px' }}
-                  >
-                    {step.number}
-                  </span>
+                  Step {number}
+                </span>
+                <div
+                  className="mt-4 mb-5 flex items-center justify-center w-16 h-16 rounded-full"
+                  style={{
+                    background: 'rgba(212,175,96,0.10)',
+                    border: '1.5px solid rgba(212,175,96,0.45)',
+                  }}
+                >
+                  <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
                 </div>
                 <h3
-                  className="font-display font-semibold text-brand-navy mb-2 leading-[1.25]"
+                  className="font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]"
                   style={{ fontSize: '17px', letterSpacing: '-0.01em' }}
                 >
-                  {step.heading}
+                  {heading[0]}
+                  <br />
+                  {heading[1]}
                 </h3>
                 <p
-                  className="text-brand-slate leading-[1.6]"
+                  className="mt-4 text-brand-slate leading-[1.6] max-w-[220px]"
                   style={{
                     fontSize: '13px',
                     fontFamily: 'var(--font-inter), system-ui, sans-serif',
                     fontWeight: 400,
                   }}
                 >
-                  {step.body}
+                  {body}
                 </p>
               </div>
             ))}
@@ -580,21 +656,21 @@ const SHINGLES = [
     tier: 'Entry Tier',
     name: 'IKO Cambridge',
     image: '/images/IKO Cambridge .webp',
-    imageAlt: 'IKO Cambridge architectural shingle — entry tier option by Sure West Roofing Cochrane',
+    imageAlt: 'IKO Cambridge architectural shingle, entry tier option by Sure West Roofing Cochrane',
     body: 'Quality architectural shingle with a strong warranty. A reliable choice for most Cochrane homes that delivers solid performance and curb appeal at a competitive price point.',
   },
   {
     tier: 'Mid Tier',
     name: 'IKO Dynasty',
     image: '/images/IKO Dynasty .webp',
-    imageAlt: 'IKO Dynasty shingle — mid tier option by Sure West Roofing Cochrane',
+    imageAlt: 'IKO Dynasty shingle, mid tier option by Sure West Roofing Cochrane',
     body: 'Heavier shingle with better curb appeal and improved wind resistance. Popular for move-up homes and properties preparing for resale, where appearance and durability matter.',
   },
   {
     tier: 'Impact Resistant',
     name: 'IKO Nordic',
     image: '/images/IKO Nordic .webp',
-    imageAlt: 'IKO Nordic Class 4 impact resistant shingle — hail protection option by Sure West Roofing Cochrane',
+    imageAlt: 'IKO Nordic Class 4 impact resistant shingle, hail protection option by Sure West Roofing Cochrane',
     body: "Class 4 impact rating for hail protection. Designed for Alberta's hail belt and may qualify your property for insurance premium discounts, depending on your provider.",
   },
 ]
@@ -638,8 +714,13 @@ function ShingleOptions() {
             }}
           >
             Sure West installs IKO shingles exclusively. Canadian-made, proven in Alberta weather,
-            and backed by some of the strongest material warranties in the industry.
+            and backed by long-term material warranties documented in writing.
           </p>
+          <div className="mt-8">
+            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+              Get a Free Estimate
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
@@ -664,11 +745,10 @@ function ShingleOptions() {
               <div className="p-6 md:p-8 flex flex-col flex-1">
                 <div className="mb-4">
                   <span
-                    className="inline-block text-brand-gold font-semibold uppercase tracking-[0.12em] pb-1"
+                    className="inline-block text-brand-gold font-semibold uppercase tracking-[0.12em]"
                     style={{
                       fontSize: '11px',
                       fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                      borderBottom: '2px solid #D4AF60',
                     }}
                   >
                     {tier}
@@ -705,7 +785,7 @@ const DIFFERENTIATORS = [
   {
     Icon: Award,
     heading: 'Red Seal Certified Trades',
-    body: 'Craig and Mike, the owners of Sure West Roofing, both hold Red Seal Journeyman certification — the highest trade credential in Canada. A credentialed tradesperson is on your roof, not a subcontractor.',
+    body: 'Craig and Mike, the owners of Sure West Roofing, both hold Red Seal Journeyman certification, the recognised national trade standard. A credentialed tradesperson is on your roof, not a subcontractor.',
   },
   {
     Icon: CloudLightning,
@@ -727,11 +807,11 @@ const DIFFERENTIATORS = [
 function WhySureWest() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="text-center mb-12 md:mb-16">
+        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -752,15 +832,33 @@ function WhySureWest() {
               letterSpacing: '-0.005em',
             }}
           >
-            Why Cochrane Homeowners Trust Sure West
+            Why Cochrane Homeowners
+            <br />
+            Trust Sure West
           </h2>
+          <p
+            className="mt-5 max-w-[580px] text-brand-slate leading-[1.7]"
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 400,
+            }}
+          >
+            Red Seal certified owners on every job, materials built for Alberta weather, and
+            warranties you can read before we start.
+          </p>
+          <div className="mt-7">
+            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+              Get a Free Estimate
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
             <div
               key={heading}
-              className="bg-white rounded-[12px] border border-brand-border p-6 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out"
+              className="bg-brand-cream rounded-[12px] border border-brand-border p-6 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out"
             >
               <div
                 className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
@@ -797,7 +895,7 @@ function WhySureWest() {
 function WarrantyGuarantees() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -824,75 +922,97 @@ function WarrantyGuarantees() {
           >
             What&apos;s Covered After the Install
           </h2>
+          <p
+            className="mt-5 max-w-[580px] text-brand-slate leading-[1.7]"
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 400,
+            }}
+          >
+            Two layers of written protection, every time: our workmanship and IKO&apos;s materials.
+            Both terms land in your contract before the job starts.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[960px] mx-auto">
-          {/* Workmanship warranty */}
-          <div className="bg-brand-cream rounded-[12px] border border-brand-border p-7 md:p-8">
-            <div
-              className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
-              style={{ background: 'rgba(212,175,96,0.12)' }}
-            >
-              <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
-            </div>
-            <h3
-              className="font-display font-semibold text-brand-navy mb-3 leading-[1.2]"
-              style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
-            >
-              10-Year Workmanship Warranty
-            </h3>
-            <p
-              className="text-brand-slate leading-[1.7]"
-              style={{
-                fontSize: '15px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 400,
-              }}
-            >
-              Our workmanship warranty covers installation defects and workmanship issues for 10
-              years from the date your roof is completed. It is standard on every replacement we
-              carry out, not an optional add-on.
-            </p>
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-center max-w-[1120px] mx-auto">
+          {/* Left: paperwork image */}
+          <div
+            className="relative overflow-hidden rounded-[18px]"
+            style={{
+              aspectRatio: '4 / 5',
+              boxShadow:
+                '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
+            }}
+          >
+            <Image
+              src="/images/Cochrane Roofing Contractor Gallery 21.webp"
+              alt="Sure West Roofing written warranty documents handed to a Cochrane homeowner"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover"
+              loading="lazy"
+            />
           </div>
 
-          {/* Manufacturer warranty */}
-          <div className="bg-brand-cream rounded-[12px] border border-brand-border p-7 md:p-8">
-            <div
-              className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
-              style={{ background: 'rgba(212,175,96,0.12)' }}
-            >
-              <Award className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+          {/* Right: warranty cards */}
+          <div className="flex flex-col gap-5">
+            <div className="bg-white rounded-[12px] border border-brand-border p-7 md:p-8">
+              <div
+                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
+                style={{ background: 'rgba(212,175,96,0.12)' }}
+              >
+                <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+              </div>
+              <h3
+                className="font-display font-semibold text-brand-navy mb-3 leading-[1.2]"
+                style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
+              >
+                10-Year Workmanship Warranty
+              </h3>
+              <p
+                className="text-brand-slate leading-[1.7]"
+                style={{
+                  fontSize: '15px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 400,
+                }}
+              >
+                Our workmanship warranty covers installation defects and workmanship issues for 10
+                years from the date your roof is completed. It is standard on every replacement we
+                carry out, not an optional add-on.
+              </p>
             </div>
-            <h3
-              className="font-display font-semibold text-brand-navy mb-3 leading-[1.2]"
-              style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
-            >
-              Manufacturer Material Warranty
-            </h3>
-            <p
-              className="text-brand-slate leading-[1.7]"
-              style={{
-                fontSize: '15px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 400,
-              }}
-            >
-              IKO shingles carry a lifetime limited material warranty on most tiers, with wind and
-              algae resistance coverage depending on the product chosen. Specific coverage terms are
-              confirmed in writing before any materials are ordered.
-            </p>
+
+            <div className="bg-white rounded-[12px] border border-brand-border p-7 md:p-8">
+              <div
+                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
+                style={{ background: 'rgba(212,175,96,0.12)' }}
+              >
+                <Award className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+              </div>
+              <h3
+                className="font-display font-semibold text-brand-navy mb-3 leading-[1.2]"
+                style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
+              >
+                Manufacturer Material Warranty
+              </h3>
+              <p
+                className="text-brand-slate leading-[1.7]"
+                style={{
+                  fontSize: '15px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 400,
+                }}
+              >
+                IKO shingles carry a lifetime limited material warranty on most tiers, with wind and
+                algae resistance coverage depending on the product chosen. Specific coverage terms are
+                confirmed in writing before any materials are ordered.
+              </p>
+            </div>
           </div>
         </div>
 
-        <p
-          className="text-center mt-8 text-brand-slate font-semibold"
-          style={{
-            fontSize: '15px',
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
-          }}
-        >
-          Both warranties are written into your contract. Nothing verbal, nothing implied.
-        </p>
       </div>
     </section>
   )
@@ -901,19 +1021,34 @@ function WarrantyGuarantees() {
 // ─── Section: Service Area ────────────────────────────────────────────────────
 
 const LOCATIONS = [
-  { name: 'Cochrane', href: '/', detail: 'Home base · Primary market' },
-  { name: 'Calgary', href: '/roofing-contractor-calgary', detail: 'Full service area' },
-  { name: 'Canmore', href: '/roofing-contractor-canmore', detail: 'Full service area' },
+  {
+    name: 'Cochrane',
+    href: '/services',
+    detail: 'Home base, primary market',
+    buttonLabel: 'Roofing Services Cochrane',
+  },
+  {
+    name: 'Calgary',
+    href: '/roofing-contractor-calgary',
+    detail: 'Full service across the Calgary region',
+    buttonLabel: 'Roofing Contractor Calgary',
+  },
+  {
+    name: 'Canmore',
+    href: '/roofing-contractor-canmore',
+    detail: 'Full service across the Bow Valley',
+    buttonLabel: 'Roofing Contractor Canmore',
+  },
 ]
 
 function ServiceAreaCondensed() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-10 max-w-[720px] mx-auto">
+        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -944,41 +1079,36 @@ function ServiceAreaCondensed() {
               fontWeight: 400,
             }}
           >
-            Sure West is based in Cochrane but carries out roof replacements across the full Calgary
-            region. Same crew, same Red Seal standard, wherever you are in southern Alberta.
+            Based in Cochrane. Same Red Seal crew across Calgary and Canmore.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 max-w-[640px] mx-auto">
-          {LOCATIONS.map(({ name, href, detail }) => (
-            <Link
-              key={name}
-              href={href}
-              className="flex-1 flex flex-col items-center gap-2 bg-white rounded-[12px] border border-brand-border p-5 hover:-translate-y-[3px] hover:shadow-[0_10px_24px_rgba(44,71,102,0.09)] hover:border-brand-gold transition-all duration-300 ease-out"
-            >
-              <div
-                className="flex items-center justify-center w-10 h-10 rounded-full"
-                style={{ background: 'rgba(212,175,96,0.10)' }}
-              >
-                <MapPin className="w-4.5 h-4.5 text-brand-gold" strokeWidth={1.5} />
-              </div>
-              <span
-                className="font-display font-semibold text-brand-navy leading-[1.2]"
-                style={{ fontSize: '18px', letterSpacing: '-0.01em' }}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 max-w-[1060px] mx-auto">
+          {LOCATIONS.map(({ name, href, detail, buttonLabel }) => (
+            <div key={name} className="flex flex-col items-center text-center">
+              <MapPin className="w-12 h-12 text-brand-gold mb-5" strokeWidth={1.5} />
+              <h3
+                className="font-display font-semibold text-brand-navy leading-[1.05]"
+                style={{ fontSize: 'clamp(32px, 3.5vw, 44px)', letterSpacing: '-0.02em' }}
               >
                 {name}
-              </span>
-              <span
-                className="text-brand-slate"
+              </h3>
+              <p
+                className="mt-3 max-w-[260px] text-brand-slate leading-[1.6]"
                 style={{
-                  fontSize: '12px',
+                  fontSize: '14px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
                   fontWeight: 400,
                 }}
               >
                 {detail}
-              </span>
-            </Link>
+              </p>
+              <div className="mt-6">
+                <Button variant="primary" size="md" href={href}>
+                  {buttonLabel}
+                </Button>
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -989,153 +1119,26 @@ function ServiceAreaCondensed() {
 // ─── Section: Gallery images for this page ───────────────────────────────────
 
 const RR_GALLERY_IMAGES = [
-  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'IKO Nordic roof replacement completed in Cochrane Alberta' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Roof replacement project Cochrane Alberta Sure West Roofing' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'Completed shingle roof replacement Cochrane AB' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Sure West Roofing completed roof replacement Calgary region' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'IKO shingle roof replacement Cochrane Alberta' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Residential roof replacement by Sure West Roofing Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Completed IKO Dynasty roof replacement in Cochrane Alberta',              caption: 'Cochrane, AB · IKO Dynasty' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'IKO Cambridge shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'IKO Nordic impact resistant roof replacement in Calgary Alberta',        caption: 'Calgary, AB · IKO Nordic' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Residential roof replacement by Sure West Roofing Cochrane',             caption: 'Cochrane, AB · IKO Cambridge' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'IKO Dynasty shingle roof replacement in Canmore Alberta',                caption: 'Canmore, AB · IKO Dynasty' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Architectural shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'IKO Dynasty roof replacement in Calgary Alberta by Sure West Roofing',   caption: 'Calgary, AB · IKO Dynasty' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'IKO Nordic impact resistant roof replacement in Cochrane Alberta',       caption: 'Cochrane, AB · IKO Nordic' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Red Seal Journeyman crew completing roof replacement in Cochrane',       caption: 'Cochrane, AB · IKO Dynasty' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Sure West Roofing completed roof replacement in the Calgary region',     caption: 'Calgary, AB · IKO Dynasty' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'IKO Cambridge shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'IKO Dynasty roof replacement in Calgary by Sure West Roofing',           caption: 'Calgary, AB · IKO Dynasty' },
 ]
-
-// ─── Section: Testimonials ────────────────────────────────────────────────────
-
-const TESTIMONIALS = [
-  {
-    quote:
-      'Sure West did an outstanding job replacing my roof from start to finish. Professional, punctual, and incredibly thorough. The quality of their work is top-notch and they left my property spotless after the job was done.',
-    author: 'Steve LeNeveu',
-    location: 'Cochrane, AB',
-  },
-  {
-    quote:
-      'Very professional and responsive team. From the time I called for a quote to when the last shingle was installed I was impressed by the quality of the team and the service provided. The site was left clean every day and the end product looks great.',
-    author: 'Greg Barsi',
-    location: 'Cochrane, AB',
-  },
-  {
-    quote:
-      'Sure West Roofing is a serious and professional company. They are 100% reliable. The crew\u2019s professionalism, courtesy, punctuality, and efficiency made a positive difference. We are very happy with the job they did and fully recommend them.',
-    author: 'Elizabeth Montes Garces',
-    location: 'Cochrane, AB',
-  },
-]
-
-function ReplacementTestimonials() {
-  return (
-    <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            Client Reviews
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            What Cochrane Homeowners Say About Their New Roof
-          </h2>
-
-          <div className="mt-6 inline-flex items-center gap-3">
-            <span className="flex items-center gap-[3px]" aria-label="5 out of 5 stars">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-[15px] h-[15px]"
-                  style={{ color: '#D4AF60', fill: '#D4AF60' }}
-                  strokeWidth={0}
-                />
-              ))}
-            </span>
-            <span
-              className="font-display font-semibold text-brand-navy"
-              style={{ fontSize: '15px', letterSpacing: '-0.01em' }}
-            >
-              5.0
-            </span>
-            <span
-              aria-hidden="true"
-              className="inline-block w-1 h-1 rounded-full bg-brand-navy/30"
-            />
-            <span
-              className="text-brand-slate"
-              style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-            >
-              80+ Google reviews
-            </span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {TESTIMONIALS.map(({ quote, author, location }) => (
-            <div
-              key={author}
-              className="bg-white rounded-[12px] border border-brand-border p-6 md:p-7"
-              style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.06)' }}
-            >
-              <div className="flex items-center gap-[3px] mb-4" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-[14px] h-[14px]"
-                    style={{ color: '#D4AF60', fill: '#D4AF60' }}
-                    strokeWidth={0}
-                  />
-                ))}
-              </div>
-              <p
-                className="text-brand-navy leading-[1.6] flex-1"
-                style={{
-                  fontSize: '14px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                &ldquo;{quote}&rdquo;
-              </p>
-              <div className="mt-5 pt-4 border-t border-brand-border">
-                <div
-                  className="text-brand-navy font-semibold"
-                  style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                >
-                  {author}
-                </div>
-                <div
-                  className="mt-0.5 text-brand-slate"
-                  style={{ fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                >
-                  {location}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 // ─── Section: Related Services ────────────────────────────────────────────────
 
 function RelatedServices() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -1185,72 +1188,6 @@ function RelatedServices() {
   )
 }
 
-// ─── Section: Final CTA ───────────────────────────────────────────────────────
-
-function ReplacementFinalCTA() {
-  return (
-    <section
-      className="relative overflow-hidden py-20 md:py-28"
-      style={{
-        background: 'var(--brand-navy, #2C4766)',
-        paddingLeft: 'var(--section-pad-x)',
-        paddingRight: 'var(--section-pad-x)',
-      }}
-    >
-      {/* Gold top accent */}
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-0 right-0"
-        style={{ height: '3px', background: '#D4AF60' }}
-      />
-
-      {/* Subtle background pattern */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 80% at 50% 100%, rgba(212,175,96,0.08) 0%, transparent 70%)',
-        }}
-      />
-
-      <div className="relative z-10 max-w-[800px] mx-auto text-center">
-        <h2
-          className="font-display font-semibold text-white"
-          style={{
-            fontSize: 'clamp(32px, 4.5vw, 52px)',
-            lineHeight: 1.1,
-            letterSpacing: '-0.025em',
-          }}
-        >
-          Ready for a Roof Replacement
-          <br className="hidden md:block" /> You Can Actually Trust?
-        </h2>
-        <p
-          className="mt-6 leading-[1.7]"
-          style={{
-            fontSize: '17px',
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
-            fontWeight: 400,
-            color: 'rgba(255,255,255,0.65)',
-          }}
-        >
-          Red Seal certified, free estimate, 10-year workmanship warranty, and no sales pressure.
-          Book yours today.
-        </p>
-        <div className="mt-10 flex flex-col sm:flex-row justify-center gap-3">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
-          </Button>
-          <Button variant="ghost" size="lg" href="tel:4039907210">
-            Call 403-990-7210
-          </Button>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function RoofReplacementPage() {
@@ -1277,12 +1214,20 @@ export default function RoofReplacementPage() {
       <ShingleOptions />
       <WhySureWest />
       <WarrantyGuarantees />
+      <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#FFFFFF" />
+      <Reviews />
       <ServiceAreaCondensed />
-      <ServicesGallery images={RR_GALLERY_IMAGES} />
-      <ReplacementTestimonials />
       <RoofReplacementFAQ />
       <RelatedServices />
-      <ReplacementFinalCTA />
+      <BottomCTA
+        heading={
+          <>
+            Ready for a Roof Replacement
+            <br className="hidden md:block" /> You Can Actually Trust?
+          </>
+        }
+        subtext="Red Seal certified, free estimate, 10-year workmanship warranty, and no sales pressure. Book yours today."
+      />
     </>
   )
 }
