@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Image from 'next/image'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -13,6 +12,11 @@ interface HeroProps {
   socialProofCount: string
   socialProofLabel: string
   backgroundVideo?: string
+  /**
+   * @deprecated Kept for backwards compat with existing page callsites.
+   * The hero no longer renders a poster image: the background is solid navy
+   * + overlay until the video fades in.
+   */
   backgroundImage?: string
 }
 
@@ -27,7 +31,6 @@ export function Hero({
   primaryCTA,
   secondaryCTA,
   backgroundVideo,
-  backgroundImage,
 }: HeroProps) {
   const videoARef = useRef<HTMLVideoElement>(null)
   const videoBRef = useRef<HTMLVideoElement>(null)
@@ -164,27 +167,11 @@ export function Hero({
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       {/* ── Background stack ─────────────────────────────────────────
-          Layer 1: poster image — LCP element, present on every viewport.
-          Layer 2: dual videos for seamless cross-fade looping (optional).
+          Layer 1: solid navy (section bg) — renders instantly, no asset.
+          Layer 2: dual videos for seamless cross-fade looping, fade in from
+                   opacity 0 once the first frame is ready (deferred load).
           Layer 3: gradient overlays for legibility (mobile vs desktop). */}
       <div className="absolute inset-0 z-0">
-        {backgroundImage && (
-          <Image
-            src={backgroundImage}
-            alt=""
-            fill
-            priority
-            fetchPriority="high"
-            sizes="100vw"
-            quality={60}
-            className="object-cover transition-opacity duration-700 ease-out"
-            style={{
-              objectPosition: 'center 30%',
-              opacity: videoVisible ? 0 : 1,
-            }}
-          />
-        )}
-
         {backgroundVideo && (
           <>
             <video
