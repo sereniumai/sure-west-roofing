@@ -50,14 +50,16 @@ export function RoofReplacementHero() {
                 lineHeight: 1,
               }}
             >
-              Sure West Roofing · Cochrane, Alberta
+              Cochrane&apos;s Most Trusted Roof Replacement Contractor
             </span>
 
             <h1
               className="font-display font-semibold text-brand-navy"
               style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.03em' }}
             >
-              Roof Replacement in Cochrane
+              Roof Replacement in
+              <br />
+              Cochrane, Alberta
             </h1>
 
             <p

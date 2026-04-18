@@ -40,7 +40,7 @@ export function ServicesHero({
                 lineHeight: 1,
               }}
             >
-              Sure West Roofing · Cochrane, Alberta
+              Top-Rated Roofing Company in Cochrane, AB
             </span>
 
             <h1
