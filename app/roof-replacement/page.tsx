@@ -464,7 +464,7 @@ function SignsYouNeed() {
           {SIGNS.map(({ Icon, heading, body }) => (
             <div
               key={heading}
-              className="bg-white rounded-[12px] border border-brand-border p-6 hover:-translate-y-[3px] hover:shadow-[0_10px_24px_rgba(44,71,102,0.09)] transition-all duration-300 ease-out"
+              className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
             >
               <div
                 className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-4"
@@ -586,7 +586,7 @@ function ReplacementProcess() {
             {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
               <div
                 key={number}
-                className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center"
+                className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
               >
                 <span
                   className="uppercase tracking-[0.18em] text-brand-gold font-semibold"
@@ -711,7 +711,7 @@ function ShingleOptions() {
           {SHINGLES.map(({ tier, name, image, imageAlt, body }) => (
             <div
               key={name}
-              className="bg-white rounded-[12px] border border-brand-border flex flex-col overflow-hidden hover:-translate-y-[3px] hover:shadow-[0_10px_24px_rgba(44,71,102,0.09)] transition-all duration-300 ease-out"
+              className="bg-white rounded-[12px] border border-brand-border flex flex-col overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
             >
               {/* Shingle image */}
               <div className="relative flex-shrink-0" style={{ height: '200px' }}>
@@ -842,7 +842,7 @@ function WhySureWest() {
           {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
             <div
               key={heading}
-              className="bg-brand-cream rounded-[12px] border border-brand-border p-6 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out"
+              className="bg-brand-cream rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
             >
               <div
                 className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
