@@ -153,17 +153,6 @@ export function ServicesGallery({ images, sectionBg }: Props) {
               }}
             />
 
-            {/* Decorative offset card — sits behind the image */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 rounded-[20px]"
-              style={{
-                border: '1.5px solid rgba(212,175,96,0.35)',
-                transform: 'translate(10px, 10px)',
-                zIndex: 0,
-              }}
-            />
-
             {/* Main image frame */}
             <div
               className="relative overflow-hidden rounded-[20px]"

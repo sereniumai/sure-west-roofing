@@ -828,8 +828,8 @@ function WhySureWest() {
               fontWeight: 400,
             }}
           >
-            We&apos;ve built our reputation across Cochrane, Calgary, and Canmore on Red Seal
-            ownership, materials made for Alberta weather, and warranties you can read.
+            Built across Cochrane, Calgary, and Canmore on Red Seal ownership, materials made for
+            Alberta weather, and warranties you can read.
           </p>
           <div className="mt-7">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -986,8 +986,6 @@ const RR_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'IKO Nordic impact resistant roof replacement in Cochrane Alberta',       caption: 'Cochrane, AB · IKO Nordic' },
   { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Red Seal Journeyman crew completing roof replacement in Cochrane',       caption: 'Cochrane, AB · IKO Dynasty' },
   { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Sure West Roofing completed roof replacement in the Calgary region',     caption: 'Calgary, AB · IKO Dynasty' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'IKO Cambridge shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'IKO Dynasty roof replacement in Calgary by Sure West Roofing',           caption: 'Calgary, AB · IKO Dynasty' },
 ]
 
 // ─── Section: Related Services ────────────────────────────────────────────────

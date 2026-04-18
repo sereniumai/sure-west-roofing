@@ -103,7 +103,13 @@ export function ParallaxImageStrip({
           paddingRight: 'var(--section-pad-x)',
         }}
       >
-        <div className="relative mx-auto w-full max-w-[1320px] h-auto md:h-[650px] aspect-video md:aspect-auto overflow-hidden rounded-[--radius-lg]">
+        <div
+          className="relative mx-auto w-full max-w-[1320px] h-auto md:h-[650px] aspect-video md:aspect-auto overflow-hidden rounded-[--radius-lg]"
+          style={{
+            boxShadow:
+              '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+          }}
+        >
           <div
             className="w-full h-full relative"
             style={{
