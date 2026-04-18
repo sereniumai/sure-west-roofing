@@ -5,24 +5,19 @@ import { Plus } from 'lucide-react'
 
 const ITEMS = [
   {
-    heading: 'Full tear-off of old shingles, underlayment, and damaged decking',
+    heading: 'Full tear-off and decking inspection',
     body:
-      'We strip the entire roof down to the deck — old shingles, fasteners, and existing underlayment. Every square foot of decking gets inspected for soft spots, water damage, or rot, and any compromised sheathing is replaced before new materials go on. Installing over old shingles voids most manufacturer warranties and traps moisture against the deck, which is why Sure West never offers it as an option on a Cochrane roof replacement.',
+      'We strip the roof down to the deck. Every square foot is then inspected for soft spots, rot, or water damage, and any compromised sheathing is replaced before new materials go on. Installing over old shingles voids most manufacturer warranties and traps moisture against the deck, so we never offer it on a Cochrane roof replacement.',
   },
   {
-    heading: 'Synthetic underlayment with ice-and-water shield',
+    heading: 'New underlayment, ice-and-water shield, and IKO shingles',
     body:
-      'A synthetic underlayment goes down across the full roof for a tear-resistant, breathable secondary water barrier. Self-adhered ice-and-water shield is applied at all eaves, valleys, and around penetrations — the spots most likely to fail under Cochrane freeze-thaw cycles and ice damming. The double-layer system protects your decking even if a shingle is lifted during a Chinook windstorm or hail event.',
+      'A synthetic underlayment covers the full deck as a tear-resistant secondary water barrier, with self-adhered ice-and-water shield at all eaves, valleys, and around penetrations. We then install IKO shingles in your chosen tier (Cambridge, Dynasty, or Class 4 Nordic), backed by IKO\u2019s manufacturer warranty and the top-tier coverage only Red Seal certified installers can offer.',
   },
   {
-    heading: 'New IKO architectural or impact-resistant shingles',
+    heading: 'Full site cleanup, walkthrough, and written warranty',
     body:
-      'Sure West installs IKO shingles exclusively: Cambridge architectural for value, Dynasty for upgraded curb appeal, and Nordic for Class 4 impact-rated hail protection. All three carry IKO\u2019s manufacturer warranty (lifetime limited on most tiers) and qualify for the top-tier coverage available only to Red Seal certified installers like Sure West. We help you pick the right tier based on your budget, neighbourhood, and exposure to Alberta hail.',
-  },
-  {
-    heading: 'Full site cleanup with magnetic nail sweep',
-    body:
-      'Tear-off creates a lot of debris and stray nails. We tarp gardens, walkways, AC units, and landscaping before work begins, and run a magnetic nail sweep across the entire property perimeter at the end of every day and again at job completion. A final walk-through with the homeowner closes out the job — your driveway and lawn should look exactly as we found them, just under a brand new roof.',
+      'We tarp gardens, walkways, AC units, and landscaping before tear-off begins, then run a magnetic nail sweep across the property at the end of every day and again at completion. The job closes with a homeowner walkthrough and your written 10-year workmanship warranty in hand.',
   },
 ]
 
