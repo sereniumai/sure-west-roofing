@@ -1,7 +1,4 @@
-export interface FaqItem {
-  question: string
-  answer: string
-}
+import type { FaqItem } from './types'
 
 export const ROOF_REPAIR_FAQS: FaqItem[] = [
   {
