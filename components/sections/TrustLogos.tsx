@@ -150,7 +150,7 @@ export function TrustLogos() {
                   sizes="(max-width: 640px) 80px, 140px"
                   quality={80}
                   loading="lazy"
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-full object-contain sm:max-w-none sm:h-full sm:w-auto"
                 />
               </li>
             ))}

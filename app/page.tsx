@@ -174,19 +174,10 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 4. Why Sure West */}
-      <WhySureWest />
+      {/* 4. Reviews — proof immediately after services */}
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
 
-      {/* 5. Process */}
-      <HowItWorks />
-
-      {/* 6. Move the Mountain Brand Strip */}
-      <BrandStrip />
-
-      {/* 7. Reviews */}
-      <Reviews />
-
-      {/* 7. Our Work (Portfolio) */}
+      {/* 5. Our Work (Portfolio) — paired with reviews to keep proof block tight */}
       <PortfolioCarousel
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roofing contractor project 1' },
@@ -212,10 +203,19 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 8. FAQ */}
+      {/* 6. Why Sure West — differentiator landing on a primed viewer */}
+      <WhySureWest />
+
+      {/* 7. How It Works — process info now that buyer is leaning in */}
+      <HowItWorks />
+
+      {/* 8. Move the Mountain — emotional moment before the rational close */}
+      <BrandStrip />
+
+      {/* 9. FAQ — final objection handling right before the ask */}
       <HomeFAQ />
 
-      {/* 9. Bottom CTA */}
+      {/* 10. Bottom CTA */}
       <BottomCTA
         heading={
           <>

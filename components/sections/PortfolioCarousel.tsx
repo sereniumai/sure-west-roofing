@@ -34,7 +34,7 @@ export function PortfolioCarousel({
 
   return (
     <section
-      className="relative bg-brand-cream overflow-x-clip py-20 md:py-24"
+      className="relative bg-white overflow-x-clip py-20 md:py-24"
       aria-label="Portfolio gallery"
     >
       {/* Paper-grain background — same recipe as sibling sections */}
