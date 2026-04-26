@@ -370,6 +370,11 @@ html {
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0, black 6%, black 94%, transparent 100%);
+  /* Stop iOS long-press text selection + the Copy / Look Up callout
+     so users can hold to pause without triggering the system menu. */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
 }
 .marquee__track {
   display: flex;
