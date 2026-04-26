@@ -31,7 +31,7 @@ export function BrandStrip() {
           style={{
             fontSize: 'clamp(56px, 11vw, 160px)',
             lineHeight: 1,
-            backgroundImage: 'url(/images/move-the-mountain-cochrane.jpg)',
+            backgroundImage: 'url(/images/move-the-mountain-cochrane.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center 60%',
             WebkitBackgroundClip: 'text',
