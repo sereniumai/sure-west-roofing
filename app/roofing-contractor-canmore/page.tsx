@@ -29,7 +29,7 @@ const BottomCTA = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Canmore | Red Seal Mountain Roofer | Sure West Roofing',
+  title: 'Roofing Contractor Canmore',
   description:
     'Red Seal Journeyman certified roofing contractor serving Canmore and the Bow Valley. Built for mountain snow loads, chinook winds, and alpine architectural rules. Free written estimate.',
   keywords: [
@@ -256,15 +256,15 @@ export default function RoofingContractorCanmorePage() {
       {/* 3. Services grid — Canmore localized */}
       <ServicesIconGrid
         eyebrow="Canmore Services"
-        heading={'Roofing Services Built\nfor Mountain Homes.'}
-        body="From steep-pitch full replacements and ice-dam eliminations to alpine skylights and annual snow-season inspections, Sure West installs Canmore roofs designed for Bow Valley conditions."
+        heading={'Every Roofing Service.\nBuilt for the Bow Valley.'}
+        body="From steep-pitch full replacements to alpine skylights, our Red Seal Journeyman team delivers the same uncompromising standard on every Canmore roof."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "Full tear-off and reroof on Canmore's steep pitches using IKO Nordic or Dynasty shingles, full six-foot ice and water shield at the eaves, and wind-rated fastening for chinook exposure. Built for mountain life, warranted for ten years.",
+              "Tear-off and reroof on Canmore's steep pitches using IKO Nordic shingles, six-foot ice and water shield at the eaves, and chinook-rated fastening. 10-year workmanship warranty.",
             image: '/images/Roof Replacement Cochrane.avif',
             imageAlt: 'Roof replacement Canmore AB',
           },
@@ -272,23 +272,23 @@ export default function RoofingContractorCanmorePage() {
             title: 'Roof Repair',
             href: '/roof-repair',
             description:
-              "Ice dam damage, wind-lifted shingles, cracked flashings, or a leak on a 10:12 pitch. Our Red Seal crew handles Canmore repairs with fall-protection gear, the right ladders for alpine access, and a written warranty on the fix.",
+              "Ice dam damage, wind-lifted shingles, cracked flashings, or a leak on an 8:12 pitch. Our Red Seal Canmore crew diagnoses the cause and warrants every fix.",
             image: '/images/Roof Repair Cochrane.avif',
             imageAlt: 'Roof repair Canmore AB',
           },
           {
-            title: 'Ice Dam & Storm Repair',
+            title: 'Hail Damage Repair',
             href: '/hail-damage-repair',
             description:
-              "Canmore gets freeze-thaw damage, not hail damage. We document ice-backup damage, melt-refreeze flashing failures, and wind uplift for your insurance adjuster, then fix the underlying cause so next winter does not repeat.",
+              "We document storm and hail damage on your Canmore roof, manage your insurance adjuster from first call to final sign-off, and handle the claim. No out-of-pocket cost.",
             image: '/images/Roof Repair Cochrane.avif',
-            imageAlt: 'Ice dam and storm damage repair Canmore AB',
+            imageAlt: 'Hail damage repair Canmore AB',
           },
           {
             title: 'Roof Maintenance',
             href: '/roof-maintenance',
             description:
-              "Spring and autumn maintenance visits tailored to Canmore: debris and needle clearing, chinook-season flashing inspections, and pre-winter vent and soffit checks. The cheapest insurance policy a mountain home can carry.",
+              "Spring and autumn visits tailored to Canmore: needle clearing, chinook-season flashing checks, and pre-winter vent inspections. The smartest way to extend a mountain roof.",
             image: '/images/Roof Replacement Cochrane.avif',
             imageAlt: 'Roof maintenance Canmore AB',
           },
@@ -296,7 +296,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Roof Inspection',
             href: '/roof-inspection',
             description:
-              "Pre-purchase, pre-sale, or mid-ownership. A Sure West Canmore inspection covers every pitch, the attic, the ventilation system, and your ice-and-water membrane coverage. You leave with a written photo report and a plain-language verdict.",
+              "Pre-purchase, pre-sale, or just overdue. Our Canmore roof inspection covers every pitch, the attic, and ice-and-water coverage, with a written photo report and a plain-language verdict.",
             image: '/images/Roof Inspection Cochrane.avif',
             imageAlt: 'Roof inspection Canmore AB',
           },
@@ -304,7 +304,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Skylight Installation',
             href: '/skylight-installation',
             description:
-              "Alpine skylights installed to handle snow load, freeze-thaw, and mountain sun. New units, full replacements, and resealing, all flashed to manufacturer spec so you get the mountain light without the valley leaks.",
+              "Alpine skylights built for Canmore snow loads and freeze-thaw cycles. New units, replacements, and resealing, flashed to manufacturer spec for mountain light without the leaks.",
             image: '/images/Roof Installation Cochrane.avif',
             imageAlt: 'Skylight installation Canmore AB',
           },

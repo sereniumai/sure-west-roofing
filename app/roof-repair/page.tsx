@@ -32,7 +32,7 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Roof Repair Cochrane | Red Seal Certified | Sure West Roofing',
+  title: 'Roof Repair Cochrane',
   description:
     'Red Seal certified roof repair in Cochrane, AB. Leak repair, shingle replacement, flashing fixes, and storm damage. Fixed written quotes, 2-year workmanship warranty, fast turnaround.',
   alternates: {

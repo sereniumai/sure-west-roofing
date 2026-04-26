@@ -30,7 +30,7 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 import { HAIL_DAMAGE_FAQS } from '@/lib/faqs/hailDamage'
 
 export const metadata: Metadata = {
-  title: 'Hail Damage Roof Repair Cochrane | Insurance Approved | Sure West Roofing',
+  title: 'Hail Damage Roof Repair Cochrane',
   description:
     'Red Seal certified hail damage roof repair in Cochrane, AB. Free post-storm inspections, full insurance documentation, IKO impact-rated materials. Serving Cochrane, Calgary, and Canmore.',
   alternates: { canonical: 'https://surewestroofing.ca/hail-damage-repair' },

@@ -28,7 +28,7 @@ const BottomCTA = dynamic(() =>
 // ── Metadata ──────────────────────────────────────────────────────────────────
 // Title: 57 chars — includes primary keyword, within 55-60 target
 export const metadata: Metadata = {
-  title: 'Roofing Services in Cochrane, AB | Sure West Roofing',
+  title: 'Roofing Services in Cochrane, AB',
   description:
     'Red Seal certified roofing services in Cochrane, Calgary, and Canmore. Replacement, repair, hail damage, inspections, and more. Get a free estimate today.',
   keywords: [

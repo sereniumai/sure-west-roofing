@@ -8,7 +8,7 @@ import type { FaqItem } from '@/lib/faqs/types'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Free Roof Estimate Cochrane, Calgary & Canmore | Sure West Roofing',
+  title: 'Free Roof Estimate Cochrane, Calgary & Canmore',
   description:
     'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal certified inspection, written quote within 24 hours, no obligation. Text back within minutes.',
   alternates: {

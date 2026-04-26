@@ -29,7 +29,7 @@ const BottomCTA = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Cochrane | Sure West Roofing',
+  title: 'Roofing Contractor Cochrane',
   description:
     'Red Seal Journeyman certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections serving Calgary & Canmore. Free estimates.',
   keywords: [
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     'Cochrane roofer',
   ],
   openGraph: {
-    title: 'Roofing Contractor Cochrane AB | Sure West Roofing',
+    title: 'Roofing Contractor Cochrane | Sure West Roofing',
     description:
       'Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Free estimates.',
     url: 'https://surewestroofing.ca',

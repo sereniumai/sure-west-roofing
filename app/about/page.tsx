@@ -22,14 +22,14 @@ import type { FaqItem } from '@/lib/faqs/types'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Red Seal Roofer Cochrane | About Sure West Roofing',
+  title: 'Red Seal Roofer Cochrane',
   description:
     'Sure West is a Red Seal certified roofer in Cochrane, Alberta. Owner-operated, no subcontractors, and serving Cochrane, Calgary, and Canmore. Meet the team behind every Sure West roof.',
   alternates: {
     canonical: 'https://surewestroofing.ca/about',
   },
   openGraph: {
-    title: 'Red Seal Roofer Cochrane | About Sure West Roofing',
+    title: 'Red Seal Roofer Cochrane | Sure West Roofing',
     description:
       'Meet the Red Seal certified roofing team behind Sure West. Owner-operated in Cochrane, Alberta, serving Cochrane, Calgary, and Canmore.',
     url: 'https://surewestroofing.ca/about',

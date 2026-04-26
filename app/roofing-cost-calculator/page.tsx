@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Roofing Cost Calculator Cochrane | Sure West Roofing',
+  title: 'Roofing Cost Calculator Cochrane',
   description:
     'Estimate the cost of a new roof in Cochrane, Calgary, or Canmore. Free, instant roofing cost calculator from Sure West Roofing.',
   alternates: {

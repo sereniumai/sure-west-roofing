@@ -297,9 +297,25 @@ export function Nav() {
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${
-                    mobileServicesOpen ? 'max-h-[640px]' : 'max-h-0'
+                    mobileServicesOpen ? 'max-h-[720px]' : 'max-h-0'
                   }`}
                 >
+                  <Link
+                    href={link.href ?? '/services'}
+                    className="flex items-center justify-between py-3 pl-4 pr-2 text-base font-semibold text-brand-navy hover:text-brand-gold transition-colors border-b border-brand-border/60"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    <span className="inline-flex items-center gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="w-5 h-5 flex-shrink-0 flex items-center justify-center"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-brand-gold" />
+                      </span>
+                      All Services
+                    </span>
+                    <ArrowRight className="w-4 h-4 text-brand-gold" strokeWidth={2} />
+                  </Link>
                   {serviceLinks.map((service) => {
                     const { Icon } = service
                     return (

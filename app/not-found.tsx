@@ -31,9 +31,16 @@ const HERO_COLLAGE = [
 ]
 
 export const metadata: Metadata = {
-  title: 'Page Not Found | Sure West Roofing',
+  title: 'Page Not Found',
   description:
     "The page you're looking for doesn't exist. Head back to the home page or book a free roof estimate in Cochrane, Calgary, or Canmore.",
+  openGraph: {
+    title: 'Page Not Found | Sure West Roofing',
+    description:
+      "The page you're looking for doesn't exist. Head back to the home page or book a free roof estimate in Cochrane, Calgary, or Canmore.",
+    type: 'website',
+    locale: 'en_CA',
+  },
   robots: {
     index: false,
     follow: true,

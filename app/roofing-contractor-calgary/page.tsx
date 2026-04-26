@@ -29,7 +29,7 @@ const BottomCTA = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Calgary | Red Seal Roofer | Sure West Roofing',
+  title: 'Roofing Contractor Calgary',
   description:
     'Red Seal Journeyman certified roofing contractor serving Calgary. Roof replacement, hail damage claims, and repair across the NW, NE, SW and SE. Free written estimate.',
   keywords: [
@@ -257,15 +257,15 @@ export default function RoofingContractorCalgaryPage() {
       {/* 3. Services grid — Calgary localized */}
       <ServicesIconGrid
         eyebrow="Calgary Services"
-        heading={'Every Roofing Service\nFor Calgary Homes.'}
-        body="From hail-belt full replacements to single-leak repairs and adjuster-ready inspection reports, Sure West delivers Red Seal work on Calgary roofs of every age and style."
+        heading={'Every Roofing Service.\nOne Calgary Standard.'}
+        body="From hail-belt replacements to leak repairs and adjuster-ready inspections, our Red Seal Journeyman team delivers the same uncompromising standard on every Calgary roof."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "Full tear-off and reroof across Calgary's housing stock, from 1970s bungalows in Willow Park to new builds in Mahogany. IKO shingles, Red Seal installation, and a 10-year workmanship warranty on every Calgary roof.",
+              "Red Seal certified tear-off and reroof on Calgary homes, from inner-city bungalows to new suburban builds. IKO shingles and a 10-year workmanship warranty on every Calgary roof.",
             image: '/images/Roof Replacement Cochrane.avif',
             imageAlt: 'Roof replacement Calgary AB',
           },
@@ -273,7 +273,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Roof Repair',
             href: '/roof-repair',
             description:
-              "Active leaks, lifted shingles, failed flashing, or ice dam damage on your Calgary home. Our Red Seal crew diagnoses the root cause, not just the symptom, and backs every repair with a written warranty.",
+              "Active leaks, lifted shingles, failed flashing, or storm damage on your Calgary home. Our Red Seal crew diagnoses the root cause and warrants every repair in writing.",
             image: '/images/Roof Repair Cochrane.avif',
             imageAlt: 'Roof repair Calgary AB',
           },
@@ -281,7 +281,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Hail Damage Repair',
             href: '/hail-damage-repair',
             description:
-              "Calgary's hail corridor runs right through the city. We inspect post-storm, document every impact, and manage your insurance adjuster end-to-end. You pay your deductible. Nothing else surprises you.",
+              "Calgary sits in Alberta's hail corridor. We inspect post-storm, document every impact, and manage your insurance adjuster end-to-end. You pay your deductible. Nothing else surprises you.",
             image: '/images/Roof Repair Cochrane.avif',
             imageAlt: 'Hail damage repair Calgary AB',
           },
@@ -289,7 +289,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Roof Maintenance',
             href: '/roof-maintenance',
             description:
-              "Annual maintenance visits for Calgary homes: flashing top-ups, vent checks, debris clearing, and early fixes before winter drives small problems into expensive ones. The cheapest way to extend the life of your Calgary roof.",
+              "Annual visits for Calgary homes: flashing top-ups, vent checks, debris clearing, and small fixes before winter turns them into expensive ones. The smartest insurance for your roof.",
             image: '/images/Roof Replacement Cochrane.avif',
             imageAlt: 'Roof maintenance Calgary AB',
           },
@@ -297,7 +297,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Roof Inspection',
             href: '/roof-inspection',
             description:
-              "Buying in Altadore, selling in Tuscany, or just overdue. A Sure West Calgary roof inspection covers every surface, the attic, and the ventilation system, with a written photo report you can share with buyers, sellers, or insurers.",
+              "Buying in Altadore, selling in Tuscany, or just overdue. Our Calgary roof inspection covers every surface and the attic, with a written photo report you can share with buyers and insurers.",
             image: '/images/Roof Inspection Cochrane.avif',
             imageAlt: 'Roof inspection Calgary AB',
           },
@@ -305,7 +305,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Skylight Installation',
             href: '/skylight-installation',
             description:
-              "New skylights, full replacements, and resealing for Calgary homes. Flashed and waterproofed to manufacturer spec so you get the light without the leaks, done in a single visit.",
+              "Natural light without the leaks. New skylights, full replacements, and resealing for Calgary homes, flashed and waterproofed to manufacturer spec in a single visit.",
             image: '/images/Roof Installation Cochrane.avif',
             imageAlt: 'Skylight installation Calgary AB',
           },

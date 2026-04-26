@@ -29,7 +29,7 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 import { ROOF_INSPECTION_FAQS } from '@/lib/faqs/roofInspection'
 
 export const metadata: Metadata = {
-  title: 'Roof Inspection Cochrane | Free with Quote | Sure West Roofing',
+  title: 'Roof Inspection Cochrane',
   description:
     'Red Seal certified roof inspection in Cochrane, AB. Pre-purchase, post-storm, and annual inspections with a written photo report. Free with any quoted work, $200 standalone.',
   alternates: { canonical: 'https://surewestroofing.ca/roof-inspection' },

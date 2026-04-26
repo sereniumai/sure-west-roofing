@@ -30,7 +30,7 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 import { ROOF_MAINTENANCE_FAQS } from '@/lib/faqs/roofMaintenance'
 
 export const metadata: Metadata = {
-  title: 'Roof Maintenance Cochrane | From $250 | Sure West Roofing',
+  title: 'Roof Maintenance Cochrane',
   description:
     'Red Seal certified roof maintenance in Cochrane, AB. Annual inspections, minor repairs, valley clearing, and a written maintenance log to support your IKO warranty. From $250.',
   alternates: { canonical: 'https://surewestroofing.ca/roof-maintenance' },

@@ -24,14 +24,14 @@ import type { FaqItem } from '@/lib/faqs/types'
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Cochrane Roofing Projects | Gallery | Sure West Roofing',
+  title: 'Cochrane Roofing Projects Gallery',
   description:
     'Browse completed roofing projects from Sure West across Cochrane, Calgary, and Canmore. Real roofs installed by our Red Seal certified crew.',
   alternates: {
     canonical: 'https://surewestroofing.ca/gallery',
   },
   openGraph: {
-    title: 'Cochrane Roofing Projects | Sure West Roofing Gallery',
+    title: 'Cochrane Roofing Projects Gallery | Sure West Roofing',
     description:
       'Real roofing projects completed by Sure West across Cochrane, Calgary, and Canmore.',
     url: 'https://surewestroofing.ca/gallery',

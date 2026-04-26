@@ -32,7 +32,7 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 import { SKYLIGHT_INSTALLATION_FAQS } from '@/lib/faqs/skylightInstallation'
 
 export const metadata: Metadata = {
-  title: 'Skylight Installation Cochrane | Velux & Fakro | Sure West Roofing',
+  title: 'Skylight Installation Cochrane',
   description:
     'Red Seal certified skylight installation in Cochrane, AB. Velux and Fakro fixed, vented, and solar-powered skylights. 5-year leak warranty, permit handled. Serving Cochrane, Calgary, and Canmore.',
   alternates: { canonical: 'https://surewestroofing.ca/skylight-installation' },

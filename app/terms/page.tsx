@@ -2,11 +2,19 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service | Sure West Roofing',
+  title: 'Terms of Service',
   description:
     'Terms governing your use of the Sure West Roofing website and engagement of our roofing services in Cochrane, Calgary, and Canmore.',
   alternates: {
     canonical: 'https://surewestroofing.ca/terms',
+  },
+  openGraph: {
+    title: 'Terms of Service | Sure West Roofing',
+    description:
+      'Terms governing your use of the Sure West Roofing website and engagement of our roofing services in Cochrane, Calgary, and Canmore.',
+    url: 'https://surewestroofing.ca/terms',
+    type: 'website',
+    locale: 'en_CA',
   },
   robots: {
     index: true,
