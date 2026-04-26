@@ -384,6 +384,12 @@ html {
   from { transform: translateX(0); }
   to   { transform: translateX(calc(-50% - 10px)); }
 }
+/* Pause when the user holds (mobile) or hovers (desktop). */
+.marquee:hover .marquee__track,
+.marquee:active .marquee__track,
+.marquee:focus-within .marquee__track {
+  animation-play-state: paused;
+}
 @media (max-width: 768px) {
   .marquee__track { animation-duration: 120s !important; }
 }

@@ -65,7 +65,7 @@ interface Stat {
   end: number
   suffix: string
   decimals: number
-  label: string
+  label: React.ReactNode
   Icon: LucideIcon
 }
 
@@ -73,7 +73,18 @@ const STATS: Stat[] = [
   { end: 250, suffix: '+', decimals: 0, label: 'Roofs Completed', Icon: Home },
   { end: 1, suffix: ' Day', decimals: 0, label: 'Average Install Time', Icon: Zap },
   { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating', Icon: Star },
-  { end: 10, suffix: ' Yr', decimals: 0, label: 'Workmanship Guarantee', Icon: ShieldCheck },
+  {
+    end: 10,
+    suffix: ' Yr',
+    decimals: 0,
+    label: (
+      <>
+        <span className="md:hidden">Guarantee</span>
+        <span className="hidden md:inline">Workmanship Guarantee</span>
+      </>
+    ),
+    Icon: ShieldCheck,
+  },
 ]
 
 export function TrustLogos() {
@@ -90,9 +101,9 @@ export function TrustLogos() {
         {/* ── Stats ──────────────────────────────────────────────── */}
         <Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6">
-          {STATS.map((stat) => {
+          {STATS.map((stat, i) => {
             return (
-              <div key={stat.label} className="flex flex-col items-center text-center">
+              <div key={i} className="flex flex-col items-center text-center">
                 <span
                   className="font-display font-semibold leading-none text-brand-gold"
                   style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
@@ -125,18 +136,21 @@ export function TrustLogos() {
             Certified &amp; Accredited
           </span>
 
-          <ul className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+          <ul className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-12 gap-y-5 sm:gap-y-6">
             {logos.map((logo) => (
-              <li key={logo.src} className="flex items-center justify-center h-[60px]">
+              <li
+                key={logo.src}
+                className="flex items-center justify-center h-[40px] sm:h-[60px] w-[72px] sm:w-auto"
+              >
                 <Image
                   src={logo.src}
                   alt={logo.alt}
                   width={140}
                   height={60}
-                  sizes="140px"
+                  sizes="(max-width: 640px) 80px, 140px"
                   quality={80}
                   loading="lazy"
-                  className="h-full w-auto object-contain"
+                  className="max-h-full max-w-full object-contain"
                 />
               </li>
             ))}

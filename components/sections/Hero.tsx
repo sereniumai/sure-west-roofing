@@ -211,7 +211,7 @@ export function Hero({
           className="absolute inset-0 md:hidden"
           style={{
             background:
-              'linear-gradient(180deg, rgba(44,71,102,0.55) 0%, rgba(44,71,102,0.7) 50%, rgba(44,71,102,0.85) 100%)',
+              'linear-gradient(180deg, rgba(44,71,102,0.7) 0%, rgba(44,71,102,0.82) 50%, rgba(44,71,102,0.92) 100%)',
           }}
         />
         {/* Desktop overlay: horizontal, fading to right */}
@@ -219,7 +219,7 @@ export function Hero({
           className="absolute inset-0 hidden md:block"
           style={{
             background:
-              'linear-gradient(to right, rgba(44,71,102,0.85) 0%, rgba(44,71,102,0.5) 60%, rgba(44,71,102,0.2) 100%)',
+              'linear-gradient(to right, rgba(44,71,102,0.9) 0%, rgba(44,71,102,0.6) 60%, rgba(44,71,102,0.32) 100%)',
           }}
         />
       </div>

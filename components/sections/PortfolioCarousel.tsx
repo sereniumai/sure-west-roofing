@@ -72,7 +72,7 @@ export function PortfolioCarousel({
               letterSpacing: '-0.005em',
             }}
           >
-            Roofing Projects Completed Across Cochrane, Calgary &amp; Canmore
+            Roofing Projects Completed Across<br className="hidden md:block" /> Cochrane, Calgary &amp; Canmore
           </h2>
 
           <p
@@ -98,7 +98,7 @@ export function PortfolioCarousel({
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
         <Reveal delay={150} noBlur>
         <div className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto">
-          <div className="scale-[0.75] sm:scale-[0.9] md:scale-100 lg:scale-110 transition-transform">
+          <div className="scale-[0.4] sm:scale-[0.7] md:scale-100 lg:scale-110 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
         </div>
