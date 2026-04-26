@@ -384,10 +384,17 @@ html {
   from { transform: translateX(0); }
   to   { transform: translateX(calc(-50% - 10px)); }
 }
-/* Pause when the user holds (mobile) or hovers (desktop). */
-.marquee:hover .marquee__track,
-.marquee:active .marquee__track,
-.marquee:focus-within .marquee__track {
+/* Pause when the user holds (mobile) or hovers (desktop).
+   :hover and :focus-within are scoped to hover-capable devices so they
+   don't stick on touchscreens — on mobile only :active pauses, which
+   releases the moment the finger lifts. */
+@media (hover: hover) {
+  .marquee:hover .marquee__track,
+  .marquee:focus-within .marquee__track {
+    animation-play-state: paused;
+  }
+}
+.marquee:active .marquee__track {
   animation-play-state: paused;
 }
 @media (max-width: 768px) {

@@ -242,6 +242,18 @@ export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsPr
       </div>
       </Reveal>
 
+      {/* Mobile-only hint — informs users they can pause the scroll */}
+      <p
+        className="md:hidden text-center text-brand-slate uppercase tracking-[0.1em] mb-4"
+        style={{
+          fontSize: '11px',
+          fontFamily: "var(--font-inter), system-ui, sans-serif",
+          fontWeight: 500,
+        }}
+      >
+        Tap and hold to pause
+      </p>
+
       {/* Two auto-looping marquee rows moving in opposite directions */}
       <Reveal delay={150} noBlur>
       <div className="relative rounded-[--radius-md] overflow-hidden">
@@ -260,13 +272,6 @@ export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsPr
             background: `linear-gradient(to right, rgba(${fadeRgb}, 0) 0%, rgba(${fadeRgb}, 1) 80%, rgba(${fadeRgb}, 1) 100%)`,
           }}
         />
-        {/* Pulsing chevron scroll indicator — mobile only (touch hint) */}
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 z-[3] reviews-pulse md:hidden"
-        >
-          <ChevronRight className="w-6 h-6 text-brand-gold" strokeWidth={1.5} />
-        </div>
 
         {/* Row A — scroll left */}
         <div className="marquee group" style={{ ['--duration' as string]: '64s' }}>
