@@ -2,6 +2,7 @@
 
 import { Calendar, FileCheck, CheckCircle, type LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface Step {
   number: string
@@ -38,7 +39,7 @@ function StepCard({ step }: { step: Step }) {
   const { Icon } = step
 
   return (
-    <div className="relative flex flex-col items-center text-center bg-white rounded-[16px] border border-brand-border px-7 pt-10 pb-8 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out">
+    <div className="relative flex flex-col items-center text-center bg-brand-cream rounded-[16px] border border-brand-border px-7 pt-10 pb-8 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out">
       {/* Step number label */}
       <span
         className="uppercase tracking-[0.14em] font-semibold text-brand-gold mb-4"
@@ -104,13 +105,14 @@ export function HowItWorks({
   return (
     <section
       id="how-it-works"
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
     >
       {/* Header */}
+      <Reveal>
       <div className="relative flex flex-col items-center text-center mb-12 md:mb-14 max-w-[920px] mx-auto">
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -144,15 +146,11 @@ export function HowItWorks({
         >
           {body}
         </p>
-
-        <div className="mt-7">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
-          </Button>
-        </div>
       </div>
+      </Reveal>
 
       {/* 3-column step cards */}
+      <Reveal delay={150}>
       <div className="max-w-[1200px] mx-auto relative">
         {/* Dashed connector — sits at icon centre (~52px from card top: 40px pt-10 + 12px half-icon offset before ring) */}
         <div
@@ -165,7 +163,14 @@ export function HowItWorks({
             <StepCard key={step.number} step={step} />
           ))}
         </div>
+
+        <div className="mt-12 md:mt-14 flex justify-center">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+            Get a Free Estimate
+          </Button>
+        </div>
       </div>
+      </Reveal>
     </section>
   )
 }

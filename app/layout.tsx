@@ -5,8 +5,7 @@ import { Footer } from '@/components/layout/Footer'
 import { MotionProvider } from '@/components/MotionProvider'
 import LocalBusinessSchema from '@/components/seo/LocalBusinessSchema'
 import Analytics from '@/components/seo/Analytics'
-import dynamic from 'next/dynamic'
-const DevToolbar = dynamic(() => import('@/components/DevToolbar').then(m => m.DevToolbar), { ssr: false })
+import { DevToolbar } from '@/components/DevToolbar'
 import './globals.css'
 
 const oswald = Oswald({
@@ -106,6 +105,28 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
+        {/* DEMO LOCK — disables all off-homepage navigation for client preview.
+            Remove this <script> block after the demo to restore links. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(){
+                document.addEventListener('click', function(e){
+                  var t = e.target;
+                  while (t && t !== document.body) {
+                    if (t.tagName === 'A') {
+                      var href = t.getAttribute('href') || '';
+                      var allowed = href === '' || href === '/' || href.charAt(0) === '#';
+                      if (!allowed) { e.preventDefault(); e.stopPropagation(); }
+                      return;
+                    }
+                    t = t.parentElement;
+                  }
+                }, true);
+              })();
+            `,
+          }}
+        />
         <LocalBusinessSchema />
         <Analytics />
         <MotionProvider>

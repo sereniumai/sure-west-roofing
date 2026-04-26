@@ -61,8 +61,8 @@ export default function ImageRevealWide({
                 src={src}
                 alt=""
                 fill
-                sizes="(max-width: 768px) 224px, (max-width: 1024px) 256px, 300px"
-                quality={85}
+                sizes="(max-width: 768px) 600px, (max-width: 1024px) 700px, 800px"
+                quality={95}
                 loading="lazy"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]"
               />

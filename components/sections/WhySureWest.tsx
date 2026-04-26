@@ -8,6 +8,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { FoundersVideo } from '@/components/ui/FoundersVideo'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface Pillar {
   id: string
@@ -63,7 +64,7 @@ export function WhySureWest({
   return (
     <section
       id="why-sure-west"
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
@@ -82,6 +83,7 @@ export function WhySureWest({
 
       <div className="relative max-w-[1320px] mx-auto">
         {/* ── Header: eyebrow + h2 + sub (full width, centred) ──── */}
+        <Reveal>
         <div className="flex flex-col items-center text-center max-w-[920px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
@@ -113,8 +115,10 @@ export function WhySureWest({
             {body}
           </p>
         </div>
+        </Reveal>
 
         {/* ── Two-column split: cards left, video right ─────────── */}
+        <Reveal delay={150}>
         <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* LEFT: 2 x 2 cards, height matches the video */}
           <ul className="grid h-full grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr">
@@ -180,6 +184,7 @@ export function WhySureWest({
             </div>
           </div>
         </div>
+        </Reveal>
       </div>
     </section>
   )

@@ -69,7 +69,7 @@ export default function HomePage() {
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
         subtitle="Red Seal Journeyman certified with over 250 roofs completed across Cochrane, Calgary and Canmore. Most replacements finished in a single day. We reply fast, even after hours."
-        backgroundVideo="/images/Cochrane Roofing Contractor.mp4"
+        backgroundVideo="/images/Sure West Roofing - Cochrane Roofing Contractors.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
         secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}

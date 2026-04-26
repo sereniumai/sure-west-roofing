@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { Home, Zap, Star, ShieldCheck, type LucideIcon } from 'lucide-react'
+import { Reveal } from '@/components/ui/Reveal'
 
 function CountUp({
   end,
@@ -87,6 +88,7 @@ export function TrustLogos() {
     >
       <div className="max-w-[960px] mx-auto">
         {/* ── Stats ──────────────────────────────────────────────── */}
+        <Reveal>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6">
           {STATS.map((stat) => {
             return (
@@ -111,8 +113,10 @@ export function TrustLogos() {
             )
           })}
         </div>
+        </Reveal>
 
         {/* ── Certifications ─────────────────────────────────────── */}
+        <Reveal delay={150}>
         <div className="flex flex-col items-center" style={{ marginTop: '64px' }}>
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-8 text-brand-gold"
@@ -138,6 +142,7 @@ export function TrustLogos() {
             ))}
           </ul>
         </div>
+        </Reveal>
       </div>
     </section>
   )

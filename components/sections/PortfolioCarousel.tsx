@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/Button'
 import ImageRevealWide from '@/components/ui/image-reveal-wide'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface PortfolioImage {
   src: string
@@ -33,7 +34,7 @@ export function PortfolioCarousel({
 
   return (
     <section
-      className="relative bg-white overflow-x-clip py-20 md:py-24"
+      className="relative bg-brand-cream overflow-x-clip py-20 md:py-24"
       aria-label="Portfolio gallery"
     >
       {/* Paper-grain background — same recipe as sibling sections */}
@@ -48,6 +49,7 @@ export function PortfolioCarousel({
 
       <div className="relative">
         {/* ── Header (constrained to 1320px like other sections) ─────── */}
+        <Reveal>
         <div
           className="flex flex-col items-center text-center max-w-[1320px] mx-auto"
           style={{
@@ -91,13 +93,16 @@ export function PortfolioCarousel({
             </Button>
           </div>
         </div>
+        </Reveal>
 
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
+        <Reveal delay={150} noBlur>
         <div className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto">
           <div className="scale-[0.75] sm:scale-[0.9] md:scale-100 lg:scale-110 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
         </div>
+        </Reveal>
       </div>
     </section>
   )

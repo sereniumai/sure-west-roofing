@@ -1,6 +1,7 @@
 'use client'
 
 import { Star, Quote, ChevronRight } from 'lucide-react'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface Review {
   stars: number
@@ -166,7 +167,7 @@ function hexToRgb(hex: string): string {
   return `${r}, ${g}, ${b}`
 }
 
-export function Reviews({ sectionBg = '#F7F5F0', cardBg = '#FFFFFF' }: ReviewsProps = {}) {
+export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsProps = {}) {
   // Duplicate the list so the marquee can scroll seamlessly
   const rowA = REVIEWS
   const rowB = [...REVIEWS].reverse()
@@ -184,6 +185,7 @@ export function Reviews({ sectionBg = '#F7F5F0', cardBg = '#FFFFFF' }: ReviewsPr
     >
       <div className="mx-auto" style={{ maxWidth: '1320px' }}>
       {/* Header */}
+      <Reveal>
       <div className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto">
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -238,8 +240,10 @@ export function Reviews({ sectionBg = '#F7F5F0', cardBg = '#FFFFFF' }: ReviewsPr
           Here is what homeowners across Cochrane, Calgary and Canmore say.
         </p>
       </div>
+      </Reveal>
 
       {/* Two auto-looping marquee rows moving in opposite directions */}
+      <Reveal delay={150} noBlur>
       <div className="relative rounded-[--radius-md] overflow-hidden">
         {/* Edge fade masks tinted to match section bg */}
         <div
@@ -285,6 +289,7 @@ export function Reviews({ sectionBg = '#F7F5F0', cardBg = '#FFFFFF' }: ReviewsPr
           </div>
         </div>
       </div>
+      </Reveal>
       </div>
 
     </section>

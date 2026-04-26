@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface ServiceReview {
   quote: string
@@ -123,13 +124,14 @@ export function ServicesIconGrid({
 }: ServicesIconGridProps) {
   return (
     <section
-      className="bg-brand-cream relative overflow-hidden py-20 md:py-24"
+      className="bg-white relative overflow-hidden py-20 md:py-24"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
     >
       {/* ── Header ───────────────────────────────────────────────── */}
+      <Reveal>
       <div className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto">
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -164,16 +166,11 @@ export function ServicesIconGrid({
             {body}
           </p>
         )}
-        {cta && (
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href={cta.href}>
-              {cta.label}
-            </Button>
-          </div>
-        )}
       </div>
+      </Reveal>
 
       {/* ── 3 x 2 service card grid ──────────────────────────────── */}
+      <Reveal delay={150}>
       <div className="max-w-[1320px] mx-auto">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-fr">
           {services.map((service) => (
@@ -182,7 +179,16 @@ export function ServicesIconGrid({
             </li>
           ))}
         </ul>
+
+        {cta && (
+          <div className="mt-12 md:mt-14 flex justify-center">
+            <Button variant="primary" size="lg" href={cta.href}>
+              {cta.label}
+            </Button>
+          </div>
+        )}
       </div>
+      </Reveal>
     </section>
   )
 }

@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface Stat {
   value: string
@@ -41,6 +42,7 @@ export function BottomCTA({
         paddingRight: 'var(--section-pad-x)',
       }}
     >
+      <Reveal>
       <div className="relative z-10 max-w-[800px] mx-auto text-center">
         <h2
           className="font-display font-semibold text-brand-navy"
@@ -96,6 +98,7 @@ export function BottomCTA({
           ))}
         </div>
       </div>
+      </Reveal>
     </section>
   )
 }

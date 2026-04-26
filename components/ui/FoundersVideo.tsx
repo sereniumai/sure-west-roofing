@@ -44,17 +44,19 @@ export function FoundersVideo({
             src={THUMBNAIL}
             alt={alt}
             fill
-            sizes="(max-width: 1024px) 100vw, 50vw"
+            sizes="(max-width: 1024px) 100vw, 720px"
+            quality={95}
+            priority
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
             draggable={false}
           />
 
           <span
             aria-hidden="true"
-            className="absolute inset-0 transition-colors duration-500 group-hover:bg-black/10"
+            className="absolute inset-0 transition-colors duration-500 group-hover:bg-black/5"
             style={{
               background:
-                'linear-gradient(180deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.05) 45%, rgba(0,0,0,0.35) 100%)',
+                'linear-gradient(180deg, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.02) 45%, rgba(0,0,0,0.18) 100%)',
             }}
           />
 

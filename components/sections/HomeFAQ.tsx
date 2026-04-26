@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 export interface FAQ {
   question: string
@@ -166,6 +167,7 @@ export function HomeFAQ({
 
       <div className="mx-auto" style={{ maxWidth: '1320px' }}>
         {/* ── Header ─────────────────────────────────────────────── */}
+        <Reveal>
         <div className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[960px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -201,8 +203,10 @@ export function HomeFAQ({
             </Button>
           </div>
         </div>
+        </Reveal>
 
         {/* ── Two-column FAQ list (minimal line style) ───────────── */}
+        <Reveal delay={150}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 mt-4">
           {columns.map((col, colIdx) => (
             <ul key={colIdx} className="flex flex-col">
@@ -280,6 +284,7 @@ export function HomeFAQ({
             Contact Sure West
           </Link>
         </p>
+        </Reveal>
       </div>
 
     </section>

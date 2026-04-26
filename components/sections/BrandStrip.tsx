@@ -1,16 +1,18 @@
 'use client'
 
 import { Quote } from 'lucide-react'
+import { Reveal } from '@/components/ui/Reveal'
 
 export function BrandStrip() {
   return (
     <section
-      className="bg-white relative overflow-hidden py-20 md:py-24"
+      className="bg-brand-cream relative overflow-hidden py-20 md:py-24"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
     >
+      <Reveal>
       <div
         className="max-w-[1200px] mx-auto text-center relative"
         style={{ zIndex: 1 }}
@@ -71,6 +73,7 @@ export function BrandStrip() {
           />
         </div>
       </div>
+      </Reveal>
     </section>
   )
 }
