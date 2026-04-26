@@ -31,6 +31,9 @@ export function PortfolioCarousel({
   const defaultCount = Math.min(5, images.length % 2 === 0 ? images.length - 1 : images.length)
   const count = fanCount ?? (defaultCount > 0 ? defaultCount : 1)
   const fanImages = images.slice(0, count).map((img) => img.src)
+  // Mobile shows a tighter 3-card fan so the polaroids can render bigger
+  // without overflowing the viewport. Desktop keeps the full 5-card spread.
+  const mobileFanImages = images.slice(0, Math.min(3, images.length)).map((img) => img.src)
 
   return (
     <section
@@ -98,7 +101,12 @@ export function PortfolioCarousel({
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
         <Reveal delay={150} noBlur>
         <div className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto">
-          <div className="scale-[0.4] sm:scale-[0.7] md:scale-100 lg:scale-110 transition-transform">
+          {/* Mobile: 3-card fan, bigger scale */}
+          <div className="md:hidden scale-[0.6] transition-transform">
+            <ImageRevealWide images={mobileFanImages} />
+          </div>
+          {/* Tablet & desktop: full 5-card fan, unchanged */}
+          <div className="hidden md:block md:scale-100 lg:scale-110 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
         </div>
