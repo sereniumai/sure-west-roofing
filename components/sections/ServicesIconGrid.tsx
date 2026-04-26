@@ -54,9 +54,12 @@ function ServiceCard({ service }: { service: ServiceCardItem }) {
   const Icon = iconFor(service.title)
 
   return (
-    <div className="group flex flex-col h-full rounded-[12px] bg-white border border-brand-border overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[6px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
+    <Link
+      href={service.href}
+      className="group flex flex-col h-full rounded-[12px] bg-brand-cream border border-brand-gold/50 overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[6px] hover:border-brand-gold hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
+    >
       {/* Image */}
-      <div className="relative h-[180px] sm:h-[200px] overflow-hidden flex-shrink-0">
+      <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">
         <Image
           src={service.image}
           alt={service.imageAlt}
@@ -85,7 +88,7 @@ function ServiceCard({ service }: { service: ServiceCardItem }) {
         </div>
 
         <p
-          className="text-brand-slate leading-[1.6] flex-1"
+          className="text-brand-slate leading-[1.6]"
           style={{
             fontSize: '14px',
             fontFamily: "var(--font-inter), system-ui, sans-serif",
@@ -95,23 +98,21 @@ function ServiceCard({ service }: { service: ServiceCardItem }) {
           {service.description}
         </p>
 
-        {/* CTA link */}
-        <div className="mt-4 pt-4 border-t border-brand-border">
-          <Link
-            href={service.href}
-            className="inline-flex items-center gap-1.5 font-semibold text-brand-gold hover:text-[#B8943F] transition-colors duration-200"
+        {/* CTA — visual only; outer Link handles navigation */}
+        <div className="mt-3">
+          <span
+            className="inline-flex items-center gap-1.5 font-bold text-brand-gold group-hover:text-[#B8943F] transition-colors duration-200"
             style={{
-              fontSize: '13px',
+              fontSize: '15px',
               fontFamily: "var(--font-inter), system-ui, sans-serif",
-              textDecoration: 'none',
             }}
           >
             {service.title}
-            <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-          </Link>
+            <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" strokeWidth={2.25} />
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
@@ -172,9 +173,9 @@ export function ServicesIconGrid({
       {/* ── 3 x 2 service card grid ──────────────────────────────── */}
       <Reveal delay={150}>
       <div className="max-w-[1320px] mx-auto">
-        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 auto-rows-fr">
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {services.map((service) => (
-            <li key={service.title} className="h-full">
+            <li key={service.title}>
               <ServiceCard service={service} />
             </li>
           ))}

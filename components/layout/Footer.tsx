@@ -21,7 +21,7 @@ const locations = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-cream">
+    <footer className="bg-white">
       <div
         style={{
           paddingLeft: 'var(--section-pad-x)',

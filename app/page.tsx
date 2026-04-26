@@ -92,7 +92,7 @@ export default function HomePage() {
             href: '/roof-replacement',
             description:
               'Red Seal Journeyman certified tear-off and re-roof using IKO materials and a 10-year workmanship warranty. Most Cochrane jobs completed in a single day.',
-            image: '/images/Roof Replacement Cochrane.avif',
+            image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
               quote:
@@ -106,7 +106,7 @@ export default function HomePage() {
             href: '/roof-repair',
             description:
               'Cracked shingles, active leaks, failed flashing, or ice dam damage: our Cochrane roof repair crew diagnoses the cause and fixes it right the first time.',
-            image: '/images/Roof Repair Cochrane.avif',
+            image: '/images/roof-repairs-cochrane.webp',
             imageAlt: 'Roof repair Cochrane AB',
             review: {
               quote:
@@ -120,7 +120,7 @@ export default function HomePage() {
             href: '/hail-damage-repair',
             description:
               'We assess the damage, document everything, and manage your insurance adjuster from first call to final sign-off. No out-of-pocket cost to get started.',
-            image: '/images/Roof Repair Cochrane.avif',
+            image: '/images/hail-damage-repair.webp',
             imageAlt: 'Hail damage repair Cochrane AB',
             review: {
               quote:
@@ -134,7 +134,7 @@ export default function HomePage() {
             href: '/roof-maintenance',
             description:
               'Scheduled visits, flashing top-ups, debris clearing, and minor repairs before they become major ones. The smartest way to extend the life of your Cochrane roof.',
-            image: '/images/Roof Replacement Cochrane.avif',
+            image: '/images/roof-maintenance-cochrane.webp',
             imageAlt: 'Roof maintenance Cochrane AB',
             review: {
               quote:
@@ -148,7 +148,7 @@ export default function HomePage() {
             href: '/roof-inspection',
             description:
               'Buying, selling, or overdue for a check: our Cochrane roof inspection covers every surface and the attic below, with a written report and photos.',
-            image: '/images/Roof Inspection Cochrane.avif',
+            image: '/images/roof-inspection-cochrane.webp',
             imageAlt: 'Roof inspection Cochrane AB',
             review: {
               quote:
@@ -161,8 +161,8 @@ export default function HomePage() {
             title: 'Skylight Installation',
             href: '/skylight-installation',
             description:
-              'Natural light without the leaks. Our Cochrane skylight installation covers new units, full replacements, and resealing, all waterproofed and flashed to manufacturer spec.',
-            image: '/images/Roof Installation Cochrane.avif',
+              'Natural light without the leaks. Our Cochrane skylight installation covers new units, full replacements, and resealing, waterproofed and flashed to spec.',
+            image: '/images/skylight-installation-cochrane.webp',
             imageAlt: 'Skylight installation Cochrane AB',
             review: {
               quote:
