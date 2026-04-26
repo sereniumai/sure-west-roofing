@@ -228,7 +228,7 @@ export function Hero({
       <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[80px] sm:pb-[100px] md:pb-[160px]">
         {/* Giant headline — rendered statically, this is the LCP element */}
         <h1
-          className="font-display font-semibold leading-[0.95] md:leading-none text-white"
+          className="font-display font-semibold leading-[1.05] md:leading-none text-white"
           style={{
             fontSize: 'var(--text-hero)',
             letterSpacing: '-0.044em',
