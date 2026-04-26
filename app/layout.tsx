@@ -11,7 +11,7 @@ import './globals.css'
 const oswald = Oswald({
   subsets: ['latin'],
   display: 'swap',
-  weight: ['600'],
+  weight: ['600', '700'],
   variable: '--font-oswald',
   preload: true,
   adjustFontFallback: true,

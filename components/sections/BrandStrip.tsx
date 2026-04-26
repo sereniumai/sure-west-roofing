@@ -25,12 +25,17 @@ export function BrandStrip() {
           Our Philosophy
         </span>
 
-        {/* Display heading */}
+        {/* Display heading — image clipped to text shape */}
         <h2
-          className="font-display font-bold text-brand-navy tracking-[-0.01em] mb-10 whitespace-nowrap"
+          className="font-display font-bold tracking-[-0.01em] mb-10 whitespace-nowrap bg-clip-text text-transparent"
           style={{
-            fontSize: 'clamp(48px, 9vw, 128px)',
+            fontSize: 'clamp(56px, 11vw, 160px)',
             lineHeight: 1,
+            backgroundImage: 'url(/images/move-the-mountain-cochrane.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center 60%',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
           }}
         >
           Move the Mountain

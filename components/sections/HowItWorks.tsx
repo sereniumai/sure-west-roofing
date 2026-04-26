@@ -64,13 +64,11 @@ function StepCard({ step }: { step: Step }) {
       </div>
 
       <h3
-        className="font-display font-semibold text-brand-navy mb-3 leading-[1.2]"
+        className="font-display font-semibold text-brand-navy mb-2 leading-[1.2]"
         style={{ fontSize: '22px', letterSpacing: '-0.01em' }}
       >
         {step.title}
       </h3>
-
-      <div className="w-10 h-[2px] rounded-full bg-brand-gold/40 mb-4" />
 
       <p
         className="text-brand-slate leading-[1.65]"
