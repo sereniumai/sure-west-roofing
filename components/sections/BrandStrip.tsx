@@ -25,12 +25,14 @@ export function BrandStrip() {
           Our Philosophy
         </span>
 
-        {/* Display heading — image clipped to text shape */}
+        {/* Display heading — image clipped to text shape.
+            Mobile: wraps to two lines via the hidden-on-sm <br> so the image
+            flows top-to-bottom across both. sm+ stays on one line. */}
         <h2
-          className="font-display font-bold tracking-[-0.01em] mb-10 whitespace-nowrap bg-clip-text text-transparent"
+          className="font-display font-bold tracking-[-0.01em] mb-10 sm:whitespace-nowrap bg-clip-text text-transparent"
           style={{
-            fontSize: 'clamp(56px, 11vw, 160px)',
-            lineHeight: 1,
+            fontSize: 'clamp(48px, 9vw, 160px)',
+            lineHeight: 1.05,
             backgroundImage: 'url(/images/move-the-mountain-cochrane.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'center 60%',
@@ -38,7 +40,7 @@ export function BrandStrip() {
             WebkitTextFillColor: 'transparent',
           }}
         >
-          Move the Mountain
+          Move the <br className="sm:hidden" />Mountain
         </h2>
 
         {/* Tagline with soft decorative gold quote icons */}
