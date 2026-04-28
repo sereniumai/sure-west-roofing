@@ -142,9 +142,9 @@ const HAIL_INCLUDED_ITEMS = [
       'A Red Seal Journeyman walks your Cochrane roof after any major hail event, climbs every slope, and documents every dent, bruise, and fracture with high-resolution photos.',
   },
   {
-    heading: 'Insurance-ready scope and documentation',
+    heading: 'Clear scope and documentation',
     body:
-      'You receive a written report, full photo set, and an itemised quote at insurer-accepted Alberta rates. We hand the package directly to your adjuster on request.',
+      'You receive a written report, full photo set, and an itemised quote in a format that works for most Alberta insurers. Share it with your insurer in whatever way suits you.',
   },
   {
     heading: 'Repair or replacement with IKO impact-rated materials',
@@ -214,7 +214,7 @@ const SIGNS = [
   { Icon: Droplets, heading: 'Heavy granule loss after a storm', body: 'Cochrane gutters and downspouts full of shingle granules after a hailstorm signal impact damage. Granule loss exposes the asphalt underneath and accelerates UV breakdown.' },
   { Icon: AlertCircle, heading: 'Cracked skylight or pipe boot', body: 'Skylight glass, plastic vent caps, and rubber pipe boots crack under hail before shingles do. Visible cracks on these accessories are an early indicator of roof-wide damage.' },
   { Icon: CloudRain, heading: 'Leaks that started after recent hail', body: 'A new leak in the weeks or months after a storm is one of the strongest signs of hail damage. Hail can fracture shingles without immediate leaking, with water finding the crack later.' },
-  { Icon: FileText, heading: 'Insurance adjuster requests inspection', body: 'Many Alberta insurers request a professional roof inspection to support a hail claim. Sure West provides the photo report and scope your insurer needs at no charge.' },
+  { Icon: FileText, heading: 'Insurer asks for an inspection', body: 'Many Alberta insurers ask for a professional roof inspection to support a hail claim. Sure West provides the photo report and written scope at no charge.' },
 ]
 
 function SignsYouNeed() {
@@ -261,7 +261,7 @@ function SignsYouNeed() {
 const PROCESS_STEPS = [
   { number: '01', Icon: Calendar, heading: ['Free Post-Storm', 'Inspection'], body: 'A Red Seal Journeyman inspects your Cochrane roof slope by slope after any major hail event. No charge for the inspection itself.' },
   { number: '02', Icon: Camera, heading: ['Full Photo', 'Documentation'], body: 'Every dent, bruise, and fracture is photographed with measurements and location notes. The package is built for insurance review.' },
-  { number: '03', Icon: Phone, heading: ['Direct Adjuster', 'Liaison'], body: 'We share the report with your adjuster, walk through the scope, and answer scope questions. Most claims approve on first submission.' },
+  { number: '03', Icon: Phone, heading: ['Shareable', 'Documentation'], body: 'Send the report and photo package to your insurer however suits you. We keep everything in a clear, written format so nothing gets lost in translation.' },
   { number: '04', Icon: Wrench, heading: ['Repair or', 'Replace'], body: 'Once approved we complete targeted repairs or full replacement using IKO Nordic Class 4 impact-rated shingles where appropriate.' },
   { number: '05', Icon: CheckCircle2, heading: ['Cleanup and', 'Warranty'], body: 'Magnetic nail sweep, full site cleanup, and a written 2-year workmanship warranty handed over at the final walkthrough.' },
 ]
@@ -356,8 +356,8 @@ function HailCategories() {
 
 const DIFFERENTIATORS = [
   { Icon: Award, heading: 'Red Seal Certified Trades', body: 'Sure West is owned and operated by Red Seal Journeyman roofers, the recognised national trade standard. A credentialed inspector documents every Cochrane hail claim, never a subcontractor.' },
-  { Icon: FileText, heading: 'Insurance-Friendly Documentation', body: 'Photo reports, written scope, and itemised quotes at insurer-accepted Alberta rates. Most Cochrane hail claims are approved on first submission with our package.' },
-  { Icon: Sparkles, heading: 'Impact-Rated IKO Materials', body: 'Where appropriate we install IKO Nordic Class 4 impact-rated shingles, the highest hail-resistant tier available. May qualify your home for insurance premium discounts.' },
+  { Icon: FileText, heading: 'Clear Written Documentation', body: 'Photo reports, written scope, and itemised quotes in a format that works for most Alberta insurers. Share the package with your insurer however suits you.' },
+  { Icon: Sparkles, heading: 'Impact-Rated IKO Materials', body: 'Where appropriate we install IKO Nordic Class 4 impact-rated shingles, the highest hail-resistant tier available. Some Alberta insurers offer premium discounts for upgraded materials.' },
   { Icon: ShieldCheck, heading: '2-Year Workmanship Warranty', body: 'Every hail damage repair comes with a 2-year workmanship warranty in writing. If the repaired area fails inside the warranty term we come back at no charge.' },
 ]
 

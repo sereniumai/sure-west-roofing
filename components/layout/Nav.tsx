@@ -34,7 +34,7 @@ const serviceLinks = [
   },
   {
     label: 'Hail Damage Repair',
-    description: 'We handle your insurance claim',
+    description: 'Storm and hail roof repair done right',
     href: '/hail-damage-repair',
     Icon: CloudHail,
   },

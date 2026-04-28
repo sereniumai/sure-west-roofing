@@ -70,8 +70,8 @@ export function HailDamageHero() {
               }}
             >
               Red Seal certified hail damage roof repair for Cochrane, Calgary, and Canmore.
-              Insurance-friendly inspections, full photo documentation, and direct work with your
-              adjuster. We pride ourselves on getting back to you quickly.
+              Free post-storm inspections and full photo documentation, so you have what you need
+              to file with your insurer. We pride ourselves on getting back to you quickly.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
@@ -94,7 +94,7 @@ export function HailDamageHero() {
                 textTransform: 'uppercase',
               }}
             >
-              <span>Insurance Documented</span>
+              <span>Fully Documented</span>
               <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
               <span>Red Seal Certified</span>
               <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>

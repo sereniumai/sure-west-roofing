@@ -43,7 +43,7 @@ const SERVICES: ServiceCard[] = [
     title: 'Hail Damage Repair',
     href: '/hail-damage-repair',
     description:
-      'Free post-storm assessment, full damage documentation, and end-to-end insurance claim support. No out-of-pocket cost for the assessment.',
+      'Free post-storm assessment with full damage documentation, so you have what you need to file with your insurer. No out-of-pocket cost for the assessment.',
     learnMoreText: 'Hail Damage Repair',
     image: '/images/Roof Repair Cochrane.avif',
     imageAlt: 'Hail damage roof repair in Cochrane Alberta by Sure West Roofing',

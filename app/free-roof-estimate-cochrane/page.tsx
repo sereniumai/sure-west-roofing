@@ -56,7 +56,7 @@ const ESTIMATE_FAQS: FaqItem[] = [
   {
     question: 'Do you give free estimates for insurance claims?',
     answer:
-      'Yes. Sure West provides free inspections and documentation for homeowners in Cochrane, Calgary, and Canmore filing hail or storm damage insurance claims. We photograph damage, prepare a detailed scope, and can work directly with your adjuster through the claim process.',
+      'Yes. Sure West provides free inspections and documentation for homeowners in Cochrane, Calgary, and Canmore filing hail or storm damage claims. We photograph damage and prepare a detailed scope so you have what you need to share with your insurer.',
   },
   {
     question: 'How long does the free roof inspection take?',

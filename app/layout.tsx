@@ -161,10 +161,10 @@ export default function RootLayout({
                 },
                 {
                   '@type': 'Question',
-                  name: 'Do you handle Alberta insurance claims for hail damage?',
+                  name: 'Do you help with hail damage roofing claims in Alberta?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'Yes. We have extensive experience working with Alberta insurance companies on hail damage claims. We document all damage with photographs and a detailed inspection report, and we can work directly alongside your insurance adjuster to make the process as smooth as possible.',
+                    text: 'We document hail and storm damage with photos and a detailed inspection report, which is what most Alberta insurers ask for. Coverage depends on your individual policy — we are not insurance specialists, but we can give you the documentation you need to file with your provider.',
                   },
                 },
                 {

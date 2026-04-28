@@ -39,15 +39,15 @@ const FAQS: FAQ[] = [
     ),
   },
   {
-    question: 'Do you handle hail damage insurance claims in Alberta?',
+    question: 'Do you help with hail damage insurance claims in Alberta?',
     answerText:
-      'Yes. We work directly with your insurance adjuster and handle the full documentation process. Alberta home insurance policies typically cover sudden hail damage to residential roofs under the peril of windstorm or hail. We provide a detailed damage assessment report your insurer will accept.',
+      'Coverage depends on your individual policy, but Alberta home insurance typically covers sudden hail damage to residential roofs. We are not insurance specialists, but we document the damage with photos and provide a detailed written assessment so you have what you need to file with your insurer.',
     answer: (
       <>
-        Yes. We work directly with your insurance adjuster and handle the full documentation
-        process. Alberta home insurance policies typically cover sudden hail damage to residential
-        roofs under the peril of windstorm or hail. We provide a detailed damage assessment report
-        your insurer will accept.
+        Coverage depends on your individual policy, but Alberta home insurance typically covers
+        sudden hail damage to residential roofs. We are not insurance specialists, but we document
+        the damage with photos and provide a detailed written assessment so you have what you need
+        to file with your insurer.
       </>
     ),
   },

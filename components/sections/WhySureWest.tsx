@@ -4,7 +4,7 @@ import {
   Award,
   Users,
   ShieldCheck,
-  FileCheck,
+  Zap,
   type LucideIcon,
 } from 'lucide-react'
 import { FoundersVideo } from '@/components/ui/FoundersVideo'
@@ -37,10 +37,10 @@ const pillars: Pillar[] = [
     Icon: ShieldCheck,
   },
   {
-    id: 'insurance',
-    title: 'Insurance Claim Experts',
-    body: "We deal with your adjuster directly so you don't have to. No paperwork headaches, no guesswork.",
-    Icon: FileCheck,
+    id: 'single-day',
+    title: 'Single-Day Installs',
+    body: 'Most Cochrane roof replacements completed in one day. Less disruption to your home, less risk from weather mid-project.',
+    Icon: Zap,
   },
 ]
 

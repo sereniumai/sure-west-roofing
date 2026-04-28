@@ -55,10 +55,10 @@ const FAQS: FAQ[] = [
   {
     question: 'Does home insurance cover hail damage roof repair in Alberta?',
     answerText:
-      'In the majority of cases - yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs. We work directly with your insurance adjuster and handle the documentation. Learn more on our hail damage repair Cochrane page.',
+      'In most cases, yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs, but the specifics depend on your individual policy. We can document the damage with photos and a written report so you have what you need for your claim. Learn more on our hail damage repair Cochrane page.',
     answer: (
       <>
-        In the majority of cases - yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs. We work directly with your insurance adjuster and handle the documentation. Learn more on our{' '}
+        In most cases, yes. Alberta home insurance policies typically cover sudden storm and hail damage to residential roofs, but the specifics depend on your individual policy. We can document the damage with photos and a written report so you have what you need for your claim. Learn more on our{' '}
         <Link href="/hail-damage-repair" className="faq-link">
           hail damage repair Cochrane
         </Link>{' '}

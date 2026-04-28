@@ -69,7 +69,7 @@ export default function HomePage() {
       <Hero
         h1={"Cochrane's Trusted\nRoofing Contractor"}
         subtitle="Red Seal Journeyman certified with over 250 roofs completed across Cochrane, Calgary and Canmore. Quality workmanship backed by a written 10-year guarantee. We reply fast, even after hours."
-        backgroundVideo="/images/Sure West Roofing - Cochrane Roofing Contractors.mp4"
+        backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
         secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
@@ -119,7 +119,7 @@ export default function HomePage() {
             title: 'Hail Damage Repair',
             href: '/hail-damage-repair',
             description:
-              'We assess the damage, document everything, and manage your insurance adjuster from first call to final sign-off. No out-of-pocket cost to get started.',
+              'We inspect the damage thoroughly, document everything with photos, and provide a clear written report. No out-of-pocket cost for the assessment.',
             image: '/images/hail-damage-repair.webp',
             imageAlt: 'Hail damage repair Cochrane AB',
             review: {
