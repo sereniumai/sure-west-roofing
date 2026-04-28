@@ -39,7 +39,7 @@ const pillars: Pillar[] = [
   {
     id: 'single-day',
     title: 'Single-Day Installs',
-    body: 'Most Cochrane roof replacements completed in one day. Less disruption to your home, less risk from weather mid-project.',
+    body: 'Most Cochrane roof replacements completed in one day. Less disruption to your home, less weather risk.',
     Icon: Zap,
   },
 ]
