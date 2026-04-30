@@ -69,7 +69,6 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services', dropdown: true },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Contact', href: '/free-roof-estimate-cochrane' },
 ]
 
 export function Nav() {
