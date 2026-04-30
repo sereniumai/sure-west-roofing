@@ -11,29 +11,30 @@ interface Step {
   Icon: LucideIcon
 }
 
-const STEPS: Step[] = [
-  {
-    number: '01',
-    title: 'Book Your Free Estimate',
-    description:
-      'We come to your property in Cochrane, Calgary or Canmore, assess the roof thoroughly, and provide a clear itemised written quote.',
-    Icon: Calendar,
-  },
-  {
-    number: '02',
-    title: 'Approve Your Quote',
-    description:
-      'Your quote is fixed. The price you approve is the price you pay. Our Red Seal certified crew then schedules your job around you.',
-    Icon: FileCheck,
-  },
-  {
-    number: '03',
-    title: 'Your Roof Done Right',
-    description:
-      'Work completed to Red Seal standard. Your property left clean. Your 10-year workmanship guarantee in writing before we leave.',
-    Icon: CheckCircle,
-  },
-]
+function getSteps(cityName: string, otherCities: [string, string]): Step[] {
+  return [
+    {
+      number: '01',
+      title: 'Book Your Free Estimate',
+      description: `We come to your property in ${cityName}, ${otherCities[0]} or ${otherCities[1]}, assess the roof thoroughly, and provide a clear itemised written quote.`,
+      Icon: Calendar,
+    },
+    {
+      number: '02',
+      title: 'Approve Your Quote',
+      description:
+        'Your quote is fixed. The price you approve is the price you pay. Our Red Seal certified crew then schedules your job around you.',
+      Icon: FileCheck,
+    },
+    {
+      number: '03',
+      title: 'Your Roof Done Right',
+      description:
+        'Work completed to Red Seal standard. Your property left clean. Your 10-year workmanship guarantee in writing before we leave.',
+      Icon: CheckCircle,
+    },
+  ]
+}
 
 function StepCard({ step }: { step: Step }) {
   const { Icon } = step
@@ -88,6 +89,8 @@ interface HowItWorksProps {
   eyebrow?: string
   heading?: React.ReactNode
   body?: string
+  cityName?: string
+  otherCities?: [string, string]
 }
 
 export function HowItWorks({
@@ -99,7 +102,10 @@ export function HowItWorks({
     </>
   ),
   body = 'No surprises. No pressure. Just a clear simple process from your first call to the final inspection.',
+  cityName = 'Cochrane',
+  otherCities = ['Calgary', 'Canmore'],
 }: HowItWorksProps = {}) {
+  const STEPS = getSteps(cityName, otherCities)
   return (
     <section
       id="how-it-works"

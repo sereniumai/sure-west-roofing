@@ -321,6 +321,7 @@ export default function RoofingContractorCanmorePage() {
             <br className="hidden md:block" /> Say About Sure West Roofing
           </>
         }
+        body="Here is what homeowners across Canmore, Cochrane and Calgary say."
       />
 
       {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
@@ -363,10 +364,11 @@ export default function RoofingContractorCanmorePage() {
           </>
         }
         body="Every roofing contractor in Canmore says they are the best. Here is what actually sets Sure West apart."
+        cityName="Canmore"
       />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}
-      <HowItWorks />
+      <HowItWorks cityName="Canmore" otherCities={['Cochrane', 'Calgary']} />
 
       {/* 8. Move the Mountain, emotional moment before the rational close */}
       <BrandStrip />
@@ -378,7 +380,8 @@ export default function RoofingContractorCanmorePage() {
       <BottomCTA
         heading={
           <>
-            Ready for a Canmore Roofing Contractor
+            Ready for a Canmore
+            <br /> Roofing Contractor
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }

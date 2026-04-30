@@ -17,37 +17,40 @@ interface Pillar {
   Icon: LucideIcon
 }
 
-const pillars: Pillar[] = [
-  {
-    id: 'red-seal',
-    title: 'Red Seal Certified',
-    body: "Alberta's highest roofing credential. Earned through years of trade-tested work on every project.",
-    Icon: Award,
-  },
-  {
-    id: 'owner-operated',
-    title: 'Owner On Every Job',
-    body: "No salespeople. No middlemen. Deal with the owner from the first estimate to the final walkthrough.",
-    Icon: Users,
-  },
-  {
-    id: 'guarantee',
-    title: '10-Year Guarantee',
-    body: "Workmanship in writing before a nail is driven. If something's off, we come back to make it right.",
-    Icon: ShieldCheck,
-  },
-  {
-    id: 'single-day',
-    title: 'Single-Day Installs',
-    body: 'Most Cochrane roof replacements completed in one day. Less disruption to your home, less weather risk.',
-    Icon: Zap,
-  },
-]
+function getPillars(cityName: string): Pillar[] {
+  return [
+    {
+      id: 'red-seal',
+      title: 'Red Seal Certified',
+      body: "Alberta's highest roofing credential. Earned through years of trade-tested work on every project.",
+      Icon: Award,
+    },
+    {
+      id: 'owner-operated',
+      title: 'Owner On Every Job',
+      body: "No salespeople. No middlemen. Deal with the owner from the first estimate to the final walkthrough.",
+      Icon: Users,
+    },
+    {
+      id: 'guarantee',
+      title: '10-Year Guarantee',
+      body: "Workmanship in writing before a nail is driven. If something's off, we come back to make it right.",
+      Icon: ShieldCheck,
+    },
+    {
+      id: 'single-day',
+      title: 'Single-Day Installs',
+      body: `Most ${cityName} roof replacements completed in one day. Less disruption to your home, less weather risk.`,
+      Icon: Zap,
+    },
+  ]
+}
 
 interface WhySureWestProps {
   eyebrow?: string
   heading?: React.ReactNode
   body?: string
+  cityName?: string
 }
 
 export function WhySureWest({
@@ -60,7 +63,9 @@ export function WhySureWest({
     </>
   ),
   body = 'Every roofing contractor in Cochrane says they are the best. Here is what actually sets Sure West apart.',
+  cityName = 'Cochrane',
 }: WhySureWestProps = {}) {
+  const pillars = getPillars(cityName)
   return (
     <section
       id="why-sure-west"

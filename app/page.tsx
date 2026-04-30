@@ -213,7 +213,8 @@ export default function HomePage() {
       <BottomCTA
         heading={
           <>
-            Ready for a Cochrane Roofing Contractor
+            Ready for a Cochrane
+            <br /> Roofing Contractor
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }

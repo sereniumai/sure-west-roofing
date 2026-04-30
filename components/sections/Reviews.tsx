@@ -157,6 +157,7 @@ interface ReviewsProps {
   sectionBg?: string
   cardBg?: string
   heading?: React.ReactNode
+  body?: React.ReactNode
 }
 
 function hexToRgb(hex: string): string {
@@ -177,6 +178,7 @@ export function Reviews({
       <br className="hidden md:block" /> Say About Sure West Roofing
     </>
   ),
+  body = 'Here is what homeowners across Cochrane, Calgary and Canmore say.',
 }: ReviewsProps = {}) {
   // Duplicate the list so the marquee can scroll seamlessly
   const rowA = REVIEWS
@@ -246,7 +248,7 @@ export function Reviews({
             fontWeight: 400,
           }}
         >
-          Here is what homeowners across Cochrane, Calgary and Canmore say.
+          {body}
         </p>
       </div>
       </Reveal>
