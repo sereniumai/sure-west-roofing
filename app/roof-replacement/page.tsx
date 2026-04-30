@@ -854,13 +854,13 @@ const LOCATIONS = [
   },
   {
     name: 'Calgary',
-    href: '/roofing-contractor-calgary',
+    href: '/calgary-roofing-contractor',
     detail: 'Full service across the Calgary region',
     buttonLabel: 'Roofing Contractor Calgary',
   },
   {
     name: 'Canmore',
-    href: '/roofing-contractor-canmore',
+    href: '/canmore-roofing-contractor',
     detail: 'Full service across the Bow Valley',
     buttonLabel: 'Roofing Contractor Canmore',
   },

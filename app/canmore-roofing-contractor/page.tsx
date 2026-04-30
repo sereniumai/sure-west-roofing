@@ -51,12 +51,12 @@ export const metadata: Metadata = {
     title: 'Roofing Contractor Canmore | Sure West Roofing',
     description:
       'Red Seal certified roofing contractor serving Canmore. Built for Bow Valley snow loads, chinook winds, and alpine architectural control.',
-    url: 'https://surewestroofing.ca/roofing-contractor-canmore',
+    url: 'https://surewestroofing.ca/canmore-roofing-contractor',
     type: 'website',
     locale: 'en_CA',
   },
   alternates: {
-    canonical: 'https://surewestroofing.ca/roofing-contractor-canmore',
+    canonical: 'https://surewestroofing.ca/canmore-roofing-contractor',
   },
 }
 
@@ -76,7 +76,7 @@ const canmoreBreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'Roofing Contractor Canmore',
-      item: 'https://surewestroofing.ca/roofing-contractor-canmore',
+      item: 'https://surewestroofing.ca/canmore-roofing-contractor',
     },
   ],
 }
@@ -240,8 +240,8 @@ export default function RoofingContractorCanmorePage() {
 
       {/* 1. Hero */}
       <Hero
-        h1={"Roofing Contractor\nServing Canmore, Alberta"}
-        subtitle="Red Seal Journeyman certified roofing built for the Bow Valley. Steep-pitch specialists, heavy snow-load installs, and chinook-rated systems for Canmore homes across Three Sisters, Silvertip, and the Resort Centre."
+        h1={"Canmore's Red Seal Certified\nRoofing Contractor"}
+        subtitle="Red Seal Journeyman certified with over 250 roofs completed across Canmore, Cochrane and Calgary. Quality workmanship backed by a written 10-year guarantee. We reply fast, even after hours."
         backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
@@ -277,12 +277,12 @@ export default function RoofingContractorCanmorePage() {
             imageAlt: 'Roof repair Canmore AB',
           },
           {
-            title: 'Hail Damage Repair',
-            href: '/hail-damage-repair',
+            title: 'Roof Inspection',
+            href: '/roof-inspection',
             description:
-              "We document storm and hail damage on your Canmore roof, manage your insurance adjuster from first call to final sign-off, and handle the claim. No out-of-pocket cost.",
-            image: '/images/hail-damage-repair.webp',
-            imageAlt: 'Hail damage repair Canmore AB',
+              "Pre-purchase, pre-sale, or just overdue. Our Canmore roof inspection covers every pitch, the attic, and ice-and-water coverage, with a written photo report and a plain-language verdict.",
+            image: '/images/roof-inspection-cochrane.webp',
+            imageAlt: 'Roof inspection Canmore AB',
           },
           {
             title: 'Roof Maintenance',
@@ -293,12 +293,12 @@ export default function RoofingContractorCanmorePage() {
             imageAlt: 'Roof maintenance Canmore AB',
           },
           {
-            title: 'Roof Inspection',
-            href: '/roof-inspection',
+            title: 'Siding & Soft Metals',
+            href: '/siding-soft-metals',
             description:
-              "Pre-purchase, pre-sale, or just overdue. Our Canmore roof inspection covers every pitch, the attic, and ice-and-water coverage, with a written photo report and a plain-language verdict.",
-            image: '/images/roof-inspection-cochrane.webp',
-            imageAlt: 'Roof inspection Canmore AB',
+              "Siding, eavestroughs, fascia, and soffits on Canmore mountain homes. Premium materials built for chinook winds and freeze-thaw, finished by our Red Seal Bow Valley crew.",
+            image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
+            imageAlt: 'Siding and soft metals Canmore AB',
           },
           {
             title: 'Skylight Installation',
@@ -312,7 +312,16 @@ export default function RoofingContractorCanmorePage() {
       />
 
       {/* 4. Reviews, proof immediately after services (matches homepage flow) */}
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <Reviews
+        sectionBg="#F7F5F0"
+        cardBg="#FFFFFF"
+        heading={
+          <>
+            What Canmore and Cochrane Homeowners
+            <br className="hidden md:block" /> Say About Sure West Roofing
+          </>
+        }
+      />
 
       {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
       <PortfolioCarousel

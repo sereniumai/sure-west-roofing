@@ -193,14 +193,14 @@ const AREAS = [
     name: 'Calgary',
     description:
       'We bring the same Red Seal certified standard to Calgary as we deliver in Cochrane. Whether you are in the northwest suburbs or across the city, our crew travels to complete roofing services in Calgary including replacement, repair, hail damage, and inspections.',
-    href: '/roofing-contractor-calgary',
+    href: '/calgary-roofing-contractor',
     linkText: 'Calgary roofing services',
   },
   {
     name: 'Canmore',
     description:
       "Canmore's mountain climate is demanding on roofs. Steep pitches, heavy snow loads, and Chinook wind uplift require specific material choices and installation methods. Our team has the local knowledge to build roofs that last here.",
-    href: '/roofing-contractor-canmore',
+    href: '/canmore-roofing-contractor',
     linkText: 'Canmore roofing services',
   },
 ]

@@ -15,8 +15,8 @@ const services = [
 
 const locations = [
   { label: 'Cochrane', href: '/' },
-  { label: 'Calgary', href: '/roofing-contractor-calgary' },
-  { label: 'Canmore', href: '/roofing-contractor-canmore' },
+  { label: 'Calgary', href: '/calgary-roofing-contractor' },
+  { label: 'Canmore', href: '/canmore-roofing-contractor' },
 ]
 
 export function Footer() {

@@ -156,6 +156,7 @@ function ReviewCard({ review, cardBg }: { review: Review; cardBg: string }) {
 interface ReviewsProps {
   sectionBg?: string
   cardBg?: string
+  heading?: React.ReactNode
 }
 
 function hexToRgb(hex: string): string {
@@ -167,7 +168,16 @@ function hexToRgb(hex: string): string {
   return `${r}, ${g}, ${b}`
 }
 
-export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsProps = {}) {
+export function Reviews({
+  sectionBg = '#FFFFFF',
+  cardBg = '#F7F5F0',
+  heading = (
+    <>
+      What Cochrane and Calgary Homeowners
+      <br className="hidden md:block" /> Say About Sure West Roofing
+    </>
+  ),
+}: ReviewsProps = {}) {
   // Duplicate the list so the marquee can scroll seamlessly
   const rowA = REVIEWS
   const rowB = [...REVIEWS].reverse()
@@ -201,8 +211,7 @@ export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsPr
             letterSpacing: '-0.005em',
           }}
         >
-          What Cochrane and Calgary Homeowners
-          <br className="hidden md:block" /> Say About Sure West Roofing
+          {heading}
         </h2>
 
         {/* Rating summary */}

@@ -760,8 +760,8 @@ function WhySureWest() {
 
 const LOCATIONS = [
   { name: 'Cochrane', href: '/services', detail: 'Home base, primary market', buttonLabel: 'Roofing Services Cochrane' },
-  { name: 'Calgary', href: '/roofing-contractor-calgary', detail: 'Siding and soft metals across the Calgary region', buttonLabel: 'Roofing Contractor Calgary' },
-  { name: 'Canmore', href: '/roofing-contractor-canmore', detail: 'Coverage across the Bow Valley', buttonLabel: 'Roofing Contractor Canmore' },
+  { name: 'Calgary', href: '/calgary-roofing-contractor', detail: 'Siding and soft metals across the Calgary region', buttonLabel: 'Roofing Contractor Calgary' },
+  { name: 'Canmore', href: '/canmore-roofing-contractor', detail: 'Coverage across the Bow Valley', buttonLabel: 'Roofing Contractor Canmore' },
 ]
 
 function ServiceAreaCondensed() {

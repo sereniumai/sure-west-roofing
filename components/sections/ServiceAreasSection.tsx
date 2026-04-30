@@ -8,14 +8,14 @@ const areas = [
     name: 'Roofing Contractor Calgary',
     description:
       'Serving homeowners across Calgary and the surrounding communities. The same certified standard we deliver in Cochrane, brought to your Calgary home.',
-    href: '/roofing-contractor-calgary',
+    href: '/calgary-roofing-contractor',
     linkText: 'Calgary Roofing Services',
   },
   {
     name: 'Roofing Contractor Canmore',
     description:
       "Canmore's mountain climate demands expert roofing knowledge. Steep pitches, heavy snow loads, and Chinook winds. We know how to build roofs that last here.",
-    href: '/roofing-contractor-canmore',
+    href: '/canmore-roofing-contractor',
     linkText: 'Canmore Roofing Services',
   },
 ]

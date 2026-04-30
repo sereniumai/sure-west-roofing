@@ -95,16 +95,6 @@ const FAQS: FAQ[] = [
     ),
   },
   {
-    question: 'How long does a roof replacement take in Cochrane?',
-    answerText:
-      'Most standard homes take 1 to 3 days. Larger or more complex roofs may take up to 5 days. We give you a clear timeline before we start and never leave a job unsecured overnight.',
-    answer: (
-      <>
-        Most standard homes take 1 to 3 days. Larger or more complex roofs may take up to 5 days. We give you a clear timeline before we start and never leave a job unsecured overnight.
-      </>
-    ),
-  },
-  {
     question: 'Do you carry out roof inspections in Cochrane and Calgary?',
     answerText:
       'Yes. Our Red Seal certified team carries out full roof and attic inspections across Cochrane, Calgary and Canmore. An inspection gives you the full picture before small issues become expensive repairs. Book your roof inspections Cochrane assessment today.',

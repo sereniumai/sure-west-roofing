@@ -51,12 +51,12 @@ export const metadata: Metadata = {
     title: 'Roofing Contractor Calgary | Sure West Roofing',
     description:
       'Red Seal certified roofing contractor serving Calgary. Roof replacement, hail damage claims, and repair. Free written estimate.',
-    url: 'https://surewestroofing.ca/roofing-contractor-calgary',
+    url: 'https://surewestroofing.ca/calgary-roofing-contractor',
     type: 'website',
     locale: 'en_CA',
   },
   alternates: {
-    canonical: 'https://surewestroofing.ca/roofing-contractor-calgary',
+    canonical: 'https://surewestroofing.ca/calgary-roofing-contractor',
   },
 }
 
@@ -78,7 +78,7 @@ const calgaryBreadcrumbSchema = {
       '@type': 'ListItem',
       position: 2,
       name: 'Roofing Contractor Calgary',
-      item: 'https://surewestroofing.ca/roofing-contractor-calgary',
+      item: 'https://surewestroofing.ca/calgary-roofing-contractor',
     },
   ],
 }
@@ -241,8 +241,8 @@ export default function RoofingContractorCalgaryPage() {
 
       {/* 1. Hero */}
       <Hero
-        h1={"Roofing Contractor\nServing Calgary, Alberta"}
-        subtitle="Red Seal Journeyman certified roofing for Calgary homeowners. Hail claim specialists, fixed written quotes, and a crew that drives in from Cochrane to every neighbourhood across the NW, NE, SW and SE."
+        h1={"Calgary's Red Seal Certified\nRoofing Contractor"}
+        subtitle="Red Seal Journeyman certified with over 250 roofs completed across Calgary, Cochrane and Canmore. Quality workmanship backed by a written 10-year guarantee. We reply fast, even after hours."
         backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
@@ -278,12 +278,12 @@ export default function RoofingContractorCalgaryPage() {
             imageAlt: 'Roof repair Calgary AB',
           },
           {
-            title: 'Hail Damage Repair',
-            href: '/hail-damage-repair',
+            title: 'Roof Inspection',
+            href: '/roof-inspection',
             description:
-              "Calgary sits in Alberta's hail corridor. We inspect post-storm, document every impact, and manage your insurance adjuster end-to-end. You pay your deductible. Nothing else surprises you.",
-            image: '/images/hail-damage-repair.webp',
-            imageAlt: 'Hail damage repair Calgary AB',
+              "Buying in Altadore, selling in Tuscany, or just overdue. Our Calgary roof inspection covers every surface and the attic, with a written photo report you can share with buyers and insurers.",
+            image: '/images/roof-inspection-cochrane.webp',
+            imageAlt: 'Roof inspection Calgary AB',
           },
           {
             title: 'Roof Maintenance',
@@ -294,12 +294,12 @@ export default function RoofingContractorCalgaryPage() {
             imageAlt: 'Roof maintenance Calgary AB',
           },
           {
-            title: 'Roof Inspection',
-            href: '/roof-inspection',
+            title: 'Siding & Soft Metals',
+            href: '/siding-soft-metals',
             description:
-              "Buying in Altadore, selling in Tuscany, or just overdue. Our Calgary roof inspection covers every surface and the attic, with a written photo report you can share with buyers and insurers.",
-            image: '/images/roof-inspection-cochrane.webp',
-            imageAlt: 'Roof inspection Calgary AB',
+              "Siding, eavestroughs, fascia, and soffits on Calgary homes. Premium materials matched to Alberta weather, finished by the same Red Seal crew that does our roofs.",
+            image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
+            imageAlt: 'Siding and soft metals Calgary AB',
           },
           {
             title: 'Skylight Installation',
@@ -313,7 +313,16 @@ export default function RoofingContractorCalgaryPage() {
       />
 
       {/* 4. Reviews, proof immediately after services (matches homepage flow) */}
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <Reviews
+        sectionBg="#F7F5F0"
+        cardBg="#FFFFFF"
+        heading={
+          <>
+            What Calgary and Cochrane Homeowners
+            <br className="hidden md:block" /> Say About Sure West Roofing
+          </>
+        }
+      />
 
       {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
       <PortfolioCarousel

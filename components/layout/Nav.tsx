@@ -79,8 +79,8 @@ export function Nav() {
   // these routes until the user scrolls past the hero.
   const DARK_HERO_ROUTES = new Set([
     '/',
-    '/roofing-contractor-calgary',
-    '/roofing-contractor-canmore',
+    '/calgary-roofing-contractor',
+    '/canmore-roofing-contractor',
   ])
   const isLightPage = !DARK_HERO_ROUTES.has(pathname)
   const [scrolled, setScrolled] = useState(false)
