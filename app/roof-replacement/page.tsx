@@ -20,11 +20,13 @@ import {
   CheckCircle2,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import { RoofReplacementHero } from '@/components/sections/RoofReplacementHero'
+import { TrustLogos } from '@/components/sections/TrustLogos'
 import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RoofReplacementFAQ } from '@/components/sections/RoofReplacementFAQ'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
-import { ServicesGallery } from '@/components/sections/ServicesGallery'
+import { PortfolioGallery } from '@/components/sections/PortfolioGallery'
 import { Reviews } from '@/components/sections/Reviews'
 import { BottomCTA } from '@/components/sections/BottomCTA'
 
@@ -186,101 +188,18 @@ const faqSchema = {
   ],
 }
 
-// ─── Section: Certifications banner ──────────────────────────────────────────
-
-const CERT_LOGOS = [
-  { src: '/images/logos/AARA Roofing Association.webp', alt: 'AARA Roofing Association member' },
-  { src: '/images/logos/BBB Accredited Business.webp', alt: 'BBB Accredited Business' },
-  { src: '/images/logos/WCB Roofing Contractors.webp', alt: 'WCB covered roofing contractor' },
-  { src: '/images/logos/Certified Residential Contractor.webp', alt: 'Certified Residential Contractor' },
-  { src: '/images/logos/Emerald Pro Contractor.webp', alt: 'Emerald Pro Contractor' },
-  { src: '/images/logos/Interprovincial Roofing Standard.webp', alt: 'Interprovincial Roofing Standard' },
-  { src: '/images/logos/Roofing Contractor Shingle Master.webp', alt: 'ShingleMaster certified' },
-]
-
-function CertsBanner() {
-  return (
-    <section
-      className="bg-white py-10 md:py-14"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-      aria-label="Certifications and accreditations"
-    >
-      <div className="max-w-[1320px] mx-auto flex flex-col items-center">
-        <span
-          className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-          style={{
-            background: '#F0EEE8',
-            fontSize: '12px',
-            fontFamily: 'var(--font-inter), system-ui, sans-serif',
-            fontWeight: 600,
-            lineHeight: 1,
-          }}
-        >
-          Certified &amp; Accredited
-        </span>
-        <ul className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-          {CERT_LOGOS.map((logo) => (
-            <li key={logo.src} className="flex items-center justify-center h-[52px]">
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={130}
-                height={52}
-                sizes="130px"
-                quality={80}
-                loading="lazy"
-                className="h-full w-auto object-contain"
-              />
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )
-}
-
-// ─── Section: Inline CTA (text + single gold button, centred) ────────────────
-
-function InlineCTA({ headline }: { headline: string }) {
-  return (
-    <section
-      className="bg-brand-cream py-14 md:py-16"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[720px] mx-auto text-center">
-        <h3
-          className="font-display text-brand-navy"
-          style={{
-            fontSize: 'clamp(22px, 2.6vw, 30px)',
-            fontWeight: 500,
-            letterSpacing: '-0.01em',
-            lineHeight: 1.25,
-          }}
-        >
-          {headline}
-        </h3>
-        <div className="mt-6">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
-          </Button>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 // ─── Section: What's Included ─────────────────────────────────────────────────
 
 function WhatIncluded() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
           {/* Right (desktop): heading, copy, accordion, CTA. Mobile keeps content first. */}
-          <div className="flex flex-col lg:order-2">
+          <Reveal delay={150} className="flex flex-col lg:order-2">
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -318,25 +237,35 @@ function WhatIncluded() {
             </p>
 
             <WhatIncludedAccordion />
-          </div>
+          </Reveal>
 
-          {/* Left (desktop): photo stretches to match content column height */}
-          <div
-            className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px] lg:order-1"
-            style={{
-              boxShadow:
-                '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
-            }}
-          >
-            <Image
-              src="/images/Cochrane Roofing Contractor Gallery 14.webp"
-              alt="Sure West Roofing Red Seal crew installing new shingles on a Cochrane home"
-              fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-              loading="lazy"
-            />
-          </div>
+          {/* Left (desktop): photo with premium framing matching About / Service hero shadow */}
+          <Reveal noBlur className="lg:order-1">
+            <div
+              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+              }}
+            >
+              <Image
+                src="/images/Cochrane Roofing Contractor Gallery 14.webp"
+                alt="Sure West Roofing Red Seal crew installing new shingles on a Cochrane home"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                loading="lazy"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'linear-gradient(to top, rgba(44,71,102,0.18) 0%, transparent 40%)',
+                }}
+              />
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -381,11 +310,12 @@ const SIGNS = [
 function SignsYouNeed() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
+        <Reveal>
+        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -421,33 +351,43 @@ function SignsYouNeed() {
             If your Cochrane roof is under 15 years old, a repair is usually smarter than a full
             replacement. Here is when it isn&apos;t.
           </p>
-          <div className="mt-8">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-              Get a Free Estimate
-            </Button>
-          </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={150}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {SIGNS.map(({ Icon, heading, body }) => (
-            <div
+            <article
               key={heading}
-              className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
+              className="group relative bg-white rounded-[14px] border border-[#E5E2D9] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
             >
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute top-0 left-0 right-0 h-[2px]"
+                style={{
+                  background:
+                    'linear-gradient(90deg, transparent 0%, rgba(212,175,96,0.85) 50%, transparent 100%)',
+                  opacity: 0.45,
+                }}
+              />
               <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-4"
-                style={{ background: 'rgba(212,175,96,0.10)' }}
+                className="relative w-12 h-12 rounded-[10px] bg-white flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg] mb-5"
+                style={{
+                  boxShadow:
+                    '0 1px 3px rgba(44,71,102,0.08), 0 10px 22px -10px rgba(212,175,96,0.45), 0 4px 10px -4px rgba(44,71,102,0.10)',
+                  border: '1px solid rgba(212,175,96,0.20)',
+                }}
               >
                 <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
               <h3
-                className="font-display font-semibold text-brand-navy mb-2 leading-[1.25]"
+                className="relative font-display font-semibold text-brand-navy mb-3 leading-[1.25]"
                 style={{ fontSize: '19px', letterSpacing: '-0.01em' }}
               >
                 {heading}
               </h3>
               <p
-                className="text-brand-slate leading-[1.65]"
+                className="relative text-brand-slate leading-[1.65]"
                 style={{
                   fontSize: '14px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
@@ -456,9 +396,16 @@ function SignsYouNeed() {
               >
                 {body}
               </p>
-            </div>
+            </article>
           ))}
         </div>
+
+        <div className="mt-12 md:mt-14 flex justify-center">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+            Get a Free Estimate
+          </Button>
+        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -502,10 +449,11 @@ const PROCESS_STEPS = [
 function ReplacementProcess() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
+        <Reveal>
         <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -542,22 +490,34 @@ function ReplacementProcess() {
             Five clear steps from first estimate to final cleanup. Every stage is mapped out in
             writing before we start. No hidden steps, no surprises.
           </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-              Get a Free Estimate
-            </Button>
-          </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={150}>
         <div className="relative">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-6">
             {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
-              <div
+              <article
                 key={number}
-                className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
+                className="group relative rounded-[16px] px-5 py-7 md:px-5 md:py-8 flex flex-col items-center text-center overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+                style={{
+                  background: 'linear-gradient(155deg, #FAF8F2 0%, #F4F1E8 100%)',
+                  border: '1px solid #E8E4D8',
+                  boxShadow:
+                    '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
+                }}
               >
                 <span
-                  className="uppercase tracking-[0.18em] text-brand-gold font-semibold"
+                  aria-hidden="true"
+                  className="pointer-events-none absolute top-0 left-0 right-0 h-[2px]"
+                  style={{
+                    background:
+                      'linear-gradient(90deg, transparent 0%, rgba(212,175,96,0.85) 50%, transparent 100%)',
+                    opacity: 0.55,
+                  }}
+                />
+                <span
+                  className="relative uppercase tracking-[0.18em] text-brand-gold font-semibold"
                   style={{
                     fontSize: '11px',
                     fontFamily: 'var(--font-inter), system-ui, sans-serif',
@@ -566,16 +526,17 @@ function ReplacementProcess() {
                   Step {number}
                 </span>
                 <div
-                  className="mt-4 mb-5 flex items-center justify-center w-16 h-16 rounded-full"
+                  className="relative mt-4 mb-5 flex items-center justify-center w-14 h-14 rounded-[12px] bg-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg]"
                   style={{
-                    background: 'rgba(212,175,96,0.10)',
-                    border: '1.5px solid rgba(212,175,96,0.45)',
+                    boxShadow:
+                      '0 1px 3px rgba(44,71,102,0.08), 0 10px 22px -10px rgba(212,175,96,0.45), 0 4px 10px -4px rgba(44,71,102,0.10)',
+                    border: '1px solid rgba(212,175,96,0.20)',
                   }}
                 >
                   <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
                 </div>
                 <h3
-                  className="font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]"
+                  className="relative font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]"
                   style={{ fontSize: '17px', letterSpacing: '-0.01em' }}
                 >
                   {heading[0]}
@@ -583,7 +544,7 @@ function ReplacementProcess() {
                   {heading[1]}
                 </h3>
                 <p
-                  className="mt-4 text-brand-slate leading-[1.6] max-w-[220px]"
+                  className="relative mt-4 text-brand-slate leading-[1.6] max-w-[220px]"
                   style={{
                     fontSize: '13px',
                     fontFamily: 'var(--font-inter), system-ui, sans-serif',
@@ -592,10 +553,17 @@ function ReplacementProcess() {
                 >
                   {body}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </div>
+
+        <div className="mt-12 md:mt-14 flex justify-center">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+            Get a Free Estimate
+          </Button>
+        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -630,11 +598,12 @@ const SHINGLES = [
 function ShingleOptions() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
+        <Reveal>
+        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -655,7 +624,8 @@ function ShingleOptions() {
               letterSpacing: '-0.005em',
             }}
           >
-            Shingle Options for Your Cochrane Roof Replacement
+            Shingle Options for Your
+            <br className="hidden lg:block" /> Cochrane Roof Replacement
           </h2>
           <p
             className="mt-5 max-w-[600px] text-brand-slate leading-[1.7]"
@@ -668,46 +638,41 @@ function ShingleOptions() {
             Sure West installs IKO shingles exclusively. Canadian-made, proven in Alberta weather,
             and backed by long-term material warranties documented in writing.
           </p>
-          <div className="mt-8">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-              Get a Free Estimate
-            </Button>
-          </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={150}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {SHINGLES.map(({ tier, name, image, imageAlt, body }) => (
-            <div
+            <article
               key={name}
-              className="bg-white rounded-[12px] border border-brand-border flex flex-col overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
+              className="group flex flex-col h-full rounded-[14px] bg-white border border-[#E5E2D9] overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-500 ease-out hover:-translate-y-[6px] hover:border-brand-gold/60 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
             >
               {/* Shingle image */}
-              <div className="relative flex-shrink-0" style={{ height: '200px' }}>
+              <div className="relative flex-shrink-0 overflow-hidden" style={{ height: '220px' }}>
                 <Image
                   src={image}
                   alt={imageAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                   loading="lazy"
                 />
               </div>
 
               {/* Card content */}
-              <div className="p-6 md:p-8 flex flex-col flex-1">
-                <div className="mb-4">
-                  <span
-                    className="inline-block text-brand-gold font-semibold uppercase tracking-[0.12em]"
-                    style={{
-                      fontSize: '11px',
-                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    }}
-                  >
-                    {tier}
-                  </span>
-                </div>
+              <div className="p-6 md:p-7 flex flex-col flex-1">
+                <span
+                  className="inline-block text-brand-gold font-semibold uppercase tracking-[0.12em] mb-3"
+                  style={{
+                    fontSize: '11px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  }}
+                >
+                  {tier}
+                </span>
                 <h3
-                  className="font-display font-semibold text-brand-navy mb-4 leading-[1.2]"
+                  className="font-display font-semibold text-brand-navy mb-4 leading-[1.2] transition-colors duration-300 group-hover:text-brand-gold"
                   style={{ fontSize: '24px', letterSpacing: '-0.02em' }}
                 >
                   {name}
@@ -723,9 +688,16 @@ function ShingleOptions() {
                   {body}
                 </p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
+
+        <div className="mt-12 md:mt-14 flex justify-center">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+            Get a Free Estimate
+          </Button>
+        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -759,10 +731,11 @@ const DIFFERENTIATORS = [
 function WhySureWest() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
+        <Reveal>
         <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -799,33 +772,58 @@ function WhySureWest() {
             Built across Cochrane, Calgary, and Canmore on Red Seal ownership, materials made for
             Alberta weather, and warranties you can read.
           </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-              Get a Free Estimate
-            </Button>
-          </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={150}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
-            <div
+            <article
               key={heading}
-              className="bg-brand-cream rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
+              className="group relative rounded-[16px] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+              style={{
+                background: 'linear-gradient(155deg, #FAF8F2 0%, #F4F1E8 100%)',
+                border: '1px solid #E8E4D8',
+                boxShadow:
+                  '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
+              }}
             >
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute top-0 left-0 right-0 h-[2px]"
+                style={{
+                  background:
+                    'linear-gradient(90deg, transparent 0%, rgba(212,175,96,0.85) 50%, transparent 100%)',
+                  opacity: 0.55,
+                }}
+              />
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute left-6 md:left-7 top-5 md:top-6 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background:
+                    'radial-gradient(closest-side, rgba(212,175,96,0.32), transparent 70%)',
+                  filter: 'blur(8px)',
+                }}
+              />
               <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
-                style={{ background: 'rgba(212,175,96,0.12)' }}
+                className="relative inline-flex items-center justify-center w-12 h-12 rounded-[10px] bg-white mb-5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg]"
+                style={{
+                  boxShadow:
+                    '0 1px 3px rgba(44,71,102,0.08), 0 10px 22px -10px rgba(212,175,96,0.45), 0 4px 10px -4px rgba(44,71,102,0.10)',
+                  border: '1px solid rgba(212,175,96,0.20)',
+                }}
               >
                 <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
               <h3
-                className="font-display font-semibold text-brand-navy mb-3 leading-[1.25]"
+                className="relative font-display font-semibold text-brand-navy mb-3 leading-[1.25]"
                 style={{ fontSize: '20px', letterSpacing: '-0.01em' }}
               >
                 {heading}
               </h3>
               <p
-                className="text-brand-slate leading-[1.65]"
+                className="relative text-brand-slate leading-[1.65]"
                 style={{
                   fontSize: '14px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
@@ -834,9 +832,16 @@ function WhySureWest() {
               >
                 {body}
               </p>
-            </div>
+            </article>
           ))}
         </div>
+
+        <div className="mt-12 md:mt-14 flex justify-center">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+            Get a Free Estimate
+          </Button>
+        </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -869,11 +874,16 @@ const LOCATIONS = [
 function ServiceAreaCondensed() {
   return (
     <section
-      className="relative bg-white overflow-hidden pt-10 md:pt-12 pb-20 md:pb-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+      className="relative overflow-hidden py-20 md:py-24"
+      style={{
+        background: '#FFFFFF',
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+      }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
+        <Reveal>
+        <div className="text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -894,10 +904,11 @@ function ServiceAreaCondensed() {
               letterSpacing: '-0.005em',
             }}
           >
-            Roof Replacement Across Cochrane, Calgary, and Canmore
+            Roof Replacement Across Cochrane,
+            <br className="hidden lg:block" /> Calgary, and Canmore
           </h2>
           <p
-            className="mt-5 max-w-[580px] text-brand-slate leading-[1.7]"
+            className="mt-5 max-w-[580px] mx-auto text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
@@ -907,35 +918,84 @@ function ServiceAreaCondensed() {
             Based in Cochrane. Same Red Seal crew across Calgary and Canmore.
           </p>
         </div>
+        </Reveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 max-w-[1060px] mx-auto">
+        <Reveal delay={150}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-[1100px] mx-auto relative">
+          {/* Dashed gold connector across pin centres on desktop */}
+          <div
+            aria-hidden="true"
+            className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/30"
+            style={{ top: '52px', left: '20%', right: '20%' }}
+          />
+
           {LOCATIONS.map(({ name, href, detail, buttonLabel }) => (
-            <div key={name} className="flex flex-col items-center text-center">
-              <MapPin className="w-12 h-12 text-brand-gold mb-5" strokeWidth={1.75} />
+            <div
+              key={name}
+              className="group relative z-[1] flex flex-col items-center text-center"
+            >
+              {/* Multi-layer pin */}
+              <div className="relative mb-6 w-[104px] h-[104px] flex items-center justify-center">
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 rounded-full transition-opacity duration-500 group-hover:opacity-100 opacity-70"
+                  style={{
+                    background:
+                      'radial-gradient(closest-side, rgba(212,175,96,0.22), transparent 70%)',
+                    filter: 'blur(6px)',
+                  }}
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute w-[96px] h-[96px] rounded-full"
+                  style={{
+                    background: 'rgba(212,175,96,0.05)',
+                    border: '1px solid rgba(212,175,96,0.20)',
+                  }}
+                />
+                <span
+                  aria-hidden="true"
+                  className="absolute w-[78px] h-[78px] rounded-full"
+                  style={{
+                    background: 'rgba(212,175,96,0.10)',
+                    border: '1px solid rgba(212,175,96,0.32)',
+                  }}
+                />
+                <span
+                  className="relative w-[60px] h-[60px] rounded-full bg-white flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-[1.08] group-hover:shadow-[0_14px_30px_-10px_rgba(212,175,96,0.55)]"
+                  style={{
+                    boxShadow: '0 6px 18px -8px rgba(212,175,96,0.40)',
+                  }}
+                >
+                  <MapPin className="w-7 h-7 text-brand-gold" strokeWidth={1.75} />
+                </span>
+              </div>
+
               <h3
-                className="font-display font-semibold text-brand-navy leading-[1.05]"
-                style={{ fontSize: 'clamp(32px, 3.5vw, 44px)', letterSpacing: '-0.02em' }}
+                className="font-display font-semibold text-brand-navy mb-3 transition-colors duration-300 group-hover:text-brand-gold"
+                style={{ fontSize: '28px', letterSpacing: '-0.015em', lineHeight: 1.15 }}
               >
                 {name}
               </h3>
+
               <p
-                className="mt-3 max-w-[260px] text-brand-slate leading-[1.6]"
+                className="text-brand-slate leading-[1.65] mb-5 max-w-[280px]"
                 style={{
-                  fontSize: '14px',
+                  fontSize: '14.5px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
                   fontWeight: 400,
                 }}
               >
                 {detail}
               </p>
-              <div className="mt-6">
-                <Button variant="primary" size="md" href={href}>
-                  {buttonLabel}
-                </Button>
-              </div>
+
+              <Button variant="primary" size="md" href={href}>
+                {buttonLabel}
+              </Button>
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -1030,14 +1090,17 @@ export default function RoofReplacementPage() {
       />
 
       <RoofReplacementHero />
-      <CertsBanner />
+      <TrustLogos />
       <WhatIncluded />
       <SignsYouNeed />
       <ReplacementProcess />
       <ShingleOptions />
       <WhySureWest />
-      <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#FFFFFF" />
       <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <PortfolioGallery
+        sectionBg="#F7F5F0"
+        images={RR_GALLERY_IMAGES.map(({ src, alt }) => ({ src, alt }))}
+      />
       <ServiceAreaCondensed />
       <RoofReplacementFAQ />
       <RelatedServices />

@@ -133,7 +133,7 @@ export function RelatedServicesCarousel({ exclude }: Props) {
           >
             <Link
               href={href}
-              className="group flex flex-col h-full rounded-[12px] bg-white border border-brand-border overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-500 ease-out hover:-translate-y-[6px] hover:border-brand-gold/60 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+              className="group flex flex-col h-full rounded-[14px] bg-brand-cream border border-[#E5E2D9] overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-500 ease-out hover:-translate-y-[6px] hover:border-brand-gold/60 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
             >
               {/* Image */}
               <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">
@@ -152,7 +152,7 @@ export function RelatedServicesCarousel({ exclude }: Props) {
               </div>
 
               {/* Content */}
-              <div className="flex flex-col flex-1 p-5 md:p-6">
+              <div className="flex flex-col flex-1 p-6 md:p-7">
                 <div className="flex items-center gap-3 mb-3">
                   <Icon
                     className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-[-6deg]"
@@ -177,7 +177,7 @@ export function RelatedServicesCarousel({ exclude }: Props) {
                   {description}
                 </p>
 
-                <div className="mt-4 pt-4 border-t border-brand-border">
+                <div className="mt-5">
                   <span
                     className="inline-flex items-center gap-1.5 font-semibold text-brand-gold transition-colors duration-200 group-hover:text-[#B8943F]"
                     style={{

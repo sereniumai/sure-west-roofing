@@ -119,17 +119,6 @@ export function RoofReplacementHero() {
 
           {/* Right: hero image */}
           <Reveal delay={250} noBlur className="relative mt-8 lg:mt-0">
-            {/* Offset gold frame */}
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 rounded-[22px]"
-              style={{
-                border: '1px solid rgba(212,175,96,0.4)',
-                transform: 'translate(10px, 12px)',
-                zIndex: -1,
-              }}
-            />
-
             {/* Main image */}
             <div
               className="relative overflow-hidden rounded-[18px]"
@@ -147,8 +136,6 @@ export function RoofReplacementHero() {
                   className="object-cover"
                   priority
                 />
-
-                {/* Subtle bottom fade */}
                 <div
                   aria-hidden="true"
                   className="absolute inset-0 pointer-events-none"
@@ -157,40 +144,7 @@ export function RoofReplacementHero() {
                       'linear-gradient(to top, rgba(44,71,102,0.28) 0%, transparent 40%)',
                   }}
                 />
-
               </div>
-            </div>
-
-            {/* Stat strip below image */}
-            <div
-              className="mt-7 flex items-center justify-around"
-              style={{ paddingRight: '8px' }}
-            >
-              {[
-                { value: '250+', label: 'Roofs Completed' },
-                { value: '5.0 ★', label: 'Google Rating' },
-                { value: '10 yr', label: 'Workmanship Warranty' },
-              ].map(({ value, label }, i) => (
-                <div key={label} className="flex flex-col items-center text-center">
-                  <span
-                    className="font-display font-semibold text-brand-gold"
-                    style={{ fontSize: '22px', letterSpacing: '-0.02em', lineHeight: 1 }}
-                  >
-                    {value}
-                  </span>
-                  <span
-                    className="mt-1 text-brand-slate"
-                    style={{
-                      fontSize: '11px',
-                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                      fontWeight: 400,
-                      letterSpacing: '0.02em',
-                    }}
-                  >
-                    {label}
-                  </span>
-                </div>
-              ))}
             </div>
           </Reveal>
         </div>
