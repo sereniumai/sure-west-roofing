@@ -150,7 +150,7 @@ export function HowItWorks({
       {/* 3-column step cards */}
       <Reveal delay={150}>
       <div className="max-w-[1200px] mx-auto relative">
-        {/* Dashed connector — sits at icon centre (~52px from card top: 40px pt-10 + 12px half-icon offset before ring) */}
+        {/* Dashed connector, sits at icon centre (~52px from card top: 40px pt-10 + 12px half-icon offset before ring) */}
         <div
           aria-hidden="true"
           className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/40"

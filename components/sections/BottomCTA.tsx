@@ -43,7 +43,7 @@ export function BottomCTA({
         paddingRight: 'var(--section-pad-x)',
       }}
     >
-      {/* Paper-grain warm wash — same recipe as WhySureWest / PortfolioCarousel */}
+      {/* Paper-grain warm wash, same recipe as WhySureWest / PortfolioCarousel */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.55]"
@@ -55,7 +55,7 @@ export function BottomCTA({
 
       <Reveal>
       <div className="relative z-10 max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-        {/* LEFT — heading + CTAs + stats */}
+        {/* LEFT, heading + CTAs + stats */}
         <div className="text-center lg:text-left">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -124,7 +124,7 @@ export function BottomCTA({
           </div>
         </div>
 
-        {/* RIGHT — team photo, premium framing matching FoundersVideo */}
+        {/* RIGHT, team photo, premium framing matching FoundersVideo */}
         <div className="relative">
           <div className="relative">
             {/* Soft gold radial glow behind */}

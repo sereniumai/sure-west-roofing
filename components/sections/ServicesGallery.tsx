@@ -114,7 +114,7 @@ export function ServicesGallery({ images, sectionBg }: Props) {
               </button>
             </div>
 
-            {/* Thumbnail strip — 5 per row */}
+            {/* Thumbnail strip, 5 per row */}
             <div className="mt-4 flex gap-2 flex-wrap max-w-[386px]">
               {IMAGES.map((img, i) => (
                 <button

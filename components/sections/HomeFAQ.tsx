@@ -67,6 +67,20 @@ const FAQS: FAQ[] = [
     ),
   },
   {
+    question: 'How do I tell if my Cochrane roof has hail damage?',
+    answerText:
+      'Common signs after a storm include dents on metal vents, eavestroughs, and downspouts, circular bruises or missing granules on shingles, and dings on siding or window screens. Most roof hail damage is hard to spot from the ground, so a free post-storm inspection is the safest call. Sure West provides written photo reports you can use to file with your insurer. See our hail damage repair Cochrane page for the full process.',
+    answer: (
+      <>
+        Common signs after a storm include dents on metal vents, eavestroughs, and downspouts, circular bruises or missing granules on shingles, and dings on siding or window screens. Most roof hail damage is hard to spot from the ground, so a free post-storm inspection is the safest call. Sure West provides written photo reports you can use to file with your insurer. See our{' '}
+        <Link href="/hail-damage-repair" className="faq-link">
+          hail damage repair Cochrane
+        </Link>{' '}
+        page for the full process.
+      </>
+    ),
+  },
+  {
     question: 'How much does a roof replacement cost in Cochrane, AB?',
     answerText:
       'Most residential roof replacements in Cochrane range from $8,000 to $18,000 depending on roof size, pitch, and material choice. We provide a fully itemised written quote after a free inspection with no obligation to proceed. See our roof replacement Cochrane page for details.',

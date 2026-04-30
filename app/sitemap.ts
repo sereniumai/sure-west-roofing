@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/hail-damage-repair`,          lastModified, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/roof-maintenance`,            lastModified, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/roof-inspection`,             lastModified, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${baseUrl}/siding-soft-metals`,          lastModified, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/skylight-installation`,       lastModified, changeFrequency: 'monthly', priority: 0.85 },
     { url: `${baseUrl}/roofing-contractor-calgary`,  lastModified, changeFrequency: 'weekly',  priority: 0.95 },
     { url: `${baseUrl}/roofing-contractor-canmore`,  lastModified, changeFrequency: 'weekly',  priority: 0.95 },

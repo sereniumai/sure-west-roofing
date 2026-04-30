@@ -9,7 +9,7 @@ interface RevealProps {
   /** distance in px the element rises from */
   y?: number
   className?: string
-  /** disable the subtle entrance blur (use sparingly — blur is what makes it premium) */
+  /** disable the subtle entrance blur (use sparingly, blur is what makes it premium) */
   noBlur?: boolean
 }
 

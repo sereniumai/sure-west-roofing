@@ -98,7 +98,7 @@ function ServiceCard({ service }: { service: ServiceCardItem }) {
           {service.description}
         </p>
 
-        {/* CTA — visual only; outer Link handles navigation */}
+        {/* CTA, visual only; outer Link handles navigation */}
         <div className="mt-3">
           <span
             className="inline-flex items-center gap-1.5 font-bold text-brand-gold group-hover:text-[#B8943F] transition-colors duration-200"

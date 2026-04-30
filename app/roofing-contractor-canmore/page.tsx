@@ -242,7 +242,7 @@ export default function RoofingContractorCanmorePage() {
       <Hero
         h1={"Roofing Contractor\nServing Canmore, Alberta"}
         subtitle="Red Seal Journeyman certified roofing built for the Bow Valley. Steep-pitch specialists, heavy snow-load installs, and chinook-rated systems for Canmore homes across Three Sisters, Silvertip, and the Resort Centre."
-        backgroundVideo="/images/Cochrane Roofing Contractor.mp4"
+        backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
         secondaryCTA={{ label: 'View Canmore Services', href: '/services' }}
@@ -253,7 +253,7 @@ export default function RoofingContractorCanmorePage() {
       {/* 2. Stats + Certifications */}
       <TrustLogos />
 
-      {/* 3. Services grid — Canmore localized */}
+      {/* 3. Services grid, Canmore localized */}
       <ServicesIconGrid
         eyebrow="Canmore Services"
         heading={'Every Roofing Service.\nBuilt for the Bow Valley.'}
@@ -265,7 +265,7 @@ export default function RoofingContractorCanmorePage() {
             href: '/roof-replacement',
             description:
               "Tear-off and reroof on Canmore's steep pitches using IKO Nordic shingles, six-foot ice and water shield at the eaves, and chinook-rated fastening. 10-year workmanship warranty.",
-            image: '/images/Roof Replacement Cochrane.avif',
+            image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Canmore AB',
           },
           {
@@ -273,7 +273,7 @@ export default function RoofingContractorCanmorePage() {
             href: '/roof-repair',
             description:
               "Ice dam damage, wind-lifted shingles, cracked flashings, or a leak on an 8:12 pitch. Our Red Seal Canmore crew diagnoses the cause and warrants every fix.",
-            image: '/images/Roof Repair Cochrane.avif',
+            image: '/images/roof-repairs-cochrane.webp',
             imageAlt: 'Roof repair Canmore AB',
           },
           {
@@ -281,7 +281,7 @@ export default function RoofingContractorCanmorePage() {
             href: '/hail-damage-repair',
             description:
               "We document storm and hail damage on your Canmore roof, manage your insurance adjuster from first call to final sign-off, and handle the claim. No out-of-pocket cost.",
-            image: '/images/Roof Repair Cochrane.avif',
+            image: '/images/hail-damage-repair.webp',
             imageAlt: 'Hail damage repair Canmore AB',
           },
           {
@@ -289,7 +289,7 @@ export default function RoofingContractorCanmorePage() {
             href: '/roof-maintenance',
             description:
               "Spring and autumn visits tailored to Canmore: needle clearing, chinook-season flashing checks, and pre-winter vent inspections. The smartest way to extend a mountain roof.",
-            image: '/images/Roof Replacement Cochrane.avif',
+            image: '/images/roof-maintenance-cochrane.webp',
             imageAlt: 'Roof maintenance Canmore AB',
           },
           {
@@ -297,7 +297,7 @@ export default function RoofingContractorCanmorePage() {
             href: '/roof-inspection',
             description:
               "Pre-purchase, pre-sale, or just overdue. Our Canmore roof inspection covers every pitch, the attic, and ice-and-water coverage, with a written photo report and a plain-language verdict.",
-            image: '/images/Roof Inspection Cochrane.avif',
+            image: '/images/roof-inspection-cochrane.webp',
             imageAlt: 'Roof inspection Canmore AB',
           },
           {
@@ -305,44 +305,16 @@ export default function RoofingContractorCanmorePage() {
             href: '/skylight-installation',
             description:
               "Alpine skylights built for Canmore snow loads and freeze-thaw cycles. New units, replacements, and resealing, flashed to manufacturer spec for mountain light without the leaks.",
-            image: '/images/Roof Installation Cochrane.avif',
+            image: '/images/skylight-installation-cochrane.webp',
             imageAlt: 'Skylight installation Canmore AB',
           },
         ]}
       />
 
-      {/* 4. Why Sure West — Canmore localized header */}
-      <WhySureWest
-        eyebrow="Why Canmore Chooses Sure West"
-        heading={
-          <>
-            A Red Seal Roofing Contractor
-            <br />
-            Built for the Bow Valley
-          </>
-        }
-        body="Mountain roofs demand different materials, different detailing, and different safety gear. Here is what makes Sure West the right choice for your Canmore home."
-      />
+      {/* 4. Reviews, proof immediately after services (matches homepage flow) */}
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
 
-      {/* 5. Process */}
-      <HowItWorks
-        eyebrow="Our Canmore Process"
-        heading={
-          <>
-            Free Estimate to Mountain-Ready
-            <br className="hidden md:block" /> Roof in Three Steps
-          </>
-        }
-        body="A clear, flexible process for Canmore homeowners. We work around your schedule, your HOA, and the Bow Valley weather."
-      />
-
-      {/* 6. Brand Strip */}
-      <BrandStrip />
-
-      {/* 7. Reviews */}
-      <Reviews />
-
-      {/* 8. Portfolio */}
+      {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
       <PortfolioCarousel
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Canmore roofing contractor completed project 1' },
@@ -367,7 +339,35 @@ export default function RoofingContractorCanmorePage() {
         ]}
       />
 
-      {/* 9. FAQ — Canmore-specific */}
+      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
+      <WhySureWest
+        eyebrow="Why Canmore Chooses Sure West"
+        heading={
+          <>
+            A Red Seal Roofing Contractor
+            <br />
+            Built for the Bow Valley
+          </>
+        }
+        body="Mountain roofs demand different materials, different detailing, and different safety gear. Here is what makes Sure West the right choice for your Canmore home."
+      />
+
+      {/* 7. How It Works, process info now that buyer is leaning in */}
+      <HowItWorks
+        eyebrow="Our Canmore Process"
+        heading={
+          <>
+            Free Estimate to Mountain-Ready
+            <br className="hidden md:block" /> Roof in Three Steps
+          </>
+        }
+        body="A clear, flexible process for Canmore homeowners. We work around your schedule, your HOA, and the Bow Valley weather."
+      />
+
+      {/* 8. Move the Mountain, emotional moment before the rational close */}
+      <BrandStrip />
+
+      {/* 9. FAQ, Canmore-specific, final objection handling right before the ask */}
       <HomeFAQ
         eyebrow="Canmore FAQs"
         heading="Canmore Roofing Questions Answered"

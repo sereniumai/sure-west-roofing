@@ -243,7 +243,7 @@ export default function RoofingContractorCalgaryPage() {
       <Hero
         h1={"Roofing Contractor\nServing Calgary, Alberta"}
         subtitle="Red Seal Journeyman certified roofing for Calgary homeowners. Hail claim specialists, fixed written quotes, and a crew that drives in from Cochrane to every neighbourhood across the NW, NE, SW and SE."
-        backgroundVideo="/images/Cochrane Roofing Contractor.mp4"
+        backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
         secondaryCTA={{ label: 'View Calgary Services', href: '/services' }}
@@ -254,7 +254,7 @@ export default function RoofingContractorCalgaryPage() {
       {/* 2. Stats + Certifications */}
       <TrustLogos />
 
-      {/* 3. Services grid — Calgary localized */}
+      {/* 3. Services grid, Calgary localized */}
       <ServicesIconGrid
         eyebrow="Calgary Services"
         heading={'Every Roofing Service.\nOne Calgary Standard.'}
@@ -266,7 +266,7 @@ export default function RoofingContractorCalgaryPage() {
             href: '/roof-replacement',
             description:
               "Red Seal certified tear-off and reroof on Calgary homes, from inner-city bungalows to new suburban builds. IKO shingles and a 10-year workmanship warranty on every Calgary roof.",
-            image: '/images/Roof Replacement Cochrane.avif',
+            image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Calgary AB',
           },
           {
@@ -274,7 +274,7 @@ export default function RoofingContractorCalgaryPage() {
             href: '/roof-repair',
             description:
               "Active leaks, lifted shingles, failed flashing, or storm damage on your Calgary home. Our Red Seal crew diagnoses the root cause and warrants every repair in writing.",
-            image: '/images/Roof Repair Cochrane.avif',
+            image: '/images/roof-repairs-cochrane.webp',
             imageAlt: 'Roof repair Calgary AB',
           },
           {
@@ -282,7 +282,7 @@ export default function RoofingContractorCalgaryPage() {
             href: '/hail-damage-repair',
             description:
               "Calgary sits in Alberta's hail corridor. We inspect post-storm, document every impact, and manage your insurance adjuster end-to-end. You pay your deductible. Nothing else surprises you.",
-            image: '/images/Roof Repair Cochrane.avif',
+            image: '/images/hail-damage-repair.webp',
             imageAlt: 'Hail damage repair Calgary AB',
           },
           {
@@ -290,7 +290,7 @@ export default function RoofingContractorCalgaryPage() {
             href: '/roof-maintenance',
             description:
               "Annual visits for Calgary homes: flashing top-ups, vent checks, debris clearing, and small fixes before winter turns them into expensive ones. The smartest insurance for your roof.",
-            image: '/images/Roof Replacement Cochrane.avif',
+            image: '/images/roof-maintenance-cochrane.webp',
             imageAlt: 'Roof maintenance Calgary AB',
           },
           {
@@ -298,7 +298,7 @@ export default function RoofingContractorCalgaryPage() {
             href: '/roof-inspection',
             description:
               "Buying in Altadore, selling in Tuscany, or just overdue. Our Calgary roof inspection covers every surface and the attic, with a written photo report you can share with buyers and insurers.",
-            image: '/images/Roof Inspection Cochrane.avif',
+            image: '/images/roof-inspection-cochrane.webp',
             imageAlt: 'Roof inspection Calgary AB',
           },
           {
@@ -306,44 +306,16 @@ export default function RoofingContractorCalgaryPage() {
             href: '/skylight-installation',
             description:
               "Natural light without the leaks. New skylights, full replacements, and resealing for Calgary homes, flashed and waterproofed to manufacturer spec in a single visit.",
-            image: '/images/Roof Installation Cochrane.avif',
+            image: '/images/skylight-installation-cochrane.webp',
             imageAlt: 'Skylight installation Calgary AB',
           },
         ]}
       />
 
-      {/* 4. Why Sure West — Calgary localized header */}
-      <WhySureWest
-        eyebrow="Why Calgary Chooses Sure West"
-        heading={
-          <>
-            A Red Seal Roofing Contractor
-            <br />
-            Built for Calgary Weather
-          </>
-        }
-        body="Calgary has more roofing contractors than any other city we serve. Here is what makes Sure West the right one for your Calgary home."
-      />
+      {/* 4. Reviews, proof immediately after services (matches homepage flow) */}
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
 
-      {/* 5. Process */}
-      <HowItWorks
-        eyebrow="Our Calgary Process"
-        heading={
-          <>
-            From First Call to Finished
-            <br className="hidden md:block" /> Calgary Roof in Three Steps
-          </>
-        }
-        body="A straightforward Calgary roofing experience, designed around your schedule and your home."
-      />
-
-      {/* 6. Brand Strip */}
-      <BrandStrip />
-
-      {/* 7. Reviews */}
-      <Reviews />
-
-      {/* 8. Portfolio */}
+      {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
       <PortfolioCarousel
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Calgary roofing contractor completed project 1' },
@@ -368,7 +340,35 @@ export default function RoofingContractorCalgaryPage() {
         ]}
       />
 
-      {/* 9. FAQ — Calgary-specific */}
+      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
+      <WhySureWest
+        eyebrow="Why Calgary Chooses Sure West"
+        heading={
+          <>
+            A Red Seal Roofing Contractor
+            <br />
+            Built for Calgary Weather
+          </>
+        }
+        body="Calgary has more roofing contractors than any other city we serve. Here is what makes Sure West the right one for your Calgary home."
+      />
+
+      {/* 7. How It Works, process info now that buyer is leaning in */}
+      <HowItWorks
+        eyebrow="Our Calgary Process"
+        heading={
+          <>
+            From First Call to Finished
+            <br className="hidden md:block" /> Calgary Roof in Three Steps
+          </>
+        }
+        body="A straightforward Calgary roofing experience, designed around your schedule and your home."
+      />
+
+      {/* 8. Move the Mountain, emotional moment before the rational close */}
+      <BrandStrip />
+
+      {/* 9. FAQ, Calgary-specific, final objection handling right before the ask */}
       <HomeFAQ
         eyebrow="Calgary FAQs"
         heading="Calgary Roofing Questions Answered"

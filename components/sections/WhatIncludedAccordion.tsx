@@ -38,7 +38,7 @@ export function WhatIncludedAccordion({
   ctaHref = '/free-roof-estimate-cochrane',
   ctaLabel = 'Get Free Estimate',
 }: WhatIncludedAccordionProps = {}) {
-  // One item is always open — clicking the open item is a no-op.
+  // One item is always open, clicking the open item is a no-op.
   const [open, setOpen] = useState<number>(0)
 
   return (

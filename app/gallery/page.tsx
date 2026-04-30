@@ -224,7 +224,7 @@ function GalleryHero() {
           <div className="relative mt-8 lg:mt-0">
             <div className="relative w-full aspect-[5/4] max-w-[640px] mx-auto">
               {HERO_COLLAGE.map((img) => (
-                // Outer: positioning + rotation (static — rotation stays stable on hover)
+                // Outer: positioning + rotation (static, rotation stays stable on hover)
                 <div key={img.src} className={img.outerClassName}>
                   {/* Inner: surface + premium shadow + hover lift */}
                   <div

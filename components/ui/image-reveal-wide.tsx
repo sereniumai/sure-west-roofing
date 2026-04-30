@@ -4,7 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 
 /**
- * Wide fan-out image reveal — extended variant of the 21st.dev
+ * Wide fan-out image reveal, extended variant of the 21st.dev
  * tonyzebastian/image-tiles component. Takes an odd-numbered array
  * of images (recommended 5, 7, or 9) and fans them out symmetrically
  * from the centre with growing rotation/offset. Allowed to overflow

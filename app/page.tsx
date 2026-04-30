@@ -116,16 +116,16 @@ export default function HomePage() {
             },
           },
           {
-            title: 'Hail Damage Repair',
-            href: '/hail-damage-repair',
+            title: 'Roof Inspection',
+            href: '/roof-inspection',
             description:
-              'We inspect the damage thoroughly, document everything with photos, and provide a clear written report. No out-of-pocket cost for the assessment.',
-            image: '/images/hail-damage-repair.webp',
-            imageAlt: 'Hail damage repair Cochrane AB',
+              'Buying, selling, or overdue for a check: our Cochrane roof inspection covers every surface and the attic below, with a written report and photos.',
+            image: '/images/roof-inspection-cochrane.webp',
+            imageAlt: 'Roof inspection Cochrane AB',
             review: {
               quote:
-                "Sure West Roofing provided great service from the very prompt initial inspection to determine the extent of hail damage to the roof.",
-              author: 'Karen Kerkhoff',
+                "Didn't try to sell me a new roof, but gave an honest opinion on how much life the roof has.",
+              author: 'Greg Carmichael',
               location: 'Cochrane, AB',
             },
           },
@@ -144,18 +144,12 @@ export default function HomePage() {
             },
           },
           {
-            title: 'Roof Inspection',
-            href: '/roof-inspection',
+            title: 'Siding & Soft Metals',
+            href: '/siding-soft-metals',
             description:
-              'Buying, selling, or overdue for a check: our Cochrane roof inspection covers every surface and the attic below, with a written report and photos.',
-            image: '/images/roof-inspection-cochrane.webp',
-            imageAlt: 'Roof inspection Cochrane AB',
-            review: {
-              quote:
-                "Didn't try to sell me a new roof, but gave an honest opinion on how much life the roof has.",
-              author: 'Greg Carmichael',
-              location: 'Cochrane, AB',
-            },
+              'Siding installation, eavestroughs, fascia, soffit, and metal flashing. Premium materials matched to Alberta weather, finished by the same Red Seal crew that does our roofs.',
+            image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
+            imageAlt: 'Siding and soft metals Cochrane AB',
           },
           {
             title: 'Skylight Installation',
@@ -174,10 +168,10 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 4. Reviews — proof immediately after services */}
+      {/* 4. Reviews, proof immediately after services */}
       <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
 
-      {/* 5. Our Work (Portfolio) — paired with reviews to keep proof block tight */}
+      {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
       <PortfolioCarousel
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roofing contractor project 1' },
@@ -203,16 +197,16 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 6. Why Sure West — differentiator landing on a primed viewer */}
+      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
       <WhySureWest />
 
-      {/* 7. How It Works — process info now that buyer is leaning in */}
+      {/* 7. How It Works, process info now that buyer is leaning in */}
       <HowItWorks />
 
-      {/* 8. Move the Mountain — emotional moment before the rational close */}
+      {/* 8. Move the Mountain, emotional moment before the rational close */}
       <BrandStrip />
 
-      {/* 9. FAQ — final objection handling right before the ask */}
+      {/* 9. FAQ, final objection handling right before the ask */}
       <HomeFAQ />
 
       {/* 10. Bottom CTA */}

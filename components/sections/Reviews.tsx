@@ -242,7 +242,7 @@ export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsPr
       </div>
       </Reveal>
 
-      {/* Mobile-only hint — informs users they can pause the scroll */}
+      {/* Mobile-only hint, informs users they can pause the scroll */}
       <p
         className="md:hidden text-center text-brand-slate uppercase tracking-[0.1em] mb-4"
         style={{
@@ -273,7 +273,7 @@ export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsPr
           }}
         />
 
-        {/* Row A — scroll left */}
+        {/* Row A, scroll left */}
         <div className="marquee group" style={{ ['--duration' as string]: '64s' }}>
           <div className="marquee__track">
             {[...rowA, ...rowA].map((review, i) => (
@@ -282,7 +282,7 @@ export function Reviews({ sectionBg = '#FFFFFF', cardBg = '#F7F5F0' }: ReviewsPr
           </div>
         </div>
 
-        {/* Row B — scroll right, slightly slower */}
+        {/* Row B, scroll right, slightly slower */}
         <div
           className="marquee group mt-5"
           style={{ ['--duration' as string]: '78s', ['--direction' as string]: 'reverse' }}

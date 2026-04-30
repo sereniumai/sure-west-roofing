@@ -105,19 +105,36 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
-        {/* DEMO LOCK — disables all off-homepage navigation for client preview.
-            Remove this <script> block after the demo to restore links. */}
+        {/* DEMO LOCK, navigation allowlist for client preview.
+            As pages are completed and approved, add their paths to ALLOWED_PATHS.
+            Remove this entire <script> block once all pages are approved. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function(){
+                var ALLOWED_PATHS = [
+                  '/',
+                  '/roofing-contractor-calgary',
+                  '/roofing-contractor-canmore'
+                ];
                 document.addEventListener('click', function(e){
                   var t = e.target;
                   while (t && t !== document.body) {
                     if (t.tagName === 'A') {
                       var href = t.getAttribute('href') || '';
-                      var allowed = href === '' || href === '/' || href.charAt(0) === '#';
-                      if (!allowed) { e.preventDefault(); e.stopPropagation(); }
+                      // Always allow: empty, anchor-only, tel:, mailto:, and full external URLs
+                      if (href === '' || href.charAt(0) === '#') return;
+                      if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;
+                      if (href.indexOf('http://') === 0 || href.indexOf('https://') === 0) return;
+                      // Internal links: strip query/hash, normalise trailing slash, check allowlist
+                      var path = href.split('?')[0].split('#')[0];
+                      if (path.length > 1 && path.charAt(path.length - 1) === '/') {
+                        path = path.slice(0, -1);
+                      }
+                      if (ALLOWED_PATHS.indexOf(path) === -1) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                      }
                       return;
                     }
                     t = t.parentElement;
@@ -135,7 +152,7 @@ export default function RootLayout({
           <Footer />
           <DevToolbar />
         </MotionProvider>
-        {/* Site-wide FAQPage JSON-LD — surfaces in rich results across the site. */}
+        {/* Site-wide FAQPage JSON-LD, surfaces in rich results across the site. */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -164,7 +181,7 @@ export default function RootLayout({
                   name: 'Do you help with hail damage roofing claims in Alberta?',
                   acceptedAnswer: {
                     '@type': 'Answer',
-                    text: 'We document hail and storm damage with photos and a detailed inspection report, which is what most Alberta insurers ask for. Coverage depends on your individual policy — we are not insurance specialists, but we can give you the documentation you need to file with your provider.',
+                    text: 'We document hail and storm damage with photos and a detailed inspection report, which is what most Alberta insurers ask for. Coverage depends on your individual policy. We are not insurance specialists, but we can give you the documentation you need to file with your provider.',
                   },
                 },
                 {

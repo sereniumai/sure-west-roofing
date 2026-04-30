@@ -13,7 +13,7 @@
   --brand-cream:      #F7F5F0;
   --brand-border:     #E8E8E8;
 
-  /* Legacy aliases — point to brand tokens so existing refs auto-update */
+  /* Legacy aliases, point to brand tokens so existing refs auto-update */
   --color-accent:      var(--brand-gold);
   --color-accent-dark: var(--brand-gold-dark);
   --color-near-black:  var(--brand-navy);
@@ -272,7 +272,7 @@ html {
   content: none;
 }
 
-/* ── Hero scroll hint — pure CSS, no JS hydration ─ */
+/* ── Hero scroll hint, pure CSS, no JS hydration ─ */
 
 .hero-scroll-hint {
   animation: hero-scroll-fade 0.6s ease-out 1.2s both;
@@ -391,7 +391,7 @@ html {
 }
 /* Pause when the user holds (mobile) or hovers (desktop).
    :hover and :focus-within are scoped to hover-capable devices so they
-   don't stick on touchscreens — on mobile only :active pauses, which
+   don't stick on touchscreens, on mobile only :active pauses, which
    releases the moment the finger lifts. */
 @media (hover: hover) {
   .marquee:hover .marquee__track,

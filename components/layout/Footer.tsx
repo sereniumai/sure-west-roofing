@@ -31,7 +31,7 @@ export function Footer() {
         <div className="mx-auto" style={{ maxWidth: '1320px' }}>
           {/* ── 4-column grid ───────────────────────────────────────── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
-            {/* Column 1 — Brand */}
+            {/* Column 1, Brand */}
             <div className="col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
                 <Image
@@ -54,7 +54,7 @@ export function Footer() {
               </p>
             </div>
 
-            {/* Column 2 — Services */}
+            {/* Column 2, Services */}
             <div className="col-span-1 lg:col-span-3">
               <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
@@ -84,7 +84,7 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Column 3 — Locations */}
+            {/* Column 3, Locations */}
             <div className="col-span-1 lg:col-span-2">
               <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
@@ -114,7 +114,7 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Column 4 — Contact */}
+            {/* Column 4, Contact */}
             <div className="col-span-2 lg:col-span-3">
               <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"

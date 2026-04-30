@@ -167,7 +167,7 @@ export function Hero({
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       {/* ── Background stack ─────────────────────────────────────────
-          Layer 1: solid navy (section bg) — renders instantly, no asset.
+          Layer 1: solid navy (section bg), renders instantly, no asset.
           Layer 2: dual videos for seamless cross-fade looping, fade in from
                    opacity 0 once the first frame is ready (deferred load).
           Layer 3: gradient overlays for legibility (mobile vs desktop). */}
@@ -226,7 +226,7 @@ export function Hero({
 
       {/* ── Content ──────────────────────────────────────────────── */}
       <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[80px] sm:pb-[100px] md:pb-[160px]">
-        {/* Giant headline — rendered statically, this is the LCP element */}
+        {/* Giant headline, rendered statically, this is the LCP element */}
         <h1
           className="font-display font-semibold leading-[1.05] md:leading-none text-white"
           style={{
@@ -242,7 +242,7 @@ export function Hero({
           ))}
         </h1>
 
-        {/* Subtitle — static render, no hydration-delayed transform */}
+        {/* Subtitle, static render, no hydration-delayed transform */}
         <p
           className="mt-6 leading-relaxed max-w-[640px] text-left text-[16px] md:text-[18px] text-white/90"
           style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 400 }}
@@ -250,7 +250,7 @@ export function Hero({
           {subtitle}
         </p>
 
-        {/* CTAs — static render */}
+        {/* CTAs, static render */}
         <div className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto mt-6">
           <Button
             variant="secondary"
@@ -273,7 +273,7 @@ export function Hero({
         </div>
       </div>
 
-      {/* ── Scroll down indicator — decorative, below the fold ──── */}
+      {/* ── Scroll down indicator, decorative, below the fold ──── */}
       <div
         className="absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 hero-scroll-hint"
       >

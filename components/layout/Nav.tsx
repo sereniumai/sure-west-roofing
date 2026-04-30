@@ -16,6 +16,7 @@ import {
   Shield,
   Search,
   Sun,
+  Layers,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
@@ -39,16 +40,22 @@ const serviceLinks = [
     Icon: CloudHail,
   },
   {
+    label: 'Roof Inspection',
+    description: 'Catch problems before they get expensive',
+    href: '/roof-inspection',
+    Icon: Search,
+  },
+  {
     label: 'Roof Maintenance',
     description: "Extend your roof's lifespan",
     href: '/roof-maintenance',
     Icon: Shield,
   },
   {
-    label: 'Roof Inspection',
-    description: 'Catch problems before they get expensive',
-    href: '/roof-inspection',
-    Icon: Search,
+    label: 'Siding & Soft Metals',
+    description: 'Siding, eavestroughs, fascia, and soffits',
+    href: '/siding-soft-metals',
+    Icon: Layers,
   },
   {
     label: 'Skylight Installation',
@@ -231,7 +238,7 @@ export function Nav() {
           )}
         </div>
 
-        {/* Desktop CTA — phone + button */}
+        {/* Desktop CTA, phone + button */}
         <div className="hidden lg:flex items-center gap-5">
           <a
             href="tel:+14039907210"
@@ -246,7 +253,7 @@ export function Nav() {
           </Button>
         </div>
 
-        {/* Mobile right side — phone icon + hamburger */}
+        {/* Mobile right side, phone icon + hamburger */}
         <div className="lg:hidden flex items-center gap-1 relative z-10">
           <a
             href="tel:+14039907210"

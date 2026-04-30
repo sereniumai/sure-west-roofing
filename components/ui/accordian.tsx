@@ -8,7 +8,7 @@ export interface AccordianItem {
   id: string
   title: string
   content: ReactNode
-  /** Optional leading element — e.g. a gold "01" numeral or an icon. */
+  /** Optional leading element, e.g. a gold "01" numeral or an icon. */
   leading?: ReactNode
 }
 

@@ -26,7 +26,7 @@ const BottomCTA = dynamic(() =>
 )
 
 // ── Metadata ──────────────────────────────────────────────────────────────────
-// Title: 57 chars — includes primary keyword, within 55-60 target
+// Title: 57 chars, includes primary keyword, within 55-60 target
 export const metadata: Metadata = {
   title: 'Roofing Services in Cochrane, AB',
   description:
@@ -224,7 +224,7 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesFaqSchema) }}
       />
 
-      {/* 1. Hero — split layout, cream bg, single image right */}
+      {/* 1. Hero, split layout, cream bg, single image right */}
       <ServicesHero
         h1={"Roofing Services\nin Cochrane, Alberta"}
         subhead="Red Seal certified roofing for replacement, repair, hail damage, maintenance, inspections, and skylights. Serving homeowners across Cochrane, Calgary, and Canmore."
@@ -232,22 +232,22 @@ export default function ServicesPage() {
         secondaryCTA={{ label: 'Call 403-990-7210', href: 'tel:+14039907210' }}
       />
 
-      {/* 2. Stats + Certifications — immediately after hero, matches homepage order */}
+      {/* 2. Stats + Certifications, immediately after hero, matches homepage order */}
       <TrustLogos />
 
-      {/* 3. Services grid — expanded 40-60 word cards with learn-more links */}
+      {/* 3. Services grid, expanded 40-60 word cards with learn-more links */}
       <ServicesHubGrid />
 
-      {/* 5. Why Sure West — 4-col differentiator block */}
+      {/* 5. Why Sure West, 4-col differentiator block */}
       <ServicesHubDifferentiators />
 
       {/* 6. 3-step process */}
       <HowItWorks />
 
-      {/* 7. Gallery — split layout, image right, scrollable */}
+      {/* 7. Gallery, split layout, image right, scrollable */}
       <ServicesGallery />
 
-      {/* 8. Service area block — Cochrane, Calgary, Canmore */}
+      {/* 8. Service area block, Cochrane, Calgary, Canmore */}
       <section
         className="relative overflow-hidden py-20 md:py-24"
         style={{
@@ -345,7 +345,7 @@ export default function ServicesPage() {
       {/* 9. Testimonials */}
       <Reviews />
 
-      {/* 10. FAQ — 8 questions, FAQPage schema injected by ServicesFAQ */}
+      {/* 10. FAQ, 8 questions, FAQPage schema injected by ServicesFAQ */}
       <ServicesFAQ />
 
       {/* 11. Final CTA */}

@@ -13,6 +13,7 @@ import {
   ClipboardCheck,
   ScanSearch,
   Sun,
+  Layers,
 } from 'lucide-react'
 
 const ALL_SERVICES = [
@@ -20,7 +21,7 @@ const ALL_SERVICES = [
     Icon: Hammer,
     title: 'Roof Replacement',
     href: '/roof-replacement',
-    image: '/images/Roof Replacement Cochrane.avif',
+    image: '/images/roof-replacement-cochrane.webp',
     imageAlt: 'Roof replacement in Cochrane Alberta by Sure West Roofing',
     description:
       'Full tear-off and re-roof using IKO shingles and premium underlayment built for Alberta climate. Most jobs finished in one to three days, property left clean.',
@@ -29,43 +30,52 @@ const ALL_SERVICES = [
     Icon: Wrench,
     title: 'Roof Repair',
     href: '/roof-repair',
-    image: '/images/Roof Repair Cochrane.avif',
+    image: '/images/roof-repairs-cochrane.webp',
     imageAlt: 'Roof repair in Cochrane Alberta by Sure West Roofing',
     description:
-      'Missing shingles, active leaks, flashing failures, and ice dam damage — fixed by Red Seal certified trades with a written warranty on every repair.',
+      'Missing shingles, active leaks, flashing failures, and ice dam damage. All fixed by Red Seal certified trades with a written warranty on every repair.',
   },
   {
     Icon: CloudHail,
     title: 'Hail Damage Repair',
     href: '/hail-damage-repair',
-    image: '/images/Roof Repair Cochrane.avif',
+    image: '/images/hail-damage-repair.webp',
     imageAlt: 'Hail damage roof repair in Cochrane Alberta by Sure West Roofing',
     description:
       'Free post-storm assessment with full damage documentation, so you have what you need to file with your insurer. No out-of-pocket cost for the assessment.',
   },
   {
-    Icon: ClipboardCheck,
-    title: 'Roof Maintenance',
-    href: '/roof-maintenance',
-    image: '/images/Roof Replacement Cochrane.avif',
-    imageAlt: 'Roof maintenance in Cochrane Alberta by Sure West Roofing',
-    description:
-      'Annual inspections, flashing checks, debris clearing, and minor repairs caught before they escalate. The lowest-cost way to protect your roof.',
-  },
-  {
     Icon: ScanSearch,
     title: 'Roof Inspection',
     href: '/roof-inspection',
-    image: '/images/Roof Inspection Cochrane.avif',
+    image: '/images/roof-inspection-cochrane.webp',
     imageAlt: 'Roof inspection in Cochrane Alberta by Sure West Roofing',
     description:
       'Full inspection of shingles, flashing, vents, gutters, and attic. You get a written photo report so you know exactly where you stand.',
   },
   {
+    Icon: ClipboardCheck,
+    title: 'Roof Maintenance',
+    href: '/roof-maintenance',
+    image: '/images/roof-maintenance-cochrane.webp',
+    imageAlt: 'Roof maintenance in Cochrane Alberta by Sure West Roofing',
+    description:
+      'Annual inspections, flashing checks, debris clearing, and minor repairs caught before they escalate. The lowest-cost way to protect your roof.',
+  },
+  {
+    Icon: Layers,
+    title: 'Siding & Soft Metals',
+    href: '/siding-soft-metals',
+    image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
+    imageAlt: 'Siding and soft metals project in Cochrane Alberta by Sure West Roofing',
+    description:
+      'Siding installation, eavestroughs, fascia, soffit, and metal flashing. Premium materials matched to Alberta weather, finished by the same Red Seal crew that does our roofs.',
+  },
+  {
     Icon: Sun,
     title: 'Skylight Installation',
     href: '/skylight-installation',
-    image: '/images/Roof Installation Cochrane.avif',
+    image: '/images/skylight-installation-cochrane.webp',
     imageAlt: 'Skylight installation in Cochrane Alberta by Sure West Roofing',
     description:
       'New installs and replacements with proper flashing and waterproofing to manufacturer spec. Most skylight jobs are completed in a single day.',
@@ -73,7 +83,7 @@ const ALL_SERVICES = [
 ]
 
 interface Props {
-  /** href of the current page's service — excluded from the carousel */
+  /** href of the current page's service, excluded from the carousel */
   exclude?: string
 }
 
@@ -123,7 +133,7 @@ export function RelatedServicesCarousel({ exclude }: Props) {
           >
             <div className="flex flex-col h-full rounded-[12px] bg-white border border-brand-border overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[6px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
               {/* Image */}
-              <div className="relative h-[180px] sm:h-[200px] overflow-hidden flex-shrink-0">
+              <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">
                 <Image
                   src={image}
                   alt={imageAlt}

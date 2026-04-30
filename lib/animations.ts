@@ -5,11 +5,11 @@ import type { Variants, Transition } from 'framer-motion'
  * All scroll-triggered animations should use these constants for consistency.
  *
  * Reduced motion: handled globally via <MotionConfig reducedMotion="user">
- * wrapped around <main> in app/layout.tsx — no per-component work needed.
+ * wrapped around <main> in app/layout.tsx, no per-component work needed.
  */
 
 // ─── Easing ──────────────────────────────────────────────────
-// ease-out-expo — gentle, premium deceleration
+// ease-out-expo, gentle, premium deceleration
 export const EASE_OUT = [0.22, 1, 0.36, 1] as const
 
 // ─── Viewport settings ───────────────────────────────────────

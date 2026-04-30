@@ -94,7 +94,7 @@ export function ParallaxImageStrip({
       ref={ref}
       className="relative overflow-visible z-[2] h-[150px] md:h-[450px]"
     >
-      {/* Outer positioner — full-bleed absolute; inner caps at the Hero's
+      {/* Outer positioner, full-bleed absolute; inner caps at the Hero's
           1320px container so the strip lines up with the headline above. */}
       <div
         className="absolute left-0 right-0 top-[-80px] md:top-[-200px] h-auto md:h-[650px]"

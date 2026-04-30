@@ -25,7 +25,7 @@ export function BrandStrip() {
           Our Philosophy
         </span>
 
-        {/* Display heading — image clipped to text shape.
+        {/* Display heading, image clipped to text shape.
             Mobile: wraps to two lines via the hidden-on-sm <br> so the image
             flows top-to-bottom across both. sm+ stays on one line. */}
         <h2

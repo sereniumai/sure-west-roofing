@@ -7,7 +7,7 @@ import { Reveal } from '@/components/ui/Reveal'
 interface PortfolioImage {
   src: string
   alt: string
-  /** Legacy field — unused here but kept for back-compat with page.tsx */
+  /** Legacy field, unused here but kept for back-compat with page.tsx */
   objectPosition?: string
 }
 
@@ -40,7 +40,7 @@ export function PortfolioCarousel({
       className="relative bg-white overflow-x-clip py-20 md:py-24"
       aria-label="Portfolio gallery"
     >
-      {/* Paper-grain background — same recipe as sibling sections */}
+      {/* Paper-grain background, same recipe as sibling sections */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-[0.55]"

@@ -19,7 +19,7 @@ const DIFFERENTIATORS = [
   {
     Icon: ShieldCheck,
     heading: '10-Year Workmanship Warranty',
-    body: 'Every roof replacement comes with a 10-year workmanship warranty in writing before we leave the job site — on top of the IKO material warranty. Two layers of documented protection.',
+    body: 'Every roof replacement comes with a 10-year workmanship warranty in writing before we leave the job site, on top of the IKO material warranty. Two layers of documented protection.',
   },
 ]
 
