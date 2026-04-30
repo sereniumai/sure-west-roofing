@@ -234,18 +234,15 @@ export default function ServicesPage() {
       {/* 2. Stats + Certifications, immediately after hero, matches homepage order */}
       <TrustLogos />
 
-      {/* 3. Services grid, expanded 40-60 word cards with learn-more links */}
+      {/* 3. Services grid, featured spotlight + 6-card grid */}
       <ServicesHubGrid />
 
-      {/* 5. Why Sure West, 4-col differentiator block */}
-      <ServicesHubDifferentiators />
+      {/* 4. Reviews, immediate social proof to validate the services list */}
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
 
-      {/* 6. 3-step process */}
-      <HowItWorks />
-
-      {/* 7. Gallery, big-image carousel matching About page */}
+      {/* 5. Gallery, paired with reviews to keep the proof block tight */}
       <PortfolioGallery
-        sectionBg="#FFFFFF"
+        sectionBg="#F7F5F0"
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 5.webp', alt: 'Cochrane roof replacement by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Cochrane roof installation by Sure West Roofing' },
@@ -259,6 +256,12 @@ export default function ServicesPage() {
           { src: '/images/Cochrane Roofing Contractor Gallery 6.webp', alt: 'Cochrane shingle roof completed by Sure West Roofing' },
         ]}
       />
+
+      {/* 6. Why Sure West, 4 differentiators primed by the proof block above */}
+      <ServicesHubDifferentiators />
+
+      {/* 7. How It Works, rational close before geographic relevance */}
+      <HowItWorks />
 
       {/* 8. Service Areas, multi-layer pin design matching About page */}
       <section
@@ -409,13 +412,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* 9. Testimonials */}
-      <Reviews />
-
-      {/* 10. FAQ, 8 questions, FAQPage schema injected by ServicesFAQ */}
+      {/* 9. FAQ, 8 questions, FAQPage schema injected by ServicesFAQ */}
       <ServicesFAQ />
 
-      {/* 11. Final CTA */}
+      {/* 10. Final CTA */}
       <BottomCTA
         heading={
           <>
