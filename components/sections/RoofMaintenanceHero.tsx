@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 export function RoofMaintenanceHero() {
   return (
@@ -9,6 +10,7 @@ export function RoofMaintenanceHero() {
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
+        <Reveal>
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol className="flex items-center gap-2"
             style={{ fontSize: '13px', fontFamily: 'var(--font-inter), system-ui, sans-serif', color: 'var(--brand-slate, #4D6A87)' }}>
@@ -19,10 +21,11 @@ export function RoofMaintenanceHero() {
             <li className="text-brand-navy font-medium" aria-current="page">Roof Maintenance</li>
           </ol>
         </nav>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Image LEFT on desktop */}
-          <div className="relative mt-8 lg:mt-0 lg:order-1 order-2">
+          <Reveal delay={250} noBlur className="relative mt-8 lg:mt-0 lg:order-1 order-2">
             <div aria-hidden="true" className="absolute inset-0 rounded-[22px]"
               style={{ border: '1px solid rgba(212,175,96,0.4)', transform: 'translate(-10px, 12px)', zIndex: -1 }} />
             <div className="relative overflow-hidden rounded-[18px]"
@@ -55,34 +58,43 @@ export function RoofMaintenanceHero() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
 
           {/* Content RIGHT on desktop */}
           <div className="lg:order-2 order-1">
+            <Reveal delay={80}>
             <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
               Cochrane&apos;s Roof Maintenance Specialists
             </span>
+            </Reveal>
 
+            <Reveal delay={180}>
             <h1 className="font-display font-semibold text-brand-navy"
               style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.03em' }}>
               Roof Maintenance in
               <br />
               Cochrane, Alberta
             </h1>
+            </Reveal>
 
+            <Reveal delay={300}>
             <p className="mt-5 text-brand-slate leading-[1.65] max-w-[480px]"
               style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
               Red Seal certified roof maintenance for Cochrane, Calgary, and Canmore. Annual
               inspections, preventative tune-ups, and warranty-extending care. Add years to your
               roof at a fixed price.
             </p>
+            </Reveal>
 
+            <Reveal delay={420}>
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
               <Button variant="outline" size="lg" href="tel:4039907210">Call 403-990-7210</Button>
             </div>
+            </Reveal>
 
+            <Reveal delay={540}>
             <div className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
               style={{ fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 500, color: 'var(--brand-slate, #4D6A87)', letterSpacing: '0.07em', textTransform: 'uppercase' }}>
               <span>Red Seal Certified</span>
@@ -91,6 +103,7 @@ export function RoofMaintenanceHero() {
               <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
               <span>Written Maintenance Log</span>
             </div>
+            </Reveal>
           </div>
         </div>
       </div>

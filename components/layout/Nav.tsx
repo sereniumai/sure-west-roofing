@@ -175,52 +175,64 @@ export function Nav() {
                       : 'opacity-0 invisible -translate-y-2'
                   }`}
                 >
-                  <div className="bg-white rounded-[12px] shadow-[0_10px_30px_rgba(44,71,102,0.12)] w-[720px] p-6">
-                    <div className="grid grid-cols-2 gap-2">
+                  <div className="bg-brand-cream rounded-[14px] shadow-[0_2px_4px_rgba(44,71,102,0.06),0_12px_40px_-8px_rgba(44,71,102,0.18),0_40px_100px_-20px_rgba(44,71,102,0.22)] w-[940px] p-6">
+                    <div className="grid grid-cols-3 gap-2">
                       {serviceLinks.map((service) => {
                         const { Icon } = service
                         return (
                           <Link
                             key={service.href}
                             href={service.href}
-                            className="group relative p-4 rounded-[8px] transition-all duration-200 hover:bg-brand-cream"
+                            className="group relative p-4 rounded-[10px] transition-all duration-300 hover:bg-white hover:shadow-[0_2px_8px_rgba(44,71,102,0.06),0_8px_22px_-10px_rgba(44,71,102,0.14)]"
                             onClick={() => setServicesOpen(false)}
                           >
                             <Icon
-                              className="w-6 h-6 text-brand-gold mb-4"
-                              strokeWidth={1.5}
+                              className="w-5 h-5 text-brand-gold mb-3 transition-transform duration-300 ease-out group-hover:scale-110 group-hover:rotate-[-6deg]"
+                              strokeWidth={1.75}
                             />
-                            <p className="font-display font-semibold text-brand-navy text-[20px] leading-tight tracking-tight">
+                            <p className="font-display font-semibold text-brand-navy text-[17px] leading-[1.2] tracking-tight transition-colors duration-200 group-hover:text-brand-gold">
                               {service.label}
                             </p>
                             <p
-                              className="text-brand-slate mt-1 truncate"
-                              style={{ fontSize: '14px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+                              className="text-brand-slate mt-1 leading-[1.45]"
+                              style={{ fontSize: '12.5px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
                             >
                               {service.description}
                             </p>
-                            <ArrowRight className="w-4 h-4 text-brand-gold absolute right-4 top-1/2 -translate-y-1/2 translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
+                            <ArrowRight className="w-3.5 h-3.5 text-brand-gold absolute right-3 top-4 -translate-x-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                           </Link>
                         )
                       })}
-                    </div>
 
-                    {/* Bottom row */}
-                    <div className="mt-4 pt-4 border-t border-brand-border flex items-center justify-between">
-                      <p
-                        className="text-brand-navy uppercase tracking-[0.1em]"
-                        style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
-                      >
-                        Not sure what you need?
-                      </p>
+                      {/* 8th cell, spans 2 cols. Soft CTA, weighted to match a service card. */}
                       <Link
                         href="/free-roof-estimate-cochrane"
                         onClick={() => setServicesOpen(false)}
-                        className="inline-flex items-center gap-1.5 text-brand-gold uppercase tracking-[0.1em] hover:underline hover:underline-offset-2 transition-all duration-200"
-                        style={{ fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
+                        className="group relative col-span-2 p-4 rounded-[10px] flex items-center justify-between gap-4 bg-white transition-all duration-300 hover:shadow-[0_2px_8px_rgba(44,71,102,0.06),0_8px_22px_-10px_rgba(44,71,102,0.14)]"
+                        style={{
+                          border: '1px solid rgba(212,175,96,0.30)',
+                        }}
                       >
-                        Contact us
-                        <ArrowRight className="w-3.5 h-3.5" />
+                        <div>
+                          <p className="font-display font-semibold text-brand-navy text-[17px] leading-[1.2] tracking-tight transition-colors duration-200 group-hover:text-brand-gold">
+                            Not sure what you need?
+                          </p>
+                          <p
+                            className="text-brand-slate mt-1 leading-[1.45]"
+                            style={{ fontSize: '12.5px', fontFamily: "var(--font-inter), system-ui, sans-serif" }}
+                          >
+                            Talk to a Red Seal roofer. Free written quote, no pressure.
+                          </p>
+                        </div>
+                        <span
+                          className="flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-brand-cream transition-all duration-300 ease-out group-hover:scale-110 group-hover:bg-brand-gold"
+                          style={{
+                            boxShadow: '0 1px 3px rgba(44,71,102,0.08), 0 8px 18px -8px rgba(212,175,96,0.40)',
+                            border: '1px solid rgba(212,175,96,0.30)',
+                          }}
+                        >
+                          <ArrowRight className="w-4 h-4 text-brand-gold transition-colors duration-300 group-hover:text-white" strokeWidth={2} />
+                        </span>
                       </Link>
                     </div>
                   </div>
@@ -245,7 +257,7 @@ export function Nav() {
             className={`inline-flex items-center gap-2 transition-colors duration-200 hover:text-brand-gold ${textColor}`}
             style={{ fontSize: '15px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
           >
-            <Phone className="w-4 h-4" strokeWidth={1.5} />
+            <Phone className="w-4 h-4" strokeWidth={1.75} />
             <span>(403) 990-7210</span>
           </a>
           <Button href="/free-roof-estimate-cochrane" variant="secondary" size="sm">
@@ -262,7 +274,7 @@ export function Nav() {
             }`}
             aria-label="Call Sure West Roofing"
           >
-            <Phone className="w-5 h-5" strokeWidth={1.5} />
+            <Phone className="w-5 h-5" strokeWidth={1.75} />
             <span
               className="hidden md:inline"
               style={{ fontSize: '14px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 500 }}
@@ -332,7 +344,7 @@ export function Nav() {
                         className="flex items-center gap-3 py-3 pl-4 text-base text-brand-slate hover:text-brand-gold transition-colors"
                         onClick={() => setMobileOpen(false)}
                       >
-                        <Icon className="w-5 h-5 text-brand-gold flex-shrink-0" strokeWidth={1.5} />
+                        <Icon className="w-5 h-5 text-brand-gold flex-shrink-0" strokeWidth={1.75} />
                         {service.label}
                       </Link>
                     )
@@ -356,7 +368,7 @@ export function Nav() {
             href="tel:+14039907210"
             className="py-4 text-lg text-brand-navy font-semibold tracking-wider border-b border-brand-border inline-flex items-center gap-2.5"
           >
-            <Phone className="w-5 h-5" strokeWidth={1.5} />
+            <Phone className="w-5 h-5" strokeWidth={1.75} />
             (403) 990-7210
           </a>
 

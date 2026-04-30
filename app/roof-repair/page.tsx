@@ -192,7 +192,7 @@ const REPAIR_INCLUDED_ITEMS = [
 function WhatIncluded() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -299,7 +299,7 @@ const SIGNS = [
 function SignsYouNeed() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -356,7 +356,7 @@ function SignsYouNeed() {
                 className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-4"
                 style={{ background: 'rgba(212,175,96,0.10)' }}
               >
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
               <h3
                 className="font-display font-semibold text-brand-navy mb-2 leading-[1.25]"
@@ -420,7 +420,7 @@ const PROCESS_STEPS = [
 function RepairProcess() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -547,7 +547,7 @@ const REPAIR_TYPES = [
 function RepairTypes() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -673,7 +673,7 @@ const DIFFERENTIATORS = [
 function WhySureWest() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -691,7 +691,7 @@ function WhySureWest() {
             Why Sure West
           </span>
           <h2
-            className="font-display font-semibold text-brand-navy"
+            className="font-display font-medium text-brand-navy"
             style={{
               fontSize: 'clamp(32px, 4.5vw, 48px)',
               lineHeight: 1.15,
@@ -730,7 +730,7 @@ function WhySureWest() {
                 className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
                 style={{ background: 'rgba(212,175,96,0.12)' }}
               >
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
               <h3
                 className="font-display font-semibold text-brand-navy mb-3 leading-[1.25]"
@@ -809,7 +809,7 @@ function ServiceAreaCondensed() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 max-w-[1060px] mx-auto">
           {LOCATIONS.map(({ name, href, detail, buttonLabel }) => (
             <div key={name} className="flex flex-col items-center text-center">
-              <MapPin className="w-12 h-12 text-brand-gold mb-5" strokeWidth={1.5} />
+              <MapPin className="w-12 h-12 text-brand-gold mb-5" strokeWidth={1.75} />
               <h3
                 className="font-display font-semibold text-brand-navy leading-[1.05]"
                 style={{ fontSize: 'clamp(32px, 3.5vw, 44px)', letterSpacing: '-0.02em' }}
@@ -934,8 +934,8 @@ export default function RoofRepairPage() {
       <RepairProcess />
       <RepairTypes />
       <WhySureWest />
-      <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#F7F5F0" />
-      <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
+      <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#FFFFFF" />
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
       <ServiceAreaCondensed />
       <RoofRepairFAQ />
       <RelatedServices />

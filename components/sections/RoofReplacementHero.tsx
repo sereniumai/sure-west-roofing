@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 export function RoofReplacementHero() {
   return (
@@ -10,6 +11,7 @@ export function RoofReplacementHero() {
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Breadcrumb */}
+        <Reveal>
         <nav aria-label="Breadcrumb" className="mb-8">
           <ol
             className="flex items-center gap-2"
@@ -36,10 +38,12 @@ export function RoofReplacementHero() {
             </li>
           </ol>
         </nav>
+        </Reveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: text content */}
           <div>
+            <Reveal delay={80}>
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -52,7 +56,9 @@ export function RoofReplacementHero() {
             >
               Cochrane&apos;s Trusted Roof Replacement Contractor
             </span>
+            </Reveal>
 
+            <Reveal delay={180}>
             <h1
               className="font-display font-semibold text-brand-navy"
               style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', lineHeight: 1.08, letterSpacing: '-0.03em' }}
@@ -61,7 +67,9 @@ export function RoofReplacementHero() {
               <br />
               Cochrane, Alberta
             </h1>
+            </Reveal>
 
+            <Reveal delay={300}>
             <p
               className="mt-5 text-brand-slate leading-[1.65] max-w-[480px]"
               style={{
@@ -74,7 +82,9 @@ export function RoofReplacementHero() {
               quotes, real warranties, no subcontractors. We pride ourselves on getting back to
               you quickly.
             </p>
+            </Reveal>
 
+            <Reveal delay={420}>
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
                 Get a Free Estimate
@@ -83,7 +93,9 @@ export function RoofReplacementHero() {
                 Call 403-990-7210
               </Button>
             </div>
+            </Reveal>
 
+            <Reveal delay={540}>
             {/* Trust strip */}
             <div
               className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
@@ -102,10 +114,11 @@ export function RoofReplacementHero() {
               <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
               <span>IKO Certified</span>
             </div>
+            </Reveal>
           </div>
 
           {/* Right: hero image */}
-          <div className="relative mt-8 lg:mt-0">
+          <Reveal delay={250} noBlur className="relative mt-8 lg:mt-0">
             {/* Offset gold frame */}
             <div
               aria-hidden="true"
@@ -179,7 +192,7 @@ export function RoofReplacementHero() {
                 </div>
               ))}
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

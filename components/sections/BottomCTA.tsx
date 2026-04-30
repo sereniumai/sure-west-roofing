@@ -19,6 +19,7 @@ interface BottomCTAProps {
   primaryCTA?: CTA
   secondaryCTA?: CTA
   stats?: Stat[]
+  sectionBg?: string
 }
 
 const DEFAULT_STATS: Stat[] = [
@@ -33,12 +34,14 @@ export function BottomCTA({
   primaryCTA = { label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' },
   secondaryCTA = { label: 'Call 403-990-7210', href: 'tel:+14039907210' },
   stats = DEFAULT_STATS,
+  sectionBg = '#F7F5F0',
 }: BottomCTAProps) {
   return (
     <section
       id="contact-cta"
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-28"
+      className="relative overflow-hidden py-20 md:py-28"
       style={{
+        background: sectionBg,
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}

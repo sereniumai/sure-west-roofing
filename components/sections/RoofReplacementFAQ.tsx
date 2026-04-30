@@ -9,7 +9,7 @@ const FAQS = [
   {
     question: 'How much does a new roof cost in Cochrane, Alberta?',
     answer:
-      'A typical asphalt shingle roof replacement in Cochrane costs between $8,000 and $18,000, with most 2,000 sq ft homes landing between $11,000 and $14,000. The final price depends on roof size, pitch, shingle tier (IKO Cambridge, Dynasty, or Nordic), whether decking needs replacement, and the complexity of flashing and valleys. Sure West gives every Cochrane homeowner a fixed written quote after an in-home inspection, so the number you see is the number you pay.',
+      'A typical asphalt shingle roof replacement in Cochrane costs between $8,000 and $18,000, with most 2,000 sq ft homes landing between $11,000 and $14,000.\n\nThe final price depends on roof size, pitch, shingle tier (IKO Cambridge, Dynasty, or Nordic), whether decking needs replacement, and the complexity of flashing and valleys.\n\nSure West gives every Cochrane homeowner a fixed written quote after an in-home inspection, so the number you see is the number you pay.',
   },
   {
     question: 'How long does a roof replacement take in Cochrane?',
@@ -19,12 +19,12 @@ const FAQS = [
   {
     question: 'What are the signs my roof needs replacing, not just repairing?',
     answer:
-      "Clear signs you need a full roof replacement in Cochrane include shingles older than 20 years, curling or buckling across large sections, widespread granule loss, sagging decking, repeated leaks in multiple spots, and significant hail damage confirmed by an adjuster. If damage is localized and your roof is under 15 years old, roof repair is usually the smarter call. We will tell you honestly which one you need, including when you don't need us at all.",
+      "Clear signs you need a full roof replacement in Cochrane include shingles older than 20 years, curling or buckling across large sections, widespread granule loss, sagging decking, repeated leaks in multiple spots, and significant hail damage confirmed by an adjuster.\n\nIf damage is localized and your roof is under 15 years old, roof repair is usually the smarter call. We will tell you honestly which one you need, including when you don't need us at all.",
   },
   {
     question: 'What warranty do I get on a roof replacement from Sure West?',
     answer:
-      "Every Sure West roof replacement in Cochrane comes with two warranties: a manufacturer warranty from IKO covering the shingles themselves (up to lifetime limited, depending on tier), and a workmanship warranty from Sure West covering the installation. Because Sure West is a Red Seal certified contractor installing IKO products to spec, your shingles qualify for the top-tier manufacturer coverage that many non-certified installers can't offer.",
+      "Every Sure West roof replacement in Cochrane comes with two warranties: a manufacturer warranty from IKO covering the shingles themselves (up to lifetime limited, depending on tier), and a workmanship warranty from Sure West covering the installation.\n\nBecause Sure West is a Red Seal certified contractor installing IKO products to spec, your shingles qualify for the top-tier manufacturer coverage that many non-certified installers can't offer.",
   },
   {
     question: 'Do I need to replace my roof after hail damage in Cochrane?',
@@ -34,7 +34,7 @@ const FAQS = [
   {
     question: 'When is the best time of year to replace a roof in Cochrane?',
     answer:
-      'The best time to replace a roof in Cochrane is late April through October, when temperatures stay consistently above 5°C and shingles seal properly. Spring and early summer are peak booking season, with slots often filling 4 to 6 weeks out, especially after hail events. September and October are ideal for pre-winter installs before snow arrives. We do not install in deep cold because asphalt shingles will not seal correctly below 5°C.',
+      'The best time to replace a roof in Cochrane is late April through October, when temperatures stay consistently above 5°C and shingles seal properly.\n\nSpring and early summer are peak booking season, with slots often filling 4 to 6 weeks out, especially after hail events. September and October are ideal for pre-winter installs before snow arrives.\n\nWe do not install in deep cold because asphalt shingles will not seal correctly below 5°C.',
   },
   {
     question: 'Can I finance a roof replacement in Alberta?',
@@ -149,14 +149,16 @@ export function RoofReplacementFAQ() {
                     {isOpen && (
                       <div className="overflow-hidden">
                         <div
-                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6]"
+                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6] space-y-4"
                           style={{
                             fontSize: '15px',
                             fontFamily: 'var(--font-inter), system-ui, sans-serif',
                             fontWeight: 400,
                           }}
                         >
-                          {faq.answer}
+                          {faq.answer.split(/\n\n+/).map((para, pi) => (
+                            <p key={pi}>{para.trim()}</p>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -177,8 +179,7 @@ export function RoofReplacementFAQ() {
           Have a question not listed here?{' '}
           <Link
             href="/free-roof-estimate-cochrane"
-            className="font-semibold text-brand-navy hover:text-brand-gold transition-colors"
-            style={{ textDecoration: 'underline', textUnderlineOffset: '3px' }}
+            className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
           >
             Contact Sure West
           </Link>

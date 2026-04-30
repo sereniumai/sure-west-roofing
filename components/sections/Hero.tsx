@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface HeroProps {
   h1: string
@@ -226,7 +227,7 @@ export function Hero({
 
       {/* ── Content ──────────────────────────────────────────────── */}
       <div className="relative z-10 w-full max-w-[1320px] mx-auto pt-[100px] sm:pt-[120px] md:pt-[140px] pb-[80px] sm:pb-[100px] md:pb-[160px]">
-        {/* Giant headline, rendered statically, this is the LCP element */}
+        <Reveal delay={120} noBlur>
         <h1
           className="font-display font-semibold leading-[1.05] md:leading-none text-white"
           style={{
@@ -241,16 +242,18 @@ export function Hero({
             </span>
           ))}
         </h1>
+        </Reveal>
 
-        {/* Subtitle, static render, no hydration-delayed transform */}
+        <Reveal delay={260}>
         <p
           className="mt-6 leading-relaxed max-w-[640px] text-left text-[16px] md:text-[18px] text-white/90"
           style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 400 }}
         >
           {subtitle}
         </p>
+        </Reveal>
 
-        {/* CTAs, static render */}
+        <Reveal delay={400}>
         <div className="flex flex-row flex-nowrap items-center gap-2 sm:gap-4 w-full lg:w-auto mt-6">
           <Button
             variant="secondary"
@@ -271,6 +274,7 @@ export function Hero({
             </Button>
           )}
         </div>
+        </Reveal>
       </div>
 
       {/* ── Scroll down indicator, decorative, below the fold ──── */}

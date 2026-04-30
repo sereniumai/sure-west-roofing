@@ -78,7 +78,7 @@ function ServiceCard({ service }: { service: ServiceCardItem }) {
       <div className="flex flex-col flex-1 p-5 md:p-6">
         {/* Heading row */}
         <div className="flex items-center gap-3 mb-3">
-          <Icon className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold" strokeWidth={1.5} />
+          <Icon className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold" strokeWidth={1.75} />
           <h3
             className="font-display font-semibold text-brand-navy leading-[1.25] flex-1"
             style={{ fontSize: '22px', letterSpacing: '-0.02em' }}

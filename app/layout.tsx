@@ -115,7 +115,8 @@ export default function RootLayout({
                 var ALLOWED_PATHS = [
                   '/',
                   '/calgary-roofing-contractor',
-                  '/canmore-roofing-contractor'
+                  '/canmore-roofing-contractor',
+                  '/about'
                 ];
                 document.addEventListener('click', function(e){
                   var t = e.target;

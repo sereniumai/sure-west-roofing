@@ -65,10 +65,10 @@ export function ServicesGallery({ images, sectionBg }: Props) {
             </span>
 
             <h2
-              className="font-display font-semibold text-brand-navy"
+              className="font-display font-medium text-brand-navy"
               style={{
-                fontSize: 'clamp(28px, 3vw, 42px)',
-                lineHeight: 1.12,
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
                 letterSpacing: '-0.005em',
               }}
             >

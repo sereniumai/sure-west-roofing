@@ -187,21 +187,21 @@ const AREAS = [
     description:
       'Sure West Roofing is based in Cochrane, Alberta, and this is our primary service area. From Sunset Ridge to Heritage Hills, we know the local weather patterns and building styles that matter for every roofing decision here.',
     href: '/free-roof-estimate-cochrane',
-    linkText: 'Get a free estimate in Cochrane',
+    linkText: 'Get a Free Estimate in Cochrane',
   },
   {
     name: 'Calgary',
     description:
       'We bring the same Red Seal certified standard to Calgary as we deliver in Cochrane. Whether you are in the northwest suburbs or across the city, our crew travels to complete roofing services in Calgary including replacement, repair, hail damage, and inspections.',
     href: '/calgary-roofing-contractor',
-    linkText: 'Calgary roofing services',
+    linkText: 'Calgary Roofing Services',
   },
   {
     name: 'Canmore',
     description:
       "Canmore's mountain climate is demanding on roofs. Steep pitches, heavy snow loads, and Chinook wind uplift require specific material choices and installation methods. Our team has the local knowledge to build roofs that last here.",
     href: '/canmore-roofing-contractor',
-    linkText: 'Canmore roofing services',
+    linkText: 'Canmore Roofing Services',
   },
 ]
 
@@ -272,7 +272,7 @@ export default function ServicesPage() {
               Service Areas
             </span>
             <h2
-              className="font-display font-semibold text-brand-navy"
+              className="font-display font-medium text-brand-navy"
               style={{
                 fontSize: 'clamp(32px, 4.5vw, 48px)',
                 lineHeight: 1.15,
@@ -306,7 +306,7 @@ export default function ServicesPage() {
                   className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
                   style={{ background: 'rgba(212,175,96,0.10)' }}
                 >
-                  <MapPin className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+                  <MapPin className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
                 </div>
                 <h3
                   className="font-display font-semibold text-brand-navy mb-3"

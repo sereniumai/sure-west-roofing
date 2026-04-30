@@ -74,7 +74,7 @@ const nextConfig = {
       { source: '/services/roof-inspection/cochrane',       destination: '/roof-inspection',    permanent: true },
       { source: '/services/skylight-installation/cochrane', destination: '/skylight-installation', permanent: true },
 
-      // WordPress legacy URLs (from Yoast sitemap_index.xml) — preserve SEO equity on cutover
+      // WordPress legacy URLs (from Yoast sitemap_index.xml). Preserve SEO equity on cutover.
       // Contact / estimate
       { source: '/contact',     destination: '/free-roof-estimate-cochrane', permanent: true },
       { source: '/contact/',    destination: '/free-roof-estimate-cochrane', permanent: true },

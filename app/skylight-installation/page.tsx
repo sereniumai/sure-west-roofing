@@ -154,7 +154,7 @@ const SKYLIGHT_INCLUDED_ITEMS = [
 
 function WhatIncluded() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24"
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
@@ -203,7 +203,7 @@ const SIGNS = [
 
 function SignsYouNeed() {
   return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+    <section className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
@@ -231,7 +231,7 @@ function SignsYouNeed() {
           {SIGNS.map(({ Icon, heading, body }) => (
             <div key={heading} className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
               <div className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-4" style={{ background: 'rgba(212,175,96,0.10)' }}>
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
               <h3 className="font-display font-semibold text-brand-navy mb-2 leading-[1.25]" style={{ fontSize: '19px', letterSpacing: '-0.01em' }}>{heading}</h3>
               <p className="text-brand-slate leading-[1.65]" style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{body}</p>
@@ -253,7 +253,7 @@ const PROCESS_STEPS = [
 
 function SkylightProcess() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24"
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
@@ -303,7 +303,7 @@ const SKYLIGHT_TYPES = [
 
 function SkylightTypes() {
   return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+    <section className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
@@ -355,14 +355,14 @@ const DIFFERENTIATORS = [
 
 function WhySureWest() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
             Why Sure West
           </span>
-          <h2 className="font-display font-semibold text-brand-navy" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
+          <h2 className="font-display font-medium text-brand-navy" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
             Why Cochrane Homeowners
             <br />
             Trust Sure West for Skylights
@@ -379,7 +379,7 @@ function WhySureWest() {
           {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
             <div key={heading} className="bg-brand-cream rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
               <div className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5" style={{ background: 'rgba(212,175,96,0.12)' }}>
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
               <h3 className="font-display font-semibold text-brand-navy mb-3 leading-[1.25]" style={{ fontSize: '20px', letterSpacing: '-0.01em' }}>{heading}</h3>
               <p className="text-brand-slate leading-[1.65]" style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{body}</p>
@@ -417,7 +417,7 @@ function ServiceAreaCondensed() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 max-w-[1060px] mx-auto">
           {LOCATIONS.map(({ name, href, detail, buttonLabel }) => (
             <div key={name} className="flex flex-col items-center text-center">
-              <MapPin className="w-12 h-12 text-brand-gold mb-5" strokeWidth={1.5} />
+              <MapPin className="w-12 h-12 text-brand-gold mb-5" strokeWidth={1.75} />
               <h3 className="font-display font-semibold text-brand-navy leading-[1.05]" style={{ fontSize: 'clamp(32px, 3.5vw, 44px)', letterSpacing: '-0.02em' }}>{name}</h3>
               <p className="mt-3 max-w-[260px] text-brand-slate leading-[1.6]" style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{detail}</p>
               <div className="mt-6">
@@ -485,8 +485,8 @@ export default function SkylightInstallationPage() {
       <SkylightProcess />
       <SkylightTypes />
       <WhySureWest />
-      <ServicesGallery images={SKYLIGHT_GALLERY_IMAGES} sectionBg="#F7F5F0" />
-      <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
+      <ServicesGallery images={SKYLIGHT_GALLERY_IMAGES} sectionBg="#FFFFFF" />
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
       <ServiceAreaCondensed />
       <ServiceFAQ
         faqs={SKYLIGHT_INSTALLATION_FAQS}

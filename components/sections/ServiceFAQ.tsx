@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import type { FaqItem } from '@/lib/faqs/types'
 
 interface ServiceFAQProps {
@@ -37,6 +38,7 @@ export function ServiceFAQ({
       }}
     >
       <div className="mx-auto" style={{ maxWidth: '1320px' }}>
+        <Reveal>
         <div className="relative flex flex-col items-center text-center mb-10 md:mb-14 max-w-[960px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -76,7 +78,9 @@ export function ServiceFAQ({
             </Button>
           </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={150}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 mt-4">
           {columns.map((col, colIdx) => (
             <ul key={colIdx} className="flex flex-col">
@@ -119,14 +123,16 @@ export function ServiceFAQ({
                     {isOpen && (
                       <div className="overflow-hidden">
                         <div
-                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6]"
+                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6] space-y-4"
                           style={{
                             fontSize: '15px',
                             fontFamily: 'var(--font-inter), system-ui, sans-serif',
                             fontWeight: 400,
                           }}
                         >
-                          {faq.answer}
+                          {faq.answer.split(/\n\n+/).map((para, pi) => (
+                            <p key={pi}>{para.trim()}</p>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -147,12 +153,12 @@ export function ServiceFAQ({
           Have a question not listed here?{' '}
           <Link
             href={ctaHref}
-            className="font-semibold text-brand-navy hover:text-brand-gold transition-colors"
-            style={{ textDecoration: 'underline', textUnderlineOffset: '3px' }}
+            className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
           >
             Contact Sure West
           </Link>
         </p>
+        </Reveal>
       </div>
     </section>
   )

@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface ServicesHeroProps {
   h1: string
@@ -30,6 +31,7 @@ export function ServicesHero({
 
           {/* ── Left: text content ──────────────────────────────────── */}
           <div>
+            <Reveal delay={80}>
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -42,7 +44,9 @@ export function ServicesHero({
             >
               Top-Rated Roofing Company in Cochrane, AB
             </span>
+            </Reveal>
 
+            <Reveal delay={180}>
             <h1
               className="font-display font-semibold text-brand-navy"
               style={{
@@ -58,7 +62,9 @@ export function ServicesHero({
                 </span>
               ))}
             </h1>
+            </Reveal>
 
+            <Reveal delay={300}>
             <p
               className="mt-5 text-brand-slate leading-[1.65] max-w-[480px]"
               style={{
@@ -69,7 +75,9 @@ export function ServicesHero({
             >
               {subhead}
             </p>
+            </Reveal>
 
+            <Reveal delay={420}>
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
               <Button variant="primary" size="lg" href={primaryCTA.href}>
                 {primaryCTA.label}
@@ -78,7 +86,9 @@ export function ServicesHero({
                 {secondaryCTA.label}
               </Button>
             </div>
+            </Reveal>
 
+            <Reveal delay={540}>
             {/* Trust micro-strip */}
             <div
               className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
@@ -97,10 +107,11 @@ export function ServicesHero({
               <span aria-hidden="true" className="text-brand-border">·</span>
               <span>5-Star Rated</span>
             </div>
+            </Reveal>
           </div>
 
           {/* ── Right: image + floating review card ─────────────────── */}
-          <div className="relative mt-8 lg:mt-0">
+          <Reveal delay={250} noBlur className="relative mt-8 lg:mt-0">
             {/* Outer gold glow */}
             <div
               aria-hidden="true"
@@ -117,7 +128,7 @@ export function ServicesHero({
               className="relative overflow-hidden rounded-[20px]"
               style={{
                 boxShadow:
-                  '0 0 0 1px rgba(212,175,96,0.15), 0 8px 24px -4px rgba(44,71,102,0.14), 0 32px 80px -16px rgba(44,71,102,0.28)',
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
                 aspectRatio: '4 / 3',
                 zIndex: 1,
               }}
@@ -189,7 +200,7 @@ export function ServicesHero({
                 </span>
               </div>
             </div>
-          </div>
+          </Reveal>
 
         </div>
       </div>

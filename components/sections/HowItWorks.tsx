@@ -61,7 +61,7 @@ function StepCard({ step }: { step: Step }) {
           boxShadow: '0 0 0 8px rgba(212,175,96,0.06)',
         }}
       >
-        <Icon className="w-8 h-8 text-brand-gold" strokeWidth={1.5} />
+        <Icon className="w-8 h-8 text-brand-gold" strokeWidth={1.75} />
       </div>
 
       <h3

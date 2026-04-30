@@ -317,8 +317,8 @@ export default function FreeEstimatePage() {
               Service Area
             </span>
             <h2
-              className="font-display font-bold text-[#1B3558] mt-3"
-              style={{ fontSize: 'clamp(28px, 3.5vw, 40px)', letterSpacing: '-0.02em', lineHeight: 1.15 }}
+              className="font-display font-medium text-brand-navy mt-3"
+              style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', letterSpacing: '-0.005em', lineHeight: 1.15 }}
             >
               Free Roof Estimates Across Cochrane, Calgary, and Canmore
             </h2>

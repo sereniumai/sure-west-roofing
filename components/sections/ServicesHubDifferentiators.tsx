@@ -1,4 +1,5 @@
 import { Award, CloudLightning, FileText, ShieldCheck } from 'lucide-react'
+import { Reveal } from '@/components/ui/Reveal'
 
 const DIFFERENTIATORS = [
   {
@@ -34,6 +35,7 @@ export function ServicesHubDifferentiators() {
     >
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
+        <Reveal>
         <div className="text-center mb-12 md:mb-16">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -48,7 +50,7 @@ export function ServicesHubDifferentiators() {
             Why Sure West
           </span>
           <h2
-            className="font-display font-semibold text-brand-navy"
+            className="font-display font-medium text-brand-navy"
             style={{
               fontSize: 'clamp(32px, 4.5vw, 48px)',
               lineHeight: 1.15,
@@ -58,30 +60,65 @@ export function ServicesHubDifferentiators() {
             Why Cochrane Homeowners Trust Sure West
           </h2>
         </div>
+        </Reveal>
 
         {/* 4-column grid */}
+        <Reveal delay={150}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
           {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
-            <div
+            <article
               key={heading}
-              className="bg-brand-cream rounded-[12px] border border-brand-border p-6 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out"
+              className="group relative rounded-[16px] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+              style={{
+                background: 'linear-gradient(155deg, #FAF8F2 0%, #F4F1E8 100%)',
+                border: '1px solid #E8E4D8',
+                boxShadow:
+                  '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
+              }}
             >
+              {/* Top gold ribbon */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute top-0 left-0 right-0 h-[2px]"
+                style={{
+                  background:
+                    'linear-gradient(90deg, transparent 0%, rgba(212,175,96,0.85) 50%, transparent 100%)',
+                  opacity: 0.55,
+                }}
+              />
+
+              {/* Soft gold halo behind icon on hover */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute left-6 md:left-7 top-5 md:top-6 w-24 h-24 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{
+                  background:
+                    'radial-gradient(closest-side, rgba(212,175,96,0.32), transparent 70%)',
+                  filter: 'blur(8px)',
+                }}
+              />
+
+              {/* Icon tile, refined to match Four Things pattern */}
               <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
-                style={{ background: 'rgba(212,175,96,0.12)' }}
+                className="relative inline-flex items-center justify-center w-12 h-12 rounded-[10px] bg-white mb-5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg]"
+                style={{
+                  boxShadow:
+                    '0 1px 3px rgba(44,71,102,0.08), 0 10px 22px -10px rgba(212,175,96,0.45), 0 4px 10px -4px rgba(44,71,102,0.10)',
+                  border: '1px solid rgba(212,175,96,0.20)',
+                }}
               >
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.5} />
+                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
 
               <h3
-                className="font-display font-semibold text-brand-navy mb-3"
+                className="relative font-display font-semibold text-brand-navy mb-3"
                 style={{ fontSize: '20px', letterSpacing: '-0.01em', lineHeight: 1.25 }}
               >
                 {heading}
               </h3>
 
               <p
-                className="text-brand-slate leading-[1.65]"
+                className="relative text-brand-slate leading-[1.65]"
                 style={{
                   fontSize: '14px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
@@ -90,9 +127,10 @@ export function ServicesHubDifferentiators() {
               >
                 {body}
               </p>
-            </div>
+            </article>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   )

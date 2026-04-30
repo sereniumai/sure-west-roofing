@@ -11,6 +11,7 @@ import {
   ArrowRight,
   type LucideIcon,
 } from 'lucide-react'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface ServiceCard {
   title: string
@@ -103,7 +104,10 @@ function Card({ service }: { service: ServiceCard }) {
   const Icon = iconFor(service.title)
 
   return (
-    <div className="flex flex-col h-full rounded-[12px] bg-white border border-brand-border overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[6px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
+    <Link
+      href={service.href}
+      className="group flex flex-col h-full rounded-[12px] bg-white border border-brand-border overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-500 ease-out hover:-translate-y-[6px] hover:border-brand-gold/60 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+    >
       {/* Image */}
       <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">
         <Image
@@ -111,7 +115,7 @@ function Card({ service }: { service: ServiceCard }) {
           alt={service.imageAlt}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.06]"
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
           loading="lazy"
         />
         <div
@@ -124,9 +128,12 @@ function Card({ service }: { service: ServiceCard }) {
       <div className="flex flex-col flex-1 p-5 md:p-6">
         {/* Heading row */}
         <div className="flex items-center gap-3 mb-3">
-          <Icon className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold" strokeWidth={1.5} />
+          <Icon
+            className="w-[18px] h-[18px] flex-shrink-0 text-brand-gold transition-transform duration-500 ease-out group-hover:scale-110 group-hover:rotate-[-6deg]"
+            strokeWidth={1.75}
+          />
           <h3
-            className="font-display font-semibold text-brand-navy leading-[1.25] flex-1"
+            className="font-display font-semibold text-brand-navy leading-[1.25] flex-1 transition-colors duration-300 group-hover:text-brand-gold"
             style={{ fontSize: '22px', letterSpacing: '-0.02em' }}
           >
             {service.title}
@@ -147,21 +154,22 @@ function Card({ service }: { service: ServiceCard }) {
 
         {/* Learn more link */}
         <div className="mt-4 pt-4 border-t border-brand-border">
-          <Link
-            href={service.href}
-            className="inline-flex items-center gap-1.5 font-semibold text-brand-gold hover:text-[#B8943F] transition-colors duration-200"
+          <span
+            className="inline-flex items-center gap-1.5 font-semibold text-brand-gold transition-colors duration-200 group-hover:text-[#B8943F]"
             style={{
               fontSize: '13px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              textDecoration: 'none',
             }}
           >
             {service.learnMoreText}
-            <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-          </Link>
+            <ArrowRight
+              className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
+              strokeWidth={2}
+            />
+          </span>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
@@ -175,6 +183,7 @@ export function ServicesHubGrid() {
       }}
     >
       {/* Header */}
+      <Reveal>
       <div className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto">
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -210,8 +219,10 @@ export function ServicesHubGrid() {
           Seven services, one certified crew. Every job backed by Red Seal workmanship and a written warranty.
         </p>
       </div>
+      </Reveal>
 
       {/* 3x2 card grid */}
+      <Reveal delay={150}>
       <div className="max-w-[1320px] mx-auto">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
           {SERVICES.map((service) => (
@@ -221,6 +232,7 @@ export function ServicesHubGrid() {
           ))}
         </ul>
       </div>
+      </Reveal>
     </section>
   )
 }

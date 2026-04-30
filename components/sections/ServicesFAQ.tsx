@@ -265,8 +265,7 @@ export function ServicesFAQ() {
           Have a question not listed here?{' '}
           <Link
             href="/free-roof-estimate-cochrane"
-            className="font-semibold text-brand-navy hover:text-brand-gold transition-colors"
-            style={{ textDecoration: 'underline', textUnderlineOffset: '3px' }}
+            className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
           >
             Contact Sure West
           </Link>

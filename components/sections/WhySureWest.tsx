@@ -144,7 +144,7 @@ export function WhySureWest({
                       <Icon
                         className="w-5 h-5"
                         style={{ color: 'var(--color-accent, #D4AF60)' }}
-                        strokeWidth={1.5}
+                        strokeWidth={1.75}
                       />
                     </span>
                     <h3

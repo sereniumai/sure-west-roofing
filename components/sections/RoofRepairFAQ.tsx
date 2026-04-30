@@ -107,14 +107,16 @@ export function RoofRepairFAQ() {
                     {isOpen && (
                       <div className="overflow-hidden">
                         <div
-                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6]"
+                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6] space-y-4"
                           style={{
                             fontSize: '15px',
                             fontFamily: 'var(--font-inter), system-ui, sans-serif',
                             fontWeight: 400,
                           }}
                         >
-                          {faq.answer}
+                          {faq.answer.split(/\n\n+/).map((para, pi) => (
+                            <p key={pi}>{para.trim()}</p>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -135,8 +137,7 @@ export function RoofRepairFAQ() {
           Have a question not listed here?{' '}
           <Link
             href="/free-roof-estimate-cochrane"
-            className="font-semibold text-brand-navy hover:text-brand-gold transition-colors"
-            style={{ textDecoration: 'underline', textUnderlineOffset: '3px' }}
+            className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
           >
             Contact Sure West
           </Link>
