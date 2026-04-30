@@ -242,7 +242,7 @@ export default function ServicesPage() {
 
       {/* 5. Gallery, paired with reviews to keep the proof block tight */}
       <PortfolioGallery
-        sectionBg="#F7F5F0"
+        sectionBg="#FFFFFF"
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 5.webp', alt: 'Cochrane roof replacement by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Cochrane roof installation by Sure West Roofing' },
@@ -267,7 +267,7 @@ export default function ServicesPage() {
       <section
         className="relative overflow-hidden py-20 md:py-24"
         style={{
-          background: '#F7F5F0',
+          background: '#FFFFFF',
           paddingLeft: 'var(--section-pad-x)',
           paddingRight: 'var(--section-pad-x)',
         }}
