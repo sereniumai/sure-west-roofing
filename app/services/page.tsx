@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { MapPin, ChevronRight } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
-import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 import { ServicesHero } from '@/components/sections/ServicesHero'
 import { ServicesHubGrid } from '@/components/sections/ServicesHubGrid'
@@ -14,9 +14,8 @@ import { ServicesFAQ, servicesFaqSchema } from '@/components/sections/ServicesFA
 const HowItWorks = dynamic(() =>
   import('@/components/sections/HowItWorks').then((m) => m.HowItWorks),
 )
-const ServicesGallery = dynamic(
-  () => import('@/components/sections/ServicesGallery').then((m) => m.ServicesGallery),
-  { ssr: false },
+const PortfolioGallery = dynamic(() =>
+  import('@/components/sections/PortfolioGallery').then((m) => m.PortfolioGallery),
 )
 const Reviews = dynamic(() =>
   import('@/components/sections/Reviews').then((m) => m.Reviews),
@@ -244,10 +243,24 @@ export default function ServicesPage() {
       {/* 6. 3-step process */}
       <HowItWorks />
 
-      {/* 7. Gallery, split layout, image right, scrollable */}
-      <ServicesGallery />
+      {/* 7. Gallery, big-image carousel matching About page */}
+      <PortfolioGallery
+        sectionBg="#FFFFFF"
+        images={[
+          { src: '/images/Cochrane Roofing Contractor Gallery 5.webp', alt: 'Cochrane roof replacement by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Cochrane roof installation by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 7.webp', alt: 'Cochrane siding and soft metals by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Cochrane roofing project by Sure West Roofing', objectPosition: '70% center' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Cochrane skylight installation by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roof replacement project by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 4.webp', alt: 'Cochrane re-roof project by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Cochrane shingle roof by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Cochrane finished roof by Sure West Roofing' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 6.webp', alt: 'Cochrane shingle roof completed by Sure West Roofing' },
+        ]}
+      />
 
-      {/* 8. Service area block, Cochrane, Calgary, Canmore */}
+      {/* 8. Service Areas, multi-layer pin design matching About page */}
       <section
         className="relative overflow-hidden py-20 md:py-24"
         style={{
@@ -257,7 +270,7 @@ export default function ServicesPage() {
         }}
       >
         <div className="max-w-[1320px] mx-auto">
-          {/* Header */}
+          <Reveal>
           <div className="text-center mb-12 md:mb-16">
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -294,51 +307,105 @@ export default function ServicesPage() {
               and the Calgary region.
             </p>
           </div>
+          </Reveal>
 
-          {/* 3-column location cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+          <Reveal delay={150}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-[1100px] mx-auto relative">
+            {/* Dashed gold connector across pin centres on desktop */}
+            <div
+              aria-hidden="true"
+              className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/30"
+              style={{ top: '52px', left: '20%', right: '20%' }}
+            />
+
             {AREAS.map((area) => (
               <div
                 key={area.name}
-                className="bg-white rounded-[12px] border border-brand-border p-6 md:p-8 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out"
+                className="group relative z-[1] flex flex-col items-center text-center"
               >
-                <div
-                  className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
-                  style={{ background: 'rgba(212,175,96,0.10)' }}
-                >
-                  <MapPin className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+                {/* Multi-layer pin */}
+                <div className="relative mb-6 w-[104px] h-[104px] flex items-center justify-center">
+                  {/* Soft outer halo */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 rounded-full transition-opacity duration-500 group-hover:opacity-100 opacity-70"
+                    style={{
+                      background:
+                        'radial-gradient(closest-side, rgba(212,175,96,0.22), transparent 70%)',
+                      filter: 'blur(6px)',
+                    }}
+                  />
+                  {/* Outer ring */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute w-[96px] h-[96px] rounded-full"
+                    style={{
+                      background: 'rgba(212,175,96,0.05)',
+                      border: '1px solid rgba(212,175,96,0.20)',
+                    }}
+                  />
+                  {/* Mid ring */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute w-[78px] h-[78px] rounded-full"
+                    style={{
+                      background: 'rgba(212,175,96,0.10)',
+                      border: '1px solid rgba(212,175,96,0.32)',
+                    }}
+                  />
+                  {/* Inner pin */}
+                  <span
+                    className="relative w-[60px] h-[60px] rounded-full bg-white flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-[1.08] group-hover:shadow-[0_14px_30px_-10px_rgba(212,175,96,0.55)]"
+                    style={{
+                      boxShadow: '0 6px 18px -8px rgba(212,175,96,0.40)',
+                    }}
+                  >
+                    <MapPin className="w-7 h-7 text-brand-gold" strokeWidth={1.75} />
+                  </span>
                 </div>
+
                 <h3
-                  className="font-display font-semibold text-brand-navy mb-3"
-                  style={{ fontSize: '22px', letterSpacing: '-0.01em', lineHeight: 1.25 }}
+                  className="font-display font-semibold text-brand-navy mb-3 transition-colors duration-300 group-hover:text-brand-gold"
+                  style={{ fontSize: '28px', letterSpacing: '-0.015em', lineHeight: 1.15 }}
                 >
                   {area.name}
                 </h3>
+
                 <p
-                  className="text-brand-slate leading-[1.65] mb-5"
+                  className="text-brand-slate leading-[1.65] mb-5 max-w-[320px]"
                   style={{
-                    fontSize: '14px',
+                    fontSize: '14.5px',
                     fontFamily: 'var(--font-inter), system-ui, sans-serif',
                     fontWeight: 400,
                   }}
                 >
                   {area.description}
                 </p>
+
                 <Link
                   href={area.href}
                   className="inline-flex items-center gap-1.5 font-semibold text-brand-gold hover:text-[#B8943F] transition-colors duration-200"
                   style={{
                     fontSize: '13px',
                     fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    textDecoration: 'none',
+                    letterSpacing: '0.02em',
                   }}
                 >
                   {area.linkText}
-                  <ChevronRight className="w-3.5 h-3.5" strokeWidth={2} />
+                  <svg
+                    className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
                 </Link>
               </div>
             ))}
           </div>
+          </Reveal>
         </div>
       </section>
 
@@ -352,8 +419,9 @@ export default function ServicesPage() {
       <BottomCTA
         heading={
           <>
-            Need Roofing Services in Cochrane,
-            <br className="hidden md:block" /> Calgary, or Canmore?
+            Need Roofing Services
+            <br className="hidden lg:block" /> in Cochrane, Calgary,
+            <br className="hidden lg:block" /> or Canmore?
           </>
         }
         subtext="Roof replacement, repair, hail damage, inspections, and more. Red Seal certified crews with a written warranty on every job."

@@ -23,7 +23,7 @@ import { Button } from '@/components/ui/Button'
 const serviceLinks = [
   {
     label: 'Roof Replacement',
-    description: 'Premium materials built for Alberta weather',
+    description: 'Premium materials built for Alberta',
     href: '/roof-replacement',
     Icon: Home,
   },
@@ -176,6 +176,23 @@ export function Nav() {
                   }`}
                 >
                   <div className="bg-brand-cream rounded-[14px] shadow-[0_2px_4px_rgba(44,71,102,0.06),0_12px_40px_-8px_rgba(44,71,102,0.18),0_40px_100px_-20px_rgba(44,71,102,0.22)] w-[940px] p-6">
+                    <div className="flex items-center justify-between mb-4 px-1">
+                      <span
+                        className="uppercase tracking-[0.1em] text-brand-slate"
+                        style={{ fontSize: '11px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600 }}
+                      >
+                        Our Services
+                      </span>
+                      <Link
+                        href="/services"
+                        onClick={() => setServicesOpen(false)}
+                        className="group/all inline-flex items-center gap-1 uppercase tracking-[0.1em] text-brand-gold hover:text-[#B8943F] transition-colors duration-200"
+                        style={{ fontSize: '11px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600 }}
+                      >
+                        View All Services
+                        <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover/all:translate-x-0.5" strokeWidth={2.25} />
+                      </Link>
+                    </div>
                     <div className="grid grid-cols-3 gap-2">
                       {serviceLinks.map((service) => {
                         const { Icon } = service

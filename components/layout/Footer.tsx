@@ -35,10 +35,10 @@ export function Footer() {
         }}
       >
         <div className="mx-auto" style={{ maxWidth: '1320px' }}>
-          {/* ── 5-column grid ───────────────────────────────────────── */}
+          {/* ── 4-column grid ───────────────────────────────────────── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
             {/* Column 1, Brand */}
-            <div className="col-span-2 lg:col-span-3">
+            <div className="col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
                 <Image
                   src="/images/Sure West Dark Logo.webp"
@@ -49,9 +49,9 @@ export function Footer() {
                 />
               </Link>
               <p
-                className="mt-6 text-brand-slate leading-[1.6] max-w-[280px]"
+                className="mt-6 text-brand-slate leading-[1.6] max-w-[320px]"
                 style={{
-                  fontSize: '16px',
+                  fontSize: '18px',
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontStyle: 'italic',
                 }}
@@ -62,8 +62,9 @@ export function Footer() {
 
             {/* Column 2, Services */}
             <div className="col-span-1 lg:col-span-3">
-              <h3
-                className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
+              <Link
+                href="/services"
+                className="block text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
@@ -71,7 +72,7 @@ export function Footer() {
                 }}
               >
                 Services
-              </h3>
+              </Link>
               <ul className="flex flex-col gap-3">
                 {services.map((s) => (
                   <li key={s.href}>
@@ -90,7 +91,7 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Column 3, Locations */}
+            {/* Column 3, Locations + Company stacked */}
             <div className="col-span-1 lg:col-span-2">
               <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
@@ -118,12 +119,9 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
 
-            {/* Column 4, Company */}
-            <div className="col-span-1 lg:col-span-2">
               <h3
-                className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
+                className="text-brand-slate mt-8 mb-5 uppercase tracking-[0.1em]"
                 style={{
                   fontSize: '12px',
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
@@ -150,8 +148,8 @@ export function Footer() {
               </ul>
             </div>
 
-            {/* Column 5, Contact */}
-            <div className="col-span-2 lg:col-span-2">
+            {/* Column 4, Contact */}
+            <div className="col-span-2 lg:col-span-3">
               <h3
                 className="text-brand-slate mb-5 uppercase tracking-[0.1em]"
                 style={{

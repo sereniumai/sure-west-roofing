@@ -88,26 +88,6 @@ export function ServicesHero({
             </div>
             </Reveal>
 
-            <Reveal delay={540}>
-            {/* Trust micro-strip */}
-            <div
-              className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
-              style={{
-                fontSize: '12px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 500,
-                color: 'var(--brand-slate, #4D6A87)',
-                letterSpacing: '0.07em',
-                textTransform: 'uppercase',
-              }}
-            >
-              <span>Red Seal Certified</span>
-              <span aria-hidden="true" className="text-brand-border">·</span>
-              <span>Licensed &amp; Insured</span>
-              <span aria-hidden="true" className="text-brand-border">·</span>
-              <span>5-Star Rated</span>
-            </div>
-            </Reveal>
           </div>
 
           {/* ── Right: image + floating review card ─────────────────── */}

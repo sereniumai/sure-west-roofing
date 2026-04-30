@@ -1,4 +1,5 @@
 import { Award, CloudLightning, FileText, ShieldCheck } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
 const DIFFERENTIATORS = [
@@ -10,7 +11,7 @@ const DIFFERENTIATORS = [
   {
     Icon: CloudLightning,
     heading: 'Built for Alberta Weather',
-    body: 'Cochrane winters, chinook swings, hailstorms, and high wind uplift require specific materials and methods. We select installation approaches suited to local freeze-thaw cycles and climate conditions.',
+    body: 'Cochrane winters, chinook swings, hailstorms, and high wind uplift require specific materials and methods. Built for local freeze-thaw cycles.',
   },
   {
     Icon: FileText,
@@ -36,7 +37,7 @@ export function ServicesHubDifferentiators() {
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
         <Reveal>
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center mb-12 md:mb-16 max-w-[680px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -59,6 +60,16 @@ export function ServicesHubDifferentiators() {
           >
             Why Cochrane Homeowners Trust Sure West
           </h2>
+          <p
+            className="mt-5 max-w-[480px] mx-auto text-brand-slate leading-[1.65]"
+            style={{
+              fontSize: '16px',
+              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+              fontWeight: 400,
+            }}
+          >
+            Four things every Sure West roof gets that the average Cochrane crew can't match.
+          </p>
         </div>
         </Reveal>
 
@@ -129,6 +140,12 @@ export function ServicesHubDifferentiators() {
               </p>
             </article>
           ))}
+        </div>
+
+        <div className="mt-12 md:mt-14 flex justify-center">
+          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+            Get a Free Estimate
+          </Button>
         </div>
         </Reveal>
       </div>
