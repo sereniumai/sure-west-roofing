@@ -28,6 +28,7 @@ import { RoofReplacementFAQ } from '@/components/sections/RoofReplacementFAQ'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { PortfolioGallery } from '@/components/sections/PortfolioGallery'
 import { Reviews } from '@/components/sections/Reviews'
+import { ServiceAreasPins } from '@/components/sections/ServiceAreasPins'
 import { BottomCTA } from '@/components/sections/BottomCTA'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -848,159 +849,6 @@ function WhySureWest() {
 }
 
 
-// ─── Section: Service Area ────────────────────────────────────────────────────
-
-const LOCATIONS = [
-  {
-    name: 'Cochrane',
-    href: '/services',
-    detail: 'Home base, primary market',
-    buttonLabel: 'Roofing Services Cochrane',
-  },
-  {
-    name: 'Calgary',
-    href: '/calgary-roofing-contractor',
-    detail: 'Full service across the Calgary region',
-    buttonLabel: 'Roofing Contractor Calgary',
-  },
-  {
-    name: 'Canmore',
-    href: '/canmore-roofing-contractor',
-    detail: 'Full service across the Bow Valley',
-    buttonLabel: 'Roofing Contractor Canmore',
-  },
-]
-
-function ServiceAreaCondensed() {
-  return (
-    <section
-      className="relative overflow-hidden py-20 md:py-24"
-      style={{
-        background: '#FFFFFF',
-        paddingLeft: 'var(--section-pad-x)',
-        paddingRight: 'var(--section-pad-x)',
-      }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <Reveal>
-        <div className="text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            Service Area
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            Roof Replacement Across Cochrane,
-            <br className="hidden lg:block" /> Calgary, and Canmore
-          </h2>
-          <p
-            className="mt-5 max-w-[580px] mx-auto text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Based in Cochrane. Same Red Seal crew across Calgary and Canmore.
-          </p>
-        </div>
-        </Reveal>
-
-        <Reveal delay={150}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-[1100px] mx-auto relative">
-          {/* Dashed gold connector across pin centres on desktop */}
-          <div
-            aria-hidden="true"
-            className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/30"
-            style={{ top: '52px', left: '20%', right: '20%' }}
-          />
-
-          {LOCATIONS.map(({ name, href, detail, buttonLabel }) => (
-            <div
-              key={name}
-              className="group relative z-[1] flex flex-col items-center text-center"
-            >
-              {/* Multi-layer pin */}
-              <div className="relative mb-6 w-[104px] h-[104px] flex items-center justify-center">
-                <span
-                  aria-hidden="true"
-                  className="absolute inset-0 rounded-full transition-opacity duration-500 group-hover:opacity-100 opacity-70"
-                  style={{
-                    background:
-                      'radial-gradient(closest-side, rgba(212,175,96,0.22), transparent 70%)',
-                    filter: 'blur(6px)',
-                  }}
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute w-[96px] h-[96px] rounded-full"
-                  style={{
-                    background: 'rgba(212,175,96,0.05)',
-                    border: '1px solid rgba(212,175,96,0.20)',
-                  }}
-                />
-                <span
-                  aria-hidden="true"
-                  className="absolute w-[78px] h-[78px] rounded-full"
-                  style={{
-                    background: 'rgba(212,175,96,0.10)',
-                    border: '1px solid rgba(212,175,96,0.32)',
-                  }}
-                />
-                <span
-                  className="relative w-[60px] h-[60px] rounded-full bg-white flex items-center justify-center transition-all duration-500 ease-out group-hover:scale-[1.08] group-hover:shadow-[0_14px_30px_-10px_rgba(212,175,96,0.55)]"
-                  style={{
-                    boxShadow: '0 6px 18px -8px rgba(212,175,96,0.40)',
-                  }}
-                >
-                  <MapPin className="w-7 h-7 text-brand-gold" strokeWidth={1.75} />
-                </span>
-              </div>
-
-              <h3
-                className="font-display font-semibold text-brand-navy mb-3 transition-colors duration-300 group-hover:text-brand-gold"
-                style={{ fontSize: '28px', letterSpacing: '-0.015em', lineHeight: 1.15 }}
-              >
-                {name}
-              </h3>
-
-              <p
-                className="text-brand-slate leading-[1.65] mb-5 max-w-[280px]"
-                style={{
-                  fontSize: '14.5px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                {detail}
-              </p>
-
-              <Button variant="primary" size="md" href={href}>
-                {buttonLabel}
-              </Button>
-            </div>
-          ))}
-        </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
 // ─── Section: Gallery images for this page ───────────────────────────────────
 
 const RR_GALLERY_IMAGES = [
@@ -1101,7 +949,10 @@ export default function RoofReplacementPage() {
         sectionBg="#F7F5F0"
         images={RR_GALLERY_IMAGES.map(({ src, alt }) => ({ src, alt }))}
       />
-      <ServiceAreaCondensed />
+      <ServiceAreasPins
+        heading={'Roof Replacement Across Cochrane,\n Calgary, and Canmore'}
+        subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."
+      />
       <RoofReplacementFAQ />
       <RelatedServices />
       <BottomCTA

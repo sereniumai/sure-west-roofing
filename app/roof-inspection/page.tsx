@@ -25,6 +25,7 @@ import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordi
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
 import { Reviews } from '@/components/sections/Reviews'
+import { ServiceAreasPins } from '@/components/sections/ServiceAreasPins'
 import { BottomCTA } from '@/components/sections/BottomCTA'
 import { ROOF_INSPECTION_FAQS } from '@/lib/faqs/roofInspection'
 
@@ -387,46 +388,6 @@ function WhySureWest() {
   )
 }
 
-const LOCATIONS = [
-  { name: 'Cochrane', href: '/services', detail: 'Home base, primary market', buttonLabel: 'Roofing Services Cochrane' },
-  { name: 'Calgary', href: '/calgary-roofing-contractor', detail: 'Inspections across the Calgary region', buttonLabel: 'Roofing Contractor Calgary' },
-  { name: 'Canmore', href: '/canmore-roofing-contractor', detail: 'Inspections across the Bow Valley', buttonLabel: 'Roofing Contractor Canmore' },
-]
-
-function ServiceAreaCondensed() {
-  return (
-    <section className="relative bg-white overflow-hidden pt-10 md:pt-12 pb-20 md:pb-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
-            Service Area
-          </span>
-          <h2 className="font-display font-medium text-brand-navy" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            Roof Inspections Across Cochrane, Calgary, and Canmore
-          </h2>
-          <p className="mt-5 max-w-[580px] text-brand-slate leading-[1.7]" style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Based in Cochrane. Same Red Seal crew across Calgary and Canmore.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 md:gap-12 max-w-[1060px] mx-auto">
-          {LOCATIONS.map(({ name, href, detail, buttonLabel }) => (
-            <div key={name} className="flex flex-col items-center text-center">
-              <MapPin className="w-12 h-12 text-brand-gold mb-5" strokeWidth={1.75} />
-              <h3 className="font-display font-semibold text-brand-navy leading-[1.05]" style={{ fontSize: 'clamp(32px, 3.5vw, 44px)', letterSpacing: '-0.02em' }}>{name}</h3>
-              <p className="mt-3 max-w-[260px] text-brand-slate leading-[1.6]" style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{detail}</p>
-              <div className="mt-6">
-                <Button variant="primary" size="md" href={href}>{buttonLabel}</Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 const INSPECTION_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'Pre-purchase roof inspection in Cochrane Alberta',                    caption: 'Cochrane, AB · Pre-Purchase' },
   { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Post-storm roof inspection in Canmore Alberta',                       caption: 'Canmore, AB · Post-Storm' },
@@ -483,7 +444,10 @@ export default function RoofInspectionPage() {
       <WhySureWest />
       <ServicesGallery images={INSPECTION_GALLERY_IMAGES} sectionBg="#FFFFFF" />
       <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
-      <ServiceAreaCondensed />
+      <ServiceAreasPins
+        heading={'Roof Inspections Across Cochrane,\n Calgary, and Canmore'}
+        subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."
+      />
       <ServiceFAQ
         faqs={ROOF_INSPECTION_FAQS}
         heading="Roof Inspection Questions, Answered"
