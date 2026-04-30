@@ -29,7 +29,7 @@ const serviceLinks = [
   },
   {
     label: 'Roof Repair',
-    description: 'Back to normal, fast',
+    description: 'Back to normal, fast and right',
     href: '/roof-repair',
     Icon: Wrench,
   },
@@ -47,7 +47,7 @@ const serviceLinks = [
   },
   {
     label: 'Roof Maintenance',
-    description: "Extend your roof's lifespan",
+    description: "Extend your roof's lifespan, save money",
     href: '/roof-maintenance',
     Icon: Shield,
   },

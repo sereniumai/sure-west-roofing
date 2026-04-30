@@ -105,46 +105,6 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
-        {/* DEMO LOCK, navigation allowlist for client preview.
-            As pages are completed and approved, add their paths to ALLOWED_PATHS.
-            Remove this entire <script> block once all pages are approved. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                var ALLOWED_PATHS = [
-                  '/',
-                  '/calgary-roofing-contractor',
-                  '/canmore-roofing-contractor',
-                  '/about'
-                ];
-                document.addEventListener('click', function(e){
-                  var t = e.target;
-                  while (t && t !== document.body) {
-                    if (t.tagName === 'A') {
-                      var href = t.getAttribute('href') || '';
-                      // Always allow: empty, anchor-only, tel:, mailto:, and full external URLs
-                      if (href === '' || href.charAt(0) === '#') return;
-                      if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;
-                      if (href.indexOf('http://') === 0 || href.indexOf('https://') === 0) return;
-                      // Internal links: strip query/hash, normalise trailing slash, check allowlist
-                      var path = href.split('?')[0].split('#')[0];
-                      if (path.length > 1 && path.charAt(path.length - 1) === '/') {
-                        path = path.slice(0, -1);
-                      }
-                      if (ALLOWED_PATHS.indexOf(path) === -1) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                      }
-                      return;
-                    }
-                    t = t.parentElement;
-                  }
-                }, true);
-              })();
-            `,
-          }}
-        />
         <LocalBusinessSchema />
         <Analytics />
         <MotionProvider>
