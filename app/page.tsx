@@ -83,7 +83,7 @@ export default function HomePage() {
       {/* 3. Services Card Grid */}
       <ServicesIconGrid
         eyebrow="What We Do"
-        heading={'Every Roofing Service.\nOne Standard.'}
+        heading={'Every Cochrane Roofing Service.\nOne Standard.'}
         body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[

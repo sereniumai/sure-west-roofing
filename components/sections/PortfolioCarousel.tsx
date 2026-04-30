@@ -12,7 +12,7 @@ interface PortfolioImage {
 }
 
 interface PortfolioCarouselProps {
-  heading?: string
+  heading?: React.ReactNode
   images: PortfolioImage[]
   /**
    * Number of cards to fan out. Defaults to the smallest odd number
@@ -25,6 +25,11 @@ interface PortfolioCarouselProps {
 export function PortfolioCarousel({
   images,
   fanCount,
+  heading = (
+    <>
+      Roofing Projects Completed Across<br className="hidden md:block" /> Cochrane, Calgary &amp; Canmore
+    </>
+  ),
 }: PortfolioCarouselProps) {
   // Default to 5 cards (2 on each side of centre), or fewer if we don't
   // have that many images. Always clamped to an odd number.
@@ -75,7 +80,7 @@ export function PortfolioCarousel({
               letterSpacing: '-0.005em',
             }}
           >
-            Roofing Projects Completed Across<br className="hidden md:block" /> Cochrane, Calgary &amp; Canmore
+            {heading}
           </h2>
 
           <p

@@ -173,7 +173,7 @@ export function Reviews({
   cardBg = '#F7F5F0',
   heading = (
     <>
-      What Cochrane and Calgary Homeowners
+      What Cochrane Homeowners
       <br className="hidden md:block" /> Say About Sure West Roofing
     </>
   ),

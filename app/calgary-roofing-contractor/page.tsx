@@ -241,24 +241,24 @@ export default function RoofingContractorCalgaryPage() {
 
       {/* 1. Hero */}
       <Hero
-        h1={"Calgary's Red Seal Certified\nRoofing Contractor"}
+        h1={"Calgary's Trusted\nRoofing Contractor"}
         subtitle="Red Seal Journeyman certified with over 250 roofs completed across Calgary, Cochrane and Canmore. Quality workmanship backed by a written 10-year guarantee. We reply fast, even after hours."
         backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
-        secondaryCTA={{ label: 'View Calgary Services', href: '/services' }}
+        secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
         socialProofCount="150+"
-        socialProofLabel="Calgary homeowners served"
+        socialProofLabel="satisfied Calgary homeowners"
       />
 
       {/* 2. Stats + Certifications */}
       <TrustLogos />
 
-      {/* 3. Services grid, Calgary localized */}
+      {/* 3. Services Card Grid */}
       <ServicesIconGrid
-        eyebrow="Calgary Services"
-        heading={'Every Roofing Service.\nOne Calgary Standard.'}
-        body="From hail-belt replacements to leak repairs and adjuster-ready inspections, our Red Seal Journeyman team delivers the same uncompromising standard on every Calgary roof."
+        eyebrow="What We Do"
+        heading={'Every Calgary Roofing Service.\nOne Standard.'}
+        body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
@@ -318,7 +318,7 @@ export default function RoofingContractorCalgaryPage() {
         cardBg="#FFFFFF"
         heading={
           <>
-            What Calgary and Cochrane Homeowners
+            What Calgary Homeowners
             <br className="hidden md:block" /> Say About Sure West Roofing
           </>
         }
@@ -326,6 +326,11 @@ export default function RoofingContractorCalgaryPage() {
 
       {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
       <PortfolioCarousel
+        heading={
+          <>
+            Roofing Projects Completed Across<br className="hidden md:block" /> Calgary, Cochrane &amp; Canmore
+          </>
+        }
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Calgary roofing contractor completed project 1' },
           { src: '/images/Cochrane Roofing Contractor Gallery 2.webp', alt: 'Calgary roofing contractor completed project 2' },
@@ -351,49 +356,34 @@ export default function RoofingContractorCalgaryPage() {
 
       {/* 6. Why Sure West, differentiator landing on a primed viewer */}
       <WhySureWest
-        eyebrow="Why Calgary Chooses Sure West"
         heading={
           <>
-            A Red Seal Roofing Contractor
+            Calgary&apos;s Red Seal Certified
             <br />
-            Built for Calgary Weather
+            Roofing Contractor
           </>
         }
-        body="Calgary has more roofing contractors than any other city we serve. Here is what makes Sure West the right one for your Calgary home."
+        body="Every roofing contractor in Calgary says they are the best. Here is what actually sets Sure West apart."
       />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}
-      <HowItWorks
-        eyebrow="Our Calgary Process"
-        heading={
-          <>
-            From First Call to Finished
-            <br className="hidden md:block" /> Calgary Roof in Three Steps
-          </>
-        }
-        body="A straightforward Calgary roofing experience, designed around your schedule and your home."
-      />
+      <HowItWorks />
 
       {/* 8. Move the Mountain, emotional moment before the rational close */}
       <BrandStrip />
 
       {/* 9. FAQ, Calgary-specific, final objection handling right before the ask */}
-      <HomeFAQ
-        eyebrow="Calgary FAQs"
-        heading="Calgary Roofing Questions Answered"
-        body="The questions Calgary homeowners ask us most about replacement, hail claims, pricing, and scheduling."
-        faqs={CALGARY_FAQS}
-      />
+      <HomeFAQ faqs={CALGARY_FAQS} />
 
       {/* 10. Bottom CTA */}
       <BottomCTA
         heading={
           <>
-            Need a Roofing Contractor
-            <br className="hidden md:block" /> for Your Calgary Home?
+            Ready for a Calgary Roofing Contractor
+            <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Free on-site Calgary roof inspection. Fixed written quote within 24 hours. Hail claim support from first call to final payment."
+        subtext="Red Seal certified roofing across Calgary, Cochrane, and Canmore. Free written estimate, 10-year workmanship warranty, and no sales pressure."
       />
     </>
   )

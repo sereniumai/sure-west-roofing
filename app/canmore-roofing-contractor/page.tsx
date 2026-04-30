@@ -240,24 +240,24 @@ export default function RoofingContractorCanmorePage() {
 
       {/* 1. Hero */}
       <Hero
-        h1={"Canmore's Red Seal Certified\nRoofing Contractor"}
+        h1={"Canmore's Trusted\nRoofing Contractor"}
         subtitle="Red Seal Journeyman certified with over 250 roofs completed across Canmore, Cochrane and Calgary. Quality workmanship backed by a written 10-year guarantee. We reply fast, even after hours."
         backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
-        secondaryCTA={{ label: 'View Canmore Services', href: '/services' }}
-        socialProofCount="40+"
-        socialProofLabel="Bow Valley homes roofed"
+        secondaryCTA={{ label: 'Explore Our Services', href: '/services' }}
+        socialProofCount="150+"
+        socialProofLabel="satisfied Canmore homeowners"
       />
 
       {/* 2. Stats + Certifications */}
       <TrustLogos />
 
-      {/* 3. Services grid, Canmore localized */}
+      {/* 3. Services Card Grid */}
       <ServicesIconGrid
-        eyebrow="Canmore Services"
-        heading={'Every Roofing Service.\nBuilt for the Bow Valley.'}
-        body="From steep-pitch full replacements to alpine skylights, our Red Seal Journeyman team delivers the same uncompromising standard on every Canmore roof."
+        eyebrow="What We Do"
+        heading={'Every Canmore Roofing Service.\nOne Standard.'}
+        body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
@@ -317,7 +317,7 @@ export default function RoofingContractorCanmorePage() {
         cardBg="#FFFFFF"
         heading={
           <>
-            What Canmore and Cochrane Homeowners
+            What Canmore Homeowners
             <br className="hidden md:block" /> Say About Sure West Roofing
           </>
         }
@@ -325,6 +325,11 @@ export default function RoofingContractorCanmorePage() {
 
       {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
       <PortfolioCarousel
+        heading={
+          <>
+            Roofing Projects Completed Across<br className="hidden md:block" /> Canmore, Cochrane &amp; Calgary
+          </>
+        }
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Canmore roofing contractor completed project 1' },
           { src: '/images/Cochrane Roofing Contractor Gallery 2.webp', alt: 'Canmore roofing contractor completed project 2' },
@@ -350,49 +355,34 @@ export default function RoofingContractorCanmorePage() {
 
       {/* 6. Why Sure West, differentiator landing on a primed viewer */}
       <WhySureWest
-        eyebrow="Why Canmore Chooses Sure West"
         heading={
           <>
-            A Red Seal Roofing Contractor
+            Canmore&apos;s Red Seal Certified
             <br />
-            Built for the Bow Valley
+            Roofing Contractor
           </>
         }
-        body="Mountain roofs demand different materials, different detailing, and different safety gear. Here is what makes Sure West the right choice for your Canmore home."
+        body="Every roofing contractor in Canmore says they are the best. Here is what actually sets Sure West apart."
       />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}
-      <HowItWorks
-        eyebrow="Our Canmore Process"
-        heading={
-          <>
-            Free Estimate to Mountain-Ready
-            <br className="hidden md:block" /> Roof in Three Steps
-          </>
-        }
-        body="A clear, flexible process for Canmore homeowners. We work around your schedule, your HOA, and the Bow Valley weather."
-      />
+      <HowItWorks />
 
       {/* 8. Move the Mountain, emotional moment before the rational close */}
       <BrandStrip />
 
       {/* 9. FAQ, Canmore-specific, final objection handling right before the ask */}
-      <HomeFAQ
-        eyebrow="Canmore FAQs"
-        heading="Canmore Roofing Questions Answered"
-        body="Mountain-specific questions on snow loads, architectural control, ice dams, and seasonal scheduling, answered by your Red Seal Canmore roofing contractor."
-        faqs={CANMORE_FAQS}
-      />
+      <HomeFAQ faqs={CANMORE_FAQS} />
 
       {/* 10. Bottom CTA */}
       <BottomCTA
         heading={
           <>
-            Need a Roofing Contractor
-            <br className="hidden md:block" /> for Your Canmore Home?
+            Ready for a Canmore Roofing Contractor
+            <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Free Canmore roof inspection. Fixed written quote within 24 hours. Built for mountain weather, backed by Red Seal certification and a 10-year workmanship warranty."
+        subtext="Red Seal certified roofing across Canmore, Cochrane, and Calgary. Free written estimate, 10-year workmanship warranty, and no sales pressure."
       />
     </>
   )
