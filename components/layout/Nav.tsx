@@ -132,9 +132,12 @@ export function Nav() {
       }`}
       style={{ height: 'var(--nav-height)' }}
     >
-      <div className="w-full flex items-center justify-between h-full" style={{ padding: '0 var(--section-pad-x)' }}>
+      <div
+        className="w-full flex items-center justify-between h-full lg:grid lg:grid-cols-[1fr_auto_1fr]"
+        style={{ padding: '0 var(--section-pad-x)' }}
+      >
         {/* Logo */}
-        <Link href="/" className="relative z-10 flex-shrink-0 py-2">
+        <Link href="/" className="relative z-10 flex-shrink-0 py-2 lg:justify-self-start">
           <Image
             src={mobileOpen || isLight ? '/images/Sure West Dark Logo.webp' : '/images/Sure West Roofing - Cochrane Roofing Contractor.webp'}
             alt="Sure West Roofing"
@@ -146,7 +149,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-10">
+        <div className="hidden lg:flex items-center gap-10 lg:justify-self-center">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
@@ -267,7 +270,7 @@ export function Nav() {
         </div>
 
         {/* Desktop CTA, phone + button */}
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-5 lg:justify-self-end">
           <a
             href="tel:+14039907210"
             className={`inline-flex items-center gap-2 transition-colors duration-200 hover:text-brand-gold ${textColor}`}
