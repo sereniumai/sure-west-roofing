@@ -149,7 +149,7 @@ export function Nav() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-10 lg:justify-self-center">
+        <div className="hidden lg:flex items-center gap-10 lg:justify-self-center lg:translate-x-2">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
