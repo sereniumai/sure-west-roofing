@@ -16,7 +16,6 @@ import {
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { Reviews } from '@/components/sections/Reviews'
-import { BrandStrip } from '@/components/sections/BrandStrip'
 import { BottomCTA } from '@/components/sections/BottomCTA'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
 import { ServiceAreasPins } from '@/components/sections/ServiceAreasPins'
@@ -869,7 +868,6 @@ export default function AboutPage() {
         ]}
       />
       <ServiceAreas />
-      <BrandStrip />
       <AboutFAQ />
       <BottomCTA
         sectionBg="#FFFFFF"
