@@ -105,10 +105,11 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
-        {/* SERVICE PAGE LOCK, scoped to the top nav only. Clicks to the 7 in-progress
-            service pages are blocked when the click originates inside <nav>. Footer
-            links to those same paths stay fully navigable, as do any in-page links.
-            Remove this script once all service pages are approved. */}
+        {/* SITE-WIDE LINK LOCK. Clicks to the 7 in-progress service pages and to
+            the free-estimate / contact route are blocked everywhere they appear:
+            top nav, footer, in-page CTAs, accordion links, BottomCTA buttons.
+            tel:, mailto:, anchors, and external URLs remain navigable. Remove
+            this script once these pages are approved for client view. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -120,15 +121,13 @@ export default function RootLayout({
                   '/roof-inspection',
                   '/roof-maintenance',
                   '/siding-soft-metals',
-                  '/skylight-installation'
+                  '/skylight-installation',
+                  '/free-roof-estimate-cochrane'
                 ];
                 document.addEventListener('click', function(e){
                   var t = e.target;
                   while (t && t !== document.body) {
                     if (t.tagName === 'A') {
-                      // Only block clicks that bubbled up from inside <nav>.
-                      // Footer links and in-page anchors are unaffected.
-                      if (!t.closest('nav')) return;
                       var href = t.getAttribute('href') || '';
                       if (href === '' || href.charAt(0) === '#') return;
                       if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;
