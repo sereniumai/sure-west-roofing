@@ -133,7 +133,7 @@ export function Nav() {
       style={{ height: 'var(--nav-height)' }}
     >
       <div
-        className="w-full flex items-center justify-between h-full lg:grid lg:grid-cols-[1fr_auto_1fr]"
+        className="w-full flex items-center justify-between h-full lg:grid lg:grid-cols-[auto_1fr_auto]"
         style={{ padding: '0 var(--section-pad-x)' }}
       >
         {/* Logo */}
