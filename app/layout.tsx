@@ -139,6 +139,9 @@ export default function RootLayout({
                       if (BLOCKED_PATHS.indexOf(path) !== -1) {
                         e.preventDefault();
                         e.stopPropagation();
+                        if (typeof e.stopImmediatePropagation === 'function') {
+                          e.stopImmediatePropagation();
+                        }
                       }
                       return;
                     }
