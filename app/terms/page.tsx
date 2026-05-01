@@ -50,31 +50,10 @@ const SECTIONS: Section[] = [
 function LegalHero() {
   return (
     <section
-      className="bg-brand-cream pt-28 md:pt-36 pb-12 md:pb-16"
+      className="bg-brand-cream pt-36 md:pt-44 pb-12 md:pb-16"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[920px] mx-auto">
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol
-            className="flex items-center gap-2"
-            style={{
-              fontSize: '13px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              color: 'var(--brand-slate, #4D6A87)',
-            }}
-          >
-            <li>
-              <Link href="/" className="hover:text-brand-gold transition-colors duration-200">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-brand-border select-none">/</li>
-            <li className="text-brand-navy font-medium" aria-current="page">
-              Terms of Service
-            </li>
-          </ol>
-        </nav>
-
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
           style={{

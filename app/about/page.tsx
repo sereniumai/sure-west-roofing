@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
-import Link from 'next/link'
 import {
   ShieldCheck,
   Award,
@@ -92,33 +91,10 @@ const aboutPageSchema = {
 function AboutHero() {
   return (
     <section
-      className="relative overflow-x-clip bg-brand-cream pt-28 md:pt-36 pb-16 md:pb-24"
+      className="relative overflow-x-clip bg-brand-cream pt-36 md:pt-44 pb-16 md:pb-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <Reveal>
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol
-            className="flex items-center gap-2"
-            style={{
-              fontSize: '13px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              color: 'var(--brand-slate, #4D6A87)',
-            }}
-          >
-            <li>
-              <Link href="/" className="hover:text-brand-gold transition-colors duration-200">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true" className="text-brand-border select-none">/</li>
-            <li className="text-brand-navy font-medium" aria-current="page">
-              About
-            </li>
-          </ol>
-        </nav>
-        </Reveal>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="lg:order-1 order-1">
             <Reveal delay={80}>

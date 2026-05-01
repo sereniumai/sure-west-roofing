@@ -14,7 +14,6 @@
 // /free-roof-estimate-cochrane (the actual estimate form).
 
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import { Button } from '@/components/ui/Button'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
 import { BottomCTA } from '@/components/sections/BottomCTA'
@@ -134,28 +133,10 @@ const HERO_COLLAGE = [
 function GalleryHero() {
   return (
     <section
-      className="relative bg-[#F7F5F0] pt-28 md:pt-36 pb-16 md:pb-24"
+      className="relative bg-[#F7F5F0] pt-36 md:pt-44 pb-16 md:pb-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        {/* Breadcrumb */}
-        <nav aria-label="Breadcrumb" className="mb-8">
-          <ol
-            className="flex items-center gap-2 text-xs uppercase tracking-widest text-[#4A5568]"
-            style={{ fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-          >
-            <li>
-              <Link href="/" className="hover:text-[#C49A2C] transition-colors duration-200">
-                Home
-              </Link>
-            </li>
-            <li aria-hidden="true" className="opacity-40 select-none">/</li>
-            <li className="text-[#1B3558] font-medium" aria-current="page">
-              Gallery
-            </li>
-          </ol>
-        </nav>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: content column */}
           <div>
