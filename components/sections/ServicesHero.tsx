@@ -1,7 +1,6 @@
 'use client'
 
 import Image from 'next/image'
-import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
@@ -101,8 +100,8 @@ export function ServicesHero({
               }}
             >
               <span>Red Seal Certified</span>
-              <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
-              <span>10-Year Workmanship Warranty</span>
+              <span aria-hidden="true" className="hidden md:inline" style={{ color: '#D4AF60' }}>·</span>
+              <span className="hidden md:inline">10-Year Workmanship Warranty</span>
               <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
               <span>IKO Certified</span>
             </div>
@@ -110,9 +109,9 @@ export function ServicesHero({
 
           </div>
 
-          {/* ── Right: image + floating review card ─────────────────── */}
+          {/* ── Right: image ────────────────────────────────────────── */}
           <Reveal delay={250} noBlur className="relative mt-8 lg:mt-0">
-            {/* Outer gold glow */}
+            {/* Soft gold radial halo behind the image */}
             <div
               aria-hidden="true"
               className="pointer-events-none absolute -inset-3 rounded-[28px]"
@@ -123,7 +122,6 @@ export function ServicesHero({
               }}
             />
 
-            {/* Main image */}
             <div
               className="relative overflow-hidden rounded-[20px]"
               style={{
@@ -139,7 +137,7 @@ export function ServicesHero({
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
-                style={{ objectPosition: '10% center' }}
+                style={{ objectPosition: '56% center' }}
                 priority
               />
               {/* Subtle vignette */}
@@ -151,54 +149,6 @@ export function ServicesHero({
                     'linear-gradient(to top, rgba(44,71,102,0.12) 0%, transparent 40%)',
                 }}
               />
-            </div>
-
-            {/* Floating review card */}
-            <div
-              className="absolute -bottom-3 left-2 sm:-bottom-5 sm:-left-4 md:-left-6 z-10 bg-white rounded-[12px] p-3 sm:p-4 md:p-5 max-w-[200px] sm:max-w-[264px]"
-              style={{
-                boxShadow:
-                  '0 0 0 1px rgba(44,71,102,0.08), 0 8px 32px rgba(44,71,102,0.12)',
-              }}
-            >
-              {/* Stars */}
-              <div className="flex items-center gap-[3px] mb-3" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-[14px] h-[14px]"
-                    style={{ color: '#D4AF60', fill: '#D4AF60' }}
-                    strokeWidth={0}
-                  />
-                ))}
-              </div>
-
-              <p
-                className="text-brand-navy leading-[1.55]"
-                style={{
-                  fontSize: '13px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                &ldquo;Professional, punctual, and incredibly thorough. The quality of their
-                work is top-notch and they left my property spotless.&rdquo;
-              </p>
-
-              <div className="mt-3 pt-3 border-t border-brand-border">
-                <span
-                  className="text-brand-navy font-semibold block"
-                  style={{ fontSize: '13px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                >
-                  Steve LeNeveu
-                </span>
-                <span
-                  className="text-brand-slate"
-                  style={{ fontSize: '11px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                >
-                  Cochrane, AB
-                </span>
-              </div>
             </div>
           </Reveal>
 

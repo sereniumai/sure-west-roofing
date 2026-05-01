@@ -105,11 +105,10 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
-        {/* SERVICE PAGE LOCK, navigation block while individual service pages are
-            still being finalised. Only the 7 deep-dive service pages are blocked,
-            everything else (Home, About, Services hub, Gallery, Calgary, Canmore,
-            Privacy, Terms, Free Estimate) navigates as normal. Remove this script
-            once all service pages are approved. */}
+        {/* SERVICE PAGE LOCK, scoped to the top nav only. Clicks to the 7 in-progress
+            service pages are blocked when the click originates inside <nav>. Footer
+            links to those same paths stay fully navigable, as do any in-page links.
+            Remove this script once all service pages are approved. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -127,6 +126,9 @@ export default function RootLayout({
                   var t = e.target;
                   while (t && t !== document.body) {
                     if (t.tagName === 'A') {
+                      // Only block clicks that bubbled up from inside <nav>.
+                      // Footer links and in-page anchors are unaffected.
+                      if (!t.closest('nav')) return;
                       var href = t.getAttribute('href') || '';
                       if (href === '' || href.charAt(0) === '#') return;
                       if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;

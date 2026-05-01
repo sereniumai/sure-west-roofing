@@ -12,17 +12,17 @@ import {
   Award,
   CloudLightning,
   FileText,
-  MapPin,
   ArrowRight,
   Calendar,
-  Search,
-  Wrench,
-  CheckCircle2,
+  FileCheck,
+  CheckCircle,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { RoofRepairHero } from '@/components/sections/RoofRepairHero'
 import { RoofRepairFAQ } from '@/components/sections/RoofRepairFAQ'
 import { ROOF_REPAIR_FAQS } from '@/lib/faqs/roofRepair'
+import { ServiceOverview } from '@/components/sections/ServiceOverview'
+import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
@@ -193,13 +193,13 @@ const REPAIR_INCLUDED_ITEMS = [
 function WhatIncluded() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
-          {/* Content (left on desktop). Hero has image on the LEFT, so WhatIncluded image goes on the RIGHT (opposite-side rule). */}
-          <div className="flex flex-col">
+          {/* Content RIGHT on desktop, image LEFT */}
+          <div className="flex flex-col lg:order-2">
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -239,16 +239,16 @@ function WhatIncluded() {
             <WhatIncludedAccordion items={REPAIR_INCLUDED_ITEMS} />
           </div>
 
-          {/* Photo (right on desktop) */}
+          {/* Photo LEFT on desktop */}
           <div
-            className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px]"
+            className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px] lg:order-1"
             style={{
               boxShadow:
                 '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
             }}
           >
             <Image
-              src="/images/Cochrane Roofing Contractor Gallery 22.webp"
+              src="/images/Cochrane Roofing Contractor Gallery 5.webp"
               alt="Sure West Roofing crew completing a roof repair on a Cochrane Alberta home"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
@@ -383,141 +383,31 @@ function SignsYouNeed() {
   )
 }
 
-// ─── Section: Repair Process ─────────────────────────────────────────────────
+// ─── Section: How It Works (3-step) ──────────────────────────────────────────
 
-const PROCESS_STEPS = [
+const REPAIR_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     Icon: Calendar,
-    heading: ['Free On-Site', 'Diagnostic'],
-    body: 'A Red Seal Journeyman inspects your Cochrane roof, traces the issue back to its source, and explains what is going on. No pressure, no upsell.',
+    title: 'Free Diagnostic',
+    description:
+      'A Red Seal Journeyman traces the leak back to its true source on your Cochrane home and writes a fixed quote on the spot.',
   },
   {
     number: '02',
-    Icon: FileText,
-    heading: ['Fixed Written', 'Quote'],
-    body: 'A clear written quote with the repair scope, materials, timeline, and price. Everything that affects cost is spelled out before we book the job.',
+    Icon: FileCheck,
+    title: 'Approve Your Quote',
+    description:
+      'Your quote is fixed. Active leaks get tarped same day. Repair date locked in around your schedule.',
   },
   {
     number: '03',
-    Icon: Search,
-    heading: ['Schedule and', 'Source Materials'],
-    body: 'Once approved, we order matched materials and lock in a repair date. For active leaks we tarp immediately so further water entry is stopped.',
-  },
-  {
-    number: '04',
-    Icon: Wrench,
-    heading: ['Targeted Repair,', 'Single Day'],
-    body: 'Our Cochrane crews complete most roof repairs in a single day. Larger flashing rebuilds and complex valleys can take two days at most.',
-  },
-  {
-    number: '05',
-    Icon: CheckCircle2,
-    heading: ['Cleanup and', '2-Year Warranty'],
-    body: 'Magnetic nail sweep, full site cleanup, and a final walkthrough with you. Your written 2-year workmanship warranty stays with the property.',
+    Icon: CheckCircle,
+    title: 'Your Repair, Done Right',
+    description:
+      'Targeted repair using IKO-matched materials, full site cleanup, and your written 2-year workmanship warranty in writing.',
   },
 ]
-
-function RepairProcess() {
-  return (
-    <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            How It Works
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            How a Sure West Roof
-            <br />
-            Repair Works
-          </h2>
-          <p
-            className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Five clear steps from first call to repair complete. No hidden steps, no surprises.
-          </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-              Get a Free Estimate
-            </Button>
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-6">
-            {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
-              <div
-                key={number}
-                className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
-              >
-                <span
-                  className="uppercase tracking-[0.18em] text-brand-gold font-semibold"
-                  style={{
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  }}
-                >
-                  Step {number}
-                </span>
-                <div
-                  className="mt-4 mb-5 flex items-center justify-center w-16 h-16 rounded-full"
-                  style={{
-                    background: 'rgba(212,175,96,0.10)',
-                    border: '1.5px solid rgba(212,175,96,0.45)',
-                  }}
-                >
-                  <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
-                </div>
-                <h3
-                  className="font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]"
-                  style={{ fontSize: '17px', letterSpacing: '-0.01em' }}
-                >
-                  {heading[0]}
-                  <br />
-                  {heading[1]}
-                </h3>
-                <p
-                  className="mt-4 text-brand-slate leading-[1.6] max-w-[220px]"
-                  style={{
-                    fontSize: '13px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 400,
-                  }}
-                >
-                  {body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
 
 // ─── Section: Common Repair Types ────────────────────────────────────────────
 
@@ -548,7 +438,7 @@ const REPAIR_TYPES = [
 function RepairTypes() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -757,6 +647,15 @@ function WhySureWest() {
   )
 }
 
+// ─── Overview carousel images ────────────────────────────────────────────────
+
+const REPAIR_OVERVIEW_IMAGES = [
+  { src: '/images/Cochrane Roofing Contractor Gallery 14.webp', alt: 'Cochrane roof leak repair completed by Sure West Roofing' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Sure West Roofing crew completing a roof repair in Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Roof flashing rebuild around a chimney in Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Replacement shingles installed during a Cochrane roof repair' },
+]
+
 // ─── Gallery images for this page (different mix from /roof-replacement) ─────
 
 const RR_GALLERY_IMAGES = [
@@ -847,13 +746,27 @@ export default function RoofRepairPage() {
 
       <RoofRepairHero />
       <CertsBanner />
+      <ServiceOverview
+        heading={'Cochrane Roof Repair,\nFrom Diagnosis to Done'}
+        body="A roof repair traces an active leak, missing shingle, or failed flashing back to its true source, replaces what failed using IKO-matched materials, and reseals the area so water cannot find the same path again. Carried out by Red Seal Journeyman roofers and backed by a 2-year workmanship warranty in writing."
+        images={REPAIR_OVERVIEW_IMAGES}
+      />
       <WhatIncluded />
-      <SignsYouNeed />
-      <RepairProcess />
-      <RepairTypes />
-      <WhySureWest />
+      <Reviews />
       <ServicesGallery images={RR_GALLERY_IMAGES} sectionBg="#FFFFFF" />
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <WhySureWest />
+      <HowItWorks
+        heading={
+          <>
+            How a Sure West Cochrane
+            <br className="hidden md:block" /> Roof Repair Works
+          </>
+        }
+        body="Three clear steps from first call to repair complete, every stage in writing before we start."
+        steps={REPAIR_STEPS}
+      />
+      <RepairTypes />
+      <SignsYouNeed />
       <ServiceAreasPins
         heading={'Roof Repair Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."

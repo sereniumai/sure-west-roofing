@@ -177,7 +177,7 @@ export function RelatedServicesCarousel({ exclude }: Props) {
                   {description}
                 </p>
 
-                <div className="mt-5">
+                <div className="mt-3">
                   <span
                     className="inline-flex items-center gap-1.5 font-semibold text-brand-gold transition-colors duration-200 group-hover:text-[#B8943F]"
                     style={{

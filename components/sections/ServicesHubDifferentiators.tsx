@@ -28,7 +28,7 @@ const DIFFERENTIATORS = [
 export function ServicesHubDifferentiators() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
@@ -58,7 +58,8 @@ export function ServicesHubDifferentiators() {
               letterSpacing: '-0.005em',
             }}
           >
-            Why Cochrane Homeowners Trust Sure West
+            Why Cochrane Homeowners
+            <br className="hidden lg:block" /> Trust Sure West
           </h2>
           <p
             className="mt-5 max-w-[480px] mx-auto text-brand-slate leading-[1.65]"
@@ -79,10 +80,9 @@ export function ServicesHubDifferentiators() {
           {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
             <article
               key={heading}
-              className="group relative rounded-[16px] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+              className="group relative rounded-[16px] bg-white p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
               style={{
-                background: 'linear-gradient(155deg, #FAF8F2 0%, #F4F1E8 100%)',
-                border: '1px solid #E8E4D8',
+                border: '1px solid #E5E2D9',
                 boxShadow:
                   '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
               }}

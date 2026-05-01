@@ -12,17 +12,17 @@ import {
   Award,
   CloudLightning,
   FileText,
-  MapPin,
   ArrowRight,
   Calendar,
-  Package,
-  Hammer,
-  CheckCircle2,
+  FileCheck,
+  CheckCircle,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { RoofReplacementHero } from '@/components/sections/RoofReplacementHero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
+import { ServiceOverview } from '@/components/sections/ServiceOverview'
+import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RoofReplacementFAQ } from '@/components/sections/RoofReplacementFAQ'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
@@ -191,6 +191,25 @@ const faqSchema = {
 
 // ─── Section: What's Included ─────────────────────────────────────────────────
 
+const INCLUDED_ITEMS = [
+  {
+    heading: 'Full tear-off and decking inspection',
+    body:
+      'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on.',
+  },
+  {
+    heading: 'Underlayment, ice-and-water shield, IKO shingles',
+    body:
+      'Synthetic underlayment and ice-and-water shield protect the deck. IKO shingles in your tier of choice: Cambridge, Dynasty, or Class 4 Nordic.',
+  },
+  {
+    heading: 'Full site cleanup, walkthrough, and warranty',
+    body:
+      'We tarp landscaping before tear-off, then run a magnetic nail sweep daily and at completion. Job closes with a walkthrough and your written 10-year workmanship warranty.',
+  },
+]
+
+
 function WhatIncluded() {
   return (
     <section
@@ -237,7 +256,7 @@ function WhatIncluded() {
               Cochrane, Calgary, and Canmore.
             </p>
 
-            <WhatIncludedAccordion />
+            <WhatIncludedAccordion items={INCLUDED_ITEMS} />
           </Reveal>
 
           {/* Left (desktop): photo with premium framing matching About / Service hero shadow */}
@@ -250,7 +269,7 @@ function WhatIncluded() {
               }}
             >
               <Image
-                src="/images/Cochrane Roofing Contractor Gallery 14.webp"
+                src="/images/Cochrane Roofing Contractor Gallery 5.webp"
                 alt="Sure West Roofing Red Seal crew installing new shingles on a Cochrane home"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
@@ -273,7 +292,7 @@ function WhatIncluded() {
   )
 }
 
-// ─── Section: Signs You Need Replacement ─────────────────────────────────────
+// ─── Section: Signs You Need a Replacement ──────────────────────────────────
 
 const SIGNS = [
   {
@@ -311,202 +330,56 @@ const SIGNS = [
 function SignsYouNeed() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <Reveal>
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            Signs to Watch
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            Signs Your Roof Needs
-            <br />
-            Replacing, Not Just Repairing
-          </h2>
-          <p
-            className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            If your Cochrane roof is under 15 years old, a repair is usually smarter than a full
-            replacement. Here is when it isn&apos;t.
-          </p>
-        </div>
-        </Reveal>
-
-        <Reveal delay={150}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {SIGNS.map(({ Icon, heading, body }) => (
-            <article
-              key={heading}
-              className="group relative bg-white rounded-[14px] border border-[#E5E2D9] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
-            >
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute top-0 left-0 right-0 h-[2px]"
-                style={{
-                  background:
-                    'linear-gradient(90deg, transparent 0%, rgba(212,175,96,0.85) 50%, transparent 100%)',
-                  opacity: 0.45,
-                }}
-              />
-              <div
-                className="relative w-12 h-12 rounded-[10px] bg-white flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg] mb-5"
-                style={{
-                  boxShadow:
-                    '0 1px 3px rgba(44,71,102,0.08), 0 10px 22px -10px rgba(212,175,96,0.45), 0 4px 10px -4px rgba(44,71,102,0.10)',
-                  border: '1px solid rgba(212,175,96,0.20)',
-                }}
-              >
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
-              </div>
-              <h3
-                className="relative font-display font-semibold text-brand-navy mb-3 leading-[1.25]"
-                style={{ fontSize: '19px', letterSpacing: '-0.01em' }}
-              >
-                {heading}
-              </h3>
-              <p
-                className="relative text-brand-slate leading-[1.65]"
-                style={{
-                  fontSize: '14px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                {body}
-              </p>
-            </article>
-          ))}
-        </div>
-
-        <div className="mt-12 md:mt-14 flex justify-center">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
-          </Button>
-        </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-// ─── Section: Replacement Process ────────────────────────────────────────────
-
-const PROCESS_STEPS = [
-  {
-    number: '01',
-    Icon: Calendar,
-    heading: ['Free On-Site', 'Estimate'],
-    body: 'A Red Seal Journeyman inspects your Cochrane roof, measures it, and walks you through the options. No pressure, no upsell.',
-  },
-  {
-    number: '02',
-    Icon: FileText,
-    heading: ['Written Quote,', 'No Surprises'],
-    body: 'A detailed written quote with shingle choice, scope, timeline, and price. Everything that affects cost is spelled out up front.',
-  },
-  {
-    number: '03',
-    Icon: Package,
-    heading: ['Material Delivery', 'and Scheduling'],
-    body: 'Once approved, we order materials and lock in an install date that fits your schedule and the forecast. Nothing left vague.',
-  },
-  {
-    number: '04',
-    Icon: Hammer,
-    heading: ['One-Day Install', 'on Most Homes'],
-    body: 'Our Cochrane crews handle tear-off, deck repair, and install in a single day on most homes. Larger roofs take two days.',
-  },
-  {
-    number: '05',
-    Icon: CheckCircle2,
-    heading: ['Cleanup and', 'Final Walkthrough'],
-    body: 'Magnetic nail sweep, full site cleanup, and a final walkthrough with you before we leave. Your written warranty in hand.',
-  },
-]
-
-function ReplacementProcess() {
-  return (
-    <section
       className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
         <Reveal>
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            How It Works
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            How a Sure West Roof
-            <br />
-            Replacement Works
-          </h2>
-          <p
-            className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Five clear steps from first estimate to final cleanup. Every stage is mapped out in
-            writing before we start. No hidden steps, no surprises.
-          </p>
-        </div>
+          <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
+            <span
+              className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
+            >
+              Signs to Watch
+            </span>
+            <h2
+              className="font-display font-medium text-brand-navy"
+              style={{
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              Signs Your Cochrane Roof Needs
+              <br />
+              Replacing, Not Just Repairing
+            </h2>
+            <p
+              className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              If your Cochrane roof is under 15 years old, a repair is usually smarter than a full
+              replacement. Here is when it isn&apos;t.
+            </p>
+          </div>
         </Reveal>
 
         <Reveal delay={150}>
-        <div className="relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 md:gap-6">
-            {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+            {SIGNS.map(({ Icon, heading, body }) => (
               <article
-                key={number}
-                className="group relative rounded-[16px] px-5 py-7 md:px-5 md:py-8 flex flex-col items-center text-center overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
-                style={{
-                  background: 'linear-gradient(155deg, #FAF8F2 0%, #F4F1E8 100%)',
-                  border: '1px solid #E8E4D8',
-                  boxShadow:
-                    '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
-                }}
+                key={heading}
+                className="group relative rounded-[14px] bg-white border border-[#E5E2D9] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
               >
                 <span
                   aria-hidden="true"
@@ -514,40 +387,29 @@ function ReplacementProcess() {
                   style={{
                     background:
                       'linear-gradient(90deg, transparent 0%, rgba(212,175,96,0.85) 50%, transparent 100%)',
-                    opacity: 0.55,
+                    opacity: 0.45,
                   }}
                 />
-                <span
-                  className="relative uppercase tracking-[0.18em] text-brand-gold font-semibold"
-                  style={{
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  }}
-                >
-                  Step {number}
-                </span>
                 <div
-                  className="relative mt-4 mb-5 flex items-center justify-center w-14 h-14 rounded-[12px] bg-white transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg]"
+                  className="relative w-12 h-12 rounded-[10px] bg-white flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg] mb-5"
                   style={{
                     boxShadow:
                       '0 1px 3px rgba(44,71,102,0.08), 0 10px 22px -10px rgba(212,175,96,0.45), 0 4px 10px -4px rgba(44,71,102,0.10)',
                     border: '1px solid rgba(212,175,96,0.20)',
                   }}
                 >
-                  <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
+                  <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
                 </div>
                 <h3
-                  className="relative font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]"
-                  style={{ fontSize: '17px', letterSpacing: '-0.01em' }}
+                  className="relative font-display font-semibold text-brand-navy mb-3 leading-[1.25]"
+                  style={{ fontSize: '19px', letterSpacing: '-0.01em' }}
                 >
-                  {heading[0]}
-                  <br />
-                  {heading[1]}
+                  {heading}
                 </h3>
                 <p
-                  className="relative mt-4 text-brand-slate leading-[1.6] max-w-[220px]"
+                  className="relative text-brand-slate leading-[1.65]"
                   style={{
-                    fontSize: '13px',
+                    fontSize: '14px',
                     fontFamily: 'var(--font-inter), system-ui, sans-serif',
                     fontWeight: 400,
                   }}
@@ -557,18 +419,43 @@ function ReplacementProcess() {
               </article>
             ))}
           </div>
-        </div>
 
-        <div className="mt-12 md:mt-14 flex justify-center">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
-          </Button>
-        </div>
+          <div className="mt-12 md:mt-14 flex justify-center">
+            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+              Get a Free Estimate
+            </Button>
+          </div>
         </Reveal>
       </div>
     </section>
   )
 }
+
+// ─── Section: How It Works (3-step) ──────────────────────────────────────────
+
+const REPLACEMENT_STEPS: HowItWorksStep[] = [
+  {
+    number: '01',
+    Icon: Calendar,
+    title: 'Free On-Site Estimate',
+    description:
+      'A Red Seal Journeyman inspects your Cochrane roof, measures every slope, and writes a fixed quote on the spot.',
+  },
+  {
+    number: '02',
+    Icon: FileCheck,
+    title: 'Approve Your Quote',
+    description:
+      'Your quote is fixed. The price you approve is the price you pay. Install date locked in around your schedule.',
+  },
+  {
+    number: '03',
+    Icon: CheckCircle,
+    title: 'Your New Roof, Done Right',
+    description:
+      'Tear-off, IKO install, magnetic nail sweep, and your written 10-year workmanship warranty handed over before we leave.',
+  },
+]
 
 // ─── Section: Shingle Options ─────────────────────────────────────────────────
 
@@ -732,7 +619,7 @@ const DIFFERENTIATORS = [
 function WhySureWest() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -851,6 +738,13 @@ function WhySureWest() {
 
 // ─── Section: Gallery images for this page ───────────────────────────────────
 
+const RR_OVERVIEW_IMAGES = [
+  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'New IKO Dynasty roof replacement in Cochrane Alberta' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Red Seal Journeyman crew installing shingles on a Cochrane home' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'IKO Cambridge shingle roof replacement in Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Architectural shingle roof replacement in Cochrane' },
+]
+
 const RR_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Completed IKO Dynasty roof replacement in Cochrane Alberta',              caption: 'Cochrane, AB · IKO Dynasty' },
   { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'IKO Cambridge shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
@@ -860,7 +754,7 @@ const RR_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Architectural shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
   { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'IKO Dynasty roof replacement in Calgary Alberta by Sure West Roofing',   caption: 'Calgary, AB · IKO Dynasty' },
   { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'IKO Nordic impact resistant roof replacement in Cochrane Alberta',       caption: 'Cochrane, AB · IKO Nordic' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Red Seal Journeyman crew completing roof replacement in Cochrane',       caption: 'Cochrane, AB · IKO Dynasty' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'Red Seal Journeyman crew completing roof replacement in Cochrane',       caption: 'Cochrane, AB · IKO Dynasty' },
   { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Sure West Roofing completed roof replacement in the Calgary region',     caption: 'Calgary, AB · IKO Dynasty' },
 ]
 
@@ -939,16 +833,29 @@ export default function RoofReplacementPage() {
 
       <RoofReplacementHero />
       <TrustLogos />
+      <ServiceOverview
+        heading={'Cochrane Roof Replacement,\nBuilt by Red Seal Tradespeople'}
+        body="A roof replacement strips your existing roof down to the deck, replaces any compromised sheathing, then rebuilds the entire system: synthetic underlayment, ice-and-water shield, IKO shingles, and new flashing. Done by Red Seal Journeyman roofers and backed by a 10-year workmanship warranty in writing."
+        images={RR_OVERVIEW_IMAGES}
+      />
       <WhatIncluded />
-      <SignsYouNeed />
-      <ReplacementProcess />
-      <ShingleOptions />
-      <WhySureWest />
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <Reviews />
       <PortfolioGallery
-        sectionBg="#F7F5F0"
         images={RR_GALLERY_IMAGES.map(({ src, alt }) => ({ src, alt }))}
       />
+      <WhySureWest />
+      <HowItWorks
+        heading={
+          <>
+            How a Sure West Cochrane
+            <br className="hidden md:block" /> Roof Replacement Works
+          </>
+        }
+        body="Three clear steps from first estimate to your new roof in writing. No surprises, no pressure, no hidden fees."
+        steps={REPLACEMENT_STEPS}
+      />
+      <SignsYouNeed />
+      <ShingleOptions />
       <ServiceAreasPins
         heading={'Roof Replacement Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."

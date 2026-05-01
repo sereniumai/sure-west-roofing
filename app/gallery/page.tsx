@@ -123,9 +123,11 @@ const HERO_COLLAGE = [
   {
     src: '/images/Cochrane Roofing Contractor Gallery 10.webp',
     alt: 'Completed Sure West Roofing project in Cochrane, Alberta',
-    // Centre, front of stack, largest, no rotation
+    // Centre, front of stack, largest, no rotation. Shift crop right so the
+    // house sits more centred in the visible frame.
     outerClassName:
       'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[54%] aspect-square z-10',
+    objectPosition: '65% center',
   },
 ]
 
@@ -212,8 +214,8 @@ function GalleryHero() {
                 textTransform: 'uppercase',
               }}
             >
-              <span>250+ Roofs Completed</span>
-              <span aria-hidden="true" style={{ color: '#C49A2C' }}>·</span>
+              <span className="hidden md:inline">250+ Roofs Completed</span>
+              <span aria-hidden="true" className="hidden md:inline" style={{ color: '#C49A2C' }}>·</span>
               <span>Red Seal Certified</span>
               <span aria-hidden="true" style={{ color: '#C49A2C' }}>·</span>
               <span>IKO ShieldPRO Installer</span>
@@ -239,6 +241,7 @@ function GalleryHero() {
                       src={img.src}
                       alt={img.alt}
                       className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+                      style={img.objectPosition ? { objectPosition: img.objectPosition } : undefined}
                       loading="eager"
                       draggable={false}
                     />
@@ -261,7 +264,7 @@ function GalleryHero() {
 
 const GALLERY_FAQS: FaqItem[] = [
   {
-    question: 'How many roofing projects has Sure West completed in Cochrane?',
+    question: 'How many projects has Sure West completed?',
     answer:
       'Sure West has completed hundreds of roofing projects across Cochrane, Calgary, and Canmore. The gallery on this page shows a selection of recent work, including full roof replacements, hail damage restorations, and impact-resistant shingle installs. Every project was installed by our in-house Red Seal certified crew.',
   },
@@ -296,7 +299,7 @@ const GALLERY_FAQS: FaqItem[] = [
       'Most single-family roof replacements in Cochrane are completed in one to two days, weather permitting. Larger or more complex roofs with multiple dormers, steep pitches, or significant decking repairs can run two to three days. Every project in the gallery was completed start to finish by our own Red Seal crew, with a full site clean-up and magnetic nail sweep on the final day.',
   },
   {
-    question: 'Can I use photos from the Sure West gallery in my insurance claim?',
+    question: 'Can I use gallery photos for an insurance claim?',
     answer:
       'Gallery photos show completed Sure West projects and cannot substitute for a formal inspection report on your own roof. For an insurance claim, Sure West provides a full damage report with date-stamped photos, measurements, and itemised scope of work. Book a free inspection and we can submit the claim documentation directly to your adjuster on your behalf.',
   },
@@ -308,6 +311,7 @@ function GalleryFAQ() {
       faqs={GALLERY_FAQS}
       heading="Cochrane Roofing Projects, Answered"
       subhead="Common questions about the projects in our gallery, the materials we use, and the homes we've worked on across Cochrane, Calgary, and Canmore."
+      subheadMaxWidth="780px"
       sectionBg="#EFEBE0"
     />
   )
@@ -352,7 +356,7 @@ export default function GalleryPage() {
             <br className="hidden md:block" /> Let&apos;s Add Your Roof to the Gallery.
           </>
         }
-        subtext="Free in-home estimate. Fixed written quote within 48 hours. Quick replies, even evenings and weekends."
+        subtext="Free in-home estimate. Fixed written quote. Quick replies, even evenings and weekends."
       />
     </>
   )

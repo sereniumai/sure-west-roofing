@@ -208,12 +208,15 @@ export default function ServicesPage() {
       {/* 3. Services grid, featured spotlight + 6-card grid */}
       <ServicesHubGrid />
 
-      {/* 4. Reviews, immediate social proof to validate the services list */}
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      {/* 4. Why Sure West, differentiators lead before social proof to frame the lens */}
+      <ServicesHubDifferentiators />
 
-      {/* 5. Gallery, paired with reviews to keep the proof block tight */}
+      {/* 5. Reviews, immediate social proof to validate the differentiators above */}
+      <Reviews />
+
+      {/* 6. Gallery, paired with reviews to keep the proof block tight */}
       <PortfolioGallery
-        sectionBg="#FFFFFF"
+        sectionBg="#F7F5F0"
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 5.webp', alt: 'Cochrane roof replacement by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Cochrane roof installation by Sure West Roofing' },
@@ -228,9 +231,6 @@ export default function ServicesPage() {
         ]}
       />
 
-      {/* 6. Why Sure West, 4 differentiators primed by the proof block above */}
-      <ServicesHubDifferentiators />
-
       {/* 7. How It Works, rational close before geographic relevance */}
       <HowItWorks />
 
@@ -238,6 +238,7 @@ export default function ServicesPage() {
       <ServiceAreasPins
         heading={'Roofing Services Across Cochrane,\n Calgary and Canmore'}
         subhead="Based in Cochrane, Alberta. We serve homeowners across the Bow Valley corridor and the Calgary region."
+        sectionBg="#F7F5F0"
       />
 
       {/* 9. FAQ, 8 questions, FAQPage schema injected by ServicesFAQ */}

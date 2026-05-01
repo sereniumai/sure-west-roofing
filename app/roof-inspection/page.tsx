@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  Home,
   CloudLightning,
   Clock,
   FileCheck,
@@ -11,16 +10,16 @@ import {
   ShieldCheck,
   Award,
   FileText,
-  MapPin,
   ArrowRight,
-  Search,
-  MessageSquare,
+  CheckCircle,
   ShoppingBag,
   ShieldAlert,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { RoofInspectionHero } from '@/components/sections/RoofInspectionHero'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
+import { ServiceOverview } from '@/components/sections/ServiceOverview'
+import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
@@ -152,7 +151,7 @@ const INSPECTION_INCLUDED_ITEMS = [
 
 function WhatIncluded() {
   return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+    <section className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
@@ -180,7 +179,7 @@ function WhatIncluded() {
           <div className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px] lg:order-1"
             style={{ boxShadow: '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)' }}>
             <Image
-              src="/images/Cochrane Roofing Contractor Gallery 16.webp"
+              src="/images/Cochrane Roofing Contractor Gallery 5.webp"
               alt="Detailed roof inspection on a Cochrane Alberta home"
               fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" loading="lazy" />
           </div>
@@ -241,57 +240,29 @@ function SignsYouNeed() {
   )
 }
 
-const PROCESS_STEPS = [
-  { number: '01', Icon: Calendar, heading: ['Book Your', 'Inspection'], body: 'Book online or by phone. Sure West confirms within one business day and locks in a date that fits your schedule and the forecast.' },
-  { number: '02', Icon: Search, heading: ['Exterior Roof', 'Walk'], body: 'A Red Seal Journeyman walks every slope of your Cochrane roof and inspects shingles, flashing, valleys, and penetrations.' },
-  { number: '03', Icon: Home, heading: ['Attic and', 'Interior Check'], body: 'From inside the home we check the attic for daylight, water staining, and ventilation issues that affect roof life.' },
-  { number: '04', Icon: FileText, heading: ['Written Photo', 'Report'], body: 'Every checkpoint is photographed with severity ratings. The PDF report is delivered within one business day.' },
-  { number: '05', Icon: MessageSquare, heading: ['Recommendations', '+ Quote'], body: 'A clear summary of findings, repair recommendations, and a fixed quote for any work needed. No pressure, no upsell.' },
+const INSPECTION_STEPS: HowItWorksStep[] = [
+  {
+    number: '01',
+    Icon: Calendar,
+    title: 'Book Your Inspection',
+    description:
+      'Online or by phone. Confirmed within one business day, scheduled around your week and the Cochrane forecast.',
+  },
+  {
+    number: '02',
+    Icon: FileCheck,
+    title: 'Walk + Attic Check',
+    description:
+      'Every slope walked, attic checked from inside, every checkpoint photographed with location notes and a severity rating.',
+  },
+  {
+    number: '03',
+    Icon: CheckCircle,
+    title: 'Written Report Delivered',
+    description:
+      'PDF report within one business day. Free of charge if you book any of the recommended repair, replacement, or maintenance work.',
+  },
 ]
-
-function InspectionProcess() {
-  return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
-            How It Works
-          </span>
-          <h2 className="font-display font-medium text-brand-navy"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            How a Sure West Roof
-            <br />
-            Inspection Works
-          </h2>
-          <p className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
-            style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Five clear steps from booking to written report. Most inspections are completed in 60 to 90 minutes on-site.
-          </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-6">
-          {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
-            <div key={number} className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
-              <span className="uppercase tracking-[0.18em] text-brand-gold font-semibold" style={{ fontSize: '11px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>Step {number}</span>
-              <div className="mt-4 mb-5 flex items-center justify-center w-16 h-16 rounded-full" style={{ background: 'rgba(212,175,96,0.10)', border: '1.5px solid rgba(212,175,96,0.45)' }}>
-                <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
-              </div>
-              <h3 className="font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]" style={{ fontSize: '17px', letterSpacing: '-0.01em' }}>
-                {heading[0]}<br />{heading[1]}
-              </h3>
-              <p className="mt-4 text-brand-slate leading-[1.6] max-w-[220px]" style={{ fontSize: '13px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 const INSPECTION_TYPES = [
   { tier: 'Real Estate', name: 'Pre-Purchase Inspection', image: '/images/Cochrane Roofing Contractor Gallery 2.webp', imageAlt: 'Pre-purchase roof inspection in Cochrane Alberta', body: 'Independent roof condition report for buyers, often as a follow-up to a general home inspection. Findings often translate directly into negotiating leverage on the offer price.' },
@@ -301,7 +272,7 @@ const INSPECTION_TYPES = [
 
 function InspectionTypes() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24"
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
@@ -388,6 +359,13 @@ function WhySureWest() {
   )
 }
 
+const INSPECTION_OVERVIEW_IMAGES = [
+  { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'Pre-purchase roof inspection in Cochrane Alberta' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Detailed roof inspection by Sure West Roofing in Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 21.webp', alt: 'Written inspection report handed to a Cochrane homeowner' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Annual roof inspection on a Cochrane Alberta home' },
+]
+
 const INSPECTION_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'Pre-purchase roof inspection in Cochrane Alberta',                    caption: 'Cochrane, AB · Pre-Purchase' },
   { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Post-storm roof inspection in Canmore Alberta',                       caption: 'Canmore, AB · Post-Storm' },
@@ -395,7 +373,7 @@ const INSPECTION_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'Insurance hail damage inspection in Cochrane',                        caption: 'Cochrane, AB · Insurance' },
   { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Roof inspection report documentation in Cochrane',                    caption: 'Cochrane, AB · Report' },
   { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Roof inspection completed by Sure West Roofing in Calgary',           caption: 'Calgary, AB · Inspection' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Detailed shingle and flashing inspection in Cochrane',                caption: 'Cochrane, AB · Detail Check' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Detailed shingle and flashing inspection in Cochrane',                caption: 'Cochrane, AB · Detail Check' },
   { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Flashing and penetration inspection in Cochrane',                     caption: 'Cochrane, AB · Flashing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 21.webp', alt: 'Written inspection report handed to a Cochrane homeowner',            caption: 'Cochrane, AB · Written Report' },
   { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Sure West Roofing inspection in Cochrane Alberta',                    caption: 'Cochrane, AB · Inspection' },
@@ -437,13 +415,27 @@ export default function RoofInspectionPage() {
 
       <RoofInspectionHero />
       <CertsBanner />
+      <ServiceOverview
+        heading={'Cochrane Roof Inspections,\nDocumented for Buyers and Insurers'}
+        body="A roof inspection is a slope-by-slope walk of your roof plus an attic check from inside the home, documented with a written photo report you can hand to a buyer, insurer, or adjuster. Carried out by Red Seal Journeyman roofers, with no upsell pressure and the inspection cost waived if you book any of the recommended work."
+        images={INSPECTION_OVERVIEW_IMAGES}
+      />
       <WhatIncluded />
-      <SignsYouNeed />
-      <InspectionProcess />
-      <InspectionTypes />
-      <WhySureWest />
+      <Reviews />
       <ServicesGallery images={INSPECTION_GALLERY_IMAGES} sectionBg="#FFFFFF" />
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <WhySureWest />
+      <HowItWorks
+        heading={
+          <>
+            How a Sure West Cochrane
+            <br className="hidden md:block" /> Roof Inspection Works
+          </>
+        }
+        body="Three clear steps from booking to written report. Most inspections are completed in 60 to 90 minutes on-site."
+        steps={INSPECTION_STEPS}
+      />
+      <InspectionTypes />
+      <SignsYouNeed />
       <ServiceAreasPins
         heading={'Roof Inspections Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."
@@ -456,7 +448,7 @@ export default function RoofInspectionPage() {
       <RelatedServices />
       <BottomCTA
         heading={<>Get a Professional Roof<br className="hidden md:block" /> Inspection in Cochrane</>}
-        subtext="Red Seal certified, written photo report within 24 hours, free with quoted work, and no sales pressure. Book yours today."
+        subtext="Red Seal certified, written photo report, free with quoted work, and no sales pressure. Book yours today."
       />
     </>
   )

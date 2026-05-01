@@ -42,15 +42,6 @@ const SERVICES: ServiceCard[] = [
     imageAlt: 'Roof repair in Cochrane Alberta by Sure West Roofing',
   },
   {
-    title: 'Hail Damage Repair',
-    href: '/hail-damage-repair',
-    description:
-      'Free post-storm assessment with full damage documentation, so you have what you need to file with your insurer. No out-of-pocket cost for the assessment.',
-    learnMoreText: 'Hail Damage Repair',
-    image: '/images/hail-damage-repair.webp',
-    imageAlt: 'Hail damage roof repair in Cochrane Alberta by Sure West Roofing',
-  },
-  {
     title: 'Roof Inspection',
     href: '/roof-inspection',
     description:
@@ -85,6 +76,15 @@ const SERVICES: ServiceCard[] = [
     learnMoreText: 'Skylight Installation',
     image: '/images/skylight-installation-cochrane.webp',
     imageAlt: 'Skylight installation in Cochrane Alberta by Sure West Roofing',
+  },
+  {
+    title: 'Hail Damage Repair',
+    href: '/hail-damage-repair',
+    description:
+      'Free post-storm assessment with full damage documentation, so you have what you need to file with your insurer. No out-of-pocket cost for the assessment.',
+    learnMoreText: 'Hail Damage Repair',
+    image: '/images/hail-damage-repair.webp',
+    imageAlt: 'Hail damage roof repair in Cochrane Alberta by Sure West Roofing',
   },
 ]
 

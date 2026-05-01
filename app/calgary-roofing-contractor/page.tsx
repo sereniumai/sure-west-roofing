@@ -375,7 +375,7 @@ export default function RoofingContractorCalgaryPage() {
       <BrandStrip />
 
       {/* 9. FAQ, Calgary-specific, final objection handling right before the ask */}
-      <HomeFAQ faqs={CALGARY_FAQS} />
+      <HomeFAQ faqs={CALGARY_FAQS} heading="Calgary Roofing Questions Answered" />
 
       {/* 10. Bottom CTA */}
       <BottomCTA

@@ -872,7 +872,7 @@ export default function AboutPage() {
       <BottomCTA
         sectionBg="#FFFFFF"
         heading="Ready to Work With a Cochrane Roofing Team You Can Actually Trust?"
-        subtext="Free in-home estimate. Fixed written quote within 48 hours. Quick replies, even after hours."
+        subtext="Free in-home estimate. Fixed written quote. Quick replies, even after hours."
       />
     </>
   )

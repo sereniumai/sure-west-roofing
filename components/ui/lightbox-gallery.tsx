@@ -105,6 +105,7 @@ export function LightboxGallery({ images, openIndex, onClose }: LightboxGalleryP
               sizes="92vw"
               quality={90}
               priority
+              unoptimized
               className="object-contain select-none"
               draggable={false}
             />

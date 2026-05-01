@@ -13,6 +13,8 @@ interface ServiceFAQProps {
   subhead: string
   ctaHref?: string
   sectionBg?: string
+  /** Max width for the subhead paragraph. Defaults to 440px. */
+  subheadMaxWidth?: string
 }
 
 export function ServiceFAQ({
@@ -21,6 +23,7 @@ export function ServiceFAQ({
   subhead,
   ctaHref = '/free-roof-estimate-cochrane',
   sectionBg = '#F7F5F0',
+  subheadMaxWidth = '440px',
 }: ServiceFAQProps) {
   const [open, setOpen] = useState<number | null>(null)
 
@@ -63,8 +66,9 @@ export function ServiceFAQ({
             {heading}
           </h2>
           <p
-            className="mt-6 max-w-[440px] text-brand-slate leading-[1.7]"
+            className="mt-6 text-brand-slate leading-[1.7]"
             style={{
+              maxWidth: subheadMaxWidth,
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 400,

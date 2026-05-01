@@ -11,17 +11,17 @@ import {
   Award,
   CloudLightning,
   FileText,
-  MapPin,
   ArrowRight,
-  Eye,
-  Brush,
-  BellRing,
+  FileCheck,
+  CheckCircle,
   Sparkles,
   KeyRound,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { RoofMaintenanceHero } from '@/components/sections/RoofMaintenanceHero'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
+import { ServiceOverview } from '@/components/sections/ServiceOverview'
+import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
@@ -153,12 +153,12 @@ const MAINTENANCE_INCLUDED_ITEMS = [
 
 function WhatIncluded() {
   return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+    <section className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
-          {/* Hero is LEFT, so WhatIncluded image goes RIGHT (default JSX order). Content first / left. */}
-          <div className="flex flex-col">
+          {/* Image LEFT, content RIGHT on desktop */}
+          <div className="flex flex-col lg:order-2">
             <span className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
               What&apos;s Included
@@ -178,10 +178,10 @@ function WhatIncluded() {
             <WhatIncludedAccordion items={MAINTENANCE_INCLUDED_ITEMS} />
           </div>
 
-          <div className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px]"
+          <div className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px] lg:order-1"
             style={{ boxShadow: '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)' }}>
             <Image
-              src="/images/Cochrane Roofing Contractor Gallery 21.webp"
+              src="/images/Cochrane Roofing Contractor Gallery 5.webp"
               alt="Annual roof maintenance and inspection on a Cochrane Alberta home"
               fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" loading="lazy" />
           </div>
@@ -241,57 +241,29 @@ function SignsYouNeed() {
   )
 }
 
-const PROCESS_STEPS = [
-  { number: '01', Icon: Calendar, heading: ['Schedule Your', 'Visit'], body: 'Book online or by phone. Sure West confirms within one business day and locks in a date that fits your schedule and the forecast.' },
-  { number: '02', Icon: Eye, heading: ['Detailed Roof', 'Inspection'], body: 'A Red Seal Journeyman walks every slope of your Cochrane roof and inspects shingles, flashing, valleys, and penetrations.' },
-  { number: '03', Icon: Brush, heading: ['Cleaning and', 'Minor Repairs'], body: 'Valleys cleared, lifted shingles reset, cracked sealant replaced, and minor flashing fixes completed during the same visit.' },
-  { number: '04', Icon: FileText, heading: ['Written Photo', 'Report'], body: 'A photo-documented written report is sent to you and kept on file. The report supports your IKO warranty and resale documentation.' },
-  { number: '05', Icon: BellRing, heading: ['Recommendation,', 'Next Visit'], body: 'A clear recommendation on timing for your next visit. Most Cochrane homes book annually; older roofs benefit from twice a year.' },
+const MAINTENANCE_STEPS: HowItWorksStep[] = [
+  {
+    number: '01',
+    Icon: Calendar,
+    title: 'Schedule Your Visit',
+    description:
+      'Booked online or by phone. Confirmed within one business day around your Cochrane schedule and the forecast.',
+  },
+  {
+    number: '02',
+    Icon: FileCheck,
+    title: 'Inspect, Clean, Repair',
+    description:
+      'Slope walk, attic check, valleys cleared, lifted shingles reset, and minor flashing fixes completed during the same visit.',
+  },
+  {
+    number: '03',
+    Icon: CheckCircle,
+    title: 'Written Maintenance Log',
+    description:
+      'Photo-documented log supports your IKO warranty and gives you a clean record for resale or insurance.',
+  },
 ]
-
-function MaintenanceProcess() {
-  return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
-            How It Works
-          </span>
-          <h2 className="font-display font-medium text-brand-navy"
-            style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            How a Sure West
-            <br />
-            Maintenance Visit Works
-          </h2>
-          <p className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
-            style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Five clear steps from booking to next-visit reminder. No hidden steps, no surprise charges.
-          </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-6">
-          {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
-            <div key={number} className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
-              <span className="uppercase tracking-[0.18em] text-brand-gold font-semibold" style={{ fontSize: '11px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>Step {number}</span>
-              <div className="mt-4 mb-5 flex items-center justify-center w-16 h-16 rounded-full" style={{ background: 'rgba(212,175,96,0.10)', border: '1.5px solid rgba(212,175,96,0.45)' }}>
-                <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
-              </div>
-              <h3 className="font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]" style={{ fontSize: '17px', letterSpacing: '-0.01em' }}>
-                {heading[0]}<br />{heading[1]}
-              </h3>
-              <p className="mt-4 text-brand-slate leading-[1.6] max-w-[220px]" style={{ fontSize: '13px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 const MAINTENANCE_PLANS = [
   { tier: 'Most Popular', name: 'Annual Tune-Up', image: '/images/Cochrane Roofing Contractor Gallery 4.webp', imageAlt: 'Annual roof maintenance tune-up in Cochrane Alberta', body: 'One full inspection plus minor repairs and cleaning per year. The right cadence for Cochrane homes under 15 years old. Starts from $250 for a standard single-family roof.' },
@@ -301,7 +273,7 @@ const MAINTENANCE_PLANS = [
 
 function MaintenancePlans() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24"
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
@@ -388,6 +360,13 @@ function WhySureWest() {
   )
 }
 
+const MAINTENANCE_OVERVIEW_IMAGES = [
+  { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Annual roof maintenance tune-up on a Cochrane Alberta home' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Sure West maintenance visit in Cochrane Alberta' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Red Seal crew clearing valleys during a Cochrane maintenance visit' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Bi-annual maintenance plan for an older Cochrane home' },
+]
+
 const MAINTENANCE_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Cochrane roof maintained by Sure West Roofing',                       caption: 'Cochrane, AB · Maintained' },
   { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Annual maintenance tune-up on a Cochrane Alberta home',               caption: 'Cochrane, AB · Annual Visit' },
@@ -398,7 +377,7 @@ const MAINTENANCE_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Bi-annual maintenance plan for an older Cochrane home',               caption: 'Cochrane, AB · Bi-Annual' },
   { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Pre-sale roof maintenance documentation in Cochrane',                 caption: 'Cochrane, AB · Resale Log' },
   { src: '/images/Cochrane Roofing Contractor Gallery 20.webp', alt: 'Maintenance after a Calgary windstorm by Sure West Roofing',          caption: 'Calgary, AB · Post-Storm' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 21.webp', alt: 'Written maintenance log handed to a Cochrane homeowner',              caption: 'Cochrane, AB · Written Log' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Written maintenance log handed to a Cochrane homeowner',              caption: 'Cochrane, AB · Written Log' },
 ]
 
 function RelatedServices() {
@@ -437,13 +416,27 @@ export default function RoofMaintenancePage() {
 
       <RoofMaintenanceHero />
       <CertsBanner />
+      <ServiceOverview
+        heading={'Cochrane Roof Maintenance,\nThat Adds Years to Your Roof'}
+        body="A maintenance visit is a slope-by-slope inspection plus the small fixes that keep a roof healthy: clearing valleys, resetting lifted shingles, replacing cracked sealant, and patching minor flashing issues before they become leaks. Carried out by Red Seal Journeyman roofers, with a written log that supports your IKO warranty and any future resale or insurance claim."
+        images={MAINTENANCE_OVERVIEW_IMAGES}
+      />
       <WhatIncluded />
-      <SignsYouNeed />
-      <MaintenanceProcess />
-      <MaintenancePlans />
-      <WhySureWest />
+      <Reviews />
       <ServicesGallery images={MAINTENANCE_GALLERY_IMAGES} sectionBg="#FFFFFF" />
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <WhySureWest />
+      <HowItWorks
+        heading={
+          <>
+            How a Sure West Cochrane
+            <br className="hidden md:block" /> Maintenance Visit Works
+          </>
+        }
+        body="Three clear steps from booking to next-visit reminder. No hidden steps, no surprise charges."
+        steps={MAINTENANCE_STEPS}
+      />
+      <MaintenancePlans />
+      <SignsYouNeed />
       <ServiceAreasPins
         heading={'Roof Maintenance Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."

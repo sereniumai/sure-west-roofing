@@ -43,7 +43,7 @@ export function WhatIncludedAccordion({
 
   return (
     <ul
-      className="mt-8 flex flex-col max-w-[480px] bg-brand-cream rounded-[16px] p-3 md:p-4"
+      className="mt-8 flex flex-col max-w-[480px] bg-white rounded-[16px] p-3 md:p-4 border border-[#E5E2D9]"
       style={{
         boxShadow: '0 2px 8px rgba(44,71,102,0.06), 0 12px 28px -16px rgba(44,71,102,0.10)',
       }}
@@ -56,7 +56,7 @@ export function WhatIncludedAccordion({
               type="button"
               onClick={() => setOpen(i)}
               aria-expanded={isOpen}
-              className="group flex items-start justify-between w-full text-left py-3 px-3 md:px-4 rounded-[10px] cursor-pointer gap-4 hover:bg-white/50 transition-colors duration-200"
+              className="group flex items-start justify-between w-full text-left py-3 px-3 md:px-4 rounded-[10px] cursor-pointer gap-4 hover:bg-brand-cream/60 transition-colors duration-200"
             >
               <span
                 className={`font-semibold leading-[1.4] transition-colors duration-200 ${
@@ -102,8 +102,6 @@ export function WhatIncludedAccordion({
                     style={{
                       fontSize: '13px',
                       fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                      textDecoration: 'underline',
-                      textUnderlineOffset: '3px',
                     }}
                   >
                     {ctaLabel}

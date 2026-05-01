@@ -1,8 +1,5 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { Star } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
@@ -23,12 +20,6 @@ export interface ServicePageHeroProps {
     /** Optional CSS object-position, e.g. "70% center" */
     objectPosition?: string
   }
-  /** Real customer review specific to this service, surfaced as a floating card. */
-  review: {
-    quote: string
-    author: string
-    location: string
-  }
   primaryCTA?: { label: string; href: string }
   secondaryCTA?: { label: string; href: string }
 }
@@ -40,7 +31,6 @@ export function ServicePageHero({
   body,
   trustItems,
   image,
-  review,
   primaryCTA = { label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' },
   secondaryCTA = { label: 'Call 403-990-7210', href: 'tel:4039907210' },
 }: ServicePageHeroProps) {
@@ -152,8 +142,8 @@ export function ServicePageHero({
                 }}
               >
                 <span>{trustItems[0]}</span>
-                <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
-                <span>{trustItems[1]}</span>
+                <span aria-hidden="true" className="hidden md:inline" style={{ color: '#D4AF60' }}>·</span>
+                <span className="hidden md:inline">{trustItems[1]}</span>
                 <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
                 <span>{trustItems[2]}</span>
               </div>
@@ -199,50 +189,6 @@ export function ServicePageHero({
                     'linear-gradient(to top, rgba(44,71,102,0.18) 0%, transparent 40%)',
                 }}
               />
-            </div>
-
-            {/* Floating review card, overhangs bottom-left */}
-            <div
-              className="absolute -bottom-3 left-2 sm:-bottom-5 sm:-left-4 md:-left-6 z-10 bg-white rounded-[12px] p-3 sm:p-4 md:p-5 max-w-[200px] sm:max-w-[264px]"
-              style={{
-                boxShadow:
-                  '0 0 0 1px rgba(44,71,102,0.08), 0 8px 32px rgba(44,71,102,0.12)',
-              }}
-            >
-              <div className="flex items-center gap-[3px] mb-3" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-[14px] h-[14px]"
-                    style={{ color: '#D4AF60', fill: '#D4AF60' }}
-                    strokeWidth={0}
-                  />
-                ))}
-              </div>
-              <p
-                className="text-brand-navy leading-[1.55]"
-                style={{
-                  fontSize: '13px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                &ldquo;{review.quote}&rdquo;
-              </p>
-              <div className="mt-3 pt-3 border-t border-brand-border">
-                <span
-                  className="text-brand-navy font-semibold block"
-                  style={{ fontSize: '13px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                >
-                  {review.author}
-                </span>
-                <span
-                  className="text-brand-slate"
-                  style={{ fontSize: '11px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}
-                >
-                  {review.location}
-                </span>
-              </div>
             </div>
           </Reveal>
         </div>

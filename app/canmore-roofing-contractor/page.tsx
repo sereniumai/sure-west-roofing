@@ -374,7 +374,7 @@ export default function RoofingContractorCanmorePage() {
       <BrandStrip />
 
       {/* 9. FAQ, Canmore-specific, final objection handling right before the ask */}
-      <HomeFAQ faqs={CANMORE_FAQS} />
+      <HomeFAQ faqs={CANMORE_FAQS} heading="Canmore Roofing Questions Answered" />
 
       {/* 10. Bottom CTA */}
       <BottomCTA

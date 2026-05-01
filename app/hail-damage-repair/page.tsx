@@ -10,18 +10,17 @@ import {
   FileText,
   ShieldCheck,
   Award,
-  MapPin,
   ArrowRight,
   Calendar,
-  Camera,
-  Phone,
-  Wrench,
-  CheckCircle2,
+  FileCheck,
+  CheckCircle,
   Sparkles,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { HailDamageHero } from '@/components/sections/HailDamageHero'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
+import { ServiceOverview } from '@/components/sections/ServiceOverview'
+import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
@@ -157,7 +156,7 @@ const HAIL_INCLUDED_ITEMS = [
 function WhatIncluded() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -195,7 +194,7 @@ function WhatIncluded() {
             style={{ boxShadow: '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)' }}
           >
             <Image
-              src="/images/Cochrane Roofing Contractor Gallery 3.webp"
+              src="/images/Cochrane Roofing Contractor Gallery 5.webp"
               alt="Hail damage roof inspection and repair on a Cochrane Alberta home"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
@@ -259,54 +258,29 @@ function SignsYouNeed() {
   )
 }
 
-const PROCESS_STEPS = [
-  { number: '01', Icon: Calendar, heading: ['Free Post-Storm', 'Inspection'], body: 'A Red Seal Journeyman inspects your Cochrane roof slope by slope after any major hail event. No charge for the inspection itself.' },
-  { number: '02', Icon: Camera, heading: ['Full Photo', 'Documentation'], body: 'Every dent, bruise, and fracture is photographed with measurements and location notes. The package is built for insurance review.' },
-  { number: '03', Icon: Phone, heading: ['Shareable', 'Documentation'], body: 'Send the report and photo package to your insurer however suits you. We keep everything in a clear, written format so nothing gets lost in translation.' },
-  { number: '04', Icon: Wrench, heading: ['Repair or', 'Replace'], body: 'Once approved we complete targeted repairs or full replacement using IKO Nordic Class 4 impact-rated shingles where appropriate.' },
-  { number: '05', Icon: CheckCircle2, heading: ['Cleanup and', 'Warranty'], body: 'Magnetic nail sweep, full site cleanup, and a written 2-year workmanship warranty handed over at the final walkthrough.' },
+const HAIL_STEPS: HowItWorksStep[] = [
+  {
+    number: '01',
+    Icon: Calendar,
+    title: 'Free Post-Storm Inspection',
+    description:
+      'A Red Seal Journeyman walks every slope of your Cochrane roof and documents every dent, bruise, and fracture with photos.',
+  },
+  {
+    number: '02',
+    Icon: FileCheck,
+    title: 'Insurance-Ready Documentation',
+    description:
+      'Photo report, written scope, and itemised quote built for your Alberta insurer. Share the package however suits you.',
+  },
+  {
+    number: '03',
+    Icon: CheckCircle,
+    title: 'Repair or Replace',
+    description:
+      'Once approved we complete the work using IKO impact-rated materials, with a written 2-year workmanship warranty.',
+  },
 ]
-
-function HailProcess() {
-  return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
-            How It Works
-          </span>
-          <h2 className="font-display font-medium text-brand-navy" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            How a Sure West Hail
-            <br />
-            Damage Claim Works
-          </h2>
-          <p className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]" style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Five clear steps from first inspection to warrantied repair. No paperwork left to you alone.
-          </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-6">
-          {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
-            <div key={number} className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
-              <span className="uppercase tracking-[0.18em] text-brand-gold font-semibold" style={{ fontSize: '11px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>Step {number}</span>
-              <div className="mt-4 mb-5 flex items-center justify-center w-16 h-16 rounded-full" style={{ background: 'rgba(212,175,96,0.10)', border: '1.5px solid rgba(212,175,96,0.45)' }}>
-                <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
-              </div>
-              <h3 className="font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]" style={{ fontSize: '17px', letterSpacing: '-0.01em' }}>
-                {heading[0]}<br />{heading[1]}
-              </h3>
-              <p className="mt-4 text-brand-slate leading-[1.6] max-w-[220px]" style={{ fontSize: '13px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 const HAIL_CATEGORIES = [
   { tier: 'Light Hail', name: 'Cosmetic Damage', image: '/images/Cochrane Roofing Contractor Gallery 5.webp', imageAlt: 'Cosmetic hail damage inspection on a Cochrane Alberta roof', body: 'Surface bruising and minor granule loss without structural impact. Often does not affect the roof\u2019s lifespan, but documentation matters for any future claim. We inspect, photograph, and advise.' },
@@ -316,7 +290,7 @@ const HAIL_CATEGORIES = [
 
 function HailCategories() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
           <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
@@ -400,6 +374,13 @@ function WhySureWest() {
   )
 }
 
+const HAIL_OVERVIEW_IMAGES = [
+  { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'Hail damage roof inspection in Cochrane Alberta' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Post-storm hail damage assessment by Sure West Roofing' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Red Seal Journeyman crew completing a hail damage repair' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Hail damage repair completed in Calgary by Sure West Roofing' },
+]
+
 const HAIL_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'IKO Nordic Class 4 hail-resistant roof in Calgary',                  caption: 'Calgary, AB · IKO Nordic' },
   { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Hail-damaged roof inspection in Canmore Alberta',                    caption: 'Canmore, AB · Inspection' },
@@ -452,13 +433,27 @@ export default function HailDamageRepairPage() {
 
       <HailDamageHero />
       <CertsBanner />
+      <ServiceOverview
+        heading={'Cochrane Hail Damage Repair,\nInsurance-Ready From Day One'}
+        body="A hail claim starts with a free post-storm inspection where every dent, bruise, and fracture is documented with photos and notes for your insurer. Once the claim is approved we complete the repair or full replacement using IKO impact-rated materials, all carried out by Red Seal Journeyman roofers and backed by a 2-year workmanship warranty in writing."
+        images={HAIL_OVERVIEW_IMAGES}
+      />
       <WhatIncluded />
-      <SignsYouNeed />
-      <HailProcess />
-      <HailCategories />
-      <WhySureWest />
+      <Reviews />
       <ServicesGallery images={HAIL_GALLERY_IMAGES} sectionBg="#FFFFFF" />
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <WhySureWest />
+      <HowItWorks
+        heading={
+          <>
+            How a Sure West Cochrane
+            <br className="hidden md:block" /> Hail Damage Claim Works
+          </>
+        }
+        body="Three clear steps from first post-storm inspection to warrantied repair. No paperwork left to you alone."
+        steps={HAIL_STEPS}
+      />
+      <HailCategories />
+      <SignsYouNeed />
       <ServiceAreasPins
         heading={'Hail Damage Repair Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."

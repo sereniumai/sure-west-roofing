@@ -10,14 +10,14 @@ import type { FaqItem } from '@/lib/faqs/types'
 export const metadata: Metadata = {
   title: 'Free Roof Estimate Cochrane, Calgary & Canmore',
   description:
-    'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal certified inspection, written quote within 24 hours, no obligation. Text back within minutes.',
+    'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal certified inspection, written quote, no obligation. Text back within minutes.',
   alternates: {
     canonical: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
   },
   openGraph: {
     title: 'Free Roof Estimate Cochrane, Calgary & Canmore | Sure West Roofing',
     description:
-      'Red Seal certified free roof inspection and written quote within 24 hours across Cochrane, Calgary, and Canmore.',
+      'Red Seal certified free roof inspection and written quote across Cochrane, Calgary, and Canmore.',
     url: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
     type: 'website',
     locale: 'en_CA',
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Free Roof Estimate Cochrane, Calgary & Canmore | Sure West Roofing',
     description:
-      'Red Seal certified free roof inspection and written quote within 24 hours.',
+      'Red Seal certified free roof inspection and written quote.',
   },
   robots: {
     index: true,
@@ -51,7 +51,7 @@ const ESTIMATE_FAQS: FaqItem[] = [
   {
     question: "What's included in a Sure West free roof estimate?",
     answer:
-      'A Sure West free estimate includes a full on-site roof inspection by a Red Seal certified roofer, photo documentation of any issues, a review of your decking, flashing, and ventilation, and a fixed written quote within 24 hours covering scope, materials, timeline, and price.',
+      'A Sure West free estimate includes a full on-site roof inspection by a Red Seal certified roofer, photo documentation of any issues, a review of your decking, flashing, and ventilation, and a fixed written quote covering scope, materials, timeline, and price.',
   },
   {
     question: 'Do you give free estimates for insurance claims?',
@@ -91,7 +91,7 @@ const structuredData = [
     '@type': 'ContactPage',
     name: 'Contact Sure West Roofing',
     description:
-      'Request a free roof estimate in Cochrane, Calgary, or Canmore. Red Seal certified roof inspection and written quote within 24 hours.',
+      'Request a free roof estimate in Cochrane, Calgary, or Canmore. Red Seal certified roof inspection and written quote.',
     url: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
     mainEntity: {
       '@type': 'RoofingContractor',
@@ -153,7 +153,7 @@ const structuredData = [
     '@type': 'Offer',
     name: 'Free Roof Estimate in Cochrane, Calgary and Canmore',
     description:
-      'Free in-home roof inspection and written quote within 24 hours, provided by Red Seal certified roofers.',
+      'Free in-home roof inspection and written quote, provided by Red Seal certified roofers.',
     price: '0',
     priceCurrency: 'CAD',
     availability: 'https://schema.org/InStock',
@@ -181,7 +181,7 @@ const structuredData = [
 
 const benefits = [
   'Free on-site roof inspection',
-  'Fixed written quote within 24 hours',
+  'Fixed written quote',
   'Red Seal Journeyman certified on every job',
   'No obligation, no sales pressure',
   'Text-first response, we reply within minutes',
@@ -214,8 +214,8 @@ export default function FreeEstimatePage() {
               <p className="font-body text-[#5A7A9A] leading-relaxed mt-5 text-base lg:text-lg">
                 Book your free roof estimate today. Our Red Seal certified team serves Cochrane,
                 Calgary, and Canmore, inspects your roof on-site, and delivers a fixed written
-                quote within 24 hours. No pressure, no surprises, and we text back within
-                minutes, even evenings and weekends.
+                quote. No pressure, no surprises, and we text back within minutes, even evenings
+                and weekends.
               </p>
 
               {/* Benefits */}

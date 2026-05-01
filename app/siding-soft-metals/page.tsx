@@ -2,27 +2,21 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import {
-  Wind,
-  Droplets,
-  AlertTriangle,
-  Hammer,
-  Bug,
-  Sparkles,
   ShieldCheck,
   Award,
   CloudLightning,
   FileText,
-  MapPin,
   ArrowRight,
   Calendar,
-  Search,
-  Wrench,
-  CheckCircle2,
+  FileCheck,
+  CheckCircle,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { SidingSoftMetalsHero } from '@/components/sections/SidingSoftMetalsHero'
 import { SidingSoftMetalsFAQ } from '@/components/sections/SidingSoftMetalsFAQ'
 import { SIDING_SOFT_METALS_FAQS } from '@/lib/faqs/sidingSoftMetals'
+import { ServiceOverview } from '@/components/sections/ServiceOverview'
+import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
@@ -193,7 +187,7 @@ const SIDING_INCLUDED_ITEMS = [
 function WhatIncluded() {
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -208,7 +202,7 @@ function WhatIncluded() {
             }}
           >
             <Image
-              src="/images/Cochrane Roofing Contractor Gallery 13.webp"
+              src="/images/Cochrane Roofing Contractor Gallery 5.webp"
               alt="Sure West Roofing crew completing siding and soft metals work on a Cochrane Alberta home"
               fill
               sizes="(max-width: 1024px) 100vw, 45vw"
@@ -262,262 +256,31 @@ function WhatIncluded() {
   )
 }
 
-// ─── Section: Signs You Need Siding or Soft Metals Work ──────────────────────
+// ─── Section: How It Works (3-step) ──────────────────────────────────────────
 
-const SIGNS = [
-  {
-    Icon: Wind,
-    heading: 'Cracked, warped, or buckled siding',
-    body: 'Cochrane Chinook winds, hail, and freeze-thaw cycles take a toll on aging siding. Cracked panels and buckling sections let water behind the wall and need replacement before sheathing damage spreads.',
-  },
-  {
-    Icon: Droplets,
-    heading: 'Sagging or overflowing eavestroughs',
-    body: 'Eavestroughs that overflow, sag, or pull away from the fascia can no longer move water away from your home. Left unfixed, they cause foundation pooling, fascia rot, and ice dams in winter.',
-  },
-  {
-    Icon: AlertTriangle,
-    heading: 'Rotting or peeling fascia boards',
-    body: 'Soft, dark, or peeling fascia is a sign water is getting behind the eavestrough. Replace the fascia and reseat the gutter system together. Patching one without the other is a common mistake.',
-  },
-  {
-    Icon: Hammer,
-    heading: 'Loose or rusted metal flashing',
-    body: 'Metal flashing around windows, doors, and roof-to-wall transitions is your home\'s last line of defence against driven rain. Lifted, rusted, or torn flashing should be reseated or replaced quickly.',
-  },
-  {
-    Icon: Bug,
-    heading: 'Pest entry through soffit gaps',
-    body: 'Squirrels, mice, and birds get into Cochrane attics through gaps in old or damaged soffits. New aluminum soffit panels with proper venting close the entry points and keep airflow correct.',
-  },
-  {
-    Icon: Sparkles,
-    heading: 'Faded, stained, or tired exterior',
-    body: 'If your siding is sound but the colour has gone chalky or faded, fresh siding can transform the curb appeal of your Cochrane home. The right material choice also locks in 25 to 50 years of weather protection.',
-  },
-]
-
-function SignsYouNeed() {
-  return (
-    <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            Signs to Watch
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            Signs Your Cochrane Home
-            <br />
-            Needs Siding or Soft Metals Work
-          </h2>
-          <p
-            className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Most exterior issues start small and stay affordable when caught early. Here are the
-            common signs it is time to call.
-          </p>
-          <div className="mt-8">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-              Get a Free Estimate
-            </Button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {SIGNS.map(({ Icon, heading, body }) => (
-            <div
-              key={heading}
-              className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
-            >
-              <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-4"
-                style={{ background: 'rgba(212,175,96,0.10)' }}
-              >
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
-              </div>
-              <h3
-                className="font-display font-semibold text-brand-navy mb-2 leading-[1.25]"
-                style={{ fontSize: '19px', letterSpacing: '-0.01em' }}
-              >
-                {heading}
-              </h3>
-              <p
-                className="text-brand-slate leading-[1.65]"
-                style={{
-                  fontSize: '14px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 400,
-                }}
-              >
-                {body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ─── Section: Install Process ────────────────────────────────────────────────
-
-const PROCESS_STEPS = [
+const SIDING_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     Icon: Calendar,
-    heading: ['Free On-Site', 'Assessment'],
-    body: 'A Red Seal Journeyman walks the home, checks every elevation, and reviews the siding, fascia, soffits, and eavestroughs as one connected system.',
+    title: 'Free On-Site Assessment',
+    description:
+      'We walk every elevation of your Cochrane home and review siding, fascia, soffits, and eavestroughs as one system.',
   },
   {
     number: '02',
-    Icon: FileText,
-    heading: ['Fixed Written', 'Quote'],
-    body: 'A clear written quote with material choice, scope, timeline, and price. Everything that affects cost is spelled out before we book the job.',
+    Icon: FileCheck,
+    title: 'Approve Your Quote',
+    description:
+      'Fixed written quote with material choice, scope, timeline, and price. Materials ordered, install scheduled around you.',
   },
   {
     number: '03',
-    Icon: Search,
-    heading: ['Order Materials', 'and Schedule'],
-    body: 'Once approved, we order your siding, eavestroughs, and trim and lock in a start date. Lead times vary by material. We confirm in writing.',
-  },
-  {
-    number: '04',
-    Icon: Wrench,
-    heading: ['Tear-Off and', 'Install'],
-    body: 'Old siding and damaged soft metals come down, the wall is checked, then new panels, eavestroughs, fascia, and soffits go on to manufacturer spec.',
-  },
-  {
-    number: '05',
-    Icon: CheckCircle2,
-    heading: ['Cleanup and', '5-Year Warranty'],
-    body: 'Full site cleanup, magnetic nail sweep, and a final walkthrough with you. Your written 5-year workmanship warranty stays with the property.',
+    Icon: CheckCircle,
+    title: 'Tear-Off + New Install',
+    description:
+      'Old siding off, new panels and matched soft metals on, full cleanup, and your written 5-year workmanship warranty.',
   },
 ]
-
-function InstallProcess() {
-  return (
-    <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            How It Works
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            How a Sure West Siding
-            <br />
-            Project Works
-          </h2>
-          <p
-            className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            Five clear steps from first call to install complete. No hidden steps, no surprises.
-          </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-              Get a Free Estimate
-            </Button>
-          </div>
-        </div>
-
-        <div className="relative">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 md:gap-6">
-            {PROCESS_STEPS.map(({ number, Icon, heading, body }) => (
-              <div
-                key={number}
-                className="bg-brand-cream rounded-[14px] border border-brand-border px-5 py-7 md:px-4 md:py-8 flex flex-col items-center text-center shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
-              >
-                <span
-                  className="uppercase tracking-[0.18em] text-brand-gold font-semibold"
-                  style={{
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  }}
-                >
-                  Step {number}
-                </span>
-                <div
-                  className="mt-4 mb-5 flex items-center justify-center w-16 h-16 rounded-full"
-                  style={{
-                    background: 'rgba(212,175,96,0.10)',
-                    border: '1.5px solid rgba(212,175,96,0.45)',
-                  }}
-                >
-                  <Icon className="w-6 h-6 text-brand-gold" strokeWidth={1.75} />
-                </div>
-                <h3
-                  className="font-display font-semibold text-brand-navy leading-[1.2] min-h-[44px]"
-                  style={{ fontSize: '17px', letterSpacing: '-0.01em' }}
-                >
-                  {heading[0]}
-                  <br />
-                  {heading[1]}
-                </h3>
-                <p
-                  className="mt-4 text-brand-slate leading-[1.6] max-w-[220px]"
-                  style={{
-                    fontSize: '13px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 400,
-                  }}
-                >
-                  {body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
 
 // ─── Section: Service Types ──────────────────────────────────────────────────
 
@@ -548,7 +311,7 @@ const SERVICE_TYPES = [
 function ServiceTypes() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -757,6 +520,15 @@ function WhySureWest() {
   )
 }
 
+// ─── Overview carousel images ────────────────────────────────────────────────
+
+const SSM_OVERVIEW_IMAGES = [
+  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Siding installation completed by Sure West Roofing in Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Sure West Roofing exterior project in Cochrane Alberta' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Detailed soft-metal work in Cochrane Alberta' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Soffit and fascia work in Cochrane Alberta' },
+]
+
 // ─── Gallery images for this page ─────────────────────────────────────────────
 
 const SSM_GALLERY_IMAGES = [
@@ -764,7 +536,7 @@ const SSM_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Eavestrough installation in Cochrane Alberta by Sure West Roofing',     caption: 'Cochrane, AB · Eaves' },
   { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Sure West Roofing exterior project in Cochrane Alberta',                caption: 'Cochrane, AB · Exterior' },
   { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Soffit and fascia work in Cochrane Alberta by Sure West Roofing',       caption: 'Cochrane, AB · Trim' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Siding and soft metals project in Calgary by Sure West Roofing',        caption: 'Calgary, AB · Siding' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Siding and soft metals project in Calgary by Sure West Roofing',        caption: 'Calgary, AB · Siding' },
   { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Custom flashing rebuild in Cochrane Alberta by Sure West Roofing',      caption: 'Cochrane, AB · Flashing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Exterior trim project in Cochrane Alberta by Sure West Roofing',        caption: 'Cochrane, AB · Trim' },
   { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Detailed soft-metal work in Cochrane Alberta by Sure West Roofing',     caption: 'Cochrane, AB · Soft Metals' },
@@ -847,13 +619,26 @@ export default function SidingSoftMetalsPage() {
 
       <SidingSoftMetalsHero />
       <CertsBanner />
+      <ServiceOverview
+        heading={'Cochrane Siding & Soft Metals,\nBy the Same Crew That Roofs Your Home'}
+        body="A siding and soft metals project rebuilds the protective shell around your home: vinyl, fiber cement, or metal siding paired with seamless eavestroughs, fascia, soffits, and metal flashing, all installed as one connected system. Carried out by Red Seal Journeyman tradespeople and backed by a 5-year workmanship warranty in writing."
+        images={SSM_OVERVIEW_IMAGES}
+      />
       <WhatIncluded />
-      <SignsYouNeed />
-      <InstallProcess />
-      <ServiceTypes />
-      <WhySureWest />
+      <Reviews />
       <ServicesGallery images={SSM_GALLERY_IMAGES} sectionBg="#FFFFFF" />
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <WhySureWest />
+      <HowItWorks
+        heading={
+          <>
+            How a Sure West Cochrane
+            <br className="hidden md:block" /> Siding Project Works
+          </>
+        }
+        body="Three clear steps from first assessment to install complete. No hidden steps, no surprises."
+        steps={SIDING_STEPS}
+      />
+      <ServiceTypes />
       <ServiceAreasPins
         heading={'Siding & Soft Metals Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."

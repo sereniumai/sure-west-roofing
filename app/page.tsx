@@ -207,7 +207,7 @@ export default function HomePage() {
       <BrandStrip />
 
       {/* 9. FAQ, final objection handling right before the ask */}
-      <HomeFAQ />
+      <HomeFAQ heading="Cochrane Roofing Questions Answered" />
 
       {/* 10. Bottom CTA */}
       <BottomCTA

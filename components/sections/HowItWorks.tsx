@@ -1,15 +1,14 @@
-'use client'
-
 import { Calendar, FileCheck, CheckCircle, type LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
-interface Step {
+export interface HowItWorksStep {
   number: string
   title: string
   description: string
   Icon: LucideIcon
 }
+type Step = HowItWorksStep
 
 function getSteps(cityName: string, otherCities: [string, string]): Step[] {
   return [
@@ -91,6 +90,10 @@ interface HowItWorksProps {
   body?: string
   cityName?: string
   otherCities?: [string, string]
+  /** Optional override for the three step cards. */
+  steps?: Step[]
+  /** Override the section background. Defaults to white. */
+  sectionBg?: string
 }
 
 export function HowItWorks({
@@ -104,13 +107,16 @@ export function HowItWorks({
   body = 'No surprises. No pressure. Just a clear simple process from your first call to the final inspection.',
   cityName = 'Cochrane',
   otherCities = ['Calgary', 'Canmore'],
+  steps,
+  sectionBg = '#FFFFFF',
 }: HowItWorksProps = {}) {
-  const STEPS = getSteps(cityName, otherCities)
+  const STEPS = steps ?? getSteps(cityName, otherCities)
   return (
     <section
       id="how-it-works"
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative overflow-hidden py-20 md:py-24"
       style={{
+        background: sectionBg,
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
