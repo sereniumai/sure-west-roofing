@@ -15,31 +15,34 @@ function getSteps(cityName: string, otherCities: [string, string]): Step[] {
     {
       number: '01',
       title: 'Book Your Free Estimate',
-      description: `We come to your property in ${cityName}, ${otherCities[0]} or ${otherCities[1]}, assess the roof thoroughly, and provide a clear itemised written quote.`,
+      description: `We come to your property in ${cityName}, ${otherCities[0]}, or ${otherCities[1]}, walk the roof in person, and send a clear, itemised written quote with photos within two business days, no obligation.`,
       Icon: Calendar,
     },
     {
       number: '02',
       title: 'Approve Your Quote',
       description:
-        'Your quote is fixed. The price you approve is the price you pay. Our Red Seal certified crew then schedules your job around you.',
+        'Your quote is fixed. The price you approve is the price you pay, with financing available if you need it. Our Red Seal certified crew then schedules your job around you.',
       Icon: FileCheck,
     },
     {
       number: '03',
       title: 'Your Roof Done Right',
       description:
-        'Work completed to Red Seal standard. Your property left clean. Your 10-year workmanship guarantee in writing before we leave.',
+        'Work completed to Red Seal standard. Magnetic nail sweep, final walkthrough, your property left clean, and your 10-year workmanship guarantee in writing before we leave.',
       Icon: CheckCircle,
     },
   ]
 }
 
-function StepCard({ step }: { step: Step }) {
+function StepCard({ step, cardBg }: { step: Step; cardBg: string }) {
   const { Icon } = step
 
   return (
-    <div className="relative flex flex-col items-center text-center bg-brand-cream rounded-[16px] border border-brand-border px-7 pt-10 pb-8 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out">
+    <div
+      className="relative flex flex-col items-center text-center rounded-[16px] border border-brand-border px-7 pt-10 pb-8 hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.10)] transition-all duration-300 ease-out"
+      style={{ background: cardBg }}
+    >
       {/* Step number label */}
       <span
         className="uppercase tracking-[0.14em] font-semibold text-brand-gold mb-4"
@@ -94,6 +97,8 @@ interface HowItWorksProps {
   steps?: Step[]
   /** Override the section background. Defaults to white. */
   sectionBg?: string
+  /** Override the step card background. Defaults to cream. */
+  cardBg?: string
 }
 
 export function HowItWorks({
@@ -104,11 +109,12 @@ export function HowItWorks({
       <br className="hidden md:block" /> Roof in Three Steps
     </>
   ),
-  body = 'No surprises. No pressure. Just a clear simple process from your first call to the final inspection.',
+  body = 'No surprises. No pressure. A clear process from your free estimate to the final inspection.',
   cityName = 'Cochrane',
   otherCities = ['Calgary', 'Canmore'],
   steps,
   sectionBg = '#FFFFFF',
+  cardBg = '#F7F5F0',
 }: HowItWorksProps = {}) {
   const STEPS = steps ?? getSteps(cityName, otherCities)
   return (
@@ -147,7 +153,7 @@ export function HowItWorks({
           {heading}
         </h2>
         <p
-          className="mt-5 max-w-[480px] text-brand-slate leading-[1.65]"
+          className="mt-5 max-w-[720px] text-brand-slate leading-[1.65]"
           style={{
             fontSize: '16px',
             fontFamily: 'var(--font-inter), system-ui, sans-serif',
@@ -170,7 +176,7 @@ export function HowItWorks({
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 relative z-[1]">
           {STEPS.map((step) => (
-            <StepCard key={step.number} step={step} />
+            <StepCard key={step.number} step={step} cardBg={cardBg} />
           ))}
         </div>
 

@@ -10,14 +10,16 @@ import {
   Calendar,
   FileCheck,
   CheckCircle,
+  Home,
+  Wrench,
+  MessageSquare,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { SidingSoftMetalsHero } from '@/components/sections/SidingSoftMetalsHero'
+import { TrustLogos } from '@/components/sections/TrustLogos'
 import { SidingSoftMetalsFAQ } from '@/components/sections/SidingSoftMetalsFAQ'
 import { SIDING_SOFT_METALS_FAQS } from '@/lib/faqs/sidingSoftMetals'
-import { ServiceOverview } from '@/components/sections/ServiceOverview'
 import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
-import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
 import { Reviews } from '@/components/sections/Reviews'
@@ -164,7 +166,178 @@ function CertsBanner() {
   )
 }
 
-// ─── Section: What's Included (accordion) ────────────────────────────────────
+// ─── Section: Our Standard (team image + numbered items) ───────────────────
+
+const STANDARD_PILLARS = [
+  {
+    heading: 'Red Seal Journeyman install',
+    body: 'The same in-house Red Seal crew that quotes your project installs your siding. No subcontractors, no rotating cast.',
+  },
+  {
+    heading: 'Fixed written quote',
+    body: 'Every line item priced before we start. The number on your quote is the number you pay, with zero mid-project upsells.',
+  },
+  {
+    heading: '5-year workmanship warranty',
+    body: 'Backed in writing on top of the manufacturer warranty for the materials. Both warranties are spelled out in your quote.',
+  },
+]
+
+function OurStandard() {
+  return (
+    <section
+      className="relative bg-white overflow-hidden py-20 md:py-24"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1320px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
+          <div className="relative lg:order-1">
+            <div
+              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+              }}
+            >
+              <Image
+                src="/sure-west-roofing-team-cochrane.webp"
+                alt="Craig and Mike, owners of Sure West Roofing, with the in-house crew in Cochrane Alberta"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                style={{ objectPosition: 'center 30%' }}
+                loading="lazy"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'linear-gradient(to top, rgba(44,71,102,0.18) 0%, transparent 40%)',
+                }}
+              />
+            </div>
+
+            <div
+              className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-5 lg:-bottom-7 lg:-right-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
+              }}
+            >
+              <span
+                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
+                style={{
+                  background: 'rgba(212,175,96,0.14)',
+                  border: '1px solid rgba(212,175,96,0.35)',
+                }}
+              >
+                <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+              </span>
+              <div>
+                <div
+                  className="font-display text-brand-navy leading-none"
+                  style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                >
+                  Owner-Operated
+                </div>
+                <div
+                  className="text-brand-slate mt-1.5"
+                  style={{
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: '0.01em',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  Same crew, every project
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col lg:order-2">
+            <span
+              className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
+            >
+              Our Standard
+            </span>
+            <h2
+              className="font-display font-medium text-brand-navy"
+              style={{
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              Cochrane Siding &amp; Soft Metals
+              <br className="hidden lg:block" /> By the Same Crew That Roofs You
+            </h2>
+            <p
+              className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              A Sure West siding project rebuilds the protective shell around your home, installed
+              by Red Seal Journeymen and backed in writing for 5 years.
+            </p>
+
+            <ul className="mt-8 flex flex-col gap-7">
+              {STANDARD_PILLARS.map((p, i) => (
+                <li key={p.heading} className="flex gap-5">
+                  <div
+                    aria-hidden="true"
+                    className="flex-shrink-0 font-display font-bold text-brand-gold leading-none"
+                    style={{ fontSize: '32px', letterSpacing: '-0.03em', minWidth: '46px' }}
+                  >
+                    0{i + 1}
+                  </div>
+                  <div>
+                    <h3
+                      className="font-display font-semibold text-brand-navy"
+                      style={{ fontSize: '18px', letterSpacing: '-0.005em', lineHeight: 1.3 }}
+                    >
+                      {p.heading}
+                    </h3>
+                    <p
+                      className="mt-2 text-brand-slate leading-[1.65] max-w-[460px]"
+                      style={{
+                        fontSize: '15px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {p.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10">
+              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+                Get a Free Estimate
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ─── Section: What's Included ────────────────────────────────────────────────
 
 const SIDING_INCLUDED_ITEMS = [
   {
@@ -187,31 +360,12 @@ const SIDING_INCLUDED_ITEMS = [
 function WhatIncluded() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-stretch">
-          {/* Hero has image on the RIGHT, so WhatIncluded image goes on the LEFT (opposite-side rule). */}
-          {/* TODO: Replace placeholder with a Sure West siding/eavestrough project photo from Craig */}
-          <div
-            className="relative overflow-hidden rounded-[18px] aspect-square lg:aspect-auto lg:h-full min-h-[560px] lg:order-1 order-2"
-            style={{
-              boxShadow:
-                '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
-            }}
-          >
-            <Image
-              src="/images/Cochrane Roofing Contractor Gallery 5.webp"
-              alt="Sure West Roofing crew completing siding and soft metals work on a Cochrane Alberta home"
-              fill
-              sizes="(max-width: 1024px) 100vw, 45vw"
-              className="object-cover"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="flex flex-col lg:order-2 order-1">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
+          <div className="flex flex-col lg:order-1">
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -248,7 +402,108 @@ function WhatIncluded() {
               crew. Serving Cochrane, Calgary, and Canmore.
             </p>
 
-            <WhatIncludedAccordion items={SIDING_INCLUDED_ITEMS} />
+            <ul className="mt-8 flex flex-col gap-7">
+              {SIDING_INCLUDED_ITEMS.map((item, i) => (
+                <li key={item.heading} className="flex gap-5">
+                  <div
+                    aria-hidden="true"
+                    className="flex-shrink-0 font-display font-bold text-brand-gold leading-none"
+                    style={{ fontSize: '32px', letterSpacing: '-0.03em', minWidth: '46px' }}
+                  >
+                    0{i + 1}
+                  </div>
+                  <div>
+                    <h3
+                      className="font-display font-semibold text-brand-navy"
+                      style={{ fontSize: '18px', letterSpacing: '-0.005em', lineHeight: 1.3 }}
+                    >
+                      {item.heading}
+                    </h3>
+                    <p
+                      className="mt-2 text-brand-slate leading-[1.65] max-w-[460px]"
+                      style={{
+                        fontSize: '15px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {item.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10">
+              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+                Get a Free Estimate
+              </Button>
+            </div>
+          </div>
+
+          <div className="relative lg:order-2">
+            <div
+              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+              }}
+            >
+              <Image
+                src="/images/Cochrane Roofing Contractor Gallery 5.webp"
+                alt="Sure West Roofing crew completing siding and soft metals work on a Cochrane Alberta home"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                loading="lazy"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'linear-gradient(to top, rgba(44,71,102,0.18) 0%, transparent 40%)',
+                }}
+              />
+            </div>
+
+            <div
+              className="absolute -bottom-5 -left-3 sm:-bottom-6 sm:-left-5 lg:-bottom-7 lg:-left-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
+              }}
+            >
+              <span
+                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
+                style={{
+                  background: 'rgba(212,175,96,0.14)',
+                  border: '1px solid rgba(212,175,96,0.35)',
+                }}
+              >
+                <FileCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+              </span>
+              <div>
+                <div
+                  className="font-display text-brand-navy leading-none"
+                  style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                >
+                  In Writing
+                </div>
+                <div
+                  className="text-brand-slate mt-1.5"
+                  style={{
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: '0.01em',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  Quote, scope, and warranty
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -414,23 +669,23 @@ function ServiceTypes() {
 const DIFFERENTIATORS = [
   {
     Icon: Award,
-    heading: 'Red Seal Certified Trades',
-    body: 'Sure West is owned and operated by Red Seal Journeyman tradespeople, the recognised national standard. The same crew that earns five-star reviews on roofs handles your siding and soft metals.',
+    heading: 'Owner-Led on Every Project',
+    body: 'Craig and Mike personally walk every elevation, brief the crew, and inspect the finish. Same names on the quote, same names on the warranty.',
   },
   {
-    Icon: CloudLightning,
-    heading: 'Built for Alberta Weather',
-    body: 'Cochrane winters, Chinook winds, hailstorms, and intense UV demand specific materials. Every panel, gutter, and trim piece we install is rated for what your home actually faces year-round.',
+    Icon: Home,
+    heading: 'Cochrane Local, Not a Franchise',
+    body: 'We live where we work. Same shops, same coffee places, same neighbours. Our reputation in this town is earned daily, not advertised.',
   },
   {
-    Icon: FileText,
-    heading: 'Honest Quotes, No Pressure',
-    body: 'Every assessment is free, on-site, and provided in writing with itemised costs. If a partial repair makes more sense than a full replacement we will tell you that straight.',
+    Icon: Wrench,
+    heading: 'Craft Where Crews Cut Corners',
+    body: 'Panels squared up, J-channel tight, soffit ventilated properly, eaves pitched to drain. Hidden details are what fail first.',
   },
   {
-    Icon: ShieldCheck,
-    heading: '5-Year Workmanship Warranty',
-    body: 'Every siding and soft metals job comes with a 5-year workmanship warranty in writing, on top of the full manufacturer warranty (often 25 to 50 years) on the materials themselves.',
+    Icon: MessageSquare,
+    heading: 'Communication Built In',
+    body: 'Daily texts with progress photos, a tidy site at the end of each day, and a final walkthrough. You always know where the project stands.',
   },
 ]
 
@@ -474,8 +729,8 @@ function WhySureWest() {
               fontWeight: 400,
             }}
           >
-            Built across Cochrane, Calgary, and Canmore on Red Seal ownership, premium materials,
-            and warranties you can read.
+            Owner-led, Cochrane-rooted, and obsessed with the details most crews skip. The reasons
+            people in town pick Sure West, then tell their neighbours.
           </p>
           <div className="mt-7">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -488,7 +743,7 @@ function WhySureWest() {
           {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
             <div
               key={heading}
-              className="bg-brand-cream rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
+              className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
             >
               <div
                 className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5"
@@ -521,13 +776,6 @@ function WhySureWest() {
 }
 
 // ─── Overview carousel images ────────────────────────────────────────────────
-
-const SSM_OVERVIEW_IMAGES = [
-  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Siding installation completed by Sure West Roofing in Cochrane' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Sure West Roofing exterior project in Cochrane Alberta' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Detailed soft-metal work in Cochrane Alberta' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Soffit and fascia work in Cochrane Alberta' },
-]
 
 // ─── Gallery images for this page ─────────────────────────────────────────────
 
@@ -618,16 +866,9 @@ export default function SidingSoftMetalsPage() {
       />
 
       <SidingSoftMetalsHero />
-      <CertsBanner />
-      <ServiceOverview
-        heading={'Cochrane Siding & Soft Metals,\nBy the Same Crew That Roofs Your Home'}
-        body="A siding and soft metals project rebuilds the protective shell around your home: vinyl, fiber cement, or metal siding paired with seamless eavestroughs, fascia, soffits, and metal flashing, all installed as one connected system. Carried out by Red Seal Journeyman tradespeople and backed by a 5-year workmanship warranty in writing."
-        images={SSM_OVERVIEW_IMAGES}
-      />
+      <TrustLogos />
+      <OurStandard />
       <WhatIncluded />
-      <Reviews />
-      <ServicesGallery images={SSM_GALLERY_IMAGES} sectionBg="#FFFFFF" />
-      <WhySureWest />
       <HowItWorks
         heading={
           <>
@@ -638,7 +879,10 @@ export default function SidingSoftMetalsPage() {
         body="Three clear steps from first assessment to install complete. No hidden steps, no surprises."
         steps={SIDING_STEPS}
       />
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
       <ServiceTypes />
+      <ServicesGallery images={SSM_GALLERY_IMAGES} sectionBg="#FFFFFF" />
+      <WhySureWest />
       <ServiceAreasPins
         heading={'Siding & Soft Metals Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."

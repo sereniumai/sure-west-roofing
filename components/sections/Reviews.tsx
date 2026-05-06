@@ -178,7 +178,7 @@ export function Reviews({
       <br className="hidden md:block" /> Say About Sure West Roofing
     </>
   ),
-  body = 'Here is what homeowners across Cochrane, Calgary and Canmore say.',
+  body = 'Verified Google reviews from homeowners across Cochrane, Calgary, and Canmore.',
 }: ReviewsProps = {}) {
   // Duplicate the list so the marquee can scroll seamlessly
   const rowA = REVIEWS
@@ -241,7 +241,7 @@ export function Reviews({
         </div>
 
         <p
-          className="mt-5 max-w-[620px] text-brand-slate leading-[1.7]"
+          className="mt-5 max-w-[680px] text-brand-slate leading-[1.7]"
           style={{
             fontSize: '16px',
             fontFamily: "var(--font-inter), system-ui, sans-serif",

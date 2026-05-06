@@ -3,10 +3,16 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Reveal } from '@/components/ui/Reveal'
+import { Button } from '@/components/ui/Button'
 
 interface CarouselImage {
   src: string
   alt: string
+}
+
+interface OverviewItem {
+  heading: string
+  body: string
 }
 
 interface ServiceOverviewProps {
@@ -20,6 +26,16 @@ interface ServiceOverviewProps {
   images: CarouselImage[]
   /** Section background. Defaults to white. */
   sectionBg?: string
+  /** Which side the image sits on at desktop. Defaults to 'right'. */
+  imageSide?: 'left' | 'right'
+  /** Optional list rendered below the body (heading + body per item). */
+  items?: OverviewItem[]
+  /** Tailwind height utility for the image at lg+. Defaults to 'lg:h-[540px]'. */
+  imageHeightClass?: string
+  /** Custom CSS box-shadow for the image frame. */
+  imageShadow?: string
+  /** Optional CTA rendered below the items list. */
+  cta?: { label: string; href: string }
 }
 
 /**
@@ -34,7 +50,14 @@ export function ServiceOverview({
   body,
   images,
   sectionBg = '#FFFFFF',
+  imageSide = 'right',
+  items,
+  imageHeightClass = 'lg:h-[540px]',
+  imageShadow = '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
+  cta,
 }: ServiceOverviewProps) {
+  const textOrder = imageSide === 'left' ? 'lg:order-2' : 'lg:order-1'
+  const imageOrder = imageSide === 'left' ? 'lg:order-1' : 'lg:order-2'
   const [active, setActive] = useState(0)
 
   useEffect(() => {
@@ -56,8 +79,8 @@ export function ServiceOverview({
     >
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
-          {/* Text LEFT on desktop */}
-          <Reveal>
+          {/* Text */}
+          <Reveal className={textOrder}>
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -95,16 +118,46 @@ export function ServiceOverview({
             >
               {body}
             </p>
+
+            {items && items.length > 0 && (
+              <ul className="mt-6 flex flex-col gap-6">
+                {items.map((item) => (
+                  <li key={item.heading}>
+                    <h3
+                      className="font-display font-semibold text-brand-navy"
+                      style={{ fontSize: '18px', letterSpacing: '-0.005em', lineHeight: 1.3 }}
+                    >
+                      {item.heading}
+                    </h3>
+                    <p
+                      className="mt-2 text-brand-slate leading-[1.65] max-w-[520px]"
+                      style={{
+                        fontSize: '15px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {item.body}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {cta && (
+              <div className="mt-8">
+                <Button variant="primary" size="lg" href={cta.href}>
+                  {cta.label}
+                </Button>
+              </div>
+            )}
           </Reveal>
 
-          {/* Carousel RIGHT on desktop */}
-          <Reveal noBlur delay={150}>
+          {/* Carousel */}
+          <Reveal noBlur delay={150} className={imageOrder}>
             <div
-              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[540px]"
-              style={{
-                boxShadow:
-                  '0 0 0 1px rgba(212,175,96,0.14), 0 20px 48px -12px rgba(44,71,102,0.20)',
-              }}
+              className={`relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto ${imageHeightClass}`}
+              style={{ boxShadow: imageShadow }}
             >
               {images.map((img, i) => (
                 <Image

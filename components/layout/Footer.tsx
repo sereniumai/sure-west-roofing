@@ -2,7 +2,21 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { Phone, MapPin, MessageSquare, ClipboardList } from 'lucide-react'
+import { Phone, MapPin, MessageSquare, ClipboardList, Instagram, Play, ArrowUpRight } from 'lucide-react'
+
+const INSTAGRAM_URL = 'https://www.instagram.com/surewestroofing/'
+
+// TODO: Swap this static grid for a live Instagram Graph API feed once Meta Business
+// Manager access is granted and the long-lived access token is generated. Filter
+// `media_product_type === 'REELS'` server-side to show only reels.
+const INSTAGRAM_TILES = [
+  '/images/Cochrane Roofing Contractor Gallery 1.webp',
+  '/images/Cochrane Roofing Contractor Gallery 5.webp',
+  '/images/Cochrane Roofing Contractor Gallery 7.webp',
+  '/images/Cochrane Roofing Contractor Gallery 13.webp',
+  '/images/Cochrane Roofing Contractor Gallery 16.webp',
+  '/images/Cochrane Roofing Contractor Gallery 22.webp',
+]
 
 const services = [
   { label: 'Roof Replacement', href: '/roof-replacement' },
@@ -35,6 +49,130 @@ export function Footer() {
         }}
       >
         <div className="mx-auto" style={{ maxWidth: '1320px' }}>
+          {/* ── Instagram section ──────────────────────────────────── */}
+          <div className="pt-12 md:pt-14 pb-10 md:pb-12 border-b border-brand-border">
+            {/* Inline header — matches footer column heading style */}
+            <div className="flex items-end justify-between flex-wrap gap-3 mb-5">
+              <div className="flex items-center gap-3">
+                <span
+                  className="inline-flex items-center justify-center w-7 h-7 rounded-[7px]"
+                  style={{ background: 'rgba(212,175,96,0.12)' }}
+                >
+                  <Instagram className="w-3.5 h-3.5 text-brand-gold" strokeWidth={2} />
+                </span>
+                <span
+                  className="text-brand-slate uppercase tracking-[0.1em]"
+                  style={{
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 500,
+                  }}
+                >
+                  Follow Us
+                </span>
+                <span aria-hidden="true" className="text-brand-border">·</span>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-navy hover:text-brand-gold transition-colors duration-200"
+                  style={{
+                    fontSize: '14px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 600,
+                  }}
+                >
+                  @surewestroofing
+                </a>
+              </div>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1.5 text-brand-gold hover:text-[#B8943F] transition-colors duration-200"
+                style={{
+                  fontSize: '13px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 600,
+                }}
+              >
+                View profile
+                <ArrowUpRight
+                  className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  strokeWidth={2}
+                />
+              </a>
+            </div>
+
+            {/* Reel tiles, portrait 9:16 */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-3">
+              {INSTAGRAM_TILES.map((src, i) => (
+                <a
+                  key={src}
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Watch Sure West Roofing reel ${i + 1} on Instagram`}
+                  className="group relative block overflow-hidden rounded-[10px] aspect-square"
+                  style={{
+                    boxShadow:
+                      '0 1px 2px rgba(44,71,102,0.04), 0 12px 28px -10px rgba(44,71,102,0.18)',
+                  }}
+                >
+                  <Image
+                    src={src}
+                    alt=""
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 17vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                    loading="lazy"
+                  />
+
+                  {/* Subtle gold inner border */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                    style={{ boxShadow: 'inset 0 0 0 1px rgba(212,175,96,0.22)' }}
+                  />
+
+                  {/* Bottom gradient for legibility of reel indicator */}
+                  <span
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-2/5"
+                    style={{
+                      background:
+                        'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 100%)',
+                    }}
+                  />
+
+                  {/* Reel play badge, bottom-left */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute bottom-2 left-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/95 backdrop-blur-sm transition-transform duration-300 group-hover:scale-110"
+                    style={{
+                      boxShadow:
+                        '0 2px 6px rgba(0,0,0,0.18), 0 0 0 1px rgba(212,175,96,0.30)',
+                    }}
+                  >
+                    <Play className="w-3 h-3 text-brand-navy fill-brand-navy ml-0.5" strokeWidth={1.5} />
+                  </span>
+
+                  {/* Hover overlay with Instagram icon, top-right */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute top-2 right-2 inline-flex items-center justify-center w-7 h-7 rounded-full bg-white/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      boxShadow:
+                        '0 2px 6px rgba(0,0,0,0.18), 0 0 0 1px rgba(212,175,96,0.30)',
+                    }}
+                  >
+                    <Instagram className="w-3.5 h-3.5 text-brand-navy" strokeWidth={1.75} />
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
           {/* ── 4-column grid ───────────────────────────────────────── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
             {/* Column 1, Brand */}

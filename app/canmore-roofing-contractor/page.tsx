@@ -29,9 +29,9 @@ const BottomCTA = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Canmore',
+  title: { absolute: 'Roofing Contractor Canmore | Sure West Roofing' },
   description:
-    'Red Seal Journeyman certified roofing contractor serving Canmore and the Bow Valley. Built for mountain snow loads, chinook winds, and alpine architectural rules. Free written estimate.',
+    'Canmore roofing contractor for steep mountain pitches, snow loads, and chinook winds. Red Seal Journeyman certified. Free written estimates.',
   keywords: [
     'roofing contractor Canmore',
     'Canmore roofer',
@@ -115,112 +115,93 @@ const CANMORE_FAQS = [
   {
     question: 'Do you travel from Cochrane to work on Canmore roofs?',
     answerText:
-      'Yes. Canmore is a core Sure West service area. Our crew drives the Trans-Canada west from our Cochrane base, typically an hour each way. Travel is included in every Canmore quote, so there is no extra charge compared with an in-town Cochrane roof.',
+      "Yes, regularly. Cochrane is about an hour from Canmore and our crews run jobs across the Bow Valley year-round. The distance doesn't change the standard: same Red Seal-led crew, same proven process, same 10-year workmanship guarantee.",
     answer: (
       <>
-        Yes. Canmore is a core Sure West service area. Our crew drives the Trans-Canada west
-        from our Cochrane base, typically an hour each way. Travel is included in every Canmore
-        quote, so there is no extra charge compared with an in-town Cochrane roof.
+        Yes, regularly. Cochrane is about an hour from Canmore and our crews run jobs across the Bow Valley year-round. The distance doesn&apos;t change the standard: same Red Seal-led crew, same proven process, same 10-year workmanship guarantee.
       </>
     ),
   },
   {
     question: 'What makes a Canmore roof different from a Calgary or Cochrane roof?',
     answerText:
-      'Three things: snow load, pitch, and wind. Canmore sits at roughly 1,300 metres and carries heavier seasonal snow loads than anywhere in the Calgary region. Rooflines are steeper to shed that snow. And the valley funnels chinook winds that can lift improperly fastened shingles. Every Sure West install in Canmore is built around those three realities.',
+      "Three things. Pitch: Canmore homes often run steeper than 8:12, which changes safety, fastening, and material choice. Snow load: winter accumulation has to shed properly, which means correct ice-and-water coverage at eaves and proper attic ventilation. Chinook winds: fasteners and underlayment have to handle rapid temperature swings and high-wind events. Standard prairie roofing methods don't always cover all three.",
     answer: (
       <>
-        Three things: snow load, pitch, and wind. Canmore sits at roughly 1,300 metres and
-        carries heavier seasonal snow loads than anywhere in the Calgary region. Rooflines are
-        steeper to shed that snow. And the valley funnels chinook winds that can lift improperly
-        fastened shingles. Every Sure West install in Canmore is built around those three
-        realities.
+        Three things. Pitch: Canmore homes often run steeper than 8:12, which changes safety, fastening, and material choice.
+        <br />
+        <br />
+        Snow load: winter accumulation has to shed properly, which means correct ice-and-water coverage at eaves and proper attic ventilation.
+        <br />
+        <br />
+        Chinook winds: fasteners and underlayment have to handle rapid temperature swings and high-wind events. Standard prairie roofing methods don&apos;t always cover all three.
       </>
     ),
   },
   {
-    question: 'Do you work in Canmore architectural control zones?',
+    question: 'What warranty do you offer on a Canmore roof replacement?',
     answerText:
-      "Yes. Canmore has strict architectural guidelines, and in specific neighbourhoods like Three Sisters, Silvertip, and the Resort Centre, material and colour choices must pass architectural review. Sure West submits compliant shingle and accessory selections, and can liaise with your strata or architectural control committee directly. We won't quote a roof that hasn't been pre-cleared for approval.",
+      'Every Canmore roof replacement comes with a 10-year workmanship warranty in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.',
     answer: (
       <>
-        Yes. Canmore has strict architectural guidelines, and in specific neighbourhoods like
-        Three Sisters, Silvertip, and the Resort Centre, material and colour choices must pass
-        architectural review. Sure West submits compliant shingle and accessory selections, and
-        can liaise with your strata or architectural control committee directly. We will not
-        quote a roof that has not been pre-cleared for approval.
+        Every Canmore{' '}
+        <Link href="/roof-replacement" className="faq-link">
+          roof replacement
+        </Link>{' '}
+        comes with a 10-year workmanship warranty in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.
       </>
     ),
   },
   {
     question: 'How do you handle ice dams on Canmore roofs?',
     answerText:
-      "Ice dams are a Canmore-specific problem because of the snow-melt-refreeze cycle driven by chinooks and daytime sun. The real fix is not aggressive snow removal. It is better attic insulation, full ice-and-water shield at the eaves (usually six feet up the slope, double the Calgary-region standard), and properly vented soffits. Sure West builds every Canmore install to that spec from day one.",
+      'Ice dams form when warm attic air melts roof snow that refreezes at the cold eaves. The fix is rarely just clearing the dam. We start with a six-foot ice-and-water shield at the eaves, check attic insulation and ventilation for warm-air leaks, and address the underlying heat-loss issue. Done right once, ice dams stop being an annual problem.',
     answer: (
       <>
-        Ice dams are a Canmore-specific problem because of the snow-melt-refreeze cycle driven
-        by chinooks and daytime sun. The real fix is not aggressive snow removal. It is better
-        attic insulation, full ice-and-water shield at the eaves (usually six feet up the
-        slope, double the Calgary-region standard), and properly vented soffits. Sure West
-        builds every Canmore install to that spec from day one.
+        Ice dams form when warm attic air melts roof snow that refreezes at the cold eaves. The fix is rarely just clearing the dam. We start with a six-foot ice-and-water shield at the eaves, check attic insulation and ventilation for warm-air leaks, and address the underlying heat-loss issue. Done right once, ice dams stop being an annual problem.
       </>
     ),
   },
   {
     question: 'How much does a roof replacement cost in Canmore?',
     answerText:
-      'Most Canmore roof replacements fall between $14,000 and $38,000 depending on pitch, square footage, decking condition, and whether your home sits inside an architectural control zone. Steep alpine pitches, heavier ice-and-water protection, and premium shingle tiers push Canmore roofs higher than their Calgary equivalents. Every Sure West quote is fixed in writing before work begins.',
+      'Roof replacement cost depends on several factors: roof size, pitch (Canmore homes often run steep), the materials you choose, the condition of the deck underneath, snow-load coverage at the eaves, and any soft-metal work at flashings. We come to your Canmore property in person, walk the roof, and send a clear, itemised written quote.',
     answer: (
       <>
-        Most Canmore roof replacements fall between $14,000 and $38,000 depending on pitch,
-        square footage, decking condition, and whether your home sits inside an architectural
-        control zone. Steep alpine pitches, heavier ice-and-water protection, and premium
-        shingle tiers push Canmore roofs higher than their Calgary equivalents. Every Sure West
-        quote is fixed in writing before work begins.
+        <Link href="/roof-replacement" className="faq-link">
+          Roof replacement
+        </Link>{' '}
+        cost depends on several factors: roof size, pitch (Canmore homes often run steep), the materials you choose, the condition of the deck underneath, snow-load coverage at the eaves, and any soft-metal work at flashings. We come to your Canmore property in person, walk the roof, and send a clear, itemised written quote.
       </>
     ),
   },
   {
     question: 'What shingles do you install on Canmore homes?',
     answerText:
-      'IKO Nordic is our default recommendation for Canmore. It is Class 4 impact-rated, tested for high wind uplift, and specifically engineered for mountain climates with heavy snow and freeze-thaw cycles. For architectural-control zones that require a specific aesthetic, IKO Dynasty in an approved colour is our second option. Both qualify for ShieldPRO warranty coverage when installed by Sure West.',
+      "For Canmore we typically recommend IKO Nordic, the impact-rated, mountain-grade tier of our IKO line. It handles steep pitches, snow loads, and chinook freeze-thaw cycles better than the standard Cambridge or Dynasty tiers. We're an IKO ShieldPRO certified installer, so manufacturer warranties stay valid on top of our 10-year workmanship guarantee.",
     answer: (
       <>
-        IKO Nordic is our default recommendation for Canmore. It is Class 4 impact-rated, tested
-        for high wind uplift, and specifically engineered for mountain climates with heavy snow
-        and freeze-thaw cycles. For architectural-control zones that require a specific
-        aesthetic, IKO Dynasty in an approved colour is our second option. Both qualify for
-        ShieldPRO warranty coverage when installed by Sure West.
+        For Canmore we typically recommend IKO Nordic, the impact-rated, mountain-grade tier of our IKO line. It handles steep pitches, snow loads, and chinook freeze-thaw cycles better than the standard Cambridge or Dynasty tiers. We&apos;re an IKO ShieldPRO certified installer, so manufacturer warranties stay valid on top of our 10-year workmanship guarantee.
       </>
     ),
   },
   {
     question: 'Can you work on steep-pitch mountain roofs safely?',
     answerText:
-      "Yes. Every Sure West crew member holds current Fall Protection certification, and we use full-harness, roof-anchor, and scaffolding systems on any pitch over 7:12. Most Canmore mountain homes are 8:12 to 12:12. We price safety into every Canmore quote. It's not an extra.",
+      "Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Our Red Seal Journeyman certification is Canada's highest trade credential, and our crews are trained to the safety standards required for high-pitch and high-wind work. We don't subcontract steep work. The same in-house crew handles every roof.",
     answer: (
       <>
-        Yes. Every Sure West crew member holds current Fall Protection certification, and we
-        use full-harness, roof-anchor, and scaffolding systems on any pitch over 7:12. Most
-        Canmore mountain homes are 8:12 to 12:12. We price safety into every Canmore quote.
-        It is not an extra.
+        Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Our Red Seal Journeyman certification is Canada&apos;s highest trade credential, and our crews are trained to the safety standards required for high-pitch and high-wind work. We don&apos;t subcontract steep work. The same in-house crew handles every roof.
       </>
     ),
   },
   {
     question: 'When is the best time of year to replace a roof in Canmore?',
     answerText:
-      "Late May through late September is the window most Canmore homeowners target. Nighttime temperatures are consistently above the sealant activation threshold for asphalt shingles, and you avoid surprise snow events. Sure West also installs through October shoulder weather when the forecast allows, and books emergency repairs year-round. Avoid replacing in mid-winter unless it is an insurance emergency.",
+      'Late spring through early fall is the practical window in the Bow Valley. Temperatures are warm enough for proper shingle sealing and dry enough to avoid weather pauses. Booking in late winter or early spring is the easiest way to lock a slot in the best window. We schedule weather-aware: if conditions threaten the install, we pause and secure the site rather than push through.',
     answer: (
       <>
-        Late May through late September is the window most Canmore homeowners target.
-        Nighttime temperatures are consistently above the sealant activation threshold for
-        asphalt shingles, and you avoid surprise snow events. Sure West also installs through
-        October shoulder weather when the forecast allows, and books{' '}
-        <Link href="/roof-repair" className="faq-link">
-          emergency repairs
-        </Link>{' '}
-        year-round. Avoid replacing in mid-winter unless it is an insurance emergency.
+        Late spring through early fall is the practical window in the Bow Valley. Temperatures are warm enough for proper shingle sealing and dry enough to avoid weather pauses. Booking in late winter or early spring is the easiest way to lock a slot in the best window. We schedule weather-aware: if conditions threaten the install, we pause and secure the site rather than push through.
       </>
     ),
   },
@@ -241,7 +222,7 @@ export default function RoofingContractorCanmorePage() {
       {/* 1. Hero */}
       <Hero
         h1={"Canmore's Trusted\nRoofing Contractor"}
-        subtitle="Red Seal Journeyman certified with over 250 roofs completed across Canmore, Cochrane and Calgary. Quality workmanship backed by a written 10-year guarantee. We reply fast, even after hours."
+        subtitle="Red Seal Journeyman roofing contractor serving Canmore, Cochrane, and Calgary. Built on character, competency, and proven processes."
         backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
@@ -253,18 +234,21 @@ export default function RoofingContractorCanmorePage() {
       {/* 2. Stats + Certifications */}
       <TrustLogos />
 
-      {/* 3. Services Card Grid */}
+      {/* 3. Move the Mountain, brand philosophy anchor before services */}
+      <BrandStrip />
+
+      {/* 4. Services Card Grid */}
       <ServicesIconGrid
         eyebrow="What We Do"
         heading={'Every Canmore Roofing Service.\nOne Standard.'}
-        body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job."
+        body="From a quick roof repair to a full replacement, the standard doesn't change. The same Red Seal crew, proven process, and 10-year written guarantee come with every Canmore roof."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "Tear-off and reroof on Canmore's steep pitches using IKO Nordic shingles, six-foot ice and water shield at the eaves, and chinook-rated fastening. 10-year workmanship warranty.",
+              "The biggest job your roof will get, run by the same Red Seal crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year warranty in writing.",
             image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Canmore AB',
           },
@@ -272,7 +256,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Roof Repair',
             href: '/roof-repair',
             description:
-              "Ice dam damage, wind-lifted shingles, cracked flashings, or a leak on an 8:12 pitch. Our Red Seal Canmore crew diagnoses the cause and warrants every fix.",
+              "If your roof still has years left in it, we'll tell you so. Cracked shingles, active leaks, failed flashing, or ice dam damage fixed properly, with no upsell to a replacement.",
             image: '/images/roof-repairs-cochrane.webp',
             imageAlt: 'Roof repair Canmore AB',
           },
@@ -280,7 +264,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Roof Inspection',
             href: '/roof-inspection',
             description:
-              "Pre-purchase, pre-sale, or just overdue. Our Canmore roof inspection covers every pitch, the attic, and ice-and-water coverage, with a written photo report and a plain-language verdict.",
+              "Buying, selling, or overdue for a check, a real inspection takes time. We're on the roof, in the attic, and around the flashings, with the truth in writing, clear photos, and a plain-language verdict.",
             image: '/images/roof-inspection-cochrane.webp',
             imageAlt: 'Roof inspection Canmore AB',
           },
@@ -288,7 +272,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Roof Maintenance',
             href: '/roof-maintenance',
             description:
-              "Spring and autumn visits tailored to Canmore: needle clearing, chinook-season flashing checks, and pre-winter vent inspections. The smartest way to extend a mountain roof.",
+              "Most roofs don't fail from weather, they fail because no one checks on them. Scheduled visits with flashing top-ups, debris clearing, and small fixes that keep big repairs away.",
             image: '/images/roof-maintenance-cochrane.webp',
             imageAlt: 'Roof maintenance Canmore AB',
           },
@@ -296,7 +280,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Siding & Soft Metals',
             href: '/siding-soft-metals',
             description:
-              "Siding, eavestroughs, fascia, and soffits on Canmore mountain homes. Premium materials built for chinook winds and freeze-thaw, finished by our Red Seal Bow Valley crew.",
+              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same Red Seal crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
             image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
             imageAlt: 'Siding and soft metals Canmore AB',
           },
@@ -304,31 +288,37 @@ export default function RoofingContractorCanmorePage() {
             title: 'Skylight Installation',
             href: '/skylight-installation',
             description:
-              "Alpine skylights built for Canmore snow loads and freeze-thaw cycles. New units, replacements, and resealing, flashed to manufacturer spec for mountain light without the leaks.",
+              "Natural light without the leaks. Skylights fail when they're rushed, so we seal, flash, and finish them like the rest of the roof depends on it, manufacturer spec on every job.",
             image: '/images/skylight-installation-cochrane.webp',
             imageAlt: 'Skylight installation Canmore AB',
           },
         ]}
       />
 
-      {/* 4. Reviews, proof immediately after services (matches homepage flow) */}
+      {/* 5. Reviews, proof immediately after services (matches homepage flow) */}
       <Reviews
-        sectionBg="#F7F5F0"
-        cardBg="#FFFFFF"
+        sectionBg="#FFFFFF"
+        cardBg="#F7F5F0"
         heading={
           <>
             What Canmore Homeowners
             <br className="hidden md:block" /> Say About Sure West Roofing
           </>
         }
-        body="Here is what homeowners across Canmore, Cochrane and Calgary say."
+        body="Verified Google reviews from homeowners across Canmore, Calgary, and Cochrane."
       />
 
-      {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
+      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
+      <WhySureWest cityName="Canmore" videoThumbnail="/images/About Sure West Roofing Thumbnail.jpg" />
+
+      {/* 7. How It Works, process info now that buyer is leaning in */}
+      <HowItWorks cityName="Canmore" otherCities={['Calgary', 'Cochrane']} />
+
+      {/* 8. Our Work (Portfolio), visual proof before final objection handling */}
       <PortfolioCarousel
         heading={
           <>
-            Roofing Projects Completed Across<br className="hidden md:block" /> Canmore, Cochrane &amp; Calgary
+            Real Roofs Across<br className="hidden md:block" /> Canmore, Calgary, and Cochrane
           </>
         }
         images={[
@@ -354,25 +344,6 @@ export default function RoofingContractorCanmorePage() {
         ]}
       />
 
-      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
-      <WhySureWest
-        heading={
-          <>
-            Canmore&apos;s Red Seal Certified
-            <br />
-            Roofing Contractor
-          </>
-        }
-        body="Every roofing contractor in Canmore says they are the best. Here is what actually sets Sure West apart."
-        cityName="Canmore"
-      />
-
-      {/* 7. How It Works, process info now that buyer is leaning in */}
-      <HowItWorks cityName="Canmore" otherCities={['Cochrane', 'Calgary']} />
-
-      {/* 8. Move the Mountain, emotional moment before the rational close */}
-      <BrandStrip />
-
       {/* 9. FAQ, Canmore-specific, final objection handling right before the ask */}
       <HomeFAQ faqs={CANMORE_FAQS} heading="Canmore Roofing Questions Answered" />
 
@@ -385,7 +356,7 @@ export default function RoofingContractorCanmorePage() {
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Red Seal certified roofing across Canmore, Cochrane, and Calgary. Free written estimate, 10-year workmanship warranty, and no sales pressure."
+        subtext="Red Seal certified roofing across Canmore, Cochrane, and Calgary. In-house crew, free written estimate, 10-year workmanship warranty in writing, and no sales pressure."
       />
     </>
   )

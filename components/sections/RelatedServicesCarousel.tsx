@@ -24,7 +24,7 @@ const ALL_SERVICES = [
     image: '/images/roof-replacement-cochrane.webp',
     imageAlt: 'Roof replacement in Cochrane Alberta by Sure West Roofing',
     description:
-      'Full tear-off and re-roof using IKO shingles and premium underlayment built for Alberta climate. Most jobs finished in one to three days, property left clean.',
+      "The biggest job your roof will get, run by the same Red Seal crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year warranty in writing.",
   },
   {
     Icon: Wrench,
@@ -33,16 +33,7 @@ const ALL_SERVICES = [
     image: '/images/roof-repairs-cochrane.webp',
     imageAlt: 'Roof repair in Cochrane Alberta by Sure West Roofing',
     description:
-      'Missing shingles, active leaks, flashing failures, and ice dam damage. All fixed by Red Seal certified trades with a written warranty on every repair.',
-  },
-  {
-    Icon: CloudHail,
-    title: 'Hail Damage Repair',
-    href: '/hail-damage-repair',
-    image: '/images/hail-damage-repair.webp',
-    imageAlt: 'Hail damage roof repair in Cochrane Alberta by Sure West Roofing',
-    description:
-      'Free post-storm assessment with full damage documentation, so you have what you need to file with your insurer. No out-of-pocket cost for the assessment.',
+      "If your roof still has years left in it, we'll tell you so. Cracked shingles, active leaks, failed flashing, or ice dam damage fixed properly, with no upsell to a replacement.",
   },
   {
     Icon: ScanSearch,
@@ -51,7 +42,7 @@ const ALL_SERVICES = [
     image: '/images/roof-inspection-cochrane.webp',
     imageAlt: 'Roof inspection in Cochrane Alberta by Sure West Roofing',
     description:
-      'Full inspection of shingles, flashing, vents, gutters, and attic. You get a written photo report so you know exactly where you stand.',
+      "Buying, selling, or overdue for a check, a real inspection takes time. We're on the roof, in the attic, and around the flashings, with the truth in writing, clear photos, and a plain-language verdict.",
   },
   {
     Icon: ClipboardCheck,
@@ -60,7 +51,7 @@ const ALL_SERVICES = [
     image: '/images/roof-maintenance-cochrane.webp',
     imageAlt: 'Roof maintenance in Cochrane Alberta by Sure West Roofing',
     description:
-      'Annual inspections, flashing checks, debris clearing, and minor repairs caught before they escalate. The lowest-cost way to protect your roof.',
+      "Most roofs don't fail from weather, they fail because no one checks on them. Scheduled visits with flashing top-ups, debris clearing, and small fixes that keep big repairs away.",
   },
   {
     Icon: Layers,
@@ -69,7 +60,7 @@ const ALL_SERVICES = [
     image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
     imageAlt: 'Siding and soft metals project in Cochrane Alberta by Sure West Roofing',
     description:
-      'Siding installation, eavestroughs, fascia, soffit, and metal flashing. Premium materials matched to Alberta weather, finished by the same Red Seal crew that does our roofs.',
+      "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same Red Seal crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
   },
   {
     Icon: Sun,
@@ -78,7 +69,16 @@ const ALL_SERVICES = [
     image: '/images/skylight-installation-cochrane.webp',
     imageAlt: 'Skylight installation in Cochrane Alberta by Sure West Roofing',
     description:
-      'New installs and replacements with proper flashing and waterproofing to manufacturer spec. Most skylight jobs are completed in a single day.',
+      "Natural light without the leaks. Skylights fail when they're rushed, so we seal, flash, and finish them like the rest of the roof depends on it, manufacturer spec on every job.",
+  },
+  {
+    Icon: CloudHail,
+    title: 'Hail Damage Repair',
+    href: '/hail-damage-repair',
+    image: '/images/hail-damage-repair.webp',
+    imageAlt: 'Hail damage roof repair in Cochrane Alberta by Sure West Roofing',
+    description:
+      "After hail, you don't need pressure, you need a clean assessment. We document the damage, support the insurance claim, and rebuild to the standard we'd put on our own homes.",
   },
 ]
 

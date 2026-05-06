@@ -245,7 +245,9 @@ function OurStory() {
             />
             <FoundersVideo
               alt="Craig and Mike, owners of Sure West Roofing in Cochrane Alberta"
-              className="relative aspect-video w-full overflow-hidden rounded-[18px] bg-black"
+              className="relative aspect-video w-full overflow-hidden rounded-[14px] bg-black"
+              vimeoId="917317949"
+              thumbnail="/images/Sure West Roofing - Founders Video.webp"
             />
 
             {/* Story-focused stats: team & reach */}

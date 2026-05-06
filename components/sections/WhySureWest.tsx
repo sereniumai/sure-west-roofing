@@ -1,71 +1,54 @@
 'use client'
 
-import {
-  Award,
-  Users,
-  ShieldCheck,
-  Zap,
-  type LucideIcon,
-} from 'lucide-react'
 import { FoundersVideo } from '@/components/ui/FoundersVideo'
 import { Reveal } from '@/components/ui/Reveal'
 
 interface Pillar {
-  id: string
+  num: string
   title: string
   body: string
-  Icon: LucideIcon
 }
 
-function getPillars(cityName: string): Pillar[] {
-  return [
-    {
-      id: 'red-seal',
-      title: 'Red Seal Certified',
-      body: "Alberta's highest roofing credential. Earned through years of trade-tested work on every project.",
-      Icon: Award,
-    },
-    {
-      id: 'owner-operated',
-      title: 'Owner On Every Job',
-      body: "No salespeople. No middlemen. Deal with the owner from the first estimate to the final walkthrough.",
-      Icon: Users,
-    },
-    {
-      id: 'guarantee',
-      title: '10-Year Guarantee',
-      body: "Workmanship in writing before a nail is driven. If something's off, we come back to make it right.",
-      Icon: ShieldCheck,
-    },
-    {
-      id: 'single-day',
-      title: 'Single-Day Installs',
-      body: `Most ${cityName} roof replacements completed in one day. Less disruption to your home, less weather risk.`,
-      Icon: Zap,
-    },
-  ]
-}
+const PILLARS: Pillar[] = [
+  {
+    num: '01',
+    title: 'Character',
+    body: "Who we are when no one's watching. In-house crew on every roof, honest quotes from day one, and we'll tell you if you don't need a replacement, even if it costs us the work.",
+  },
+  {
+    num: '02',
+    title: 'Competency',
+    body: "Mastering the craft, not just doing the job. Red Seal Journeyman certified, Canada's highest trade credential, on every roof. The parts you never see done well are the parts we get right.",
+  },
+  {
+    num: '03',
+    title: 'Proven Processes',
+    body: 'Same playbook on every job. Same Red Seal crew, same documentation, same magnetic nail sweep, same warranty in writing. Discipline turned into habit.',
+  },
+]
 
 interface WhySureWestProps {
   eyebrow?: string
   heading?: React.ReactNode
   body?: string
   cityName?: string
+  videoThumbnail?: string
+  subheadMaxWidth?: string
 }
 
 export function WhySureWest({
   eyebrow = 'Why Sure West',
-  heading = (
-    <>
-      Cochrane&apos;s Red Seal Certified
-      <br />
-      Roofing Contractor
-    </>
-  ),
-  body = 'Every roofing contractor in Cochrane says they are the best. Here is what actually sets Sure West apart.',
+  heading = 'What Actually Sets Sure West Apart',
+  body,
   cityName = 'Cochrane',
+  videoThumbnail,
+  subheadMaxWidth = '725px',
 }: WhySureWestProps = {}) {
-  const pillars = getPillars(cityName)
+  const pillars = PILLARS
+  const subhead =
+    body ??
+    `Every ${cityName} roofing contractor claims to be the best. Here's how we earn that on every roof.`
+
   return (
     <section
       id="why-sure-west"
@@ -86,110 +69,116 @@ export function WhySureWest({
         }}
       />
 
-      <div className="relative max-w-[1320px] mx-auto">
-        {/* ── Header: eyebrow + h2 + sub (full width, centred) ──── */}
+      <div className="relative max-w-[1200px] mx-auto">
+        {/* Header */}
         <Reveal>
-        <div className="flex flex-col items-center text-center max-w-[920px] mx-auto">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
-            style={{ background: '#F0EEE8', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
-          >
-            {eyebrow}
-          </span>
+          <div className="flex flex-col items-center text-center max-w-[920px] mx-auto">
+            <span
+              className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
+            >
+              {eyebrow}
+            </span>
 
-          <h2
-            id="why-sure-west-heading"
-            className="font-display font-medium text-brand-navy mt-6 md:mt-7"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            {heading}
-          </h2>
+            <h2
+              id="why-sure-west-heading"
+              className="font-display font-medium text-brand-navy mt-6 md:mt-7"
+              style={{
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              {heading}
+            </h2>
 
-          <p
-            className="mt-6 md:mt-7 max-w-[460px] text-brand-slate leading-[1.7]"
-            style={{
-              fontSize: '16px',
-              fontFamily: "var(--font-inter), system-ui, sans-serif",
-              fontWeight: 400,
-            }}
-          >
-            {body}
-          </p>
-        </div>
+            <p
+              className="mt-6 md:mt-7 text-brand-slate leading-[1.7]"
+              style={{
+                maxWidth: subheadMaxWidth,
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              {subhead}
+            </p>
+          </div>
         </Reveal>
 
-        {/* ── Two-column split: cards left, video right ─────────── */}
-        <Reveal delay={150}>
-        <div className="mt-12 md:mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
-          {/* LEFT: 2 x 2 cards, height matches the video */}
-          <ul className="grid h-full grid-cols-1 sm:grid-cols-2 gap-4 auto-rows-fr">
-            {pillars.map((p) => {
-              const { Icon } = p
-              return (
-                <li
-                  key={p.id}
-                  className="group relative flex flex-col justify-center h-full rounded-[12px] border border-brand-border bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_-12px_rgba(44,71,102,0.12)] hover:border-brand-gold/40"
+        {/* Two-column split: editorial pillar panel left, video right */}
+        <div className="mt-8 md:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+            {/* LEFT: 3 pillars, each animates in with a staggered delay */}
+            <div className="flex flex-col">
+              {pillars.map((p, i) => (
+                <Reveal
+                  key={p.num}
+                  delay={150 + i * 140}
+                  className="flex gap-5 md:gap-6 py-3 md:py-4"
                 >
-                  {/* Icon + title inline */}
-                  <div className="flex items-center gap-2.5">
-                    <span
-                      aria-hidden="true"
-                      className="flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-[6px] transition-colors duration-300 group-hover:bg-[rgba(212,175,96,0.22)]"
-                      style={{ background: 'rgba(212,175,96,0.12)' }}
-                    >
-                      <Icon
-                        className="w-5 h-5"
-                        style={{ color: 'var(--color-accent, #D4AF60)' }}
-                        strokeWidth={1.75}
-                      />
-                    </span>
+                  {/* Numeral column */}
+                  <span
+                    className="shrink-0 font-display text-brand-gold"
+                    style={{
+                      fontSize: 'clamp(36px, 3.5vw, 48px)',
+                      fontWeight: 500,
+                      lineHeight: 1,
+                      letterSpacing: '-0.02em',
+                      minWidth: '64px',
+                    }}
+                  >
+                    {p.num}
+                  </span>
+
+                  {/* Title + body */}
+                  <div className="flex-1">
                     <h3
-                      className="font-display font-semibold leading-[1.15] text-[--color-near-black]"
+                      className="font-display font-semibold text-brand-navy"
                       style={{
-                        fontSize: '18px',
-                        letterSpacing: '-0.015em',
+                        fontSize: 'clamp(20px, 1.8vw, 24px)',
+                        lineHeight: 1.2,
+                        letterSpacing: '-0.01em',
                       }}
                     >
                       {p.title}
                     </h3>
+                    <p
+                      className="mt-2 text-brand-slate leading-[1.65]"
+                      style={{
+                        fontSize: '15px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {p.body}
+                    </p>
                   </div>
-
-                  <p
-                    className="mt-2.5 text-brand-slate leading-[1.55]"
-                    style={{
-                      fontSize: '13px',
-                      fontFamily: "var(--font-inter), system-ui, sans-serif",
-                      fontWeight: 400,
-                    }}
-                  >
-                    {p.body}
-                  </p>
-                </li>
-              )
-            })}
-          </ul>
-
-          {/* RIGHT: video */}
-          <div>
-            <div className="relative">
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
-                style={{
-                  background:
-                    'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
-                  filter: 'blur(4px)',
-                }}
-              />
-              <FoundersVideo />
+                </Reveal>
+              ))}
             </div>
+
+            {/* RIGHT: video */}
+            <Reveal delay={300}>
+              <div className="relative">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
+                  style={{
+                    background:
+                      'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
+                    filter: 'blur(4px)',
+                  }}
+                />
+                <FoundersVideo thumbnail={videoThumbnail} />
+              </div>
+            </Reveal>
           </div>
-        </div>
-        </Reveal>
       </div>
     </section>
   )

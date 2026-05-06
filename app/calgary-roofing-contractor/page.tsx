@@ -29,9 +29,9 @@ const BottomCTA = dynamic(() =>
 )
 
 export const metadata: Metadata = {
-  title: 'Roofing Contractor Calgary',
+  title: { absolute: 'Roofing Contractor Calgary | Sure West Roofing' },
   description:
-    'Red Seal Journeyman certified roofing contractor serving Calgary. Roof replacement, hail damage claims, and repair across the NW, NE, SW and SE. Free written estimate.',
+    'Calgary roofing contractor for replacement, repair, and hail damage. Red Seal Journeyman certified, in-house crew, free written estimates.',
   keywords: [
     'roofing contractor Calgary',
     'Calgary roofer',
@@ -117,111 +117,103 @@ const CALGARY_FAQS = [
   {
     question: 'Do you travel from Cochrane to work on Calgary roofs?',
     answerText:
-      'Yes. Calgary is a core service area for Sure West Roofing. Our crew drives in daily from our Cochrane base, typically a 30 to 45 minute commute depending on your neighbourhood. Travel is included in every Calgary roofing quote, so there is no surcharge for being in the city rather than Cochrane.',
+      "Yes, regularly. Cochrane is about thirty minutes from most of Calgary, and our crews run jobs across the city year-round. The drive doesn't change the standard: same Red Seal-led crew, same proven process, and the same 10-year workmanship guarantee.",
     answer: (
       <>
-        Yes. Calgary is a core service area for Sure West Roofing. Our crew drives in daily from
-        our Cochrane base, typically a 30 to 45 minute commute depending on your neighbourhood.
-        Travel is included in every Calgary roofing quote, so there is no surcharge for being in
-        the city rather than Cochrane.
+        Yes, regularly. Cochrane is about thirty minutes from most of Calgary, and our crews run jobs across the city year-round. The drive doesn&apos;t change the standard: same Red Seal-led crew, same proven process, and the same 10-year workmanship guarantee.
       </>
     ),
   },
   {
     question: 'Which Calgary neighbourhoods do you work in?',
     answerText:
-      'All of them. Sure West Roofing works across the entire city, including the inner-city communities like Kensington, Killarney, and Altadore, the NW quadrant covering Tuscany, Royal Oak, and Rocky Ridge, the NE including Saddle Ridge and Redstone, the SW down to Evergreen and Millrise, and the SE across Cranston, McKenzie Lake, and Mahogany.',
+      "All of them. We've worked from inner-city Altadore to suburban Tuscany and the surrounding new builds. If your home is inside Calgary city limits, we cover it.",
     answer: (
       <>
-        All of them. Sure West Roofing works across the entire city, including the inner-city
-        communities like Kensington, Killarney, and Altadore, the NW quadrant covering Tuscany,
-        Royal Oak, and Rocky Ridge, the NE including Saddle Ridge and Redstone, the SW down to
-        Evergreen and Millrise, and the SE across Cranston, McKenzie Lake, and Mahogany.
+        All of them. We&apos;ve worked from inner-city Altadore to suburban Tuscany and the surrounding new builds. If your home is inside Calgary city limits, we cover it.
       </>
     ),
   },
   {
     question: 'How do you handle hail damage insurance claims in Calgary?',
     answerText:
-      'Calgary sits in one of the most active hail corridors in North America, so insurance claims are a major part of what we do here. We start with a free post-storm inspection, document every impact with dated photos, submit a detailed scope to your adjuster, and work directly with them through to approval. You only pay your deductible. We handle the rest.',
+      "We handle Calgary hail damage insurance claims end-to-end: document the damage with photos and a written report, meet with your insurance adjuster on-site where it helps, and rebuild to the standard we'd put on our own homes. No pressure to file if the damage is borderline.",
     answer: (
       <>
-        Calgary sits in one of the most active hail corridors in North America, so insurance
-        claims are a major part of what we do here. We start with a free post-storm inspection,
-        document every impact with dated photos, submit a detailed scope to your adjuster, and
-        work directly with them through to approval. You only pay your deductible. We handle the
-        rest. See our{' '}
+        We handle Calgary{' '}
         <Link href="/hail-damage-repair" className="faq-link">
-          hail damage repair page
+          hail damage insurance claims
         </Link>{' '}
-        for the full process.
+        end-to-end: document the damage with photos and a written report, meet with your insurance adjuster on-site where it helps, and rebuild to the standard we&apos;d put on our own homes. No pressure to file if the damage is borderline.
       </>
     ),
   },
   {
     question: 'How much does a roof replacement cost in Calgary?',
     answerText:
-      'Most Calgary roof replacements land between $9,000 and $28,000 depending on size, pitch, decking condition, shingle tier, and accessory work like flashing, vents, and skylights. Inner-city homes with steeper pitches or complex rooflines sit at the higher end. Suburban homes with standard pitches are usually mid-range. Your free Sure West estimate locks the price in writing before work begins.',
+      'Roof replacement cost depends on several factors: roof size, pitch, the materials you choose, the condition of the deck underneath, and any soft-metal work needed at flashings, valleys, and eaves. We come to your Calgary property in person, walk the roof, and send a clear, itemised written quote. No satellite-image pricing.',
     answer: (
       <>
-        Most Calgary roof replacements land between $9,000 and $28,000 depending on size, pitch,
-        decking condition, shingle tier, and accessory work like flashing, vents, and skylights.
-        Inner-city homes with steeper pitches or complex rooflines sit at the higher end.
-        Suburban homes with standard pitches are usually mid-range. Your free Sure West estimate
-        locks the price in writing before work begins.
+        <Link href="/roof-replacement" className="faq-link">
+          Roof replacement
+        </Link>{' '}
+        cost depends on several factors: roof size, pitch, the materials you choose, the condition of the deck underneath, and any soft-metal work needed at flashings, valleys, and eaves. We come to your Calgary property in person, walk the roof, and send a clear, itemised written quote. No satellite-image pricing.
       </>
     ),
   },
   {
-    question: 'Do I need a roofing permit in Calgary?',
+    question: 'How do I know if my Calgary roof needs replacing?',
     answerText:
-      'The City of Calgary does not require a building permit for a straight like-for-like shingle replacement on an existing residential roof. If you are changing decking, changing materials, or altering the roof structure, a permit is required. Sure West handles any permit paperwork on your behalf if your scope calls for it.',
+      "Common signs include curling or missing shingles, granules collecting in your gutters, repeated leaks, sagging spots, daylight visible from the attic, and a roof past 20 to 25 years old. The reliable way to know is an in-person roof inspection. We'll tell you whether repair or replacement is the right call and never push the bigger job.",
     answer: (
       <>
-        The City of Calgary does not require a building permit for a straight like-for-like
-        shingle replacement on an existing residential roof. If you are changing decking,
-        changing materials, or altering the roof structure, a permit is required. Sure West
-        handles any permit paperwork on your behalf if your scope calls for it.
+        Common signs include curling or missing shingles, granules collecting in your gutters, repeated leaks, sagging spots, daylight visible from the attic, and a roof past 20 to 25 years old. The reliable way to know is an in-person{' '}
+        <Link href="/roof-inspection" className="faq-link">
+          roof inspection
+        </Link>
+        . We&apos;ll tell you whether{' '}
+        <Link href="/roof-repair" className="faq-link">
+          repair
+        </Link>{' '}
+        or{' '}
+        <Link href="/roof-replacement" className="faq-link">
+          replacement
+        </Link>{' '}
+        is the right call and never push the bigger job.
       </>
     ),
   },
   {
     question: 'What shingles do you install on Calgary homes?',
     answerText:
-      "We install IKO architectural shingles across three tiers. IKO Cambridge is the entry point for straightforward replacements. IKO Dynasty is the Calgary workhorse and our most-installed tier. IKO Nordic is Class 4 impact-rated, engineered for hail-prone zones, and popular across the city's hail corridors. As an IKO ShieldPRO installer, we can qualify every roof we install for top-tier manufacturer warranty coverage.",
+      "We're an IKO ShieldPRO certified installer. Our standard line is IKO Cambridge for value, IKO Dynasty (our default recommendation) for upgraded durability and impact resistance, and IKO Nordic for premium installs. All come with manufacturer warranties on top of our 10-year workmanship guarantee.",
     answer: (
       <>
-        We install IKO architectural shingles across three tiers. IKO Cambridge is the entry
-        point for straightforward replacements. IKO Dynasty is the Calgary workhorse and our
-        most-installed tier. IKO Nordic is Class 4 impact-rated, engineered for hail-prone zones,
-        and popular across the city&apos;s hail corridors. As an IKO ShieldPRO installer, we can
-        qualify every roof we install for top-tier manufacturer warranty coverage.
+        We&apos;re an IKO ShieldPRO certified installer. Our standard line is IKO Cambridge for value, IKO Dynasty (our default recommendation) for upgraded durability and impact resistance, and IKO Nordic for premium installs. All come with manufacturer warranties on top of our 10-year workmanship guarantee.
       </>
     ),
   },
   {
     question: 'How fast can a Calgary roof replacement be completed?',
     answerText:
-      'Most Calgary single-family roof replacements are completed in one to two days, weather permitting. Larger homes, steep-pitch two-storeys in established communities, or projects with significant decking repairs run two to three days. We work through the full scope in one visit rather than leaving your roof opened across multiple weeks.',
+      "Most roof replacements are completed in a single day. Larger or steeper roofs can stretch to two. We schedule weather-aware: if conditions put your roof at risk mid-install, we pause, secure the site, and finish when it's safe. You'll know the expected timeline before the materials arrive.",
     answer: (
       <>
-        Most Calgary single-family roof replacements are completed in one to two days, weather
-        permitting. Larger homes, steep-pitch two-storeys in established communities, or
-        projects with significant decking repairs run two to three days. We work through the
-        full scope in one visit rather than leaving your roof opened across multiple weeks.
+        Most{' '}
+        <Link href="/roof-replacement" className="faq-link">
+          roof replacements
+        </Link>{' '}
+        are completed in a single day. Larger or steeper roofs can stretch to two. We schedule weather-aware: if conditions put your roof at risk mid-install, we pause, secure the site, and finish when it&apos;s safe. You&apos;ll know the expected timeline before the materials arrive.
       </>
     ),
   },
   {
     question: 'Is Sure West Roofing licensed and insured to work in Calgary?',
     answerText:
-      'Yes. Sure West holds an active City of Calgary business licence, carries a $2 million general liability policy, and every crew member is covered by WCB Alberta. Every Calgary homeowner has the right to see proof of coverage before work begins and we are happy to provide it.',
+      'Yes. Sure West carries $2 million in commercial liability insurance, WCB Alberta coverage on every team member, and a Red Seal Journeyman certified roofer on every job. As a homeowner, you can ask for a copy of our insurance certificate before any work starts. We recommend asking every contractor.',
     answer: (
       <>
-        Yes. Sure West holds an active City of Calgary business licence, carries a $2 million
-        general liability policy, and every crew member is covered by WCB Alberta. Every Calgary
-        homeowner has the right to see proof of coverage before work begins and we are happy to
-        provide it.
+        Yes. Sure West carries $2 million in commercial liability insurance, WCB Alberta coverage on every team member, and a Red Seal Journeyman certified roofer on every job. As a homeowner, you can ask for a copy of our insurance certificate before any work starts. We recommend asking every contractor.
       </>
     ),
   },
@@ -242,7 +234,7 @@ export default function RoofingContractorCalgaryPage() {
       {/* 1. Hero */}
       <Hero
         h1={"Calgary's Trusted\nRoofing Contractor"}
-        subtitle="Red Seal Journeyman certified with over 250 roofs completed across Calgary, Cochrane and Canmore. Quality workmanship backed by a written 10-year guarantee. We reply fast, even after hours."
+        subtitle="Red Seal Journeyman roofing contractor serving Calgary, Cochrane, and Canmore. Built on character, competency, and proven processes."
         backgroundVideo="/images/sure-west-best-cochrane-roofing-contractor.mp4"
         backgroundImage="/images/Cochrane Roofing Contractors.jpg"
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
@@ -254,18 +246,21 @@ export default function RoofingContractorCalgaryPage() {
       {/* 2. Stats + Certifications */}
       <TrustLogos />
 
-      {/* 3. Services Card Grid */}
+      {/* 3. Move the Mountain, brand philosophy anchor before services */}
+      <BrandStrip />
+
+      {/* 4. Services Card Grid */}
       <ServicesIconGrid
         eyebrow="What We Do"
         heading={'Every Calgary Roofing Service.\nOne Standard.'}
-        body="From full roof replacements to emergency hail damage repair, our Red Seal Journeyman team delivers the same uncompromising standard on every single job."
+        body="From a quick roof repair to a full replacement, the standard doesn't change. The same Red Seal crew, proven process, and 10-year written guarantee come with every Calgary roof."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "Red Seal certified tear-off and reroof on Calgary homes, from inner-city bungalows to new suburban builds. IKO shingles and a 10-year workmanship warranty on every Calgary roof.",
+              "The biggest job your roof will get, run by the same Red Seal crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year warranty in writing.",
             image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Calgary AB',
           },
@@ -273,7 +268,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Roof Repair',
             href: '/roof-repair',
             description:
-              "Active leaks, lifted shingles, failed flashing, or storm damage on your Calgary home. Our Red Seal crew diagnoses the root cause and warrants every repair in writing.",
+              "If your roof still has years left in it, we'll tell you so. Cracked shingles, active leaks, failed flashing, or ice dam damage fixed properly, with no upsell to a replacement.",
             image: '/images/roof-repairs-cochrane.webp',
             imageAlt: 'Roof repair Calgary AB',
           },
@@ -281,7 +276,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Roof Inspection',
             href: '/roof-inspection',
             description:
-              "Buying in Altadore, selling in Tuscany, or just overdue. Our Calgary roof inspection covers every surface and the attic, with a written photo report you can share with buyers and insurers.",
+              "Buying, selling, or overdue for a check, a real inspection takes time. We're on the roof, in the attic, and around the flashings, with the truth in writing, clear photos, and a plain-language verdict.",
             image: '/images/roof-inspection-cochrane.webp',
             imageAlt: 'Roof inspection Calgary AB',
           },
@@ -289,7 +284,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Roof Maintenance',
             href: '/roof-maintenance',
             description:
-              "Annual visits for Calgary homes: flashing top-ups, vent checks, debris clearing, and small fixes before winter turns them into expensive ones. The smartest insurance for your roof.",
+              "Most roofs don't fail from weather, they fail because no one checks on them. Scheduled visits with flashing top-ups, debris clearing, and small fixes that keep big repairs away.",
             image: '/images/roof-maintenance-cochrane.webp',
             imageAlt: 'Roof maintenance Calgary AB',
           },
@@ -297,7 +292,7 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Siding & Soft Metals',
             href: '/siding-soft-metals',
             description:
-              "Siding, eavestroughs, fascia, and soffits on Calgary homes. Premium materials matched to Alberta weather, finished by the same Red Seal crew that does our roofs.",
+              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same Red Seal crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
             image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
             imageAlt: 'Siding and soft metals Calgary AB',
           },
@@ -305,31 +300,37 @@ export default function RoofingContractorCalgaryPage() {
             title: 'Skylight Installation',
             href: '/skylight-installation',
             description:
-              "Natural light without the leaks. New skylights, full replacements, and resealing for Calgary homes, flashed and waterproofed to manufacturer spec in a single visit.",
+              "Natural light without the leaks. Skylights fail when they're rushed, so we seal, flash, and finish them like the rest of the roof depends on it, manufacturer spec on every job.",
             image: '/images/skylight-installation-cochrane.webp',
             imageAlt: 'Skylight installation Calgary AB',
           },
         ]}
       />
 
-      {/* 4. Reviews, proof immediately after services (matches homepage flow) */}
+      {/* 5. Reviews, proof immediately after services (matches homepage flow) */}
       <Reviews
-        sectionBg="#F7F5F0"
-        cardBg="#FFFFFF"
+        sectionBg="#FFFFFF"
+        cardBg="#F7F5F0"
         heading={
           <>
             What Calgary Homeowners
             <br className="hidden md:block" /> Say About Sure West Roofing
           </>
         }
-        body="Here is what homeowners across Calgary, Cochrane and Canmore say."
+        body="Verified Google reviews from homeowners across Calgary, Cochrane, and Canmore."
       />
 
-      {/* 5. Our Work (Portfolio), paired with reviews to keep proof block tight */}
+      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
+      <WhySureWest cityName="Calgary" videoThumbnail="/images/About Sure West Roofing Thumbnail.jpg" />
+
+      {/* 7. How It Works, process info now that buyer is leaning in */}
+      <HowItWorks cityName="Calgary" otherCities={['Cochrane', 'Canmore']} />
+
+      {/* 8. Our Work (Portfolio), visual proof before final objection handling */}
       <PortfolioCarousel
         heading={
           <>
-            Roofing Projects Completed Across<br className="hidden md:block" /> Calgary, Cochrane &amp; Canmore
+            Real Roofs Across<br className="hidden md:block" /> Calgary, Cochrane, and Canmore
           </>
         }
         images={[
@@ -355,25 +356,6 @@ export default function RoofingContractorCalgaryPage() {
         ]}
       />
 
-      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
-      <WhySureWest
-        heading={
-          <>
-            Calgary&apos;s Red Seal Certified
-            <br />
-            Roofing Contractor
-          </>
-        }
-        body="Every roofing contractor in Calgary says they are the best. Here is what actually sets Sure West apart."
-        cityName="Calgary"
-      />
-
-      {/* 7. How It Works, process info now that buyer is leaning in */}
-      <HowItWorks cityName="Calgary" otherCities={['Cochrane', 'Canmore']} />
-
-      {/* 8. Move the Mountain, emotional moment before the rational close */}
-      <BrandStrip />
-
       {/* 9. FAQ, Calgary-specific, final objection handling right before the ask */}
       <HomeFAQ faqs={CALGARY_FAQS} heading="Calgary Roofing Questions Answered" />
 
@@ -386,7 +368,7 @@ export default function RoofingContractorCalgaryPage() {
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Red Seal certified roofing across Calgary, Cochrane, and Canmore. Free written estimate, 10-year workmanship warranty, and no sales pressure."
+        subtext="Red Seal certified roofing across Calgary, Cochrane, and Canmore. In-house crew, free written estimate, 10-year workmanship warranty in writing, and no sales pressure."
       />
     </>
   )

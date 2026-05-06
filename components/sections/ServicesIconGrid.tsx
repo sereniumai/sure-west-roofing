@@ -56,7 +56,7 @@ function ServiceCard({ service }: { service: ServiceCardItem }) {
   return (
     <Link
       href={service.href}
-      className="group flex flex-col h-full rounded-[12px] bg-brand-cream border border-brand-gold/50 overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[6px] hover:border-brand-gold hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
+      className="group flex flex-col h-full rounded-[12px] bg-white border border-brand-gold/50 overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[6px] hover:border-brand-gold hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out"
     >
       {/* Image */}
       <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">
@@ -125,7 +125,7 @@ export function ServicesIconGrid({
 }: ServicesIconGridProps) {
   return (
     <section
-      className="bg-white relative overflow-hidden py-20 md:py-24"
+      className="bg-brand-cream relative overflow-hidden py-20 md:py-24"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
@@ -157,7 +157,7 @@ export function ServicesIconGrid({
         </h2>
         {body && (
           <p
-            className="mt-7 max-w-[680px] text-brand-slate leading-[1.7]"
+            className="mt-7 max-w-[800px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "var(--font-inter), system-ui, sans-serif",

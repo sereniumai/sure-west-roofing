@@ -16,17 +16,17 @@ import {
   Calendar,
   FileCheck,
   CheckCircle,
+  Wrench,
+  MessageSquare,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { RoofReplacementHero } from '@/components/sections/RoofReplacementHero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
-import { ServiceOverview } from '@/components/sections/ServiceOverview'
 import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
-import { WhatIncludedAccordion } from '@/components/sections/WhatIncludedAccordion'
 import { RoofReplacementFAQ } from '@/components/sections/RoofReplacementFAQ'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
-import { PortfolioGallery } from '@/components/sections/PortfolioGallery'
+import { ServicesGallery } from '@/components/sections/ServicesGallery'
 import { Reviews } from '@/components/sections/Reviews'
 import { ServiceAreasPins } from '@/components/sections/ServiceAreasPins'
 import { BottomCTA } from '@/components/sections/BottomCTA'
@@ -189,13 +189,187 @@ const faqSchema = {
   ],
 }
 
+// ─── Section: Our Standard (team image + numbered items) ───────────────────
+
+const STANDARD_PILLARS = [
+  {
+    heading: 'Red Seal Journeyman installation',
+    body: 'The same in-house Red Seal crew that quotes your roof installs your roof. No subcontractors, no rotating cast, no day-of surprises.',
+  },
+  {
+    heading: 'Fixed written quote',
+    body: 'Every line item priced before we start. The number on your quote is the number you pay, with zero mid-project upsells.',
+  },
+  {
+    heading: '10-year workmanship warranty',
+    body: 'Backed in writing on top of your IKO manufacturer coverage. If anything in the install fails, we come back and fix it.',
+  },
+]
+
+function OurStandard() {
+  return (
+    <section
+      className="relative bg-white overflow-hidden py-20 md:py-24"
+      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
+    >
+      <div className="max-w-[1320px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
+          {/* Image LEFT on desktop, with floating badge */}
+          <div className="relative lg:order-1">
+            <div
+              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+              }}
+            >
+              <Image
+                src="/sure-west-roofing-team-cochrane.webp"
+                alt="Craig and Mike, owners of Sure West Roofing, with the in-house crew in Cochrane Alberta"
+                fill
+                sizes="(max-width: 1024px) 100vw, 45vw"
+                className="object-cover"
+                style={{ objectPosition: 'center 30%' }}
+                loading="lazy"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'linear-gradient(to top, rgba(44,71,102,0.18) 0%, transparent 40%)',
+                }}
+              />
+            </div>
+
+            {/* Floating Owner-Operated badge */}
+            <div
+              className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-5 lg:-bottom-7 lg:-right-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
+              }}
+            >
+              <span
+                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
+                style={{
+                  background: 'rgba(212,175,96,0.14)',
+                  border: '1px solid rgba(212,175,96,0.35)',
+                }}
+              >
+                <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+              </span>
+              <div>
+                <div
+                  className="font-display text-brand-navy leading-none"
+                  style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                >
+                  Owner-Operated
+                </div>
+                <div
+                  className="text-brand-slate mt-1.5"
+                  style={{
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: '0.01em',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  Same crew, every roof
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Content RIGHT on desktop */}
+          <div className="flex flex-col lg:order-2">
+            <span
+              className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
+            >
+              Our Standard
+            </span>
+            <h2
+              className="font-display font-medium text-brand-navy"
+              style={{
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              Cochrane Roof Replacement
+              <br className="hidden lg:block" /> Done Right the First Time
+            </h2>
+            <p
+              className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              A Sure West Cochrane roof replacement is more than new shingles. We rebuild the full
+              system, Red Seal installed and backed for 10 years.
+            </p>
+
+            <ul className="mt-8 flex flex-col gap-7">
+              {STANDARD_PILLARS.map((p, i) => (
+                <li key={p.heading} className="flex gap-5">
+                  <div
+                    aria-hidden="true"
+                    className="flex-shrink-0 font-display font-bold text-brand-gold leading-none"
+                    style={{ fontSize: '32px', letterSpacing: '-0.03em', minWidth: '46px' }}
+                  >
+                    0{i + 1}
+                  </div>
+                  <div>
+                    <h3
+                      className="font-display font-semibold text-brand-navy"
+                      style={{ fontSize: '18px', letterSpacing: '-0.005em', lineHeight: 1.3 }}
+                    >
+                      {p.heading}
+                    </h3>
+                    <p
+                      className="mt-2 text-brand-slate leading-[1.65] max-w-[460px]"
+                      style={{
+                        fontSize: '15px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {p.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10">
+              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+                Get a Free Estimate
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 // ─── Section: What's Included ─────────────────────────────────────────────────
 
 const INCLUDED_ITEMS = [
   {
     heading: 'Full tear-off and decking inspection',
     body:
-      'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on.',
+      'We strip the roof to the deck and inspect for rot or water damage. Any compromised sheathing is replaced before new materials go on.',
   },
   {
     heading: 'Underlayment, ice-and-water shield, IKO shingles',
@@ -205,7 +379,7 @@ const INCLUDED_ITEMS = [
   {
     heading: 'Full site cleanup, walkthrough, and warranty',
     body:
-      'We tarp landscaping before tear-off, then run a magnetic nail sweep daily and at completion. Job closes with a walkthrough and your written 10-year workmanship warranty.',
+      'We tarp landscaping before tear-off, then run a magnetic nail sweep daily. Closes with a walkthrough and your 10-year written warranty.',
   },
 ]
 
@@ -213,13 +387,13 @@ const INCLUDED_ITEMS = [
 function WhatIncluded() {
   return (
     <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
+      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
-          {/* Right (desktop): heading, copy, accordion, CTA. Mobile keeps content first. */}
-          <Reveal delay={150} className="flex flex-col lg:order-2">
+          {/* Content LEFT on desktop */}
+          <div className="flex flex-col lg:order-1">
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -256,11 +430,47 @@ function WhatIncluded() {
               Cochrane, Calgary, and Canmore.
             </p>
 
-            <WhatIncludedAccordion items={INCLUDED_ITEMS} />
-          </Reveal>
+            <ul className="mt-8 flex flex-col gap-7">
+              {INCLUDED_ITEMS.map((item, i) => (
+                <li key={item.heading} className="flex gap-5">
+                  <div
+                    aria-hidden="true"
+                    className="flex-shrink-0 font-display font-bold text-brand-gold leading-none"
+                    style={{ fontSize: '32px', letterSpacing: '-0.03em', minWidth: '46px' }}
+                  >
+                    0{i + 1}
+                  </div>
+                  <div>
+                    <h3
+                      className="font-display font-semibold text-brand-navy"
+                      style={{ fontSize: '18px', letterSpacing: '-0.005em', lineHeight: 1.3 }}
+                    >
+                      {item.heading}
+                    </h3>
+                    <p
+                      className="mt-2 text-brand-slate leading-[1.65] max-w-[460px]"
+                      style={{
+                        fontSize: '15px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {item.body}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
 
-          {/* Left (desktop): photo with premium framing matching About / Service hero shadow */}
-          <Reveal noBlur className="lg:order-1">
+            <div className="mt-10">
+              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
+                Get a Free Estimate
+              </Button>
+            </div>
+          </div>
+
+          {/* Image RIGHT on desktop, with floating badge */}
+          <div className="relative lg:order-2">
             <div
               className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
               style={{
@@ -285,7 +495,46 @@ function WhatIncluded() {
                 }}
               />
             </div>
-          </Reveal>
+
+            {/* Floating "In Writing" badge */}
+            <div
+              className="absolute -bottom-5 -left-3 sm:-bottom-6 sm:-left-5 lg:-bottom-7 lg:-left-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
+              }}
+            >
+              <span
+                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
+                style={{
+                  background: 'rgba(212,175,96,0.14)',
+                  border: '1px solid rgba(212,175,96,0.35)',
+                }}
+              >
+                <FileCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+              </span>
+              <div>
+                <div
+                  className="font-display text-brand-navy leading-none"
+                  style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                >
+                  In Writing
+                </div>
+                <div
+                  className="text-brand-slate mt-1.5"
+                  style={{
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: '0.01em',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  Quote, scope, and warranty
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -379,7 +628,7 @@ function SignsYouNeed() {
             {SIGNS.map(({ Icon, heading, body }) => (
               <article
                 key={heading}
-                className="group relative rounded-[14px] bg-white border border-[#E5E2D9] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+                className="group relative rounded-[14px] bg-brand-cream border border-[#E5E2D9] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
               >
                 <span
                   aria-hidden="true"
@@ -596,23 +845,23 @@ function ShingleOptions() {
 const DIFFERENTIATORS = [
   {
     Icon: Award,
-    heading: 'Red Seal Certified Trades',
-    body: 'Sure West is owned and operated by Red Seal Journeyman roofers, the recognised national trade standard. A credentialed tradesperson is on every roof, never a subcontractor.',
+    heading: 'Owner-Led on Every Roof',
+    body: 'Craig and Mike personally walk every roof, brief the crew, and inspect the finish. Same names on the quote, same names on the warranty.',
   },
   {
-    Icon: CloudLightning,
-    heading: 'Built for Alberta Weather',
-    body: 'Cochrane winters, Chinooks, hailstorms, and high winds demand specific materials. Every install is tuned for local freeze-thaw conditions.',
+    Icon: Home,
+    heading: 'Cochrane Local, Not a Franchise',
+    body: 'We live where we work. Same shops, same coffee places, same neighbours. Our reputation in this town is earned daily, not advertised.',
   },
   {
-    Icon: FileText,
-    heading: 'Honest Quotes, No Pressure',
-    body: 'Every estimate is free, on-site, and provided in writing with itemised costs. If your roof does not need replacing, we will tell you that straight.',
+    Icon: Wrench,
+    heading: 'Craft Where Most Crews Cut Corners',
+    body: 'Snapped chalk lines on every course, balanced ventilation, flashing tied in by hand. The parts you never see done well are the parts that fail first.',
   },
   {
-    Icon: ShieldCheck,
-    heading: '10-Year Workmanship Warranty',
-    body: 'Every roof replacement comes with a 10-year workmanship warranty in writing before we leave the job site, on top of the IKO material warranty. Two layers of documented protection.',
+    Icon: MessageSquare,
+    heading: 'Communication Built In',
+    body: 'Daily texts with progress photos, a tidy site at the end of each day, and a magnetic nail sweep before we leave. You always know where the job stands.',
   },
 ]
 
@@ -657,8 +906,8 @@ function WhySureWest() {
               fontWeight: 400,
             }}
           >
-            Built across Cochrane, Calgary, and Canmore on Red Seal ownership, materials made for
-            Alberta weather, and warranties you can read.
+            Owner-led, Cochrane-rooted, and obsessed with the details most crews skip. The
+            reasons people in town pick Sure West, then tell their neighbours.
           </p>
         </div>
         </Reveal>
@@ -670,7 +919,7 @@ function WhySureWest() {
               key={heading}
               className="group relative rounded-[16px] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
               style={{
-                background: 'linear-gradient(155deg, #FAF8F2 0%, #F4F1E8 100%)',
+                background: '#FFFFFF',
                 border: '1px solid #E8E4D8',
                 boxShadow:
                   '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
@@ -737,13 +986,6 @@ function WhySureWest() {
 
 
 // ─── Section: Gallery images for this page ───────────────────────────────────
-
-const RR_OVERVIEW_IMAGES = [
-  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'New IKO Dynasty roof replacement in Cochrane Alberta' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Red Seal Journeyman crew installing shingles on a Cochrane home' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'IKO Cambridge shingle roof replacement in Cochrane' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Architectural shingle roof replacement in Cochrane' },
-]
 
 const RR_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Completed IKO Dynasty roof replacement in Cochrane Alberta',              caption: 'Cochrane, AB · IKO Dynasty' },
@@ -833,17 +1075,8 @@ export default function RoofReplacementPage() {
 
       <RoofReplacementHero />
       <TrustLogos />
-      <ServiceOverview
-        heading={'Cochrane Roof Replacement,\nBuilt by Red Seal Tradespeople'}
-        body="A roof replacement strips your existing roof down to the deck, replaces any compromised sheathing, then rebuilds the entire system: synthetic underlayment, ice-and-water shield, IKO shingles, and new flashing. Done by Red Seal Journeyman roofers and backed by a 10-year workmanship warranty in writing."
-        images={RR_OVERVIEW_IMAGES}
-      />
+      <OurStandard />
       <WhatIncluded />
-      <Reviews />
-      <PortfolioGallery
-        images={RR_GALLERY_IMAGES.map(({ src, alt }) => ({ src, alt }))}
-      />
-      <WhySureWest />
       <HowItWorks
         heading={
           <>
@@ -854,8 +1087,14 @@ export default function RoofReplacementPage() {
         body="Three clear steps from first estimate to your new roof in writing. No surprises, no pressure, no hidden fees."
         steps={REPLACEMENT_STEPS}
       />
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
       <SignsYouNeed />
       <ShingleOptions />
+      <ServicesGallery
+        images={RR_GALLERY_IMAGES.map(({ src, alt }) => ({ src, alt }))}
+        sectionBg="#FFFFFF"
+      />
+      <WhySureWest />
       <ServiceAreasPins
         heading={'Roof Replacement Across Cochrane,\n Calgary, and Canmore'}
         subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."

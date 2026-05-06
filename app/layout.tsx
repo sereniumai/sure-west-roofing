@@ -105,53 +105,6 @@ export default function RootLayout({
   return (
     <html lang="en-CA" className={`${oswald.variable} ${inter.variable}`}>
       <body>
-        {/* SITE-WIDE LINK LOCK. Clicks to the 7 in-progress service pages and to
-            the free-estimate / contact route are blocked everywhere they appear:
-            top nav, footer, in-page CTAs, accordion links, BottomCTA buttons.
-            tel:, mailto:, anchors, and external URLs remain navigable. Remove
-            this script once these pages are approved for client view. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(){
-                var BLOCKED_PATHS = [
-                  '/roof-replacement',
-                  '/roof-repair',
-                  '/hail-damage-repair',
-                  '/roof-inspection',
-                  '/roof-maintenance',
-                  '/siding-soft-metals',
-                  '/skylight-installation',
-                  '/free-roof-estimate-cochrane'
-                ];
-                document.addEventListener('click', function(e){
-                  var t = e.target;
-                  while (t && t !== document.body) {
-                    if (t.tagName === 'A') {
-                      var href = t.getAttribute('href') || '';
-                      if (href === '' || href.charAt(0) === '#') return;
-                      if (href.indexOf('tel:') === 0 || href.indexOf('mailto:') === 0) return;
-                      if (href.indexOf('http://') === 0 || href.indexOf('https://') === 0) return;
-                      var path = href.split('?')[0].split('#')[0];
-                      if (path.length > 1 && path.charAt(path.length - 1) === '/') {
-                        path = path.slice(0, -1);
-                      }
-                      if (BLOCKED_PATHS.indexOf(path) !== -1) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        if (typeof e.stopImmediatePropagation === 'function') {
-                          e.stopImmediatePropagation();
-                        }
-                      }
-                      return;
-                    }
-                    t = t.parentElement;
-                  }
-                }, true);
-              })();
-            `,
-          }}
-        />
         <LocalBusinessSchema />
         <Analytics />
         <MotionProvider>

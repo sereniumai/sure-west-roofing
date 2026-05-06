@@ -27,7 +27,7 @@ export function PortfolioCarousel({
   fanCount,
   heading = (
     <>
-      Roofing Projects Completed Across<br className="hidden md:block" /> Cochrane, Calgary &amp; Canmore
+      Real Roofs Across<br className="hidden md:block" /> Cochrane, Calgary, and Canmore
     </>
   ),
 }: PortfolioCarouselProps) {
@@ -42,7 +42,7 @@ export function PortfolioCarousel({
 
   return (
     <section
-      className="relative bg-white overflow-x-clip py-20 md:py-24"
+      className="relative bg-brand-cream overflow-x-clip py-20 md:py-24"
       aria-label="Portfolio gallery"
     >
       {/* Paper-grain background, same recipe as sibling sections */}
@@ -84,15 +84,15 @@ export function PortfolioCarousel({
           </h2>
 
           <p
-            className="mt-6 md:mt-7 max-w-[640px] text-brand-slate leading-[1.7]"
+            className="mt-6 md:mt-7 max-w-[780px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: "var(--font-inter), system-ui, sans-serif",
               fontWeight: 400,
             }}
           >
-            Every roof in our gallery was completed by our in-house Red Seal
-            Journeyman team. No subcontractors. No compromises.
+            Every roof was completed by our in-house Red Seal team. No
+            subcontractors. No compromises.
           </p>
 
           <div className="mt-7 md:mt-9">
