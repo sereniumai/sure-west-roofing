@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Hail Damage Roof Repair Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified hail damage roof repair in Cochrane, AB. Free inspections, insurance-friendly documentation, fast response.',
+      'Red Seal certified hail damage roof repair in Cochrane, AB. Free post-storm inspections, full insurance documentation, IKO impact-rated materials. Serving Cochrane, Calgary, and Canmore.',
     url: 'https://surewestroofing.ca/hail-damage-repair',
     type: 'website',
     locale: 'en_CA',

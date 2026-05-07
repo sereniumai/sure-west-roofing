@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Siding & Soft Metals Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified siding, eavestroughs, fascia, and soffit work in Cochrane, AB. Built for Alberta weather, finished by the same crew that does our roofs.',
+      'Red Seal certified siding installation, eavestroughs, fascia, and soffit work in Cochrane, AB. Vinyl, fiber cement, and metal siding built for Alberta weather. Free written quotes, 5-year workmanship warranty.',
     url: 'https://surewestroofing.ca/siding-soft-metals',
     type: 'website',
     locale: 'en_CA',

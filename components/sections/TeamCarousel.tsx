@@ -8,14 +8,14 @@ interface TeamMember {
 }
 
 const TEAM: TeamMember[] = [
-  { name: 'Craig',   role: 'Owner',          photo: '/images/Team/Craig - Sure West Roofing.jpg' },
-  { name: 'Mike',    role: 'Owner',          photo: '/images/Team/Mike - Sure West Roofing.jpg' },
+  { name: 'Craig',   role: 'Co-Founder',     photo: '/images/Team/Craig - Sure West Roofing.jpg' },
+  { name: 'Mike',    role: 'Co-Founder',     photo: '/images/Team/Mike - Sure West Roofing.jpg' },
+  { name: 'Adam',    role: 'Lead Foreman',   photo: '/images/Team/Adam - Sure West Roofing.webp' },
   { name: 'Mark',    role: 'Lead Installer', photo: '/images/Team/Mark - Sure West Roofing.webp' },
   { name: 'Kyle',    role: 'Installer',      photo: '/images/Team/Kyle - Sure West Roofing.webp' },
   { name: 'Jaron',   role: 'Installer',      photo: '/images/Team/Jaron - Sure West Roofing.jpg' },
   { name: 'James D', role: 'Installer',      photo: '/images/Team/James D - Sure West Roofing.jpg' },
   { name: 'James B', role: 'Installer',      photo: '/images/Team/James B - Sure West Roofing.webp' },
-  { name: 'Adam',    role: 'Installer',      photo: '/images/Team/Adam - Sure West Roofing.webp' },
   { name: 'Carter',  role: 'Installer',      photo: '/images/Team/Carter - Sure West Roofing.webp' },
   { name: 'Wyatt',   role: 'Installer',      photo: '/images/Team/Wyatt - Sure West Roofing.webp' },
 ]
@@ -23,8 +23,8 @@ const TEAM: TeamMember[] = [
 export function TeamCarousel() {
   return (
     <section
-      id="team"
-      className="bg-brand-cream py-20 md:py-28"
+      id="brotherhood"
+      className="bg-white py-20 md:py-28"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -40,7 +40,7 @@ export function TeamCarousel() {
               lineHeight: 1,
             }}
           >
-            The Team
+            Responsibility 02
           </span>
           <h2
             className="font-display font-medium text-brand-navy"
@@ -50,7 +50,7 @@ export function TeamCarousel() {
               letterSpacing: '-0.005em',
             }}
           >
-            Meet the Sure West Crew
+            Brotherhood
           </h2>
           <p
             className="mt-5 text-brand-slate leading-[1.65]"
@@ -60,7 +60,7 @@ export function TeamCarousel() {
               fontWeight: 400,
             }}
           >
-            Every Sure West roof is installed by our in-house crew. No subcontractors, ever.
+            Deeply invested in each other&apos;s lives, on the job and off, with an in-house crew on every roof, no subcontractors, no rotating faces.
           </p>
         </div>
         </Reveal>
@@ -69,7 +69,7 @@ export function TeamCarousel() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
           {TEAM.map((member) => (
             <article key={member.name}>
-              <div className="group relative bg-white rounded-[14px] border border-[#E5E2D9] overflow-hidden shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-brand-gold/60 hover:shadow-[0_28px_50px_-22px_rgba(212,175,96,0.55),0_10px_20px_-10px_rgba(44,71,102,0.20)]">
+              <div className="group relative bg-brand-cream rounded-[14px] border border-[#E5E2D9] overflow-hidden shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-brand-gold/60 hover:shadow-[0_28px_50px_-22px_rgba(212,175,96,0.55),0_10px_20px_-10px_rgba(44,71,102,0.20)]">
                 <div className="relative aspect-[3/4] overflow-hidden">
                   <Image
                     src={member.photo}

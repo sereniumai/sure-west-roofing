@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   ShieldCheck,
   Award,
@@ -11,16 +12,15 @@ import {
   Users,
   UserCheck,
   BadgeCheck,
+  BadgeX,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { Reviews } from '@/components/sections/Reviews'
 import { BottomCTA } from '@/components/sections/BottomCTA'
 import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
-import { ServiceAreasPins } from '@/components/sections/ServiceAreasPins'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { TeamCarousel } from '@/components/sections/TeamCarousel'
-import { PortfolioGallery } from '@/components/sections/PortfolioGallery'
 import { FoundersVideo } from '@/components/ui/FoundersVideo'
 import type { FaqItem } from '@/lib/faqs/types'
 
@@ -29,14 +29,14 @@ import type { FaqItem } from '@/lib/faqs/types'
 export const metadata: Metadata = {
   title: 'Red Seal Roofer Cochrane',
   description:
-    'Sure West is a Red Seal certified roofer in Cochrane, Alberta. Owner-operated, no subcontractors, and serving Cochrane, Calgary, and Canmore. Meet the team behind every Sure West roof.',
+    'The Red Seal Roofer Cochrane homeowners trust, with an in-house crew, written warranty, honest quotes from day one, serving Cochrane, Calgary and Canmore.',
   alternates: {
     canonical: 'https://surewestroofing.ca/about',
   },
   openGraph: {
     title: 'Red Seal Roofer Cochrane | Sure West Roofing',
     description:
-      'Meet the Red Seal certified roofing team behind Sure West. Owner-operated in Cochrane, Alberta, serving Cochrane, Calgary, and Canmore.',
+      'The Red Seal Roofer Cochrane homeowners trust, with an in-house crew, written warranty, honest quotes from day one, serving Cochrane, Calgary and Canmore.',
     url: 'https://surewestroofing.ca/about',
     type: 'website',
     locale: 'en_CA',
@@ -125,15 +125,14 @@ function AboutHero() {
 
             <Reveal delay={300}>
             <p
-              className="mt-5 text-brand-slate leading-[1.65] max-w-[480px]"
+              className="mt-5 text-brand-slate leading-[1.65] max-w-[480px] lg:max-w-[540px]"
               style={{
                 fontSize: '16px',
                 fontFamily: 'var(--font-inter), system-ui, sans-serif',
                 fontWeight: 400,
               }}
             >
-              Owner-operated, Red Seal certified roofing serving Cochrane, Calgary, and
-              Canmore. Built on character, competency, and proven processes on every roof.
+              Founded in 2020 by two roofers who chose character, competency, and craft over the industry standard. Red Seal Journeyman certified, serving Cochrane, Calgary, and Canmore.
             </p>
             </Reveal>
 
@@ -142,8 +141,8 @@ function AboutHero() {
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
                 Get a Free Estimate
               </Button>
-              <Button variant="outline" size="lg" href="/services">
-                Explore Our Services
+              <Button variant="outline" size="lg" href="#brotherhood">
+                Meet the Team
               </Button>
             </div>
             </Reveal>
@@ -216,6 +215,7 @@ function AboutHero() {
 function OurStory() {
   return (
     <section
+      id="why-we-exist"
       className="bg-white py-24 md:py-32 relative overflow-hidden"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
@@ -230,9 +230,59 @@ function OurStory() {
       />
 
       <div className="max-w-[1280px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-12 lg:gap-20 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-20 items-center">
+          {/* Content column */}
+          <Reveal>
+            <span
+              className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
+            >
+              Why We Exist
+            </span>
+
+            <h2
+              className="font-display font-medium text-brand-navy"
+              style={{
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              Built on a Roof, Under the Sun
+            </h2>
+
+            <p
+              className="mt-7 text-brand-navy leading-[1.55]"
+              style={{
+                fontSize: 'clamp(17px, 1.5vw, 19px)',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 500,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              Two subcontractors recognized in each other something rare in the industry. Care, consistency, and pride in the craft.
+            </p>
+
+            <p
+              className="mt-6 text-brand-slate leading-[1.7]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              Craig and Mike started Sure West in 2020 because the industry had normalized shortcuts they couldn&apos;t accept. Their answer was simple. Take on responsibility for the craft, for the team, and for every homeowner who hands over a roof. That responsibility breaks down into five parts: <strong className="font-semibold text-brand-navy">Legacy</strong>, <strong className="font-semibold text-brand-navy">Brotherhood</strong>, <strong className="font-semibold text-brand-navy">Character</strong>, <strong className="font-semibold text-brand-navy">Competency</strong>, and <strong className="font-semibold text-brand-navy">Proven Processes</strong>.
+            </p>
+          </Reveal>
+
           {/* Video column */}
-          <Reveal noBlur className="relative">
+          <Reveal delay={150} noBlur className="relative">
             {/* Soft gold radial behind video */}
             <div
               aria-hidden="true"
@@ -244,145 +294,11 @@ function OurStory() {
               }}
             />
             <FoundersVideo
-              alt="Craig and Mike, owners of Sure West Roofing in Cochrane Alberta"
+              alt="Craig and Mike, founders of Sure West Roofing in Cochrane Alberta"
               className="relative aspect-video w-full overflow-hidden rounded-[14px] bg-black"
-              vimeoId="917317949"
-              thumbnail="/images/Sure West Roofing - Founders Video.webp"
+              vimeoId="917315486"
+              thumbnail="/images/About Sure West Roofing Thumbnail.jpg"
             />
-
-            {/* Story-focused stats: team & reach */}
-            <div className="mt-7 grid grid-cols-3 divide-x divide-brand-gold/25">
-              <div className="px-2 sm:px-3 text-center">
-                <div
-                  className="font-display font-bold text-brand-gold leading-none"
-                  style={{ fontSize: 'clamp(22px, 2.4vw, 28px)', letterSpacing: '-0.01em' }}
-                >
-                  2
-                </div>
-                <div
-                  className="mt-1.5 uppercase text-brand-slate"
-                  style={{
-                    fontSize: '10px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 600,
-                    letterSpacing: '0.1em',
-                  }}
-                >
-                  Owner-Operators
-                </div>
-              </div>
-              <div className="px-2 sm:px-3 text-center">
-                <div
-                  className="font-display font-bold text-brand-gold leading-none"
-                  style={{ fontSize: 'clamp(22px, 2.4vw, 28px)', letterSpacing: '-0.01em' }}
-                >
-                  10
-                </div>
-                <div
-                  className="mt-1.5 uppercase text-brand-slate"
-                  style={{
-                    fontSize: '10px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 600,
-                    letterSpacing: '0.1em',
-                  }}
-                >
-                  In-House Crew
-                </div>
-              </div>
-              <div className="px-2 sm:px-3 text-center">
-                <div
-                  className="font-display font-bold text-brand-gold leading-none"
-                  style={{ fontSize: 'clamp(22px, 2.4vw, 28px)', letterSpacing: '-0.01em' }}
-                >
-                  3
-                </div>
-                <div
-                  className="mt-1.5 uppercase text-brand-slate"
-                  style={{
-                    fontSize: '10px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 600,
-                    letterSpacing: '0.1em',
-                  }}
-                >
-                  Locations Served
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Content column */}
-          <Reveal delay={150}>
-            <span
-              className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-              style={{
-                background: '#F0EEE8',
-                fontSize: '12px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 600,
-                lineHeight: 1,
-              }}
-            >
-              Our Story
-            </span>
-
-            <h2
-              className="font-display font-medium text-brand-navy"
-              style={{
-                fontSize: 'clamp(32px, 4.5vw, 48px)',
-                lineHeight: 1.15,
-                letterSpacing: '-0.005em',
-              }}
-            >
-              Two Owners.
-              <br className="hidden sm:block" /> One Higher Standard.
-            </h2>
-
-            {/* Premium pull-quote */}
-            <figure className="mt-8 relative pl-8 lg:pl-10">
-              <span
-                aria-hidden="true"
-                className="absolute left-0 top-[-12px] font-display select-none"
-                style={{
-                  fontSize: 'clamp(56px, 6vw, 80px)',
-                  lineHeight: 1,
-                  color: 'var(--color-accent, #D4AF60)',
-                  opacity: 0.45,
-                }}
-              >
-                &ldquo;
-              </span>
-              <blockquote
-                className="font-display italic text-brand-navy"
-                style={{
-                  fontSize: 'clamp(20px, 2vw, 24px)',
-                  lineHeight: 1.4,
-                  fontWeight: 500,
-                  letterSpacing: '-0.005em',
-                }}
-              >
-                In every shingle laid, we&rsquo;re not just building roofs, we&rsquo;re elevating
-                trust.
-              </blockquote>
-            </figure>
-
-            {/* Trimmed, punchier body */}
-            <p
-              className="mt-8 text-brand-slate leading-[1.7]"
-              style={{
-                fontSize: '16px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 400,
-              }}
-            >
-              Two roofers who got tired of watching shortcuts cost homeowners and built Sure
-              West instead. Owner-operated, no subcontractors, no corner-cutting. Just Red Seal
-              Journeyman roofers who treat your home the way they&apos;d treat their own. From
-              the first quote to the last shingle, you deal with the same crew that puts their
-              name on the job, and stands behind it long after.
-            </p>
-
           </Reveal>
         </div>
       </div>
@@ -392,6 +308,388 @@ function OurStory() {
 
 // Stats strip + certifications row: reuse shared TrustLogos for consistency with
 // the rest of the site.
+
+// ─── Section: Legacy (Responsibility 01) ─────────────────────────────────────
+
+const LEGACY_SERIF = "Georgia, 'Times New Roman', serif"
+
+function Legacy() {
+  return (
+    <section
+      id="legacy"
+      className="relative overflow-hidden py-20 md:py-24 bg-brand-cream"
+      style={{
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+      }}
+    >
+      <Reveal>
+        <div className="relative max-w-[1200px] mx-auto">
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            {/* LEFT — Framed portrait photo */}
+            <div className="lg:col-span-5">
+              <div
+                className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px]"
+                style={{
+                  boxShadow:
+                    '0 30px 60px -25px rgba(26,22,18,0.35), 0 12px 30px -12px rgba(26,22,18,0.2)',
+                }}
+              >
+                <Image
+                  src="/images/Sure West Roofing Legacy.jpg"
+                  alt="Sure West Roofing legacy of completed roofs across Cochrane, Calgary, and Canmore"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  quality={95}
+                  className="object-cover"
+                />
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 rounded-[inherit]"
+                  style={{ boxShadow: 'inset 0 0 0 1px rgba(196,154,44,0.4)' }}
+                />
+              </div>
+            </div>
+
+            {/* RIGHT — Eyebrow + Heading + Body + Closing + Signature */}
+            <div className="lg:col-span-7">
+              <span
+                className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
+                style={{
+                  background: 'rgba(255,255,255,0.6)',
+                  fontSize: '12px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 600,
+                  lineHeight: 1,
+                }}
+              >
+                Responsibility 01
+              </span>
+
+              <h2
+                className="mt-6 font-display font-medium text-brand-navy"
+                style={{
+                  fontSize: 'clamp(32px, 4.5vw, 48px)',
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.005em',
+                }}
+              >
+                Legacy
+              </h2>
+
+              <div
+                className="mt-8 text-brand-slate leading-[1.65] max-w-[560px] space-y-5"
+                style={{
+                  fontSize: '16px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 400,
+                }}
+              >
+                <p>
+                  Legacy isn&apos;t a marketing word. It&apos;s the long view. The reminder that what we do today echoes into tomorrow.
+                </p>
+                <p>
+                  We treat every roof like our reputation depends on it, because in Cochrane, it does. Customers speak our name. Families say we showed up. Communities remember whether we made it better or left it the same.
+                </p>
+                <p>
+                  That&apos;s what legacy means here. Not a tagline. The question we ask before every job.
+                </p>
+              </div>
+
+              {/* Closing line, gold and quiet */}
+              <p
+                className="mt-6 font-display text-brand-gold"
+                style={{
+                  fontWeight: 400,
+                  fontSize: 'clamp(18px, 1.5vw, 22px)',
+                  lineHeight: 1.4,
+                  letterSpacing: '0.01em',
+                }}
+              >
+                Will I be proud of this in 20 years?
+              </p>
+
+              {/* Founders signature */}
+              <p
+                className="mt-3 text-brand-navy/70"
+                style={{
+                  fontFamily: LEGACY_SERIF,
+                  fontStyle: 'italic',
+                  fontWeight: 400,
+                  fontSize: '17px',
+                  letterSpacing: '0.01em',
+                }}
+              >
+                Craig &amp; Mike, Founders
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+    </section>
+  )
+}
+
+// ─── Reusable Value Section Template ─────────────────────────────────────────
+// Used by Character (slot 5), Competency (slot 6), Proven Processes (slot 8).
+// Centered intro block → two paired contrast cards → customer-translation paragraph
+// → optional inline visual slot.
+
+interface ValueCard {
+  label: string
+  body: string
+  accent: 'gold' | 'navy'
+}
+
+interface ValueSectionProps {
+  id: string
+  eyebrow: string
+  heading: string
+  subtext: string
+  cards: [ValueCard, ValueCard]
+  customerTranslation: string
+  /** Optional visual block rendered below the customer translation (e.g. 3-step strip). */
+  optionalSlot?: React.ReactNode
+  /** Override the section background. Defaults to brand cream. */
+  sectionBg?: string
+  /** When true, cards render on the left on desktop and text on the right. Mobile order unchanged. */
+  cardsLeft?: boolean
+}
+
+function ValueSection({
+  id,
+  eyebrow,
+  heading,
+  subtext,
+  cards,
+  customerTranslation,
+  optionalSlot,
+  sectionBg = '#F7F5F0',
+  cardsLeft = false,
+}: ValueSectionProps) {
+  return (
+    <section
+      id={id}
+      className="relative overflow-hidden py-20 md:py-24"
+      style={{
+        background: sectionBg,
+        paddingLeft: 'var(--section-pad-x)',
+        paddingRight: 'var(--section-pad-x)',
+      }}
+    >
+      <div className="max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          {/* Text column (left by default, right when cardsLeft) */}
+          <Reveal className={`lg:col-span-6 ${cardsLeft ? 'lg:order-2' : ''}`}>
+            <span
+              className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
+              style={{
+                background: '#F0EEE8',
+                fontSize: '12px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 600,
+                lineHeight: 1,
+              }}
+            >
+              {eyebrow}
+            </span>
+            <h2
+              className="mt-6 font-display font-medium text-brand-navy"
+              style={{
+                fontSize: 'clamp(32px, 4.5vw, 48px)',
+                lineHeight: 1.15,
+                letterSpacing: '-0.005em',
+              }}
+            >
+              {heading}
+            </h2>
+            <p
+              className="mt-6 max-w-[520px] text-brand-slate leading-[1.65]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              {subtext}
+            </p>
+            <p
+              className="mt-6 max-w-[520px] text-brand-slate leading-[1.65]"
+              style={{
+                fontSize: '16px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              {customerTranslation}
+            </p>
+          </Reveal>
+
+          {/* Cards column (right by default, left when cardsLeft) */}
+          <Reveal delay={150} className={`lg:col-span-6 ${cardsLeft ? 'lg:order-1' : ''}`}>
+            <div className="flex flex-col gap-4 md:gap-5">
+              {cards.map((card, i) => {
+                const isGold = card.accent === 'gold'
+                return (
+                  <article
+                    key={i}
+                    className="relative rounded-[14px] border border-[#E5E2D9] bg-white p-7 md:p-8 overflow-hidden"
+                    style={{
+                      boxShadow:
+                        '0 18px 40px -22px rgba(26,22,18,0.18), 0 4px 12px -6px rgba(26,22,18,0.08)',
+                    }}
+                  >
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-0 top-0 bottom-0 w-[3px]"
+                      style={{
+                        background: isGold ? '#C49A2C' : 'rgba(27,53,88,0.35)',
+                      }}
+                    />
+
+                    <div className="flex items-center gap-3">
+                      <span
+                        aria-hidden="true"
+                        className="inline-flex items-center justify-center w-7 h-7 rounded-full"
+                        style={{
+                          background: isGold
+                            ? 'rgba(196,154,44,0.12)'
+                            : 'rgba(27,53,88,0.08)',
+                          border: isGold
+                            ? '1px solid rgba(196,154,44,0.3)'
+                            : '1px solid rgba(27,53,88,0.2)',
+                        }}
+                      >
+                        {isGold ? (
+                          <BadgeCheck className="w-4 h-4 text-brand-gold" strokeWidth={2} />
+                        ) : (
+                          <BadgeX
+                            className="w-4 h-4"
+                            strokeWidth={2}
+                            style={{ color: 'rgba(27,53,88,0.7)' }}
+                          />
+                        )}
+                      </span>
+                      <p
+                        className="uppercase tracking-[0.12em]"
+                        style={{
+                          fontSize: '12px',
+                          fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                          fontWeight: 600,
+                          color: isGold ? '#C49A2C' : 'rgba(27,53,88,0.7)',
+                        }}
+                      >
+                        {card.label}
+                      </p>
+                    </div>
+
+                    <p
+                      className="mt-4 text-brand-navy leading-[1.6]"
+                      style={{
+                        fontSize: '16px',
+                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                        fontWeight: 400,
+                      }}
+                    >
+                      {card.body}
+                    </p>
+                  </article>
+                )
+              })}
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Optional inline visual */}
+        {optionalSlot && (
+          <Reveal delay={400}>
+            <div className="mt-10 md:mt-14">{optionalSlot}</div>
+          </Reveal>
+        )}
+      </div>
+    </section>
+  )
+}
+
+// ─── Section: Character (Responsibility 03) ──────────────────────────────────
+
+function Character() {
+  return (
+    <ValueSection
+      id="character"
+      eyebrow="Responsibility 03"
+      heading="Character"
+      subtext="Who we are when no one's watching, with honest estimates, straight answers, and corners we don't cut, even when it costs us."
+      cards={[
+        {
+          label: 'When Character Runs the Job',
+          body: "Customers recommend us. Crews respect each other because honesty is the default. Our legacy is built on a foundation that won't crack.",
+          accent: 'gold',
+        },
+        {
+          label: "When It Doesn't",
+          body: 'Promises are broken, trust erodes, and our reputation suffers. The mountain becomes heavier, and we lose the respect of those who matter most.',
+          accent: 'navy',
+        },
+      ]}
+      customerTranslation="For a homeowner, character is what shows up when no one's checking. It's the quote that doesn't get padded mid-project, the mistake reported before you spot it, the roof we'd tell you not to replace when the easier money is the replacement."
+    />
+  )
+}
+
+// ─── Section: Competency (Responsibility 04) ─────────────────────────────────
+
+function Competency() {
+  return (
+    <ValueSection
+      id="competency"
+      sectionBg="#FFFFFF"
+      cardsLeft
+      eyebrow="Responsibility 04"
+      heading="Competency"
+      subtext="Knowing every system on a roof, anticipating every challenge, arriving with the tools and training for both, and hungry to be better tomorrow than today."
+      cards={[
+        {
+          label: 'When Competency Runs the Job',
+          body: 'Jobs done right the first time. Crews work with confidence. Customers feel safe under our roofs. We become men who are capable, dependable, always growing.',
+          accent: 'gold',
+        },
+        {
+          label: "When It Doesn't",
+          body: 'Mistakes pile up, rework grows, and confidence in our work disappears. The mountain becomes heavier, and we lose the respect of those who depend on us.',
+          accent: 'navy',
+        },
+      ]}
+      customerTranslation="For a homeowner, competency means the parts you can't see done right the first time. The deck inspected before shingles go on. Flashings cut to the wall, not slapped over. Manufacturer specs followed every time. Twenty years from now, your roof shouldn't be how you find out we cut a corner."
+    />
+  )
+}
+
+// ─── Section: Proven Processes (Responsibility 05) ───────────────────────────
+
+function ProvenProcesses() {
+  return (
+    <ValueSection
+      id="proven-processes"
+      eyebrow="Responsibility 05"
+      heading="Proven Processes"
+      subtext="Checklists, systems, and standards followed step by step on every roof, because the playbook isn't optional and discipline is the point."
+      cards={[
+        {
+          label: 'When Processes Run the Job',
+          body: 'Jobs finish on schedule with consistent quality. Crews operate smoothly and safely. Customers see the difference. We become men who are disciplined and dependable.',
+          accent: 'gold',
+        },
+        {
+          label: "When They Don't",
+          body: 'Details are missed, rework grows, safety slips, and customers lose confidence in our reliability. The mountain becomes heavier, and chaos replaces order.',
+          accent: 'navy',
+        },
+      ]}
+      customerTranslation="For a homeowner, proven processes mean no improvisation on your roof. The same checklists run on day one and day three. The same communication before every site activity, the same magnetic nail sweep before we leave. Nothing gets skipped because the playbook doesn't allow it."
+    />
+  )
+}
 
 // ─── Section: Credentials Grid ───────────────────────────────────────────────
 
@@ -409,37 +707,25 @@ const CREDENTIALS: { icon: keyof typeof CRED_ICON_MAP; title: string; body: stri
     icon: 'ShieldCheck',
     title: 'Red Seal Journeyman Certified',
     body:
-      'The highest interprovincial trade credential in Canada. Every Sure West lead installer holds Red Seal certification, enforced nationally.',
+      "The highest trade credential in Canadian roofing. Sure West is Red Seal Journeyman certified, holding the standard that's recognized nationally.",
   },
   {
     icon: 'Award',
     title: 'IKO ShieldPRO Installer',
     body:
-      "Qualifies your roof for IKO's top-tier manufacturer warranty, including extended coverage on materials and workmanship.",
+      'Approved by IKO to install at their highest standard, which qualifies your roof for top-tier manufacturer warranty coverage on materials and workmanship.',
   },
   {
     icon: 'FileCheck',
     title: '$2 Million Liability Insurance',
     body:
-      "Comprehensive liability coverage on every job, every property, every time. Proof of coverage provided before any work begins.",
+      'Comprehensive liability coverage on every job. Proof of coverage provided before any work begins, no questions asked.',
   },
   {
     icon: 'HardHat',
     title: 'WCB Alberta Covered',
     body:
-      "Every crew member is covered by Workers' Compensation Board Alberta. Any on-site injury is handled through WCB, not your homeowner's insurance.",
-  },
-  {
-    icon: 'HeartPulse',
-    title: 'Fall Protection & First Aid',
-    body:
-      'Current Fall Protection and Standard First Aid certifications on every installer. We take crew safety as seriously as roof quality.',
-  },
-  {
-    icon: 'MapPin',
-    title: 'Licensed in All Three Cities',
-    body:
-      "Active municipal business licenses in Cochrane, Calgary, and Canmore. We can show current licensing for your municipality on request.",
+      "Every crew member is covered by Workers' Compensation Board Alberta. If anything happens, it's handled through WCB, not your homeowner's insurance.",
   },
 ]
 
@@ -447,7 +733,7 @@ function Credentials() {
   return (
     <section
       id="credentials"
-      className="bg-white py-20 md:py-28"
+      className="bg-brand-cream py-20 md:py-28"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -476,27 +762,26 @@ function Credentials() {
             Real Credentials. Real Coverage.
           </h2>
           <p
-            className="mt-5 max-w-[480px] mx-auto text-brand-slate leading-[1.65]"
+            className="mt-5 max-w-[560px] mx-auto text-brand-slate leading-[1.65]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 400,
             }}
           >
-            The certifications and protections behind every roof we install across Cochrane,
-            Calgary, and Canmore.
+            What it means to be a Red Seal roofer in Cochrane: the certifications and protections behind every roof we install.
           </p>
         </div>
         </Reveal>
 
         <Reveal delay={150}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-[920px] mx-auto">
           {CREDENTIALS.map((cred) => {
             const Icon = CRED_ICON_MAP[cred.icon]
             return (
               <article
                 key={cred.title}
-                className="group relative bg-brand-cream rounded-[14px] border border-[#E5E2D9] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+                className="group relative bg-white rounded-[14px] border border-[#E5E2D9] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
               >
                 {/* Top gold ribbon, subtle resting state */}
                 <span
@@ -562,199 +847,11 @@ function Credentials() {
   )
 }
 
-// ─── Section: How We Work ────────────────────────────────────────────────────
-
-const DIFFERENTIATORS: { number: string; title: string; body: string; Icon: typeof ClipboardCheck }[] = [
-  {
-    number: '01',
-    title: 'Fixed Written Quotes',
-    body:
-      'The quote is the invoice you pay. No surprise charges, no mid-project upsells, no scope creep. We walk every detail that could affect cost before work begins.',
-    Icon: ClipboardCheck,
-  },
-  {
-    number: '02',
-    title: 'No Subcontractors, Ever',
-    body:
-      "Every Sure West roof is installed by our in-house Red Seal crew. We don't hand your home off to the cheapest available contractor the morning of install.",
-    Icon: Users,
-  },
-  {
-    number: '03',
-    title: 'Advisor, Not Salesperson',
-    body:
-      "If your roof doesn't need replacing, we'll tell you. We'd rather lose a quote than sell you work you don't need. Honest assessments built our Cochrane reputation.",
-    Icon: UserCheck,
-  },
-  {
-    number: '04',
-    title: '10-Year Written Warranty',
-    body:
-      "Every Sure West roof gets a 10-year workmanship warranty in writing, on top of IKO's. If anything in the install fails, we come back and fix it.",
-    Icon: BadgeCheck,
-  },
-]
-
-function HowWeWork() {
-  return (
-    <section
-      className="bg-white py-20 md:py-28"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1100px] mx-auto">
-        <Reveal>
-        <div className="text-center max-w-[680px] mx-auto mb-12 md:mb-16">
-          <span
-            className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
-          >
-            How We Work
-          </span>
-          <h2
-            className="font-display font-medium text-brand-navy"
-            style={{
-              fontSize: 'clamp(32px, 4.5vw, 48px)',
-              lineHeight: 1.15,
-              letterSpacing: '-0.005em',
-            }}
-          >
-            Four Things That Make
-            <br className="hidden sm:block" /> Sure West Different
-          </h2>
-          <p
-            className="mt-5 max-w-[480px] mx-auto text-brand-slate leading-[1.65]"
-            style={{
-              fontSize: '16px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 400,
-            }}
-          >
-            What you get from a Red Seal roofing contractor that you don&apos;t get from the
-            average Cochrane crew.
-          </p>
-        </div>
-        </Reveal>
-
-        <Reveal delay={150}>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
-          {DIFFERENTIATORS.map((d) => {
-            const { Icon } = d
-            return (
-              <article
-                key={d.number}
-                className="group relative rounded-[20px] p-8 md:p-10 text-center overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
-                style={{
-                  background:
-                    'linear-gradient(155deg, #FAF8F2 0%, #F4F1E8 100%)',
-                  border: '1px solid #E8E4D8',
-                  boxShadow:
-                    '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
-                }}
-              >
-                {/* Top gold ribbon, full width, subtle resting + intensifies on hover */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-500"
-                  style={{
-                    background:
-                      'linear-gradient(90deg, transparent 0%, rgba(212,175,96,0.85) 50%, transparent 100%)',
-                    opacity: 0.55,
-                  }}
-                />
-
-                {/* Ghosted number, top-right corner, smaller and refined */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute select-none font-display font-bold leading-none transition-opacity duration-500 group-hover:opacity-[0.16]"
-                  style={{
-                    right: '20px',
-                    top: '20px',
-                    fontSize: 'clamp(56px, 6vw, 84px)',
-                    color: 'var(--color-near-black, #1B2532)',
-                    opacity: 0.10,
-                    letterSpacing: '-0.04em',
-                  }}
-                >
-                  {d.number}
-                </span>
-
-                {/* Soft gold halo behind icon on hover */}
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 top-6 w-32 h-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background:
-                      'radial-gradient(closest-side, rgba(212,175,96,0.32), transparent 70%)',
-                    filter: 'blur(8px)',
-                  }}
-                />
-
-                {/* Icon tile, larger and more refined */}
-                <div
-                  className="relative mx-auto inline-flex items-center justify-center w-14 h-14 rounded-[12px] bg-white mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg]"
-                  style={{
-                    boxShadow:
-                      '0 1px 3px rgba(44,71,102,0.08), 0 10px 22px -10px rgba(212,175,96,0.45), 0 4px 10px -4px rgba(44,71,102,0.10)',
-                    border: '1px solid rgba(212,175,96,0.20)',
-                  }}
-                >
-                  <Icon className="w-7 h-7 text-brand-gold" strokeWidth={1.75} />
-                </div>
-
-                <h3
-                  className="relative font-display font-semibold text-brand-navy mb-3"
-                  style={{ fontSize: '22px', letterSpacing: '-0.01em', lineHeight: 1.25 }}
-                >
-                  {d.title}
-                </h3>
-
-                <p
-                  className="relative text-brand-slate leading-[1.7] max-w-[380px] mx-auto"
-                  style={{
-                    fontSize: '14.5px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 400,
-                  }}
-                >
-                  {d.body}
-                </p>
-              </article>
-            )
-          })}
-        </div>
-
-        <div className="mt-12 md:mt-14 flex justify-center">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
-          </Button>
-        </div>
-        </Reveal>
-      </div>
-    </section>
-  )
-}
-
-// ─── Section: Service Areas (uses canonical ServiceAreasPins) ────────────────
-
-function ServiceAreas() {
-  return (
-    <ServiceAreasPins
-      heading={'Roofing Services Across Cochrane,\n Calgary and Canmore'}
-      subhead="Based in Cochrane, Alberta. We serve homeowners across the Bow Valley corridor and the Calgary region."
-    />
-  )
-}
 
 // ─── Section: Testimonials ───────────────────────────────────────────────────
 
 function AboutTestimonials() {
-  return <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+  return <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
 }
 
 // ─── Section: FAQ ────────────────────────────────────────────────────────────
@@ -808,7 +905,7 @@ function AboutFAQ() {
       faqs={ABOUT_FAQS}
       heading="About Sure West Roofing"
       subhead="Everything homeowners ask about our company, credentials, and approach."
-      sectionBg="#F7F5F0"
+      sectionBg="#FFFFFF"
     />
   )
 }
@@ -826,31 +923,18 @@ export default function AboutPage() {
       <AboutHero />
       <TrustLogos />
       <OurStory />
+      <Legacy />
       <TeamCarousel />
-      <HowWeWork />
+      <Character />
+      <Competency />
+      <ProvenProcesses />
       <AboutTestimonials />
       <Credentials />
-      <PortfolioGallery
-        sectionBg="#F7F5F0"
-        images={[
-          { src: '/images/Cochrane Roofing Contractor Gallery 5.webp', alt: 'Cochrane roof replacement by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Cochrane roof installation by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 7.webp', alt: 'Cochrane siding and soft metals by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Cochrane roofing project by Sure West Roofing', objectPosition: '70% center' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Cochrane skylight installation by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roof replacement project by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 4.webp', alt: 'Cochrane re-roof project by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 22.webp', alt: 'Cochrane shingle roof by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Cochrane finished roof by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 6.webp', alt: 'Cochrane shingle roof completed by Sure West Roofing' },
-        ]}
-      />
-      <ServiceAreas />
       <AboutFAQ />
       <BottomCTA
-        sectionBg="#FFFFFF"
-        heading="Ready to Work With a Cochrane Roofing Team You Can Actually Trust?"
-        subtext="Free in-home estimate. Fixed written quote. Quick replies, even after hours."
+        sectionBg="#F7F5F0"
+        heading="Ready to Hire the Red Seal Roofer Cochrane Trusts?"
+        subtext="Five responsibilities, an in-house crew on every roof, and one standard. Free written quote and no sales pressure."
       />
     </>
   )

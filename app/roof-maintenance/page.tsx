@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roof Maintenance Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified annual roof maintenance in Cochrane, AB. Add years to your roof from $250.',
+      'Red Seal certified roof maintenance in Cochrane, AB. Annual inspections, minor repairs, valley clearing, and a written maintenance log to support your IKO warranty. From $250.',
     url: 'https://surewestroofing.ca/roof-maintenance',
     type: 'website',
     locale: 'en_CA',

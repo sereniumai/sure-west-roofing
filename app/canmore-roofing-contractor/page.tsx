@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roofing Contractor Canmore | Sure West Roofing',
     description:
-      'Red Seal certified roofing contractor serving Canmore. Built for Bow Valley snow loads, chinook winds, and alpine architectural control.',
+      'Canmore roofing contractor for steep mountain pitches, snow loads, and chinook winds. Red Seal Journeyman certified. Free written estimates.',
     url: 'https://surewestroofing.ca/canmore-roofing-contractor',
     type: 'website',
     locale: 'en_CA',
@@ -309,7 +309,7 @@ export default function RoofingContractorCanmorePage() {
       />
 
       {/* 6. Why Sure West, differentiator landing on a primed viewer */}
-      <WhySureWest cityName="Canmore" videoThumbnail="/images/About Sure West Roofing Thumbnail.jpg" />
+      <WhySureWest cityName="Canmore" />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}
       <HowItWorks cityName="Canmore" otherCities={['Calgary', 'Cochrane']} />

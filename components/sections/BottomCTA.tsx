@@ -165,7 +165,7 @@ export function BottomCTA({
               fontWeight: 500,
             }}
           >
-            The Sure West Crew · Cochrane, Alberta
+            The Sure West Roofing Crew · Cochrane, Alberta
           </p>
         </div>
       </div>

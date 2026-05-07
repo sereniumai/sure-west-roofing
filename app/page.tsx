@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roofing Contractor Cochrane | Sure West Roofing',
     description:
-      'Certified roofing contractor in Cochrane, AB. Roof replacement, repair, hail damage & inspections. Free estimates.',
+      'Cochrane roofing contractor with Red Seal Journeyman certification and in-house crew. Free written estimates. 5.0 from 80+ Cochrane homeowners.',
     url: 'https://surewestroofing.ca',
     type: 'website',
     locale: 'en_CA',
@@ -175,7 +175,7 @@ export default function HomePage() {
       <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
 
       {/* 6. Why Sure West, differentiator landing on a primed viewer */}
-      <WhySureWest videoThumbnail="/images/About Sure West Roofing Thumbnail.jpg" subheadMaxWidth="780px" />
+      <WhySureWest subheadMaxWidth="780px" />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}
       <HowItWorks />

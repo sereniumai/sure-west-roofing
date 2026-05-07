@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Free Roof Estimate Cochrane, Calgary & Canmore | Sure West Roofing',
     description:
-      'Red Seal certified free roof inspection and written quote across Cochrane, Calgary, and Canmore.',
+      'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal certified inspection, written quote, no obligation. Text back within minutes.',
     url: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
     type: 'website',
     locale: 'en_CA',

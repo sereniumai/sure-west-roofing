@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Cochrane Roofing Projects Gallery | Sure West Roofing',
     description:
-      'Real roofing projects completed by Sure West across Cochrane, Calgary, and Canmore.',
+      'Browse completed roofing projects from Sure West across Cochrane, Calgary, and Canmore. Real roofs installed by our Red Seal certified crew.',
     url: 'https://surewestroofing.ca/gallery',
     type: 'website',
     locale: 'en_CA',

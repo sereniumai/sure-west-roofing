@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Skylight Installation Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified Velux and Fakro skylight installation in Cochrane, AB. 5-year leak warranty.',
+      'Red Seal certified skylight installation in Cochrane, AB. Velux and Fakro fixed, vented, and solar-powered skylights. 5-year leak warranty, permit handled. Serving Cochrane, Calgary, and Canmore.',
     url: 'https://surewestroofing.ca/skylight-installation',
     type: 'website',
     locale: 'en_CA',

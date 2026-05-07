@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: 'Sure West Roofing',
     title: 'Sure West Roofing | Red Seal Roofer in Cochrane, Calgary & Canmore',
     description:
-      'Red Seal certified roofing contractor serving Cochrane, Calgary, and Canmore. Free estimates, fixed written quotes, no subcontractors.',
+      'Red Seal certified roofing contractor in Cochrane, Alberta. Roof replacement, repair, hail damage restoration. Serving Cochrane, Calgary, and Canmore.',
     images: [
       {
         url: '/images/og-default.jpg',

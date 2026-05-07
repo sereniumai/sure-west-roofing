@@ -50,7 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roofing Contractor Calgary | Sure West Roofing',
     description:
-      'Red Seal certified roofing contractor serving Calgary. Roof replacement, hail damage claims, and repair. Free written estimate.',
+      'Calgary roofing contractor for replacement, repair, and hail damage. Red Seal Journeyman certified, in-house crew, free written estimates.',
     url: 'https://surewestroofing.ca/calgary-roofing-contractor',
     type: 'website',
     locale: 'en_CA',
@@ -321,7 +321,7 @@ export default function RoofingContractorCalgaryPage() {
       />
 
       {/* 6. Why Sure West, differentiator landing on a primed viewer */}
-      <WhySureWest cityName="Calgary" videoThumbnail="/images/About Sure West Roofing Thumbnail.jpg" />
+      <WhySureWest cityName="Calgary" />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}
       <HowItWorks cityName="Calgary" otherCities={['Cochrane', 'Canmore']} />

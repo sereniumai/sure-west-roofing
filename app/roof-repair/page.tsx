@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roof Repair Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified roof repair in Cochrane, AB. Fast diagnosis, fixed quotes, 2-year workmanship warranty.',
+      'Red Seal certified roof repair in Cochrane, AB. Leak repair, shingle replacement, flashing fixes, and storm damage. Fixed written quotes, 2-year workmanship warranty, fast turnaround.',
     url: 'https://surewestroofing.ca/roof-repair',
     type: 'website',
     locale: 'en_CA',

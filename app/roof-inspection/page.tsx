@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roof Inspection Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified roof inspection in Cochrane, AB. Written photo report, free with quote.',
+      'Red Seal certified roof inspection in Cochrane, AB. Pre-purchase, post-storm, and annual inspections with a written photo report. Free with any quoted work, $200 standalone.',
     url: 'https://surewestroofing.ca/roof-inspection',
     type: 'website',
     locale: 'en_CA',

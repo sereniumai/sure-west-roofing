@@ -4,8 +4,8 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Play } from 'lucide-react'
 
-const DEFAULT_VIMEO_ID = '917315486'
-const DEFAULT_THUMBNAIL = '/images/Team/Sure West Roofing Thumnnail.png'
+const DEFAULT_VIMEO_ID = '917317949'
+const DEFAULT_THUMBNAIL = '/images/Sure West Roofing - Founders Video.webp'
 
 interface FoundersVideoProps {
   alt?: string

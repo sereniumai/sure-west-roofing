@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roofing Cost Calculator Cochrane | Sure West Roofing',
     description:
-      'Estimate the cost of a new roof in Cochrane, Calgary, or Canmore. Free, instant roofing cost calculator.',
+      'Estimate the cost of a new roof in Cochrane, Calgary, or Canmore. Free, instant roofing cost calculator from Sure West Roofing.',
     url: 'https://surewestroofing.ca/roofing-cost-calculator',
     type: 'website',
     locale: 'en_CA',
