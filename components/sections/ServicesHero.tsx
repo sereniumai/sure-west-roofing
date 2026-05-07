@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
@@ -19,7 +20,7 @@ export function ServicesHero({
 }: ServicesHeroProps) {
   return (
     <section
-      className="relative overflow-hidden bg-brand-cream pt-28 md:pt-36 pb-16 md:pb-24"
+      className="relative overflow-x-clip bg-brand-cream pt-28 md:pt-36 pb-20 md:pb-28"
       style={{
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
@@ -34,14 +35,14 @@ export function ServicesHero({
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
-                background: '#F0EEE8',
+                background: '#FFFFFF',
                 fontSize: '12px',
                 fontFamily: 'var(--font-inter), system-ui, sans-serif',
                 fontWeight: 600,
                 lineHeight: 1,
               }}
             >
-              Top-Rated Roofing Company in Cochrane, AB
+              Top-Rated Roofing Company in Cochrane
             </span>
             </Reveal>
 
@@ -87,26 +88,6 @@ export function ServicesHero({
             </div>
             </Reveal>
 
-            <Reveal delay={540}>
-            <div
-              className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
-              style={{
-                fontSize: '12px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 500,
-                color: 'var(--brand-slate, #4D6A87)',
-                letterSpacing: '0.07em',
-                textTransform: 'uppercase',
-              }}
-            >
-              <span>Red Seal Certified</span>
-              <span aria-hidden="true" className="hidden md:inline" style={{ color: '#D4AF60' }}>·</span>
-              <span className="hidden md:inline">10-Year Workmanship Warranty</span>
-              <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
-              <span>IKO Certified</span>
-            </div>
-            </Reveal>
-
           </div>
 
           {/* ── Right: image ────────────────────────────────────────── */}
@@ -149,6 +130,46 @@ export function ServicesHero({
                     'linear-gradient(to top, rgba(44,71,102,0.12) 0%, transparent 40%)',
                 }}
               />
+            </div>
+
+            {/* Floating trust badge, overhangs the image bottom-right */}
+            <div
+              className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-5 lg:-bottom-7 lg:-right-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
+              style={{
+                boxShadow:
+                  '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
+                zIndex: 2,
+              }}
+            >
+              <span
+                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
+                style={{
+                  background: 'rgba(212,175,96,0.14)',
+                  border: '1px solid rgba(212,175,96,0.35)',
+                }}
+              >
+                <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+              </span>
+              <div>
+                <div
+                  className="font-display text-brand-navy leading-none"
+                  style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                >
+                  Red Seal Certified
+                </div>
+                <div
+                  className="text-brand-slate mt-1.5"
+                  style={{
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 500,
+                    letterSpacing: '0.01em',
+                    lineHeight: 1.3,
+                  }}
+                >
+                  On every roof, every job
+                </div>
+              </div>
             </div>
           </Reveal>
 

@@ -11,8 +11,8 @@ import { ServicesFAQ, servicesFaqSchema } from '@/components/sections/ServicesFA
 const HowItWorks = dynamic(() =>
   import('@/components/sections/HowItWorks').then((m) => m.HowItWorks),
 )
-const PortfolioGallery = dynamic(() =>
-  import('@/components/sections/PortfolioGallery').then((m) => m.PortfolioGallery),
+const ServicesGallery = dynamic(() =>
+  import('@/components/sections/ServicesGallery').then((m) => m.ServicesGallery),
 )
 const Reviews = dynamic(() =>
   import('@/components/sections/Reviews').then((m) => m.Reviews),
@@ -24,9 +24,9 @@ const BottomCTA = dynamic(() =>
 // ── Metadata ──────────────────────────────────────────────────────────────────
 // Title: 57 chars, includes primary keyword, within 55-60 target
 export const metadata: Metadata = {
-  title: 'Roofing Services in Cochrane, AB',
+  title: { absolute: 'Roofing Services Cochrane | Sure West Roofing' },
   description:
-    'Red Seal certified roofing services in Cochrane, Calgary, and Canmore. Replacement, repair, hail damage, inspections, and more. Get a free estimate today.',
+    'Roofing services Cochrane homeowners trust. Red Seal Journeyman certified for replacement, repair, hail damage, inspections, maintenance, and skylights.',
   keywords: [
     'roofing services Cochrane',
     'Cochrane roofing contractor',
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
     'roofing services Canmore',
   ],
   openGraph: {
-    title: 'Roofing Services in Cochrane, AB | Sure West Roofing',
+    title: 'Roofing Services Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified roofing services in Cochrane, Calgary, and Canmore. Replacement, repair, hail damage, inspections, and more. Get a free estimate today.',
+      'Roofing services Cochrane homeowners trust. Red Seal Journeyman certified for replacement, repair, hail damage, inspections, maintenance, and skylights.',
     url: 'https://surewestroofing.ca/services',
     type: 'website',
     locale: 'en_CA',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Roofing Services in Cochrane, AB | Sure West Roofing',
+    title: 'Roofing Services Cochrane | Sure West Roofing',
     description:
       'Red Seal certified roofing services in Cochrane, Calgary, and Canmore. Replacement, repair, hail damage, inspections, and more.',
     images: ['https://surewestroofing.ca/images/Sure West Roofing in Cochrane.webp'],
@@ -197,7 +197,7 @@ export default function ServicesPage() {
       {/* 1. Hero, split layout, cream bg, single image right */}
       <ServicesHero
         h1={"Roofing Services\nin Cochrane, Alberta"}
-        subhead="Red Seal certified roofing for replacement, repair, hail damage, maintenance, inspections, and skylights. Serving homeowners across Cochrane, Calgary, and Canmore."
+        subhead="Cochrane roofing services delivered by one Red Seal Journeyman crew, one proven process, one standard. Serving Cochrane, Calgary, and Canmore."
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
         secondaryCTA={{ label: 'Call 403-990-7210', href: 'tel:+14039907210' }}
       />
@@ -214,14 +214,18 @@ export default function ServicesPage() {
       {/* 5. Reviews, immediate social proof to validate the differentiators above */}
       <Reviews />
 
-      {/* 6. Gallery, paired with reviews to keep the proof block tight */}
-      <PortfolioGallery
-        sectionBg="#F7F5F0"
+      {/* 6. How It Works, rational close before geographic relevance */}
+      <HowItWorks sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+
+      {/* 7. Gallery, image-right carousel matching individual service pages */}
+      <ServicesGallery
+        sectionBg="#FFFFFF"
+        heading={<>Roofing Services Completed Across Cochrane, Calgary &amp; Canmore</>}
         images={[
           { src: '/images/Cochrane Roofing Contractor Gallery 5.webp', alt: 'Cochrane roof replacement by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Cochrane roof installation by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 7.webp', alt: 'Cochrane siding and soft metals by Sure West Roofing' },
-          { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Cochrane roofing project by Sure West Roofing', objectPosition: '70% center' },
+          { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Cochrane roofing project by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Cochrane skylight installation by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 1.webp', alt: 'Cochrane roof replacement project by Sure West Roofing' },
           { src: '/images/Cochrane Roofing Contractor Gallery 4.webp', alt: 'Cochrane re-roof project by Sure West Roofing' },
@@ -230,9 +234,6 @@ export default function ServicesPage() {
           { src: '/images/Cochrane Roofing Contractor Gallery 6.webp', alt: 'Cochrane shingle roof completed by Sure West Roofing' },
         ]}
       />
-
-      {/* 7. How It Works, rational close before geographic relevance */}
-      <HowItWorks />
 
       {/* 8. Service Areas, canonical 3-city pins matching About */}
       <ServiceAreasPins
@@ -253,7 +254,7 @@ export default function ServicesPage() {
             <br className="hidden lg:block" /> or Canmore?
           </>
         }
-        subtext="Roof replacement, repair, hail damage, inspections, and more. Red Seal certified crews with a written warranty on every job."
+        subtext="Seven services, one in-house Red Seal Journeyman crew, one standard. Free written quote within two business days and no sales pressure."
       />
     </>
   )

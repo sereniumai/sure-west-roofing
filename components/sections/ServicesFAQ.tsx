@@ -15,109 +15,113 @@ const FAQS: FAQ[] = [
   {
     question: 'What roofing services do you offer in Cochrane?',
     answerText:
-      'Sure West Roofing offers six residential roofing services in Cochrane: roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections, and skylight installation. All work is carried out by Red Seal certified trades. We serve Cochrane as our primary market, with crews also covering Calgary and Canmore.',
+      'Seven services, all run by the same in-house Red Seal Journeyman crew: roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections, siding and soft metals (flashings, fascia, soffit, eavestroughs), and skylight installation.',
     answer: (
       <>
-        Sure West Roofing offers six residential roofing services in Cochrane: roof replacement,
-        roof repair, hail damage repair, roof maintenance, roof inspections, and skylight
-        installation. All work is carried out by Red Seal certified trades. We serve Cochrane as
-        our primary market, with crews also covering Calgary and Canmore.
+        Seven services, all run by the same in-house Red Seal Journeyman crew:{' '}
+        <Link href="/roof-replacement" className="faq-link">roof replacement</Link>,{' '}
+        <Link href="/roof-repair" className="faq-link">roof repair</Link>,{' '}
+        <Link href="/hail-damage-repair" className="faq-link">hail damage repair</Link>,{' '}
+        <Link href="/roof-maintenance" className="faq-link">roof maintenance</Link>,{' '}
+        <Link href="/roof-inspection" className="faq-link">roof inspections</Link>,{' '}
+        <Link href="/siding-soft-metals" className="faq-link">siding and soft metals</Link>{' '}
+        (flashings, fascia, soffit, eavestroughs), and{' '}
+        <Link href="/skylight-installation" className="faq-link">skylight installation</Link>.
       </>
     ),
   },
   {
-    question: 'How much does a roof replacement cost in Cochrane?',
+    question: 'How is a Sure West quote different from other quotes?',
     answerText:
-      'Most residential roof replacements in Cochrane range from $8,000 to $18,000, depending on roof size, pitch, material grade, and any structural issues found during tear-off. We provide a free, fully itemised written quote after an on-site inspection. The price you approve is the price you pay.',
+      "Every Sure West free estimate is fixed and written before work begins. We inspect the deck, count the materials, and price the job on what's actually there, not on best-case assumptions. If something genuinely unforeseen comes up, you hear about it before any extra work happens, never after. The price you approve is the price you pay.",
     answer: (
       <>
-        Most residential roof replacements in Cochrane range from $8,000 to $18,000, depending on
-        roof size, pitch, material grade, and any structural issues found during tear-off. We
-        provide a free, fully itemised written quote after an on-site inspection. The price you
-        approve is the price you pay.
+        Every Sure West{' '}
+        <Link href="/free-roof-estimate-cochrane" className="faq-link">free estimate</Link>{' '}
+        is fixed and written before work begins. We inspect the deck, count the materials, and
+        price the job on what&apos;s actually there, not on best-case assumptions. If something
+        genuinely unforeseen comes up, you hear about it before any extra work happens, never
+        after. The price you approve is the price you pay.
       </>
     ),
   },
   {
-    question: 'Do you help with hail damage insurance claims in Alberta?',
+    question: 'Are all your installers Red Seal Journeyman certified?',
     answerText:
-      'Coverage depends on your individual policy, but Alberta home insurance typically covers sudden hail damage to residential roofs. We are not insurance specialists, but we document the damage with photos and provide a detailed written assessment so you have what you need to file with your insurer.',
+      "We're honest about this: no. Red Seal Journeyman is a multi-year credential, and apprentice and early-career installers haven't reached it yet. What matters is that Craig (Red Seal certified since 2018) trains the entire crew to that standard, supervises every project, and signs off on the workmanship. The designation governs the company's standard, not every name on the crew.",
+    answer: (
+      <>
+        We&apos;re honest about this: no.{' '}
+        <Link href="/about" className="faq-link">Red Seal Journeyman</Link>{' '}
+        is a multi-year credential, and apprentice and early-career installers haven&apos;t
+        reached it yet. What matters is that Craig (Red Seal certified since 2018) trains the
+        entire crew to that standard, supervises every project, and signs off on the workmanship.
+        The designation governs the company&apos;s standard, not every name on the crew.
+      </>
+    ),
+  },
+  {
+    question: 'Do you use subcontractors?',
+    answerText:
+      "No. Every Sure West roof is installed by our in-house crew. Same faces, same standards, same accountability. We've turned down work to keep it that way.",
+    answer: (
+      <>
+        No. Every Sure West roof is installed by our in-house crew. Same faces, same standards,
+        same accountability. We&apos;ve turned down work to keep it that way.
+      </>
+    ),
+  },
+  {
+    question: 'Do you handle hail damage insurance claims in Alberta?',
+    answerText:
+      'Coverage depends on your individual policy, but Alberta home insurance typically covers sudden hail damage to residential roofs. We are not insurance specialists, but we document the damage with photos and provide a detailed written assessment so you have what you need to file with your insurer. Once the claim is approved, we coordinate the work directly with you.',
     answer: (
       <>
         Coverage depends on your individual policy, but Alberta home insurance typically covers
-        sudden hail damage to residential roofs. We are not insurance specialists, but we document
-        the damage with photos and provide a detailed written assessment so you have what you need
-        to file with your insurer.
+        sudden{' '}
+        <Link href="/hail-damage-repair" className="faq-link">hail damage</Link>{' '}
+        to residential roofs. We are not insurance specialists, but we document the damage with
+        photos and provide a detailed written assessment so you have what you need to file with
+        your insurer. Once the claim is approved, we coordinate the work directly with you.
       </>
     ),
   },
   {
-    question: 'How often should I have my roof inspected?',
+    question: 'How long does a roof replacement take in Cochrane?',
     answerText:
-      'For most Cochrane homes, once a year is the right frequency, typically in spring after the winter freeze-thaw cycle. You should also book a roof inspection after a significant hailstorm or if you notice any interior water staining. Catching small issues early avoids larger, more costly repairs later.',
+      'Most standard single-family roof replacement jobs in Cochrane take one to three days. Larger homes, steeper pitches, or roofs with multiple penetrations can take up to five days. We give you a clear timeline in writing before the job starts and do not leave your roof unsecured overnight.',
     answer: (
       <>
-        For most Cochrane homes, once a year is the right frequency, typically in spring after the
-        winter freeze-thaw cycle. You should also book a{' '}
-        <Link href="/roof-inspection" className="faq-link">
-          roof inspection
-        </Link>{' '}
-        after a significant hailstorm or if you notice any interior water staining. Catching small
-        issues early avoids larger, more costly repairs later.
+        Most standard single-family{' '}
+        <Link href="/roof-replacement" className="faq-link">roof replacement</Link>{' '}
+        jobs in Cochrane take one to three days. Larger homes, steeper pitches, or roofs with
+        multiple penetrations can take up to five days. We give you a clear timeline in writing
+        before the job starts and do not leave your roof unsecured overnight.
       </>
     ),
   },
   {
-    question: 'Do you repair roofs year-round in Cochrane winters?',
+    question: 'Are you licensed, bonded, and insured?',
     answerText:
-      'Yes, we carry out roof repairs throughout the year in Cochrane. Some materials have installation temperature requirements, but active leaks and storm damage cannot wait for spring. We will assess your situation honestly and tell you what can be safely completed now versus what should wait.',
+      'Yes. Sure West Roofing is a licensed Alberta roofing contractor with $2 million general liability insurance and WCB Alberta coverage on every crew member. Proof of both is provided before any work begins, available on request during your free estimate.',
     answer: (
       <>
-        Yes, we carry out roof repairs throughout the year in Cochrane. Some materials have
-        installation temperature requirements, but active leaks and storm damage cannot wait for
-        spring. We will assess your situation honestly and tell you what can be safely completed
-        now versus what should wait.
+        Yes. Sure West Roofing is a licensed Alberta roofing contractor with $2 million general
+        liability insurance and WCB Alberta coverage on every crew member. Proof of both is
+        provided before any work begins, available on request during your free estimate.
       </>
     ),
   },
   {
-    question: 'Are you licensed and insured?',
+    question: 'What happens at the end of the job?',
     answerText:
-      'Yes. Sure West Roofing is a licensed roofing contractor in Alberta, fully covered by WCB and general liability insurance. We are owned and operated by Red Seal Journeyman roofers, the highest professional trade credential in Canada. Proof of coverage is available on request before any work begins.',
+      'Every Sure West job ends the same way: a magnetic nail sweep across your driveway, lawn, and walkways, a full final walkthrough with you, and your 10-year written workmanship warranty handed to you in person. Nothing gets skipped because the playbook does not allow it.',
     answer: (
       <>
-        Yes. Sure West Roofing is a licensed roofing contractor in Alberta, fully covered by WCB
-        and general liability insurance. We are owned and operated by Red Seal Journeyman roofers,
-        the highest professional trade credential in Canada. Proof of coverage is available on
-        request before any work begins.
-      </>
-    ),
-  },
-  {
-    question: 'How long does a roof replacement take?',
-    answerText:
-      'Most standard single-family homes in Cochrane take one to three days. Larger homes, steeper pitches, or roofs with multiple penetrations can take up to five days. We give you a clear timeline in writing before the job starts and do not leave your roof unsecured overnight.',
-    answer: (
-      <>
-        Most standard single-family homes in Cochrane take one to three days. Larger homes, steeper
-        pitches, or roofs with multiple penetrations can take up to five days. We give you a clear
-        timeline in writing before the job starts and do not leave your roof unsecured overnight.
-      </>
-    ),
-  },
-  {
-    question: 'Do you install skylights on existing roofs?',
-    answerText:
-      'Yes. We install skylights on existing roofs across Cochrane, Calgary, and Canmore. The process involves cutting the deck opening, installing a properly flashed curb or deck-mount unit, and integrating the waterproofing with your existing shingles. Most skylight installation jobs are completed in one day.',
-    answer: (
-      <>
-        Yes. We install skylights on existing roofs across Cochrane, Calgary, and Canmore. The
-        process involves cutting the deck opening, installing a properly flashed curb or deck-mount
-        unit, and integrating the waterproofing with your existing shingles. Most{' '}
-        <Link href="/skylight-installation" className="faq-link">
-          skylight installation
-        </Link>{' '}
-        jobs are completed in one day.
+        Every Sure West job ends the same way: a magnetic nail sweep across your driveway, lawn,
+        and walkways, a full final walkthrough with you, and your 10-year written workmanship
+        warranty handed to you in person. Nothing gets skipped because the playbook does not
+        allow it.
       </>
     ),
   },
@@ -158,7 +162,7 @@ export function ServicesFAQ() {
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
-              background: '#F0EEE8',
+              background: '#F7F5F0',
               fontSize: '12px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 600,
@@ -178,7 +182,7 @@ export function ServicesFAQ() {
             Roofing Services Questions, Answered
           </h2>
           <p
-            className="mt-6 max-w-[380px] text-brand-slate leading-[1.7]"
+            className="mt-6 max-w-[760px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',

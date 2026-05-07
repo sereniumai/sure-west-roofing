@@ -11,8 +11,6 @@ export interface ServicePageHeroProps {
   h1: string
   /** Body paragraph below h1. */
   body: string
-  /** Three short caps strings shown under the CTAs. */
-  trustItems: [string, string, string]
   image: {
     src: string
     alt: string
@@ -28,7 +26,6 @@ export function ServicePageHero({
   eyebrow,
   h1,
   body,
-  trustItems,
   image,
   primaryCTA = { label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' },
   secondaryCTA = { label: 'Call 403-990-7210', href: 'tel:4039907210' },
@@ -46,7 +43,7 @@ export function ServicePageHero({
               <span
                 className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
                 style={{
-                  background: '#F0EEE8',
+                  background: '#FFFFFF',
                   fontSize: '12px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
                   fontWeight: 600,
@@ -96,26 +93,6 @@ export function ServicePageHero({
                 <Button variant="outline" size="lg" href={secondaryCTA.href}>
                   {secondaryCTA.label}
                 </Button>
-              </div>
-            </Reveal>
-
-            <Reveal delay={540}>
-              <div
-                className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
-                style={{
-                  fontSize: '12px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                  fontWeight: 500,
-                  color: 'var(--brand-slate, #4D6A87)',
-                  letterSpacing: '0.07em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                <span>{trustItems[0]}</span>
-                <span aria-hidden="true" className="hidden md:inline" style={{ color: '#D4AF60' }}>·</span>
-                <span className="hidden md:inline">{trustItems[1]}</span>
-                <span aria-hidden="true" style={{ color: '#D4AF60' }}>·</span>
-                <span>{trustItems[2]}</span>
               </div>
             </Reveal>
           </div>

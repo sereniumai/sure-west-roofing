@@ -62,13 +62,23 @@ export function BottomCTA({
         <div className="text-center lg:text-left">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{
-              background: '#F0EEE8',
-              fontSize: '12px',
-              fontFamily: 'var(--font-inter), system-ui, sans-serif',
-              fontWeight: 600,
-              lineHeight: 1,
-            }}
+            style={
+              sectionBg.toUpperCase() === '#F7F5F0'
+                ? {
+                    background: '#FFFFFF',
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 600,
+                    lineHeight: 1,
+                  }
+                : {
+                    background: '#F7F5F0',
+                    fontSize: '12px',
+                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                    fontWeight: 600,
+                    lineHeight: 1,
+                  }
+            }
           >
             Free Estimate
           </span>

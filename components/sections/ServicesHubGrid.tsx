@@ -188,7 +188,7 @@ export function ServicesHubGrid() {
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
           style={{
-            background: '#F0EEE8',
+            background: '#F7F5F0',
             fontSize: '12px',
             fontFamily: 'var(--font-inter), system-ui, sans-serif',
             fontWeight: 600,
@@ -205,8 +205,8 @@ export function ServicesHubGrid() {
             letterSpacing: '-0.005em',
           }}
         >
-          Complete Roofing Services for
-          <br className="hidden lg:block" /> Cochrane Homeowners
+          Every Cochrane Roofing Service
+          <br className="hidden lg:block" /> Run by the Same Red Seal Crew
         </h2>
         <p
           className="mt-4 max-w-[460px] text-brand-slate leading-[1.65]"
@@ -216,7 +216,7 @@ export function ServicesHubGrid() {
             fontWeight: 400,
           }}
         >
-          Seven services, one certified crew. Every job backed by Red Seal workmanship and a written warranty.
+          Seven services, one in-house Red Seal Journeyman crew, the same proven process from the free estimate to the final cleanup.
         </p>
       </div>
       </Reveal>

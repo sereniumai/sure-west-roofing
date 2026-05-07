@@ -1,27 +1,37 @@
-import { Award, CloudLightning, FileText, ShieldCheck } from 'lucide-react'
+import { Award, Users, Handshake, ShieldCheck, ListChecks } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
 const DIFFERENTIATORS = [
   {
     Icon: Award,
-    heading: 'Red Seal Certified Trades',
-    body: 'Sure West is owned and operated by Red Seal Journeyman roofers, the highest trade credential in Canada. A credentialed tradesperson is on every roof, never a subcontractor.',
+    heading: 'Legacy',
+    subtitle: 'Built to Last 20 Years',
+    body: "Every roof we install is one we'd be proud of in 20 years. No easy money, no corner cuts, no shingles laid over problems. The roof on your house is the reputation we leave behind.",
   },
   {
-    Icon: CloudLightning,
-    heading: 'Built for Alberta Weather',
-    body: 'Cochrane winters, chinook swings, hailstorms, and high wind uplift require specific materials and methods. Built for local freeze-thaw cycles.',
+    Icon: Users,
+    heading: 'Brotherhood',
+    subtitle: 'Same Crew, Every Roof',
+    body: 'The crew you meet at the quote is the crew on your roof. No subcontractors, no rotating faces. Same in-house Red Seal Journeyman team from tear-off to walkthrough, every time.',
   },
   {
-    Icon: FileText,
-    heading: 'Honest Quotes, No Pressure',
-    body: 'Every estimate is free, on-site, and provided in writing with itemised costs. No high-pressure tactics. If your roof does not need replacing, we will tell you that.',
+    Icon: Handshake,
+    heading: 'Character',
+    subtitle: "The Quote That Doesn't Move",
+    body: "The price you approve is the price you pay. Commitments kept, mistakes owned and fixed fast. If something unexpected comes up, you decide before another nail goes in.",
   },
   {
     Icon: ShieldCheck,
-    heading: '10-Year Workmanship Warranty',
-    body: 'Every roof replacement comes with a 10-year workmanship warranty in writing before we leave the job site, on top of the IKO material warranty. Two layers of documented protection.',
+    heading: 'Competency',
+    subtitle: 'Red Seal Journeyman Standard',
+    body: "Red Seal Journeyman is the highest trade credential in Canadian roofing. Deck inspected, flashings cut to the wall, manufacturer specs followed. The parts you can't see, done right first time.",
+  },
+  {
+    Icon: ListChecks,
+    heading: 'Proven Processes',
+    subtitle: 'Same Playbook on Every Roof',
+    body: 'Same checklists on day one and day three. Same communication before every site activity. Same magnetic nail sweep, same final walkthrough, same 10-year written warranty before we leave.',
   },
 ]
 
@@ -37,11 +47,11 @@ export function ServicesHubDifferentiators() {
       <div className="max-w-[1320px] mx-auto">
         {/* Header */}
         <Reveal>
-        <div className="text-center mb-12 md:mb-16 max-w-[680px] mx-auto">
+        <div className="text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
-              background: '#F0EEE8',
+              background: '#FFFFFF',
               fontSize: '12px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 600,
@@ -58,29 +68,31 @@ export function ServicesHubDifferentiators() {
               letterSpacing: '-0.005em',
             }}
           >
-            Why Cochrane Homeowners
-            <br className="hidden lg:block" /> Trust Sure West
+            What Sets a Sure West
+            <br className="hidden lg:block" /> Roof Apart
           </h2>
           <p
-            className="mt-5 max-w-[480px] mx-auto text-brand-slate leading-[1.65]"
+            className="mt-5 max-w-[560px] mx-auto text-brand-slate leading-[1.65]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 400,
             }}
           >
-            Four things every Sure West roof gets that the average Cochrane crew can't match.
+            Five responsibilities we&apos;ve taken on, five things every Sure West roof gets that the average Cochrane crew can&apos;t match.
           </p>
         </div>
         </Reveal>
 
-        {/* 4-column grid */}
+        {/* 3 + 2 grid: 6-col on lg, last 2 cards offset to center the bottom row */}
         <Reveal delay={150}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6">
+          {DIFFERENTIATORS.map(({ Icon, heading, subtitle, body }, idx) => (
             <article
               key={heading}
-              className="group relative rounded-[16px] bg-white p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+              className={`group relative rounded-[16px] bg-white p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)] lg:col-span-2 ${
+                idx === 3 ? 'lg:col-start-2' : ''
+              }`}
               style={{
                 border: '1px solid #E5E2D9',
                 boxShadow:
@@ -109,7 +121,7 @@ export function ServicesHubDifferentiators() {
                 }}
               />
 
-              {/* Icon tile, refined to match Four Things pattern */}
+              {/* Icon tile */}
               <div
                 className="relative inline-flex items-center justify-center w-12 h-12 rounded-[10px] bg-white mb-5 transition-all duration-500 group-hover:scale-110 group-hover:rotate-[-3deg]"
                 style={{
@@ -122,11 +134,23 @@ export function ServicesHubDifferentiators() {
               </div>
 
               <h3
-                className="relative font-display font-semibold text-brand-navy mb-3"
-                style={{ fontSize: '20px', letterSpacing: '-0.01em', lineHeight: 1.25 }}
+                className="relative font-display font-semibold text-brand-navy"
+                style={{ fontSize: '22px', letterSpacing: '-0.01em', lineHeight: 1.2 }}
               >
                 {heading}
               </h3>
+
+              <p
+                className="relative mt-1 mb-3 text-brand-gold"
+                style={{
+                  fontSize: '13px',
+                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                  fontWeight: 600,
+                  letterSpacing: '0.02em',
+                }}
+              >
+                {subtitle}
+              </p>
 
               <p
                 className="relative text-brand-slate leading-[1.65]"

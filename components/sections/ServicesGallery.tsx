@@ -22,9 +22,10 @@ function pad(n: number) {
 interface Props {
   images?: GalleryImage[]
   sectionBg?: string
+  heading?: React.ReactNode
 }
 
-export function ServicesGallery({ images, sectionBg }: Props) {
+export function ServicesGallery({ images, sectionBg, heading }: Props) {
   const IMAGES = images ?? DEFAULT_IMAGES
   const [current, setCurrent] = useState(0)
 
@@ -54,7 +55,7 @@ export function ServicesGallery({ images, sectionBg }: Props) {
             <span
               className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
-                background: '#F0EEE8',
+                background: (sectionBg ?? '#FFFFFF').toUpperCase() === '#F7F5F0' ? '#FFFFFF' : '#F7F5F0',
                 fontSize: '12px',
                 fontFamily: 'var(--font-inter), system-ui, sans-serif',
                 fontWeight: 600,
@@ -72,7 +73,7 @@ export function ServicesGallery({ images, sectionBg }: Props) {
                 letterSpacing: '-0.005em',
               }}
             >
-              Roofing Projects Completed Across Cochrane, Calgary &amp; Canmore
+              {heading ?? <>Roofing Projects Completed Across Cochrane, Calgary &amp; Canmore</>}
             </h2>
 
             <p

@@ -18,11 +18,10 @@ import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 import { Reviews } from '@/components/sections/Reviews'
 import { BottomCTA } from '@/components/sections/BottomCTA'
-import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { TeamCarousel } from '@/components/sections/TeamCarousel'
+import { AboutFAQ } from '@/components/sections/AboutFAQ'
 import { FoundersVideo } from '@/components/ui/FoundersVideo'
-import type { FaqItem } from '@/lib/faqs/types'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -101,7 +100,7 @@ function AboutHero() {
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
-                background: '#F0EEE8',
+                background: '#FFFFFF',
                 fontSize: '12px',
                 fontFamily: 'var(--font-inter), system-ui, sans-serif',
                 fontWeight: 600,
@@ -236,7 +235,7 @@ function OurStory() {
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
-                background: '#F0EEE8',
+                background: '#F7F5F0',
                 fontSize: '12px',
                 fontFamily: 'var(--font-inter), system-ui, sans-serif',
                 fontWeight: 600,
@@ -356,7 +355,7 @@ function Legacy() {
               <span
                 className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
                 style={{
-                  background: 'rgba(255,255,255,0.6)',
+                  background: '#FFFFFF',
                   fontSize: '12px',
                   fontFamily: 'var(--font-inter), system-ui, sans-serif',
                   fontWeight: 600,
@@ -392,7 +391,7 @@ function Legacy() {
                   We treat every roof like our reputation depends on it, because in Cochrane, it does. Customers speak our name. Families say we showed up. Communities remember whether we made it better or left it the same.
                 </p>
                 <p>
-                  That&apos;s what legacy means here. Not a tagline. The question we ask before every job.
+                  That&apos;s what legacy means here. Not a tagline. The question we ask before every job:
                 </p>
               </div>
 
@@ -483,13 +482,23 @@ function ValueSection({
           <Reveal className={`lg:col-span-6 ${cardsLeft ? 'lg:order-2' : ''}`}>
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
-              style={{
-                background: '#F0EEE8',
-                fontSize: '12px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 600,
-                lineHeight: 1,
-              }}
+              style={
+                sectionBg.toUpperCase() === '#F7F5F0'
+                  ? {
+                      background: '#FFFFFF',
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                      fontWeight: 600,
+                      lineHeight: 1,
+                    }
+                  : {
+                      background: '#F7F5F0',
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                      fontWeight: 600,
+                      lineHeight: 1,
+                    }
+              }
             >
               {eyebrow}
             </span>
@@ -742,7 +751,7 @@ function Credentials() {
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
-              background: '#F0EEE8',
+              background: '#FFFFFF',
               fontSize: '12px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 600,
@@ -852,62 +861,6 @@ function Credentials() {
 
 function AboutTestimonials() {
   return <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
-}
-
-// ─── Section: FAQ ────────────────────────────────────────────────────────────
-
-const ABOUT_FAQS: FaqItem[] = [
-  {
-    question: 'How long has Sure West Roofing been in business?',
-    answer:
-      "Sure West Roofing has over 23 years of combined roofing experience serving Cochrane, Calgary, and Canmore. More valuable than our time in the industry is our emphasis on education, systems, and processes rooted in Red Seal Journeyman standards. That's how we've built a reputation for consistently great quality roofing in Cochrane, the Calgary region, and the Bow Valley.",
-  },
-  {
-    question: 'Will a Sure West representative actually come to my house?',
-    answer:
-      "Absolutely. When you call Sure West for your replacement estimate, the first thing we schedule is a free in-home consultation. We use satellite service to get your measurements beforehand, so our team member arrives with numbers in hand. After a quick on-site assessment to confirm the details match, we'll walk you through the finer points of our estimate and process in person.",
-  },
-  {
-    question: 'Is Sure West Roofing licensed and insured in Alberta?',
-    answer:
-      'Yes. Sure West carries a $2 million liability policy that protects you in the unlikely event of faulty workmanship leading to damage. Every crew member is covered by WCB Alberta, which means any injury sustained on your property is handled properly and will not fall back on you.\n\nAs a homeowner, you have the right to request a copy of any contractor\u2019s coverage before work begins, and we encourage you to do so.',
-  },
-  {
-    question: 'What certifications does Sure West Roofing hold?',
-    answer:
-      "Sure West is a Red Seal Journeyman certified roofer in Cochrane, which is the highest interprovincial trade credential in Canada. We also hold current Fall Protection and Standard First Aid certifications on every installer, and we carry IKO ShieldPRO installer status that qualifies your roof for top-tier manufacturer warranty coverage.\n\nAlberta\u2019s roofing regulations are tightening: contractors are now required to hold Journeyman Certification and pay crew members according to provincial schedules. Ask any contractor you\u2019re considering how they\u2019re adjusting their processes to comply.",
-  },
-  {
-    question: 'Do you use subcontractors, or your own crew?',
-    answer:
-      'Every Sure West roof is installed by our in-house Red Seal crew. No subcontractors, ever. When you hire Sure West, the team that quotes your roof is the team that installs it, and Craig is personally accountable for every finished job.',
-  },
-  {
-    question: 'What areas does Sure West Roofing serve?',
-    answer:
-      'Sure West is headquartered in Cochrane, Alberta and serves homeowners across Cochrane, Calgary, Canmore, Airdrie, Chestermere, Bragg Creek, Springbank, and the surrounding Bow Valley and greater Calgary region. If your home is within roughly 100 km of Cochrane, we cover it. Travel is included in every written quote.',
-  },
-  {
-    question: 'What warranty does Sure West Roofing offer?',
-    answer:
-      'Every Sure West roof replacement is backed by our 10-year written workmanship warranty, covering installation defects like fastener issues, flashing failures, or ventilation problems.\n\nMaterials are covered by the manufacturer: standard IKO shingles carry a limited lifetime warranty, and because Sure West is an IKO ShieldPRO installer, eligible roofs qualify for upgraded ShieldPRO Plus coverage including non-prorated material replacement and labour for the first 25 years.',
-  },
-  {
-    question: 'Why choose Sure West Roofing in Cochrane?',
-    answer:
-      'Three things set Sure West apart in Cochrane: every installer is Red Seal Journeyman certified, every roof is installed by our own in-house crew with zero subcontractors, and every project is backed by IKO ShieldPRO manufacturer coverage plus our 10-year workmanship warranty.\n\nWe also operate with a fixed written quote before work begins and handle insurance claims directly with your adjuster, so there are no surprise costs and no chasing paperwork.',
-  },
-]
-
-function AboutFAQ() {
-  return (
-    <ServiceFAQ
-      faqs={ABOUT_FAQS}
-      heading="About Sure West Roofing"
-      subhead="Everything homeowners ask about our company, credentials, and approach."
-      sectionBg="#FFFFFF"
-    />
-  )
 }
 
 // ─── Page ────────────────────────────────────────────────────────────────────
