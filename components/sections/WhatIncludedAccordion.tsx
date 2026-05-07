@@ -1,8 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
-import { ArrowRight, Plus } from 'lucide-react'
+import { Plus } from 'lucide-react'
 
 interface AccordionItem {
   heading: string
@@ -23,93 +22,135 @@ const DEFAULT_ITEMS: AccordionItem[] = [
   {
     heading: 'Full site cleanup, walkthrough, and warranty',
     body:
-      'We tarp landscaping before tear-off, then run a magnetic nail sweep daily and at completion. Job closes with a walkthrough and your written 10-year workmanship warranty.',
+      'We tarp landscaping before tear-off, then run a magnetic nail sweep daily and at completion. Job closes with a walkthrough and your written 10-year workmanship guarantee.',
   },
 ]
 
+const SERIF = "Georgia, 'Times New Roman', serif"
+
 interface WhatIncludedAccordionProps {
   items?: AccordionItem[]
-  ctaHref?: string
-  ctaLabel?: string
 }
 
 export function WhatIncludedAccordion({
   items = DEFAULT_ITEMS,
-  ctaHref = '/free-roof-estimate-cochrane',
-  ctaLabel = 'Get Free Estimate',
 }: WhatIncludedAccordionProps = {}) {
-  // One item is always open, clicking the open item is a no-op.
-  const [open, setOpen] = useState<number>(0)
+  // Default first item open so the section reads without interaction
+  const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <ul
-      className="mt-8 flex flex-col max-w-[480px] bg-white rounded-[16px] p-3 md:p-4 border border-[#E5E2D9]"
-      style={{
-        boxShadow: '0 2px 8px rgba(44,71,102,0.06), 0 12px 28px -16px rgba(44,71,102,0.10)',
-      }}
-    >
+    <ul className="mt-8 flex flex-col">
       {items.map((item, i) => {
         const isOpen = open === i
+        const num = String(i + 1).padStart(2, '0')
         return (
-          <li key={item.heading}>
+          <li
+            key={item.heading}
+            className="relative group/row"
+            style={{
+              borderTop: i === 0 ? '1px solid rgba(26,22,18,0.10)' : 'none',
+              borderBottom: '1px solid rgba(26,22,18,0.10)',
+            }}
+          >
+            {/* Active gold left-rail accent */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-0 top-0 bottom-0 transition-all duration-500 ease-out"
+              style={{
+                width: isOpen ? '3px' : '0px',
+                background:
+                  'linear-gradient(180deg, rgba(212,175,96,0) 0%, rgba(212,175,96,0.95) 30%, rgba(212,175,96,0.95) 70%, rgba(212,175,96,0) 100%)',
+              }}
+            />
+
+            {/* Soft warm wash on active row */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out"
+              style={{
+                opacity: isOpen ? 1 : 0,
+                background:
+                  'linear-gradient(90deg, rgba(212,175,96,0.06) 0%, rgba(212,175,96,0.00) 70%)',
+              }}
+            />
+
             <button
               type="button"
-              onClick={() => setOpen(i)}
+              onClick={() => setOpen(isOpen ? null : i)}
               aria-expanded={isOpen}
-              className="group flex items-start justify-between w-full text-left py-3 px-3 md:px-4 rounded-[10px] cursor-pointer gap-4 hover:bg-brand-cream/60 transition-colors duration-200"
+              className="relative flex items-center justify-between w-full text-left py-3.5 md:py-4 cursor-pointer gap-5 pl-4 md:pl-5 pr-1"
             >
-              <span
-                className={`font-semibold leading-[1.4] transition-colors duration-200 ${
-                  isOpen
-                    ? 'text-brand-navy'
-                    : 'text-brand-navy group-hover:text-brand-gold'
-                }`}
-                style={{
-                  fontSize: '15px',
-                  fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                }}
-              >
-                {item.heading}
+              <span className="flex items-baseline gap-4 md:gap-5">
+                {/* Editorial numeral */}
+                <span
+                  className={`shrink-0 transition-colors duration-300 ${
+                    isOpen
+                      ? 'text-brand-gold'
+                      : 'text-brand-slate/55 group-hover/row:text-brand-gold/85'
+                  }`}
+                  style={{
+                    fontFamily: SERIF,
+                    fontStyle: 'italic',
+                    fontSize: '20px',
+                    fontWeight: 400,
+                    letterSpacing: '0.04em',
+                  }}
+                >
+                  {num}
+                </span>
+
+                {/* Title */}
+                <span
+                  className={`font-display font-semibold transition-colors duration-300 ${
+                    isOpen
+                      ? 'text-brand-gold'
+                      : 'text-brand-navy group-hover/row:text-brand-gold'
+                  }`}
+                  style={{
+                    fontSize: 'clamp(18px, 1.5vw, 21px)',
+                    lineHeight: 1.2,
+                    letterSpacing: '-0.012em',
+                  }}
+                >
+                  {item.heading}
+                </span>
               </span>
+
               <span
                 aria-hidden="true"
-                className={`flex-shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full border transition-all duration-200 ${
+                className={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 ${
                   isOpen
-                    ? 'bg-brand-gold border-brand-gold text-brand-navy rotate-45'
-                    : 'bg-transparent border-brand-border text-brand-navy group-hover:border-brand-gold'
+                    ? 'bg-brand-gold border-brand-gold text-brand-navy rotate-45 shadow-[0_8px_18px_-8px_rgba(212,175,96,0.55)]'
+                    : 'bg-white/40 border-brand-border text-brand-navy group-hover/row:border-brand-gold group-hover/row:bg-white'
                 }`}
               >
-                <Plus className="w-4 h-4" strokeWidth={1.5} />
+                <Plus className="w-5 h-5" strokeWidth={1.5} />
               </span>
             </button>
 
-            {isOpen && (
+            {/* Body — animated max-height for smooth reveal */}
+            <div
+              className="relative grid transition-[grid-template-rows,opacity] duration-500 ease-out"
+              style={{
+                gridTemplateRows: isOpen ? '1fr' : '0fr',
+                opacity: isOpen ? 1 : 0,
+              }}
+            >
               <div className="overflow-hidden">
-                <div className="pt-1 pb-4 px-3 md:px-4">
+                <div className="pl-4 md:pl-5 pr-12 pb-4 md:pb-5" style={{ marginLeft: 'calc(14px + 1rem)' }}>
                   <p
-                    className="text-brand-slate leading-[1.65]"
+                    className="text-brand-slate leading-[1.6]"
                     style={{
-                      fontSize: '14px',
+                      fontSize: '14.5px',
                       fontFamily: 'var(--font-inter), system-ui, sans-serif',
                       fontWeight: 400,
                     }}
                   >
                     {item.body}
                   </p>
-                  <Link
-                    href={ctaHref}
-                    className="mt-4 inline-flex w-fit items-center gap-1.5 text-brand-gold font-semibold hover:text-[#B8943F] transition-colors duration-200"
-                    style={{
-                      fontSize: '13px',
-                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    }}
-                  >
-                    {ctaLabel}
-                    <ArrowRight className="w-3.5 h-3.5" strokeWidth={2} />
-                  </Link>
                 </div>
               </div>
-            )}
+            </div>
           </li>
         )
       })}

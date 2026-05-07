@@ -10,10 +10,9 @@ const schema = {
   logo: 'https://surewestroofing.ca/images/logo.png',
   image: 'https://surewestroofing.ca/images/og-default.jpg',
   description:
-    'Red Seal certified roofing contractor in Cochrane, Alberta. Roof replacement, repair, hail damage restoration, and maintenance for Cochrane, Calgary, and Canmore homes.',
+    'Red Seal Journeyman roofing contractor in Cochrane, Alberta. Roof replacement, repair, hail damage restoration, and maintenance for Cochrane, Calgary, and Canmore homes.',
   telephone: '+14039907210',
   email: 'info@surewestroofing.ca',
-  priceRange: '$$',
   foundingDate: '2020',
   address: {
     '@type': 'PostalAddress',
@@ -44,18 +43,13 @@ const schema = {
       name: 'Canmore',
       containedInPlace: { '@type': 'AdministrativeArea', name: 'Alberta' },
     },
-    {
-      '@type': 'City',
-      name: 'Airdrie',
-      containedInPlace: { '@type': 'AdministrativeArea', name: 'Alberta' },
-    },
   ],
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
       opens: '08:00',
-      closes: '16:30',
+      closes: '18:00',
     },
   ],
   sameAs: [

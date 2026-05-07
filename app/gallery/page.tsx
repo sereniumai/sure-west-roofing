@@ -15,24 +15,22 @@
 
 import type { Metadata } from 'next'
 import { Button } from '@/components/ui/Button'
-import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
 import { BottomCTA } from '@/components/sections/BottomCTA'
 import { GalleryGrid } from '@/components/sections/GalleryGrid'
-import type { FaqItem } from '@/lib/faqs/types'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
   title: 'Cochrane Roofing Projects Gallery',
   description:
-    'Browse completed roofing projects from Sure West across Cochrane, Calgary, and Canmore. Real roofs installed by our Red Seal certified crew.',
+    'Browse completed roofing projects from Sure West across Cochrane, Calgary, and Canmore. Installed by our in-house crew, Red Seal Journeyman supervised.',
   alternates: {
     canonical: 'https://surewestroofing.ca/gallery',
   },
   openGraph: {
     title: 'Cochrane Roofing Projects Gallery | Sure West Roofing',
     description:
-      'Browse completed roofing projects from Sure West across Cochrane, Calgary, and Canmore. Real roofs installed by our Red Seal certified crew.',
+      'Browse completed roofing projects from Sure West across Cochrane, Calgary, and Canmore. Installed by our in-house crew, Red Seal Journeyman supervised.',
     url: 'https://surewestroofing.ca/gallery',
     type: 'website',
     locale: 'en_CA',
@@ -88,7 +86,7 @@ const galleryImages = [
   { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'IKO Nordic impact resistant shingle installation in Cochrane' },
   { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Completed Sure West Roofing project in Cochrane, Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Residential roofing project in Calgary by Sure West' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Cochrane roof replacement completed by Red Seal crew' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Cochrane roof replacement completed by the Sure West in-house crew' },
   { src: '/images/Cochrane Roofing Contractor Gallery 14.webp', alt: 'Asphalt shingle roof in Canmore by Sure West Roofing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Completed roof replacement in Cochrane, Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Sure West Roofing project in the greater Calgary region' },
@@ -171,7 +169,7 @@ function GalleryHero() {
               }}
             >
               Completed roofs across Cochrane, Calgary, and Canmore. Every project below was
-              installed by our in-house Red Seal certified crew.
+              installed by our in-house crew, Red Seal Journeyman supervised.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3">
@@ -197,7 +195,7 @@ function GalleryHero() {
             >
               <span className="hidden md:inline">250+ Roofs Completed</span>
               <span aria-hidden="true" className="hidden md:inline" style={{ color: '#C49A2C' }}>·</span>
-              <span>Red Seal Certified</span>
+              <span>Red Seal Journeyman</span>
               <span aria-hidden="true" style={{ color: '#C49A2C' }}>·</span>
               <span>IKO ShieldPRO Installer</span>
             </div>
@@ -241,77 +239,7 @@ function GalleryHero() {
 // components/sections/GalleryGrid.tsx. It handles scroll-in animation and
 // click-to-open lightbox with prev/next navigation.
 
-// ─── Section: Gallery FAQ (reuse FAQSection) ────────────────────────────────
-
-const GALLERY_FAQS: FaqItem[] = [
-  {
-    question: 'How many projects has Sure West completed?',
-    answer:
-      'Sure West has completed hundreds of roofing projects across Cochrane, Calgary, and Canmore. The gallery on this page shows a selection of recent work, including full roof replacements, hail damage restorations, and impact-resistant shingle installs. Every project was installed by our in-house Red Seal certified crew.',
-  },
-  {
-    question: 'What kinds of roofing projects does the gallery show?',
-    answer:
-      'The Sure West gallery shows completed residential roof replacements in Cochrane, Calgary, and Canmore, featuring IKO Cambridge, Dynasty, and Nordic architectural shingles. You can see a mix of asphalt shingle replacements, hail damage restorations, and impact-resistant installs across different home styles and neighbourhoods.',
-  },
-  {
-    question: 'Are the roofs in the gallery from Cochrane, Calgary, or Canmore?',
-    answer:
-      'All three. Sure West is headquartered in Cochrane and serves Calgary and Canmore as core secondary markets. The gallery includes projects from every community we serve, with the majority completed in and around Cochrane.',
-  },
-  {
-    question: 'What shingles were used on the roofs in the gallery?',
-    answer:
-      'Most projects in the gallery use IKO architectural shingles from one of three tiers: IKO Cambridge (entry tier), IKO Dynasty (mid tier, most popular for Cochrane homes), and IKO Nordic (impact-resistant, Class 4 rated for hail protection). As an IKO ShieldPRO installer, Sure West qualifies every roof for top-tier manufacturer warranty coverage.',
-  },
-  {
-    question: 'Can I see a roof Sure West installed in person?',
-    answer:
-      "Yes. Once you book a free in-home estimate, we can point you toward completed Sure West projects in your neighbourhood if you want to see the work up close. Many Cochrane homeowners choose us after seeing a Sure West roof on a neighbour's home.",
-  },
-  {
-    question: 'Does Sure West install metal roofs or flat roofs?',
-    answer:
-      'The gallery primarily shows asphalt shingle roofs, which are the most common residential choice in Cochrane, Calgary, and Canmore. Sure West does install other systems on request, including metal roofing and flat roofing on specific project types. Contact us to discuss your options during a free estimate.',
-  },
-  {
-    question: 'How long does a typical Sure West roof replacement take?',
-    answer:
-      'Most single-family roof replacements in Cochrane are completed in one to two days, weather permitting. Larger or more complex roofs with multiple dormers, steep pitches, or significant decking repairs can run two to three days. Every project in the gallery was completed start to finish by our own Red Seal crew, with a full site clean-up and magnetic nail sweep on the final day.',
-  },
-  {
-    question: 'Can I use gallery photos for an insurance claim?',
-    answer:
-      'Gallery photos show completed Sure West projects and cannot substitute for a formal inspection report on your own roof. For an insurance claim, Sure West provides a full damage report with date-stamped photos, measurements, and itemised scope of work. Book a free inspection and we can submit the claim documentation directly to your adjuster on your behalf.',
-  },
-]
-
-function GalleryFAQ() {
-  return (
-    <ServiceFAQ
-      faqs={GALLERY_FAQS}
-      heading="Cochrane Roofing Projects, Answered"
-      subhead="Common questions about the projects in our gallery, the materials we use, and the homes we've worked on across Cochrane, Calgary, and Canmore."
-      subheadMaxWidth="780px"
-      sectionBg="#EFEBE0"
-    />
-  )
-}
-
 // ─── Section: Final CTA (shared BottomCTA, matches service pages) ───────────
-
-// ─── JSON-LD: FAQPage ────────────────────────────────────────────────────────
-// Built from GALLERY_FAQS so it stays in sync with what's rendered.
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: GALLERY_FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.question,
-    acceptedAnswer: { '@type': 'Answer', text: f.answer },
-  })),
-}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
@@ -322,14 +250,9 @@ export default function GalleryPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(imageGallerySchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
       <GalleryHero />
       <GalleryGrid images={galleryImages} />
-      <GalleryFAQ />
       <BottomCTA
         heading={
           <>
@@ -337,7 +260,7 @@ export default function GalleryPage() {
             <br className="hidden md:block" /> Let&apos;s Add Your Roof to the Gallery.
           </>
         }
-        subtext="Free in-home estimate. Fixed written quote. Quick replies, even evenings and weekends."
+        subtext="Free in-home estimate. Fixed written quote. Red Seal Journeyman certified, no sales pressure."
       />
     </>
   )

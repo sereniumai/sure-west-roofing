@@ -9,37 +9,39 @@ import {
   Leaf,
   ShieldCheck,
   Award,
-  CloudLightning,
-  FileText,
   ArrowRight,
   FileCheck,
   CheckCircle,
-  Sparkles,
-  KeyRound,
-  Wrench,
-  MessageSquare,
+  Users,
+  Handshake,
+  ListChecks,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { RoofMaintenanceHero } from '@/components/sections/RoofMaintenanceHero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
-import { ServiceFAQ } from '@/components/sections/ServiceFAQ'
+import {
+  RoofMaintenanceFAQ,
+  roofMaintenanceFaqSchema,
+} from '@/components/sections/RoofMaintenanceFAQ'
 import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
 import { ServicesGallery } from '@/components/sections/ServicesGallery'
 import { Reviews } from '@/components/sections/Reviews'
-import { ServiceAreasPins } from '@/components/sections/ServiceAreasPins'
+import {
+  ServicesHubDifferentiators,
+  type DifferentiatorItem,
+} from '@/components/sections/ServicesHubDifferentiators'
 import { BottomCTA } from '@/components/sections/BottomCTA'
-import { ROOF_MAINTENANCE_FAQS } from '@/lib/faqs/roofMaintenance'
 
 export const metadata: Metadata = {
   title: 'Roof Maintenance Cochrane',
   description:
-    'Red Seal certified roof maintenance in Cochrane, AB. Annual inspections, minor repairs, valley clearing, and a written maintenance log to support your IKO warranty. From $250.',
+    'Roof maintenance Cochrane homeowners trust. Red Seal Journeyman certified. Annual visits, written reports, IKO warranty support included.',
   alternates: { canonical: 'https://surewestroofing.ca/roof-maintenance' },
   openGraph: {
     title: 'Roof Maintenance Cochrane | Sure West Roofing',
     description:
-      'Red Seal certified roof maintenance in Cochrane, AB. Annual inspections, minor repairs, valley clearing, and a written maintenance log to support your IKO warranty. From $250.',
+      'Roof maintenance Cochrane homeowners trust. Red Seal Journeyman certified. Annual visits, written reports, IKO warranty support included.',
     url: 'https://surewestroofing.ca/roof-maintenance',
     type: 'website',
     locale: 'en_CA',
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Roof Maintenance Cochrane | Sure West Roofing',
-    description: 'Red Seal certified annual roof maintenance from $250 in Cochrane, AB.',
+    description: 'Red Seal certified annual roof maintenance in Cochrane, AB.',
     images: ['https://surewestroofing.ca/images/Cochrane Roofing Contractor Gallery 15.webp'],
   },
 }
@@ -89,17 +91,6 @@ const serviceSchema = {
   url: 'https://surewestroofing.ca/roof-maintenance',
   description:
     'Red Seal certified annual roof maintenance in Cochrane, Calgary, and Canmore. Inspections, minor repairs, and a written maintenance log to support IKO warranty.',
-  offers: { '@type': 'Offer', priceCurrency: 'CAD', priceRange: '$250-$650' },
-}
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: ROOF_MAINTENANCE_FAQS.map((f) => ({
-    '@type': 'Question',
-    name: f.question,
-    acceptedAnswer: { '@type': 'Answer', text: f.answer },
-  })),
 }
 
 const CERT_LOGOS = [
@@ -134,344 +125,47 @@ function CertsBanner() {
   )
 }
 
-// ─── Section: Our Standard (team image + numbered items) ───────────────────
-
-const STANDARD_PILLARS = [
-  {
-    heading: 'Red Seal Journeyman visit',
-    body: 'A credentialed Red Seal tradesperson does every maintenance visit. Same crew on the inspection, no subcontractors.',
-  },
-  {
-    heading: 'Fixed pricing, no surprises',
-    body: 'Every visit is quoted in advance at fixed Cochrane rates. Any larger repairs found during the visit are quoted before we proceed.',
-  },
-  {
-    heading: 'Warranty-supporting log',
-    body: 'Photo-documented maintenance log delivered after each visit. Exactly what an IKO warranty claim review looks for.',
-  },
-]
-
-function OurStandard() {
-  return (
-    <section
-      className="relative bg-white overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
-    >
-      <div className="max-w-[1320px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
-          <div className="relative lg:order-1">
-            <div
-              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
-              style={{
-                boxShadow:
-                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
-              }}
-            >
-              <Image
-                src="/sure-west-roofing-team-cochrane.webp"
-                alt="Craig and Mike, owners of Sure West Roofing, with the in-house crew in Cochrane Alberta"
-                fill
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-                style={{ objectPosition: 'center 30%' }}
-                loading="lazy"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    'linear-gradient(to top, rgba(44,71,102,0.18) 0%, transparent 40%)',
-                }}
-              />
-            </div>
-
-            <div
-              className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-5 lg:-bottom-7 lg:-right-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
-              style={{
-                boxShadow:
-                  '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
-              }}
-            >
-              <span
-                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
-                style={{
-                  background: 'rgba(212,175,96,0.14)',
-                  border: '1px solid rgba(212,175,96,0.35)',
-                }}
-              >
-                <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
-              </span>
-              <div>
-                <div
-                  className="font-display text-brand-navy leading-none"
-                  style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
-                >
-                  Owner-Operated
-                </div>
-                <div
-                  className="text-brand-slate mt-1.5"
-                  style={{
-                    fontSize: '12px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 500,
-                    letterSpacing: '0.01em',
-                    lineHeight: 1.3,
-                  }}
-                >
-                  Same crew, every visit
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col lg:order-2">
-            <span
-              className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-              style={{
-                background: '#F7F5F0',
-                fontSize: '12px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 600,
-                lineHeight: 1,
-              }}
-            >
-              Our Standard
-            </span>
-            <h2
-              className="font-display font-medium text-brand-navy"
-              style={{
-                fontSize: 'clamp(32px, 4.5vw, 48px)',
-                lineHeight: 1.15,
-                letterSpacing: '-0.005em',
-              }}
-            >
-              Cochrane Roof Maintenance
-              <br className="hidden lg:block" /> That Adds Years to Your Roof
-            </h2>
-            <p
-              className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
-              style={{
-                fontSize: '16px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 400,
-              }}
-            >
-              A Sure West maintenance visit catches small issues before they become leaks. Red Seal
-              installed and logged in writing for your IKO warranty.
-            </p>
-
-            <ul className="mt-8 flex flex-col gap-7">
-              {STANDARD_PILLARS.map((p, i) => (
-                <li key={p.heading} className="flex gap-5">
-                  <div
-                    aria-hidden="true"
-                    className="flex-shrink-0 font-display font-bold text-brand-gold leading-none"
-                    style={{ fontSize: '32px', letterSpacing: '-0.03em', minWidth: '46px' }}
-                  >
-                    0{i + 1}
-                  </div>
-                  <div>
-                    <h3
-                      className="font-display font-semibold text-brand-navy"
-                      style={{ fontSize: '18px', letterSpacing: '-0.005em', lineHeight: 1.3 }}
-                    >
-                      {p.heading}
-                    </h3>
-                    <p
-                      className="mt-2 text-brand-slate leading-[1.65] max-w-[460px]"
-                      style={{
-                        fontSize: '15px',
-                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                        fontWeight: 400,
-                      }}
-                    >
-                      {p.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-10">
-              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-                Get a Free Estimate
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-const MAINTENANCE_INCLUDED_ITEMS = [
-  {
-    heading: 'Full visual inspection of every roof system',
-    body:
-      'A Red Seal Journeyman walks every slope of your Cochrane roof and inspects shingles, flashing, vents, valleys, and penetrations for early signs of failure.',
-  },
-  {
-    heading: 'Cleaning, resealing, and minor repairs included',
-    body:
-      'Valleys cleared of debris, lifted shingles reset, cracked sealant replaced, and minor flashing fixes completed during the visit. No surprise add-ons.',
-  },
-  {
-    heading: 'Written maintenance log + photo report',
-    body:
-      'You receive a written maintenance log with photos of every checkpoint. The log supports your IKO warranty and gives you a clear record for resale or insurance.',
-  },
-]
-
-function WhatIncluded() {
-  return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
-      style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
-      <div className="max-w-[1320px] mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-center">
-          <div className="flex flex-col lg:order-1">
-            <span className="inline-flex self-start items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-              style={{ background: '#F7F5F0', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
-              What&apos;s Included
-            </span>
-            <h2 className="font-display font-medium text-brand-navy"
-              style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-              What&apos;s Included in a Sure
-              <br />
-              West Maintenance Visit
-            </h2>
-            <p className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
-              style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-              Every Sure West maintenance visit is carried out by our Red Seal Journeyman crew.
-              Serving Cochrane, Calgary, and Canmore.
-            </p>
-
-            <ul className="mt-8 flex flex-col gap-7">
-              {MAINTENANCE_INCLUDED_ITEMS.map((item, i) => (
-                <li key={item.heading} className="flex gap-5">
-                  <div
-                    aria-hidden="true"
-                    className="flex-shrink-0 font-display font-bold text-brand-gold leading-none"
-                    style={{ fontSize: '32px', letterSpacing: '-0.03em', minWidth: '46px' }}
-                  >
-                    0{i + 1}
-                  </div>
-                  <div>
-                    <h3
-                      className="font-display font-semibold text-brand-navy"
-                      style={{ fontSize: '18px', letterSpacing: '-0.005em', lineHeight: 1.3 }}
-                    >
-                      {item.heading}
-                    </h3>
-                    <p
-                      className="mt-2 text-brand-slate leading-[1.65] max-w-[460px]"
-                      style={{
-                        fontSize: '15px',
-                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                        fontWeight: 400,
-                      }}
-                    >
-                      {item.body}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-10">
-              <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-                Get a Free Estimate
-              </Button>
-            </div>
-          </div>
-
-          <div className="relative lg:order-2">
-            <div
-              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
-              style={{
-                boxShadow:
-                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
-              }}
-            >
-              <Image
-                src="/images/Cochrane Roofing Contractor Gallery 5.webp"
-                alt="Annual roof maintenance and inspection on a Cochrane Alberta home"
-                fill
-                sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
-                loading="lazy"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 pointer-events-none"
-                style={{
-                  background:
-                    'linear-gradient(to top, rgba(44,71,102,0.18) 0%, transparent 40%)',
-                }}
-              />
-            </div>
-
-            <div
-              className="absolute -bottom-5 -left-3 sm:-bottom-6 sm:-left-5 lg:-bottom-7 lg:-left-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
-              style={{
-                boxShadow:
-                  '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
-              }}
-            >
-              <span
-                className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
-                style={{
-                  background: 'rgba(212,175,96,0.14)',
-                  border: '1px solid rgba(212,175,96,0.35)',
-                }}
-              >
-                <FileCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
-              </span>
-              <div>
-                <div
-                  className="font-display text-brand-navy leading-none"
-                  style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
-                >
-                  In Writing
-                </div>
-                <div
-                  className="text-brand-slate mt-1.5"
-                  style={{
-                    fontSize: '12px',
-                    fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                    fontWeight: 500,
-                    letterSpacing: '0.01em',
-                    lineHeight: 1.3,
-                  }}
-                >
-                  Maintenance log every visit
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
 const SIGNS = [
-  { Icon: Clock, heading: 'Roof is over 5 years old', body: 'Even healthy Cochrane roofs benefit from an annual inspection after year five. Catching small issues early is the cheapest form of roof care available.' },
-  { Icon: Wind, heading: 'Recent Chinook windstorm', body: 'Chinook winds regularly lift shingle tabs in Cochrane without obvious damage. A post-storm maintenance visit resets them before the next weather event.' },
-  { Icon: Calendar, heading: 'Spring or fall transition', body: 'Spring catches winter freeze-thaw damage; fall preps the roof for snow load. Two visits per year is the gold standard for Cochrane homes over 15 years old.' },
-  { Icon: Home, heading: 'Selling or buying a Cochrane home', body: 'A clean maintenance log adds buyer confidence and supports your asking price. Buyers get peace of mind that the roof has been cared for.' },
-  { Icon: Leaf, heading: 'Visible debris in valleys or gutters', body: 'Leaves, twigs, and granules in valleys trap moisture against the shingles. A maintenance clean prevents the slow rot that follows.' },
-  { Icon: ShieldCheck, heading: 'Approaching IKO warranty milestone', body: 'IKO manufacturer warranties require evidence of reasonable maintenance. A documented Sure West visit before milestone dates protects your coverage.' },
+  {
+    Icon: Clock,
+    heading: 'Roof is over 5 years old',
+    body: 'Even healthy Cochrane roofs benefit from an annual inspection after year five. The shingle layer has aged enough to show the early signs of wear, and catching them now is the cheapest form of roof care.',
+  },
+  {
+    Icon: Wind,
+    heading: 'Recent Chinook windstorm',
+    body: 'Chinook winds regularly lift shingle tabs in Cochrane without obvious damage. A post-storm maintenance visit reseats tabs and tops up flashing seals before the next weather event finds the gap.',
+  },
+  {
+    Icon: Calendar,
+    heading: 'Spring or fall transition',
+    body: 'Spring catches winter freeze-thaw damage and ice dam stress. Fall preps the roof for snow load and seals up small issues before they freeze. Two visits per year is the standard for Cochrane roofs over 15 years old.',
+  },
+  {
+    Icon: Home,
+    heading: 'Selling or buying a Cochrane home',
+    body: 'A clean maintenance log adds buyer confidence and supports your asking price. For buyers, the log gives peace of mind that the roof has been professionally cared for, not deferred until something leaked.',
+  },
+  {
+    Icon: Leaf,
+    heading: 'Visible debris in valleys or gutters',
+    body: 'Leaves, twigs, and shingle granules in valleys trap moisture against the shingles. A maintenance clean removes the debris and prevents the slow rot that follows when valleys cannot drain properly.',
+  },
+  {
+    Icon: ShieldCheck,
+    heading: 'Approaching IKO warranty milestone',
+    body: 'IKO manufacturer warranties require evidence of regular upkeep. A documented Sure West maintenance visit ahead of milestone dates protects your warranty coverage if a claim is questioned.',
+  },
 ]
 
 function SignsYouNeed() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24"
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
           <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{ background: '#F7F5F0', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
+            style={{ background: '#FFFFFF', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
             When to Book
           </span>
           <h2 className="font-display font-medium text-brand-navy"
@@ -480,9 +174,9 @@ function SignsYouNeed() {
             <br />
             Maintenance in Cochrane
           </h2>
-          <p className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]"
+          <p className="mt-5 max-w-[640px] text-brand-slate leading-[1.7]"
             style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Annual maintenance is the cheapest insurance your Cochrane roof can have. Here is when to call.
+            Annual maintenance is the cheapest insurance your Cochrane roof can carry. Here are six situations where booking a visit is the right call.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
@@ -491,7 +185,7 @@ function SignsYouNeed() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {SIGNS.map(({ Icon, heading, body }) => (
-            <div key={heading} className="bg-brand-cream rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
+            <div key={heading} className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
               <div className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-4" style={{ background: 'rgba(212,175,96,0.10)' }}>
                 <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
               </div>
@@ -511,33 +205,51 @@ const MAINTENANCE_STEPS: HowItWorksStep[] = [
     Icon: Calendar,
     title: 'Schedule Your Visit',
     description:
-      'Booked online or by phone. Confirmed within one business day around your Cochrane schedule and the forecast.',
+      'Booked online or by phone. We confirm by phone or email after we receive your booking, scheduled around your Cochrane week and the forecast. No deposit required, no obligation if your plans change.',
   },
   {
     number: '02',
     Icon: FileCheck,
     title: 'Inspect, Clean, Repair',
     description:
-      'Slope walk, attic check, valleys cleared, lifted shingles reset, and minor flashing fixes completed during the same visit.',
+      'Slope walk and attic check, valleys cleared of debris, shingle tabs reseated, minor flashing reseals completed during the same visit. Approximately two hours on-site.',
   },
   {
     number: '03',
     Icon: CheckCircle,
     title: 'Written Maintenance Log',
     description:
-      'Photo-documented log supports your IKO warranty and gives you a clean record for resale or insurance.',
+      "Photo-documented log delivered after every visit. Supports your IKO warranty, gives buyers a clean record at resale, and keeps your insurer informed of the roof's condition over time.",
   },
 ]
 
 const MAINTENANCE_PLANS = [
-  { tier: 'Most Popular', name: 'Annual Tune-Up', image: '/images/Cochrane Roofing Contractor Gallery 4.webp', imageAlt: 'Annual roof maintenance tune-up in Cochrane Alberta', body: 'One full inspection plus minor repairs and cleaning per year. The right cadence for Cochrane homes under 15 years old. Starts from $250 for a standard single-family roof.' },
-  { tier: 'Heavy Use', name: 'Bi-Annual Plan', image: '/images/Cochrane Roofing Contractor Gallery 16.webp', imageAlt: 'Bi-annual roof maintenance plan for older Cochrane homes', body: 'Spring and fall visits to catch winter freeze-thaw damage and prep for snow load. Recommended for Cochrane roofs over 15 years old, hail-prone neighbourhoods, or properties with mature trees.' },
-  { tier: 'Resale Ready', name: 'Pre-Sale Maintenance', image: '/images/Cochrane Roofing Contractor Gallery 19.webp', imageAlt: 'Pre-sale roof maintenance package in Cochrane Alberta', body: 'A one-time visit timed for listing day. Includes full inspection, repairs, and a presentable maintenance log buyers and inspectors can review. Removes a common deal-breaker before it surfaces.' },
+  {
+    tier: 'Most Popular',
+    name: 'Annual Tune-Up',
+    image: '/images/Cochrane Roofing Contractor Gallery 4.webp',
+    imageAlt: 'Annual roof maintenance tune-up in Cochrane Alberta',
+    body: 'One full inspection plus minor repairs and cleaning per year, scheduled around the Cochrane forecast. The right cadence for Cochrane homes under 15 years old. Includes a written maintenance log. Pricing scales with roof size.',
+  },
+  {
+    tier: 'Heavy Use',
+    name: 'Bi-Annual Plan',
+    image: '/images/Cochrane Roofing Contractor Gallery 16.webp',
+    imageAlt: 'Bi-annual roof maintenance plan for older Cochrane homes',
+    body: 'Spring and fall visits to catch freeze-thaw damage and prep for snow load. Recommended for Cochrane roofs over 15 years old, hail-prone neighbourhoods, or properties with trees overhanging the roofline. Pricing scales with roof size.',
+  },
+  {
+    tier: 'Resale Ready',
+    name: 'Pre-Sale Maintenance',
+    image: '/images/Cochrane Roofing Contractor Gallery 19.webp',
+    imageAlt: 'Pre-sale roof maintenance package in Cochrane Alberta',
+    body: 'A one-time visit timed for listing day. Includes full inspection, minor repairs, and a presentable maintenance log buyers and home inspectors can review. Removes a common deal-breaker before it surfaces in the offer negotiation.',
+  },
 ]
 
 function MaintenancePlans() {
   return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+    <section className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
@@ -551,7 +263,7 @@ function MaintenancePlans() {
           </h2>
           <p className="mt-5 max-w-[600px] text-brand-slate leading-[1.7]"
             style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Choose the cadence that fits your roof age, neighbourhood, and stage. All plans include a written maintenance log.
+            Choose the cadence that fits your roof&apos;s age, your neighbourhood, and where you are in homeownership. Every plan includes a written maintenance log that supports your IKO warranty.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
@@ -560,7 +272,7 @@ function MaintenancePlans() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {MAINTENANCE_PLANS.map(({ tier, name, image, imageAlt, body }) => (
-            <div key={name} className="bg-white rounded-[12px] border border-brand-border flex flex-col overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
+            <div key={name} className="bg-brand-cream rounded-[12px] border border-brand-border flex flex-col overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
               <div className="relative flex-shrink-0" style={{ height: '200px' }}>
                 <Image src={image} alt={imageAlt} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" loading="lazy" />
               </div>
@@ -579,57 +291,47 @@ function MaintenancePlans() {
   )
 }
 
-const DIFFERENTIATORS = [
-  { Icon: Award, heading: 'Owner-Led on Every Visit', body: 'Craig and Mike personally walk every Cochrane roof, brief the crew, and review the maintenance log. Same names on the visit, same names on the warranty.' },
-  { Icon: Home, heading: 'Cochrane Local, Not a Franchise', body: 'We live where we work. Same shops, same coffee places, same neighbours. Our reputation in this town is earned daily, not advertised.' },
-  { Icon: Wrench, heading: 'Craft Where Crews Cut Corners', body: 'Lifted shingles reset, sealant replaced, valleys cleared, flashing tied in by hand. Hidden details are what fail first.' },
-  { Icon: MessageSquare, heading: 'Communication Built In', body: 'Photo log after every visit, next-visit reminder before snow season, and a clear list of anything we found. You always know the state of your roof.' },
+// ─── Section: Why Sure West (5-card, placeholder copy) ────────────────────
+
+const MAINTENANCE_DIFFERENTIATORS: DifferentiatorItem[] = [
+  {
+    Icon: Award,
+    heading: 'Legacy',
+    subtitle: 'Worth Standing Behind in 20 Years',
+    body: 'Every maintenance log we sign is one we would still stand behind in 20 years. Honest findings, accurate condition ratings, no padding the visit, no missing problems to skip a repair. The log we leave is the reputation we leave.',
+  },
+  {
+    Icon: Users,
+    heading: 'Brotherhood',
+    subtitle: 'Same Crew, Every Visit',
+    body: 'Craig leads every Sure West maintenance visit. The crew you meet on the first visit is the crew you meet next year. No subcontractor handoff, no rotating faces, just the same names walking your roof season after season.',
+  },
+  {
+    Icon: Handshake,
+    heading: 'Character',
+    subtitle: "The Visit That Doesn't Upsell",
+    body: 'We will not inflate a minor reset into a full repair quote. We will not bury a real issue to avoid an awkward conversation. The maintenance is the maintenance, the same whether your roof is two years old or twelve.',
+  },
+  {
+    Icon: ShieldCheck,
+    heading: 'Competency',
+    subtitle: 'Red Seal Journeyman Standard',
+    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Maintenance done right means every slope walked, every flashing checked, every valley cleared, every IKO warranty term honoured. The details a quick visit misses, we catch first.',
+  },
+  {
+    Icon: ListChecks,
+    heading: 'Proven Processes',
+    subtitle: 'Same Checklist, Every Roof',
+    body: 'Same checklist on every Cochrane roof. Same photo-documentation standard, same condition ratings, same maintenance log format, same delivery timing. Whether your roof is one year old or fifteen, the standard does not change.',
+  },
 ]
-
-function WhySureWest() {
-  return (
-    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
-      <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 md:mb-16 max-w-[720px] mx-auto">
-          <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-            style={{ background: '#F7F5F0', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
-            Why Sure West
-          </span>
-          <h2 className="font-display font-medium text-brand-navy" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            Why Cochrane Homeowners
-            <br />
-            Trust Sure West for Maintenance
-          </h2>
-          <p className="mt-5 max-w-[580px] text-brand-slate leading-[1.7]" style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Owner-led, Cochrane-rooted, and obsessed with the details most crews skip. The reasons people in town pick Sure West, then tell their neighbours.
-          </p>
-          <div className="mt-7">
-            <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
-          {DIFFERENTIATORS.map(({ Icon, heading, body }) => (
-            <div key={heading} className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[4px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
-              <div className="inline-flex items-center justify-center w-11 h-11 rounded-[8px] mb-5" style={{ background: 'rgba(212,175,96,0.12)' }}>
-                <Icon className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
-              </div>
-              <h3 className="font-display font-semibold text-brand-navy mb-3 leading-[1.25]" style={{ fontSize: '20px', letterSpacing: '-0.01em' }}>{heading}</h3>
-              <p className="text-brand-slate leading-[1.65]" style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>{body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
 
 
 const MAINTENANCE_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Cochrane roof maintained by Sure West Roofing',                       caption: 'Cochrane, AB · Maintained' },
   { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Annual maintenance tune-up on a Cochrane Alberta home',               caption: 'Cochrane, AB · Annual Visit' },
   { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Maintenance visit completed by Sure West Roofing in Calgary',         caption: 'Calgary, AB · Maintenance' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Red Seal crew clearing valleys during a Cochrane maintenance visit',  caption: 'Cochrane, AB · Valleys' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Sure West crew clearing debris from roof valleys during maintenance',  caption: 'Cochrane, AB · Valleys' },
   { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Pre-sale maintenance package on a Cochrane home',                     caption: 'Cochrane, AB · Pre-Sale' },
   { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Roof inspection and minor repair in Cochrane Alberta',                caption: 'Cochrane, AB · Inspection' },
   { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Bi-annual maintenance plan for an older Cochrane home',               caption: 'Cochrane, AB · Bi-Annual' },
@@ -640,15 +342,15 @@ const MAINTENANCE_GALLERY_IMAGES = [
 
 function RelatedServices() {
   return (
-    <section className="relative bg-white overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
+    <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24" style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-10 gap-4">
           <div>
             <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-5 text-brand-gold"
-              style={{ background: '#F7F5F0', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
+              style={{ background: '#FFFFFF', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
               More Services
             </span>
-            <h2 className="font-display font-medium text-brand-navy" style={{ fontSize: 'clamp(28px, 3.5vw, 42px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
+            <h2 className="font-display font-medium text-brand-navy" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
               Other Roofing Services We Offer
             </h2>
           </div>
@@ -659,7 +361,7 @@ function RelatedServices() {
           </Link>
         </div>
 
-        <RelatedServicesCarousel exclude="/roof-maintenance" />
+        <RelatedServicesCarousel exclude="/roof-maintenance" cardBg="#FFFFFF" />
       </div>
     </section>
   )
@@ -670,12 +372,12 @@ export default function RoofMaintenancePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(roofMaintenanceFaqSchema) }} />
 
       <RoofMaintenanceHero />
       <TrustLogos />
-      <OurStandard />
-      <WhatIncluded />
+      <MaintenancePlans />
+      <SignsYouNeed />
       <HowItWorks
         heading={
           <>
@@ -683,27 +385,29 @@ export default function RoofMaintenancePage() {
             <br className="hidden md:block" /> Maintenance Visit Works
           </>
         }
-        body="Three clear steps from booking to next-visit reminder. No hidden steps, no surprise charges."
+        body="Three clear steps from booking to written log. Most maintenance visits are completed in under two hours, with no hidden steps and no surprise charges."
         steps={MAINTENANCE_STEPS}
       />
       <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
-      <SignsYouNeed />
-      <MaintenancePlans />
-      <ServicesGallery images={MAINTENANCE_GALLERY_IMAGES} sectionBg="#FFFFFF" />
-      <WhySureWest />
-      <ServiceAreasPins
-        heading={'Roof Maintenance Across Cochrane,\n Calgary, and Canmore'}
-        subhead="Based in Cochrane. Same Red Seal crew across Calgary and Canmore."
+      <ServicesHubDifferentiators
+        items={MAINTENANCE_DIFFERENTIATORS}
+        heading={
+          <>
+            What Sets a Sure West
+            <br className="hidden lg:block" /> Maintenance Visit Apart
+          </>
+        }
+        subhead="Five responsibilities we've taken on, five things every Sure West maintenance visit gets that the average Cochrane crew can't match."
+        sectionBg="#FFFFFF"
+        cardBg="#F7F5F0"
       />
-      <ServiceFAQ
-        faqs={ROOF_MAINTENANCE_FAQS}
-        heading="Roof Maintenance Questions, Answered"
-        subhead="Straight answers about annual roof maintenance and IKO warranty care in Cochrane."
-      />
+      <ServicesGallery images={MAINTENANCE_GALLERY_IMAGES} sectionBg="#F7F5F0" />
+      <RoofMaintenanceFAQ />
       <RelatedServices />
       <BottomCTA
-        heading={<>Add Years to Your<br className="hidden md:block" /> Cochrane Roof&apos;s Life</>}
-        subtext="Red Seal certified, fixed pricing from $250, written maintenance log, and no sales pressure. Book your annual visit today."
+        heading={<>Need Roof Maintenance<br className="hidden md:block" /> You Can Actually Trust?</>}
+        subtext="Red Seal Journeyman certified, fixed written quote during the on-site visit, written maintenance log, and no sales pressure. Same standard, every visit, every roof."
+        sectionBg="#FFFFFF"
       />
     </>
   )

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { ShieldCheck } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
@@ -19,6 +20,8 @@ export interface ServicePageHeroProps {
   }
   primaryCTA?: { label: string; href: string }
   secondaryCTA?: { label: string; href: string }
+  /** Floating trust badge over the image bottom-right. */
+  badge?: { heading: string; subtext: string }
 }
 
 export function ServicePageHero({
@@ -29,6 +32,7 @@ export function ServicePageHero({
   image,
   primaryCTA = { label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' },
   secondaryCTA = { label: 'Call 403-990-7210', href: 'tel:4039907210' },
+  badge,
 }: ServicePageHeroProps) {
   return (
     <section
@@ -137,6 +141,47 @@ export function ServicePageHero({
                 }}
               />
             </div>
+
+            {badge && (
+              <div
+                className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-5 lg:-bottom-7 lg:-right-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
+                style={{
+                  boxShadow:
+                    '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
+                  zIndex: 2,
+                }}
+              >
+                <span
+                  className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
+                  style={{
+                    background: 'rgba(212,175,96,0.14)',
+                    border: '1px solid rgba(212,175,96,0.35)',
+                  }}
+                >
+                  <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+                </span>
+                <div>
+                  <div
+                    className="font-display text-brand-navy leading-none"
+                    style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                  >
+                    {badge.heading}
+                  </div>
+                  <div
+                    className="text-brand-slate mt-1.5"
+                    style={{
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                      fontWeight: 500,
+                      letterSpacing: '0.01em',
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    {badge.subtext}
+                  </div>
+                </div>
+              </div>
+            )}
           </Reveal>
         </div>
       </div>

@@ -24,7 +24,7 @@ const ALL_SERVICES = [
     image: '/images/roof-replacement-cochrane.webp',
     imageAlt: 'Roof replacement in Cochrane Alberta by Sure West Roofing',
     description:
-      "The biggest job your roof will get, run by the same Red Seal crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year warranty in writing.",
+      "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year guarantee in writing.",
   },
   {
     Icon: Wrench,
@@ -60,7 +60,7 @@ const ALL_SERVICES = [
     image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
     imageAlt: 'Siding and soft metals project in Cochrane Alberta by Sure West Roofing',
     description:
-      "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same Red Seal crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
+      "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same in-house crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
   },
   {
     Icon: Sun,
@@ -85,9 +85,11 @@ const ALL_SERVICES = [
 interface Props {
   /** href of the current page's service, excluded from the carousel */
   exclude?: string
+  /** Card background. Default cream (sits on white sections); pass white when on cream sections. */
+  cardBg?: string
 }
 
-export function RelatedServicesCarousel({ exclude }: Props) {
+export function RelatedServicesCarousel({ exclude, cardBg = '#F7F5F0' }: Props) {
   const services = exclude ? ALL_SERVICES.filter((s) => s.href !== exclude) : ALL_SERVICES
   const trackRef = useRef<HTMLDivElement>(null)
   const [canPrev, setCanPrev] = useState(false)
@@ -133,7 +135,8 @@ export function RelatedServicesCarousel({ exclude }: Props) {
           >
             <Link
               href={href}
-              className="group flex flex-col h-full rounded-[14px] bg-brand-cream border border-[#E5E2D9] overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-500 ease-out hover:-translate-y-[6px] hover:border-brand-gold/60 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+              className="group flex flex-col h-full rounded-[14px] border border-[#E5E2D9] overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-500 ease-out hover:-translate-y-[6px] hover:border-brand-gold/60 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
+              style={{ background: cardBg }}
             >
               {/* Image */}
               <div className="relative aspect-[3/2] overflow-hidden flex-shrink-0">

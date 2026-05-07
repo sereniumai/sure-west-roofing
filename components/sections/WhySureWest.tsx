@@ -1,31 +1,45 @@
 'use client'
 
+import { useState } from 'react'
+import { Plus } from 'lucide-react'
 import { FoundersVideo } from '@/components/ui/FoundersVideo'
 import { Reveal } from '@/components/ui/Reveal'
 
 interface Pillar {
-  num: string
   title: string
+  subtitle: string
   body: string
 }
 
 const PILLARS: Pillar[] = [
   {
-    num: '01',
+    title: 'Legacy',
+    subtitle: 'Built to Last 20 Years',
+    body: "Every roof we install is one we'd be proud of in 20 years. No easy money, no corner cuts, no shingles laid over problems.",
+  },
+  {
+    title: 'Brotherhood',
+    subtitle: 'Same Crew, Every Roof',
+    body: 'The crew you meet at the quote is the crew on your roof. Same in-house team from tear-off to walkthrough, Red Seal Journeyman supervised.',
+  },
+  {
     title: 'Character',
-    body: "Who we are when no one's watching. In-house crew on every roof, honest quotes from day one, and we'll tell you if you don't need a replacement, even if it costs us the work.",
+    subtitle: "The Quote That Doesn't Move",
+    body: "The price you approve is the price you pay. Quotes don't move, commitments kept, no padding mid-project.",
   },
   {
-    num: '02',
     title: 'Competency',
-    body: "Mastering the craft, not just doing the job. Red Seal Journeyman certified, Canada's highest trade credential, on every roof. The parts you never see done well are the parts we get right.",
+    subtitle: 'Red Seal Journeyman Standard',
+    body: "Red Seal Journeyman is Canada's highest roofing credential. Deck inspected, flashings cut to the wall, manufacturer specs followed.",
   },
   {
-    num: '03',
     title: 'Proven Processes',
-    body: 'Same playbook on every job. Same Red Seal crew, same documentation, same magnetic nail sweep, same warranty in writing. Discipline turned into habit.',
+    subtitle: 'Same Playbook on Every Roof',
+    body: 'Same checklists day one and three. Same communication before every job. Same magnetic nail sweep, same 10-year warranty.',
   },
 ]
+
+const SERIF = "Georgia, 'Times New Roman', serif"
 
 interface WhySureWestProps {
   eyebrow?: string
@@ -44,10 +58,12 @@ export function WhySureWest({
   videoThumbnail,
   subheadMaxWidth = '725px',
 }: WhySureWestProps = {}) {
-  const pillars = PILLARS
   const subhead =
     body ??
     `Every ${cityName} roofing contractor claims to be the best. Here's how we earn that on every roof.`
+
+  // Default the first pillar (Legacy) open so the section reads without interaction
+  const [open, setOpen] = useState<number | null>(0)
 
   return (
     <section
@@ -112,73 +128,142 @@ export function WhySureWest({
           </div>
         </Reveal>
 
-        {/* Two-column split: editorial pillar panel left, video right */}
-        <div className="mt-8 md:mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            {/* LEFT: 3 pillars, each animates in with a staggered delay */}
-            <div className="flex flex-col">
-              {pillars.map((p, i) => (
-                <Reveal
-                  key={p.num}
-                  delay={150 + i * 140}
-                  className="flex gap-5 md:gap-6 py-3 md:py-4"
-                >
-                  {/* Numeral column */}
-                  <span
-                    className="shrink-0 font-display text-brand-gold"
+        {/* Two-column split: editorial 5-pillar accordion left, video right */}
+        <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          {/* LEFT: editorial accordion */}
+          <Reveal delay={150}>
+            <ul className="flex flex-col">
+              {PILLARS.map((p, i) => {
+                const isOpen = open === i
+                const num = String(i + 1).padStart(2, '0')
+                return (
+                  <li
+                    key={p.title}
+                    className="relative group/row"
                     style={{
-                      fontSize: 'clamp(36px, 3.5vw, 48px)',
-                      fontWeight: 500,
-                      lineHeight: 1,
-                      letterSpacing: '-0.02em',
-                      minWidth: '64px',
+                      borderTop: i === 0 ? '1px solid rgba(26,22,18,0.10)' : 'none',
+                      borderBottom: '1px solid rgba(26,22,18,0.10)',
                     }}
                   >
-                    {p.num}
-                  </span>
+                    {/* Active gold left-rail accent */}
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute left-0 top-0 bottom-0 transition-all duration-500 ease-out"
+                      style={{
+                        width: isOpen ? '3px' : '0px',
+                        background:
+                          'linear-gradient(180deg, rgba(212,175,96,0) 0%, rgba(212,175,96,0.95) 30%, rgba(212,175,96,0.95) 70%, rgba(212,175,96,0) 100%)',
+                      }}
+                    />
 
-                  {/* Title + body */}
-                  <div className="flex-1">
-                    <h3
-                      className="font-display font-semibold text-brand-navy"
+                    {/* Soft warm wash on active row */}
+                    <span
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-0 transition-opacity duration-500 ease-out"
                       style={{
-                        fontSize: 'clamp(20px, 1.8vw, 24px)',
-                        lineHeight: 1.2,
-                        letterSpacing: '-0.01em',
+                        opacity: isOpen ? 1 : 0,
+                        background:
+                          'linear-gradient(90deg, rgba(212,175,96,0.06) 0%, rgba(212,175,96,0.00) 70%)',
+                      }}
+                    />
+
+                    <button
+                      type="button"
+                      onClick={() => setOpen(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                      className="relative flex items-center justify-between w-full text-left py-3.5 md:py-4 cursor-pointer gap-5 pl-4 md:pl-5 pr-1"
+                    >
+                      <span className="flex items-baseline gap-4 md:gap-5">
+                        {/* Editorial numeral */}
+                        <span
+                          className={`shrink-0 transition-colors duration-300 ${
+                            isOpen ? 'text-brand-gold' : 'text-brand-slate/55 group-hover/row:text-brand-gold/85'
+                          }`}
+                          style={{
+                            fontFamily: SERIF,
+                            fontStyle: 'italic',
+                            fontSize: '20px',
+                            fontWeight: 400,
+                            letterSpacing: '0.04em',
+                          }}
+                        >
+                          {num}
+                        </span>
+
+                        {/* Title */}
+                        <span
+                          className={`font-display font-semibold transition-colors duration-300 ${
+                            isOpen
+                              ? 'text-brand-gold'
+                              : 'text-brand-navy group-hover/row:text-brand-gold'
+                          }`}
+                          style={{
+                            fontSize: 'clamp(20px, 1.7vw, 23px)',
+                            lineHeight: 1.15,
+                            letterSpacing: '-0.012em',
+                          }}
+                        >
+                          {p.title}
+                        </span>
+                      </span>
+
+                      <span
+                        aria-hidden="true"
+                        className={`flex-shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full border transition-all duration-300 ${
+                          isOpen
+                            ? 'bg-brand-gold border-brand-gold text-brand-navy rotate-45 shadow-[0_8px_18px_-8px_rgba(212,175,96,0.55)]'
+                            : 'bg-white/40 border-brand-border text-brand-navy group-hover/row:border-brand-gold group-hover/row:bg-white'
+                        }`}
+                      >
+                        <Plus className="w-5 h-5" strokeWidth={1.5} />
+                      </span>
+                    </button>
+
+                    {/* Body — animated max-height for smooth reveal */}
+                    <div
+                      className="relative grid transition-[grid-template-rows,opacity] duration-500 ease-out"
+                      style={{
+                        gridTemplateRows: isOpen ? '1fr' : '0fr',
+                        opacity: isOpen ? 1 : 0,
                       }}
                     >
-                      {p.title}
-                    </h3>
-                    <p
-                      className="mt-2 text-brand-slate leading-[1.65]"
-                      style={{
-                        fontSize: '15px',
-                        fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                        fontWeight: 400,
-                      }}
-                    >
-                      {p.body}
-                    </p>
-                  </div>
-                </Reveal>
-              ))}
+                      <div className="overflow-hidden">
+                        <div className="pl-4 md:pl-5 pr-12 pb-4 md:pb-5" style={{ marginLeft: 'calc(14px + 1rem)' }}>
+                          <p
+                            className="text-brand-slate leading-[1.6]"
+                            style={{
+                              fontSize: '14.5px',
+                              fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                              fontWeight: 400,
+                            }}
+                          >
+                            {p.body}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                )
+              })}
+            </ul>
+          </Reveal>
+
+          {/* RIGHT: video */}
+          <Reveal delay={300}>
+            <div className="relative">
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
+                style={{
+                  background:
+                    'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
+                  filter: 'blur(4px)',
+                }}
+              />
+              <FoundersVideo thumbnail={videoThumbnail} />
             </div>
-
-            {/* RIGHT: video */}
-            <Reveal delay={300}>
-              <div className="relative">
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
-                  style={{
-                    background:
-                      'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
-                    filter: 'blur(4px)',
-                  }}
-                />
-                <FoundersVideo thumbnail={videoThumbnail} />
-              </div>
-            </Reveal>
-          </div>
+          </Reveal>
+        </div>
       </div>
     </section>
   )

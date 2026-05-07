@@ -9,7 +9,7 @@ export const ROOF_MAINTENANCE_FAQS: FaqItem[] = [
   {
     question: 'How much does roof maintenance cost in Cochrane?',
     answer:
-      'A Sure West annual maintenance visit in Cochrane starts at $250 for a standard single-family roof, including a full inspection, minor caulking and resealing, valley clearing, and a written report. Steeper or larger roofs and homes that need flashing rebuilds during the visit are quoted in advance, so the price is fixed before we book.',
+      'Roof maintenance pricing in Cochrane depends on roof size, accessibility, the cadence of visits, and the scope of any minor repairs included. Sure West provides a written quote during the initial visit, fixed before any work begins.',
   },
   {
     question: 'How often should I have my roof inspected and maintained?',

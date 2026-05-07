@@ -80,10 +80,10 @@ const ABOUT_FAQS_RICH: AboutFaqRich[] = [
     ),
   },
   {
-    question: 'What workmanship warranty comes with a Sure West roof?',
+    question: 'What workmanship guarantee comes with a Sure West roof?',
     answer: (
       <>
-        A 10-year workmanship warranty in writing on every{' '}
+        A 10-year workmanship guarantee in writing on every{' '}
         <Link href="/roof-replacement" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
           Sure West roof
         </Link>{' '}

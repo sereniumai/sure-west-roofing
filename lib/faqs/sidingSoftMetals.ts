@@ -4,7 +4,7 @@ export const SIDING_SOFT_METALS_FAQS: FaqItem[] = [
   {
     question: 'How much does siding installation cost in Cochrane?',
     answer:
-      'Most siding jobs in Cochrane fall between $8,000 and $25,000 depending on the size of your home, the material chosen, and how much soft metalwork (fascia, soffits, eavestroughs) is included. Vinyl siding sits at the lower end, fiber cement and metal siding land higher. Sure West provides a fixed written quote after an on-site assessment, so the price you see is the price you pay.',
+      'Siding pricing in Cochrane depends on several factors, including the size of your home, the material chosen (vinyl, fiber cement, metal), and how much soft metalwork (fascia, soffits, eavestroughs) is included. Sure West provides a fixed written quote after an on-site assessment, so the price you see is the price you pay.',
   },
   {
     question: 'What is the difference between siding and soft metals?',
@@ -37,8 +37,8 @@ export const SIDING_SOFT_METALS_FAQS: FaqItem[] = [
       'It depends on the cause. Sudden damage from hail, wind, or impact is typically covered by Alberta home insurance, while gradual wear or aging is not. Sure West documents the damage in writing with photos so you have what you need to file your claim. We have completed many insurance-funded siding repairs across Cochrane and Calgary.',
   },
   {
-    question: 'Do you offer a warranty on siding and soft metals?',
+    question: 'Do you offer a guarantee on siding and soft metals?',
     answer:
-      'Yes. Every Sure West siding and soft metals installation in Cochrane comes with a written workmanship warranty, typically 5 years on installation and the manufacturer warranty (often 25 to 50 years) on the materials themselves. Both are spelled out in your written quote before any work begins.',
+      'Yes. Every Sure West siding and soft metals installation in Cochrane comes with a written workmanship guarantee on the install, plus the manufacturer warranty (often 25 to 50 years) on the materials themselves. Both are spelled out in your written quote before any work begins.',
   },
 ]

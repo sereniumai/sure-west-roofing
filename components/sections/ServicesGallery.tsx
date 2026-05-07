@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 
 interface GalleryImage { src: string; alt: string; caption?: string }
 
@@ -23,9 +24,19 @@ interface Props {
   images?: GalleryImage[]
   sectionBg?: string
   heading?: React.ReactNode
+  subhead?: string
+  ctaLabel?: string
+  ctaHref?: string
 }
 
-export function ServicesGallery({ images, sectionBg, heading }: Props) {
+export function ServicesGallery({
+  images,
+  sectionBg,
+  heading,
+  subhead,
+  ctaLabel,
+  ctaHref,
+}: Props) {
   const IMAGES = images ?? DEFAULT_IMAGES
   const [current, setCurrent] = useState(0)
 
@@ -48,6 +59,7 @@ export function ServicesGallery({ images, sectionBg, heading }: Props) {
       }}
     >
       <div className="max-w-[1320px] mx-auto">
+        <Reveal>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 lg:gap-20 items-center">
 
           {/* ── Left: text + controls ─────────────────────────────────── */}
@@ -84,7 +96,7 @@ export function ServicesGallery({ images, sectionBg, heading }: Props) {
                 fontWeight: 400,
               }}
             >
-              Every roof in our gallery was completed by our in-house Red Seal Journeyman crew. No subcontractors, no compromises.
+              {subhead ?? 'Every roof in our gallery was completed by our in-house crew, Red Seal Journeyman supervised. No subcontractors, no compromises.'}
             </p>
 
             {/* Counter + arrows */}
@@ -135,8 +147,8 @@ export function ServicesGallery({ images, sectionBg, heading }: Props) {
             </div>
 
             <div className="mt-8">
-              <Button variant="primary" size="lg" href="/gallery">
-                View Full Gallery
+              <Button variant="primary" size="lg" href={ctaHref ?? '/gallery'}>
+                {ctaLabel ?? 'View Full Gallery'}
               </Button>
             </div>
           </div>
@@ -207,6 +219,7 @@ export function ServicesGallery({ images, sectionBg, heading }: Props) {
           </div>
 
         </div>
+        </Reveal>
       </div>
     </section>
   )

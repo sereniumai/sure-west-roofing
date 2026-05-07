@@ -1,16 +1,17 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import { Send, CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react'
+import { CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react'
+import { Button } from '@/components/ui/Button'
 
 const services = [
   'Roof Replacement',
   'Roof Repair',
   'Hail Damage Repair',
-  'Roof Maintenance',
   'Roof Inspection',
+  'Roof Maintenance',
+  'Siding & Soft Metals',
   'Skylight Installation',
-  'Emergency Roof Repair',
   'Other',
 ]
 
@@ -34,11 +35,10 @@ interface FormErrors {
   consent?: string
 }
 
-const SERVICE_AREAS = ['cochrane', 'calgary', 'canmore']
-
 function isInServiceArea(address: string): boolean {
-  const lower = address.toLowerCase()
-  return SERVICE_AREAS.some((city) => lower.includes(city))
+  // Match Alberta in Google Places formatted_address patterns:
+  // "..., AB T2N 1N1, Canada" or "..., AB, Canada" or "..., Alberta, ..."
+  return /,\s*(AB|Alberta)\b/i.test(address)
 }
 
 function validateForm(data: FormData): FormErrors {
@@ -65,7 +65,7 @@ function validateForm(data: FormData): FormErrors {
     errors.address = 'Please enter your property address'
   } else if (!isInServiceArea(data.address)) {
     errors.address =
-      'Sorry, we currently only serve Cochrane, Calgary, and Canmore.'
+      'Sorry, we currently only serve Alberta addresses.'
   }
 
   if (!data.service) {
@@ -130,7 +130,7 @@ export function ContactForm() {
             setErrors((prev) => ({
               ...prev,
               address:
-                'Sorry, we currently only serve Cochrane, Calgary, and Canmore.',
+                'Sorry, we currently only serve Alberta addresses.',
             }))
           } else {
             setErrors((prev) => ({ ...prev, address: undefined }))
@@ -224,8 +224,8 @@ export function ContactForm() {
         </h3>
         <p className="font-body text-body-text leading-relaxed max-w-md mx-auto">
           We&apos;ve received your request and sent a confirmation to your
-          phone. One of our certified roofers will be in touch within
-          24&nbsp;hours to schedule your free consultation.
+          phone. One of our Red Seal Journeyman roofers will be in touch to
+          schedule your free on-site visit.
         </p>
       </div>
     )
@@ -332,7 +332,7 @@ export function ContactForm() {
                 setErrors((prev) => ({
                   ...prev,
                   address:
-                    'Sorry, we currently only serve Cochrane, Calgary, and Canmore.',
+                    'Sorry, we currently only serve Alberta addresses.',
                 }))
               }
             }}
@@ -388,11 +388,31 @@ export function ContactForm() {
               }}
               className="mt-0.5 h-5 w-5 rounded border-[#E8E8E8] accent-[#D4AF60] flex-shrink-0 cursor-pointer"
             />
-            <span className="font-body text-xs text-body-text leading-relaxed">
-              I consent to receive automated SMS messages and email
-              communications from Sure West Roofing regarding my roofing inquiry
-              and related services. Message and data rates may apply. I can
-              withdraw my consent at any time by replying STOP.
+            <span
+              className="text-brand-slate leading-[1.55]"
+              style={{
+                fontSize: '13px',
+                fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              I consent to receive SMS and email from Sure West Roofing about my
+              inquiry and related services, and agree to the{' '}
+              <a
+                href="/privacy"
+                className="underline hover:text-brand-gold transition-colors"
+              >
+                Privacy Policy
+              </a>{' '}
+              and{' '}
+              <a
+                href="/terms"
+                className="underline hover:text-brand-gold transition-colors"
+              >
+                Terms
+              </a>
+              . Transactional messages (confirmations, reminders) still come
+              through. Message and data rates may apply. Reply STOP to opt out.
             </span>
           </label>
           {errors.consent && (
@@ -411,55 +431,16 @@ export function ContactForm() {
         )}
 
         {/* Submit */}
-        <button
+        <Button
           type="submit"
+          variant="primary"
+          size="lg"
           disabled={status === 'submitting'}
-          className={`group w-full px-7 py-4 rounded-[--radius-sm] font-body font-semibold text-base text-white bg-[#D4AF60] shadow-[0_4px_0_rgba(0,0,0,0.15)] overflow-hidden relative flex items-center justify-center gap-2 mt-1 transition-all duration-200 ${
-            status === 'submitting'
-              ? 'opacity-70 cursor-not-allowed'
-              : 'hover:bg-[#B8943F] hover:shadow-[0_6px_20px_rgba(214,174,96,0.4)] active:scale-[0.98]'
-          }`}
+          className="w-full mt-1"
         >
-          <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full pointer-events-none" />
-          <span className="relative z-10 flex items-center gap-2">
-            {status === 'submitting' ? (
-              <>
-                <svg className="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  />
-                </svg>
-                Sending...
-              </>
-            ) : (
-              <>
-                Get My Free Estimate
-                <Send className="w-4 h-4" />
-              </>
-            )}
-          </span>
-        </button>
+          {status === 'submitting' ? 'Sending...' : 'Get a Free Estimate'}
+        </Button>
 
-        <p className="font-body text-xs text-muted text-center">
-          By submitting you agree to our{' '}
-          <a
-            href="/privacy"
-            className="underline hover:text-[#D4AF60] transition-colors"
-          >
-            Privacy Policy
-          </a>
-          . You can unsubscribe at any time by replying STOP.
-        </p>
       </form>
     </div>
   )

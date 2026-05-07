@@ -15,14 +15,14 @@ function getSteps(cityName: string, otherCities: [string, string]): Step[] {
     {
       number: '01',
       title: 'Book Your Free Estimate',
-      description: `We come to your property in ${cityName}, ${otherCities[0]}, or ${otherCities[1]}, walk the roof in person, and send a clear, itemised written quote with photos within two business days, no obligation.`,
+      description: `We come to your property in ${cityName}, ${otherCities[0]}, or ${otherCities[1]}, walk the roof in person, and send a clear, itemised written quote with photos after the on-site visit, no obligation.`,
       Icon: Calendar,
     },
     {
       number: '02',
       title: 'Approve Your Quote',
       description:
-        'Your quote is fixed. The price you approve is the price you pay, with financing available if you need it. Our Red Seal certified crew then schedules your job around you.',
+        'Your quote is fixed. The price you approve is the price you pay, with financing available if you need it. Our in-house crew then schedules your job around you.',
       Icon: FileCheck,
     },
     {
@@ -90,7 +90,7 @@ function StepCard({ step, cardBg }: { step: Step; cardBg: string }) {
 interface HowItWorksProps {
   eyebrow?: string
   heading?: React.ReactNode
-  body?: string
+  body?: React.ReactNode
   cityName?: string
   otherCities?: [string, string]
   /** Optional override for the three step cards. */
@@ -163,7 +163,7 @@ export function HowItWorks({
           {heading}
         </h2>
         <p
-          className="mt-5 max-w-[720px] text-brand-slate leading-[1.65]"
+          className="mt-5 max-w-[760px] text-brand-slate leading-[1.65]"
           style={{
             fontSize: '16px',
             fontFamily: 'var(--font-inter), system-ui, sans-serif',

@@ -4,12 +4,12 @@ export const ROOF_REPAIR_FAQS: FaqItem[] = [
   {
     question: 'How much does a roof repair cost in Cochrane?',
     answer:
-      'Most roof repairs in Cochrane fall between $350 and $1,500, depending on what is wrong. Small fixes like resealing a vent pipe or replacing a few shingles sit at the lower end, while flashing rebuilds, leak chasing, and storm damage repairs land higher. Sure West provides a fixed written quote after an on-site diagnostic, so the price you see is the price you pay.',
+      'Roof repair pricing in Cochrane depends on several factors, including the type of repair, the area affected, accessibility, and the shingles or materials needed. Sure West provides a fixed written quote after an on-site diagnostic, so the price you see is the price you pay.',
   },
   {
     question: 'How quickly can you respond to a roof leak in Cochrane?',
     answer:
-      'For active leaks, Sure West aims to be on-site within 1 to 3 business days for Cochrane homeowners. We carry tarp materials in every truck so we can dry the roof in immediately if a permanent fix needs to wait on weather or parts. Most non-emergency repair calls in Cochrane are diagnosed and quoted within a week.',
+      'For active leaks, contact Sure West right away. We prioritise leak emergencies and will get back to you to schedule an on-site diagnosis as quickly as possible. We carry tarp materials in every truck so we can dry the roof in if a permanent fix needs to wait on weather or parts.',
   },
   {
     question: 'Can you match my existing shingles?',
@@ -24,7 +24,7 @@ export const ROOF_REPAIR_FAQS: FaqItem[] = [
   {
     question: 'How long does a typical roof repair take?',
     answer:
-      'Most Cochrane roof repairs are completed in a single day on-site, often within 2 to 4 hours. Larger jobs involving multiple flashing rebuilds, complex valleys, or extensive shingle damage may take a full day or stretch into a second day. We confirm timing in writing before work begins.',
+      'Most Cochrane roof repairs are completed in a single on-site visit, often in 2 to 4 hours. Larger jobs involving multiple flashing rebuilds, complex valleys, or extensive shingle damage may take a full visit or extend to a second visit. We confirm timing in writing before work begins.',
   },
   {
     question: 'When is a roof repair the right call vs a full replacement?',
@@ -34,11 +34,11 @@ export const ROOF_REPAIR_FAQS: FaqItem[] = [
   {
     question: 'Do you offer emergency roof repair in Cochrane?',
     answer:
-      'Sure West provides priority response for active leaks, storm damage, and Chinook wind damage in Cochrane and the surrounding area. We can typically tarp a damaged roof within 24 hours to stop further water entry, then return for the permanent repair once weather and materials allow. Call our line for fastest response.',
+      'Sure West provides priority response for active leaks, storm damage, and Chinook wind damage in Cochrane and the surrounding area. We carry tarp materials in every truck and aim to stop further water entry as quickly as possible, then return for the permanent repair once weather and materials allow. Call our line for fastest response.',
   },
   {
     question: 'What warranty do I get on a roof repair from Sure West?',
     answer:
-      'Every Sure West roof repair in Cochrane comes with a 2-year workmanship warranty in writing, covering the specific repair we carried out. If a leak returns to the same spot within the warranty term because of our workmanship, we come back and fix it at no charge. Both terms are spelled out in your written quote.',
+      'Every Sure West roof repair in Cochrane comes with a 2-year workmanship guarantee in writing, covering the specific repair we carried out. If a leak returns to the same spot within the warranty term because of our workmanship, we come back and fix it at no charge. Both terms are spelled out in your written quote.',
   },
 ]

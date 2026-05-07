@@ -5,48 +5,144 @@ import Link from 'next/link'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 
-const FAQS = [
+interface FAQ {
+  question: string
+  answerText: string
+  answer: React.ReactNode
+}
+
+const FAQS: FAQ[] = [
   {
-    question: 'How much does a new roof cost in Cochrane, Alberta?',
-    answer:
-      'A typical asphalt shingle roof replacement in Cochrane costs between $8,000 and $18,000, with most 2,000 sq ft homes landing between $11,000 and $14,000.\n\nThe final price depends on roof size, pitch, shingle tier (IKO Cambridge, Dynasty, or Nordic), whether decking needs replacement, and the complexity of flashing and valleys.\n\nSure West gives every Cochrane homeowner a fixed written quote after an in-home inspection, so the number you see is the number you pay.',
+    question: 'How much does a roof replacement cost in Cochrane, Alberta?',
+    answerText:
+      'Most Cochrane roof replacements range from $8,000 to $18,000 for a standard architectural-shingle job on a single-family home. Larger square footage, complex pitches, impact-rated Class 4 shingles, or extensive deck repairs push the upper end. Sure West provides itemised written quotes after an in-person assessment, with no padding mid-project.',
+    answer: (
+      <>
+        Most Cochrane roof replacements range from $8,000 to $18,000 for a standard
+        architectural-shingle job on a single-family home. Larger square footage, complex pitches,
+        impact-rated Class 4 shingles, or extensive deck repairs push the upper end. Sure West
+        provides itemised written quotes after an in-person assessment, with no padding
+        mid-project.
+      </>
+    ),
   },
   {
     question: 'How long does a roof replacement take in Cochrane?',
-    answer:
-      'Most Cochrane single-family roof replacements are completed in 1 to 2 days once our crew is on site. Steep pitches, multi-layer tear-offs, and weather delays can extend the job to 3 days. We give you a firm start date and completion timeline in writing before work begins, and our Cochrane install crews are in-house, not subcontracted, so scheduling stays predictable.',
+    answerText:
+      'Most single-family Cochrane roof replacements are completed in one day. Larger or more complex roofs can extend to two or three days. You will be told the schedule before we start and notified before every site activity, from material delivery to bin drop to roof labour. Weather can shift timelines, and we will communicate any change.',
+    answer: (
+      <>
+        Most single-family Cochrane roof replacements are completed in one day. Larger or more
+        complex roofs can extend to two or three days. You will be told the schedule before we
+        start and notified before every site activity, from material delivery to bin drop to roof
+        labour. Weather can shift timelines, and we will communicate any change.
+      </>
+    ),
   },
   {
     question: 'What are the signs my roof needs replacing, not just repairing?',
-    answer:
-      "Clear signs you need a full roof replacement in Cochrane include shingles older than 20 years, curling or buckling across large sections, widespread granule loss, sagging decking, repeated leaks in multiple spots, and significant hail damage confirmed by an adjuster.\n\nIf damage is localized and your roof is under 15 years old, roof repair is usually the smarter call. We will tell you honestly which one you need, including when you don't need us at all.",
+    answerText:
+      'A roof typically needs replacing if it is past 18 years old, shows widespread shingle damage across multiple slopes, has heavy granule loss in the gutters, shows daylight or water stains in the attic, has visible sagging, or has been patched in the same area more than once. If your Cochrane roof is under 15 years old with a single localised issue, a repair is almost always smarter.',
+    answer: (
+      <>
+        A roof typically needs replacing if it is past 18 years old, shows widespread shingle
+        damage across multiple slopes, has heavy granule loss in the gutters, shows daylight or
+        water stains in the attic, has visible sagging, or has been patched in the same area more
+        than once. If your Cochrane roof is under 15 years old with a single localised issue, a{' '}
+        <Link href="/roof-repair" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
+          repair
+        </Link>{' '}
+        is almost always smarter.
+      </>
+    ),
   },
   {
     question: 'What warranty do I get on a roof replacement from Sure West?',
-    answer:
-      "Every Sure West roof replacement in Cochrane comes with two warranties: a manufacturer warranty from IKO covering the shingles themselves (up to lifetime limited, depending on tier), and a workmanship warranty from Sure West covering the installation.\n\nBecause Sure West is a Red Seal certified contractor installing IKO products to spec, your shingles qualify for the top-tier manufacturer coverage that many non-certified installers can't offer.",
+    answerText:
+      'Every Sure West roof replacement comes with a 10-year written workmanship guarantee handed to you before we leave the job site. This sits on top of the IKO manufacturer warranty on the shingles themselves. Most installation defects show up within the first 12 months. A 10-year guarantee means you are covered for ten times the danger window. If anything in our installation fails, we come back and fix it.',
+    answer: (
+      <>
+        Every Sure West roof replacement comes with a 10-year written workmanship guarantee handed
+        to you before we leave the job site. This sits on top of the IKO manufacturer warranty on
+        the shingles themselves. Most installation defects show up within the first 12 months. A
+        10-year guarantee means you are covered for ten times the danger window. If anything in
+        our installation fails, we come back and fix it.
+      </>
+    ),
   },
   {
     question: 'Do I need to replace my roof after hail damage in Cochrane?',
-    answer:
-      "Not always. Light hail can cause cosmetic damage that doesn't affect the roof's life, while severe hail can compromise the entire roof system and require a full replacement. The right first step is a professional hail damage inspection, which also documents the damage for your insurance claim. Most Cochrane hail claims in the May to August season result in insurer-approved replacements.",
+    answerText:
+      'Not always. Hail damage ranges from cosmetic granule loss to full shingle fracture. A Red Seal Journeyman walking the roof in person can tell the difference, document the damage with photos, and tell you whether a repair, a partial replacement, or a full replacement is the honest call. We support the insurance claim either way and rebuild to the standard we would put on our own homes.',
+    answer: (
+      <>
+        Not always.{' '}
+        <Link href="/hail-damage-repair" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
+          Hail damage
+        </Link>{' '}
+        ranges from cosmetic granule loss to full shingle fracture. A Red Seal Journeyman walking
+        the roof in person can tell the difference, document the damage with photos, and tell you
+        whether a repair, a partial replacement, or a full replacement is the honest call. We
+        support the insurance claim either way and rebuild to the standard we would put on our own
+        homes.
+      </>
+    ),
   },
   {
     question: 'When is the best time of year to replace a roof in Cochrane?',
-    answer:
-      'The best time to replace a roof in Cochrane is late April through October, when temperatures stay consistently above 5°C and shingles seal properly.\n\nSpring and early summer are peak booking season, with slots often filling 4 to 6 weeks out, especially after hail events. September and October are ideal for pre-winter installs before snow arrives.\n\nWe do not install in deep cold because asphalt shingles will not seal correctly below 5°C.',
+    answerText:
+      'Late spring through early autumn is the easiest window, when temperatures support proper shingle sealing. Sure West replaces roofs year-round in Cochrane when conditions are safe. We do not gamble with your roof. If weather puts the project at risk, we pause, secure the site, and communicate next steps clearly. Booking earlier in the season usually gets you a tighter schedule.',
+    answer: (
+      <>
+        Late spring through early autumn is the easiest window, when temperatures support proper
+        shingle sealing. Sure West replaces roofs year-round in Cochrane when conditions are safe.
+        We do not gamble with your roof. If weather puts the project at risk, we pause, secure the
+        site, and communicate next steps clearly. Booking earlier in the season usually gets you a
+        tighter schedule.
+      </>
+    ),
   },
   {
     question: 'Can I finance a roof replacement in Alberta?',
-    answer:
-      'Yes, Sure West offers financing options for Cochrane roof replacements, including payment plans that spread the cost over 12 to 60 months. Financing is a common path for insurance-deductible coverage and for homeowners who want to upgrade to a premium shingle tier without paying upfront. We will walk you through the options during your free in-home estimate.',
+    answerText:
+      'Yes. Sure West offers financing options for Cochrane, Calgary, and Canmore roof replacements. We walk through the available options with you in person when we visit your property, alongside your written quote. The price you approve does not change whether you pay up front or finance over time.',
+    answer: (
+      <>
+        Yes. Sure West offers financing options for Cochrane, Calgary, and Canmore roof
+        replacements. We walk through the available options with you in person when we visit your
+        property, alongside your written quote. The price you approve does not change whether you
+        pay up front or finance over time.
+      </>
+    ),
   },
   {
     question: 'Do I need to be home during my roof replacement?',
-    answer:
-      'No, you do not need to be home during your Cochrane roof replacement. Our crews work from the exterior only and do not need access to your home. We recommend moving vehicles out of the driveway, removing fragile items from walls (vibration can shake them loose), and keeping pets indoors. We send daily progress updates by text so you always know where the job stands.',
+    answerText:
+      'You do not need to be home, though many homeowners are during the project. We knock on your door before we start. Every time. We notify you before every site activity, from material delivery to bin drop to roof labour. Your immediate neighbours also receive our contact information so they can reach us directly with any questions, keeping your relationships intact.',
+    answer: (
+      <>
+        You do not need to be home, though many homeowners are during the project. We knock on
+        your door before we start. Every time. We notify you before every site activity, from
+        material delivery to bin drop to roof labour. Your immediate neighbours also receive our
+        contact information so they can reach us directly with any questions, keeping your
+        relationships intact.
+      </>
+    ),
   },
 ]
+
+export const roofReplacementFaqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answerText,
+    },
+  })),
+}
 
 export function RoofReplacementFAQ() {
   const [open, setOpen] = useState<number | null>(null)
@@ -59,7 +155,7 @@ export function RoofReplacementFAQ() {
       id="faq"
       className="relative overflow-hidden py-20 md:py-24"
       style={{
-        background: '#F7F5F0',
+        background: '#FFFFFF',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -87,17 +183,17 @@ export function RoofReplacementFAQ() {
               letterSpacing: '-0.005em',
             }}
           >
-            Roof Replacement Questions, Answered
+            Cochrane Roof Replacement Questions, Answered
           </h2>
           <p
-            className="mt-6 max-w-[380px] text-brand-slate leading-[1.7]"
+            className="mt-6 max-w-[760px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 400,
             }}
           >
-            Straight answers from your local Red Seal certified roofing contractor in Cochrane.
+            Straight answers from your local Red Seal Journeyman roofing contractor.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -149,16 +245,14 @@ export function RoofReplacementFAQ() {
                     {isOpen && (
                       <div className="overflow-hidden">
                         <div
-                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6] space-y-4"
+                          className="pt-4 pb-5 md:pb-7 pr-6 md:pr-14 text-brand-navy leading-[1.6]"
                           style={{
                             fontSize: '15px',
                             fontFamily: 'var(--font-inter), system-ui, sans-serif',
                             fontWeight: 400,
                           }}
                         >
-                          {faq.answer.split(/\n\n+/).map((para, pi) => (
-                            <p key={pi}>{para.trim()}</p>
-                          ))}
+                          {faq.answer}
                         </div>
                       </div>
                     )}

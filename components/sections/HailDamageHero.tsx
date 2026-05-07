@@ -6,10 +6,14 @@ export function HailDamageHero() {
       breadcrumbLabel="Hail Damage Repair"
       eyebrow="Cochrane's Hail Damage Repair Specialists"
       h1={'Hail Damage Roof\nRepair in Cochrane'}
-      body="Red Seal certified hail damage roof repair for Cochrane, Calgary, and Canmore. Free post-storm inspections and full photo documentation, so you have what you need to file with your insurer. We pride ourselves on getting back to you quickly."
+      body="Red Seal Journeyman hail damage roof repair in Cochrane, Calgary, and Canmore. Free post-storm inspection, photo documentation, and a written diagnosis. Same standard, claim or out of pocket."
       image={{
         src: '/images/hail-damage-repair.webp',
         alt: 'Hail damage roof inspection in Cochrane Alberta by Sure West Roofing',
+      }}
+      badge={{
+        heading: 'Insurance Ready',
+        subtext: 'Full photo report on every inspection',
       }}
     />
   )

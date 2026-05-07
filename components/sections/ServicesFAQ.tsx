@@ -15,10 +15,10 @@ const FAQS: FAQ[] = [
   {
     question: 'What roofing services do you offer in Cochrane?',
     answerText:
-      'Seven services, all run by the same in-house Red Seal Journeyman crew: roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections, siding and soft metals (flashings, fascia, soffit, eavestroughs), and skylight installation.',
+      'Seven services, all run by the same in-house crew, Red Seal Journeyman supervised: roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections, siding and soft metals (flashings, fascia, soffit, eavestroughs), and skylight installation.',
     answer: (
       <>
-        Seven services, all run by the same in-house Red Seal Journeyman crew:{' '}
+        Seven services, all run by the same in-house crew, Red Seal Journeyman supervised:{' '}
         <Link href="/roof-replacement" className="faq-link">roof replacement</Link>,{' '}
         <Link href="/roof-repair" className="faq-link">roof repair</Link>,{' '}
         <Link href="/hail-damage-repair" className="faq-link">hail damage repair</Link>,{' '}
@@ -48,15 +48,15 @@ const FAQS: FAQ[] = [
   {
     question: 'Are all your installers Red Seal Journeyman certified?',
     answerText:
-      "We're honest about this: no. Red Seal Journeyman is a multi-year credential, and apprentice and early-career installers haven't reached it yet. What matters is that Craig (Red Seal certified since 2018) trains the entire crew to that standard, supervises every project, and signs off on the workmanship. The designation governs the company's standard, not every name on the crew.",
+      'Sure West is Red Seal Journeyman owned and operated. Craig, our Red Seal Journeyman, is on every project. The in-house crew works under his Red Seal Journeyman supervision, with newer installers training toward their own certification. Red Seal is the highest trade credential in Canadian roofing, recognised across every province.',
     answer: (
       <>
-        We&apos;re honest about this: no.{' '}
+        Sure West is{' '}
         <Link href="/about" className="faq-link">Red Seal Journeyman</Link>{' '}
-        is a multi-year credential, and apprentice and early-career installers haven&apos;t
-        reached it yet. What matters is that Craig (Red Seal certified since 2018) trains the
-        entire crew to that standard, supervises every project, and signs off on the workmanship.
-        The designation governs the company&apos;s standard, not every name on the crew.
+        owned and operated. Craig, our Red Seal Journeyman, is on every project. The in-house
+        crew works under his Red Seal Journeyman supervision, with newer installers training
+        toward their own certification. Red Seal is the highest trade credential in Canadian
+        roofing, recognised across every province.
       </>
     ),
   },
@@ -115,7 +115,7 @@ const FAQS: FAQ[] = [
   {
     question: 'What happens at the end of the job?',
     answerText:
-      'Every Sure West job ends the same way: a magnetic nail sweep across your driveway, lawn, and walkways, a full final walkthrough with you, and your 10-year written workmanship warranty handed to you in person. Nothing gets skipped because the playbook does not allow it.',
+      'Every Sure West job ends the same way: a magnetic nail sweep across your driveway, lawn, and walkways, a full final walkthrough with you, and your 10-year written workmanship guarantee handed to you in person. Nothing gets skipped because the playbook does not allow it.',
     answer: (
       <>
         Every Sure West job ends the same way: a magnetic nail sweep across your driveway, lawn,

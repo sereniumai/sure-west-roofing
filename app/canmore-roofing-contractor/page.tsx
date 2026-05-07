@@ -123,7 +123,7 @@ const CANMORE_FAQS = [
     ),
   },
   {
-    question: 'What makes a Canmore roof different from a Calgary or Cochrane roof?',
+    question: 'What makes a Canmore roof different from Calgary or Cochrane?',
     answerText:
       "Three things. Pitch: Canmore homes often run steeper than 8:12, which changes safety, fastening, and material choice. Snow load: winter accumulation has to shed properly, which means correct ice-and-water coverage at eaves and proper attic ventilation. Chinook winds: fasteners and underlayment have to handle rapid temperature swings and high-wind events. Standard prairie roofing methods don't always cover all three.",
     answer: (
@@ -141,14 +141,14 @@ const CANMORE_FAQS = [
   {
     question: 'What warranty do you offer on a Canmore roof replacement?',
     answerText:
-      'Every Canmore roof replacement comes with a 10-year workmanship warranty in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.',
+      'Every Canmore roof replacement comes with a 10-year workmanship guarantee in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.',
     answer: (
       <>
         Every Canmore{' '}
         <Link href="/roof-replacement" className="faq-link">
           roof replacement
         </Link>{' '}
-        comes with a 10-year workmanship warranty in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.
+        comes with a 10-year workmanship guarantee in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.
       </>
     ),
   },
@@ -241,14 +241,14 @@ export default function RoofingContractorCanmorePage() {
       <ServicesIconGrid
         eyebrow="What We Do"
         heading={'Every Canmore Roofing Service.\nOne Standard.'}
-        body="From a quick roof repair to a full replacement, the standard doesn't change. The same Red Seal crew, proven process, and 10-year written guarantee come with every Canmore roof."
+        body="From a quick roof repair to a full replacement, the standard doesn't change. The same in-house crew, proven process, and 10-year written guarantee come with every Canmore roof."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "The biggest job your roof will get, run by the same Red Seal crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year warranty in writing.",
+              "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year guarantee in writing.",
             image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Canmore AB',
           },
@@ -280,7 +280,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Siding & Soft Metals',
             href: '/siding-soft-metals',
             description:
-              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same Red Seal crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
+              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same in-house crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
             image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
             imageAlt: 'Siding and soft metals Canmore AB',
           },
@@ -356,7 +356,7 @@ export default function RoofingContractorCanmorePage() {
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Red Seal certified roofing across Canmore, Cochrane, and Calgary. In-house crew, free written estimate, 10-year workmanship warranty in writing, and no sales pressure."
+        subtext="Red Seal certified roofing across Canmore, Cochrane, and Calgary. In-house crew, free written estimate, 10-year workmanship guarantee in writing, and no sales pressure."
       />
     </>
   )

@@ -4,7 +4,7 @@ export const ROOF_INSPECTION_FAQS: FaqItem[] = [
   {
     question: 'How much does a roof inspection cost in Cochrane?',
     answer:
-      'A standard Sure West roof inspection in Cochrane is free when paired with a written quote for any recommended work. Standalone inspections (e.g. for pre-purchase or insurance documentation) start at $200 for a single-family home. The exact price is confirmed in advance based on roof size and access.',
+      'A standard Sure West roof inspection in Cochrane is free when paired with a written quote for any recommended work. Standalone inspections (e.g. for pre-purchase or insurance documentation) depend on roof size, accessibility, and report depth. Contact us for a written quote.',
   },
   {
     question: 'What is included in a Sure West roof inspection?',
@@ -14,7 +14,7 @@ export const ROOF_INSPECTION_FAQS: FaqItem[] = [
   {
     question: 'How long does a roof inspection take in Cochrane?',
     answer:
-      'Most Cochrane single-family roof inspections take 60 to 90 minutes on-site, including both the exterior walk and the attic check. Larger or steeper roofs and homes with multiple penetrations can take up to two hours. The written report is sent within one business day.',
+      'Most Cochrane single-family roof inspections take 60 to 90 minutes on-site, including both the exterior walk and the attic check. Larger or steeper roofs and homes with multiple penetrations can take up to two hours. The written report is delivered after the on-site visit.',
   },
   {
     question: 'When should I get a roof inspection?',
@@ -24,7 +24,7 @@ export const ROOF_INSPECTION_FAQS: FaqItem[] = [
   {
     question: 'Do I get a written report?',
     answer:
-      'Yes. Every Sure West inspection includes a written photo report with findings, severity ratings, repair recommendations, and a fixed quote for any work required. The report is delivered as a PDF within one business day and can be shared directly with insurers, real estate agents, or buyers.',
+      'Yes. Every Sure West inspection includes a written photo report with findings, severity ratings, repair recommendations, and a fixed quote for any work required. The report is delivered as a PDF after the on-site visit and can be shared directly with insurers, real estate agents, or buyers.',
   },
   {
     question: 'Can you inspect for an insurance claim in Cochrane?',
@@ -39,6 +39,6 @@ export const ROOF_INSPECTION_FAQS: FaqItem[] = [
   {
     question: 'Are roof inspections free?',
     answer:
-      'Free with a quote, paid as a standalone service. If you book an inspection alongside any recommended repair, replacement, or maintenance work the inspection is included at no charge. Standalone inspections (for pre-purchase, insurance, or peace of mind) start at $200 in Cochrane.',
+      'Free with a quote, paid as a standalone service. If you book an inspection alongside any recommended repair, replacement, or maintenance work the inspection is included at no charge. Standalone inspection pricing depends on roof size, accessibility, and report depth.',
   },
 ]

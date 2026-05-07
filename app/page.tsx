@@ -87,14 +87,14 @@ export default function HomePage() {
       <ServicesIconGrid
         eyebrow="What We Do"
         heading={'Every Cochrane Roofing Service.\nOne Standard.'}
-        body="From a quick roof repair to a full replacement, the standard doesn't change. The same Red Seal crew, proven process, and 10-year written guarantee come with every Cochrane roof."
+        body="From a quick roof repair to a full replacement, the standard doesn't change. The same in-house crew, proven process, and 10-year written guarantee come with every Cochrane roof."
         cta={{ label: 'View All Roofing Services', href: '/services' }}
         services={[
           {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "The biggest job your roof will get, run by the same Red Seal crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year warranty in writing.",
+              "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year guarantee in writing.",
             image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
@@ -150,7 +150,7 @@ export default function HomePage() {
             title: 'Siding & Soft Metals',
             href: '/siding-soft-metals',
             description:
-              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same Red Seal crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
+              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same in-house crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
             image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
             imageAlt: 'Siding and soft metals Cochrane AB',
           },
@@ -218,7 +218,7 @@ export default function HomePage() {
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Red Seal certified roofing across Cochrane, Calgary, and Canmore. In-house crew, free written estimate, 10-year workmanship warranty in writing, and no sales pressure."
+        subtext="Red Seal certified roofing across Cochrane, Calgary, and Canmore. In-house crew, free written estimate, 10-year workmanship guarantee in writing, and no sales pressure."
       />
     </>
   )

@@ -27,7 +27,7 @@ const SERVICES: ServiceCard[] = [
     title: 'Roof Replacement',
     href: '/roof-replacement',
     description:
-      "The biggest job your roof will get, run by the same Red Seal crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year warranty in writing.",
+      "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year guarantee in writing.",
     learnMoreText: 'Roof Replacement',
     image: '/images/roof-replacement-cochrane.webp',
     imageAlt: 'Roof replacement in Cochrane Alberta by Sure West Roofing',
@@ -63,7 +63,7 @@ const SERVICES: ServiceCard[] = [
     title: 'Siding & Soft Metals',
     href: '/siding-soft-metals',
     description:
-      "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same Red Seal crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
+      "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same in-house crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
     learnMoreText: 'Siding & Soft Metals',
     image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
     imageAlt: 'Siding and soft metals project in Cochrane Alberta by Sure West Roofing',
@@ -206,7 +206,7 @@ export function ServicesHubGrid() {
           }}
         >
           Every Cochrane Roofing Service
-          <br className="hidden lg:block" /> Run by the Same Red Seal Crew
+          <br className="hidden lg:block" /> Run by the Same In-House Crew
         </h2>
         <p
           className="mt-4 max-w-[460px] text-brand-slate leading-[1.65]"
@@ -216,7 +216,7 @@ export function ServicesHubGrid() {
             fontWeight: 400,
           }}
         >
-          Seven services, one in-house Red Seal Journeyman crew, the same proven process from the free estimate to the final cleanup.
+          Seven services, one in-house crew, Red Seal Journeyman supervised, the same proven process from the free estimate to the final cleanup.
         </p>
       </div>
       </Reveal>

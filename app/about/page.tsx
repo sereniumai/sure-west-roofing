@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         url: '/images/Sure West Roofing in Cochrane.webp',
         width: 1200,
         height: 630,
-        alt: 'Sure West Roofing Red Seal certified team in Cochrane, Alberta',
+        alt: 'Sure West Roofing in-house crew, Cochrane Alberta',
       },
     ],
   },
@@ -641,7 +641,7 @@ function Character() {
           accent: 'navy',
         },
       ]}
-      customerTranslation="For a homeowner, character is what shows up when no one's checking. It's the quote that doesn't get padded mid-project, the mistake reported before you spot it, the roof we'd tell you not to replace when the easier money is the replacement."
+      customerTranslation="For a homeowner, character is what shows up when no one's checking. It's the quote that doesn't get padded mid-project, and the roof we'd tell you not to replace when the easier money is the replacement."
     />
   )
 }

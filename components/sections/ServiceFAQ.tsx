@@ -9,7 +9,7 @@ import type { FaqItem } from '@/lib/faqs/types'
 
 interface ServiceFAQProps {
   faqs: FaqItem[]
-  heading: string
+  heading: React.ReactNode
   subhead: string
   ctaHref?: string
   sectionBg?: string

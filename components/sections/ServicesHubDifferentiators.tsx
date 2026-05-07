@@ -1,8 +1,30 @@
+import type { ComponentType, ReactNode, SVGProps } from 'react'
 import { Award, Users, Handshake, ShieldCheck, ListChecks } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { Reveal } from '@/components/ui/Reveal'
 
-const DIFFERENTIATORS = [
+export interface DifferentiatorItem {
+  Icon: ComponentType<SVGProps<SVGSVGElement>>
+  heading: string
+  subtitle: string
+  body: string
+}
+
+interface Props {
+  /** 5-card item list. Defaults to the canonical Services Hub copy. */
+  items?: DifferentiatorItem[]
+  eyebrow?: string
+  heading?: ReactNode
+  subhead?: string
+  ctaLabel?: string
+  ctaHref?: string
+  /** Section background. Default cream. Pass white to invert. */
+  sectionBg?: string
+  /** Card background. Default white. Pass cream to invert. */
+  cardBg?: string
+}
+
+const DEFAULT_ITEMS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
@@ -13,19 +35,19 @@ const DIFFERENTIATORS = [
     Icon: Users,
     heading: 'Brotherhood',
     subtitle: 'Same Crew, Every Roof',
-    body: 'The crew you meet at the quote is the crew on your roof. No subcontractors, no rotating faces. Same in-house Red Seal Journeyman team from tear-off to walkthrough, every time.',
+    body: 'The crew you meet at the quote is the crew on your roof. No subcontractors, no rotating faces. Same in-house team from tear-off to walkthrough, Red Seal Journeyman supervised, every time.',
   },
   {
     Icon: Handshake,
     heading: 'Character',
     subtitle: "The Quote That Doesn't Move",
-    body: "The price you approve is the price you pay. Commitments kept, mistakes owned and fixed fast. If something unexpected comes up, you decide before another nail goes in.",
+    body: "The price you approve is the price you pay. Commitments kept, no padding mid-project. If something unexpected comes up, you decide before another nail goes in.",
   },
   {
     Icon: ShieldCheck,
     heading: 'Competency',
     subtitle: 'Red Seal Journeyman Standard',
-    body: "Red Seal Journeyman is the highest trade credential in Canadian roofing. Deck inspected, flashings cut to the wall, manufacturer specs followed. The parts you can't see, done right first time.",
+    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Craig, our Red Seal-certified co-founder, is on every project. The in-house crew works under his Red Seal Journeyman supervision, with newer installers training toward their own certification.',
   },
   {
     Icon: ListChecks,
@@ -35,11 +57,28 @@ const DIFFERENTIATORS = [
   },
 ]
 
-export function ServicesHubDifferentiators() {
+export function ServicesHubDifferentiators({
+  items = DEFAULT_ITEMS,
+  eyebrow = 'Why Sure West',
+  heading = (
+    <>
+      What Sets a Sure West
+      <br className="hidden lg:block" /> Roof Apart
+    </>
+  ),
+  subhead = "Five responsibilities we've taken on, five things every Sure West roof gets that the average Cochrane crew can't match.",
+  ctaLabel = 'Get a Free Estimate',
+  ctaHref = '/free-roof-estimate-cochrane',
+  sectionBg = '#F7F5F0',
+  cardBg = '#FFFFFF',
+}: Props = {}) {
+  const isCream = sectionBg.toUpperCase() === '#F7F5F0'
+  const pillBg = isCream ? '#FFFFFF' : '#F7F5F0'
   return (
     <section
-      className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
+      className="relative overflow-hidden py-20 md:py-24"
       style={{
+        background: sectionBg,
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -51,14 +90,14 @@ export function ServicesHubDifferentiators() {
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
-              background: '#FFFFFF',
+              background: pillBg,
               fontSize: '12px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 600,
               lineHeight: 1,
             }}
           >
-            Why Sure West
+            {eyebrow}
           </span>
           <h2
             className="font-display font-medium text-brand-navy"
@@ -68,8 +107,7 @@ export function ServicesHubDifferentiators() {
               letterSpacing: '-0.005em',
             }}
           >
-            What Sets a Sure West
-            <br className="hidden lg:block" /> Roof Apart
+            {heading}
           </h2>
           <p
             className="mt-5 max-w-[560px] mx-auto text-brand-slate leading-[1.65]"
@@ -79,7 +117,7 @@ export function ServicesHubDifferentiators() {
               fontWeight: 400,
             }}
           >
-            Five responsibilities we&apos;ve taken on, five things every Sure West roof gets that the average Cochrane crew can&apos;t match.
+            {subhead}
           </p>
         </div>
         </Reveal>
@@ -87,13 +125,14 @@ export function ServicesHubDifferentiators() {
         {/* 3 + 2 grid: 6-col on lg, last 2 cards offset to center the bottom row */}
         <Reveal delay={150}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6">
-          {DIFFERENTIATORS.map(({ Icon, heading, subtitle, body }, idx) => (
+          {items.map(({ Icon, heading: cardHeading, subtitle, body }, idx) => (
             <article
-              key={heading}
-              className={`group relative rounded-[16px] bg-white p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)] lg:col-span-2 ${
+              key={cardHeading}
+              className={`group relative rounded-[16px] p-6 md:p-7 overflow-hidden cursor-default transition-all duration-500 ease-out hover:-translate-y-1 hover:border-brand-gold/50 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)] lg:col-span-2 ${
                 idx === 3 ? 'lg:col-start-2' : ''
               }`}
               style={{
+                background: cardBg,
                 border: '1px solid #E5E2D9',
                 boxShadow:
                   '0 1px 2px rgba(44,71,102,0.04), 0 8px 22px -10px rgba(44,71,102,0.10)',
@@ -137,7 +176,7 @@ export function ServicesHubDifferentiators() {
                 className="relative font-display font-semibold text-brand-navy"
                 style={{ fontSize: '22px', letterSpacing: '-0.01em', lineHeight: 1.2 }}
               >
-                {heading}
+                {cardHeading}
               </h3>
 
               <p
@@ -167,8 +206,8 @@ export function ServicesHubDifferentiators() {
         </div>
 
         <div className="mt-12 md:mt-14 flex justify-center">
-          <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
-            Get a Free Estimate
+          <Button variant="primary" size="lg" href={ctaHref}>
+            {ctaLabel}
           </Button>
         </div>
         </Reveal>

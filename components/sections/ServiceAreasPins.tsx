@@ -16,7 +16,7 @@ const AREAS = [
   },
   {
     name: 'Calgary',
-    description: 'Calgary-wide, every job handled by the same in-house Red Seal crew.',
+    description: 'Calgary-wide, every job handled by the same in-house crew, Red Seal Journeyman supervised.',
     href: '/calgary-roofing-contractor',
     linkText: 'Calgary Roofing Contractor',
   },

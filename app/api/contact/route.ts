@@ -148,7 +148,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message:
-        'Your request has been received. We will be in touch within 24 hours.',
+        'Your request has been received. Sure West will be in touch to confirm details.',
     })
   } catch (err) {
     console.error('Contact form error:', err)

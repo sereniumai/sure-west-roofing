@@ -59,7 +59,7 @@ const FAQS: FAQ[] = [
   {
     question: 'How do I get a free roofing estimate in Cochrane or Calgary?',
     answerText:
-      "Call (403) 990-7210 or request your free roofing estimate online. We'll book an in-person assessment at your property, walk the roof, and send a clear, itemised written quote within two business days. No pressure, no obligation, no surprise fees.",
+      "Call (403) 990-7210 or request your free roofing estimate online. We'll book an in-person assessment at your property, walk the roof, and send a clear, itemised written quote after the on-site visit. No pressure, no obligation, no surprise fees.",
     answer: (
       <>
         Call{' '}
@@ -70,7 +70,7 @@ const FAQS: FAQ[] = [
         <Link href="/free-roof-estimate-cochrane" className="faq-link">
           free roofing estimate online
         </Link>
-        . We&apos;ll book an in-person assessment at your property, walk the roof, and send a clear, itemised written quote within two business days. No pressure, no obligation, no surprise fees.
+        . We&apos;ll book an in-person assessment at your property, walk the roof, and send a clear, itemised written quote after the on-site visit. No pressure, no obligation, no surprise fees.
       </>
     ),
   },
@@ -125,14 +125,14 @@ const FAQS: FAQ[] = [
   {
     question: 'Do you repair roofs as well as replace them in Cochrane?',
     answerText:
-      "Yes. If your roof has years of life left in it, we'll tell you so. We handle roof repair for cracked shingles, active leaks, failed flashing, and ice dam damage, with a workmanship warranty on every repair. No upsell to a full replacement when a repair is the right call.",
+      "Yes. If your roof has years of life left in it, we'll tell you so. We handle roof repair for cracked shingles, active leaks, failed flashing, and ice dam damage, with a workmanship guarantee on every repair. No upsell to a full replacement when a repair is the right call.",
     answer: (
       <>
         Yes. If your roof has years of life left in it, we&apos;ll tell you so. We handle{' '}
         <Link href="/roof-repair" className="faq-link">
           roof repair
         </Link>{' '}
-        for cracked shingles, active leaks, failed flashing, and ice dam damage, with a workmanship warranty on every repair. No upsell to a full{' '}
+        for cracked shingles, active leaks, failed flashing, and ice dam damage, with a workmanship guarantee on every repair. No upsell to a full{' '}
         <Link href="/roof-replacement" className="faq-link">
           replacement
         </Link>{' '}

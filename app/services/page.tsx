@@ -197,7 +197,7 @@ export default function ServicesPage() {
       {/* 1. Hero, split layout, cream bg, single image right */}
       <ServicesHero
         h1={"Roofing Services\nin Cochrane, Alberta"}
-        subhead="Cochrane roofing services delivered by one Red Seal Journeyman crew, one proven process, one standard. Serving Cochrane, Calgary, and Canmore."
+        subhead="Cochrane roofing services delivered by one in-house crew, Red Seal Journeyman supervised, one proven process, one standard. Serving Cochrane, Calgary, and Canmore."
         primaryCTA={{ label: 'Get a Free Estimate', href: '/free-roof-estimate-cochrane' }}
         secondaryCTA={{ label: 'Call 403-990-7210', href: 'tel:+14039907210' }}
       />
@@ -254,7 +254,7 @@ export default function ServicesPage() {
             <br className="hidden lg:block" /> or Canmore?
           </>
         }
-        subtext="Seven services, one in-house Red Seal Journeyman crew, one standard. Free written quote within two business days and no sales pressure."
+        subtext="Seven services, one in-house crew, Red Seal Journeyman supervised, one standard. Free written quote after the on-site visit and no sales pressure."
       />
     </>
   )

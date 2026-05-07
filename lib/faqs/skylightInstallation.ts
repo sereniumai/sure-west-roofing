@@ -4,7 +4,7 @@ export const SKYLIGHT_INSTALLATION_FAQS: FaqItem[] = [
   {
     question: 'How much does skylight installation cost in Cochrane?',
     answer:
-      'Most Cochrane skylight installations fall between $2,500 and $5,500 fully installed, depending on skylight type, size, and the complexity of the cut into the existing roof. Fixed skylights sit at the lower end, vented and solar-powered models run higher. Sure West provides a fixed written quote after an on-site consultation.',
+      'Skylight installation pricing in Cochrane depends on several factors, including skylight type (fixed, vented, or solar-powered), size, and the complexity of the cut into the existing roof. Sure West provides a fixed written quote after an on-site consultation.',
   },
   {
     question: 'What brands of skylight do you install?',

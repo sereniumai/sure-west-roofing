@@ -15,6 +15,7 @@ interface ButtonProps {
   type?: 'button' | 'submit'
   className?: string
   showArrow?: boolean
+  disabled?: boolean
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
@@ -43,8 +44,9 @@ export function Button({
   type = 'button',
   className = '',
   showArrow = true,
+  disabled = false,
 }: ButtonProps) {
-  const styles = `group inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-[background-color,box-shadow,transform,border-color] duration-200 ease-out cursor-pointer border-0 rounded-[--radius-sm] hover:scale-[1.02] active:scale-[0.98] ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
+  const styles = `group inline-flex items-center justify-center gap-2.5 font-body font-bold uppercase tracking-[0.04em] transition-[background-color,box-shadow,transform,border-color] duration-200 ease-out cursor-pointer border-0 rounded-[--radius-sm] hover:scale-[1.02] active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim()
 
   const content = (
     <>
@@ -68,7 +70,7 @@ export function Button({
   }
 
   return (
-    <button type={type} onClick={onClick} className={styles}>
+    <button type={type} onClick={onClick} className={styles} disabled={disabled}>
       {content}
     </button>
   )
