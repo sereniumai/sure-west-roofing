@@ -140,7 +140,7 @@ export function TrustLogos() {
             {logos.map((logo) => (
               <li
                 key={logo.src}
-                className="flex items-center justify-center h-[40px] sm:h-[60px] w-[72px] sm:w-auto"
+                className="flex items-center justify-center h-[40px] sm:h-[60px] w-auto"
               >
                 <Image
                   src={logo.src}

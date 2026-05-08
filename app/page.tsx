@@ -213,9 +213,9 @@ export default function HomePage() {
       <BottomCTA
         heading={
           <>
-            Ready for a Cochrane
-            <br /> Roofing Contractor
-            <br className="hidden md:block" /> You Can Actually Trust?
+            Ready for a Cochrane{' '}
+            <br className="hidden md:block" />Roofing Contractor{' '}
+            <br className="hidden md:block" />You Can Actually Trust?
           </>
         }
         subtext="Red Seal certified roofing across Cochrane, Calgary, and Canmore. In-house crew, free written estimate, 10-year workmanship guarantee in writing, and no sales pressure."

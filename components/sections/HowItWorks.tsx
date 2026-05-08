@@ -181,7 +181,7 @@ export function HowItWorks({
         {/* Dashed connector, sits at icon centre (~52px from card top: 40px pt-10 + 12px half-icon offset before ring) */}
         <div
           aria-hidden="true"
-          className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/40"
+          className="hidden lg:block absolute z-0 border-t-2 border-dashed border-brand-gold/40"
           style={{ top: '116px', left: '16.67%', right: '16.67%' }}
         />
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-7 relative z-[1]">

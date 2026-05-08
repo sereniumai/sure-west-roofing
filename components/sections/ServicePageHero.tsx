@@ -8,6 +8,8 @@ export interface ServicePageHeroProps {
   breadcrumbLabel: string
   /** Eyebrow above h1, e.g. "Cochrane's Trusted Roof Replacement Contractor" */
   eyebrow: string
+  /** Optional shorter eyebrow shown on mobile only when the desktop one wraps to two lines. */
+  eyebrowMobile?: string
   /** Headline. Use \n for an explicit line break inside the heading. */
   h1: string
   /** Body paragraph below h1. */
@@ -27,6 +29,7 @@ export interface ServicePageHeroProps {
 export function ServicePageHero({
   breadcrumbLabel,
   eyebrow,
+  eyebrowMobile,
   h1,
   body,
   image,
@@ -36,7 +39,7 @@ export function ServicePageHero({
 }: ServicePageHeroProps) {
   return (
     <section
-      className="relative overflow-x-clip bg-brand-cream pt-36 md:pt-44 pb-16 md:pb-24"
+      className="relative overflow-x-clip bg-brand-cream pt-24 md:pt-36 lg:pt-44 pb-16 md:pb-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -54,7 +57,14 @@ export function ServicePageHero({
                   lineHeight: 1,
                 }}
               >
-                {eyebrow}
+                {eyebrowMobile ? (
+                  <>
+                    <span className="md:hidden">{eyebrowMobile}</span>
+                    <span className="hidden md:inline">{eyebrow}</span>
+                  </>
+                ) : (
+                  eyebrow
+                )}
               </span>
             </Reveal>
 

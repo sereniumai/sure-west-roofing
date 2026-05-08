@@ -385,7 +385,12 @@ export default function RoofMaintenancePage() {
             <br className="hidden md:block" /> Maintenance Visit Works
           </>
         }
-        body="Three clear steps from booking to written log. Most maintenance visits are completed in under two hours, with no hidden steps and no surprise charges."
+        body={
+          <>
+            Three clear steps from booking to written log. Most maintenance visits are
+            <br className="hidden md:block" /> completed in under two hours, with no hidden steps and no surprise charges.
+          </>
+        }
         steps={MAINTENANCE_STEPS}
       />
       <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />

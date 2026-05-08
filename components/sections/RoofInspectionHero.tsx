@@ -5,6 +5,7 @@ export function RoofInspectionHero() {
     <ServicePageHero
       breadcrumbLabel="Roof Inspection"
       eyebrow="Cochrane's Trusted Roof Inspection Specialists"
+      eyebrowMobile="Roof Inspection Specialists"
       h1={'Roof Inspection in\nCochrane, Alberta'}
       body="Red Seal Journeyman roof inspections in Cochrane, Calgary, and Canmore. Photo-documented written report for buyers, sellers, and insurers. Free with quoted work."
       image={{

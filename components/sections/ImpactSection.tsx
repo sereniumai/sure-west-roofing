@@ -48,7 +48,7 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
 
   return (
     <div ref={ref}>
-      <span className="font-display font-semibold text-5xl md:text-6xl lg:text-7xl text-[#D4AF60] tracking-tight tabular-nums">
+      <span className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl text-[#D4AF60] tracking-tight tabular-nums">
         {count}{suffix}
       </span>
     </div>

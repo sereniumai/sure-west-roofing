@@ -104,8 +104,9 @@ export function Footer() {
               </a>
             </div>
 
-            {/* Reel tiles, portrait 9:16 */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-3">
+            {/* Reel tiles. Mobile = horizontal snap scroll (2 visible at a time, scroll for more).
+                sm and up = grid as before. */}
+            <div className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide gap-2 sm:grid sm:overflow-visible sm:grid-cols-3 lg:grid-cols-6 sm:gap-3">
               {INSTAGRAM_TILES.map((src, i) => (
                 <a
                   key={src}
@@ -113,7 +114,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Watch Sure West Roofing reel ${i + 1} on Instagram`}
-                  className="group relative block overflow-hidden rounded-[10px] aspect-square"
+                  className="flex-shrink-0 w-[45%] sm:w-auto snap-start group relative block overflow-hidden rounded-[10px] aspect-square"
                   style={{
                     boxShadow:
                       '0 1px 2px rgba(44,71,102,0.04), 0 12px 28px -10px rgba(44,71,102,0.18)',

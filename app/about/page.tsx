@@ -90,7 +90,7 @@ const aboutPageSchema = {
 function AboutHero() {
   return (
     <section
-      className="relative overflow-x-clip bg-brand-cream pt-36 md:pt-44 pb-16 md:pb-24"
+      className="relative overflow-x-clip bg-brand-cream pt-24 md:pt-36 lg:pt-44 pb-16 md:pb-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -325,8 +325,8 @@ function Legacy() {
       <Reveal>
         <div className="relative max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            {/* LEFT — Framed portrait photo */}
-            <div className="lg:col-span-5">
+            {/* LEFT — Framed portrait photo (image-below on mobile, image-left on desktop) */}
+            <div className="lg:col-span-5 order-2 lg:order-1">
               <div
                 className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px]"
                 style={{
@@ -351,7 +351,7 @@ function Legacy() {
             </div>
 
             {/* RIGHT — Eyebrow + Heading + Body + Closing + Signature */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-7 order-1 lg:order-2">
               <span
                 className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
                 style={{

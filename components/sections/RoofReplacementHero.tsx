@@ -5,6 +5,7 @@ export function RoofReplacementHero() {
     <ServicePageHero
       breadcrumbLabel="Roof Replacement"
       eyebrow="Cochrane's Trusted Roof Replacement Contractor"
+      eyebrowMobile="Roof Replacement Specialists"
       h1={'Roof Replacement in\nCochrane, Alberta'}
       body="Red Seal Journeyman roof replacement in Cochrane, Calgary, and Canmore. The same in-house crew, the same standard, on every roof we touch."
       image={{

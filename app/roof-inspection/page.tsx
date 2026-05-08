@@ -123,7 +123,8 @@ function SignsYouNeed() {
           </h2>
           <p className="mt-5 max-w-[820px] text-brand-slate leading-[1.7]"
             style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            A roof inspection is the cheapest insight your Cochrane roof can give you. Here are six situations where booking one is the right call, claim or no claim.
+            A roof inspection is the cheapest insight your Cochrane roof can give you.
+            <br className="hidden md:block" /> Here are six situations where booking one is the right call, claim or no claim.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>

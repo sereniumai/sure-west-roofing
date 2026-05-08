@@ -187,7 +187,7 @@ function WhatIncluded() {
           {/* Image RIGHT on desktop, with floating badge */}
           <div className="relative lg:order-2">
             <div
-              className="relative overflow-hidden rounded-[18px] aspect-[4/5] lg:aspect-auto lg:h-[600px]"
+              className="relative overflow-hidden rounded-[18px] aspect-[4/3] md:aspect-[16/10] lg:aspect-auto lg:h-[600px]"
               style={{
                 boxShadow:
                   '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
@@ -281,8 +281,8 @@ function SignsYouNeed() {
                 letterSpacing: '-0.005em',
               }}
             >
-              Signs Your Cochrane Roof Needs
-              <br />
+              Signs Your Cochrane Roof Needs{' '}
+              <br className="hidden md:block" />
               Replacing, Not Just Repairing
             </h2>
             <p
@@ -713,7 +713,12 @@ export default function RoofReplacementPage() {
             <br className="hidden md:block" /> Roof Replacement Works
           </>
         }
-        body="Three clear steps from your free estimate to a new roof in writing. No surprises, no pressure, no hidden fees."
+        body={
+          <>
+            Three clear steps from your free estimate to a new roof in writing.
+            <br className="hidden md:block" /> No surprises, no pressure, no hidden fees.
+          </>
+        }
         steps={REPLACEMENT_STEPS}
       />
       <ServicesHubDifferentiators />

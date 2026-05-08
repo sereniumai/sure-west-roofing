@@ -66,7 +66,7 @@ export function TeamCarousel() {
         </Reveal>
 
         <Reveal delay={150}>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
           {TEAM.map((member) => (
             <article key={member.name}>
               <div className="group relative bg-brand-cream rounded-[14px] border border-[#E5E2D9] overflow-hidden shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-brand-gold/60 hover:shadow-[0_28px_50px_-22px_rgba(212,175,96,0.55),0_10px_20px_-10px_rgba(44,71,102,0.20)]">

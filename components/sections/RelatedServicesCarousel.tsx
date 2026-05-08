@@ -130,7 +130,7 @@ export function RelatedServicesCarousel({ exclude, cardBg = '#F7F5F0' }: Props) 
         {services.map(({ Icon, title, href, image, imageAlt, description }) => (
           <div
             key={title}
-            className="flex-shrink-0 w-[88%] sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-13.5px)]"
+            className="flex-shrink-0 w-[88%] sm:w-[calc(50%-10px)] md:w-[calc(33.333%-13.5px)]"
             style={{ scrollSnapAlign: 'start' }}
           >
             <Link

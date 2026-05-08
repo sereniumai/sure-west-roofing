@@ -126,8 +126,8 @@ function SignsYouNeed() {
               Signs to Watch
             </span>
             <h2 className="font-display font-medium text-brand-navy" style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-              Signs Your Cochrane Roof
-              <br />
+              Signs Your Cochrane Roof{' '}
+              <br className="hidden md:block" />
               Took Hail Damage
             </h2>
             <p className="mt-5 max-w-[560px] text-brand-slate leading-[1.7]" style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>

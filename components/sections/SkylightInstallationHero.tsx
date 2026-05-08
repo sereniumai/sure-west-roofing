@@ -5,6 +5,7 @@ export function SkylightInstallationHero() {
     <ServicePageHero
       breadcrumbLabel="Skylight Installation"
       eyebrow="Cochrane's Skylight Installation Specialists"
+      eyebrowMobile="Skylight Installation"
       h1={'Skylight Installation\nin Cochrane, Alberta'}
       body="Red Seal Journeyman skylight installation for Cochrane, Calgary, and Canmore. Sealed, flashed, and finished to manufacturer spec by the same in-house crew that does our roofs."
       image={{

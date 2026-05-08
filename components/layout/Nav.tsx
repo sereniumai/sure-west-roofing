@@ -65,6 +65,13 @@ const serviceLinks = [
   },
 ]
 
+// Mobile menu order: Hail Damage moves to the bottom (less common entry vs. the
+// other services). Desktop dropdown keeps the original order for visual cadence.
+const mobileServiceLinks = [
+  ...serviceLinks.filter((s) => s.label !== 'Hail Damage Repair'),
+  ...serviceLinks.filter((s) => s.label === 'Hail Damage Repair'),
+]
+
 const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services', dropdown: true },
@@ -354,7 +361,7 @@ export function Nav() {
                     </span>
                     <ArrowRight className="w-4 h-4 text-brand-gold" strokeWidth={2} />
                   </Link>
-                  {serviceLinks.map((service) => {
+                  {mobileServiceLinks.map((service) => {
                     const { Icon } = service
                     return (
                       <Link

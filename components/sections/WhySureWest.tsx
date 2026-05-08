@@ -20,7 +20,7 @@ const PILLARS: Pillar[] = [
   {
     title: 'Brotherhood',
     subtitle: 'Same Crew, Every Roof',
-    body: 'The crew you meet at the quote is the crew on your roof. Same in-house team from tear-off to walkthrough, Red Seal Journeyman supervised.',
+    body: 'The crew you meet at the quote is on your roof. Same in-house team from tear-off to walkthrough, Red Seal Journeyman supervised.',
   },
   {
     title: 'Character',
@@ -228,7 +228,7 @@ export function WhySureWest({
                       }}
                     >
                       <div className="overflow-hidden">
-                        <div className="pl-4 md:pl-5 pr-12 pb-4 md:pb-5" style={{ marginLeft: 'calc(14px + 1rem)' }}>
+                        <div className="pl-4 md:pl-5 md:ml-[calc(14px+1rem)] pr-6 md:pr-12 pb-4 md:pb-5">
                           <p
                             className="text-brand-slate leading-[1.6]"
                             style={{

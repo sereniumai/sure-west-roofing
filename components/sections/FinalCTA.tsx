@@ -43,7 +43,7 @@ export function FinalCTA() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         <div>
-          <h2 className="font-display font-semibold text-4xl md:text-5xl lg:text-6xl xl:text-[80px] tracking-[-0.04em] leading-[1.05] text-white">
+          <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-6xl xl:text-[80px] tracking-[-0.04em] leading-[1.05] text-white">
             You Click, We Climb.{' '}
             <span className="text-[#D4AF60]">Deal?</span>
           </h2>

@@ -104,7 +104,7 @@ export function ServiceAreasPins({
             {/* Dashed gold connector across pin centres on desktop */}
             <div
               aria-hidden="true"
-              className="hidden md:block absolute z-0 border-t-2 border-dashed border-brand-gold/30"
+              className="hidden lg:block absolute z-0 border-t-2 border-dashed border-brand-gold/30"
               style={{ top: '52px', left: '20%', right: '20%' }}
             />
 

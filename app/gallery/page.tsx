@@ -108,14 +108,14 @@ const HERO_COLLAGE = [
   {
     src: '/images/Cochrane Roofing Contractor Gallery 3.webp',
     alt: 'IKO Nordic roof replacement in Calgary by Sure West Roofing',
-    // Left, behind, shifted up
-    outerClassName: 'absolute top-[38%] left-0 -translate-y-1/2 w-[48%] aspect-square -rotate-[6deg] z-0',
+    // Left, behind, shifted up. Hidden on mobile to keep centre image readable.
+    outerClassName: 'hidden sm:block absolute top-[38%] left-0 -translate-y-1/2 w-[48%] aspect-square -rotate-[6deg] z-0',
   },
   {
     src: '/images/Cochrane Roofing Contractor Gallery 7.webp',
     alt: 'Architectural shingle roof in Cochrane by Sure West',
-    // Right, behind, shifted up (mirrors left)
-    outerClassName: 'absolute top-[38%] right-0 -translate-y-1/2 w-[48%] aspect-square rotate-[6deg] z-0',
+    // Right, behind, shifted up (mirrors left). Hidden on mobile.
+    outerClassName: 'hidden sm:block absolute top-[38%] right-0 -translate-y-1/2 w-[48%] aspect-square rotate-[6deg] z-0',
   },
   {
     src: '/images/Cochrane Roofing Contractor Gallery 10.webp',
@@ -131,7 +131,7 @@ const HERO_COLLAGE = [
 function GalleryHero() {
   return (
     <section
-      className="relative bg-[#F7F5F0] pt-36 md:pt-44 pb-16 md:pb-24"
+      className="relative bg-[#F7F5F0] pt-24 md:pt-36 lg:pt-44 pb-16 md:pb-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -155,8 +155,8 @@ function GalleryHero() {
               className="font-display font-bold text-[#1B3558] leading-[1.05] mt-4"
               style={{ fontSize: 'clamp(36px, 5vw, 64px)', letterSpacing: '-0.02em' }}
             >
-              Cochrane Roofing
-              <br />
+              Cochrane Roofing{' '}
+              <br className="hidden md:block" />
               Projects
             </h1>
 
@@ -181,24 +181,6 @@ function GalleryHero() {
               </Button>
             </div>
 
-            {/* Trust strip matches service page heroes */}
-            <div
-              className="mt-8 flex flex-wrap items-center gap-x-4 gap-y-2"
-              style={{
-                fontSize: '12px',
-                fontFamily: 'var(--font-inter), system-ui, sans-serif',
-                fontWeight: 500,
-                color: '#4A5568',
-                letterSpacing: '0.07em',
-                textTransform: 'uppercase',
-              }}
-            >
-              <span className="hidden md:inline">250+ Roofs Completed</span>
-              <span aria-hidden="true" className="hidden md:inline" style={{ color: '#C49A2C' }}>·</span>
-              <span>Red Seal Journeyman</span>
-              <span aria-hidden="true" style={{ color: '#C49A2C' }}>·</span>
-              <span>IKO ShieldPRO Installer</span>
-            </div>
           </div>
 
           {/* Right: layered polaroid collage */}

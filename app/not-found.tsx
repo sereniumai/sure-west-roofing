@@ -5,12 +5,12 @@ const HERO_COLLAGE = [
   {
     src: '/images/Cochrane Roofing Contractor Gallery 3.webp',
     alt: 'IKO Nordic roof replacement in Calgary by Sure West Roofing',
-    outerClassName: 'absolute top-[38%] left-0 -translate-y-1/2 w-[48%] aspect-square -rotate-[6deg] z-0',
+    outerClassName: 'hidden sm:block absolute top-[38%] left-0 -translate-y-1/2 w-[48%] aspect-square -rotate-[6deg] z-0',
   },
   {
     src: '/images/Cochrane Roofing Contractor Gallery 7.webp',
     alt: 'Architectural shingle roof in Cochrane by Sure West',
-    outerClassName: 'absolute top-[38%] right-0 -translate-y-1/2 w-[48%] aspect-square rotate-[6deg] z-0',
+    outerClassName: 'hidden sm:block absolute top-[38%] right-0 -translate-y-1/2 w-[48%] aspect-square rotate-[6deg] z-0',
   },
   {
     src: '/images/Cochrane Roofing Contractor Gallery 10.webp',
@@ -66,8 +66,8 @@ function NotFoundHero() {
                 letterSpacing: '-0.02em',
               }}
             >
-              Looks Like This Page
-              <br />
+              Looks Like This Page{' '}
+              <br className="hidden md:block" />
               Has a Hole in It
             </h1>
 

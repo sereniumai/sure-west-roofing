@@ -5,6 +5,7 @@ export function RoofMaintenanceHero() {
     <ServicePageHero
       breadcrumbLabel="Roof Maintenance"
       eyebrow="Cochrane's Trusted Roof Maintenance Specialists"
+      eyebrowMobile="Roof Maintenance Specialists"
       h1={'Roof Maintenance in\nCochrane, Alberta'}
       body="Red Seal Journeyman roof maintenance for Cochrane, Calgary, and Canmore. Annual visits, debris clearing, flashing top-ups, and minor repairs caught before they leak."
       image={{

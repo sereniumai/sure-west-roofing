@@ -124,7 +124,7 @@ export function ServicesHubDifferentiators({
 
         {/* 3 + 2 grid: 6-col on lg, last 2 cards offset to center the bottom row */}
         <Reveal delay={150}>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5 md:gap-6">
           {items.map(({ Icon, heading: cardHeading, subtitle, body }, idx) => (
             <article
               key={cardHeading}

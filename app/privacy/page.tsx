@@ -51,7 +51,7 @@ const SECTIONS: Section[] = [
 function LegalHero() {
   return (
     <section
-      className="bg-brand-cream pt-36 md:pt-44 pb-12 md:pb-16"
+      className="bg-brand-cream pt-24 md:pt-36 lg:pt-44 pb-12 md:pb-16"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[920px] mx-auto">

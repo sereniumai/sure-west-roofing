@@ -21,7 +21,7 @@ export function CTABanner({
     <section className="bg-brand-cream py-16 lg:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div
-          className="relative bg-gradient-to-br from-[#D4AF60] via-[#D4AF60] to-[#B8943F] rounded-3xl px-8 py-14 lg:px-16 lg:py-20 overflow-hidden"
+          className="relative bg-gradient-to-br from-[#D4AF60] via-[#D4AF60] to-[#B8943F] rounded-3xl px-6 md:px-12 py-12 md:py-16 lg:px-16 lg:py-20 overflow-hidden"
         >
           {/* Subtle texture */}
           <div className="absolute inset-0 overflow-hidden">
@@ -32,7 +32,7 @@ export function CTABanner({
           <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             {/* Left, Text */}
             <div className="lg:max-w-lg">
-              <h2 className="font-display font-semibold text-3xl lg:text-[44px] text-white tracking-tight leading-[1.1]">
+              <h2 className="font-display font-semibold text-3xl md:text-4xl lg:text-[44px] text-white tracking-tight leading-[1.1]">
                 {heading}
               </h2>
               <p className="font-body text-white/80 text-base leading-relaxed mt-4">

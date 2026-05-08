@@ -175,8 +175,7 @@ export function SkylightWhatIncluded() {
                       >
                         <div className="overflow-hidden">
                           <div
-                            className="pl-4 md:pl-5 pr-12 pb-4 md:pb-5"
-                            style={{ marginLeft: 'calc(14px + 1rem)' }}
+                            className="pl-4 md:pl-5 md:ml-[calc(14px+1rem)] pr-6 md:pr-12 pb-4 md:pb-5"
                           >
                             <p
                               className="text-brand-slate leading-[1.6]"

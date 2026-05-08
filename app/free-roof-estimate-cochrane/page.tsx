@@ -137,11 +137,11 @@ export default function FreeEstimatePage() {
       />
 
       {/* ── Main contact section ──────────────────────── */}
-      <section className="bg-brand-cream pt-32 lg:pt-40 pb-16 lg:pb-24">
+      <section className="bg-brand-cream pt-32 lg:pt-40 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left, info */}
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 order-2 lg:order-1">
               <span
                 className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
                 style={{
@@ -174,9 +174,9 @@ export default function FreeEstimatePage() {
                   fontWeight: 400,
                 }}
               >
-                Book your free roof estimate today. Our in-house Red Seal Journeyman crew comes to
-                your Cochrane, Calgary, or Canmore home, inspects the roof on-site, and delivers a
-                fixed written quote. No pressure, no surprises.
+                Our in-house Red Seal Journeyman crew comes to your Cochrane, Calgary, or Canmore
+                home, inspects the roof on-site, and delivers a fixed written quote. No pressure,
+                no surprises.
               </p>
 
               {/* Benefits */}
@@ -294,7 +294,7 @@ export default function FreeEstimatePage() {
             </div>
 
             {/* Right, form */}
-            <div className="lg:col-span-6">
+            <div className="lg:col-span-6 order-1 lg:order-2">
               <ContactForm />
             </div>
           </div>
@@ -305,7 +305,7 @@ export default function FreeEstimatePage() {
       <section className="bg-white py-20 md:py-24 border-t border-brand-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           {/* Intro block above map */}
-          <div className="max-w-3xl mx-auto px-6 text-center mb-10">
+          <div className="max-w-3xl mx-auto text-center mb-10">
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -343,7 +343,7 @@ export default function FreeEstimatePage() {
             </p>
           </div>
 
-          <div className="relative w-full aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-[12px] border border-brand-border">
+          <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] overflow-hidden rounded-[12px] border border-brand-border">
             <iframe
               src="https://maps.google.com/maps?ll=51.13,-114.7&z=9&t=&ie=UTF8&iwloc=&output=embed"
               className="absolute inset-0 w-full h-full border-0"

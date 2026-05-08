@@ -106,12 +106,16 @@ export function PortfolioCarousel({
         {/* ── Wide fan reveal ─────────────────────────────────────────── */}
         <Reveal delay={150} noBlur>
         <div className="relative mt-1 md:mt-2 flex items-center justify-center max-w-[1320px] mx-auto">
-          {/* Mobile: 3-card fan, bigger scale */}
+          {/* Mobile: 3-card fan, tighter scale */}
           <div className="md:hidden scale-[0.6] transition-transform">
             <ImageRevealWide images={mobileFanImages} />
           </div>
-          {/* Tablet & desktop: full 5-card fan, unchanged */}
-          <div className="hidden md:block md:scale-100 lg:scale-110 transition-transform">
+          {/* Tablet only: 3-card fan at full size — 5-card spread overflows 768-1023px viewports */}
+          <div className="hidden md:block lg:hidden transition-transform">
+            <ImageRevealWide images={mobileFanImages} />
+          </div>
+          {/* Desktop: full 5-card editorial fan, unchanged */}
+          <div className="hidden lg:block lg:scale-110 transition-transform">
             <ImageRevealWide images={fanImages} />
           </div>
         </div>

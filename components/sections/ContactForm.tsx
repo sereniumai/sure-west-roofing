@@ -215,7 +215,7 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-8 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+      <div className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-8 md:p-10 lg:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
         <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-5">
           <CheckCircle2 className="w-8 h-8 text-green-500" />
         </div>
@@ -232,7 +232,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-6 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
+    <div className="bg-white rounded-[--radius-md] border border-[#E8E8E8] p-6 md:p-8 lg:p-10 shadow-[0_8px_30px_rgba(0,0,0,0.06)]">
       <h2 className="font-display font-bold text-xl lg:text-2xl text-dark tracking-tight mb-6">
         Request Your Free Estimate
       </h2>
@@ -400,6 +400,8 @@ export function ContactForm() {
               inquiry and related services, and agree to the{' '}
               <a
                 href="/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline hover:text-brand-gold transition-colors"
               >
                 Privacy Policy
@@ -407,6 +409,8 @@ export function ContactForm() {
               and{' '}
               <a
                 href="/terms"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="underline hover:text-brand-gold transition-colors"
               >
                 Terms
