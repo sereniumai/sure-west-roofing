@@ -150,7 +150,12 @@ export function ServicesIconGrid({
         >
           {heading.split('\n').map((line, i) => (
             <span key={i}>
-              {i > 0 && <br />}
+              {i > 0 && (
+                <>
+                  {' '}
+                  <br className="hidden md:block" />
+                </>
+              )}
               {line}
             </span>
           ))}

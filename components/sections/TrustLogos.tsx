@@ -70,9 +70,42 @@ interface Stat {
 }
 
 const STATS: Stat[] = [
-  { end: 250, suffix: '+', decimals: 0, label: 'Roofs Completed', Icon: Home },
-  { end: 1, suffix: ' Day', decimals: 0, label: 'Average Install Time', Icon: Zap },
-  { end: 5, suffix: '.0', decimals: 0, label: 'Google Rating', Icon: Star },
+  {
+    end: 250,
+    suffix: '+',
+    decimals: 0,
+    label: (
+      <>
+        <span className="md:hidden">Roofs</span>
+        <span className="hidden md:inline">Roofs Completed</span>
+      </>
+    ),
+    Icon: Home,
+  },
+  {
+    end: 1,
+    suffix: ' Day',
+    decimals: 0,
+    label: (
+      <>
+        <span className="md:hidden">Install Time</span>
+        <span className="hidden md:inline">Average Install Time</span>
+      </>
+    ),
+    Icon: Zap,
+  },
+  {
+    end: 5,
+    suffix: '.0',
+    decimals: 0,
+    label: (
+      <>
+        <span className="md:hidden">Rating</span>
+        <span className="hidden md:inline">Google Rating</span>
+      </>
+    ),
+    Icon: Star,
+  },
   {
     end: 10,
     suffix: ' Yr',
@@ -100,20 +133,20 @@ export function TrustLogos() {
       <div className="max-w-[960px] mx-auto">
         {/* ── Stats ──────────────────────────────────────────────── */}
         <Reveal>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6">
+        <div className="grid grid-cols-4 gap-x-3 sm:gap-x-4 md:gap-x-6">
           {STATS.map((stat, i) => {
             return (
               <div key={i} className="flex flex-col items-center text-center">
                 <span
                   className="font-display font-semibold leading-none text-brand-gold"
-                  style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
+                  style={{ fontSize: 'clamp(22px, 4.5vw, 56px)', letterSpacing: '-0.03em' }}
                 >
                   <CountUp end={stat.end} suffix={stat.suffix} decimals={stat.decimals} duration={2.2} />
                 </span>
                 <span
-                  className="mt-2 text-brand-slate uppercase tracking-[0.1em]"
+                  className="mt-2 text-brand-slate uppercase tracking-[0.08em] md:tracking-[0.1em] leading-tight"
                   style={{
-                    fontSize: '12px',
+                    fontSize: 'clamp(10px, 1.2vw, 12px)',
                     fontFamily: "var(--font-inter), system-ui, sans-serif",
                     fontWeight: 500,
                   }}

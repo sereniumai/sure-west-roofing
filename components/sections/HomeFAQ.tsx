@@ -43,16 +43,22 @@ const FAQS: FAQ[] = [
   {
     question: 'What makes Sure West different from other roofing contractors?',
     answerText:
-      "Three things you can verify on every job. Character: in-house crew on every roof, honest quotes from day one, and we'll tell you if you don't need a replacement even if it costs us the work. Competency: Red Seal Journeyman certified, Canada's highest trade credential. Proven Processes: same playbook, same crew, same magnetic nail sweep, same warranty in writing. The rest is talk.",
+      "Five things you can verify on every job. Legacy: roofs we'd still stand behind in 20 years. Brotherhood: same in-house crew tear-off to walkthrough, no subs. Character: honest quotes from day one, we'll tell you if you don't need a replacement. Competency: Red Seal Journeyman certified, Canada's highest trade credential. Proven Processes: same playbook, same magnetic nail sweep, same warranty in writing. The rest is talk.",
     answer: (
       <>
-        Three things you can verify on every job. Character: in-house crew on every roof, honest quotes from day one, and we&apos;ll tell you if you don&apos;t need a replacement even if it costs us the work.
+        Five things you can verify on every job. Legacy: roofs we&apos;d still stand behind in 20 years.
+        <br />
+        <br />
+        Brotherhood: same in-house crew tear-off to walkthrough, no subs.
+        <br />
+        <br />
+        Character: honest quotes from day one, we&apos;ll tell you if you don&apos;t need a replacement.
         <br />
         <br />
         Competency: Red Seal Journeyman certified, Canada&apos;s highest trade credential.
         <br />
         <br />
-        Proven Processes: same playbook, same crew, same magnetic nail sweep, same warranty in writing. The rest is talk.
+        Proven Processes: same playbook, same magnetic nail sweep, same warranty in writing. The rest is talk.
       </>
     ),
   },

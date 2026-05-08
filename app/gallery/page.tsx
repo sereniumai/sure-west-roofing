@@ -131,7 +131,7 @@ const HERO_COLLAGE = [
 function GalleryHero() {
   return (
     <section
-      className="relative bg-[#F7F5F0] pt-24 md:pt-36 lg:pt-44 pb-16 md:pb-24"
+      className="relative bg-[#F7F5F0] pt-24 md:pt-36 lg:pt-44 pb-10 md:pb-16 lg:pb-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
@@ -183,8 +183,8 @@ function GalleryHero() {
 
           </div>
 
-          {/* Right: layered polaroid collage */}
-          <div className="relative mt-8 lg:mt-0">
+          {/* Right: layered polaroid collage. Hidden on mobile/tablet so visitors reach the actual gallery faster. */}
+          <div className="relative mt-8 lg:mt-0 hidden lg:block">
             <div className="relative w-full aspect-[5/4] max-w-[640px] mx-auto">
               {HERO_COLLAGE.map((img) => (
                 // Outer: positioning + rotation (static, rotation stays stable on hover)
