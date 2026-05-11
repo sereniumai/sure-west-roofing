@@ -328,10 +328,10 @@ function Legacy() {
             {/* LEFT — Framed portrait photo (image-below on mobile, image-left on desktop) */}
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div
-                className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px]"
+                className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px]"
                 style={{
                   boxShadow:
-                    '0 30px 60px -25px rgba(26,22,18,0.35), 0 12px 30px -12px rgba(26,22,18,0.2)',
+                    '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
                 }}
               >
                 <Image
@@ -341,11 +341,6 @@ function Legacy() {
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   quality={95}
                   className="object-cover"
-                />
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 rounded-[inherit]"
-                  style={{ boxShadow: 'inset 0 0 0 1px rgba(196,154,44,0.4)' }}
                 />
               </div>
             </div>

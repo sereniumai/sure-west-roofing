@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import { FoundersVideo } from '@/components/ui/FoundersVideo'
 import { Reveal } from '@/components/ui/Reveal'
 
 const SERIF = "Georgia, 'Times New Roman', serif"
@@ -17,33 +17,24 @@ export function BrandStrip() {
       <Reveal>
         <div className="relative max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            {/* LEFT — Framed portrait photo */}
-            <div className="lg:col-span-5">
-              <div
-                className="relative aspect-[4/5] w-full overflow-hidden rounded-[10px]"
-                style={{
-                  boxShadow:
-                    '0 30px 60px -25px rgba(26,22,18,0.35), 0 12px 30px -12px rgba(26,22,18,0.2)',
-                }}
-              >
-                <Image
-                  src="/images/cochrane roofing contractor - move the mountain.jpg"
-                  alt="Sure West Roofing crew working in the foothills of the Canadian Rockies near Cochrane, Alberta"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  quality={95}
-                  className="object-cover"
-                />
-                <span
+            {/* LEFT — Brand video (Move the Mountain) */}
+            <div className="lg:col-span-6">
+              <div className="relative">
+                <div
                   aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 rounded-[inherit]"
-                  style={{ boxShadow: 'inset 0 0 0 1px rgba(196,154,44,0.4)' }}
+                  className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
+                  style={{
+                    background:
+                      'radial-gradient(500px 220px at 50% 50%, rgba(212,175,96,0.14), transparent 70%)',
+                    filter: 'blur(4px)',
+                  }}
                 />
+                <FoundersVideo />
               </div>
             </div>
 
             {/* RIGHT — Heading + Body + Closing + Signature + CTA */}
-            <div className="lg:col-span-7">
+            <div className="lg:col-span-6">
               {/* Pre-title pill */}
               <span
                 className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"
@@ -60,11 +51,11 @@ export function BrandStrip() {
 
               {/* Heading */}
               <h2
-                className="mt-6 font-display font-bold text-brand-navy"
+                className="mt-6 font-display font-medium text-brand-navy"
                 style={{
-                  fontSize: 'clamp(48px, 6vw, 80px)',
-                  lineHeight: 1.05,
-                  letterSpacing: '-0.01em',
+                  fontSize: 'clamp(32px, 4.5vw, 48px)',
+                  lineHeight: 1.15,
+                  letterSpacing: '-0.005em',
                 }}
               >
                 Move the Mountain

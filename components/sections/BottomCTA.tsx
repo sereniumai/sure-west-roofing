@@ -141,10 +141,10 @@ export function BottomCTA({
               }}
             />
             <div
-              className="relative aspect-[4/3] w-full max-w-[640px] mx-auto md:max-w-none rounded-[16px] overflow-hidden ring-1 ring-black/5"
+              className="relative aspect-[4/3] w-full max-w-[640px] mx-auto md:max-w-none rounded-[18px] overflow-hidden"
               style={{
                 boxShadow:
-                  '0 40px 90px -30px rgba(26,22,18,0.55), 0 18px 40px -18px rgba(26,22,18,0.3)',
+                  '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
               }}
             >
               <Image

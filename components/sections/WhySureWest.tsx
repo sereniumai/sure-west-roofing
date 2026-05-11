@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Plus } from 'lucide-react'
-import { FoundersVideo } from '@/components/ui/FoundersVideo'
+import Image from 'next/image'
+import { Plus, ShieldCheck } from 'lucide-react'
 import { Reveal } from '@/components/ui/Reveal'
 
 interface Pillar {
@@ -46,7 +46,6 @@ interface WhySureWestProps {
   heading?: React.ReactNode
   body?: string
   cityName?: string
-  videoThumbnail?: string
   subheadMaxWidth?: string
 }
 
@@ -55,7 +54,6 @@ export function WhySureWest({
   heading = 'What Actually Sets Sure West Apart',
   body,
   cityName = 'Cochrane',
-  videoThumbnail,
   subheadMaxWidth = '725px',
 }: WhySureWestProps = {}) {
   const subhead =
@@ -129,7 +127,7 @@ export function WhySureWest({
         </Reveal>
 
         {/* Two-column split: editorial 5-pillar accordion left, video right */}
-        <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+        <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center lg:items-stretch">
           {/* LEFT: editorial accordion */}
           <Reveal delay={150}>
             <ul className="flex flex-col">
@@ -248,9 +246,9 @@ export function WhySureWest({
             </ul>
           </Reveal>
 
-          {/* RIGHT: video */}
+          {/* RIGHT: image — squarer on mobile, fills accordion column height on desktop */}
           <Reveal delay={300}>
-            <div className="relative">
+            <div className="relative h-full">
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute -inset-x-6 -inset-y-4 -z-10"
@@ -260,7 +258,63 @@ export function WhySureWest({
                   filter: 'blur(4px)',
                 }}
               />
-              <FoundersVideo thumbnail={videoThumbnail} />
+              <div
+                className="relative w-full aspect-square lg:aspect-auto lg:h-full overflow-hidden rounded-[18px]"
+                style={{
+                  boxShadow:
+                    '0 2px 4px rgba(44,71,102,0.06), 0 12px 40px -8px rgba(44,71,102,0.18), 0 40px 100px -20px rgba(44,71,102,0.22)',
+                  minHeight: '420px',
+                }}
+              >
+                <Image
+                  src="/Sure West Roofing in Cochrane.webp"
+                  alt="Sure West Roofing, Red Seal Journeyman roofing contractor in Cochrane Alberta"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 580px"
+                  quality={100}
+                  className="object-cover"
+                />
+              </div>
+
+              {/* Floating trust badge, overhangs the image bottom-right */}
+              <div
+                className="absolute -bottom-5 -right-3 sm:-bottom-6 sm:-right-5 lg:-bottom-7 lg:-right-7 bg-white rounded-[14px] flex items-center gap-3.5 px-4 py-3 sm:px-5 sm:py-3.5 max-w-[260px]"
+                style={{
+                  boxShadow:
+                    '0 2px 4px rgba(44,71,102,0.08), 0 14px 32px -10px rgba(44,71,102,0.22), 0 28px 60px -18px rgba(44,71,102,0.18)',
+                  zIndex: 2,
+                }}
+              >
+                <span
+                  className="flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-full"
+                  style={{
+                    background: 'rgba(212,175,96,0.14)',
+                    border: '1px solid rgba(212,175,96,0.35)',
+                  }}
+                >
+                  <ShieldCheck className="w-5 h-5 text-brand-gold" strokeWidth={1.75} />
+                </span>
+                <div>
+                  <div
+                    className="font-display text-brand-navy leading-none"
+                    style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '-0.01em' }}
+                  >
+                    Hired for Character
+                  </div>
+                  <div
+                    className="text-brand-slate mt-1.5"
+                    style={{
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-inter), system-ui, sans-serif',
+                      fontWeight: 500,
+                      letterSpacing: '0.01em',
+                      lineHeight: 1.3,
+                    }}
+                  >
+                    Trained for the craft
+                  </div>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
