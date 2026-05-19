@@ -36,6 +36,8 @@ interface ServicesIconGridProps {
   body?: string
   cta?: { label: string; href: string }
   services: ServiceCardItem[]
+  /** Override the section background. Defaults to cream. */
+  sectionBg?: string
 }
 
 
@@ -122,11 +124,14 @@ export function ServicesIconGrid({
   body,
   cta,
   services,
+  sectionBg = '#F7F5F0',
 }: ServicesIconGridProps) {
+  const isCream = sectionBg.toUpperCase() === '#F7F5F0'
   return (
     <section
-      className="bg-brand-cream relative overflow-hidden py-20 md:py-24"
+      className="relative overflow-hidden py-20 md:py-24"
       style={{
+        background: sectionBg,
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -136,7 +141,7 @@ export function ServicesIconGrid({
       <div className="relative flex flex-col items-center text-center mb-12 md:mb-16 max-w-[920px] mx-auto">
         <span
           className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
-          style={{ background: '#FFFFFF', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
+          style={{ background: isCream ? '#FFFFFF' : '#F7F5F0', fontSize: '12px', fontFamily: "var(--font-inter), system-ui, sans-serif", fontWeight: 600, lineHeight: 1 }}
         >
           {eyebrow}
         </span>

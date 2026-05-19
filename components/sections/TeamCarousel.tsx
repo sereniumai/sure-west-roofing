@@ -8,16 +8,12 @@ interface TeamMember {
 }
 
 const TEAM: TeamMember[] = [
-  { name: 'Craig',   role: 'Co-Founder',     photo: '/images/Team/Craig - Sure West Roofing.jpg' },
-  { name: 'Mike',    role: 'Co-Founder',     photo: '/images/Team/Mike - Sure West Roofing.jpg' },
-  { name: 'Adam',    role: 'Lead Foreman',   photo: '/images/Team/Adam - Sure West Roofing.webp' },
-  { name: 'Mark',    role: 'Lead Installer', photo: '/images/Team/Mark - Sure West Roofing.webp' },
-  { name: 'Kyle',    role: 'Installer',      photo: '/images/Team/Kyle - Sure West Roofing.webp' },
-  { name: 'Jaron',   role: 'Installer',      photo: '/images/Team/Jaron - Sure West Roofing.jpg' },
-  { name: 'James D', role: 'Installer',      photo: '/images/Team/James D - Sure West Roofing.jpg' },
-  { name: 'James B', role: 'Installer',      photo: '/images/Team/James B - Sure West Roofing.webp' },
-  { name: 'Carter',  role: 'Installer',      photo: '/images/Team/Carter - Sure West Roofing.webp' },
-  { name: 'Wyatt',   role: 'Installer',      photo: '/images/Team/Wyatt - Sure West Roofing.webp' },
+  { name: 'Craig',   role: 'Co-Founder', photo: '/images/Team/Craig - Sure West Roofing.jpg' },
+  { name: 'Mike',    role: 'Co-Founder', photo: '/images/Team/Mike - Sure West Roofing.jpg' },
+  { name: 'Adam',    role: 'Lead Foreman', photo: '/images/Team/Adam - Sure West Roofing.webp' },
+  { name: 'Jaron',   role: 'Foreman',    photo: '/images/Team/Jaron - Sure West Roofing.jpg' },
+  { name: 'Mark',    role: 'Labourer',   photo: '/images/Team/Mark - Sure West Roofing.webp' },
+  { name: 'James B', role: 'Installer',  photo: '/images/Team/James B - Sure West Roofing.webp' },
 ]
 
 export function TeamCarousel() {
@@ -66,7 +62,7 @@ export function TeamCarousel() {
         </Reveal>
 
         <Reveal delay={150}>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 md:gap-6 max-w-[960px] mx-auto">
           {TEAM.map((member) => (
             <article key={member.name}>
               <div className="group relative bg-brand-cream rounded-[14px] border border-[#E5E2D9] overflow-hidden shadow-sm transition-all duration-500 ease-out hover:-translate-y-2 hover:border-brand-gold/60 hover:shadow-[0_28px_50px_-22px_rgba(212,175,96,0.55),0_10px_20px_-10px_rgba(44,71,102,0.20)]">

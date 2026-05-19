@@ -23,7 +23,7 @@ const ABOUT_FAQS_RICH: AboutFaqRich[] = [
     question: 'Are all your installers Red Seal certified?',
     answer: (
       <>
-        We&apos;re honest about this: no. Red Seal is a multi-year credential, and apprentice and early-career installers haven&apos;t reached it yet. What matters is that Craig (Red Seal certified since 2018) trains the entire crew to that standard, supervises every project, and signs off on the workmanship. The designation governs the company&apos;s standard, not every name on the crew.
+        Honestly, no. Red Seal is a multi-year credential, and our apprentice and early-career installers are still working toward it. What matters is the standard: our processes are built off Red Seal Journeyman certification, and Mike will earn his Red Seal in the coming years. Apprentices are paired with senior crew members and taught to that same standard. The certification governs how we do the work, not whose name is on every roof.
       </>
     ),
   },
@@ -44,14 +44,14 @@ const ABOUT_FAQS_RICH: AboutFaqRich[] = [
     ),
   },
   {
-    question: 'What is IKO ShieldPRO and why does it matter?',
+    question: 'Which shingle manufacturers do you work with?',
     answer: (
       <>
-        ShieldPRO is IKO&apos;s top-tier installer designation. Sure West installs to IKO&apos;s highest specifications, which qualifies{' '}
-        <Link href="/roof-replacement" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
-          your roof
-        </Link>{' '}
-        for top-tier manufacturer warranty coverage on both materials and workmanship.
+        We are a Malarkey Certified Contractor and lean heavily on the Malarkey line for Alberta roofs. For wind performance we use Malarkey Vista and Owens Corning Duration. For hail-prone neighbourhoods we install polymer-modified options like Malarkey Legacy and Euroshield Rubber. We walk you through the tiers in person during your{' '}
+        <Link href="/free-roof-estimate-cochrane" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
+          free estimate
+        </Link>
+        , matching the product to your roof and exposure.
       </>
     ),
   },
@@ -59,7 +59,7 @@ const ABOUT_FAQS_RICH: AboutFaqRich[] = [
     question: 'Are you insured and licensed?',
     answer: (
       <>
-        Yes. $2 million liability insurance, WCB Alberta coverage on every crew member, and proof of both provided before any work begins. Ask for the certificates during your{' '}
+        Yes. $5 million liability insurance, well above the standard minimum, plus WCB Alberta coverage on every crew member. Proof of both is provided before any work begins. Ask for the certificates during your{' '}
         <Link href="/free-roof-estimate-cochrane" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
           free estimate
         </Link>
@@ -68,14 +68,14 @@ const ABOUT_FAQS_RICH: AboutFaqRich[] = [
     ),
   },
   {
-    question: "How can I be sure my quote won't change mid-project?",
+    question: 'What happens if something unexpected comes up mid-project?',
     answer: (
       <>
-        Because{' '}
+        Roofing rarely gives up every detail before the work starts. We are as diligent as possible during the on-site assessment, but things can surface once the old roof comes off. When that happens, we promise to communicate early and with clarity. You hear about it before any extra work happens, never after, and you decide how to proceed. Our{' '}
         <Link href="/free-roof-estimate-cochrane" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
-          every Sure West quote
+          written quote
         </Link>{' '}
-        is fixed and written before work begins. We inspect the deck, count the materials, and price the job on what&apos;s actually there, not on best-case assumptions. If something genuinely unforeseen comes up (rare on a thorough inspection), you hear about it before any extra work happens, never after. No padding mid-project, no surprises in the bill.
+        sets the baseline, and any change is approved by you in writing before we touch it.
       </>
     ),
   },
@@ -103,7 +103,7 @@ export function AboutFAQ() {
       id="faq"
       className="relative overflow-hidden py-20 md:py-24"
       style={{
-        background: '#FFFFFF',
+        background: '#F7F5F0',
         paddingLeft: 'var(--section-pad-x)',
         paddingRight: 'var(--section-pad-x)',
       }}
@@ -114,7 +114,7 @@ export function AboutFAQ() {
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
-                background: '#F7F5F0',
+                background: '#FFFFFF',
                 fontSize: '12px',
                 fontFamily: 'var(--font-inter), system-ui, sans-serif',
                 fontWeight: 600,

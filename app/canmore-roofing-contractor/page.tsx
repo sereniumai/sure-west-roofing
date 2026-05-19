@@ -141,14 +141,14 @@ const CANMORE_FAQS = [
   {
     question: 'What warranty do you offer on a Canmore roof replacement?',
     answerText:
-      'Every Canmore roof replacement comes with a 10-year workmanship guarantee in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.',
+      'Every Canmore roof replacement comes with a 10-year workmanship guarantee in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties sit on top of that, often running 25 years to lifetime depending on the product tier you choose. We register your manufacturer warranty and support any future claim.',
     answer: (
       <>
         Every Canmore{' '}
         <Link href="/roof-replacement" className="faq-link">
           roof replacement
         </Link>{' '}
-        comes with a 10-year workmanship guarantee in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties (IKO Cambridge, Dynasty, or Nordic) sit on top of that, often running 25 years to lifetime depending on the tier. We register your manufacturer warranty and support any future claim.
+        comes with a 10-year workmanship guarantee in writing. We cover any issue tied to how we installed it. Manufacturer shingle warranties sit on top of that, often running 25 years to lifetime depending on the product tier you choose. We register your manufacturer warranty and support any future claim.
       </>
     ),
   },
@@ -165,43 +165,43 @@ const CANMORE_FAQS = [
   {
     question: 'How much does a roof replacement cost in Canmore?',
     answerText:
-      'Roof replacement cost depends on several factors: roof size, pitch (Canmore homes often run steep), the materials you choose, the condition of the deck underneath, snow-load coverage at the eaves, and any soft-metal work at flashings. We come to your Canmore property in person, walk the roof, and send a clear, itemised written quote.',
+      'Roof replacement cost depends on several factors: roof size, pitch (Canmore homes often run steep), the materials you choose, the condition of the deck underneath, snow-load coverage at the eaves, and any metal work at flashings. We come to your Canmore property in person, walk the roof, and send a clear, itemised written quote.',
     answer: (
       <>
         <Link href="/roof-replacement" className="faq-link">
           Roof replacement
         </Link>{' '}
-        cost depends on several factors: roof size, pitch (Canmore homes often run steep), the materials you choose, the condition of the deck underneath, snow-load coverage at the eaves, and any soft-metal work at flashings. We come to your Canmore property in person, walk the roof, and send a clear, itemised written quote.
+        cost depends on several factors: roof size, pitch (Canmore homes often run steep), the materials you choose, the condition of the deck underneath, snow-load coverage at the eaves, and any metal work at flashings. We come to your Canmore property in person, walk the roof, and send a clear, itemised written quote.
       </>
     ),
   },
   {
     question: 'What shingles do you install on Canmore homes?',
     answerText:
-      "For Canmore we typically recommend IKO Nordic, the impact-rated, mountain-grade tier of our IKO line. It handles steep pitches, snow loads, and chinook freeze-thaw cycles better than the standard Cambridge or Dynasty tiers. We're an IKO ShieldPRO certified installer, so manufacturer warranties stay valid on top of our 10-year workmanship guarantee.",
+      "For Canmore we lean toward hail-performance and wind-performance tiers. Polymer-modified options like Malarkey Legacy or Euroshield Rubber handle steep pitches, snow loads, and chinook freeze-thaw cycles better than standard builder-grade shingles. We walk you through the tiers in person and match the product to your specific roof and exposure, with manufacturer warranties on top of our 10-year workmanship guarantee.",
     answer: (
       <>
-        For Canmore we typically recommend IKO Nordic, the impact-rated, mountain-grade tier of our IKO line. It handles steep pitches, snow loads, and chinook freeze-thaw cycles better than the standard Cambridge or Dynasty tiers. We&apos;re an IKO ShieldPRO certified installer, so manufacturer warranties stay valid on top of our 10-year workmanship guarantee.
+        For Canmore we lean toward hail-performance and wind-performance tiers. Polymer-modified options like Malarkey Legacy or Euroshield Rubber handle steep pitches, snow loads, and chinook freeze-thaw cycles better than standard builder-grade shingles. We walk you through the tiers in person and match the product to your specific roof and exposure, with manufacturer warranties on top of our 10-year workmanship guarantee.
       </>
     ),
   },
   {
     question: 'Can you work on steep-pitch mountain roofs safely?',
     answerText:
-      "Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Our Red Seal Journeyman certification is Canada's highest trade credential, and our crews are trained to the safety standards required for high-pitch and high-wind work. We don't subcontract steep work. The same in-house crew handles every roof.",
+      "Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Red Seal Journeyman is Canada's highest trade credential in roofing, and our processes are built off that standard. Our in-house roofing crews are trained to the safety protocols required for high-pitch and high-wind work, with no subcontractors on steep roofs.",
     answer: (
       <>
-        Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Our Red Seal Journeyman certification is Canada&apos;s highest trade credential, and our crews are trained to the safety standards required for high-pitch and high-wind work. We don&apos;t subcontract steep work. The same in-house crew handles every roof.
+        Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Red Seal Journeyman is Canada&apos;s highest trade credential in roofing, and our processes are built off that standard. Our in-house roofing crews are trained to the safety protocols required for high-pitch and high-wind work, with no subcontractors on steep roofs.
       </>
     ),
   },
   {
     question: 'When is the best time of year to replace a roof in Canmore?',
     answerText:
-      'Late spring through early fall is the practical window in the Bow Valley. Temperatures are warm enough for proper shingle sealing and dry enough to avoid weather pauses. Booking in late winter or early spring is the easiest way to lock a slot in the best window. We schedule weather-aware: if conditions threaten the install, we pause and secure the site rather than push through.',
+      'We replace roofs year-round in the Bow Valley. Calgary is the sunniest city in Canada and chinooks open winter installation windows you would not get in most provinces. Our process is built for weather: panel by panel, always plugged in to the forecast, only opening what we know we can finish in a given window. Booking in late winter or early spring gives you the widest range of slots, though we work through every season.',
     answer: (
       <>
-        Late spring through early fall is the practical window in the Bow Valley. Temperatures are warm enough for proper shingle sealing and dry enough to avoid weather pauses. Booking in late winter or early spring is the easiest way to lock a slot in the best window. We schedule weather-aware: if conditions threaten the install, we pause and secure the site rather than push through.
+        We replace roofs year-round in the Bow Valley. Calgary is the sunniest city in Canada and chinooks open winter installation windows you would not get in most provinces. Our process is built for weather: panel by panel, always plugged in to the forecast, only opening what we know we can finish in a given window. Booking in late winter or early spring gives you the widest range of slots, though we work through every season.
       </>
     ),
   },
@@ -231,14 +231,19 @@ export default function RoofingContractorCanmorePage() {
         socialProofLabel="satisfied Canmore homeowners"
       />
 
-      {/* 2. Stats + Certifications */}
-      <TrustLogos />
+      {/* 2. Stats only — certifications moved below Why Sure West to match homepage flow */}
+      <TrustLogos variant="stats" />
 
-      {/* 3. Move the Mountain, brand philosophy anchor before services */}
+      {/* 3. Move the Mountain, brand philosophy anchor */}
       <BrandStrip />
 
-      {/* 4. Services Card Grid */}
+      {/* 4. Why Sure West (cream) + Certifications (cream) — visually one section */}
+      <WhySureWest cityName="Canmore" />
+      <TrustLogos variant="certs" sectionBg="#F7F5F0" />
+
+      {/* 5. Services Card Grid */}
       <ServicesIconGrid
+        sectionBg="#FFFFFF"
         eyebrow="What We Do"
         heading={'Every Canmore Roofing Service.\nOne Standard.'}
         body="From a quick roof repair to a full replacement, the standard doesn't change. The same in-house crew, proven process, and 10-year written guarantee come with every Canmore roof."
@@ -248,7 +253,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year guarantee in writing.",
+              "The biggest job your Canmore roof will face. Same in-house crew tear-off to walkthrough, deck inspection, premium shingle install built for mountain-grade conditions, magnetic nail sweep, and 10-year written guarantee.",
             image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Canmore AB',
           },
@@ -280,7 +285,7 @@ export default function RoofingContractorCanmorePage() {
             title: 'Siding & Soft Metals',
             href: '/siding-soft-metals',
             description:
-              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same in-house crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
+              "Flashings, fascia, soffit, eavestroughs, and siding take the brunt of Bow Valley weather. Red Seal Journeyman standards on every detail, materials rated for snow load and chinook freeze-thaw.",
             image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
             imageAlt: 'Siding and soft metals Canmore AB',
           },
@@ -295,10 +300,10 @@ export default function RoofingContractorCanmorePage() {
         ]}
       />
 
-      {/* 5. Reviews, proof immediately after services (matches homepage flow) */}
+      {/* 6. Reviews on cream to alternate with white services */}
       <Reviews
-        sectionBg="#FFFFFF"
-        cardBg="#F7F5F0"
+        sectionBg="#F7F5F0"
+        cardBg="#FFFFFF"
         heading={
           <>
             What Canmore Homeowners
@@ -307,9 +312,6 @@ export default function RoofingContractorCanmorePage() {
         }
         body="Verified Google reviews from homeowners across Canmore, Calgary, and Cochrane."
       />
-
-      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
-      <WhySureWest cityName="Canmore" />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}
       <HowItWorks cityName="Canmore" otherCities={['Calgary', 'Cochrane']} />

@@ -240,7 +240,7 @@ export function Reviews({
               fontFamily: "var(--font-inter), system-ui, sans-serif",
             }}
           >
-            80+ Google reviews
+            95+ Google reviews
           </span>
         </div>
 

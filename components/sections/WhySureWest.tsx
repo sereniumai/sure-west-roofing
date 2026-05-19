@@ -14,28 +14,28 @@ interface Pillar {
 const PILLARS: Pillar[] = [
   {
     title: 'Legacy',
-    subtitle: 'Built to Last 20 Years',
-    body: "Every roof we install is one we'd be proud of in 20 years. No easy money, no corner cuts, no shingles laid over problems.",
+    subtitle: 'The Reputation We Leave',
+    body: "Legacy is bigger than the roof. It's the reputation we leave in Cochrane, as roofers and as community builders. A company the community knows by name and is proud to call its own.",
   },
   {
     title: 'Brotherhood',
-    subtitle: 'Same Crew, Every Roof',
-    body: 'The crew you meet at the quote is on your roof. Same in-house team from tear-off to walkthrough, Red Seal Journeyman supervised.',
+    subtitle: 'On the Roof and Off',
+    body: 'A team that shows up for each other on the job and off. We challenge each other to be better, because the work is too hard to do alongside people you cannot respect.',
   },
   {
     title: 'Character',
-    subtitle: "The Quote That Doesn't Move",
-    body: "The price you approve is the price you pay. Quotes don't move, commitments kept, no padding mid-project.",
+    subtitle: 'Hired for Character',
+    body: 'We hire for character first. Skills and knowledge can be taught, alignment of values cannot. The team you trust on your roof is built on who they are, not just what they know.',
   },
   {
     title: 'Competency',
-    subtitle: 'Red Seal Journeyman Standard',
-    body: "Red Seal Journeyman is Canada's highest roofing credential. Deck inspected, flashings cut to the wall, manufacturer specs followed.",
+    subtitle: 'Education Shared, Not Gatekept',
+    body: 'Education shared, not gatekept. We teach as quickly as the team can absorb. Red Seal Journeyman is our standard, Canada’s highest trade credential in roofing.',
   },
   {
     title: 'Proven Processes',
-    subtitle: 'Same Playbook on Every Roof',
-    body: 'Same checklists day one and three. Same communication before every job. Same magnetic nail sweep, same 10-year warranty.',
+    subtitle: 'Predictability in Roofing',
+    body: 'Same checklists, same standard, same experience time after time. Predictability in roofing is rare. Our processes are how we deliver it on every roof.',
   },
 ]
 

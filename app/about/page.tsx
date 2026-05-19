@@ -21,6 +21,7 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { TeamCarousel } from '@/components/sections/TeamCarousel'
 import { AboutFAQ } from '@/components/sections/AboutFAQ'
+import { TenPointGuarantee } from '@/components/sections/TenPointGuarantee'
 import { FoundersVideo } from '@/components/ui/FoundersVideo'
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -79,7 +80,7 @@ const aboutPageSchema = {
       },
       {
         '@type': 'EducationalOccupationalCredential',
-        name: 'IKO ShieldPRO Installer',
+        name: 'Malarkey Certified Contractor',
       },
     ],
   },
@@ -534,11 +535,14 @@ function ValueSection({
             <div className="flex flex-col gap-4 md:gap-5">
               {cards.map((card, i) => {
                 const isGold = card.accent === 'gold'
+                const isWhiteSection = sectionBg.toUpperCase() === '#FFFFFF'
+                const cardBg = isWhiteSection ? '#F7F5F0' : '#FFFFFF'
                 return (
                   <article
                     key={i}
-                    className="relative rounded-[14px] border border-[#E5E2D9] bg-white p-7 md:p-8 overflow-hidden"
+                    className="relative rounded-[14px] border border-[#E5E2D9] p-7 md:p-8 overflow-hidden"
                     style={{
+                      background: cardBg,
                       boxShadow:
                         '0 18px 40px -22px rgba(26,22,18,0.18), 0 4px 12px -6px rgba(26,22,18,0.08)',
                     }}
@@ -660,7 +664,7 @@ function Competency() {
         },
         {
           label: "When It Doesn't",
-          body: 'Mistakes pile up, rework grows, and confidence in our work disappears. The mountain becomes heavier, and we lose the respect of those who depend on us.',
+          body: 'Details get missed, rework grows, and confidence in our work disappears. The mountain becomes heavier, and we lose the respect of those who depend on us.',
           accent: 'navy',
         },
       ]}
@@ -714,22 +718,22 @@ const CREDENTIALS: { icon: keyof typeof CRED_ICON_MAP; title: string; body: stri
       "The highest trade credential in Canadian roofing. Sure West is Red Seal Journeyman certified, holding the standard that's recognized nationally.",
   },
   {
-    icon: 'Award',
-    title: 'IKO ShieldPRO Installer',
-    body:
-      'Approved by IKO to install at their highest standard, which qualifies your roof for top-tier manufacturer warranty coverage on materials and workmanship.',
-  },
-  {
     icon: 'FileCheck',
-    title: '$2 Million Liability Insurance',
+    title: '$5 Million Liability Insurance',
     body:
-      'Comprehensive liability coverage on every job. Proof of coverage provided before any work begins, no questions asked.',
+      'Comprehensive liability coverage on every job, well above the standard minimum. Proof of coverage provided before any work begins, no questions asked.',
   },
   {
     icon: 'HardHat',
     title: 'WCB Alberta Covered',
     body:
       "Every crew member is covered by Workers' Compensation Board Alberta. If anything happens, it's handled through WCB, not your homeowner's insurance.",
+  },
+  {
+    icon: 'Award',
+    title: 'Industry Memberships & Certifications',
+    body:
+      'Malarkey Certified Contractor. BBB A+ Rated. AARA Member in Good Standing. CORE Certification (Pending). The industry bodies and partners that stand behind us.',
   },
 ]
 
@@ -878,9 +882,10 @@ export default function AboutPage() {
       <ProvenProcesses />
       <AboutTestimonials />
       <Credentials />
+      <TenPointGuarantee />
       <AboutFAQ />
       <BottomCTA
-        sectionBg="#F7F5F0"
+        sectionBg="#FFFFFF"
         heading="Ready to Hire the Red Seal Roofer Cochrane Trusts?"
         subtext="Five responsibilities, an in-house crew on every roof, and one standard. Free written quote and no sales pressure."
       />

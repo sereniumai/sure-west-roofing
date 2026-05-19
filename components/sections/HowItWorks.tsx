@@ -22,7 +22,7 @@ function getSteps(cityName: string, otherCities: [string, string]): Step[] {
       number: '02',
       title: 'Approve Your Quote',
       description:
-        'Your quote is fixed. The price you approve is the price you pay, with financing available if you need it. Our in-house crew then schedules your job around you.',
+        'A clear, itemised written quote, with financing if you need it. If something turns up once work is underway, we flag it early and walk you through your options before we proceed.',
       Icon: FileCheck,
     },
     {

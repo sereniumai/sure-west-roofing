@@ -23,7 +23,7 @@ interface BottomCTAProps {
 }
 
 const DEFAULT_STATS: Stat[] = [
-  { value: '250+', label: 'Roofs Completed' },
+  { value: '1200+', label: 'Homeowners Served' },
   { value: '5.0', label: 'Google Rating' },
   { value: '10 yr', label: 'Workmanship Guarantee' },
 ]

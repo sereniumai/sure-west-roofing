@@ -31,7 +31,7 @@ const BottomCTA = dynamic(() =>
 export const metadata: Metadata = {
   title: { absolute: 'Roofing Contractor Cochrane | Sure West Roofing' },
   description:
-    'Cochrane roofing contractor with Red Seal Journeyman certification and in-house crew. Free written estimates. 5.0 from 80+ Cochrane homeowners.',
+    'Cochrane roofing contractor with Red Seal Journeyman certification and in-house crew. Free written estimates. 5.0 from 95+ Cochrane homeowners.',
   keywords: [
     'roofing contractor Cochrane',
     'roofer Cochrane AB',
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Roofing Contractor Cochrane | Sure West Roofing',
     description:
-      'Cochrane roofing contractor with Red Seal Journeyman certification and in-house crew. Free written estimates. 5.0 from 80+ Cochrane homeowners.',
+      'Cochrane roofing contractor with Red Seal Journeyman certification and in-house crew. Free written estimates. 5.0 from 95+ Cochrane homeowners.',
     url: 'https://surewestroofing.ca',
     type: 'website',
     locale: 'en_CA',
@@ -77,14 +77,19 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Stats + Certifications */}
-      <TrustLogos />
+      {/* 2. Stats only — certifications moved below Why Sure West per Craig's feedback */}
+      <TrustLogos variant="stats" />
 
-      {/* 3. Move the Mountain, brand philosophy anchor before services */}
+      {/* 3. Move the Mountain, brand philosophy anchor */}
       <BrandStrip />
 
-      {/* 4. Services Card Grid */}
+      {/* 4. Why Sure West (cream) + Certifications (cream) — visually one section */}
+      <WhySureWest subheadMaxWidth="780px" />
+      <TrustLogos variant="certs" sectionBg="#F7F5F0" />
+
+      {/* 5. Services Card Grid */}
       <ServicesIconGrid
+        sectionBg="#FFFFFF"
         eyebrow="What We Do"
         heading={'Every Cochrane Roofing Service.\nOne Standard.'}
         body="From a quick roof repair to a full replacement, the standard doesn't change. The same in-house crew, proven process, and 10-year written guarantee come with every Cochrane roof."
@@ -94,7 +99,7 @@ export default function HomePage() {
             title: 'Roof Replacement',
             href: '/roof-replacement',
             description:
-              "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year guarantee in writing.",
+              "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, premium shingle install, magnetic nail sweep, and 10-year guarantee in writing.",
             image: '/images/roof-replacement-cochrane.webp',
             imageAlt: 'Roof replacement Cochrane AB',
             review: {
@@ -150,7 +155,7 @@ export default function HomePage() {
             title: 'Siding & Soft Metals',
             href: '/siding-soft-metals',
             description:
-              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Same in-house crew as the roofs, Alberta-weather materials, built for chinook and freeze-thaw.",
+              "Flashings, fascia, soffit, eavestroughs, and siding are where crews cut corners. Red Seal Journeyman standards applied to Alberta-weather materials, built for chinook and freeze-thaw.",
             image: '/images/Cochrane Roofing Contractor Gallery 7.webp',
             imageAlt: 'Siding and soft metals Cochrane AB',
           },
@@ -171,13 +176,10 @@ export default function HomePage() {
         ]}
       />
 
-      {/* 5. Reviews, proof immediately after services */}
-      <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
+      {/* 6. Reviews on cream to alternate with white services */}
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
 
-      {/* 6. Why Sure West, differentiator landing on a primed viewer */}
-      <WhySureWest subheadMaxWidth="780px" />
-
-      {/* 7. How It Works, process info now that buyer is leaning in */}
+      {/* 8. How It Works, process info now that buyer is leaning in */}
       <HowItWorks />
 
       {/* 8. Our Work (Portfolio), visual proof before final objection handling */}

@@ -104,13 +104,13 @@ const FAQS: FAQ[] = [
   {
     question: 'How much does a roof replacement cost in Cochrane, AB?',
     answerText:
-      "Roof replacement cost depends on several factors: roof size, pitch, the materials you choose, the condition of the deck underneath, and any soft-metal work needed at flashings, valleys, and eaves. We don't price by the foot or off a satellite image. We come to you, walk the roof in person, and send a clear, itemised written quote so you know exactly what you're paying for and why.",
+      "Roof replacement cost depends on several factors: roof size, pitch, the materials you choose, the condition of the deck underneath, and any metal work needed at flashings, valleys, and eaves. We don't price by the foot or off a satellite image. We come to you, walk the roof in person, and send a clear, itemised written quote so you know exactly what you're paying for and why.",
     answer: (
       <>
         <Link href="/roof-replacement" className="faq-link">
           Roof replacement
         </Link>{' '}
-        cost depends on several factors: roof size, pitch, the materials you choose, the condition of the deck underneath, and any soft-metal work needed at flashings, valleys, and eaves. We don&apos;t price by the foot or off a satellite image. We come to you, walk the roof in person, and send a clear, itemised written quote so you know exactly what you&apos;re paying for and why.
+        cost depends on several factors: roof size, pitch, the materials you choose, the condition of the deck underneath, and any metal work needed at flashings, valleys, and eaves. We don&apos;t price by the foot or off a satellite image. We come to you, walk the roof in person, and send a clear, itemised written quote so you know exactly what you&apos;re paying for and why.
       </>
     ),
   },
@@ -149,10 +149,10 @@ const FAQS: FAQ[] = [
   {
     question: 'How long does a roof last in Cochrane?',
     answerText:
-      "A standard asphalt shingle roof in Cochrane typically lasts 20 to 30 years, depending on the shingle tier (IKO Cambridge, Dynasty, or Nordic), the quality of installation, attic ventilation, and weather exposure. Steeper pitches and chinook-prone sites can shorten that range. The best way to estimate where your specific roof sits is an in-person roof inspection. If you're closer to the upper end of life, plan ahead with a replacement before leaks start.",
+      "A standard asphalt shingle roof in Cochrane typically lasts 18 to 23 years, depending on the shingle tier you choose, the quality of installation, attic ventilation, and weather exposure. Steeper pitches and chinook-prone sites can shorten that range. The best way to estimate where your specific roof sits is an in-person roof inspection. If you're closer to the upper end of life, plan ahead with a replacement before leaks start.",
     answer: (
       <>
-        A standard asphalt shingle roof in Cochrane typically lasts 20 to 30 years, depending on the shingle tier (IKO Cambridge, Dynasty, or Nordic), the quality of installation, attic ventilation, and weather exposure. Steeper pitches and chinook-prone sites can shorten that range. The best way to estimate where your specific roof sits is an in-person{' '}
+        A standard asphalt shingle roof in Cochrane typically lasts 18 to 23 years, depending on the shingle tier you choose, the quality of installation, attic ventilation, and weather exposure. Steeper pitches and chinook-prone sites can shorten that range. The best way to estimate where your specific roof sits is an in-person{' '}
         <Link href="/roof-inspection" className="faq-link">
           roof inspection
         </Link>

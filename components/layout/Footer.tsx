@@ -178,19 +178,33 @@ export function Footer() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-12 pt-16 md:pt-20 pb-8 md:pb-10">
             {/* Column 1, Brand */}
             <div className="col-span-2 lg:col-span-4">
-              <Link href="/" className="inline-block" aria-label="Sure West Roofing home">
+              <Link href="/" className="inline-block" aria-label="Sure West Roofing">
                 <Image
                   src="/images/Sure West Dark Logo.webp"
                   alt="Sure West Roofing"
-                  width={200}
-                  height={72}
-                  className="h-14 md:h-18 w-auto"
+                  width={280}
+                  height={101}
+                  className="h-16 md:h-20 w-auto"
                 />
               </Link>
+
+              {/* Single-line two-tone tagline — Move The (navy) + Mountain. (gold) */}
               <p
-                className="mt-6 text-brand-slate leading-[1.6] max-w-[320px]"
+                className="mt-2 font-display font-bold uppercase whitespace-nowrap"
                 style={{
-                  fontSize: '18px',
+                  fontSize: 'clamp(22px, 2.6vw, 32px)',
+                  letterSpacing: '0.005em',
+                  lineHeight: 1,
+                }}
+              >
+                <span className="text-brand-navy">Move The </span>
+                <span className="text-brand-gold">Mountain.</span>
+              </p>
+
+              <p
+                className="mt-7 text-brand-slate leading-[1.6] max-w-[320px]"
+                style={{
+                  fontSize: '17px',
                   fontFamily: "var(--font-inter), system-ui, sans-serif",
                   fontStyle: 'italic',
                 }}
