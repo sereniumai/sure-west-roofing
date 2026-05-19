@@ -14,11 +14,11 @@ interface IncludedItem {
 const ITEMS: IncludedItem[] = [
   {
     heading: 'Full assessment of siding, fascia, soffits, and eaves',
-    body: 'We start with a walk-around of your Cochrane home, checking the siding, fascia, soffit, eavestroughs, downspouts, and flashing as one system. The estimate covers what needs fixing, not just what you noticed. The cost is fixed in writing before a panel comes off your home.',
+    body: 'We start with a walk-around of your Cochrane home, checking the siding, fascia, soffit, eavestroughs, downspouts, and flashing as one system. The estimate covers what needs fixing, not just what you noticed. You get an itemised written quote before a panel comes off your home.',
   },
   {
     heading: 'Manufacturer-spec install discipline',
-    body: "Daily progress photos, end-of-day cleanup, weather-aware scheduling, and manufacturer-spec install on every panel and seam. The hidden details that fail first, panel reveals, J-channel transitions, weep holes, vapour barriers, all done to the standard the material's warranty requires.",
+    body: "End-of-day cleanup, weather-aware scheduling, and manufacturer-spec install on every panel and seam. The hidden details that fail first, panel reveals, J-channel transitions, weep holes, vapour barriers, all done to the standard the material's warranty requires.",
   },
   {
     heading: 'Workmanship guarantee + manufacturer warranty',

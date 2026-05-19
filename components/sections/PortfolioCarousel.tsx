@@ -110,7 +110,7 @@ export function PortfolioCarousel({
           <div className="md:hidden scale-[0.6] transition-transform">
             <ImageRevealWide images={mobileFanImages} />
           </div>
-          {/* Tablet only: 3-card fan at full size — 5-card spread overflows 768-1023px viewports */}
+          {/* Tablet only: 3-card fan at full size - 5-card spread overflows 768-1023px viewports */}
           <div className="hidden md:block lg:hidden transition-transform">
             <ImageRevealWide images={mobileFanImages} />
           </div>

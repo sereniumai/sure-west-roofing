@@ -40,7 +40,7 @@ const serviceLinks = [
     Icon: CloudHail,
   },
   {
-    label: 'Roof Inspection',
+    label: 'Roof and Attic Inspection',
     description: 'Catch problems before they get expensive',
     href: '/roof-inspection',
     Icon: Search,

@@ -23,7 +23,7 @@ const services = [
   { label: 'Roof Repair', href: '/roof-repair' },
   { label: 'Hail Damage Repair', href: '/hail-damage-repair' },
   { label: 'Roof Maintenance', href: '/roof-maintenance' },
-  { label: 'Roof Inspection', href: '/roof-inspection' },
+  { label: 'Roof and Attic Inspection', href: '/roof-inspection' },
   { label: 'Siding & Soft Metals', href: '/siding-soft-metals' },
   { label: 'Skylight Installation', href: '/skylight-installation' },
 ]
@@ -51,7 +51,7 @@ export function Footer() {
         <div className="mx-auto" style={{ maxWidth: '1320px' }}>
           {/* ── Instagram section ──────────────────────────────────── */}
           <div className="pt-12 md:pt-14 pb-10 md:pb-12 border-b border-brand-border">
-            {/* Inline header — matches footer column heading style */}
+            {/* Inline header - matches footer column heading style */}
             <div className="flex items-end justify-between flex-wrap gap-3 mb-5">
               <div className="flex items-center gap-3">
                 <span
@@ -188,7 +188,7 @@ export function Footer() {
                 />
               </Link>
 
-              {/* Single-line two-tone tagline — Move The (navy) + Mountain. (gold) */}
+              {/* Single-line two-tone tagline - Move The (navy) + Mountain. (gold) */}
               <p
                 className="mt-2 font-display font-bold uppercase whitespace-nowrap"
                 style={{

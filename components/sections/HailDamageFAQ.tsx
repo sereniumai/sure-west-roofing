@@ -16,13 +16,13 @@ const FAQS: FAQ[] = [
   {
     question: 'How do I know if my roof has hail damage in Cochrane?',
     answerText:
-      'Hail damage is not always obvious from the ground. Look for dents on metal flashing or vents, bruised or pitted shingles, heavy granule loss in your gutters, cracked skylights or pipe boots, new leaks weeks or months after a storm, and circular spatter marks on AC units, decks, or fences. If you spot any of these after a Cochrane hailstorm, book a free inspection.',
+      'Hail damage is not always obvious from the ground. Look for dents on metal flashing or vents, bruised or pitted shingles, heavy granule loss in your gutters, cracked skylights or pipe boots, new leaks weeks or months after a storm, and circular spatter marks on AC units, decks, or fences. If you spot any of these after a Cochrane hailstorm, book an inspection.',
     answer: (
       <>
         Hail damage is not always obvious from the ground. Look for dents on metal flashing or
         vents, bruised or pitted shingles, heavy granule loss in your gutters, cracked skylights
         or pipe boots, new leaks weeks or months after a storm, and circular spatter marks on AC
-        units, decks, or fences. If you spot any of these after a Cochrane hailstorm, book a free
+        units, decks, or fences. If you spot any of these after a Cochrane hailstorm, book an
         inspection.
       </>
     ),
@@ -44,13 +44,13 @@ const FAQS: FAQ[] = [
   {
     question: 'How soon after a hailstorm should I get my roof inspected?',
     answerText:
-      'As soon as it is safe and conditions allow. Most Alberta insurers will ask for an inspection report dated reasonably close to the storm. Hail damage can also worsen quickly under UV exposure once the asphalt mat is exposed, so an early inspection protects both the claim and the roof. Sure West offers free post-storm inspections across Cochrane, Calgary, and Canmore.',
+      'As soon as it is safe and conditions allow. Most Alberta insurers will ask for an inspection report dated reasonably close to the storm. Hail damage can also worsen quickly under UV exposure once the asphalt mat is exposed, so an early inspection protects both the claim and the roof. Sure West offers post-storm inspections across Cochrane, Calgary, and Canmore.',
     answer: (
       <>
         As soon as it is safe and conditions allow. Most Alberta insurers will ask for an
         inspection report dated reasonably close to the storm. Hail damage can also worsen
         quickly under UV exposure once the asphalt mat is exposed, so an early inspection
-        protects both the claim and the roof. Sure West offers free post-storm inspections across
+        protects both the claim and the roof. Sure West offers post-storm inspections across
         Cochrane, Calgary, and Canmore.
       </>
     ),
@@ -72,7 +72,7 @@ const FAQS: FAQ[] = [
   {
     question: 'Do I always need a full roof replacement after hail damage?',
     answerText:
-      "No. Hail damage is classified as cosmetic, functional, or structural. Cosmetic damage usually does not affect the roof's lifespan and may not require any repair. Functional damage typically calls for a targeted repair using matched IKO product. Only structural damage, usually from golf-ball or larger hail, requires a full replacement. We will tell you honestly which category applies to your roof.",
+      "No. Hail damage is classified as cosmetic, functional, or structural. Cosmetic damage usually does not affect the roof's lifespan and may not require any repair. Functional damage typically calls for a targeted repair with shingles matched to your existing roof. Only structural damage, usually from golf-ball or larger hail, requires a full replacement. We will tell you honestly which category applies to your roof.",
     answer: (
       <>
         No. Hail damage is classified as cosmetic, functional, or structural. Cosmetic damage
@@ -84,8 +84,8 @@ const FAQS: FAQ[] = [
         >
           targeted repair
         </Link>{' '}
-        using matched IKO product. Only structural damage, usually from golf-ball or larger hail,
-        requires a{' '}
+        with shingles matched to your existing roof. Only structural damage, usually from
+        golf-ball or larger hail, requires a{' '}
         <Link
           href="/roof-replacement"
           className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
@@ -113,29 +113,29 @@ const FAQS: FAQ[] = [
   {
     question: 'What if I do not want to file an insurance claim?',
     answerText:
-      'That is your choice, and Sure West treats the job the same regardless. The post-storm inspection is still free, the written diagnosis is still detailed, and the repair work uses the same IKO impact-rated materials by the same in-house crew. Some homeowners pay direct to avoid premium impact or to skip the claim process. Either path, the standard does not change.',
+      'That is your choice, and Sure West treats the job the same regardless. The post-storm inspection runs the same way, the written diagnosis is just as detailed, and the repair work uses the same impact-rated shingles where the damage calls for them, by the same in-house crew. Some homeowners pay direct to avoid premium impact or to skip the claim process. Either path, the standard does not change.',
     answer: (
       <>
         That is your choice, and Sure West treats the job the same regardless. The post-storm
-        inspection is still free, the written diagnosis is still detailed, and the repair work
-        uses the same IKO impact-rated materials by the same in-house crew. Some homeowners pay
-        direct to avoid premium impact or to skip the claim process. Either path, the standard
-        does not change.
+        inspection runs the same way, the written diagnosis is just as detailed, and the repair
+        work uses the same impact-rated shingles where the damage calls for them, by the same
+        in-house crew. Some homeowners pay direct to avoid premium impact or to skip the claim
+        process. Either path, the standard does not change.
       </>
     ),
   },
   {
     question: 'How much does hail damage roof repair cost in Cochrane?',
     answerText:
-      'Hail damage repair pricing depends on several factors, including the severity of damage (cosmetic, functional, or structural), the affected area, the shingle tier needed, and whether a repair or full replacement is required. Sure West provides a fixed written quote after the post-storm inspection, with the photo documentation and damage classification included. If you are filing a claim, your deductible is what you actually pay out of pocket.',
+      'Hail damage repair pricing depends on several factors, including the severity of damage (cosmetic, functional, or structural), the affected area, the shingle tier needed, and whether a repair or full replacement is required. Sure West provides a written itemised quote after the post-storm inspection, with the photo documentation and damage classification included. If you are filing a claim, your deductible is what you actually pay out of pocket.',
     answer: (
       <>
         Hail damage repair pricing depends on several factors, including the severity of damage
         (cosmetic, functional, or structural), the affected area, the shingle tier needed, and
-        whether a repair or full replacement is required. Sure West provides a fixed written quote
-        after the post-storm inspection, with the photo documentation and damage classification
-        included. If you are filing a claim, your deductible is what you actually pay out of
-        pocket.
+        whether a repair or full replacement is required. Sure West provides a written itemised
+        quote after the post-storm inspection, with the photo documentation and damage
+        classification included. If you are filing a claim, your deductible is what you actually
+        pay out of pocket.
       </>
     ),
   },

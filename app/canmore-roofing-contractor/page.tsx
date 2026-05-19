@@ -231,13 +231,13 @@ export default function RoofingContractorCanmorePage() {
         socialProofLabel="satisfied Canmore homeowners"
       />
 
-      {/* 2. Stats only — certifications moved below Why Sure West to match homepage flow */}
+      {/* 2. Stats only - certifications moved below Why Sure West to match homepage flow */}
       <TrustLogos variant="stats" />
 
       {/* 3. Move the Mountain, brand philosophy anchor */}
       <BrandStrip />
 
-      {/* 4. Why Sure West (cream) + Certifications (cream) — visually one section */}
+      {/* 4. Why Sure West (cream) + Certifications (cream) - visually one section */}
       <WhySureWest cityName="Canmore" />
       <TrustLogos variant="certs" sectionBg="#F7F5F0" />
 
@@ -266,12 +266,12 @@ export default function RoofingContractorCanmorePage() {
             imageAlt: 'Roof repair Canmore AB',
           },
           {
-            title: 'Roof Inspection',
+            title: 'Roof and Attic Inspection',
             href: '/roof-inspection',
             description:
               "Buying, selling, or overdue for a check, a real inspection takes time. We're on the roof, in the attic, and around the flashings, with the truth in writing, clear photos, and a plain-language verdict.",
             image: '/images/roof-inspection-cochrane.webp',
-            imageAlt: 'Roof inspection Canmore AB',
+            imageAlt: 'Roof and attic inspection Canmore AB',
           },
           {
             title: 'Roof Maintenance',

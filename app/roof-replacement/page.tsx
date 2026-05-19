@@ -31,14 +31,14 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 export const metadata: Metadata = {
   title: 'Roof Replacement Cochrane',
   description:
-    'Roof replacement in Cochrane, Calgary, and Canmore by Red Seal Journeyman roofers. Fixed written quote, IKO install, 10-year workmanship guarantee.',
+    'Roof replacement in Cochrane, Calgary, and Canmore by Red Seal Journeyman roofers. Written itemised quote, premium shingle install, 10-year workmanship guarantee.',
   alternates: {
     canonical: 'https://surewestroofing.ca/roof-replacement',
   },
   openGraph: {
     title: 'Roof Replacement Cochrane | Sure West Roofing',
     description:
-      'Roof replacement in Cochrane, Calgary, and Canmore by Red Seal Journeyman roofers. Fixed written quote, IKO install, 10-year workmanship guarantee.',
+      'Roof replacement in Cochrane, Calgary, and Canmore by Red Seal Journeyman roofers. Written itemised quote, premium shingle install, 10-year workmanship guarantee.',
     url: 'https://surewestroofing.ca/roof-replacement',
     type: 'website',
     locale: 'en_CA',
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
         url: 'https://surewestroofing.ca/images/Roof Replacement Cochrane.avif',
         width: 1200,
         height: 630,
-        alt: 'New IKO shingle roof replacement completed by Sure West Roofing in Cochrane Alberta',
+        alt: 'New asphalt shingle roof replacement completed by Sure West Roofing in Cochrane Alberta',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Roof Replacement Cochrane | Sure West Roofing',
     description:
-      'Roof replacement in Cochrane, Calgary, and Canmore by Red Seal Journeyman roofers. Fixed written quote, IKO install, 10-year workmanship guarantee.',
+      'Roof replacement in Cochrane, Calgary, and Canmore by Red Seal Journeyman roofers. Written itemised quote, premium shingle install, 10-year workmanship guarantee.',
     images: ['https://surewestroofing.ca/images/Roof Replacement Cochrane.avif'],
   },
 }
@@ -105,7 +105,7 @@ const serviceSchema = {
   ],
   url: 'https://surewestroofing.ca/roof-replacement',
   description:
-    'Red Seal certified residential roof replacement in Cochrane, Calgary, and Canmore. IKO shingles, 10-year workmanship guarantee, free written estimates.',
+    'Red Seal certified residential roof replacement in Cochrane, Calgary, and Canmore. Performance-tiered shingle options, 10-year workmanship guarantee, free written estimates.',
 }
 
 // ─── Section: What's Included ─────────────────────────────────────────────────
@@ -114,17 +114,17 @@ const INCLUDED_ITEMS = [
   {
     heading: 'Full tear-off and decking inspection',
     body:
-      'We strip the roof to the deck and inspect for rot or water damage. Any compromised sheathing is replaced before new materials go on.',
+      'We strip the roof to the deck and inspect every square foot for rot or water damage. Any compromised sheathing is replaced before new materials go on, so the new roof has a sound foundation underneath.',
   },
   {
-    heading: 'Underlayment, ice-and-water shield, IKO shingles',
+    heading: 'Underlayment, ice-and-water shield, tiered shingles',
     body:
-      'Synthetic underlayment and ice-and-water shield protect the deck. IKO shingles in your tier of choice: Cambridge, Dynasty, or Class 4 Nordic.',
+      'Synthetic underlayment and ice-and-water shield protect the deck. Shingles selected by performance tier: builder grade, wind performance, or polymer-modified for hail-prone Alberta neighbourhoods.',
   },
   {
     heading: 'Full site cleanup, walkthrough, and warranty',
     body:
-      'We tarp landscaping before tear-off, then run a magnetic nail sweep daily. Closes with a walkthrough and your 10-year written warranty.',
+      'We tarp landscaping before tear-off and run a magnetic nail sweep daily. The job closes with a final walkthrough and your 10-year written workmanship warranty handed over before we leave.',
   },
 ]
 
@@ -171,8 +171,8 @@ function WhatIncluded() {
                 fontWeight: 400,
               }}
             >
-              Every Sure West replacement is carried out by our in-house crew, Red Seal Journeyman supervised. Serving
-              Cochrane, Calgary, and Canmore.
+              Every Sure West replacement is carried out by our in-house crew. Serving Cochrane,
+              Calgary, and Canmore.
             </p>
 
             <WhatIncludedAccordion items={INCLUDED_ITEMS} />
@@ -195,7 +195,7 @@ function WhatIncluded() {
             >
               <Image
                 src="/images/Cochrane Roofing Contractor Gallery 5.webp"
-                alt="Sure West crew installing IKO architectural shingles on a Cochrane home"
+                alt="Sure West crew installing architectural shingles on a Cochrane home"
                 fill
                 sizes="(max-width: 1024px) 100vw, 45vw"
                 className="object-cover"
@@ -248,7 +248,7 @@ const SIGNS = [
   {
     Icon: Repeat,
     heading: 'Repeat leaks after repairs',
-    body: 'If you have patched the same area more than once, the underlying roof system is done. Continued repairs only delay the inevitable replacement. We will tell you so straight before quote three, no upsell.',
+    body: 'Patching the same area more than once, or wind damage two or three times a year, means the roof is at end-of-life. The cost-benefit shifts to replacement, and we will tell you so straight, no upsell.',
   },
 ]
 
@@ -362,49 +362,73 @@ const REPLACEMENT_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     Icon: Calendar,
-    title: 'Free On-Site Estimate',
+    title: 'On-Site Estimate',
     description:
-      'A Red Seal Journeyman walks your Cochrane roof in person, measures every slope, and sends a clear, itemised written quote with photos after the on-site visit.',
+      'We visit your Cochrane home, walk the roof, and bring shingle samples. The visit gives you face time with your contractor and catches what tech misses: access, skylights, chimneys, and persistent leak points.',
   },
   {
     number: '02',
     Icon: FileCheck,
     title: 'Approve Your Quote',
     description:
-      'Your quote is fixed. The price you approve is the price you pay. If we find something unexpected once we are on the roof, we stop, document it, and you decide.',
+      'A clear, itemised written quote with site photos and notes follows the visit. If something unexpected comes up once the work is underway, we flag it early and walk you through all your options before we proceed.',
   },
   {
     number: '03',
     Icon: CheckCircle,
     title: 'Your New Roof, Done Right',
     description:
-      'Tear-off, IKO install, magnetic nail sweep, and your 10-year written workmanship guarantee handed over before we leave. Final walkthrough confirms the work meets your standard.',
+      'Tear-off, premium shingle install, magnetic nail sweep, and your 10-year written workmanship guarantee handed over before we leave. A final walkthrough on site confirms the work meets your standard.',
   },
 ]
 
 // ─── Section: Shingle Options ─────────────────────────────────────────────────
 
 const SHINGLES = [
+  // Row 1: non-Malarkey lineup
   {
-    tier: 'Entry Tier',
+    tier: 'Builder Grade',
     name: 'IKO Cambridge',
     image: '/images/IKO Cambridge .webp',
-    imageAlt: 'IKO Cambridge architectural shingle, entry tier option by Sure West Roofing Cochrane',
-    body: 'Architectural shingle with a strong wind warranty and full IKO material backing. A reliable, proven choice for most Cochrane homes where year-round protection and clean curb appeal matter most.',
+    imageAlt: 'IKO Cambridge architectural shingle, builder grade option by Sure West Roofing Cochrane',
+    body: 'Reliable architectural shingle with a solid wind warranty. The accessible choice for Cochrane homes where protection and curb appeal come first.',
   },
   {
-    tier: 'Mid Tier (Recommended)',
-    name: 'IKO Dynasty',
-    image: '/images/IKO Dynasty .webp',
-    imageAlt: 'IKO Dynasty shingle, mid tier option by Sure West Roofing Cochrane',
-    body: 'Heavier shingle with deeper colour, better curb appeal, and improved wind resistance against Alberta gusts. The tier most Cochrane homeowners pick for move-up homes and pre-resale roofs.',
+    tier: 'Wind Performance',
+    name: 'Owens Corning Duration',
+    image: '/images/Owens Corning Duration.jpeg',
+    imageAlt: 'Owens Corning Duration shingle, wind performance option by Sure West Roofing',
+    body: 'SureNail technology delivers stronger fastening and tested wind ratings up to 130 mph. Built for Cochrane homes on exposed slopes or in chinook corridors.',
   },
   {
-    tier: 'Impact Resistant',
-    name: 'IKO Nordic',
-    image: '/images/IKO Nordic .webp',
-    imageAlt: 'IKO Nordic Class 4 impact resistant shingle, hail protection option by Sure West Roofing Cochrane',
-    body: "Class 4 impact rating for serious hail protection. Engineered for Alberta's hail belt and may qualify your property for a meaningful insurance premium discount, depending on your provider.",
+    tier: 'Premium Rubber',
+    name: 'Euroshield Rubber',
+    image: '/images/Euroshield Rubber.webp',
+    imageAlt: 'Euroshield rubber roofing shingle, premium top-tier option by Sure West Roofing',
+    body: 'Recycled rubber roofing with exceptional impact resistance and a 50-year warranty. The longest-lasting option we install, ideal for Alberta hail corridors.',
+  },
+  // Row 2: Malarkey lineup grouped together
+  {
+    tier: 'Premium Wind Performance',
+    name: 'Malarkey Vista',
+    image: '/images/Malarkey Vista.jpg',
+    imageAlt: 'Malarkey Vista shingle, premium wind performance option by Sure West Roofing',
+    body: 'Heavier laminated shingle with deep shadow lines and wind resistance. The move-up option for homeowners wanting visual presence and performance.',
+  },
+  {
+    tier: 'Hail Performance',
+    name: 'Malarkey Legacy',
+    image: '/images/Malarkey Legacy.jpg',
+    imageAlt: 'Malarkey Legacy polymer-modified shingle, hail performance option by Sure West Roofing',
+    body: 'Polymer-modified asphalt with a Class 4 impact rating. Built for hail-prone Alberta neighbourhoods, and may qualify your home for an insurance premium discount.',
+    imageZoom: 1.25,
+  },
+  {
+    tier: 'Premium Hail Performance',
+    name: 'Malarkey Windsor',
+    image: '/images/Malarkey Windsor.jpg',
+    imageAlt: 'Malarkey Windsor polymer-modified shingle, premium hail performance option by Sure West Roofing',
+    body: 'Hail-rated shingle with Malarkey’s NEX polymer technology. Deeper shadow lines and storm resilience for homeowners who want look plus longevity.',
   },
 ]
 
@@ -448,15 +472,14 @@ function ShingleOptions() {
               fontWeight: 400,
             }}
           >
-            Sure West installs IKO shingles exclusively. Canadian-made, proven through Alberta
-            winters and hail seasons, and backed by long-term material warranties in writing.
+            We tier shingles by performance, not brand loyalty. Builder grade, wind performance, or polymer-modified hail performance, matched to your roof and your exposure during the on-site visit.
           </p>
         </div>
         </Reveal>
 
         <Reveal delay={150}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
-          {SHINGLES.map(({ tier, name, image, imageAlt, body }) => (
+          {SHINGLES.map(({ tier, name, image, imageAlt, body, imageZoom }) => (
             <article
               key={name}
               className="group flex flex-col h-full rounded-[14px] bg-white border border-[#E5E2D9] overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] transition-all duration-500 ease-out hover:-translate-y-[6px] hover:border-brand-gold/60 hover:shadow-[0_22px_44px_-22px_rgba(212,175,96,0.45),0_10px_22px_-10px_rgba(44,71,102,0.18)]"
@@ -468,7 +491,8 @@ function ShingleOptions() {
                   alt={imageAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+                  className={`object-cover transition-transform duration-700 ease-out ${imageZoom ? '' : 'group-hover:scale-[1.06]'}`}
+                  style={imageZoom ? { transform: `scale(${imageZoom})` } : undefined}
                   loading="lazy"
                 />
               </div>
@@ -617,16 +641,16 @@ function Financing() {
 // ─── Section: Gallery images for this page ───────────────────────────────────
 
 const RR_GALLERY_IMAGES = [
-  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Completed IKO Dynasty roof replacement in Cochrane Alberta',              caption: 'Cochrane, AB · IKO Dynasty' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'IKO Cambridge shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'IKO Nordic impact resistant roof replacement in Calgary Alberta',        caption: 'Calgary, AB · IKO Nordic' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Residential roof replacement by Sure West Roofing Cochrane',             caption: 'Cochrane, AB · IKO Cambridge' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'IKO Dynasty shingle roof replacement in Canmore Alberta',                caption: 'Canmore, AB · IKO Dynasty' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Architectural shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB · IKO Cambridge' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'IKO Dynasty roof replacement in Calgary Alberta by Sure West Roofing',   caption: 'Calgary, AB · IKO Dynasty' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'IKO Nordic impact resistant roof replacement in Cochrane Alberta',       caption: 'Cochrane, AB · IKO Nordic' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'Sure West in-house crew completing a residential roof replacement in Cochrane',       caption: 'Cochrane, AB · IKO Dynasty' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Sure West Roofing completed roof replacement in the Calgary region',     caption: 'Calgary, AB · IKO Dynasty' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Completed asphalt shingle roof replacement in Cochrane Alberta',             caption: 'Cochrane, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'Architectural shingle roof replacement in Cochrane Alberta',                 caption: 'Cochrane, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'Impact-resistant roof replacement in Calgary Alberta',                       caption: 'Calgary, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Residential roof replacement by Sure West Roofing Cochrane',                 caption: 'Cochrane, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Architectural shingle roof replacement in Canmore Alberta',                  caption: 'Canmore, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Architectural shingle roof replacement in Cochrane Alberta',                 caption: 'Cochrane, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Architectural shingle roof replacement in Calgary Alberta by Sure West',     caption: 'Calgary, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'Impact-resistant roof replacement in Cochrane Alberta',                      caption: 'Cochrane, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'Sure West in-house crew completing a residential roof replacement in Cochrane', caption: 'Cochrane, AB' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Sure West Roofing completed roof replacement in the Calgary region',         caption: 'Calgary, AB' },
 ]
 
 // ─── Section: Related Services ────────────────────────────────────────────────

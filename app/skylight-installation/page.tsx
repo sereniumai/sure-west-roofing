@@ -13,6 +13,7 @@ import {
   ListChecks,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import { SkylightInstallationHero } from '@/components/sections/SkylightInstallationHero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { SkylightWhatIncluded } from '@/components/sections/SkylightWhatIncluded'
@@ -31,14 +32,14 @@ import {
 import { BottomCTA } from '@/components/sections/BottomCTA'
 
 export const metadata: Metadata = {
-  title: 'Skylight Installation Cochrane',
+  title: 'Skylight Replacement & Installation Cochrane',
   description:
-    'Cochrane skylight installation by Red Seal Journeyman roofers. Sealed, flashed, and finished to manufacturer spec. No leaks, no shortcuts.',
+    'Cochrane skylight replacement and tubular skylight installation. Old units removed, new skylights sealed and flashed to manufacturer spec by the same Sure West crew that does our roofs.',
   alternates: { canonical: 'https://surewestroofing.ca/skylight-installation' },
   openGraph: {
-    title: 'Skylight Installation Cochrane | Sure West Roofing',
+    title: 'Skylight Replacement & Installation Cochrane | Sure West Roofing',
     description:
-      'Cochrane skylight installation by Red Seal Journeyman roofers. Sealed, flashed, and finished to manufacturer spec. No leaks, no shortcuts.',
+      'Cochrane skylight replacement and tubular skylight installation. Old units removed, new skylights sealed and flashed to manufacturer spec by the same Sure West crew that does our roofs.',
     url: 'https://surewestroofing.ca/skylight-installation',
     type: 'website',
     locale: 'en_CA',
@@ -47,15 +48,15 @@ export const metadata: Metadata = {
         url: 'https://surewestroofing.ca/images/Cochrane Roofing Contractor Gallery 13.webp',
         width: 1200,
         height: 630,
-        alt: 'Skylight installation by Sure West Roofing on a Cochrane Alberta home',
+        alt: 'Skylight replacement by Sure West Roofing on a Cochrane Alberta home',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Skylight Installation Cochrane | Sure West Roofing',
+    title: 'Skylight Replacement & Installation Cochrane | Sure West Roofing',
     description:
-      'Cochrane skylight installation by Red Seal Journeyman roofers. Sealed, flashed, and finished to manufacturer spec.',
+      'Cochrane skylight replacement and tubular skylight installation. Old units removed, new skylights sealed and flashed to manufacturer spec.',
     images: ['https://surewestroofing.ca/images/Cochrane Roofing Contractor Gallery 13.webp'],
   },
 }
@@ -66,7 +67,7 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://surewestroofing.ca' },
     { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://surewestroofing.ca/services' },
-    { '@type': 'ListItem', position: 3, name: 'Skylight Installation', item: 'https://surewestroofing.ca/skylight-installation' },
+    { '@type': 'ListItem', position: 3, name: 'Skylight Replacement & Installation', item: 'https://surewestroofing.ca/skylight-installation' },
   ],
 }
 
@@ -88,7 +89,7 @@ const serviceSchema = {
   ],
   url: 'https://surewestroofing.ca/skylight-installation',
   description:
-    'Red Seal Journeyman skylight installation in Cochrane, Calgary, and Canmore. Sealed, flashed, and finished to manufacturer spec, with permit handling included where required.',
+    'Skylight replacement and tubular skylight installation in Cochrane, Calgary, and Canmore. Old units removed, new skylights sealed and flashed to manufacturer spec, with permit handling where required.',
 }
 
 const CERT_LOGOS = [
@@ -127,47 +128,47 @@ const SKYLIGHT_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     Icon: Calendar,
-    title: 'Free On-Site Walkthrough',
+    title: 'On-Site Walkthrough',
     description:
-      'A Red Seal Journeyman comes to your Cochrane home, reviews the room you want a skylight in, checks the roof for pitch and access, confirms the right type and size for the space, and writes the fixed quote on site.',
+      'A Sure West roofer comes to your Cochrane home, reviews the existing skylight or proposed tubular location, checks the roof for pitch, deck condition, and access, and writes the itemised quote on site.',
   },
   {
     number: '02',
     Icon: FileCheck,
     title: 'Approve Your Written Quote',
     description:
-      'Fixed written quote, skylight type, size, scope, timeline, and total price. Once you approve, we order the unit, handle permit paperwork, and schedule the install around your calendar and the Cochrane forecast.',
+      'Written itemised quote covering skylight type, size, scope, timeline, and total price. Once approved, we order the unit, handle permits where required, and schedule the install around your calendar and the Cochrane forecast.',
   },
   {
     number: '03',
     Icon: CheckCircle,
-    title: 'Cut, Flash, Finish, Walkthrough',
+    title: 'Remove, Replace, Flash, Walkthrough',
     description:
-      'Rough opening cut and framed, manufacturer flashing kit installed, shingles woven back in, interior trim and drywall return finished. We close with a final walkthrough and hand you the written workmanship guarantee.',
+      'Old unit out, deck inspected, new skylight set with manufacturer flashing kit and shingles woven back in. For tubular installs, rooftop dome sealed and flashed per spec. Final walkthrough and written workmanship guarantee.',
   },
 ]
 
 const SKYLIGHT_TYPES = [
   {
-    tier: 'Daylight Only',
+    tier: 'Replacement',
     name: 'Fixed Skylights',
     image: '/images/Cochrane Roofing Contractor Gallery 1.webp',
-    imageAlt: 'Fixed skylight installed in a Cochrane Alberta home',
-    body: 'Sealed glass, no opening mechanism. The most leak-resistant skylight type by design and the simplest to install. Used to bring natural light into living rooms, hallways, stairwells, and finished basements where ventilation is not the goal.',
+    imageAlt: 'Fixed skylight replacement on a Cochrane Alberta home',
+    body: 'Sealed glass, no opening mechanism. The most leak-resistant skylight type by design and one of the most common replacements we do in Cochrane, particularly in living rooms, hallways, stairwells, and finished basements. Old unit out, new unit sealed and flashed in.',
   },
   {
-    tier: 'For Ventilation',
+    tier: 'Replacement',
     name: 'Vented Skylights',
     image: '/images/Cochrane Roofing Contractor Gallery 4.webp',
-    imageAlt: 'Vented skylight in a Cochrane Alberta bathroom',
-    body: 'Open for fresh air and moisture release. Ideal for Cochrane kitchens and bathrooms where ventilation matters as much as light. Some open manually, others with solar or electric motors and rain-sensor close. Also called roof windows.',
+    imageAlt: 'Vented skylight replacement in a Cochrane Alberta home',
+    body: 'Open for fresh air and moisture release, common in Cochrane kitchens and bathrooms where ventilation matters as much as light. Replacement covers manual, electric, and solar-powered units, with the manufacturer flashing kit installed as specified. Also called roof windows.',
   },
   {
-    tier: 'For Small Spaces',
+    tier: 'New Install & Replacement',
     name: 'Tubular Skylights',
     image: '/images/Cochrane Roofing Contractor Gallery 14.webp',
     imageAlt: 'Tubular skylight on a Cochrane Alberta home',
-    body: 'A rooftop dome and reflective tube channel daylight down into small, dark spaces. Ideal for closets, hallways, ensuites, and powder rooms where a full skylight is not practical. The smallest install footprint of the three types. Also called sun tunnels.',
+    body: 'A rooftop dome and reflective tube channel daylight down into small, dark spaces like closets, hallways, ensuites, and powder rooms. The smallest install footprint of the three types and one we install new for Cochrane homes as well as replace. Also called sun tunnels.',
   },
 ]
 
@@ -176,6 +177,7 @@ function SkylightTypes() {
     <section className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
+        <Reveal>
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
           <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{ background: '#F7F5F0', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
@@ -183,20 +185,22 @@ function SkylightTypes() {
           </span>
           <h2 className="font-display font-medium text-brand-navy"
             style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            Three Skylight Types Common
+            Three Skylight Types We Service
             <br className="hidden md:block" /> in Cochrane Homes
           </h2>
           <p className="mt-5 max-w-[640px] text-brand-slate leading-[1.7]"
             style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Three industry-standard skylight types are commonly installed in Alberta homes. Each
-            suits a different room and a different goal. Sure West will walk you through which type
-            fits your home at the on-site assessment.
+            We replace all three types common in Cochrane homes, fixed, vented, and tubular. We
+            also install new tubular skylights, ideal for closets, ensuites, and other small spaces
+            that could use natural light.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
           </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={120}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {SKYLIGHT_TYPES.map(({ tier, name, image, imageAlt, body }) => (
             <div key={name} className="bg-brand-cream rounded-[12px] border border-brand-border flex flex-col overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
@@ -213,43 +217,42 @@ function SkylightTypes() {
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   )
 }
 
-// ─── Section: Why Sure West (5-card, placeholder copy awaiting Robert) ────
-
 const SKYLIGHT_DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
-    subtitle: 'Worth Standing Behind in 20 Years',
-    body: 'Every skylight we cut into a Cochrane roof is one we would still stand behind in 20 years. Honest work, accurate detail, no shortcuts buried under flashing. The opening we leave in your roof is the reputation we leave in town.',
+    subtitle: 'Every Skylight, A Reputation',
+    body: 'Every skylight we set into a Cochrane roof is one we still stand behind years later. Honest work, accurate flashing, no shortcuts buried under shingles. The opening we leave in your roof is the reputation we leave in town.',
   },
   {
     Icon: Users,
     heading: 'Brotherhood',
-    subtitle: 'Same Crew Through to the Finish',
-    body: 'Craig leads every Sure West skylight project. The crew you meet at the consultation is the crew on the install. No subcontractor handoff, no rotating faces, no estimator who hands you off. First measurement to final walkthrough, every time.',
+    subtitle: 'A Tight-Knit Crew',
+    body: "A team that has each other's backs on the roof and off. Tight-knit, cohesive, aligned in purpose. The crew you meet at the walkthrough is the crew on the install, no subcontractor handoff, no rotating faces. Anyone in a Sure West uniform is held to the same standard, every Cochrane skylight project.",
   },
   {
     Icon: Handshake,
     heading: 'Character',
     subtitle: 'The Quote That Holds',
-    body: 'We will not pad the quote with line items you do not need. We will not bury a real problem behind drywall return. The price on your written quote does not change mid-project, the same whether you are bundling skylights with a roof or booking standalone.',
+    body: 'We will not pad the quote with line items you do not need. We will not bury a real problem behind shingles. The price on your written quote does not change mid-project, the same whether you are bundling a skylight with a full roof or booking standalone.',
   },
   {
     Icon: ShieldCheck,
     heading: 'Competency',
     subtitle: 'Red Seal Journeyman Standard',
-    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. A skylight done right means manufacturer flashing kit installed as specified, ice-and-water shield around the perimeter, interior trim finished paint-ready. We catch what generalists miss.',
+    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. A skylight done right means manufacturer flashing kit installed as specified, ice-and-water shield wrapping the perimeter, deck inspected before any new unit goes in. The details a generalist misses, we catch first.',
   },
   {
     Icon: ListChecks,
     heading: 'Proven Processes',
     subtitle: 'Same Standard, Every Project',
-    body: 'Same site protocol on every Cochrane skylight project. Same daily progress photos, end-of-day cleanup, final walkthrough, written workmanship guarantee. Whether your project is a single skylight or a multi-unit install, the standard does not change.',
+    body: 'Same site protocol on every Cochrane skylight project. End-of-day cleanup, final walkthrough, written workmanship guarantee. Whether your project is a single skylight replacement or a multi-unit install, the standard does not change.',
   },
 ]
 
@@ -257,7 +260,7 @@ const SKYLIGHT_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Skylight installation completed by Sure West Roofing in Cochrane Alberta',   caption: 'Cochrane, AB · Installation' },
   { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Vented skylight installed in a Cochrane Alberta bathroom',                  caption: 'Cochrane, AB · Vented' },
   { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Skylight installation completed by Sure West Roofing in Calgary Alberta',   caption: 'Calgary, AB · Skylight' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Skylight cut and flashed by Sure West Roofing on a Cochrane Alberta home',  caption: 'Calgary, AB · Skylight' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Skylight replaced and flashed by Sure West Roofing on a Cochrane Alberta home',  caption: 'Calgary, AB · Replacement' },
   { src: '/images/Cochrane Roofing Contractor Gallery 14.webp', alt: 'Manufacturer-spec skylight installation by Sure West Roofing in Cochrane Alberta', caption: 'Cochrane, AB · Skylight' },
   { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Skylight flashing detail in Cochrane Alberta',                              caption: 'Cochrane, AB · Flashing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'Detailed skylight perimeter flashing in Cochrane',                          caption: 'Cochrane, AB · Detail' },
@@ -308,10 +311,10 @@ export default function SkylightInstallationPage() {
         heading={
           <>
             How a Sure West Cochrane
-            <br className="hidden md:block" /> Skylight Install Works
+            <br className="hidden md:block" /> Skylight Project Works
           </>
         }
-        body="Three clear steps from first walkthrough to install complete. No surprise charges, no rotating crews, no hidden steps you only discover at handover."
+        body="Three clear steps from first walkthrough to project complete. No surprise charges, no rotating crews, no hidden steps you only discover at handover."
         steps={SKYLIGHT_STEPS}
       />
       <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
@@ -323,7 +326,7 @@ export default function SkylightInstallationPage() {
             <br className="hidden lg:block" /> Trust Sure West for Skylights
           </>
         }
-        subhead="Five responsibilities we've taken on, five things every Sure West skylight install gets that the average Cochrane crew can't match."
+        subhead="Five responsibilities we've taken on, five things every Sure West skylight project gets that the average Cochrane crew can't match."
         sectionBg="#FFFFFF"
         cardBg="#F7F5F0"
       />
@@ -338,11 +341,11 @@ export default function SkylightInstallationPage() {
       <BottomCTA
         heading={
           <>
-            Ready for Skylight Installation
+            Ready for a Skylight Replacement
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Red Seal Journeyman certified, fixed written quote during the on-site walkthrough, written workmanship guarantee, and no sales pressure. Standalone or bundled with your roof project."
+        subtext="Red Seal Journeyman supervised, written itemised quote during the on-site walkthrough, written workmanship guarantee, and no sales pressure. Standalone or bundled with your roof project."
         sectionBg="#FFFFFF"
       />
     </>

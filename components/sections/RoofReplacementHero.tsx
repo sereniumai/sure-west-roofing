@@ -10,7 +10,7 @@ export function RoofReplacementHero() {
       body="Red Seal Journeyman roof replacement in Cochrane, Calgary, and Canmore. The same in-house crew, the same standard, on every roof we touch."
       image={{
         src: '/images/roof-replacement-cochrane.webp',
-        alt: 'Completed IKO shingle roof replacement by Sure West Roofing in Cochrane Alberta',
+        alt: 'Completed asphalt shingle roof replacement by Sure West Roofing in Cochrane Alberta',
       }}
       badge={{
         heading: '10-Year Warranty',

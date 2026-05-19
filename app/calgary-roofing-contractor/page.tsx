@@ -243,13 +243,13 @@ export default function RoofingContractorCalgaryPage() {
         socialProofLabel="satisfied Calgary homeowners"
       />
 
-      {/* 2. Stats only — certifications moved below Why Sure West to match homepage flow */}
+      {/* 2. Stats only - certifications moved below Why Sure West to match homepage flow */}
       <TrustLogos variant="stats" />
 
       {/* 3. Move the Mountain, brand philosophy anchor */}
       <BrandStrip />
 
-      {/* 4. Why Sure West (cream) + Certifications (cream) — visually one section */}
+      {/* 4. Why Sure West (cream) + Certifications (cream) - visually one section */}
       <WhySureWest cityName="Calgary" />
       <TrustLogos variant="certs" sectionBg="#F7F5F0" />
 
@@ -278,12 +278,12 @@ export default function RoofingContractorCalgaryPage() {
             imageAlt: 'Roof repair Calgary AB',
           },
           {
-            title: 'Roof Inspection',
+            title: 'Roof and Attic Inspection',
             href: '/roof-inspection',
             description:
               "Buying, selling, or overdue for a check, a real inspection takes time. We're on the roof, in the attic, and around the flashings, with the truth in writing, clear photos, and a plain-language verdict.",
             image: '/images/roof-inspection-cochrane.webp',
-            imageAlt: 'Roof inspection Calgary AB',
+            imageAlt: 'Roof and attic inspection Calgary AB',
           },
           {
             title: 'Roof Maintenance',

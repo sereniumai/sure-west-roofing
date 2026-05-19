@@ -29,13 +29,10 @@ const FAQS: FAQ[] = [
   {
     question: 'How long does a roof replacement take in Cochrane?',
     answerText:
-      'Most single-family Cochrane roof replacements are completed in one day. Larger or more complex roofs can extend to two or three days. You will be told the schedule before we start and notified before every site activity, from material delivery to bin drop to roof labour. Weather can shift timelines, and we will communicate any change.',
+      'Most Cochrane roof replacements take 2 to 3 days on site. Larger or more complex roofs can extend longer. We focus on doing the work right rather than rushing through, panel by panel, plugged into the forecast and only opening what we know we can finish in a given window. You will be told the schedule before we start and notified before every site activity.',
     answer: (
       <>
-        Most single-family Cochrane roof replacements are completed in one day. Larger or more
-        complex roofs can extend to two or three days. You will be told the schedule before we
-        start and notified before every site activity, from material delivery to bin drop to roof
-        labour. Weather can shift timelines, and we will communicate any change.
+        Most Cochrane roof replacements take 2 to 3 days on site. Larger or more complex roofs can extend longer. We focus on doing the work right rather than rushing through, panel by panel, plugged into the forecast and only opening what we know we can finish in a given window. You will be told the schedule before we start and notified before every site activity.
       </>
     ),
   },
@@ -59,11 +56,11 @@ const FAQS: FAQ[] = [
   {
     question: 'What warranty do I get on a roof replacement from Sure West?',
     answerText:
-      'Every Sure West roof replacement comes with a 10-year written workmanship guarantee handed to you before we leave the job site. This sits on top of the IKO manufacturer warranty on the shingles themselves. Most installation defects show up within the first 12 months. A 10-year guarantee means you are covered for ten times the danger window. If anything in our installation fails, we come back and fix it.',
+      'Every Sure West roof replacement comes with a 10-year written workmanship guarantee handed to you before we leave the job site. This sits on top of the manufacturer warranty on the shingles themselves. Most installation defects show up within the first 12 months. A 10-year guarantee means you are covered for ten times the danger window. If anything in our installation fails, we come back and fix it.',
     answer: (
       <>
         Every Sure West roof replacement comes with a 10-year written workmanship guarantee handed
-        to you before we leave the job site. This sits on top of the IKO manufacturer warranty on
+        to you before we leave the job site. This sits on top of the manufacturer warranty on
         the shingles themselves. Most installation defects show up within the first 12 months. A
         10-year guarantee means you are covered for ten times the danger window. If anything in
         our installation fails, we come back and fix it.
@@ -91,14 +88,10 @@ const FAQS: FAQ[] = [
   {
     question: 'When is the best time of year to replace a roof in Cochrane?',
     answerText:
-      'Late spring through early autumn is the easiest window, when temperatures support proper shingle sealing. Sure West replaces roofs year-round in Cochrane when conditions are safe. We do not gamble with your roof. If weather puts the project at risk, we pause, secure the site, and communicate next steps clearly. Booking earlier in the season usually gets you a tighter schedule.',
+      'We replace roofs year-round in Cochrane. Calgary is the sunniest city in Canada and chinooks open winter windows you would not get in most provinces. The weather challenges us in every season: if it is not snow, it is thunderstorms, heavy winds, or blistering heat. The right time is decided by our process, not the calendar. We work panel by panel, always plugged in to the forecast, only opening what we know we can finish in a given window. That is how your roof stays protected from start to finish, whatever month you book.',
     answer: (
       <>
-        Late spring through early autumn is the easiest window, when temperatures support proper
-        shingle sealing. Sure West replaces roofs year-round in Cochrane when conditions are safe.
-        We do not gamble with your roof. If weather puts the project at risk, we pause, secure the
-        site, and communicate next steps clearly. Booking earlier in the season usually gets you a
-        tighter schedule.
+        We replace roofs year-round in Cochrane. Calgary is the sunniest city in Canada and chinooks open winter windows you would not get in most provinces. The weather challenges us in every season: if it is not snow, it is thunderstorms, heavy winds, or blistering heat. The right time is decided by our process, not the calendar. We work panel by panel, always plugged in to the forecast, only opening what we know we can finish in a given window. That is how your roof stays protected from start to finish, whatever month you book.
       </>
     ),
   },

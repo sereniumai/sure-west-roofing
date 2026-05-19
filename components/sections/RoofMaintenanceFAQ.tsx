@@ -16,7 +16,7 @@ const FAQS: FAQ[] = [
   {
     question: 'Why should I get my Cochrane roof maintained?',
     answerText:
-      "Roof maintenance is the cheapest insurance your Cochrane roof carries. Annual visits catch small issues, lifted shingle tabs, cracked sealant, debris in valleys, before they escalate into leaks or claims. Professional maintenance also produces a written log that supports your IKO manufacturer warranty if a future claim is questioned, protects resale value, and keeps your insurer informed of the roof's condition over time.",
+      "Roof maintenance is the cheapest insurance your Cochrane roof carries. Annual visits catch small issues, lifted shingle tabs, cracked sealant, debris in valleys, before they escalate into leaks or claims. Professional maintenance also produces a written log that supports your manufacturer warranty if a future claim is questioned, protects resale value, and keeps your insurer informed of the roof's condition over time.",
     answer: (
       <>
         Roof maintenance is the cheapest insurance your Cochrane roof carries. Annual visits catch
@@ -28,7 +28,7 @@ const FAQS: FAQ[] = [
         >
           claims
         </Link>
-        . Professional maintenance also produces a written log that supports your IKO manufacturer
+        . Professional maintenance also produces a written log that supports your manufacturer
         warranty if a future claim is questioned, protects resale value, and keeps your insurer
         informed of the roof&rsquo;s condition over time.
       </>
@@ -37,14 +37,14 @@ const FAQS: FAQ[] = [
   {
     question: 'How much does roof maintenance cost in Cochrane?',
     answerText:
-      'Roof maintenance pricing in Cochrane scales with roof size, accessibility, the cadence of visits, and the scope of any minor repairs included. Annual single-visit plans cost less per year than bi-annual plans. Sure West provides a written quote during the initial visit, with no surprise charges added later. Pricing is fixed in writing before any work begins, regardless of which plan you choose.',
+      'Roof maintenance pricing in Cochrane scales with roof size, accessibility, the cadence of visits, and the scope of any minor repairs included. Annual single-visit plans cost less per year than bi-annual plans. Sure West provides a written itemised quote during the initial visit. If anything unexpected comes up later, you hear about it before any extra work happens.',
     answer: (
       <>
         Roof maintenance pricing in Cochrane scales with roof size, accessibility, the cadence of
         visits, and the scope of any minor repairs included. Annual single-visit plans cost less
-        per year than bi-annual plans. Sure West provides a written quote during the initial
-        visit, with no surprise charges added later. Pricing is fixed in writing before any work
-        begins, regardless of which plan you choose.
+        per year than bi-annual plans. Sure West provides a written itemised quote during the
+        initial visit. If anything unexpected comes up later, you hear about it before any extra
+        work happens.
       </>
     ),
   },
@@ -62,16 +62,17 @@ const FAQS: FAQ[] = [
     ),
   },
   {
-    question: 'Can roof maintenance extend my IKO warranty?',
+    question: 'Can roof maintenance extend my manufacturer warranty?',
     answerText:
-      'Roof maintenance does not extend the term of your IKO manufacturer warranty itself, but it does protect the validity of your existing warranty. IKO warranties typically include a maintenance clause requiring evidence of reasonable upkeep. A documented Sure West maintenance log gives you the evidence IKO may request if a future claim is questioned, helping you preserve coverage rather than have a claim denied due to neglect.',
+      'Roof maintenance does not extend the term of your manufacturer warranty itself, but it does protect the validity of your existing warranty. Most asphalt shingle warranties include a maintenance clause requiring evidence of reasonable upkeep. A documented Sure West maintenance log gives you the evidence your manufacturer may request if a future claim is questioned, helping you preserve coverage rather than have a claim denied due to neglect.',
     answer: (
       <>
-        Roof maintenance does not extend the term of your IKO manufacturer warranty itself, but it
-        does protect the validity of your existing warranty. IKO warranties typically include a
-        maintenance clause requiring evidence of reasonable upkeep. A documented Sure West
-        maintenance log gives you the evidence IKO may request if a future claim is questioned,
-        helping you preserve coverage rather than have a claim denied due to neglect.
+        Roof maintenance does not extend the term of your manufacturer warranty itself, but it
+        does protect the validity of your existing warranty. Most asphalt shingle warranties
+        typically include a maintenance clause requiring evidence of reasonable upkeep. A
+        documented Sure West maintenance log gives you the evidence your manufacturer may request
+        if a future claim is questioned, helping you preserve coverage rather than have a claim
+        denied due to neglect.
       </>
     ),
   },
@@ -92,14 +93,14 @@ const FAQS: FAQ[] = [
   {
     question: "Do you maintain roofs that you didn't install?",
     answerText:
-      "Yes. Sure West maintains IKO and other major asphalt shingle roofs in Cochrane, Calgary, and Canmore regardless of which contractor installed them. If your roof has a specific manufacturer warranty, we work within those terms and document the visit accordingly. We will tell you honestly if the roof is in a condition where maintenance won't help and a repair or replacement is the better call.",
+      "Yes. Sure West maintains asphalt shingle roofs from any of the major manufacturers in Cochrane, Calgary, and Canmore regardless of which contractor installed them. If your roof has a specific manufacturer warranty, we work within those terms and document the visit accordingly. We will tell you honestly if the roof is in a condition where maintenance won't help and a repair or replacement is the better call.",
     answer: (
       <>
-        Yes. Sure West maintains IKO and other major asphalt shingle roofs in Cochrane, Calgary,
-        and Canmore regardless of which contractor installed them. If your roof has a specific
-        manufacturer warranty, we work within those terms and document the visit accordingly. We
-        will tell you honestly if the roof is in a condition where maintenance won&rsquo;t help
-        and a{' '}
+        Yes. Sure West maintains asphalt shingle roofs from any of the major manufacturers in
+        Cochrane, Calgary, and Canmore regardless of which contractor installed them. If your
+        roof has a specific manufacturer warranty, we work within those terms and document the
+        visit accordingly. We will tell you honestly if the roof is in a condition where
+        maintenance won&rsquo;t help and a{' '}
         <Link
           href="/roof-repair"
           className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
@@ -138,16 +139,17 @@ const FAQS: FAQ[] = [
     ),
   },
   {
-    question: 'Will roof maintenance void my IKO warranty?',
+    question: 'Will roof maintenance void my manufacturer warranty?',
     answerText:
-      "No. Professional maintenance performed by qualified roofers does not void IKO warranties. In fact, IKO warranty terms typically require evidence of reasonable maintenance to remain valid. What can void the warranty is unprofessional work, unapproved materials, or DIY repairs that don't follow IKO's installation specifications. A documented Sure West maintenance log keeps your warranty intact, not at risk.",
+      "No. Professional maintenance performed by qualified roofers does not void manufacturer warranties. In fact, most asphalt shingle warranty terms require evidence of reasonable maintenance to remain valid. What can void the warranty is unprofessional work, unapproved materials, or DIY repairs that don't follow the manufacturer's installation specifications. A documented Sure West maintenance log keeps your warranty intact, not at risk.",
     answer: (
       <>
-        No. Professional maintenance performed by qualified roofers does not void IKO warranties.
-        In fact, IKO warranty terms typically require evidence of reasonable maintenance to remain
-        valid. What can void the warranty is unprofessional work, unapproved materials, or DIY
-        repairs that don&rsquo;t follow IKO&rsquo;s installation specifications. A documented Sure
-        West maintenance log keeps your warranty intact, not at risk.
+        No. Professional maintenance performed by qualified roofers does not void manufacturer
+        warranties. In fact, most asphalt shingle warranty terms require evidence of reasonable
+        maintenance to remain valid. What can void the warranty is unprofessional work,
+        unapproved materials, or DIY repairs that don&rsquo;t follow the
+        manufacturer&rsquo;s installation specifications. A documented Sure West maintenance log
+        keeps your warranty intact, not at risk.
       </>
     ),
   },
@@ -216,7 +218,7 @@ export function RoofMaintenanceFAQ() {
                 fontWeight: 400,
               }}
             >
-              Straight answers about annual roof maintenance, IKO warranty care, and what to expect
+              Straight answers about annual roof maintenance, manufacturer warranty care, and what to expect
               from your local Red Seal Journeyman roofing contractor.
             </p>
             <div className="mt-8">

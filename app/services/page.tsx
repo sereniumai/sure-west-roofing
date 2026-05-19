@@ -152,8 +152,8 @@ const serviceSchema = {
       position: 5,
       item: {
         '@type': 'Service',
-        name: 'Roof Inspection Cochrane',
-        serviceType: 'Roof Inspection',
+        name: 'Roof and Attic Inspection Cochrane',
+        serviceType: 'Roof and Attic Inspection',
         provider: { '@type': 'RoofingContractor', name: 'Sure West Roofing' },
         areaServed: 'Cochrane, Alberta',
         url: 'https://surewestroofing.ca/roof-inspection',

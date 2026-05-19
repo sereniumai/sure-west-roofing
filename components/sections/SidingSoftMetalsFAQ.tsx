@@ -16,14 +16,15 @@ const FAQS: FAQ[] = [
   {
     question: 'How much does siding installation cost in Cochrane?',
     answerText:
-      'Siding installation pricing in Cochrane depends on several factors, including the size of the home, the material chosen, the condition of the existing exterior, and whether eavestroughs and soft metals are included. Vinyl is the most affordable, fibre cement and engineered wood sit in the middle, and metal varies by gauge and finish. Sure West provides a fixed written quote after the on-site assessment, with no surprise charges added later.',
+      'Siding installation pricing in Cochrane depends on several factors, including the size of the home, the material chosen, the condition of the existing exterior, and whether eavestroughs and soft metals are included. Vinyl is the most affordable, fibre cement and engineered wood sit in the middle, and metal varies by gauge and finish. Sure West provides a written itemised quote after the on-site assessment. If anything unexpected comes up mid-project, you hear about it before any extra work happens.',
     answer: (
       <>
         Siding installation pricing in Cochrane depends on several factors, including the size of
         the home, the material chosen, the condition of the existing exterior, and whether
         eavestroughs and soft metals are included. Vinyl is the most affordable, fibre cement and
         engineered wood sit in the middle, and metal varies by gauge and finish. Sure West provides
-        a fixed written quote after the on-site assessment, with no surprise charges added later.
+        a written itemised quote after the on-site assessment. If anything unexpected comes up
+        mid-project, you hear about it before any extra work happens.
       </>
     ),
   },
@@ -44,20 +45,13 @@ const FAQS: FAQ[] = [
   {
     question: 'Do you replace eavestroughs and downspouts?',
     answerText:
-      'Yes. Sure West installs seamless 5-inch and 6-inch K-style aluminum eavestrough systems with matched downspouts and proper grade for water flow. We replace full systems, repair damaged sections, and add downspout extensions where the existing setup is dumping water against your foundation. We can do this as a standalone job or as part of a larger siding or roofing project.',
+      'Yes. Sure West installs seamless 5-inch and 6-inch K-style aluminum eavestrough systems, plus steel half-round for character homes that suit the profile. Matched downspouts and proper grade for water flow. We replace full systems, repair damaged sections, and add downspout extensions where the existing setup is dumping water against your foundation.',
     answer: (
       <>
-        Yes. Sure West installs seamless 5-inch and 6-inch K-style aluminum eavestrough systems
-        with matched downspouts and proper grade for water flow. We replace full systems, repair
-        damaged sections, and add downspout extensions where the existing setup is dumping water
-        against your foundation. We can do this as a standalone job or as part of a{' '}
-        <Link
-          href="/roof-replacement"
-          className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
-        >
-          larger siding or roofing project
-        </Link>
-        .
+        Yes. Sure West installs seamless 5-inch and 6-inch K-style aluminum eavestrough systems,
+        plus steel half-round for character homes that suit the profile. Matched downspouts and
+        proper grade for water flow. We replace full systems, repair damaged sections, and add
+        downspout extensions where the existing setup is dumping water against your foundation.
       </>
     ),
   },
@@ -203,7 +197,7 @@ export function SidingSoftMetalsFAQ() {
               }}
             >
               Straight answers about siding, eavestroughs, soft metals, and what to expect from
-              your local Red Seal Journeyman roofing contractor.
+              your local Sure West crew.
             </p>
             <div className="mt-8">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">

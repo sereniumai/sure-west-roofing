@@ -17,7 +17,7 @@ export function BrandStrip() {
       <Reveal>
         <div className="relative max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            {/* LEFT — Brand video (Move the Mountain) */}
+            {/* LEFT - Brand video (Move the Mountain) */}
             <div className="lg:col-span-6">
               <div className="relative">
                 <div
@@ -33,7 +33,7 @@ export function BrandStrip() {
               </div>
             </div>
 
-            {/* RIGHT — Heading + Body + Closing + Signature + CTA */}
+            {/* RIGHT - Heading + Body + Closing + Signature + CTA */}
             <div className="lg:col-span-6">
               {/* Pre-title pill */}
               <span
@@ -61,7 +61,7 @@ export function BrandStrip() {
                 Move the Mountain
               </h2>
 
-              {/* Body copy — site standard (Inter, 16px, slate, 1.65 leading) */}
+              {/* Body copy - site standard (Inter, 16px, slate, 1.65 leading) */}
               <div
                 className="mt-8 text-brand-slate leading-[1.65] max-w-[560px] space-y-5"
                 style={{
@@ -84,7 +84,7 @@ export function BrandStrip() {
                 </p>
               </div>
 
-              {/* Closing line — softened so it whispers, not shouts */}
+              {/* Closing line - softened so it whispers, not shouts */}
               <p
                 className="mt-6 font-display text-brand-gold"
                 style={{

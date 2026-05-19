@@ -32,14 +32,14 @@ import {
 import { BottomCTA } from '@/components/sections/BottomCTA'
 
 export const metadata: Metadata = {
-  title: 'Roof Inspection Cochrane',
+  title: 'Roof and Attic Inspection Cochrane',
   description:
-    'Roof inspection Cochrane homeowners trust. Red Seal Journeyman certified. Photo report for buyers, sellers, and insurers. Free with quoted work.',
+    'Roof and attic inspection Cochrane homeowners trust. Red Seal Journeyman certified. Photo-documented written report for buyers, sellers, and insurers.',
   alternates: { canonical: 'https://surewestroofing.ca/roof-inspection' },
   openGraph: {
-    title: 'Roof Inspection Cochrane | Sure West Roofing',
+    title: 'Roof and Attic Inspection Cochrane | Sure West Roofing',
     description:
-      'Roof inspection Cochrane homeowners trust. Red Seal Journeyman certified. Photo report for buyers, sellers, and insurers. Free with quoted work.',
+      'Roof and attic inspection Cochrane homeowners trust. Red Seal Journeyman certified. Photo-documented written report for buyers, sellers, and insurers.',
     url: 'https://surewestroofing.ca/roof-inspection',
     type: 'website',
     locale: 'en_CA',
@@ -54,8 +54,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Roof Inspection Cochrane | Sure West Roofing',
-    description: 'Roof inspection Cochrane homeowners trust. Red Seal Journeyman certified. Photo report for buyers, sellers, and insurers. Free with quoted work.',
+    title: 'Roof and Attic Inspection Cochrane | Sure West Roofing',
+    description: 'Roof and attic inspection Cochrane homeowners trust. Red Seal Journeyman certified. Photo-documented written report for buyers, sellers, and insurers.',
     images: ['https://surewestroofing.ca/images/Roof Inspection Cochrane.avif'],
   },
 }
@@ -66,14 +66,14 @@ const breadcrumbSchema = {
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://surewestroofing.ca' },
     { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://surewestroofing.ca/services' },
-    { '@type': 'ListItem', position: 3, name: 'Roof Inspection', item: 'https://surewestroofing.ca/roof-inspection' },
+    { '@type': 'ListItem', position: 3, name: 'Roof and Attic Inspection', item: 'https://surewestroofing.ca/roof-inspection' },
   ],
 }
 
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  serviceType: 'Roof Inspection',
+  serviceType: 'Roof and Attic Inspection',
   provider: {
     '@type': 'RoofingContractor',
     name: 'Sure West Roofing',
@@ -117,9 +117,9 @@ function SignsYouNeed() {
           </span>
           <h2 className="font-display font-medium text-brand-navy"
             style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            When to Book a Roof
+            When to Book a Roof and
             <br />
-            Inspection in Cochrane
+            Attic Inspection in Cochrane
           </h2>
           <p className="mt-5 max-w-[820px] text-brand-slate leading-[1.7]"
             style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
@@ -156,7 +156,7 @@ const INSPECTION_STEPS: HowItWorksStep[] = [
     Icon: Calendar,
     title: 'Book Your Inspection',
     description:
-      'Online or by phone. We confirm by phone or email after we receive your booking, scheduled around your Cochrane week and the forecast. No deposit required, no obligation if you change your mind.',
+      'Online or by phone. We confirm by phone or email after booking, scheduled around your Cochrane week and the forecast. No deposit required, no obligation if you change your mind.',
   },
   {
     number: '02',
@@ -170,17 +170,17 @@ const INSPECTION_STEPS: HowItWorksStep[] = [
     Icon: CheckCircle,
     title: 'Written Report Delivered',
     description:
-      'Photo-documented PDF delivered after the on-site inspection, formatted for buyers, sellers, or insurers. Free if you book any of the recommended repair, replacement, or maintenance work with Sure West.',
+      'Photo-documented PDF delivered after the on-site inspection, formatted for buyers, sellers, or insurers. The report is yours to keep, with no obligation to book any recommended work.',
   },
 ]
 
 const INSPECTION_TYPES = [
-  { tier: 'Real Estate', name: 'Pre-Purchase Inspection', image: '/images/Cochrane Roofing Contractor Gallery 2.webp', imageAlt: 'Pre-purchase roof inspection in Cochrane Alberta', body: 'Independent roof condition report for buyers, often paired with a general home inspection. We document remaining lifespan, repair priorities, and replacement cost ranges. Findings translate directly into negotiating leverage on the offer price, in writing, with photos.' },
+  { tier: 'Real Estate', name: 'Pre-Purchase or Pre-Sale Inspection', image: '/images/Cochrane Roofing Contractor Gallery 2.webp', imageAlt: 'Pre-purchase or pre-sale roof inspection in Cochrane Alberta', body: 'Independent roof condition report for buyers or sellers, often paired with a general home inspection. We document remaining lifespan, repair priorities, and replacement cost ranges. Findings translate directly into negotiating leverage, in writing, with photos.' },
   {
     tier: 'Insurance',
     name: 'Post-Storm / Claim Inspection',
-    image: '/images/Cochrane Roofing Contractor Gallery 8.webp',
-    imageAlt: 'Post-storm insurance roof inspection in Cochrane',
+    image: '/images/Cosmetic Hail Damage .jpg',
+    imageAlt: 'Post-storm hail damage inspection close-up in Cochrane',
     body: (
       <>
         Photo-documented{' '}
@@ -190,11 +190,11 @@ const INSPECTION_TYPES = [
         >
           hail and wind damage report
         </Link>
-        {' '}built to Alberta insurer documentation standards. Includes itemised scope, damage classification, and direct adjuster communication on request. Equally useful if you are paying out of pocket and want a clear written record of damage.
+        {' '}built to Alberta insurer documentation standards. Includes itemised scope and damage classification. Equally useful if you are paying out of pocket and want a clear written record of damage.
       </>
     ),
   },
-  { tier: 'Annual', name: 'Maintenance Inspection', image: '/images/Cochrane Roofing Contractor Gallery 12.webp', imageAlt: 'Annual maintenance roof inspection in Cochrane', body: 'Yearly inspection that catches small issues, lifted shingles, cracked sealant, minor flashing problems, before they become leaks. Often paired with a maintenance visit during the same on-site call. Recommended on roofs over five years old, especially after a Cochrane winter or hail season.' },
+  { tier: 'Annual', name: 'Maintenance Inspection', image: '/images/Cochrane Roofing Contractor Gallery 12.webp', imageAlt: 'Annual maintenance roof inspection in Cochrane', body: 'Yearly inspection that catches lifted shingles, cracked sealant, and minor flashing problems before they become leaks. Often paired with a maintenance visit. Recommended on roofs over five years old, especially after Cochrane winter.' },
 ]
 
 function InspectionTypes() {
@@ -210,11 +210,12 @@ function InspectionTypes() {
           </span>
           <h2 className="font-display font-medium text-brand-navy"
             style={{ fontSize: 'clamp(32px, 4.5vw, 48px)', lineHeight: 1.15, letterSpacing: '-0.005em' }}>
-            Cochrane Roof Inspections We Offer
+            Cochrane Roof and
+            <br className="hidden md:block" /> Attic Inspections We Offer
           </h2>
           <p className="mt-5 max-w-[820px] text-brand-slate leading-[1.7]"
             style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Most Cochrane roof inspections fall into one of three categories. Each one uses the same crew, the same checklist, and the same photo-documented report, tailored to your situation.
+            Most Cochrane roof and attic inspections fall into one of three categories. Each one uses the same crew, the same checklist, and the same photo-documented report, tailored to your situation.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
@@ -240,6 +241,32 @@ function InspectionTypes() {
           ))}
         </div>
         </Reveal>
+
+        {/* Attic Inspection callout */}
+        <Reveal delay={180}>
+          <div className="mt-8 md:mt-10 rounded-[12px] border border-brand-border overflow-hidden bg-brand-cream grid grid-cols-1 md:grid-cols-2 shadow-[0_2px_8px_rgba(44,71,102,0.06)]">
+            <div className="relative min-h-[240px] md:min-h-[300px]">
+              <Image
+                src="/images/Cochrane Attic Inspection.jpg"
+                alt="Winter attic inspection identifying condensation and ceiling stains in a Cochrane home"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
+              />
+            </div>
+            <div className="p-6 md:p-8 lg:p-10 flex flex-col justify-center">
+              <span className="inline-block text-brand-gold font-semibold uppercase tracking-[0.12em] mb-3" style={{ fontSize: '11px', fontFamily: 'var(--font-inter), system-ui, sans-serif' }}>Winter Specialist</span>
+              <h3 className="font-display font-semibold text-brand-navy mb-4 leading-[1.2]" style={{ fontSize: '24px', letterSpacing: '-0.02em' }}>Attic Inspection for Winter Drips and Ceiling Stains</h3>
+              <p className="text-brand-slate leading-[1.65] mb-6" style={{ fontSize: '14px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
+                Cochrane winters drive attic problems. Warm interior air meets the cold underside of the roof deck, condenses into moisture, and shows up as ceiling stains or winter drips homeowners mistake for a roof leak. We inspect from inside the attic: insulation coverage and depth, ventilation balance, vapour barrier integrity, and moisture staining at the deck. Often the fix is not a roof repair, and we will tell you so straight.
+              </p>
+              <div>
+                <Button variant="primary" size="md" href="/free-roof-estimate-cochrane">Book an Attic Inspection</Button>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -250,14 +277,14 @@ const INSPECTION_DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
-    subtitle: 'Worth Standing Behind in 20 Years',
-    body: 'Every inspection report we sign is one we would still stand behind in 20 years. Honest findings, accurate severity ratings, no inflating issues to push a sale, no missing problems to keep a job small. The report we leave is the reputation we leave.',
+    subtitle: 'The Report We Sign Our Name To',
+    body: 'Every inspection report we sign is one we would stand behind in Cochrane long after the visit. Honest findings, accurate severity ratings, no inflating issues to push a sale, no missing problems to keep a job small. The report we leave is the reputation we leave.',
   },
   {
     Icon: Users,
     heading: 'Brotherhood',
-    subtitle: 'Same Crew Through to the Work',
-    body: 'Craig leads every inspection. The crew you meet on the inspection is the crew on any work that follows. No subcontractor handoff, no rotating faces, no estimator who hands you off to a different team. First photo to final repair, every time.',
+    subtitle: 'A Tight-Knit Crew',
+    body: 'A team that has each other’s backs on the roof and off. Tight-knit, cohesive, aligned in purpose, because the work is too hard to do alongside people you cannot respect. Anyone in a Sure West uniform is held to the same standard, every Cochrane inspection.',
   },
   {
     Icon: Handshake,
@@ -336,7 +363,7 @@ export default function RoofInspectionPage() {
         heading={
           <>
             How a Sure West Cochrane
-            <br className="hidden md:block" /> Roof Inspection Works
+            <br className="hidden md:block" /> Roof and Attic Inspection Works
           </>
         }
         body={
@@ -353,10 +380,10 @@ export default function RoofInspectionPage() {
         heading={
           <>
             What Sets a Sure West
-            <br className="hidden lg:block" /> Roof Inspection Apart
+            <br className="hidden lg:block" /> Roof and Attic Inspection Apart
           </>
         }
-        subhead="Five responsibilities we've taken on, five things every Sure West roof inspection gets that the average Cochrane crew can't match."
+        subhead="Five responsibilities we've taken on, five things every Sure West roof and attic inspection gets that the average Cochrane crew can't match."
         sectionBg="#FFFFFF"
         cardBg="#F7F5F0"
       />
@@ -372,11 +399,11 @@ export default function RoofInspectionPage() {
         sectionBg="#FFFFFF"
         heading={
           <>
-            Need a Roof Inspection
-            <br className="hidden md:block" /> You Can Actually Trust?
+            Need a Roof and Attic
+            <br className="hidden md:block" /> Inspection You Can Actually Trust?
           </>
         }
-        subtext="Red Seal Journeyman certified, written photo report after every inspection, free with quoted work, and no sales pressure. Same standard for buyers, sellers, and insurers."
+        subtext="Red Seal Journeyman certified, written photo report after every inspection, and no sales pressure. Same standard for buyers, sellers, and insurers."
       />
     </>
   )

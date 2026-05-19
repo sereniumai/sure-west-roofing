@@ -7,13 +7,13 @@ export function SidingSoftMetalsHero() {
       eyebrow="Cochrane's Siding & Soft Metals Specialists"
       eyebrowMobile="Siding & Soft Metals"
       h1={'Siding & Soft Metals\nin Cochrane, Alberta'}
-      body="Red Seal Journeyman siding, eavestroughs, fascia, and soffit work for Cochrane, Calgary, and Canmore. All major materials installed by the same in-house crew that does our roofs."
+      body="Siding, eavestroughs, fascia, and soffit work for Cochrane, Calgary, and Canmore. All major materials installed to manufacturer spec, bundled with your roof project or as a standalone job."
       image={{
         src: '/images/Cochrane Roofing Contractor Gallery 7.webp',
         alt: 'Sure West Roofing siding and soft metals project on a Cochrane Alberta home',
       }}
       badge={{
-        heading: 'Same In-House Crew',
+        heading: 'Manufacturer-Spec Install',
         subtext: 'Roof, fascia, and eaves',
       }}
     />

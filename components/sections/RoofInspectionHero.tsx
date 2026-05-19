@@ -3,11 +3,11 @@ import { ServicePageHero } from '@/components/sections/ServicePageHero'
 export function RoofInspectionHero() {
   return (
     <ServicePageHero
-      breadcrumbLabel="Roof Inspection"
-      eyebrow="Cochrane's Trusted Roof Inspection Specialists"
-      eyebrowMobile="Roof Inspection Specialists"
-      h1={'Roof Inspection in\nCochrane, Alberta'}
-      body="Red Seal Journeyman roof inspections in Cochrane, Calgary, and Canmore. Photo-documented written report for buyers, sellers, and insurers. Free with quoted work."
+      breadcrumbLabel="Roof and Attic Inspection"
+      eyebrow="Cochrane's Trusted Roof and Attic Inspection Specialists"
+      eyebrowMobile="Roof & Attic Inspection Specialists"
+      h1={'Roof and Attic Inspection\nin Cochrane, Alberta'}
+      body="Red Seal Journeyman roof and attic inspections in Cochrane, Calgary, and Canmore. Photo-documented written report for buyers, sellers, and insurers."
       image={{
         src: '/images/roof-inspection-cochrane.webp',
         alt: 'Sure West Roofing Red Seal Journeyman performing a roof inspection in Cochrane Alberta',

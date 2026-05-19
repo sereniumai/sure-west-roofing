@@ -77,13 +77,13 @@ export default function HomePage() {
         socialProofLabel="satisfied Cochrane homeowners"
       />
 
-      {/* 2. Stats only — certifications moved below Why Sure West per Craig's feedback */}
+      {/* 2. Stats only - certifications moved below Why Sure West per Craig's feedback */}
       <TrustLogos variant="stats" />
 
       {/* 3. Move the Mountain, brand philosophy anchor */}
       <BrandStrip />
 
-      {/* 4. Why Sure West (cream) + Certifications (cream) — visually one section */}
+      {/* 4. Why Sure West (cream) + Certifications (cream) - visually one section */}
       <WhySureWest subheadMaxWidth="780px" />
       <TrustLogos variant="certs" sectionBg="#F7F5F0" />
 
@@ -124,12 +124,12 @@ export default function HomePage() {
             },
           },
           {
-            title: 'Roof Inspection',
+            title: 'Roof and Attic Inspection',
             href: '/roof-inspection',
             description:
               "Buying, selling, or overdue for a check, a real inspection takes time. We're on the roof, in the attic, and around the flashings, with the truth in writing, clear photos, and a plain-language verdict.",
             image: '/images/roof-inspection-cochrane.webp',
-            imageAlt: 'Roof inspection Cochrane AB',
+            imageAlt: 'Roof and attic inspection Cochrane AB',
             review: {
               quote:
                 "Didn't try to sell me a new roof, but gave an honest opinion on how much life the roof has.",

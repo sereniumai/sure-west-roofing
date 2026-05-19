@@ -16,7 +16,7 @@ const VALID_SERVICES = [
   'Roof Repair',
   'Hail Damage Repair',
   'Roof Maintenance',
-  'Roof Inspection',
+  'Roof and Attic Inspection',
   'Skylight Installation',
   'Emergency Roof Repair',
   'Other',

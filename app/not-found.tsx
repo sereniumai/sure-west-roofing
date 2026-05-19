@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/Button'
 const HERO_COLLAGE = [
   {
     src: '/images/Cochrane Roofing Contractor Gallery 3.webp',
-    alt: 'IKO Nordic roof replacement in Calgary by Sure West Roofing',
+    alt: 'Impact resistant shingle roof replacement in Calgary by Sure West Roofing',
     outerClassName: 'hidden sm:block absolute top-[38%] left-0 -translate-y-1/2 w-[48%] aspect-square -rotate-[6deg] z-0',
   },
   {

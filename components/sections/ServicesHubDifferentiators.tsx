@@ -28,32 +28,32 @@ const DEFAULT_ITEMS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
-    subtitle: 'Built to Last 20 Years',
-    body: "Every roof we install is one we'd be proud of in 20 years. No easy money, no corner cuts, no shingles laid over problems. The roof on your house is the reputation we leave behind.",
+    subtitle: 'The Reputation We Leave',
+    body: 'Legacy is bigger than the roof. It is the reputation we leave in Cochrane, as roofers and as community builders. A company the community knows by name and is proud to call its own.',
   },
   {
     Icon: Users,
     heading: 'Brotherhood',
-    subtitle: 'Same Crew, Every Roof',
-    body: 'The crew you meet at the quote is the crew on your roof. No subcontractors, no rotating faces. Same in-house team from tear-off to walkthrough, Red Seal Journeyman supervised, every time.',
+    subtitle: 'A Tight-Knit Crew',
+    body: 'A team that has each other’s backs on the roof and off. Tight-knit, cohesive, aligned in purpose, because the work is too hard to do alongside people you cannot respect. In-house on every Cochrane roof.',
   },
   {
     Icon: Handshake,
     heading: 'Character',
-    subtitle: "The Quote That Doesn't Move",
-    body: "The price you approve is the price you pay. Commitments kept, no padding mid-project. If something unexpected comes up, you decide before another nail goes in.",
+    subtitle: 'Hired for Character',
+    body: 'We hire for character first. Skills and knowledge can be taught, alignment of values cannot. If something unexpected comes up on the roof, you hear about it early and decide before any extra work happens.',
   },
   {
     Icon: ShieldCheck,
     heading: 'Competency',
     subtitle: 'Red Seal Journeyman Standard',
-    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Craig, our Red Seal-certified co-founder, is on every project. The in-house crew works under his Red Seal Journeyman supervision, with newer installers training toward their own certification.',
+    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Our processes are built off that standard to keep quality consistent across every roof. New crew train to the same standard as they grow.',
   },
   {
     Icon: ListChecks,
     heading: 'Proven Processes',
-    subtitle: 'Same Playbook on Every Roof',
-    body: 'Same checklists on day one and day three. Same communication before every site activity. Same magnetic nail sweep, same final walkthrough, same 10-year written warranty before we leave.',
+    subtitle: 'Predictability in Roofing',
+    body: 'Same checklists, same standard, same experience time after time. Predictability in roofing is rare. Our processes are how we deliver it on every roof, no matter who is on site.',
   },
 ]
 

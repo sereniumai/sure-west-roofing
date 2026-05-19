@@ -42,12 +42,12 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 export const metadata: Metadata = {
   title: 'Hail Damage Roof Repair Cochrane',
   description:
-    'Hail damage roof repair in Cochrane, Calgary, and Canmore. Free post-storm inspection. Same standard, claim or no claim.',
+    'Hail damage roof repair in Cochrane, Calgary, and Canmore. Post-storm inspection, photo documentation, written diagnosis. Same standard, claim or no claim.',
   alternates: { canonical: 'https://surewestroofing.ca/hail-damage-repair' },
   openGraph: {
     title: 'Hail Damage Roof Repair Cochrane | Sure West Roofing',
     description:
-      'Hail damage roof repair in Cochrane, Calgary, and Canmore. Free post-storm inspection. Same standard, claim or no claim.',
+      'Hail damage roof repair in Cochrane, Calgary, and Canmore. Post-storm inspection, photo documentation, written diagnosis. Same standard, claim or no claim.',
     url: 'https://surewestroofing.ca/hail-damage-repair',
     type: 'website',
     locale: 'en_CA',
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Hail Damage Roof Repair Cochrane | Sure West Roofing',
     description:
-      'Hail damage roof repair in Cochrane, Calgary, and Canmore. Free post-storm inspection. Same standard, claim or no claim.',
+      'Hail damage roof repair in Cochrane, Calgary, and Canmore. Post-storm inspection, photo documentation, written diagnosis. Same standard, claim or no claim.',
     images: ['https://surewestroofing.ca/images/Cochrane Roofing Contractor Gallery 8.webp'],
   },
 }
@@ -97,7 +97,7 @@ const serviceSchema = {
   ],
   url: 'https://surewestroofing.ca/hail-damage-repair',
   description:
-    'Red Seal Journeyman certified hail damage roof repair in Cochrane, Calgary, and Canmore. Free post-storm inspections, full insurance documentation, and a written workmanship guarantee.',
+    'Red Seal Journeyman certified hail damage roof repair in Cochrane, Calgary, and Canmore. Post-storm inspections, full insurance documentation, and a written workmanship guarantee.',
 }
 
 
@@ -160,9 +160,9 @@ function SignsYouNeed() {
 // ─── Section: Three Hail Damage Categories We See in Cochrane ─────────────
 
 const HAIL_CATEGORIES = [
-  { tier: 'Light Hail', name: 'Cosmetic Damage', image: '/images/Cochrane Roofing Contractor Gallery 5.webp', imageAlt: 'Cosmetic hail damage inspection on a Cochrane Alberta roof', body: 'Surface bruising and minor granule loss without structural impact. Often does not affect the roof’s lifespan in the short term, but written documentation matters for future claims. We inspect every slope, photograph every hit, and advise honestly.' },
-  { tier: 'Moderate Hail', name: 'Functional Damage', image: '/images/Cochrane Roofing Contractor Gallery 7.webp', imageAlt: 'Functional hail damage repair on a Cochrane Alberta roof', body: 'Multiple shingle hits with fractured mats and significant granule loss across one or more slopes. A targeted repair using matched IKO product is usually the right call, often partially or fully insurance-funded depending on policy and storm severity.' },
-  { tier: 'Severe Hail', name: 'Structural Damage', image: '/images/Cochrane Roofing Contractor Gallery 9.webp', imageAlt: 'Severe hail damage roof replacement in Cochrane Alberta', body: 'Golf-ball or larger hail compromises the entire roof system. Most insurers approve a full replacement at this severity, often using IKO Nordic Class 4 impact-rated shingles to reduce risk and qualify the home for future premium discounts.' },
+  { tier: 'Light Hail', name: 'Cosmetic Damage', image: '/images/Cosmetic Hail Damages.jpg', imageAlt: 'Close-up of cosmetic hail damage on an asphalt shingle roof', body: 'Surface bruising and minor granule loss without structural impact. Often does not affect the roof’s lifespan in the short term, but written documentation matters for future claims. We inspect every slope, photograph every hit, and advise honestly.' },
+  { tier: 'Moderate Hail', name: 'Functional Damage', image: '/images/Functional Hail Damages.jpg', imageAlt: 'Close-up of functional hail damage on an asphalt shingle roof', body: 'Multiple shingle hits with fractured mats and significant granule loss across multiple slopes. A targeted repair with shingles matched to your existing roof is the right call, often partially or fully insurance-funded depending on policy and storm severity.' },
+  { tier: 'Severe Hail', name: 'Structural Damage', image: '/images/Structural Hail Damagse.jpg', imageAlt: 'Close-up of structural hail damage on an asphalt shingle roof', body: 'Golf-ball or larger hail compromises the entire roof system. Most insurers approve a full replacement at this severity, often using Class 4 impact-rated shingles to reduce risk and qualify the home for future premium discounts.' },
 ]
 
 function HailCategories() {
@@ -217,9 +217,9 @@ const HAIL_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     Icon: Calendar,
-    title: 'Free Post-Storm Inspection',
+    title: 'Post-Storm Inspection',
     description:
-      'A Red Seal Journeyman walks every slope in person, photographs every dent and fracture, and delivers a written diagnosis. No charge, claim or out of pocket.',
+      'We walk every slope of your Cochrane roof in person, photograph every dent and fracture, and deliver a written diagnosis you can hand to your insurer or keep for your records.',
   },
   {
     number: '02',
@@ -233,7 +233,7 @@ const HAIL_STEPS: HowItWorksStep[] = [
     Icon: CheckCircle,
     title: 'Repair or Replace, Done Right',
     description:
-      'Once approved, by your insurer or by you, we schedule on your timeline. IKO impact-rated install, magnetic nail sweep, final walkthrough, written workmanship guarantee.',
+      'Once approved, by your insurer or by you, we schedule on your timeline. Impact-rated shingles where the damage calls for them, magnetic nail sweep, written workmanship guarantee.',
   },
 ]
 
@@ -242,8 +242,8 @@ const HAIL_STEPS: HowItWorksStep[] = [
 const PROVIDES_ITEMS = [
   {
     Icon: Search,
-    subtitle: 'Free on-site post-storm inspection',
-    body: 'A Red Seal Journeyman walks every slope of your roof in person, no satellite-only assessments.',
+    subtitle: 'On-site post-storm inspection',
+    body: 'We walk every slope of your roof in person, no satellite-only assessments and no second-hand reports.',
   },
   {
     Icon: Camera,
@@ -253,7 +253,7 @@ const PROVIDES_ITEMS = [
   {
     Icon: FileText,
     subtitle: 'Itemised written quote with damage classification',
-    body: 'Cosmetic, functional, or structural, with a fixed written quote built to Alberta insurer documentation standards.',
+    body: 'Cosmetic, functional, or structural, with an itemised written quote built to Alberta insurer documentation standards.',
   },
   {
     Icon: Users,
@@ -263,14 +263,14 @@ const PROVIDES_ITEMS = [
   {
     Icon: Wrench,
     subtitle: 'Repair or replacement, end to end',
-    body: 'Targeted repair or full replacement using IKO impact-rated materials, by our in-house crew, magnetic nail sweep included.',
+    body: 'Targeted repair or full replacement with impact-rated shingles where the damage calls for them, by our in-house crew, magnetic nail sweep included.',
   },
 ]
 
 const HANDLES_ITEMS = [
   {
     Icon: Calendar,
-    subtitle: 'Schedule the free inspection',
+    subtitle: 'Schedule the inspection',
     body: 'Call or book online to pick a time that works. We come to you, no rush.',
   },
   {
@@ -396,14 +396,14 @@ const HAIL_DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
-    subtitle: 'Built to Outlast the Storm',
-    body: 'Every hail repair we complete is one we would stand behind in 20 years. No quick patch that fails in the next storm, no caulk hiding a fracture, no cosmetic fix passed off as functional. The repair we leave is the reputation we leave.',
+    subtitle: 'The Repair Decision Itself',
+    body: 'Legacy on a hail repair decision starts the moment we walk your roof. Repair when repair is the honest answer, replacement when replacement is. The repairs we leave behind in Cochrane are a reputation, not just a fix on a shingle.',
   },
   {
     Icon: Users,
     heading: 'Brotherhood',
-    subtitle: 'Same Crew, Every Repair',
-    body: 'The Red Seal Journeyman who diagnoses your hail damage is the lead on the repair. No subcontractor handoff, no rotating faces, no apprentice you have never met sealing your flashing. First inspection to final walkthrough, every time.',
+    subtitle: 'A Tight-Knit Crew',
+    body: 'A team that has each other’s backs on the roof and off. Tight-knit, cohesive, aligned in purpose, because the work is too hard to do alongside people you cannot respect. In-house on every Cochrane hail repair, start to finish.',
   },
   {
     Icon: Handshake,
@@ -415,23 +415,23 @@ const HAIL_DIFFERENTIATORS: DifferentiatorItem[] = [
     Icon: ShieldCheck,
     heading: 'Competency',
     subtitle: 'Red Seal Journeyman Standard',
-    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Hail repairs done right means underlayment integrated, flashing tied by hand, IKO impact-rated materials matched correctly. The parts you cannot see, done right first time.',
+    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Hail repairs done right means underlayment integrated, flashing tied by hand, impact-rated shingles matched to your roof. The parts you cannot see, done right first time.',
   },
   {
     Icon: ListChecks,
     heading: 'Proven Processes',
     subtitle: 'Same Playbook, Every Storm',
-    body: 'Same diagnostic checklist on every roof. Same photo documentation standard whether your insurer requires it or not. Same magnetic nail sweep, same final walkthrough, same written workmanship guarantee handed to you before we leave the driveway.',
+    body: 'Same diagnostic checklist on every roof. Same photo documentation standard whether your insurer requires it or not. Same magnetic nail sweep, same final walkthrough, same written workmanship guarantee on the repair we leave behind.',
   },
 ]
 
 // ─── Section: Gallery images ──────────────────────────────────────────────
 
 const HAIL_GALLERY_IMAGES = [
-  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'IKO Nordic Class 4 hail-resistant roof in Calgary',                  caption: 'Calgary, AB · IKO Nordic' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'Class 4 impact-rated hail-resistant roof in Calgary',                caption: 'Calgary, AB · Class 4' },
   { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Hail-damaged roof inspection in Canmore Alberta',                    caption: 'Canmore, AB · Inspection' },
   { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Hail damage repair completed in Calgary by Sure West Roofing',      caption: 'Calgary, AB · Hail Repair' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'Cochrane hail damage roof replacement with IKO Nordic shingles',    caption: 'Cochrane, AB · IKO Nordic' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'Cochrane hail damage roof replacement with impact-rated shingles',  caption: 'Cochrane, AB · Class 4' },
   { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Sure West crew completing a hail damage repair in the Calgary region',          caption: 'Cochrane, AB · Hail Repair' },
   { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Insurance-funded hail damage repair in the Calgary region',         caption: 'Calgary, AB · Insurance' },
   { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Targeted hail damage shingle replacement in Cochrane',              caption: 'Cochrane, AB · Targeted' },
@@ -534,7 +534,7 @@ export default function HailDamageRepairPage() {
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Free post-storm inspection, written diagnosis with photo documentation, written workmanship guarantee, and no sales pressure. Same standard, claim or out of pocket."
+        subtext="Post-storm inspection, written diagnosis with photo documentation, written workmanship guarantee, and no sales pressure. Same standard, claim or out of pocket."
       />
     </>
   )

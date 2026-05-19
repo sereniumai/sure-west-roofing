@@ -77,20 +77,20 @@ const imageGallerySchema = {
 const galleryImages = [
   { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Completed roof replacement in Cochrane by Sure West Roofing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 2.webp',  alt: 'Asphalt shingle roof installation in Cochrane, Alberta' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'IKO Dynasty shingle roof in Cochrane by Sure West' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp',  alt: 'Architectural shingle roof in Cochrane by Sure West' },
   { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Roof replacement project in Calgary by Sure West Roofing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Hail damage roof replacement in Cochrane, Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Completed roofing project in Canmore by Sure West' },
   { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Architectural shingle roof in Cochrane by Sure West Roofing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 8.webp',  alt: 'Roof replacement on a Calgary home by Sure West' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'IKO Nordic impact resistant shingle installation in Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Impact resistant shingle installation in Cochrane' },
   { src: '/images/Cochrane Roofing Contractor Gallery 10.webp', alt: 'Completed Sure West Roofing project in Cochrane, Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Residential roofing project in Calgary by Sure West' },
   { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Cochrane roof replacement completed by the Sure West in-house crew' },
   { src: '/images/Cochrane Roofing Contractor Gallery 14.webp', alt: 'Asphalt shingle roof in Canmore by Sure West Roofing' },
   { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Completed roof replacement in Cochrane, Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Sure West Roofing project in the greater Calgary region' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'IKO Cambridge shingle roof in Cochrane' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Builder grade shingle roof in Cochrane' },
   { src: '/images/Cochrane Roofing Contractor Gallery 20.webp', alt: 'Roofing project completed by Sure West in Canmore, Alberta' },
   { src: '/images/Cochrane Roofing Contractor Gallery 21.webp', alt: 'Residential roof replacement in Cochrane by Red Seal roofers' },
 ]
@@ -107,7 +107,7 @@ const galleryImages = [
 const HERO_COLLAGE = [
   {
     src: '/images/Cochrane Roofing Contractor Gallery 3.webp',
-    alt: 'IKO Nordic roof replacement in Calgary by Sure West Roofing',
+    alt: 'Impact resistant shingle roof replacement in Calgary by Sure West Roofing',
     // Left, behind, shifted up. Hidden on mobile to keep centre image readable.
     outerClassName: 'hidden sm:block absolute top-[38%] left-0 -translate-y-1/2 w-[48%] aspect-square -rotate-[6deg] z-0',
   },
@@ -242,7 +242,7 @@ export default function GalleryPage() {
             <br className="hidden md:block" /> Let&apos;s Add Your Roof to the Gallery.
           </>
         }
-        subtext="Free in-home estimate. Fixed written quote. Red Seal Journeyman certified, no sales pressure."
+        subtext="Free in-home estimate. Written itemised quote. Red Seal Journeyman certified, no sales pressure."
       />
     </>
   )

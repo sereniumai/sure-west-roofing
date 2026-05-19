@@ -108,23 +108,23 @@ const REPAIR_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     Icon: Calendar,
-    title: 'Free Diagnostic',
+    title: 'On-Site Diagnosis',
     description:
-      'A Red Seal Journeyman walks your Cochrane roof in person, traces the leak back to its true source, and writes a fixed quote on the spot before any work is scheduled.',
+      'We walk your Cochrane roof in person to trace the leak back to its true source. Hands-on inspection catches what photos cannot, and you leave with a written quote, not a guess.',
   },
   {
     number: '02',
     Icon: FileCheck,
     title: 'Approve Your Quote',
     description:
-      'Your quote is fixed. The price you approve is the price you pay. Active leaks get tarped same day for weather protection, and the repair itself is scheduled around your availability.',
+      'Your itemised quote arrives in writing after the visit. If anything unexpected comes up mid-job, you hear about it before any extra work happens. Active leaks get tarped same day.',
   },
   {
     number: '03',
     Icon: CheckCircle,
     title: 'Your Repair, Done Right',
     description:
-      'Targeted repair using IKO-matched materials, full site cleanup including a magnetic nail sweep, and a written workmanship guarantee handed to you before we leave.',
+      'Targeted repair using shingles matched to your existing roof, full site cleanup including a magnetic nail sweep, and a written workmanship guarantee on the repair we leave behind.',
   },
 ]
 
@@ -153,8 +153,8 @@ const REPAIR_TYPES: RepairTypeItem[] = [
     imageAlt: 'Replacement shingles installed on a Cochrane Alberta roof',
     body: (
       <>
-        Replacement of missing, lifted, cracked, or hail-damaged shingles using matched IKO
-        product. Common after Cochrane Chinook windstorms and summer{' '}
+        Replacement of missing, lifted, cracked, or hail-damaged shingles, matched to your
+        existing roof. Common after Cochrane Chinook windstorms and summer{' '}
         <Link
           href="/hail-damage-repair"
           className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
@@ -182,7 +182,7 @@ function RepairTypes() {
     >
       <div className="max-w-[1320px] mx-auto">
         <Reveal>
-          <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
+          <div className="flex flex-col items-center text-center mb-12 max-w-[820px] mx-auto">
             <span
               className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
               style={{
@@ -214,8 +214,8 @@ function RepairTypes() {
               }}
             >
               Most Cochrane roof issues fall into one of three categories. Sure West handles all
-              three using matched IKO materials, with every repair backed by a written workmanship
-              guarantee.
+              three with shingles matched to your existing roof, every repair backed by a written
+              workmanship guarantee.
             </p>
             <div className="mt-8">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -288,7 +288,7 @@ function RepairTypes() {
 const RR_GALLERY_IMAGES = [
   { src: '/images/Cochrane Roofing Contractor Gallery 4.webp',  alt: 'Roof repair completed by Sure West Roofing in Cochrane Alberta',     caption: 'Cochrane, AB · Repair' },
   { src: '/images/Cochrane Roofing Contractor Gallery 6.webp',  alt: 'Replacement shingles installed during a Cochrane roof repair',       caption: 'Cochrane, AB · Repair' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Cochrane roof repair with matched IKO Cambridge shingles',           caption: 'Cochrane, AB · Repair' },
+  { src: '/images/Cochrane Roofing Contractor Gallery 12.webp', alt: 'Cochrane roof repair with shingles matched to existing roof',        caption: 'Cochrane, AB · Repair' },
   { src: '/images/Cochrane Roofing Contractor Gallery 13.webp', alt: 'Roof repair completed in Calgary by Sure West Roofing',              caption: 'Calgary, AB · Repair' },
   { src: '/images/Cochrane Roofing Contractor Gallery 14.webp', alt: 'Roof leak repair on a Cochrane Alberta home',                        caption: 'Cochrane, AB · Leak Repair' },
   { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Flashing rebuild around a chimney in Cochrane Alberta',              caption: 'Cochrane, AB · Flashing' },
@@ -363,32 +363,32 @@ const REPAIR_DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
-    subtitle: 'Built to Outlast the Repair',
-    body: 'Every repair we make is one we would still stand behind a decade from now. No quick patches that fail in 18 months, no caulk smeared over problems, no homeowner finding out we cut a corner. The repair we leave behind is the reputation we leave behind.',
+    subtitle: 'The Repair Decision Itself',
+    body: 'Legacy on a repair decision starts the moment we walk your roof. Repair when repair is the honest answer, replacement when replacement is. The repairs we leave behind in Cochrane are a reputation, not just a fix on a shingle.',
   },
   {
     Icon: Users,
     heading: 'Brotherhood',
-    subtitle: 'Same Crew, Every Repair',
-    body: 'The in-house crew that diagnoses your roof is the one that fixes it. Red Seal Journeyman supervised, no subcontractor handoff, no rotating faces, no apprentice you have never met sealing your flashing. From first call to final walkthrough, every job, every time.',
+    subtitle: 'A Tight-Knit Crew',
+    body: 'A team that has each other’s backs on the roof and off. Tight-knit, cohesive, aligned in purpose, because the work is too hard to do alongside people you cannot respect. In-house on every Cochrane repair, start to finish.',
   },
   {
     Icon: Handshake,
     heading: 'Character',
     subtitle: "The Repair That Doesn't Become a Replacement",
-    body: 'If your roof still has years left in it, we will tell you so straight. We will not push a $20,000 replacement when a $400 repair is the honest answer. The price on your written quote does not change mid-job, and we put that commitment in writing before the work starts.',
+    body: 'If your roof still has years left in it, we will tell you so straight. We will not push a $20,000 replacement when a $400 repair is the honest answer. If something unexpected comes up mid-job, you hear about it early and decide before any extra work happens.',
   },
   {
     Icon: ShieldCheck,
     heading: 'Competency',
     subtitle: 'Red Seal Journeyman Standard',
-    body: "Red Seal Journeyman is Canada's highest trade credential in roofing. Flashing cut to the wall, underlayment integrated, matched IKO product, manufacturer specs followed. The parts you cannot see, done right first time.",
+    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Flashing cut to the wall, underlayment integrated, manufacturer specs followed on every shingle we install. The parts you cannot see, done right first time.',
   },
   {
     Icon: ListChecks,
     heading: 'Proven Processes',
     subtitle: 'Same Playbook, Every Repair',
-    body: 'Same diagnostic checklist on every visit. Same communication before every site activity. Same magnetic nail sweep, same final walkthrough, same written workmanship guarantee handed to you before we leave the property.',
+    body: 'Same diagnostic checklist on every visit. Same communication before every site activity. Same magnetic nail sweep, same final walkthrough, same written workmanship guarantee on the repair we leave behind.',
   },
 ]
 
@@ -422,7 +422,7 @@ export default function RoofRepairPage() {
             <br className="hidden md:block" /> Roof Repair Works
           </>
         }
-        body="Three clear steps from first call to repair complete. Honest diagnosis, fixed written quote, work backed by a written guarantee."
+        body="Three clear steps from first call to repair complete. Honest diagnosis, written itemised quote, work backed by a written guarantee."
         steps={REPAIR_STEPS}
       />
       <Reviews sectionBg="#FFFFFF" cardBg="#F7F5F0" />
@@ -453,7 +453,7 @@ export default function RoofRepairPage() {
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Red Seal Journeyman certified, free on-site diagnosis, written workmanship guarantee, and no upsell to a replacement when you do not need one."
+        subtext="Red Seal Journeyman certified, on-site diagnosis, written workmanship guarantee, and no upsell to a replacement when you do not need one."
       />
     </>
   )

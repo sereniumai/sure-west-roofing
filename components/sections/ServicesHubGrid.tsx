@@ -27,7 +27,7 @@ const SERVICES: ServiceCard[] = [
     title: 'Roof Replacement',
     href: '/roof-replacement',
     description:
-      "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, IKO install, magnetic nail sweep, and 10-year guarantee in writing.",
+      "The biggest job your roof will get, run by the same in-house crew from tear-off to walkthrough. Deck inspection, manufacturer-spec install, magnetic nail sweep, and 10-year guarantee in writing.",
     learnMoreText: 'Roof Replacement',
     image: '/images/roof-replacement-cochrane.webp',
     imageAlt: 'Roof replacement in Cochrane Alberta by Sure West Roofing',
@@ -42,11 +42,11 @@ const SERVICES: ServiceCard[] = [
     imageAlt: 'Roof repair in Cochrane Alberta by Sure West Roofing',
   },
   {
-    title: 'Roof Inspection',
+    title: 'Roof and Attic Inspection',
     href: '/roof-inspection',
     description:
       "Buying, selling, or overdue for a check, a real inspection takes time. We're on the roof, in the attic, and around the flashings, with the truth in writing, clear photos, and a plain-language verdict.",
-    learnMoreText: 'Roof Inspection',
+    learnMoreText: 'Roof and Attic Inspection',
     image: '/images/roof-inspection-cochrane.webp',
     imageAlt: 'Roof inspection in Cochrane Alberta by Sure West Roofing',
   },

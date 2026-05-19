@@ -13,16 +13,16 @@ interface IncludedItem {
 
 const ITEMS: IncludedItem[] = [
   {
-    heading: 'Cut and frame to manufacturer spec',
-    body: 'A Red Seal Journeyman cuts the rough opening in your Cochrane roof deck and frames it to the skylight manufacturer’s spec. Rafter cuts are reinforced before any weather-side work begins. The opening is the foundation of every skylight install. Get this wrong and no flashing system will save the install.',
+    heading: 'Full assessment of the existing skylight and deck',
+    body: 'A Sure West roofer checks the existing skylight, the surrounding flashing, and the deck below for moisture, rot, or movement, then confirms the right replacement unit and size. We tell you straight if anything beyond a like-for-like swap needs addressing.',
   },
   {
-    heading: 'Install with manufacturer step flashing',
-    body: 'The skylight is set into the opening using the manufacturer’s step flashing kit, with ice-and-water shield wrapping the perimeter. Most failed installs skip this layer. The shingles are then woven back into the flashing system, finished to manufacturer spec, and tested for water-tightness.',
+    heading: 'Remove, replace, and re-flash to manufacturer spec',
+    body: 'The old skylight is removed, the deck inspected and repaired as needed, then the new unit set with manufacturer flashing kit and ice-and-water shield. Shingles are woven back in and tested for water-tightness. For tubular installs, the rooftop dome is sealed and flashed per spec.',
   },
   {
-    heading: 'Interior trim and workmanship guarantee',
-    body: 'Interior trim and drywall return are finished paint-ready, ready for your decorator or our recommended finisher. At handover, you receive your written workmanship guarantee from Sure West, layered on top of the manufacturer warranty on the unit. Both in your written quote.',
+    heading: 'Workmanship guarantee + manufacturer warranty',
+    body: 'Every Sure West skylight project comes with a written workmanship guarantee on the install, layered on top of the manufacturer warranty that protects the unit itself. Both are spelled out in your written quote before any work begins. Two layers of accountability, neither hidden in fine print.',
   },
 ]
 
@@ -63,7 +63,7 @@ export function SkylightWhatIncluded() {
               >
                 What&apos;s Included in a Sure
                 <br />
-                West Skylight Install
+                West Skylight Project
               </h2>
               <p
                 className="mt-5 max-w-[520px] text-brand-slate leading-[1.7]"
@@ -73,9 +73,8 @@ export function SkylightWhatIncluded() {
                   fontWeight: 400,
                 }}
               >
-                A skylight is only as reliable as the cut, the frame, and the flashing that surround
-                it. Three things make a Cochrane skylight install last, and all three are in every
-                Sure West project.
+                A skylight is only as reliable as the seal and the flashing that surround it. Three
+                things make a Cochrane skylight replacement last, all in every Sure West project.
               </p>
 
               {/* Accordion */}

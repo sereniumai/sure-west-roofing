@@ -63,7 +63,7 @@ const schema = {
     },
     {
       '@type': 'EducationalOccupationalCredential',
-      name: 'IKO ShieldPRO Installer',
+      name: 'Malarkey Certified Contractor',
     },
   ],
   makesOffer: [
@@ -71,7 +71,7 @@ const schema = {
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Roof Repair' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Hail Damage Repair' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Roof Maintenance' } },
-    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Roof Inspection' } },
+    { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Roof and Attic Inspection' } },
     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Skylight Installation' } },
   ],
   aggregateRating: {

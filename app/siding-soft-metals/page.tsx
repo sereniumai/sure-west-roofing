@@ -13,6 +13,7 @@ import {
   ListChecks,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import { SidingSoftMetalsHero } from '@/components/sections/SidingSoftMetalsHero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import { SidingWhatIncluded } from '@/components/sections/SidingWhatIncluded'
@@ -35,14 +36,14 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 export const metadata: Metadata = {
   title: 'Siding & Soft Metals Cochrane',
   description:
-    'Cochrane siding and soft metals by Red Seal Journeyman roofers. All major materials installed. Standalone or bundled with your roof project.',
+    'Cochrane siding and soft metals installed to manufacturer spec. All major materials. Standalone or bundled with your roof project.',
   alternates: {
     canonical: 'https://surewestroofing.ca/siding-soft-metals',
   },
   openGraph: {
     title: 'Siding & Soft Metals Cochrane | Sure West Roofing',
     description:
-      'Cochrane siding and soft metals by Red Seal Journeyman roofers. All major materials installed. Standalone or bundled with your roof project.',
+      'Cochrane siding and soft metals installed to manufacturer spec. All major materials. Standalone or bundled with your roof project.',
     url: 'https://surewestroofing.ca/siding-soft-metals',
     type: 'website',
     locale: 'en_CA',
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Siding & Soft Metals Cochrane | Sure West Roofing',
     description:
-      'Red Seal Journeyman siding, eavestroughs, fascia, and soffit work in Cochrane, AB. Written workmanship guarantee.',
+      'Siding, eavestroughs, fascia, and soffit work in Cochrane, AB. Manufacturer-spec install, written workmanship guarantee.',
     images: ['https://surewestroofing.ca/images/Cochrane Roofing Contractor Gallery 7.webp'],
   },
 }
@@ -99,7 +100,7 @@ const serviceSchema = {
   ],
   url: 'https://surewestroofing.ca/siding-soft-metals',
   description:
-    'Red Seal Journeyman siding installation, eavestroughs, fascia, soffit, and metal flashing across Cochrane, Calgary, and Canmore. Vinyl, fiber cement, and metal siding. Written workmanship guarantee.',
+    'Siding installation, eavestroughs, fascia, soffit, and metal flashing across Cochrane, Calgary, and Canmore. Vinyl, fiber cement, and metal siding, installed to manufacturer spec. Written workmanship guarantee.',
 }
 
 
@@ -162,7 +163,7 @@ const SIDING_STEPS: HowItWorksStep[] = [
   {
     number: '01',
     Icon: Calendar,
-    title: 'Free On-Site Assessment',
+    title: 'On-Site Assessment',
     description:
       'We walk every elevation of your Cochrane home and review siding, fascia, soffits, and eavestroughs as one connected system. We confirm by phone or email after you book, scheduled around your week.',
   },
@@ -171,7 +172,7 @@ const SIDING_STEPS: HowItWorksStep[] = [
     Icon: FileCheck,
     title: 'Approve Your Written Quote',
     description:
-      'Fixed written quote with material choice, full scope, project timeline, and total price. Once you approve, materials are ordered and the install is scheduled around your calendar and the Cochrane forecast.',
+      'Written itemised quote with material choice, full scope, project timeline, and total price. Once you approve, materials are ordered and the install is scheduled around your calendar and the Cochrane forecast.',
   },
   {
     number: '03',
@@ -197,7 +198,7 @@ const SERVICE_TYPES = [
     name: 'Eavestroughs & Downspouts',
     image: '/images/Cochrane Roofing Contractor Gallery 5.webp',
     imageAlt: 'Seamless aluminum eavestroughs installed on a Cochrane Alberta home',
-    body: 'Seamless 5-inch and 6-inch K-style aluminum eavestrough systems with matched downspouts and proper grade for water flow. Clean replacement of full systems or repair of damaged sections, with attention to where the water actually goes once it leaves your roof, away from your foundation.',
+    body: 'Seamless 5-inch and 6-inch K-style aluminum eavestrough systems, plus steel half-round for character homes that suit the profile. Matched downspouts and proper grade for water flow. Clean replacement of full systems or repair of damaged sections, directing water away from the foundation.',
   },
   {
     tier: 'Roofline Trim',
@@ -215,7 +216,8 @@ function ServiceTypes() {
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}
     >
       <div className="max-w-[1320px] mx-auto">
-        <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
+        <Reveal>
+        <div className="flex flex-col items-center text-center mb-12 max-w-[880px] mx-auto">
           <span
             className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{
@@ -240,16 +242,16 @@ function ServiceTypes() {
             <br className="hidden md:block" /> Install in Cochrane
           </h2>
           <p
-            className="mt-5 max-w-[720px] text-brand-slate leading-[1.7]"
+            className="mt-5 max-w-[880px] text-brand-slate leading-[1.7]"
             style={{
               fontSize: '16px',
               fontFamily: 'var(--font-inter), system-ui, sans-serif',
               fontWeight: 400,
             }}
           >
-            Three connected trades, one in-house crew, all major materials. Sure West installs the
-            siding and the soft metalwork that protects it, standalone or bundled with your roof
-            project.
+            Three connected trades, one manufacturer-spec standard, all major materials. Sure
+            West installs the siding and the soft metalwork that protects it, standalone or
+            bundled with your roof project.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">
@@ -257,7 +259,9 @@ function ServiceTypes() {
             </Button>
           </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={120}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {SERVICE_TYPES.map(({ tier, name, image, imageAlt, body }) => (
             <div
@@ -306,6 +310,7 @@ function ServiceTypes() {
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -317,32 +322,32 @@ const SIDING_DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
-    subtitle: 'Worth Standing Behind in 20 Years',
-    body: 'Every panel we hang, every J-channel we tuck, every fascia line we run is one we would still stand behind in 20 years. Honest work, accurate detail, no shortcuts buried under trim. The shell we leave on your home is the reputation we leave in Cochrane.',
+    subtitle: 'The Shell We Leave Behind',
+    body: 'Every panel we hang, every J-channel we tuck, every fascia line we run is one we stand behind in Cochrane long after the install. Honest work, accurate detail, no shortcuts buried under trim. The shell we leave on your home is the reputation we leave in the neighbourhood.',
   },
   {
     Icon: Users,
     heading: 'Brotherhood',
-    subtitle: 'Same Crew Through to the Finish',
-    body: 'Craig leads every Sure West siding project. The crew you meet on the assessment is the crew on the install. No subcontractor handoff, no rotating faces, no estimator who hands you off to someone else. First measurement to final walkthrough, every time.',
+    subtitle: 'A Tight-Knit Crew',
+    body: 'A team that has each other’s backs on the roof and off. Tight-knit, cohesive, aligned in purpose, because the work is too hard to do alongside people you cannot respect. Anyone in a Sure West uniform is held to the same standard, every Cochrane siding project.',
   },
   {
     Icon: Handshake,
     heading: 'Character',
     subtitle: 'The Quote That Holds',
-    body: 'We will not pad the quote with line items you do not need. We will not bury a real problem behind a panel. The price on your written quote does not change mid-project, the same whether you are bundling siding with a roof or booking standalone.',
+    body: 'We will not pad the quote with line items you do not need. We will not bury a real problem behind a panel. If something unexpected comes up mid-project, you hear about it early and decide before any extra work happens.',
   },
   {
     Icon: ShieldCheck,
     heading: 'Competency',
-    subtitle: 'Red Seal Journeyman Standard',
-    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Soft metals done right means tight panel reveals, watertight transitions, properly vented soffit, eaves pitched to drain, flashing tied in. The details a generalist crew misses, we catch first.',
+    subtitle: 'Manufacturer-Spec Install Discipline',
+    body: 'Manufacturer-spec install discipline on every panel and seam: tight reveals, watertight transitions, properly vented soffit, eaves pitched to drain, flashing tied in. The details that determine whether the material warranty actually holds, done right the first time.',
   },
   {
     Icon: ListChecks,
     heading: 'Proven Processes',
     subtitle: 'Same Standard, Every Project',
-    body: 'Same site protocol on every Cochrane project. Same daily progress photos, end-of-day cleanup, final walkthrough, written workmanship guarantee. Whether your project is one elevation or a full re-clad, the standard does not change panel by panel.',
+    body: 'Same site protocol on every Cochrane project. Same end-of-day cleanup, same final walkthrough, same written workmanship guarantee. Whether your project is one elevation or a full re-clad, the standard does not change panel by panel.',
   },
 ]
 
@@ -467,7 +472,7 @@ export default function SidingSoftMetalsPage() {
         images={SSM_GALLERY_IMAGES}
         sectionBg="#F7F5F0"
         heading="Siding & Soft Metals Projects in Cochrane, Calgary, and Canmore"
-        subhead="Every project in our gallery was completed by our in-house crew, Red Seal Journeyman supervised. No subcontractors, no compromises."
+        subhead="Every project in our gallery was completed to manufacturer-spec install discipline, with the same workmanship guarantee on the work we leave behind."
       />
       <SidingSoftMetalsFAQ />
       <RelatedServices />
@@ -478,7 +483,7 @@ export default function SidingSoftMetalsPage() {
             <br className="hidden md:block" /> You Can Actually Trust?
           </>
         }
-        subtext="Red Seal Journeyman certified, fixed written quote during the on-site visit, written workmanship guarantee, and no sales pressure. Standalone or bundled with your roof project."
+        subtext="Manufacturer-spec install discipline, written itemised quote during the on-site visit, written workmanship guarantee, and no sales pressure. Standalone or bundled with your roof project."
         sectionBg="#FFFFFF"
       />
     </>

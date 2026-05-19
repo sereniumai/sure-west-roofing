@@ -120,7 +120,7 @@ export function TenPointGuarantee() {
 
         {/* Split: portrait video on the LEFT, card grid on the RIGHT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 items-start">
-          {/* LEFT — Portrait hero video (sticky on desktop so it stays in view while scrolling cards) */}
+          {/* LEFT - Portrait hero video (sticky on desktop so it stays in view while scrolling cards) */}
           <Reveal delay={120} className="lg:col-span-5">
             <div className="relative lg:sticky lg:top-24">
               <div
@@ -152,7 +152,7 @@ export function TenPointGuarantee() {
             </div>
           </Reveal>
 
-          {/* RIGHT — 10-point premium card grid (2 cols on md+, 1 col on mobile) */}
+          {/* RIGHT - 10-point premium card grid (2 cols on md+, 1 col on mobile) */}
           <Reveal delay={180} className="lg:col-span-7">
             <ol className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {POINTS.map((point) => (

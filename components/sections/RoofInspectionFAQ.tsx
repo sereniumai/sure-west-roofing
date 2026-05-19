@@ -16,14 +16,14 @@ const FAQS: FAQ[] = [
   {
     question: 'How much does a roof inspection cost in Cochrane?',
     answerText:
-      'A standalone Cochrane roof inspection with a written photo-documented report depends on roof size, accessibility, and report depth. Sure West waives the inspection cost completely if you book any of the recommended repair, replacement, or maintenance work with us. The report is yours to keep either way, and there is no obligation to use Sure West for the recommended work. Contact us for a written quote.',
+      'A standalone Cochrane roof and attic inspection with a written photo-documented report is priced based on roof size, accessibility, and report depth. Contact us for a written quote. Depending on the scope of work that follows, the inspection cost may be credited toward a larger project. The report is yours to keep regardless, with no obligation to book any recommended work.',
     answer: (
       <>
-        A standalone Cochrane roof inspection with a written photo-documented report depends on
-        roof size, accessibility, and report depth. Sure West waives the inspection cost
-        completely if you book any of the recommended repair, replacement, or maintenance work
-        with us. The report is yours to keep either way, and there is no obligation to use Sure
-        West for the recommended work. Contact us for a written quote.
+        A standalone Cochrane roof and attic inspection with a written photo-documented report is
+        priced based on roof size, accessibility, and report depth. Contact us for a written
+        quote. Depending on the scope of work that follows, the inspection cost may be credited
+        toward a larger project. The report is yours to keep regardless, with no obligation to
+        book any recommended work.
       </>
     ),
   },
@@ -127,14 +127,14 @@ const FAQS: FAQ[] = [
   {
     question: 'Are roof inspections free?',
     answerText:
-      'Some are, some are not. A "free" inspection in Cochrane often means a verbal walkthrough or short summary, not a detailed written report. Sure West offers the inspection free if you book any of the recommended repair, replacement, or maintenance work with us. Otherwise, a standalone written photo-documented inspection report is paid work, priced at the Cochrane market rate.',
+      'A truly thorough roof and attic inspection takes 60 to 90 minutes on-site, a written photo-documented report, and a Red Seal Journeyman on the roof. Sure West charges for the inspection at the Cochrane market rate. Depending on the scope of work that follows, the inspection cost may be credited back toward a larger project. You receive a written report you own either way, with no obligation to book any recommended work.',
     answer: (
       <>
-        Some are, some are not. A &ldquo;free&rdquo; inspection in Cochrane often means a verbal
-        walkthrough or short summary, not a detailed written report. Sure West offers the
-        inspection free if you book any of the recommended repair, replacement, or maintenance
-        work with us. Otherwise, a standalone written photo-documented inspection report is paid
-        work, priced at the Cochrane market rate.
+        A truly thorough roof and attic inspection takes 60 to 90 minutes on-site, a written
+        photo-documented report, and a Red Seal Journeyman on the roof. Sure West charges for
+        the inspection at the Cochrane market rate. Depending on the scope of work that follows,
+        the inspection cost may be credited back toward a larger project. You receive a written
+        report you own either way, with no obligation to book any recommended work.
       </>
     ),
   },
@@ -192,8 +192,8 @@ export function RoofInspectionFAQ() {
                 letterSpacing: '-0.005em',
               }}
             >
-              Cochrane Roof Inspection
-              <br /> Questions, Answered
+              Cochrane Roof and Attic
+              <br /> Inspection Questions, Answered
             </h2>
             <p
               className="mt-6 max-w-[760px] text-brand-slate leading-[1.7]"

@@ -7,14 +7,14 @@ import { ContactForm } from '@/components/sections/ContactForm'
 export const metadata: Metadata = {
   title: 'Free Roof Estimate Cochrane, Calgary, and Canmore',
   description:
-    'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal Journeyman roofers, on-site inspection, fixed written quote, no obligation.',
+    'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal Journeyman roofers, on-site inspection, written itemised quote, no obligation.',
   alternates: {
     canonical: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
   },
   openGraph: {
     title: 'Free Roof Estimate Cochrane, Calgary, and Canmore | Sure West Roofing',
     description:
-      'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal Journeyman roofers, on-site inspection, fixed written quote, no obligation.',
+      'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal Journeyman roofers, on-site inspection, written itemised quote, no obligation.',
     url: 'https://surewestroofing.ca/free-roof-estimate-cochrane',
     type: 'website',
     locale: 'en_CA',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Free Roof Estimate Cochrane, Calgary, and Canmore | Sure West Roofing',
     description:
-      'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal Journeyman roofers, on-site inspection, fixed written quote, no obligation.',
+      'Book your free roof estimate in Cochrane, Calgary, or Canmore. Red Seal Journeyman roofers, on-site inspection, written itemised quote, no obligation.',
   },
   robots: {
     index: true,
@@ -122,7 +122,7 @@ const structuredData = [
 
 const benefits = [
   'Free on-site roof inspection',
-  'Fixed written quote',
+  'Written itemised quote',
   'No obligation, no sales pressure',
 ]
 
@@ -175,8 +175,8 @@ export default function FreeEstimatePage() {
                 }}
               >
                 Our in-house Red Seal Journeyman crew comes to your Cochrane, Calgary, or Canmore
-                home, inspects the roof on-site, and delivers a fixed written quote. No pressure,
-                no surprises.
+                home, inspects the roof on-site, and delivers a written itemised quote. No
+                pressure, no upsell.
               </p>
 
               {/* Benefits */}
@@ -338,7 +338,7 @@ export default function FreeEstimatePage() {
             >
               Sure West provides free roof estimates to homeowners across Cochrane, the greater
               Calgary region, and the Bow Valley. Our in-house crew, Red Seal Journeyman supervised,
-              travels to your property, inspects the roof on-site, and delivers a fixed written
+              travels to your property, inspects the roof on-site, and delivers a written itemised
               quote.
             </p>
           </div>

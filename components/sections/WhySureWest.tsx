@@ -217,7 +217,7 @@ export function WhySureWest({
                       </span>
                     </button>
 
-                    {/* Body — animated max-height for smooth reveal */}
+                    {/* Body - animated max-height for smooth reveal */}
                     <div
                       className="relative grid transition-[grid-template-rows,opacity] duration-500 ease-out"
                       style={{
@@ -246,7 +246,7 @@ export function WhySureWest({
             </ul>
           </Reveal>
 
-          {/* RIGHT: image — squarer on mobile, fills accordion column height on desktop */}
+          {/* RIGHT: image - squarer on mobile, fills accordion column height on desktop */}
           <Reveal delay={300}>
             <div className="relative h-full">
               <div

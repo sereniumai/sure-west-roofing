@@ -326,7 +326,7 @@ function Legacy() {
       <Reveal>
         <div className="relative max-w-[1200px] mx-auto">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-            {/* LEFT — Framed portrait photo (image-below on mobile, image-left on desktop) */}
+            {/* LEFT - Framed portrait photo (image-below on mobile, image-left on desktop) */}
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div
                 className="relative aspect-[4/5] w-full overflow-hidden rounded-[18px]"
@@ -346,7 +346,7 @@ function Legacy() {
               </div>
             </div>
 
-            {/* RIGHT — Eyebrow + Heading + Body + Closing + Signature */}
+            {/* RIGHT - Eyebrow + Heading + Body + Closing + Signature */}
             <div className="lg:col-span-7 order-1 lg:order-2">
               <span
                 className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] text-brand-gold"

@@ -16,14 +16,14 @@ const FAQS: FAQ[] = [
   {
     question: 'How much does a roof repair cost in Cochrane?',
     answerText:
-      'Roof repair pricing in Cochrane depends on several factors, including the type of repair, the area affected, accessibility, and the shingles or materials needed for the fix. Sure West provides a fixed written quote after the on-site diagnosis, with no padding mid-job. Contact us to book a free diagnosis and you will have your repair quote in writing the same visit.',
+      'Roof repair pricing in Cochrane depends on several factors, including the type of repair, the area affected, accessibility, and the shingles or materials needed for the fix. Sure West provides a written itemised quote after the on-site diagnosis, with no padding mid-job. If anything unexpected comes up once the repair starts, you hear about it before any extra work happens.',
     answer: (
       <>
         Roof repair pricing in Cochrane depends on several factors, including the type of repair,
         the area affected, accessibility, and the shingles or materials needed for the fix. Sure
-        West provides a fixed written quote after the on-site diagnosis, with no padding mid-job.
-        Contact us to book a free diagnosis and you will have your repair quote in writing the
-        same visit.
+        West provides a written itemised quote after the on-site diagnosis, with no padding
+        mid-job. If anything unexpected comes up once the repair starts, you hear about it before
+        any extra work happens.
       </>
     ),
   },
@@ -43,33 +43,36 @@ const FAQS: FAQ[] = [
   {
     question: 'Can you match my existing shingles?',
     answerText:
-      'In most cases, yes. We use IKO product across all our work, and matching to existing IKO shingles is straightforward. Matching older or discontinued brands depends on what is still available from Canadian distributors. If a perfect match cannot be found, we will tell you so before we quote and discuss options that still protect the roof.',
+      'In most cases, yes. We work with all the major shingle manufacturers stocked in Alberta, so matching a current-line product on your roof is usually straightforward. Matching older or discontinued shingles depends on what is still available from Canadian distributors. If a perfect match cannot be found, we will tell you so before we quote and discuss options that still protect the roof.',
     answer: (
       <>
-        In most cases, yes. We use IKO product across all our work, and matching to existing IKO
-        shingles is straightforward. Matching older or discontinued brands depends on what is
-        still available from Canadian distributors. If a perfect match cannot be found, we will
-        tell you so before we quote and discuss options that still protect the roof.
+        In most cases, yes. We work with all the major shingle manufacturers stocked in Alberta,
+        so matching a current-line product on your roof is usually straightforward. Matching
+        older or discontinued shingles depends on what is still available from Canadian
+        distributors. If a perfect match cannot be found, we will tell you so before we quote and
+        discuss options that still protect the roof.
       </>
     ),
   },
   {
     question: 'Will my home insurance cover a roof repair?',
     answerText:
-      "Often, yes. Most Alberta home insurance policies cover sudden damage from hail, wind, or fallen branches. They do not typically cover gradual wear or maintenance issues. If your roof was damaged in a storm event, we provide photos, a written diagnosis, and documentation that meets your insurer's standard. For hail-specific damage, see our dedicated hail damage repair page for the full claim process.",
+      'Often, yes. Most Alberta home insurance policies cover sudden damage from hail, wind, or fallen branches. They do not typically cover gradual wear or maintenance issues. If your roof was damaged in a storm event, we provide photos, a written diagnosis, and documentation your insurer can use as supporting evidence. The claim itself is between you and your insurer, but we make sure you have what you need to support it. For hail-specific damage, see our dedicated hail damage repair page.',
     answer: (
       <>
         Often, yes. Most Alberta home insurance policies cover sudden damage from hail, wind, or
         fallen branches. They do not typically cover gradual wear or maintenance issues. If your
         roof was damaged in a storm event, we provide photos, a written diagnosis, and
-        documentation that meets your insurer&apos;s standard. For hail-specific damage, see our{' '}
+        documentation your insurer can use as supporting evidence. The claim itself is between
+        you and your insurer, but we make sure you have what you need to support it. For
+        hail-specific damage, see our{' '}
         <Link
           href="/hail-damage-repair"
           className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors"
         >
           dedicated hail damage repair page
-        </Link>{' '}
-        for the full claim process.
+        </Link>
+        .
       </>
     ),
   },
@@ -128,13 +131,13 @@ const FAQS: FAQ[] = [
   {
     question: 'What guarantee do I get on a roof repair from Sure West?',
     answerText:
-      "Every Sure West repair comes with a written workmanship guarantee, handed to you on completion. If anything in our repair work fails, we come back and fix it. The IKO manufacturer warranty on the shingles themselves carries forward separately, registered with IKO under your existing roof's product line.",
+      'Every Sure West repair comes with a written workmanship guarantee on the work we complete. If anything in our repair fails, we come back and fix it. The manufacturer warranty on the existing shingles is unaffected and continues under whichever brand is on your roof today.',
     answer: (
       <>
-        Every Sure West repair comes with a written workmanship guarantee, handed to you on
-        completion. If anything in our repair work fails, we come back and fix it. The IKO
-        manufacturer warranty on the shingles themselves carries forward separately, registered
-        with IKO under your existing roof&apos;s product line.
+        Every Sure West repair comes with a written workmanship guarantee on the work we
+        complete. If anything in our repair fails, we come back and fix it. The manufacturer
+        warranty on the existing shingles is unaffected and continues under whichever brand is on
+        your roof today.
       </>
     ),
   },

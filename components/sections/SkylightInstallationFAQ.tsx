@@ -14,115 +14,113 @@ interface FAQ {
 
 const FAQS: FAQ[] = [
   {
-    question: 'How much does skylight installation cost in Cochrane?',
+    question: 'What kind of skylight projects does Sure West handle?',
     answerText:
-      'Skylight installation pricing in Cochrane depends on several factors, including the type of skylight (fixed, vented, or tubular), the size, the brand, the structural condition of your roof, interior finishing requirements, and any permit costs. Tubular skylights are typically the most affordable, fixed skylights sit in the middle, and vented or motorized skylights are the most expensive. Sure West provides a fixed written quote after the on-site walkthrough.',
+      'Sure West replaces existing skylights of any type very often, fixed, vented, and tubular. We also install new tubular skylights, ideal for closets, hallways, ensuites, and other small or windowless spaces where natural light would transform the room. Whether you are bundling a replacement with a roof project or booking a standalone install, we will walk you through what fits your home at the on-site visit.',
     answer: (
       <>
-        Skylight installation pricing in Cochrane depends on several factors, including the type of
-        skylight (fixed, vented, or tubular), the size, the brand, the structural condition of your
-        roof, interior finishing requirements, and any permit costs. Tubular skylights are typically
-        the most affordable, fixed skylights sit in the middle, and vented or motorized skylights
-        are the most expensive. Sure West provides a fixed written quote after the on-site
-        walkthrough.
+        Sure West replaces existing skylights of any type very often, fixed, vented, and tubular.
+        We also install new tubular skylights, ideal for closets, hallways, ensuites, and other
+        small or windowless spaces where natural light would transform the room. Whether you are
+        bundling a replacement with a roof project or booking a standalone install, we will walk
+        you through what fits your home at the on-site visit.
+      </>
+    ),
+  },
+  {
+    question: 'How much does skylight replacement cost in Cochrane?',
+    answerText:
+      'Skylight replacement pricing in Cochrane depends on several factors: the size and type of the unit (fixed, vented, or tubular), the brand and model chosen, the condition of the existing opening and deck, and any permits required. Tubular installs typically run lowest, fixed replacements sit in the middle, and vented or motorized units are higher. Sure West provides a written itemised quote after the on-site walkthrough.',
+    answer: (
+      <>
+        Skylight replacement pricing in Cochrane depends on several factors: the size and type of
+        the unit (fixed, vented, or tubular), the brand and model chosen, the condition of the
+        existing opening and deck, and any permits required. Tubular installs typically run lowest,
+        fixed replacements sit in the middle, and vented or motorized units are higher. Sure West
+        provides a written itemised quote after the on-site walkthrough.
       </>
     ),
   },
   {
     question: 'What brands of skylight do you install?',
     answerText:
-      'Sure West installs the major skylight brands available to Alberta installers. Brand availability and recommendation depends on the type of skylight you need, the size of the opening, the energy efficiency rating required, and your budget. We will walk you through the options at the on-site visit and only quote brands and models we would put on our own homes.',
+      'Sure West installs and replaces the major skylight brands available to Alberta installers. Brand availability and recommendation depends on the type of skylight you need, the size of the opening, the energy efficiency rating required, and your budget. We will walk you through the options at the on-site visit and only quote brands and models we would put on our own homes.',
     answer: (
       <>
-        Sure West installs the major skylight brands available to Alberta installers. Brand
-        availability and recommendation depends on the type of skylight you need, the size of the
-        opening, the energy efficiency rating required, and your budget. We will walk you through
-        the options at the on-site visit and only quote brands and models we would put on our own
-        homes.
+        Sure West installs and replaces the major skylight brands available to Alberta installers.
+        Brand availability and recommendation depends on the type of skylight you need, the size of
+        the opening, the energy efficiency rating required, and your budget. We will walk you
+        through the options at the on-site visit and only quote brands and models we would put on
+        our own homes.
       </>
     ),
   },
   {
     question: 'Will my new skylight leak?',
     answerText:
-      'A properly installed skylight should not leak. Leaks happen when the rough opening is cut wrong, the manufacturer’s flashing kit is skipped or substituted, or the ice-and-water shield is not wrapped around the entire perimeter. Sure West follows manufacturer install spec on every project, weaves the surrounding shingles back into the flashing system, and tests for water-tightness before handover.',
+      'A properly installed skylight should not leak. Leaks happen when the wrong size unit is forced into the opening, the manufacturer flashing kit is skipped or substituted, or the ice-and-water shield is not wrapped around the entire perimeter. Sure West follows manufacturer install spec on every replacement, weaves the surrounding shingles back into the flashing system, and tests for water-tightness before handover.',
     answer: (
       <>
-        A properly installed skylight should not leak. Leaks happen when the rough opening is cut
-        wrong, the manufacturer&rsquo;s flashing kit is skipped or substituted, or the
+        A properly installed skylight should not leak. Leaks happen when the wrong size unit is
+        forced into the opening, the manufacturer flashing kit is skipped or substituted, or the
         ice-and-water shield is not wrapped around the entire perimeter. Sure West follows
-        manufacturer install spec on every project, weaves the surrounding shingles back into the
-        flashing system, and tests for water-tightness before handover.
+        manufacturer install spec on every replacement, weaves the surrounding shingles back into
+        the flashing system, and tests for water-tightness before handover.
       </>
     ),
   },
   {
-    question: 'How long does a skylight installation take in Cochrane?',
+    question: 'How long does a skylight project take in Cochrane?',
     answerText:
-      'Most single-skylight installs in Cochrane are completed in one day, weather permitting. Multi-skylight projects or installs requiring structural modifications may take two to three days. Most of the project lead time is in scheduling and ordering the unit from the manufacturer, not the install itself. We confirm the install timeline in writing in your quote.',
+      'Most single-skylight replacements in Cochrane are completed in one day, weather permitting. New tubular installs also typically wrap in a day. Multi-skylight projects may take two to three days. Most of the project lead time is in scheduling and ordering the unit from the manufacturer, not the work on your roof. We confirm the install timeline in writing in your quote.',
     answer: (
       <>
-        Most single-skylight installs in Cochrane are completed in one day, weather permitting.
-        Multi-skylight projects or installs requiring structural modifications may take two to three
-        days. Most of the project lead time is in scheduling and ordering the unit from the
-        manufacturer, not the install itself. We confirm the install timeline in writing in your
+        Most single-skylight replacements in Cochrane are completed in one day, weather permitting.
+        New tubular installs also typically wrap in a day. Multi-skylight projects may take two to
+        three days. Most of the project lead time is in scheduling and ordering the unit from the
+        manufacturer, not the work on your roof. We confirm the install timeline in writing in your
         quote.
       </>
     ),
   },
   {
-    question: 'Do skylights cause heat loss in Cochrane winters?',
+    question: 'Is my roof a candidate for a skylight project?',
     answerText:
-      'Older skylights and poorly installed new skylights can absolutely cause heat loss. Modern skylights installed to Alberta Building Code Section 9.36 energy efficiency requirements use triple-pane glass with Low-E coatings and properly insulated curbs. The energy performance is rated and labelled on every unit. Sure West only installs skylights that meet or exceed the minimum performance tier for Alberta climates.',
+      'Most pitched residential roofs in Cochrane are good candidates for replacement or a tubular install. The new unit drops into the existing opening with the manufacturer flashing kit, or for tubular installs, the rooftop dome sits between standard trusses. Flat roofs, low-slope roofs, and homes with cathedral or vaulted ceilings need specific assessment. We will tell you honestly at the on-site walkthrough whether your roof is a candidate.',
     answer: (
       <>
-        Older skylights and poorly installed new skylights can absolutely cause heat loss. Modern
-        skylights installed to Alberta Building Code Section 9.36 energy efficiency requirements use
-        triple-pane glass with Low-E coatings and properly insulated curbs. The energy performance
-        is rated and labelled on every unit. Sure West only installs skylights that meet or exceed
-        the minimum performance tier for Alberta climates.
-      </>
-    ),
-  },
-  {
-    question: 'Can a skylight be installed on any roof?',
-    answerText:
-      'Most pitched residential roofs in Cochrane can accept a skylight, since most are framed with trusses 24 inches centre to centre and standard skylights are sized to fit between them without structural modification. Flat roofs, low-slope roofs, and roofs with cathedral or vaulted ceilings need specific assessment. We will tell you honestly at the on-site walkthrough whether your roof is a candidate.',
-    answer: (
-      <>
-        Most pitched residential roofs in Cochrane can accept a skylight, since most are framed with
-        trusses 24 inches centre to centre and standard skylights are sized to fit between them
-        without structural modification. Flat roofs, low-slope roofs, and roofs with cathedral or
-        vaulted ceilings need specific assessment. We will tell you honestly at the on-site
-        walkthrough whether your roof is a candidate.
+        Most pitched residential roofs in Cochrane are good candidates for replacement or a tubular
+        install. The new unit drops into the existing opening with the manufacturer flashing kit,
+        or for tubular installs, the rooftop dome sits between standard trusses. Flat roofs,
+        low-slope roofs, and homes with cathedral or vaulted ceilings need specific assessment. We
+        will tell you honestly at the on-site walkthrough whether your roof is a candidate.
       </>
     ),
   },
   {
     question: 'Do I need a permit for a skylight in Cochrane?',
     answerText:
-      'Yes, in most cases. Cutting an opening in the roof affects the building envelope and triggers a building permit requirement under the Alberta Building Code. Sure West will tell you exactly what permits are required for your project at the walkthrough, what the permit costs are, and what the permit process involves. Permit responsibility and handling will be confirmed in writing in your quote.',
+      'Like-for-like skylight replacements often do not require a building permit. A new tubular install or a replacement that substantially changes the opening or unit type may trigger a permit under the Alberta Building Code. Sure West will tell you exactly what permits are required for your project at the walkthrough, what the costs are, and what the process involves. Permit responsibility is confirmed in writing in your quote.',
     answer: (
       <>
-        Yes, in most cases. Cutting an opening in the roof affects the building envelope and
-        triggers a building permit requirement under the Alberta Building Code. Sure West will tell
-        you exactly what permits are required for your project at the walkthrough, what the permit
-        costs are, and what the permit process involves. Permit responsibility and handling will be
-        confirmed in writing in your quote.
+        Like-for-like skylight replacements often do not require a building permit. A new tubular
+        install or a replacement that substantially changes the opening or unit type may trigger a
+        permit under the Alberta Building Code. Sure West will tell you exactly what permits are
+        required for your project at the walkthrough, what the costs are, and what the process
+        involves. Permit responsibility is confirmed in writing in your quote.
       </>
     ),
   },
   {
     question: 'What guarantee comes with your install?',
     answerText:
-      'Every Sure West skylight installation comes with a written workmanship guarantee, layered on top of the manufacturer warranty for the skylight unit itself. The workmanship guarantee covers the install, the cut, the framing, the flashing, the seal. The manufacturer warranty covers the skylight as a product. Both are spelled out in your written quote before any work begins.',
+      'Every Sure West skylight project comes with a written workmanship guarantee, layered on top of the manufacturer warranty for the skylight unit itself. The workmanship guarantee covers the install, the flashing, and the seal. The manufacturer warranty covers the skylight as a product. Both are spelled out in your written quote before any work begins.',
     answer: (
       <>
-        Every Sure West skylight installation comes with a written workmanship guarantee, layered on
-        top of the manufacturer warranty for the skylight unit itself. The workmanship guarantee
-        covers the install, the cut, the framing, the flashing, the seal. The manufacturer warranty
-        covers the skylight as a product. Both are spelled out in your written quote before any work
-        begins.
+        Every Sure West skylight project comes with a written workmanship guarantee, layered on top
+        of the manufacturer warranty for the skylight unit itself. The workmanship guarantee covers
+        the install, the flashing, and the seal. The manufacturer warranty covers the skylight as a
+        product. Both are spelled out in your written quote before any work begins.
       </>
     ),
   },
@@ -180,7 +178,7 @@ export function SkylightInstallationFAQ() {
                 letterSpacing: '-0.005em',
               }}
             >
-              Cochrane Skylight Installation
+              Cochrane Skylight Replacement
               <br /> Questions, Answered
             </h2>
             <p
@@ -191,8 +189,8 @@ export function SkylightInstallationFAQ() {
                 fontWeight: 400,
               }}
             >
-              Straight answers about skylight installation, leak prevention, permits, and what to
-              expect from your local Red Seal Journeyman roofing contractor.
+              Straight answers about skylight replacement, leak prevention, permits, and what to
+              expect from your local Sure West crew.
             </p>
             <div className="mt-8">
               <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">

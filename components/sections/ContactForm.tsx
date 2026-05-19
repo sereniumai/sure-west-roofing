@@ -8,7 +8,7 @@ const services = [
   'Roof Replacement',
   'Roof Repair',
   'Hail Damage Repair',
-  'Roof Inspection',
+  'Roof and Attic Inspection',
   'Roof Maintenance',
   'Siding & Soft Metals',
   'Skylight Installation',

@@ -17,6 +17,7 @@ import {
   ListChecks,
 } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
+import { Reveal } from '@/components/ui/Reveal'
 import { RoofMaintenanceHero } from '@/components/sections/RoofMaintenanceHero'
 import { TrustLogos } from '@/components/sections/TrustLogos'
 import {
@@ -36,12 +37,12 @@ import { BottomCTA } from '@/components/sections/BottomCTA'
 export const metadata: Metadata = {
   title: 'Roof Maintenance Cochrane',
   description:
-    'Roof maintenance Cochrane homeowners trust. Red Seal Journeyman certified. Annual visits, written reports, IKO warranty support included.',
+    'Roof maintenance Cochrane homeowners trust. Red Seal Journeyman certified. Annual visits, written reports, manufacturer warranty support included.',
   alternates: { canonical: 'https://surewestroofing.ca/roof-maintenance' },
   openGraph: {
     title: 'Roof Maintenance Cochrane | Sure West Roofing',
     description:
-      'Roof maintenance Cochrane homeowners trust. Red Seal Journeyman certified. Annual visits, written reports, IKO warranty support included.',
+      'Roof maintenance Cochrane homeowners trust. Red Seal Journeyman certified. Annual visits, written reports, manufacturer warranty support included.',
     url: 'https://surewestroofing.ca/roof-maintenance',
     type: 'website',
     locale: 'en_CA',
@@ -90,7 +91,7 @@ const serviceSchema = {
   ],
   url: 'https://surewestroofing.ca/roof-maintenance',
   description:
-    'Red Seal certified annual roof maintenance in Cochrane, Calgary, and Canmore. Inspections, minor repairs, and a written maintenance log to support IKO warranty.',
+    'Red Seal certified annual roof maintenance in Cochrane, Calgary, and Canmore. Inspections, minor repairs, and a written maintenance log to support your manufacturer warranty.',
 }
 
 const CERT_LOGOS = [
@@ -153,8 +154,8 @@ const SIGNS = [
   },
   {
     Icon: ShieldCheck,
-    heading: 'Approaching IKO warranty milestone',
-    body: 'IKO manufacturer warranties require evidence of regular upkeep. A documented Sure West maintenance visit ahead of milestone dates protects your warranty coverage if a claim is questioned.',
+    heading: 'Taking charge of home maintenance',
+    body: 'Owning a home means staying ahead of small problems before they become expensive. A Sure West maintenance log gives you a written record of the roof, like logging furnace service or oil changes.',
   },
 ]
 
@@ -163,6 +164,7 @@ function SignsYouNeed() {
     <section className="relative bg-brand-cream overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
+        <Reveal>
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
           <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{ background: '#FFFFFF', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
@@ -182,7 +184,9 @@ function SignsYouNeed() {
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
           </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={120}>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {SIGNS.map(({ Icon, heading, body }) => (
             <div key={heading} className="bg-white rounded-[12px] border border-brand-border p-6 shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
@@ -194,6 +198,7 @@ function SignsYouNeed() {
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -212,14 +217,14 @@ const MAINTENANCE_STEPS: HowItWorksStep[] = [
     Icon: FileCheck,
     title: 'Inspect, Clean, Repair',
     description:
-      'Slope walk and attic check, valleys cleared of debris, shingle tabs reseated, minor flashing reseals completed during the same visit. Approximately two hours on-site.',
+      'Slope walk and attic check, valleys cleared of debris, shingle tabs reseated, minor flashing reseals completed during the same visit, every checkpoint photographed for the log. Approximately two hours on-site.',
   },
   {
     number: '03',
     Icon: CheckCircle,
     title: 'Written Maintenance Log',
     description:
-      "Photo-documented log delivered after every visit. Supports your IKO warranty, gives buyers a clean record at resale, and keeps your insurer informed of the roof's condition over time.",
+      "Photo-documented log delivered after every visit. Supports your manufacturer warranty, gives buyers a clean record at resale, and keeps your insurer informed of the roof's condition over time.",
   },
 ]
 
@@ -252,6 +257,7 @@ function MaintenancePlans() {
     <section className="relative bg-white overflow-hidden py-20 md:py-24"
       style={{ paddingLeft: 'var(--section-pad-x)', paddingRight: 'var(--section-pad-x)' }}>
       <div className="max-w-[1320px] mx-auto">
+        <Reveal>
         <div className="flex flex-col items-center text-center mb-12 max-w-[720px] mx-auto">
           <span className="inline-flex items-center px-4 py-2 uppercase tracking-[0.1em] rounded-[6px] mb-6 text-brand-gold"
             style={{ background: '#F7F5F0', fontSize: '12px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 600, lineHeight: 1 }}>
@@ -263,13 +269,15 @@ function MaintenancePlans() {
           </h2>
           <p className="mt-5 max-w-[600px] text-brand-slate leading-[1.7]"
             style={{ fontSize: '16px', fontFamily: 'var(--font-inter), system-ui, sans-serif', fontWeight: 400 }}>
-            Choose the cadence that fits your roof&apos;s age, your neighbourhood, and where you are in homeownership. Every plan includes a written maintenance log that supports your IKO warranty.
+            Choose the cadence that fits your roof&apos;s age, your neighbourhood, and where you are in homeownership. Every plan includes a written maintenance log that supports your manufacturer warranty and your records.
           </p>
           <div className="mt-8">
             <Button variant="primary" size="lg" href="/free-roof-estimate-cochrane">Get a Free Estimate</Button>
           </div>
         </div>
+        </Reveal>
 
+        <Reveal delay={120}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
           {MAINTENANCE_PLANS.map(({ tier, name, image, imageAlt, body }) => (
             <div key={name} className="bg-brand-cream rounded-[12px] border border-brand-border flex flex-col overflow-hidden shadow-[0_2px_8px_rgba(44,71,102,0.06)] hover:-translate-y-[3px] hover:shadow-[0_12px_28px_rgba(44,71,102,0.12)] transition-all duration-300 ease-out">
@@ -286,6 +294,7 @@ function MaintenancePlans() {
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   )
@@ -297,14 +306,14 @@ const MAINTENANCE_DIFFERENTIATORS: DifferentiatorItem[] = [
   {
     Icon: Award,
     heading: 'Legacy',
-    subtitle: 'Worth Standing Behind in 20 Years',
-    body: 'Every maintenance log we sign is one we would still stand behind in 20 years. Honest findings, accurate condition ratings, no padding the visit, no missing problems to skip a repair. The log we leave is the reputation we leave.',
+    subtitle: 'The Log We Sign Our Name To',
+    body: 'Every maintenance log we sign is one we would stand behind in Cochrane long after the visit. Honest findings, accurate condition ratings, no padding the visit, no missing problems to skip a repair. The log we leave is the reputation we leave.',
   },
   {
     Icon: Users,
     heading: 'Brotherhood',
-    subtitle: 'Same Crew, Every Visit',
-    body: 'Craig leads every Sure West maintenance visit. The crew you meet on the first visit is the crew you meet next year. No subcontractor handoff, no rotating faces, just the same names walking your roof season after season.',
+    subtitle: 'A Tight-Knit Crew',
+    body: 'A team that has each other’s backs on the roof and off. Tight-knit, cohesive, aligned in purpose, because the work is too hard to do alongside people you cannot respect. Anyone in a Sure West uniform is held to the same standard, every Cochrane maintenance visit.',
   },
   {
     Icon: Handshake,
@@ -316,7 +325,7 @@ const MAINTENANCE_DIFFERENTIATORS: DifferentiatorItem[] = [
     Icon: ShieldCheck,
     heading: 'Competency',
     subtitle: 'Red Seal Journeyman Standard',
-    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Maintenance done right means every slope walked, every flashing checked, every valley cleared, every IKO warranty term honoured. The details a quick visit misses, we catch first.',
+    body: 'Red Seal Journeyman is the highest trade credential in Canadian roofing. Done right: every slope walked, every flashing checked, every valley cleared, warranty terms respected. The details a quick visit misses, we catch first.',
   },
   {
     Icon: ListChecks,
@@ -411,7 +420,7 @@ export default function RoofMaintenancePage() {
       <RelatedServices />
       <BottomCTA
         heading={<>Need Roof Maintenance<br className="hidden md:block" /> You Can Actually Trust?</>}
-        subtext="Red Seal Journeyman certified, fixed written quote during the on-site visit, written maintenance log, and no sales pressure. Same standard, every visit, every roof."
+        subtext="Red Seal Journeyman certified, written itemised quote during the on-site visit, written maintenance log, and no sales pressure. Same standard, every visit, every roof."
         sectionBg="#FFFFFF"
       />
     </>

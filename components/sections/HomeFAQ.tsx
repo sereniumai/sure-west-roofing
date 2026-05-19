@@ -43,10 +43,10 @@ const FAQS: FAQ[] = [
   {
     question: 'What makes Sure West different from other roofing contractors?',
     answerText:
-      "Five things you can verify on every job. Legacy: roofs we'd still stand behind in 20 years. Brotherhood: same in-house crew tear-off to walkthrough, no subs. Character: honest quotes from day one, we'll tell you if you don't need a replacement. Competency: Red Seal Journeyman certified, Canada's highest trade credential. Proven Processes: same playbook, same magnetic nail sweep, same warranty in writing. The rest is talk.",
+      "Five things you can verify on every job. Legacy: roofs we still stand behind years after the install. Brotherhood: same in-house crew tear-off to walkthrough, no subs. Character: honest quotes from day one, we'll tell you if you don't need a replacement. Competency: Red Seal Journeyman certified, Canada's highest trade credential. Proven Processes: same playbook, same magnetic nail sweep, same warranty in writing. The rest is talk.",
     answer: (
       <>
-        Five things you can verify on every job. Legacy: roofs we&apos;d still stand behind in 20 years.
+        Five things you can verify on every job. Legacy: roofs we still stand behind years after the install.
         <br />
         <br />
         Brotherhood: same in-house crew tear-off to walkthrough, no subs.

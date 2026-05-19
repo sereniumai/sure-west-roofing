@@ -15,9 +15,9 @@ const DEFAULT_ITEMS: AccordionItem[] = [
       'We strip the roof down to the deck and inspect every square foot for soft spots, rot, or water damage. Any compromised sheathing is replaced before new materials go on.',
   },
   {
-    heading: 'Underlayment, ice-and-water shield, and IKO shingles',
+    heading: 'Underlayment, ice-and-water shield, and your chosen shingle tier',
     body:
-      'Synthetic underlayment and ice-and-water shield protect the deck at every critical point. IKO shingles go on in your chosen tier (Cambridge, Dynasty, or Class 4 Nordic).',
+      'Synthetic underlayment and ice-and-water shield protect the deck at every critical point. Shingles go on in your chosen performance tier, builder grade, wind-performance, or hail-rated.',
   },
   {
     heading: 'Full site cleanup, walkthrough, and warranty',
@@ -128,7 +128,7 @@ export function WhatIncludedAccordion({
               </span>
             </button>
 
-            {/* Body — animated max-height for smooth reveal */}
+            {/* Body - animated max-height for smooth reveal */}
             <div
               className="relative grid transition-[grid-template-rows,opacity] duration-500 ease-out"
               style={{
