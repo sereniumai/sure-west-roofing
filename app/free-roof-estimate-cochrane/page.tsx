@@ -121,7 +121,7 @@ const structuredData = [
 ]
 
 const benefits = [
-  'Free on-site roof inspection',
+  'Free on-site roof assessment',
   'Written itemised quote',
   'No obligation, no sales pressure',
 ]
