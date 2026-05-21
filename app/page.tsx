@@ -177,7 +177,7 @@ export default function HomePage() {
       />
 
       {/* 6. Reviews on cream to alternate with white services */}
-      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" />
+      <Reviews sectionBg="#F7F5F0" cardBg="#FFFFFF" priorityCity="Cochrane" />
 
       {/* 8. How It Works, process info now that buyer is leaning in */}
       <HowItWorks />

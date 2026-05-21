@@ -15,10 +15,10 @@ const FAQS: FAQ[] = [
   {
     question: 'What roofing services do you offer in Cochrane?',
     answerText:
-      'Seven services, all run by the same in-house crew, Red Seal Journeyman supervised: roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections, siding and soft metals (flashings, fascia, soffit, eavestroughs), and skylight installation.',
+      'Seven services, one coordinated team, Red Seal Journeyman supervised: roof replacement, roof repair, hail damage repair, roof maintenance, roof inspections, siding and soft metals (flashings, fascia, soffit, eavestroughs), and skylight installation.',
     answer: (
       <>
-        Seven services, all run by the same in-house crew, Red Seal Journeyman supervised:{' '}
+        Seven services, one coordinated team, Red Seal Journeyman supervised:{' '}
         <Link href="/roof-replacement" className="faq-link">roof replacement</Link>,{' '}
         <Link href="/roof-repair" className="faq-link">roof repair</Link>,{' '}
         <Link href="/hail-damage-repair" className="faq-link">hail damage repair</Link>,{' '}
@@ -33,41 +33,41 @@ const FAQS: FAQ[] = [
   {
     question: 'How is a Sure West quote different from other quotes?',
     answerText:
-      "Every Sure West free estimate is fixed and written before work begins. We inspect the deck, count the materials, and price the job on what's actually there, not on best-case assumptions. If something genuinely unforeseen comes up, you hear about it before any extra work happens, never after. The price you approve is the price you pay.",
+      "Every Sure West free estimate is written and itemised before work begins. We inspect the deck, count the materials, and price the job on what's actually there, not on best-case assumptions. If something genuinely unforeseen comes up, you hear about it before any extra work happens, never after. Honest upfront communication, always.",
     answer: (
       <>
         Every Sure West{' '}
         <Link href="/free-roof-estimate-cochrane" className="faq-link">free estimate</Link>{' '}
-        is fixed and written before work begins. We inspect the deck, count the materials, and
+        is written and itemised before work begins. We inspect the deck, count the materials, and
         price the job on what&apos;s actually there, not on best-case assumptions. If something
         genuinely unforeseen comes up, you hear about it before any extra work happens, never
-        after. The price you approve is the price you pay.
+        after. Honest upfront communication, always.
       </>
     ),
   },
   {
     question: 'Are all your installers Red Seal Journeyman certified?',
     answerText:
-      'Sure West is Red Seal Journeyman owned and operated. Craig, our Red Seal Journeyman, is on every project. The in-house crew works under his Red Seal Journeyman supervision, with newer installers training toward their own certification. Red Seal is the highest trade credential in Canadian roofing, recognised across every province.',
+      'Sure West is Red Seal Journeyman owned and operated. Our processes are built off Red Seal Journeyman standards, with newer installers training toward their own certification. Red Seal is the highest trade credential in Canadian roofing, recognised across every province.',
     answer: (
       <>
         Sure West is{' '}
         <Link href="/about" className="faq-link">Red Seal Journeyman</Link>{' '}
-        owned and operated. Craig, our Red Seal Journeyman, is on every project. The in-house
-        crew works under his Red Seal Journeyman supervision, with newer installers training
-        toward their own certification. Red Seal is the highest trade credential in Canadian
-        roofing, recognised across every province.
+        owned and operated. Our processes are built off Red Seal Journeyman standards, with newer
+        installers training toward their own certification. Red Seal is the highest trade
+        credential in Canadian roofing, recognised across every province.
       </>
     ),
   },
   {
-    question: 'Do you use subcontractors?',
+    question: 'Who actually does the work on my roof?',
     answerText:
-      "No. Every Sure West roof is installed by our in-house crew. Same faces, same standards, same accountability. We've turned down work to keep it that way.",
+      'Every Sure West roofing project is led by our in-house crew under one consistent standard. Where specialty trades are coordinated for parts of a project, they are held to the same Sure West standard and the same accountability we apply to every job.',
     answer: (
       <>
-        No. Every Sure West roof is installed by our in-house crew. Same faces, same standards,
-        same accountability. We&apos;ve turned down work to keep it that way.
+        Every Sure West roofing project is led by our in-house crew under one consistent standard.
+        Where specialty trades are coordinated for parts of a project, they are held to the same
+        Sure West standard and the same accountability we apply to every job.
       </>
     ),
   },

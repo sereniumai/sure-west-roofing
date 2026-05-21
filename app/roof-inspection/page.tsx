@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: 'https://surewestroofing.ca/images/Roof Inspection Cochrane.avif',
         width: 1200,
         height: 630,
-        alt: 'Sure West Roofing Red Seal Journeyman performing a roof inspection in Cochrane Alberta',
+        alt: 'Sure West Roofing technician performing a roof inspection in Cochrane Alberta',
       },
     ],
   },

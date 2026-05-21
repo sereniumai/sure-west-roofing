@@ -409,11 +409,11 @@ const SHINGLES = [
   },
   // Row 2: Malarkey lineup grouped together
   {
-    tier: 'Premium Wind Performance',
+    tier: 'Polymer-Modified',
     name: 'Malarkey Vista',
     image: '/images/Malarkey Vista.jpg',
-    imageAlt: 'Malarkey Vista shingle, premium wind performance option by Sure West Roofing',
-    body: 'Heavier laminated shingle with deep shadow lines and wind resistance. The move-up option for homeowners wanting visual presence and performance.',
+    imageAlt: 'Malarkey Vista polymer-modified shingle, hail performance option by Sure West Roofing',
+    body: 'Heavier laminated shingle with deep shadow lines and impact resistance. The move-up option for homeowners wanting visual presence and performance.',
   },
   {
     tier: 'Hail Performance',

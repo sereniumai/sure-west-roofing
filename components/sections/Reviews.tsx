@@ -3,10 +3,13 @@
 import { Star, Quote, ChevronRight } from 'lucide-react'
 import { Reveal } from '@/components/ui/Reveal'
 
+type ReviewCity = 'Cochrane' | 'Calgary' | 'Canmore' | 'Redwood Meadows'
+
 interface Review {
   stars: number
   quote: string
   author: string
+  city: ReviewCity
   location: string
 }
 
@@ -16,13 +19,15 @@ const REVIEWS: Review[] = [
     quote:
       'Sure West Roofing is a serious and professional company. They are 100% reliable. The crew\u2019s professionalism, courtesy, punctuality, and efficiency made a positive difference. We are very happy with the job they did and fully recommend them.',
     author: 'Elizabeth Montes Garces',
-    location: 'Cochrane, AB',
+    city: 'Calgary',
+    location: 'Calgary, AB',
   },
   {
     stars: 5,
     quote:
       'My roof had a major leak and they repaired the valley that was leaking and informed me the other two would fail soon as well. They gave me a fair price to repair all three and it has been over a year with no issues!',
     author: 'Norbert Stark',
+    city: 'Cochrane',
     location: 'Cochrane, AB',
   },
   {
@@ -30,13 +35,15 @@ const REVIEWS: Review[] = [
     quote:
       'Sure West did an outstanding job replacing my roof from start to finish. Professional, punctual, and incredibly thorough. The quality of their work is top-notch and they left my property spotless after the job was done.',
     author: 'Steve LeNeveu',
-    location: 'Cochrane, AB',
+    city: 'Calgary',
+    location: 'Calgary, AB',
   },
   {
     stars: 5,
     quote:
       'Sure West Roofing was efficient and professional from start to finish. Thorough, knowledgeable, and provided a transparent quote. I would highly recommend this company to anyone in Cochrane and the surrounding area.',
     author: 'Stacey Barefoot',
+    city: 'Cochrane',
     location: 'Cochrane, AB',
   },
   {
@@ -44,13 +51,15 @@ const REVIEWS: Review[] = [
     quote:
       'Found a serious roof leak a few days before heading on vacation. Sure West returned my call within an hour and came out almost immediately when 5 other companies declined or did not respond. Done right, done fast and at a good price.',
     author: 'Kelsey Davis',
-    location: 'Cochrane, AB',
+    city: 'Redwood Meadows',
+    location: 'Redwood Meadows, AB',
   },
   {
     stars: 5,
     quote:
       'Very professional and responsive team. From the time I called for a quote to when the last shingle was installed I was impressed by the quality of the team and the service provided. The site was left clean every day and the end product looks great.',
     author: 'Greg Barsi',
+    city: 'Cochrane',
     location: 'Cochrane, AB',
   },
   {
@@ -58,13 +67,15 @@ const REVIEWS: Review[] = [
     quote:
       'I sincerely recommend Sure West Roofing. The team were very professional and approachable. I was impressed by how well they worked together and how carefully they treated my property. The cleanup was thorough and meticulous.',
     author: 'Virginia Campana',
-    location: 'Cochrane, AB',
+    city: 'Calgary',
+    location: 'Calgary, AB',
   },
   {
     stars: 5,
     quote:
       'No pushy sales job, very professional. The site was well respected, left clean and appreciated a thorough cleanup job. No hesitation in recommending them.',
     author: 'Stephen Annand',
+    city: 'Cochrane',
     location: 'Cochrane, AB',
   },
   {
@@ -72,13 +83,15 @@ const REVIEWS: Review[] = [
     quote:
       'They came out fast, the quote was clear and included pictures, and they showed up right on time. The work was done well and they even shared photos of the finished job. No surprises with the price either.',
     author: 'Florian',
-    location: 'Calgary Region',
+    city: 'Cochrane',
+    location: 'Cochrane, AB',
   },
   {
     stars: 5,
     quote:
       'Communication with the company has been extraordinary. They cleaned up after themselves as they worked and by the end of the day there was no garbage left laying around. I would highly recommend this company.',
     author: 'Forest Dunsmore',
+    city: 'Cochrane',
     location: 'Cochrane, AB',
   },
 ]
@@ -158,6 +171,8 @@ interface ReviewsProps {
   cardBg?: string
   heading?: React.ReactNode
   body?: React.ReactNode
+  /** City to prioritize. Matching-city reviews appear first; others follow. */
+  priorityCity?: ReviewCity
 }
 
 function hexToRgb(hex: string): string {
@@ -179,10 +194,19 @@ export function Reviews({
     </>
   ),
   body = 'Verified Google reviews from homeowners across Cochrane, Calgary, and Canmore.',
+  priorityCity,
 }: ReviewsProps = {}) {
+  // Sort reviews so the priorityCity's reviews appear first when set
+  const ordered = priorityCity
+    ? [
+        ...REVIEWS.filter((r) => r.city === priorityCity),
+        ...REVIEWS.filter((r) => r.city !== priorityCity),
+      ]
+    : REVIEWS
+
   // Duplicate the list so the marquee can scroll seamlessly
-  const rowA = REVIEWS
-  const rowB = [...REVIEWS].reverse()
+  const rowA = ordered
+  const rowB = [...ordered].reverse()
   const fadeRgb = hexToRgb(sectionBg)
 
   return (

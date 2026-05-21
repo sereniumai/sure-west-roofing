@@ -178,10 +178,10 @@ const CANMORE_FAQS = [
   {
     question: 'What shingles do you install on Canmore homes?',
     answerText:
-      "For Canmore we lean toward hail-performance and wind-performance tiers. Polymer-modified options like Malarkey Legacy or Euroshield Rubber handle steep pitches, snow loads, and chinook freeze-thaw cycles better than standard builder-grade shingles. We walk you through the tiers in person and match the product to your specific roof and exposure, with manufacturer warranties on top of our 10-year workmanship guarantee.",
+      "For Canmore we lean toward hail-performance and wind-performance tiers. Polymer-modified options like the Malarkey Vista, Legacy, and Windsor handle steep pitches, snow loads, and chinook freeze-thaw cycles better than standard builder-grade shingles. Euroshield Rubber sits in a category on its own. We walk you through the tiers in person and match the product to your specific roof and exposure, with manufacturer warranties on top of our 10-year workmanship guarantee.",
     answer: (
       <>
-        For Canmore we lean toward hail-performance and wind-performance tiers. Polymer-modified options like Malarkey Legacy or Euroshield Rubber handle steep pitches, snow loads, and chinook freeze-thaw cycles better than standard builder-grade shingles. We walk you through the tiers in person and match the product to your specific roof and exposure, with manufacturer warranties on top of our 10-year workmanship guarantee.
+        For Canmore we lean toward hail-performance and wind-performance tiers. Polymer-modified options like the Malarkey Vista, Legacy, and Windsor handle steep pitches, snow loads, and chinook freeze-thaw cycles better than standard builder-grade shingles. Euroshield Rubber sits in a category on its own. We walk you through the tiers in person and match the product to your specific roof and exposure, with manufacturer warranties on top of our 10-year workmanship guarantee.
       </>
     ),
   },

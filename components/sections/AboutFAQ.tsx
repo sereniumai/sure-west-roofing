@@ -47,7 +47,7 @@ const ABOUT_FAQS_RICH: AboutFaqRich[] = [
     question: 'Which shingle manufacturers do you work with?',
     answer: (
       <>
-        We are a Malarkey Certified Contractor and lean heavily on the Malarkey line for Alberta roofs. For wind performance we use Malarkey Vista and Owens Corning Duration. For hail-prone neighbourhoods we install polymer-modified options like Malarkey Legacy and Euroshield Rubber. We walk you through the tiers in person during your{' '}
+        We are a Malarkey Certified Contractor and lean heavily on the Malarkey line for Alberta roofs. For wind performance we use Owens Corning Duration. For hail-prone neighbourhoods we install polymer-modified options like the Malarkey Vista, Legacy, and Windsor. Euroshield Rubber sits in a category on its own. We walk you through the tiers in person during your{' '}
         <Link href="/free-roof-estimate-cochrane" className="font-semibold text-brand-gold hover:text-[#B8943F] transition-colors">
           free estimate
         </Link>

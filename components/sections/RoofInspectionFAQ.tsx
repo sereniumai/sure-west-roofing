@@ -30,14 +30,14 @@ const FAQS: FAQ[] = [
   {
     question: 'What is included in a Sure West roof inspection?',
     answerText:
-      'A Red Seal Journeyman walks every slope of your Cochrane roof in person, checks the attic from inside, and inspects all flashings, penetrations, vents, and skylights. Every checkpoint is photographed with location notes and a severity rating. The full findings are delivered as a photo-documented PDF report after the on-site visit, formatted for buyers, sellers, and insurers.',
+      'A Sure West technician walks every slope of your Cochrane roof in person, under Red Seal Journeyman oversight, checks the attic from inside, and inspects all flashings, penetrations, vents, and skylights. Every checkpoint is photographed with location notes and a severity rating. The full findings are delivered as a photo-documented PDF report after the on-site visit, formatted for buyers, sellers, and insurers.',
     answer: (
       <>
-        A Red Seal Journeyman walks every slope of your Cochrane roof in person, checks the attic
-        from inside, and inspects all flashings, penetrations, vents, and skylights. Every
-        checkpoint is photographed with location notes and a severity rating. The full findings
-        are delivered as a photo-documented PDF report after the on-site visit, formatted for
-        buyers, sellers, and insurers.
+        A Sure West technician walks every slope of your Cochrane roof in person, under Red Seal
+        Journeyman oversight, checks the attic from inside, and inspects all flashings,
+        penetrations, vents, and skylights. Every checkpoint is photographed with location notes
+        and a severity rating. The full findings are delivered as a photo-documented PDF report
+        after the on-site visit, formatted for buyers, sellers, and insurers.
       </>
     ),
   },
@@ -127,14 +127,15 @@ const FAQS: FAQ[] = [
   {
     question: 'Are roof inspections free?',
     answerText:
-      'A truly thorough roof and attic inspection takes 60 to 90 minutes on-site, a written photo-documented report, and a Red Seal Journeyman on the roof. Sure West charges for the inspection at the Cochrane market rate. Depending on the scope of work that follows, the inspection cost may be credited back toward a larger project. You receive a written report you own either way, with no obligation to book any recommended work.',
+      'A truly thorough roof and attic inspection takes 60 to 90 minutes on-site, a written photo-documented report, and a trained technician on the roof under Red Seal Journeyman oversight. Sure West charges for the inspection at the Cochrane market rate. Depending on the scope of work that follows, the inspection cost may be credited back toward a larger project. You receive a written report you own either way, with no obligation to book any recommended work.',
     answer: (
       <>
         A truly thorough roof and attic inspection takes 60 to 90 minutes on-site, a written
-        photo-documented report, and a Red Seal Journeyman on the roof. Sure West charges for
-        the inspection at the Cochrane market rate. Depending on the scope of work that follows,
-        the inspection cost may be credited back toward a larger project. You receive a written
-        report you own either way, with no obligation to book any recommended work.
+        photo-documented report, and a trained technician on the roof under Red Seal Journeyman
+        oversight. Sure West charges for the inspection at the Cochrane market rate. Depending on
+        the scope of work that follows, the inspection cost may be credited back toward a larger
+        project. You receive a written report you own either way, with no obligation to book any
+        recommended work.
       </>
     ),
   },

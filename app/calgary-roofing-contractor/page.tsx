@@ -186,10 +186,10 @@ const CALGARY_FAQS = [
   {
     question: 'What shingles do you install on Calgary homes?',
     answerText:
-      "We tier shingles by performance, not brand loyalty. Builder's grade options like IKO Cambridge for value. Wind-performance options like Owens Corning Duration and Malarkey Vista. Hail-performance, polymer-modified options like Malarkey Legacy or Euroshield Rubber for homes in hail-prone Calgary neighbourhoods. We walk you through the tiers in person and match the product to your exposure, not the other way around.",
+      "We tier shingles by performance, not brand loyalty. Builder's grade options like IKO Cambridge for value. Wind-performance options like Owens Corning Duration. Polymer-modified options like the Malarkey Vista, Legacy, and Windsor for homes in hail-prone Calgary neighbourhoods. Euroshield Rubber sits in a category on its own. We walk you through the tiers in person and match the product to your exposure, not the other way around.",
     answer: (
       <>
-        We tier shingles by performance, not brand loyalty. Builder&apos;s grade options like IKO Cambridge for value. Wind-performance options like Owens Corning Duration and Malarkey Vista. Hail-performance, polymer-modified options like Malarkey Legacy or Euroshield Rubber for homes in hail-prone Calgary neighbourhoods. We walk you through the tiers in person and match the product to your exposure, not the other way around.
+        We tier shingles by performance, not brand loyalty. Builder&apos;s grade options like IKO Cambridge for value. Wind-performance options like Owens Corning Duration. Polymer-modified options like the Malarkey Vista, Legacy, and Windsor for homes in hail-prone Calgary neighbourhoods. Euroshield Rubber sits in a category on its own. We walk you through the tiers in person and match the product to your exposure, not the other way around.
       </>
     ),
   },
@@ -323,6 +323,7 @@ export default function RoofingContractorCalgaryPage() {
           </>
         }
         body="Verified Google reviews from homeowners across Calgary, Cochrane, and Canmore."
+        priorityCity="Calgary"
       />
 
       {/* 7. How It Works, process info now that buyer is leaning in */}

@@ -205,18 +205,18 @@ export function ServicesHubGrid() {
             letterSpacing: '-0.005em',
           }}
         >
-          Every Cochrane Roofing Service
-          <br className="hidden lg:block" /> Run by the Same In-House Crew
+          Every Cochrane Roofing Service,
+          <br className="hidden lg:block" /> One Coordinated Team
         </h2>
         <p
-          className="mt-4 max-w-[460px] text-brand-slate leading-[1.65]"
+          className="mt-4 max-w-[640px] text-brand-slate leading-[1.65]"
           style={{
             fontSize: '15px',
             fontFamily: 'var(--font-inter), system-ui, sans-serif',
             fontWeight: 400,
           }}
         >
-          Seven services, one in-house crew, Red Seal Journeyman supervised, the same proven process from the free estimate to the final cleanup.
+          Seven services, one coordinated team. Red Seal Journeyman supervised, with the same proven process from the free estimate to the final cleanup.
         </p>
       </div>
       </Reveal>
