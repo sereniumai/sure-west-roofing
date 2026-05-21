@@ -96,7 +96,7 @@ export function ServicesGallery({
                 fontWeight: 400,
               }}
             >
-              {subhead ?? 'Every roof in our gallery was completed by our in-house crew, Red Seal Journeyman supervised. No subcontractors, no compromises.'}
+              {subhead ?? 'Every project in our gallery was completed by our in-house crew, every project finished to the same Sure West standard.'}
             </p>
 
             {/* Counter + arrows */}

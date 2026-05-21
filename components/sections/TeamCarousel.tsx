@@ -56,7 +56,7 @@ export function TeamCarousel() {
               fontWeight: 400,
             }}
           >
-            Deeply invested in each other&apos;s lives, on the job and off, with an in-house crew on every roof, no subcontractors, no rotating faces.
+            Deeply invested in each other&apos;s lives, on the job and off, with an in-house crew on every roof.
           </p>
         </div>
         </Reveal>

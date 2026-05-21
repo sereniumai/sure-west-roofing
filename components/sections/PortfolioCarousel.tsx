@@ -91,8 +91,7 @@ export function PortfolioCarousel({
               fontWeight: 400,
             }}
           >
-            Every roof was completed by our in-house team, Red Seal Journeyman supervised. No
-            subcontractors. No compromises.
+            Every roof was completed by our in-house crew, every project finished to the same Sure West standard.
           </p>
 
           <div className="mt-7 md:mt-9">

@@ -753,7 +753,7 @@ export default function RoofReplacementPage() {
         images={RR_GALLERY_IMAGES.map(({ src, alt }) => ({ src, alt }))}
         sectionBg="#F7F5F0"
         heading={<>Roof Replacements Completed Across Cochrane, Calgary, and Canmore</>}
-        subhead="Every roof in our gallery was completed by our in-house crew, Red Seal Journeyman supervised. No subcontractors, no compromises."
+        subhead="Every roof replacement in our gallery was completed by our in-house crew, every project finished to the same Sure West standard."
         ctaLabel="View Full Gallery"
         ctaHref="/gallery"
       />

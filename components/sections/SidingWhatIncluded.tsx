@@ -213,8 +213,8 @@ export function SidingWhatIncluded() {
                 }}
               >
                 <Image
-                  src="/images/Cochrane Roofing Contractor Gallery 5.webp"
-                  alt="Sure West Roofing crew completing siding and soft metals work on a Cochrane Alberta home"
+                  src="/images/Siding Cochrane WhatIncluded.jpg"
+                  alt="Full exterior siding install on a Cochrane Alberta home showing siding, fascia, soffit, and eavestroughs"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
                   className="object-cover"

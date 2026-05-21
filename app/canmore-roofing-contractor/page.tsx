@@ -188,10 +188,10 @@ const CANMORE_FAQS = [
   {
     question: 'Can you work on steep-pitch mountain roofs safely?',
     answerText:
-      "Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Red Seal Journeyman is Canada's highest trade credential in roofing, and our processes are built off that standard. Our in-house roofing crews are trained to the safety protocols required for high-pitch and high-wind work, with no subcontractors on steep roofs.",
+      "Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Red Seal Journeyman is Canada's highest trade credential in roofing, and our processes are built off that standard. Our in-house roofing crews are trained to the safety protocols required for high-pitch and high-wind work.",
     answer: (
       <>
-        Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Red Seal Journeyman is Canada&apos;s highest trade credential in roofing, and our processes are built off that standard. Our in-house roofing crews are trained to the safety protocols required for high-pitch and high-wind work, with no subcontractors on steep roofs.
+        Yes. Steep-pitch work requires proper fall arrest systems, anchored harnesses, and a crew trained for the conditions. Red Seal Journeyman is Canada&apos;s highest trade credential in roofing, and our processes are built off that standard. Our in-house roofing crews are trained to the safety protocols required for high-pitch and high-wind work.
       </>
     ),
   },

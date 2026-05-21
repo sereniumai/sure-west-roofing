@@ -520,7 +520,7 @@ export default function HailDamageRepairPage() {
             <br className="hidden lg:block" /> Cochrane, Calgary, and Canmore
           </>
         }
-        subhead="Every hail repair in our gallery was completed by our in-house crew, Red Seal Journeyman supervised. No subcontractors, no compromises."
+        subhead="Every hail repair in our gallery was completed by our in-house crew, every project finished to the same Sure West standard."
         ctaLabel="View Full Gallery"
         ctaHref="/gallery"
       />

@@ -234,7 +234,7 @@ const SKYLIGHT_DIFFERENTIATORS: DifferentiatorItem[] = [
     Icon: Users,
     heading: 'Brotherhood',
     subtitle: 'A Tight-Knit Crew',
-    body: "A team that has each other's backs on the roof and off. Tight-knit, cohesive, aligned in purpose. The crew you meet at the walkthrough is the crew on the install, no subcontractor handoff, no rotating faces. Anyone in a Sure West uniform is held to the same standard, every Cochrane skylight project.",
+    body: "A team that has each other's backs on the roof and off. Tight-knit, cohesive, aligned in purpose. The crew you meet at the walkthrough is the crew on the install, no rotating faces. Anyone in a Sure West uniform is held to the same standard, every Cochrane skylight project.",
   },
   {
     Icon: Handshake,
@@ -334,7 +334,7 @@ export default function SkylightInstallationPage() {
         images={SKYLIGHT_GALLERY_IMAGES}
         sectionBg="#F7F5F0"
         heading="Skylight Projects in Cochrane, Calgary, and Canmore"
-        subhead="Every project in our gallery was completed by our in-house crew, Red Seal Journeyman supervised. No subcontractors, no compromises."
+        subhead="Every skylight in our gallery was installed by our in-house crew, every project finished to the same Sure West standard."
       />
       <SkylightInstallationFAQ />
       <RelatedServices />

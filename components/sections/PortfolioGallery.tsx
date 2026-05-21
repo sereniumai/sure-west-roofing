@@ -135,8 +135,7 @@ export function PortfolioGallery({
                 fontWeight: 400,
               }}
             >
-              Every roof in our gallery was completed by our in-house team, Red Seal Journeyman supervised.
-              No subcontractors. No compromises.
+              Every roof in our gallery was completed by our in-house crew, every project finished to the same Sure West standard.
             </p>
 
             <div className="mt-7 md:mt-9">

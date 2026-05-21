@@ -440,7 +440,7 @@ export default function RoofRepairPage() {
         images={RR_GALLERY_IMAGES}
         sectionBg="#FFFFFF"
         heading={<>Roof Repairs Completed Across Cochrane, Calgary, and Canmore</>}
-        subhead="Every repair in our gallery was completed by our in-house crew, Red Seal Journeyman supervised. No subcontractors, no compromises."
+        subhead="Every roof repair in our gallery was completed by our in-house crew, every project finished to the same Sure West standard."
         ctaLabel="View Full Gallery"
         ctaHref="/gallery"
       />

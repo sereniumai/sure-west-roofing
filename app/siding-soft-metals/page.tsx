@@ -23,7 +23,6 @@ import {
 } from '@/components/sections/SidingSoftMetalsFAQ'
 import { HowItWorks, type HowItWorksStep } from '@/components/sections/HowItWorks'
 import { RelatedServicesCarousel } from '@/components/sections/RelatedServicesCarousel'
-import { ServicesGallery } from '@/components/sections/ServicesGallery'
 import { Reviews } from '@/components/sections/Reviews'
 import {
   ServicesHubDifferentiators,
@@ -189,22 +188,22 @@ const SERVICE_TYPES = [
   {
     tier: 'Exterior Refresh',
     name: 'Siding Installation & Repair',
-    image: '/images/Cochrane Roofing Contractor Gallery 1.webp',
-    imageAlt: 'Siding installation completed by Sure West Roofing in Cochrane Alberta',
+    image: '/images/Siding Installation Cochrane.jpg',
+    imageAlt: 'Vinyl and fibre cement siding installation in Cochrane Alberta',
     body: 'Vinyl, fibre cement (James Hardie), metal, and engineered siding installed to manufacturer spec on every elevation. Full replacements and partial repairs across Cochrane, Calgary, and Canmore. Hail-rated and Chinook-tested products, matched to the Alberta climate your home actually faces.',
   },
   {
     tier: 'Water Management',
     name: 'Eavestroughs & Downspouts',
-    image: '/images/Cochrane Roofing Contractor Gallery 5.webp',
-    imageAlt: 'Seamless aluminum eavestroughs installed on a Cochrane Alberta home',
+    image: '/images/Eavestroughs Cochrane.jpg',
+    imageAlt: 'Aluminum eavestrough and downspout detail on a Cochrane Alberta home',
     body: 'Seamless 5-inch and 6-inch K-style aluminum eavestrough systems, plus steel half-round for character homes that suit the profile. Matched downspouts and proper grade for water flow. Clean replacement of full systems or repair of damaged sections, directing water away from the foundation.',
   },
   {
     tier: 'Roofline Trim',
     name: 'Fascia, Soffits & Flashing',
-    image: '/images/Cochrane Roofing Contractor Gallery 19.webp',
-    imageAlt: 'New fascia and soffit work on a Cochrane Alberta home',
+    image: '/images/Fascia Soffit Cochrane.jpg',
+    imageAlt: 'Modern black aluminum fascia and soffit detail on a Cochrane Alberta home',
     body: 'Aluminum fascia and properly vented soffit panels paired with custom flashing around windows, doors, dormers, and roof-to-wall transitions. The trim work that quietly protects everything else from water, ice, and wildlife. Often the difference between a tight envelope and a future repair.',
   },
 ]
@@ -351,23 +350,6 @@ const SIDING_DIFFERENTIATORS: DifferentiatorItem[] = [
   },
 ]
 
-// ─── Overview carousel images ────────────────────────────────────────────────
-
-// ─── Gallery images for this page ─────────────────────────────────────────────
-
-const SSM_GALLERY_IMAGES = [
-  { src: '/images/Cochrane Roofing Contractor Gallery 1.webp',  alt: 'Siding project completed by Sure West Roofing in Cochrane Alberta',     caption: 'Cochrane, AB · Siding' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 5.webp',  alt: 'Eavestrough installation in Cochrane Alberta by Sure West Roofing',     caption: 'Cochrane, AB · Eaves' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 7.webp',  alt: 'Sure West Roofing exterior project in Cochrane Alberta',                caption: 'Cochrane, AB · Exterior' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 9.webp',  alt: 'Soffit and fascia work in Cochrane Alberta by Sure West Roofing',       caption: 'Cochrane, AB · Trim' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 3.webp', alt: 'Siding and soft metals project in Calgary by Sure West Roofing',        caption: 'Calgary, AB · Siding' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 15.webp', alt: 'Custom flashing rebuild in Cochrane Alberta by Sure West Roofing',      caption: 'Cochrane, AB · Flashing' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 16.webp', alt: 'Exterior trim project in Cochrane Alberta by Sure West Roofing',        caption: 'Cochrane, AB · Trim' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 19.webp', alt: 'Detailed soft-metal work in Cochrane Alberta by Sure West Roofing',     caption: 'Cochrane, AB · Soft Metals' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 20.webp', alt: 'Storm-recovery siding repair in Calgary by Sure West Roofing',          caption: 'Calgary, AB · Repair' },
-  { src: '/images/Cochrane Roofing Contractor Gallery 21.webp', alt: 'Insurance-documented siding repair in Cochrane',                        caption: 'Cochrane, AB · Repair' },
-]
-
 // ─── Section: Related Services ────────────────────────────────────────────────
 
 function RelatedServices() {
@@ -467,12 +449,6 @@ export default function SidingSoftMetalsPage() {
         subhead="Five responsibilities we've taken on, five things every Sure West siding project gets that the average Cochrane crew can't match."
         sectionBg="#FFFFFF"
         cardBg="#F7F5F0"
-      />
-      <ServicesGallery
-        images={SSM_GALLERY_IMAGES}
-        sectionBg="#F7F5F0"
-        heading="Siding & Soft Metals Projects in Cochrane, Calgary, and Canmore"
-        subhead="Every project in our gallery was completed to manufacturer-spec install discipline, with the same workmanship guarantee on the work we leave behind."
       />
       <SidingSoftMetalsFAQ />
       <RelatedServices />

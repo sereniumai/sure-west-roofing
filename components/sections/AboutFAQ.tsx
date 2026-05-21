@@ -36,10 +36,10 @@ const ABOUT_FAQS_RICH: AboutFaqRich[] = [
     ),
   },
   {
-    question: 'Do you use subcontractors, or is the crew in-house?',
+    question: 'Who actually does the work on my roof?',
     answer: (
       <>
-        Every Sure West roof is installed by our in-house crew. Same faces, same standards, same accountability. We&apos;ve turned down work to keep it that way.
+        Every Sure West roof is led by our in-house crew under one consistent standard. Where specialty trades are coordinated for parts of a project, they are held to the same Sure West standard and the same accountability we apply to every job.
       </>
     ),
   },
